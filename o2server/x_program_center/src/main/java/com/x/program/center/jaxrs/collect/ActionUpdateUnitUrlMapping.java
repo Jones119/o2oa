@@ -23,7 +23,7 @@ class ActionUpdateUnitUrlMapping extends BaseAction {
 			}
 		}
 		Wo wo = new Wo();
-		wo.setValue(rFlag);
+		wo = new WrapBoolean(rFlag);
 		result.setData(wo);
 		return result;
 	}

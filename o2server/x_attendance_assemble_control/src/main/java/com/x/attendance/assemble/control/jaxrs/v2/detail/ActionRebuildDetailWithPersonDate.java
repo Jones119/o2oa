@@ -43,9 +43,9 @@ public class ActionRebuildDetailWithPersonDate extends BaseAction {
         if (AttendanceV2Helper.beforeToday(date)) {
             LOGGER.info("发起考勤数据生成，Date：{} person: {}", date, person);
             ThisApplication.queueV2Detail.send(new QueueAttendanceV2DetailModel(person, date));
-            wo.setValue(true);
+            wo = new WrapBoolean(true);
         } else {
-            wo.setValue(false);
+            wo = new WrapBoolean(false);
         }
         result.setData(wo);
         return result;

@@ -81,7 +81,7 @@ class ActionOrder extends BaseAction {
 			}
 			emc.commit();
 			Wo wo = new Wo();
-			wo.setValue(true);
+			wo = new WrapBoolean(true);
 			result.setData(wo);
 			CacheManager.notify(Identity.class);
 			CacheManager.notify(Unit.class);

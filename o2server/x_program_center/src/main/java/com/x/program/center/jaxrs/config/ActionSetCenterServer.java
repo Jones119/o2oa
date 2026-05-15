@@ -23,7 +23,7 @@ public class ActionSetCenterServer extends BaseAction {
 		Config.nodes().save();
 		this.configFlush(effectivePerson);
 		Wo wo = new Wo();
-		wo.setValue(true);
+		wo = new WrapBoolean(true);
 		result.setData(wo);
 		return result;
 	}

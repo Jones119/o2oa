@@ -27,7 +27,7 @@ class ActionLowFreqDocumentReset extends BaseAction {
 
         ActionResult<Wo> result = new ActionResult<>();
         Wo wo = new Wo();
-        wo.setValue(false);
+        wo = new WrapBoolean(false);
         try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
             List<State> list = new ArrayList<>();
             if (!StringUtils.equals(node, EMPTY_SYMBOL)) {
@@ -44,7 +44,7 @@ class ActionLowFreqDocumentReset extends BaseAction {
                     emc.remove(state);
                 }
                 emc.commit();
-                wo.setValue(true);
+                wo = new WrapBoolean(true);
             }
         }
         result.setData(wo);

@@ -57,13 +57,13 @@ class ActionInstallOrUpdate extends BaseAction {
             CacheManager.notify(InstallLog.class);
             logger.info("{}发起安装或更新应用：{}", effectivePerson.getDistinguishedName(), app.getName());
             Wo wo = new Wo();
-            wo.setValue(false);
+            wo = new WrapBoolean(false);
             byte[] bytes = ConnectionAction.getBinary(
                     Config.collect().url(Collect.ADDRESS_COLLECT_APPLICATION_DOWN + "/" + id),
                     ListTools.toList(new NameValuePair(Collect.COLLECT_TOKEN, token)));
             if ((null != bytes) && (bytes.length > 0)) {
                 InstallData installData = this.install(app, bytes);
-                wo.setValue(true);
+                wo = new WrapBoolean(true);
                 emc.beginTransaction(InstallLog.class);
                 InstallLog installLog = emc.find(id, InstallLog.class);
                 boolean exist = true;

@@ -28,7 +28,7 @@ class ActionSuitableActivity extends BaseAction {
 				throw new ExceptionEntityNotExist(activityId);
 			}
 			Wo wo = new Wo();
-			wo.setValue(business.element().lookupSuitableForm(activity.getProcess(), activity.getId()));
+			wo = new WrapString(business.element().lookupSuitableForm(activity.getProcess(), activity.getId()));
 			result.setData(wo);
 		}
 		return result;

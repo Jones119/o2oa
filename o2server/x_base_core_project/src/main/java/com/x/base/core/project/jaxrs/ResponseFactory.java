@@ -53,7 +53,7 @@ public class ResponseFactory {
 						.header(Accept_Ranges, "bytes").build();
 				case WoText wo -> Response.ok(wo.getText()).cacheControl(defaultCacheControl)
 						.type(HttpMediaType.TEXT_PLAIN_UTF_8).build();
-				case WoContentType wo -> Response.ok(wo.getBody()).type(wo.getContentType()).build();
+				case WoContentType wo -> Response.ok(wo.body()).type(wo.contentType()).build();
 				case WoCallback wo -> Response.ok(callback(wo)).cacheControl(defaultCacheControl).build();
 				case WoSeeOther wo -> {
 					try {
@@ -65,9 +65,9 @@ public class ResponseFactory {
 				}
 				case WoTemporaryRedirect wo -> {
 					try {
-						yield Response.temporaryRedirect(new URI(wo.getUrl())).build();
+						yield Response.temporaryRedirect(new URI(wo.url())).build();
 					} catch (Exception e) {
-						yield Response.serverError().entity(Objects.toString(wo.getUrl(), ""))
+						yield Response.serverError().entity(Objects.toString(wo.url(), ""))
 								.cacheControl(defaultCacheControl).build();
 					}
 				}
@@ -144,7 +144,7 @@ public class ResponseFactory {
 					if (notModified(request, tag)) {
 						yield Response.notModified().tag(tag).build();
 					}
-					yield Response.ok(wo.getBody()).type(wo.getContentType()).tag(tag).build();
+					yield Response.ok(wo.body()).type(wo.contentType()).tag(tag).build();
 				}
 				case WoCallback wo -> Response.ok(callback(wo)).build();
 				case WoSeeOther wo -> {
@@ -156,9 +156,9 @@ public class ResponseFactory {
 				}
 				case WoTemporaryRedirect wo -> {
 					try {
-						yield Response.temporaryRedirect(new URI(wo.getUrl())).build();
+						yield Response.temporaryRedirect(new URI(wo.url())).build();
 					} catch (Exception e) {
-						yield Response.serverError().entity(Objects.toString(wo.getUrl(), "")).build();
+						yield Response.serverError().entity(Objects.toString(wo.url(), "")).build();
 					}
 				}
 				default -> {
@@ -198,7 +198,7 @@ public class ResponseFactory {
 
 	private static String etagWoContentType(WoContentType wo) {
 		CRC32 crc = new CRC32();
-		crc.update((wo.getBody().toString() + wo.getContentType()).getBytes());
+		crc.update((wo.body().toString() + wo.contentType()).getBytes());
 		return crc.getValue() + "";
 	}
 

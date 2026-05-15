@@ -16,9 +16,9 @@ class ActionCheckFileExist extends BaseAction {
 			ActionResult<Wo> result = new ActionResult<>();
 			OriginFile originFile = business.originFile().getByMd5(fileMd5);
 			Wo wo = new Wo();
-			wo.setValue(false);
+			wo = new WrapBoolean(false);
 			if(originFile!=null) {
-				wo.setValue(true);
+				wo = new WrapBoolean(true);
 			}
 			result.setData(wo);
 			return result;

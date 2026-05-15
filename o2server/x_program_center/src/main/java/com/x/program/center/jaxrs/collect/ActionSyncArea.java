@@ -11,7 +11,7 @@ class ActionSyncArea extends BaseAction {
 	ActionResult<Wo> execute(EffectivePerson effectivePerson) throws Exception {
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		wo.setValue(true);
+		wo = new WrapBoolean(true);
 		result.setData(wo);
 		ThisApplication.context().scheduleLocal(Area.class);
 		return result;

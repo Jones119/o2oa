@@ -14,7 +14,7 @@ public class ActionForwardDays extends BaseAction {
 		ActionResult<Wo> result = new ActionResult<>();
 		Date dateOfStart = DateTools.parse(start);
 		Wo wo = new Wo();
-		wo.setValue(DateTools
+		wo = new WrapString(DateTools
 				.format(Config.workTime().forwardMinutes(dateOfStart, days * Config.workTime().minutesOfWorkDay())));
 		result.setData(wo);
 		return result;

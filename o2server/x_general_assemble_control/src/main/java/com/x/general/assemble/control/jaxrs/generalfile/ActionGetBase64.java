@@ -30,7 +30,7 @@ public class ActionGetBase64 extends BaseAction {
 			}
 			StorageMapping mapping = ThisApplication.context().storageMappings().get(GeneralFile.class,
 					generalFile.getStorage());
-			wo.setValue(Base64.encodeBase64String(generalFile.readContent(mapping)));
+			wo = new WrapString(Base64.encodeBase64String(generalFile.readContent(mapping)));
 			result.setData(wo);
 		}
 		result.setData(wo);

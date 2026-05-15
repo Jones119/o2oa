@@ -41,7 +41,7 @@ class ActionResetPassword extends BaseAction {
 			throw new CodeAnswerEmptyException();
 		}
 		Wo wo = new Wo();
-		wo.setValue(this.password(name, password, mobile, codeAnswer));
+		wo = new WrapBoolean(this.password(name, password, mobile, codeAnswer));
 		if (BooleanUtils.isTrue(wo.getValue())) {
 			Config.collect().setPassword(password);
 			Config.collect().save();

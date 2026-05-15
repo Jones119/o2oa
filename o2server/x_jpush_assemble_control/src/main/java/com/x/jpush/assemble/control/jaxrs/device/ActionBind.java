@@ -38,7 +38,7 @@ public class ActionBind extends BaseAction {
 			String person = effectivePerson.getDistinguishedName();
 			String unique = deviceUnique(wi.getDeviceType(), wi.getDeviceName(), PushDevice.PUSH_TYPE_JPUSH, person);
 			if (business.pushDeviceFactory().existDeviceUnique(unique)) {
-				wraps.setValue(true);
+				wraps = new WrapBoolean(true);
 				result.setMessage("当前设备已存在！");
 			} else {
 				PushDevice pushDevice = new PushDevice();
@@ -50,7 +50,7 @@ public class ActionBind extends BaseAction {
 				emc.beginTransaction(PushDevice.class);
 				emc.persist(pushDevice, CheckPersistType.all);
 				emc.commit();
-				wraps.setValue(true);
+				wraps = new WrapBoolean(true);
 			}
 			result.setData(wraps);
 		}

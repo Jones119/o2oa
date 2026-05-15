@@ -62,7 +62,7 @@ class ActionGenerate extends BaseAction {
 				}
 			});
 			Wo wo = new Wo();
-			wo.setValue(true);
+			wo = new WrapBoolean(true);
 			result.setData(wo);
 			return result;
 		}

@@ -53,7 +53,7 @@ class ActionRowCountWhere extends BaseAction {
 			}
 			Long count = (Long) em.createQuery(sql).getSingleResult();
 			Wo wo = new Wo();
-			wo.setValue(count);
+			wo = new WrapLong(count);
 			result.setData(wo);
 			return result;
 		}

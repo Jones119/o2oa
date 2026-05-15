@@ -41,12 +41,12 @@ class ActionAppendWithPersonWithName extends BaseAction {
 			Business business = new Business(emc);
 			Person person = business.person().pick(wi.getPerson());
 			if (null == person) {
-				wo.setValue(false);
+				wo = new WrapBoolean(false);
 				logger.warn("user {} append personAttribute {} fail, person {} not exist.",
 						effectivePerson.getDistinguishedName(), StringUtils.join(wi.getAttributeList(), ","),
 						wi.getPerson());
 			} else if ((!effectivePerson.isManager()) && effectivePerson.isNotPerson(person.getDistinguishedName())) {
-				wo.setValue(false);
+				wo = new WrapBoolean(false);
 				logger.warn("user {} append personAttribute person: {}, value: {} fail, permission denied.",
 						effectivePerson.getDistinguishedName(), wi.getPerson(),
 						StringUtils.join(wi.getAttributeList(), ","));
@@ -68,7 +68,7 @@ class ActionAppendWithPersonWithName extends BaseAction {
 					personAttribute.setPerson(person.getId());
 					emc.check(personAttribute, CheckPersistType.all);
 				}
-				wo.setValue(true);
+				wo = new WrapBoolean(true);
 				emc.commit();
 				CacheManager.notify(PersonAttribute.class);
 				CacheManager.notify(Person.class);

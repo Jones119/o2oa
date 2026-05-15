@@ -21,12 +21,12 @@ class ActionLowFreqWorkTouch extends BaseAction {
         LOGGER.info("execute:{}.", effectivePerson::getDistinguishedName);
         ActionResult<Wo> result = new ActionResult<>();
         Wo wo = new Wo();
-        wo.setValue(false);
+        wo = new WrapBoolean(false);
         for (Application application : listApplication(node)) {
             String url = application.getUrlJaxrsRoot() + Applications.joinQueryUri("fireschedule", "classname",
                     LowFreqWork.class.getName());
             CipherConnectionAction.get(false, url);
-            wo.setValue(true);
+            wo = new WrapBoolean(true);
         }
         result.setData(wo);
         return result;

@@ -15,11 +15,11 @@ class ActionEnableType extends BaseAction {
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
 		if (Config.qiyeweixin().getEnable() && Config.qiyeweixin().getAttendanceSyncEnable()) {
-			wo.setValue(TYPE_QIYEWEIXIN);
+			wo = new WrapString(TYPE_QIYEWEIXIN);
 		} else if (Config.dingding().getEnable() && Config.dingding().getAttendanceSyncEnable()) {
-			wo.setValue(TYPE_DINGDING);
+			wo = new WrapString(TYPE_DINGDING);
 		} else {
-			wo.setValue("");
+			wo = new WrapString("");
 		}
 		result.setData(wo);
 		return result;

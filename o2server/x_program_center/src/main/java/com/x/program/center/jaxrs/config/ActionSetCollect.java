@@ -23,7 +23,7 @@ public class ActionSetCollect extends BaseAction {
 		Config.collect().save();
 		this.configFlush(effectivePerson);
 		Wo wo = new Wo();
-		wo.setValue(true);
+		wo = new WrapBoolean(true);
 		result.setData(wo);
 		return result;
 	}

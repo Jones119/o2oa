@@ -79,7 +79,7 @@ class ActionResume extends BaseAction {
 			emc.delete(Recycle.class, recycle.getId());
 			em.getTransaction().commit();
 			Wo wo = new Wo();
-			wo.setValue(true);
+			wo = new WrapBoolean(true);
 			result.setData(wo);
 			return result;
 		}

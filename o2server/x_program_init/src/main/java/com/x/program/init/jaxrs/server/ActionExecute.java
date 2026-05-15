@@ -19,7 +19,7 @@ class ActionExecute extends BaseAction {
 
 		Wo wo = new Wo();
 		if (Missions.isEmpty()) {
-			wo.setValue(false);
+			wo = new WrapBoolean(false);
 		}
 
 		Thread.ofVirtual().name(ActionExecute.class.getName() + "-execute").start(() -> {
@@ -33,7 +33,7 @@ class ActionExecute extends BaseAction {
 				LOGGER.error(e);
 			}
 		});
-		wo.setValue(true);
+		wo = new WrapBoolean(true);
 		result.setData(wo);
 		return result;
 	}

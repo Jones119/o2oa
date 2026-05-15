@@ -33,7 +33,7 @@ class ActionHighFreqDocumentReset extends BaseAction {
 
         ActionResult<Wo> result = new ActionResult<>();
         Wo wo = new Wo();
-        wo.setValue(false);
+        wo = new WrapBoolean(false);
 
         try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
             List<State> list = new ArrayList<>();
@@ -51,7 +51,7 @@ class ActionHighFreqDocumentReset extends BaseAction {
                     emc.remove(state);
                 }
                 emc.commit();
-                wo.setValue(true);
+                wo = new WrapBoolean(true);
             }
         }
 

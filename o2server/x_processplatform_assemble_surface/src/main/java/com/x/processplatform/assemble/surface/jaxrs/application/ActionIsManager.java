@@ -29,7 +29,7 @@ class ActionIsManager extends BaseAction {
 			if (null == application) {
 				throw new ExceptionEntityNotExist(flag);
 			}
-			wo.setValue(business.ifPersonCanManageApplicationOrProcess(effectivePerson, application, null));
+			wo = new WrapBoolean(business.ifPersonCanManageApplicationOrProcess(effectivePerson, application, null));
 		}
 		result.setData(wo);
 		return result;

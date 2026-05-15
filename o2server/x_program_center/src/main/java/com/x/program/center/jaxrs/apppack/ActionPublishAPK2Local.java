@@ -77,7 +77,7 @@ public class ActionPublishAPK2Local extends BaseAction {
                 job.start();
             }
             Wo wo = new Wo();
-            wo.setValue(true);
+            wo = new WrapBoolean(true);
             result.setData(wo);
         } catch (Exception e) {
             logger.error(e);

@@ -68,7 +68,7 @@ class ActionCreateSerial extends BaseAction {
 		appLock.lock();
 		try {
 			Integer serial = this.createSerial(processId, application, name);
-			wo.setValue(serial);
+			wo = new WrapInteger(serial);
 		} finally {
 			appLock.unlock();
 		}

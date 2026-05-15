@@ -65,7 +65,7 @@ public class CollectPerson extends BaseAction {
 											.get(Config.collect().url(ADDRESS_COLLECT_REMOTE_IP),
 													null);
 									req.setCenterProxyHost(
-											respIp.getData(WrapString.class).getValue());
+											respIp.getData(WrapString.class).value());
 								}
 							}
 							req.setCenterProxyPort(centerServer.getProxyPort());

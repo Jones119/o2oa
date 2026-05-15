@@ -10,7 +10,7 @@ class ActionCheckPassword extends BaseAction {
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
 		if (!password.matches(Config.person().getPasswordRegex())) {
-			wo.setValue(Config.person().getPasswordRegexHint());
+			wo = new WrapString(Config.person().getPasswordRegexHint());
 		}
 		result.setData(wo);
 		return result;

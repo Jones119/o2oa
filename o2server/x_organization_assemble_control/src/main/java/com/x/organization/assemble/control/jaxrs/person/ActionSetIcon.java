@@ -66,7 +66,7 @@ class ActionSetIcon extends BaseAction {
 				emc.commit();
 				CacheManager.notify(Person.class);
 				Wo wo = new Wo();
-				wo.setValue(true);
+				wo = new WrapBoolean(true);
 				result.setData(wo);
 			}
 			/* 通知x_collect_service_transmit同步数据到collect */

@@ -37,7 +37,7 @@ public class ActionBindOpenId extends BaseAction {
             emc.persist(person, CheckPersistType.all);
             emc.commit();
             Wo wo = new Wo();
-            wo.setValue(true);
+            wo = new WrapBoolean(true);
             result.setData(wo);
         }
         return result;

@@ -19,7 +19,7 @@ class ActionDetail extends BaseAction {
 		LOGGER.debug("execute:{}.", effectivePerson::getDistinguishedName);
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		wo.setValue(CacheManager.detail());
+		wo = new WrapString(CacheManager.detail());
 		result.setData(wo);
 		return result;
 	}

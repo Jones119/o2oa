@@ -128,7 +128,7 @@ public class ActionPostDailyRecord extends BaseAction {
                     .send(new QueueAttendanceV2DetailModel(p.getDistinguishedName(), wi.getDate()));
 
             Wo wo = new Wo();
-            wo.setValue(true);
+            wo = new WrapBoolean(true);
             ActionResult<Wo> result = new ActionResult<>();
             result.setData(wo);
             return result;

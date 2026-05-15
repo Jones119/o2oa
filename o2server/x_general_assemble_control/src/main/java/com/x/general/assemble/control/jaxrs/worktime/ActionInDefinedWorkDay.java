@@ -14,7 +14,7 @@ public class ActionInDefinedWorkDay extends BaseAction {
 		ActionResult<Wo> result = new ActionResult<>();
 		Date value = DateTools.parse(date);
 		Wo wo = new Wo();
-		wo.setValue(Config.workTime().inDefinedWorkday(value));
+		wo = new WrapBoolean(Config.workTime().inDefinedWorkday(value));
 		result.setData(wo);
 		return result;
 	}

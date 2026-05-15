@@ -34,12 +34,12 @@ class ActionRowDelete extends BaseAction {
 			Class<? extends JpaObject> cls = (Class<JpaObject>) classLoader.loadClass(dynamicEntity.className());
 			JpaObject o = emc.find(id, cls);
 			Wo wo = new Wo();
-			wo.setValue(false);
+			wo = new WrapBoolean(false);
 			if (null != o) {
 				emc.beginTransaction(cls);
 				emc.remove(o);
 				emc.commit();
-				wo.setValue(true);
+				wo = new WrapBoolean(true);
 			}
 			result.setData(wo);
 			return result;

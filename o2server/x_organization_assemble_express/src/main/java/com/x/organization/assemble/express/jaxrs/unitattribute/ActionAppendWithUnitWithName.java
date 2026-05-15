@@ -41,12 +41,12 @@ class ActionAppendWithUnitWithName extends BaseAction {
 			Business business = new Business(emc);
 			Unit unit = business.unit().pick(wi.getUnit());
 			if (null == unit) {
-				wo.setValue(false);
+				wo = new WrapBoolean(false);
 				logger.warn("user {} append unitAttribute {} fail, unit {} not exist.",
 						effectivePerson.getDistinguishedName(), StringUtils.join(wi.getAttributeList(), ","),
 						wi.getUnit());
 			} else if (!effectivePerson.isManager()) {
-				wo.setValue(false);
+				wo = new WrapBoolean(false);
 				logger.warn("user {} append unitAttribute unit: {}, value: {} fail, permission denied.",
 						effectivePerson.getDistinguishedName(), wi.getUnit(),
 						StringUtils.join(wi.getAttributeList(), ","));
@@ -68,7 +68,7 @@ class ActionAppendWithUnitWithName extends BaseAction {
 					unitAttribute.setUnit(unit.getId());
 					emc.check(unitAttribute, CheckPersistType.all);
 				}
-				wo.setValue(true);
+				wo = new WrapBoolean(true);
 				emc.commit();
 				CacheManager.notify(UnitAttribute.class);
 				CacheManager.notify(Unit.class);

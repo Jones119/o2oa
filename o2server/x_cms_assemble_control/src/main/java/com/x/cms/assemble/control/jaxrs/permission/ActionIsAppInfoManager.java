@@ -21,7 +21,7 @@ public class ActionIsAppInfoManager extends BaseAction {
 		AppInfo appInfo = null;
 		Boolean check = true;
 		Wo wo = new Wo();
-		wo.setValue( false );
+		wo = new WrapBoolean( false );
 		Boolean isXAdmin = false;
 		String personName = effectivePerson.getDistinguishedName(); 
 		
@@ -52,25 +52,25 @@ public class ActionIsAppInfoManager extends BaseAction {
 		
 		if( check ){
 			if( isXAdmin ) {
-				wo.setValue( true );
+				wo = new WrapBoolean( true );
 			}else {
 				List<String> unitNames = userManagerService.listUnitNamesWithPerson( personName );
 				List<String> groupNames = userManagerService.listGroupNamesByPerson( personName );
 				if( ListTools.isNotEmpty( appInfo.getManageablePersonList() ) ) {
 					if( appInfo.getManageablePersonList().contains( personName )) {
-						wo.setValue( true );
+						wo = new WrapBoolean( true );
 					}
 				}
 				if( ListTools.isNotEmpty( appInfo.getManageableUnitList() ) ) {
 					appInfo.getManageableUnitList().retainAll( unitNames );
 					if( ListTools.isNotEmpty( appInfo.getManageableUnitList() )) {
-						wo.setValue( true );
+						wo = new WrapBoolean( true );
 					}
 				}
 				if( ListTools.isNotEmpty( appInfo.getManageableGroupList() ) ) {
 					appInfo.getManageableGroupList().retainAll( groupNames );
 					if( ListTools.isNotEmpty( appInfo.getManageableGroupList() )) {
-						wo.setValue( true );
+						wo = new WrapBoolean( true );
 					}
 				}
 			}

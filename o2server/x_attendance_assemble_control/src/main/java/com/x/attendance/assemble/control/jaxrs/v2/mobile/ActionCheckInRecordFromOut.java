@@ -97,10 +97,10 @@ public class ActionCheckInRecordFromOut extends BaseAction {
                     generateAppealInfo(back, woGroupShift.getGroup().getFieldWorkMarkError(), emc,
                             business);
                 }
-                wo.setValue(true);
+                wo = new WrapBoolean(true);
             } else {
                 LOGGER.warn("没有找到打卡记录！");
-                wo.setValue(false);
+                wo = new WrapBoolean(false);
             }
             result.setData(wo);
             return result;

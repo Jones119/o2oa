@@ -106,7 +106,7 @@ public class ActionSendMessageTest extends BaseAction {
                     PushSendResult pushResult = business.pushDeviceFactory().jpushClient()
                             .send(param);
                     logger.info("发送结果:{}.", pushResult);
-                    wraps.setValue(true);
+                    wraps = new WrapBoolean(true);
                     result.setData(wraps);
                 } else {
                     ExceptionSendMessageDeviceEmpty empty = new ExceptionSendMessageDeviceEmpty();

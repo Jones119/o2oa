@@ -56,7 +56,7 @@ public class ActionSyncOrganizationCallbackUrlRegister extends BaseAction {
                 throw  new ExceptionRegisterCallbackMessage(resp.getErrcode(), resp.getErrmsg());
             }else  {
                 Wo wo = new Wo();
-                wo.setValue(true);
+                wo = new WrapBoolean(true);
                 result.setData(wo);
             }
         }else {

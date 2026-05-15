@@ -52,7 +52,7 @@ class ActionRegist extends BaseAction {
 			throw new ExceptionInvalidMail(mail);
 		}
 		Wo wo = new Wo();
-		wo.setValue(this.regist(name, password, mobile, codeAnswer, mail));
+		wo = new WrapBoolean(this.regist(name, password, mobile, codeAnswer, mail));
 		if (BooleanUtils.isTrue(wo.getValue())) {
 			Config.collect().setEnable(true);
 			Config.collect().setName(name);

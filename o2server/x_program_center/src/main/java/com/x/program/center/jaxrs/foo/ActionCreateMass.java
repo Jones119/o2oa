@@ -17,7 +17,7 @@ class ActionCreateMass extends BaseAction {
 		LOGGER.debug("execute:{}.", effectivePerson::getDistinguishedName);
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		wo.setValue(true);
+		wo = new WrapBoolean(true);
 		mass(from, count);
 		result.setData(wo);
 		return result;

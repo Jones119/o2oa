@@ -56,7 +56,7 @@ public class ActionSendTemplateMessage extends BaseAction {
         String openId = person.getMpwxopenId();
         if (StringUtils.isEmpty(openId)) {
             logger.warn("用户 {} 没有绑定微信 openid ", person.getName());
-            wo.setValue(false);
+            wo = new WrapBoolean(false);
             result.setData(wo);
             return result;
         }
@@ -82,7 +82,7 @@ public class ActionSendTemplateMessage extends BaseAction {
             throw e;
         }
 
-        wo.setValue(true);
+        wo = new WrapBoolean(true);
         result.setData(wo);
         return result;
     }

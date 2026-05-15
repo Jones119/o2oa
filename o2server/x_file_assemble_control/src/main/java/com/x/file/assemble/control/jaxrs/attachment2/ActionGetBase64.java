@@ -35,7 +35,7 @@ class ActionGetBase64 extends BaseAction {
 				originFile.readContent(mapping, output);
 				String value = Base64.encodeBase64String(output.toByteArray());
 				Wo wo = new Wo();
-				wo.setValue(value);
+				wo = new WrapString(value);
 				result.setData(wo);
 			}
 			return result;

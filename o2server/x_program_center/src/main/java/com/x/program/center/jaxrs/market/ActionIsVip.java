@@ -22,7 +22,7 @@ class ActionIsVip extends BaseAction {
 	ActionResult<Wo> execute(EffectivePerson effectivePerson) throws Exception {
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		wo.setValue(false);
+		wo = new WrapBoolean(false);
 		String token = Business.loginCollect();
 		if (StringUtils.isNotEmpty(token)) {
 			try {

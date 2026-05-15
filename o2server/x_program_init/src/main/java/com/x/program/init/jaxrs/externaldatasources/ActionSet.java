@@ -34,7 +34,7 @@ class ActionSet extends BaseAction {
 		missionExternalDataSources.setExternalDataSources(wi.getExternalDataSources());
 		ThisApplication.setMissionExternalDataSources(missionExternalDataSources);
 		Wo wo = new Wo();
-		wo.setValue(true);
+		wo = new WrapBoolean(true);
 		result.setData(wo);
 		return result;
 	}

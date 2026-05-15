@@ -64,7 +64,7 @@ public class ActionUpdateConfig extends BaseAction {
             syncMcp(config);
             syncModel(config);
         }
-        wo.setValue(true);
+        wo = new WrapBoolean(true);
         result.setData(wo);
         return result;
     }

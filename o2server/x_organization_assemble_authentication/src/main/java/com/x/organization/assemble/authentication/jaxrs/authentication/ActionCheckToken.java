@@ -36,7 +36,7 @@ class ActionCheckToken extends BaseAction {
 		HttpToken httpToken = new HttpToken();
 		EffectivePerson ep = httpToken.who(wi.getToken(), Config.token().getCipher(), HttpToken.remoteAddress(request));
 		Wo wo = new Wo();
-		wo.setValue(ep.getDistinguishedName());
+		wo = new WrapString(ep.getDistinguishedName());
 		result.setData(wo);
 		return result;
 	}

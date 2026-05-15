@@ -21,7 +21,7 @@ public class ActionIsCategoryInfoManager extends BaseAction {
 		CategoryInfo categoryInfo = null;
 		Boolean check = true;
 		Wo wo = new Wo();
-		wo.setValue( false );
+		wo = new WrapBoolean( false );
 		String personName = effectivePerson.getDistinguishedName(); 
 		Boolean isXAdmin = false;
 		
@@ -52,25 +52,25 @@ public class ActionIsCategoryInfoManager extends BaseAction {
 		
 		if( check ){
 			if( isXAdmin ) {
-				wo.setValue( true );
+				wo = new WrapBoolean( true );
 			}else {
 				List<String> unitNames = userManagerService.listUnitNamesWithPerson( personName );
 				List<String> groupNames = userManagerService.listGroupNamesByPerson( personName );
 				if( ListTools.isNotEmpty( categoryInfo.getManageablePersonList() ) ) {
 					if( categoryInfo.getManageablePersonList().contains( personName )) {
-						wo.setValue( true );
+						wo = new WrapBoolean( true );
 					}
 				}
 				if( ListTools.isNotEmpty( categoryInfo.getManageableUnitList() ) ) {
 					categoryInfo.getManageableUnitList().retainAll( unitNames );
 					if( ListTools.isNotEmpty( categoryInfo.getManageableUnitList() )) {
-						wo.setValue( true );
+						wo = new WrapBoolean( true );
 					}
 				}
 				if( ListTools.isNotEmpty( categoryInfo.getManageableGroupList() ) ) {
 					categoryInfo.getManageableGroupList().retainAll( groupNames );
 					if( ListTools.isNotEmpty( categoryInfo.getManageableGroupList() )) {
-						wo.setValue( true );
+						wo = new WrapBoolean( true );
 					}
 				}
 			}

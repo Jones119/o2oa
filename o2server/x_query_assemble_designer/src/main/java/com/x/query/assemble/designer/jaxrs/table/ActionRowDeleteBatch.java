@@ -54,7 +54,7 @@ class ActionRowDeleteBatch extends BaseAction {
 				}
 			}
 			Wo wo = new Wo();
-			wo.setValue(count);
+			wo = new WrapLong(count);
 			result.setData(wo);
 			return result;
 		}

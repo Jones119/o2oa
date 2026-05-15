@@ -1,7 +1,7 @@
 package com.x.bbs.assemble.control.jaxrs;
 
 import java.io.IOException;
-import java.util.ScopedValue;
+import java.lang.ScopedValue;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

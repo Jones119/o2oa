@@ -38,7 +38,7 @@ public class ActionRemoveBindAll extends BaseAction {
 				emc.delete(PushDevice.class, pushDevice.getId());
 				emc.commit();
 			}
-			wraps.setValue(true);
+			wraps = new WrapBoolean(true);
 			result.setData(wraps);
 			logger.info("action 'ActionRemoveBindAll' execute completed!");
 			return result;

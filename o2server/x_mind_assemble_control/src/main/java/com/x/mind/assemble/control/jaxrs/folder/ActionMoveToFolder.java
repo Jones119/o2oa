@@ -71,7 +71,7 @@ public class ActionMoveToFolder extends BaseAction {
 			try {
 				//移动指定的脑图文件夹
 				mindFolderInfoService.moveToFolder( wi.getMindIds(), wi.getFolderIds(), folderId );
-				wo.setValue( true );
+				wo = new WrapBoolean( true );
 			}catch( Exception e ) {
 				check = false;
 				Exception exception = new ExceptionFolderMoveToFolder(e, jsonElement == null?"None":XGsonBuilder.instance().toJson(jsonElement));

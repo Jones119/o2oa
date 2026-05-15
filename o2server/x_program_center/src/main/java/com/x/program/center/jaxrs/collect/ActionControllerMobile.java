@@ -13,7 +13,7 @@ class ActionControllerMobile extends BaseAction {
 			throw new ExceptionUnableConnect();
 		}
 		Wo wo = new Wo();
-		wo.setValue(this.controllerMobile(name, mobile));
+		wo = new WrapBoolean(this.controllerMobile(name, mobile));
 		result.setData(wo);
 		return result;
 	}

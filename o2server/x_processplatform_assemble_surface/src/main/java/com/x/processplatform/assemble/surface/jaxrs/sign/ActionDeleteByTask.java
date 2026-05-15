@@ -30,7 +30,7 @@ class ActionDeleteByTask extends BaseAction {
 			ActionResult<Wo> result = new ActionResult<>();
 			Wo wo = new Wo();
 			Business business = new Business(emc);
-			wo.setValue(true);
+			wo = new WrapBoolean(true);
 			DocSign docSign = emc.firstEqual(DocSign.class, DocSign.taskId_FIELDNAME, taskId);
 			if (null != docSign) {
 				if (BooleanUtils.isNotTrue(business.ifPersonCanManageApplicationOrProcess(effectivePerson, "", "")

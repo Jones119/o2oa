@@ -64,7 +64,7 @@ public class RegistApplicationsEvent implements Event {
 
 				req.setNode(Config.node());
 
-				req.setValue(gson.toJson(list));
+				req = new WrapString(gson.toJson(list));
 
 				for (Entry<String, CenterServer> entry : Config.nodes().centerServers().orderedEntry()) {
 					toCenter(entry, req);

@@ -13,7 +13,7 @@ class ActionExist extends BaseAction {
 			throw new ExceptionUnableConnect();
 		}
 		Wo wo = new Wo();
-		wo.setValue(this.exist(name));
+		wo = new WrapBoolean(this.exist(name));
 		result.setData(wo);
 		return result;
 	}

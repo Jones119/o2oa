@@ -21,7 +21,7 @@ class ActionIconBase64 extends BaseAction {
 				throw new ExceptionPortalNotExist(id);
 			}
 			Wo wo = new Wo();
-			wo.setValue(StringUtils.isEmpty(o.getIcon()) ? DEFAULT_PORTAL_ICON_BASE64 : o.getIcon());
+			wo = new WrapString(StringUtils.isEmpty(o.getIcon()) ? DEFAULT_PORTAL_ICON_BASE64 : o.getIcon());
 			result.setData(wo);
 			return result;
 		}

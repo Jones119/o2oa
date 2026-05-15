@@ -22,7 +22,7 @@ class ActionTouchDetained extends BaseAction {
 			ActionResult<Wo> result = new ActionResult<>();
 			ThisApplication.context().scheduleLocal(TouchDetained.class, 1);
 			Wo wo = new Wo();
-			wo.setValue(true);
+			wo = new WrapBoolean(true);
 			result.setData(wo);
 			return result;
 		}

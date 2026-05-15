@@ -16,9 +16,9 @@ class ActionGetInstalledVersion extends BaseAction {
 			InstallLog installLog = emc.find(id, InstallLog.class);
 			Wo wo = new Wo();
 			if(installLog!=null && CommonStatus.VALID.getValue().equals(installLog.getStatus())){
-				wo.setValue(installLog.getVersion());
+				wo = new WrapString(installLog.getVersion());
 			}else{
-				wo.setValue("");
+				wo = new WrapString("");
 			}
 			result.setData(wo);
 			return result;

@@ -49,7 +49,7 @@ class ActionStopLearning extends BaseAction {
 			}
 			ThisApplication.context().applications().getQuery(x_query_service_processing.class,
 					Applications.joinQueryUri("neural", "stop", "learning", "model", model.getId()));
-			wo.setValue(true);
+			wo = new WrapBoolean(true);
 			result.setData(wo);
 			return result;
 		}

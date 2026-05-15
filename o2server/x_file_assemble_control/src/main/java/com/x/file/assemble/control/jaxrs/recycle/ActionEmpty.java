@@ -25,7 +25,7 @@ class ActionEmpty extends BaseAction {
 			ActionResult<Wo> result = new ActionResult<>();
 			Business business = new Business(emc);
 			Wo wo = new Wo();
-			wo.setValue(true);
+			wo = new WrapBoolean(true);
 			result.setData(wo);
 			List<Recycle> recycleList = business.recycle().listWithPerson(effectivePerson.getDistinguishedName());
 			if(ListTools.isEmpty(recycleList)){

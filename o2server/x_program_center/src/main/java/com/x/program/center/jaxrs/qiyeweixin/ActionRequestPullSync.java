@@ -17,7 +17,7 @@ class ActionRequestPullSync extends BaseAction {
 			throw new ExceptionNotPullSync();
 		}
 		Wo wo = new Wo();
-		wo.setValue(true);
+		wo = new WrapBoolean(true);
 		result.setData(wo);
 		return result;
 	}

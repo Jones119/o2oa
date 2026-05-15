@@ -46,7 +46,7 @@ class ActionUpload extends BaseAction {
 			emc.commit();
 			CacheManager.notify(File.class);
 			Wo wo = new Wo();
-			wo.setValue(true);
+			wo = new WrapBoolean(true);
 			result.setData(wo);
 			return result;
 		}

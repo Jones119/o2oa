@@ -22,7 +22,7 @@ public class ActionMindIconGetWithId extends BaseAction {
 		}else {
 			if( StringUtils.isNotEmpty( iconBase64Content )) {
 				wo = new Wo();
-				wo.setValue(iconBase64Content);
+				wo = new WrapString(iconBase64Content);
 				result.setData(wo);
 			}
 		}

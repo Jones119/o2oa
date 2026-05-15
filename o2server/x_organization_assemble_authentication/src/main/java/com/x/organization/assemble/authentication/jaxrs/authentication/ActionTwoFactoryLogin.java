@@ -37,7 +37,7 @@ class ActionTwoFactoryLogin extends BaseAction {
         ActionResult<Wo> result = new ActionResult<>();
         Wi wi = this.convertToWrapIn(jsonElement, Wi.class);
         Wo wo = new Wo();
-        wo.setValue(true);
+        wo = new WrapBoolean(true);
         if (BooleanUtils.isFalse(Config.person().getTwoFactorLogin())) {
             throw new ExceptionLoginDisable();
         }
@@ -149,7 +149,7 @@ class ActionTwoFactoryLogin extends BaseAction {
         public void setPasswordExpired(Boolean passwordExpired) {
             this.passwordExpired = passwordExpired;
             if (BooleanUtils.isTrue(passwordExpired)) {
-                this.setValue(false);
+                this.value = false;
             }
         }
     }

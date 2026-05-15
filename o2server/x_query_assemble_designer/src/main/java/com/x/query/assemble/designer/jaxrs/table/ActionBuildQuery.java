@@ -45,16 +45,16 @@ class ActionBuildQuery extends BaseAction {
 					business.buildQuery(query.getId());
 				}
 				Files.delete(jar.toPath());
-				wo.setValue(true);
+				wo = new WrapBoolean(true);
 			} else {
 				if(!EMPTY_SYMBOL.equals(queryId)) {
-					wo.setValue(business.buildQuery(queryId));
+					wo = new WrapBoolean(business.buildQuery(queryId));
 				}else{
 					List<Query> queryList = emc.fetchAll(Query.class);
 					for (Query query : queryList) {
 						business.buildQuery(query.getId());
 					}
-					wo.setValue(true);
+					wo = new WrapBoolean(true);
 				}
 			}
 			LOGGER.info("build query {} table complete!", queryId);

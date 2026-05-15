@@ -40,7 +40,7 @@ public class ActionPersistViewRecord extends BaseAction {
 			}
 		}
 		Wo wo = new Wo();
-		wo.setValue(true);
+		wo = new WrapBoolean(true);
 
 		return result;
 	}

@@ -35,9 +35,9 @@ class ActionCountWithPerson extends BaseAction {
 			String person = business.organization().person().get(credential);
 			if (StringUtils.isNotEmpty(person)) {
 				Predicate p = this.toFilterPredicate(effectivePerson, business, wi);
-				wo.setCount(emc.count(Review.class, p));
+				wo = new WrapCount(emc.count(Review.class, p));
 			} else {
-				wo.setCount(0L);
+				wo = new WrapCount(0L);
 			}
 			result.setData(wo);
 			return result;

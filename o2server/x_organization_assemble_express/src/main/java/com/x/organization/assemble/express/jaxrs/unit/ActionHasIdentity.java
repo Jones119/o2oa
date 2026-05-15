@@ -34,7 +34,7 @@ class ActionHasIdentity extends BaseAction {
 				result.setData((Wo) optional.get());
 			} else {
 				Wo wo = new Wo();
-				wo.setValue(this.hasIdentity(business, wi));
+				wo = new WrapBoolean(this.hasIdentity(business, wi));
 				CacheManager.put(cacheCategory, cacheKey, wo);
 				result.setData(wo);
 			}

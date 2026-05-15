@@ -21,7 +21,7 @@ class ActionUpdate extends BaseAction {
 		Wi wi = this.convertToWrapIn(jsonElement, Wi.class);
 		Config.resource_node_tokenThresholds().put(wi.getPerson(), wi.getThreshold());
 		Wo wo = new Wo();
-		wo.setValue(true);
+		wo = new WrapBoolean(true);
 		result.setData(wo);
 		return result;
 	}

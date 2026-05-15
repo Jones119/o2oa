@@ -62,7 +62,7 @@ class ActionImageProcessDefault extends BaseAction {
 			Config.appStyle().setImages(new TreeSet<>(images));
 			Config.appStyle().save();
 			Wo wo = new Wo();
-			wo.setValue(true);
+			wo = new WrapBoolean(true);
 			result.setData(wo);
 			Config.flush();
 			return result;

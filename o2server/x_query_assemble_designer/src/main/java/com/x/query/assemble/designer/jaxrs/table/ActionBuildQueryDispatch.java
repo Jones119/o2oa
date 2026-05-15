@@ -58,7 +58,7 @@ class ActionBuildQueryDispatch extends BaseAction {
 		refreshDesigner();
 		refreshSurface();
 		refreshProcessing();
-		wo.setValue(true);
+		wo = new WrapBoolean(true);
 
 		result.setData(wo);
 

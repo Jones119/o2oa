@@ -12,7 +12,7 @@ class ActionGetIndexPortal extends BaseAction {
 		ActionResult<Wo> result = new ActionResult<>();
 		AppStyle appStyle = Config.appStyle();
 		Wo wo = new Wo();
-		wo.setValue(appStyle.getIndexPortal());
+		wo = new WrapString(appStyle.getIndexPortal());
 		result.setData(wo);
 		return result;
 	}

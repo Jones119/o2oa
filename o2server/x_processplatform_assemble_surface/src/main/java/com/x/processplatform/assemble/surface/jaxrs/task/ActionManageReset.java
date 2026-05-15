@@ -59,7 +59,7 @@ class ActionManageReset extends BaseAction {
 //				Applications.joinQueryUri("task", task.getId(), "reset"), wi, task.getJob());
 //		this.record();
 //		Wo wo = new Wo();
-//		wo.setValue(true);
+//		wo = new WrapBoolean(true);
 //		result.setData(wo);
 //		return result;
 	}

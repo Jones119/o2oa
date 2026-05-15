@@ -10,7 +10,7 @@ public class ActionMinutesOfWorkDay extends BaseAction {
 	ActionResult<Wo> execute(EffectivePerson effectivePerson) throws Exception {
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		wo.setValue((int) Config.workTime().minutesOfWorkDay());
+		wo = new WrapInteger((int) Config.workTime().minutesOfWorkDay());
 		result.setData(wo);
 		return result;
 	}

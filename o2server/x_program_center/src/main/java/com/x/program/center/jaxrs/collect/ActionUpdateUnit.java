@@ -41,7 +41,7 @@ class ActionUpdateUnit extends BaseAction {
 			throw new ExceptionNameEmpty();
 		}
 		Wo wo = new Wo();
-		wo.setValue(this.update(name, newName, mobile, codeAnswer, wi.getKey(), wi.getSecret()));
+		wo = new WrapBoolean(this.update(name, newName, mobile, codeAnswer, wi.getKey(), wi.getSecret()));
 		if (BooleanUtils.isTrue(wo.getValue()) && name.equals(Config.collect().getName())) {
 			Config.collect().setEnable(true);
 			Config.collect().setName(newName);

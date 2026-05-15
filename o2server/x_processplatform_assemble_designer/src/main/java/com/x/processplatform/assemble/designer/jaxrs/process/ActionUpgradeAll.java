@@ -32,9 +32,9 @@ class ActionUpgradeAll extends BaseAction {
 				emc.commit();
 				cacheNotify();
 			}
-			wo.setValue(true);
+			wo = new WrapBoolean(true);
 		}else{
-			wo.setValue(false);
+			wo = new WrapBoolean(false);
 		}
 		result.setData(wo);
 		return result;

@@ -24,7 +24,7 @@ class ActionSyncOrganizationCallbackPost extends BaseAction {
 //			String value = crypt.VerifyURL(msg_signature, timestamp, nonce, echostr);
 			String msg = crypt.DecryptMsg(msg_signature, timestamp, nonce, body);
 			logger.info(msg);
-			wo.setValue(true);
+			wo = new WrapBoolean(true);
 			ThisApplication.qiyeweixinSyncOrganizationCallbackRequest.add(body);
 		} else {
 			throw new ExceptionNotPullSync();

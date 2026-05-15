@@ -163,7 +163,7 @@ public class ActionUpdateAfterEventId extends BaseAction {
 		if( check ){
 			try {
 				count = calendar_EventServiceAdv.updateAfterEventId( calendar_Event.getRepeatMasterId(), new_Event, effectivePerson );
-				wo.setValue( count );
+				wo = new WrapInteger( count );
 				result.setData( wo );
 			} catch (Exception e) {
 				check = false;

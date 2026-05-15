@@ -49,7 +49,7 @@ public class ActionGetRFCContent extends BaseAction {
 		if( check ){
 			try {
 				content = calendar_EventServiceAdv.getiCalContent(calendar_Event);
-				wrap.setValue( content );
+				wrap = new WrapString( content );
 			} catch (Exception e) {
 				check = false;
 				Exception exception = new ExceptionEventProcess( e, "系统在获取日程信息的RFC内容时发生异常.ID:" + id );

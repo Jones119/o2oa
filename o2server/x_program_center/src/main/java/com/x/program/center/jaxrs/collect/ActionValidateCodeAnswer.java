@@ -16,7 +16,7 @@ class ActionValidateCodeAnswer extends BaseAction {
 		ActionResult<Wo> result = new ActionResult<>();
 		Wi wi = this.convertToWrapIn(jsonElement, Wi.class);
 		Wo wo = new Wo();
-		wo.setValue(true);
+		wo = new WrapBoolean(true);
 		String mobile = wi.getMobile();
 		String codeAnswer = wi.getCodeAnswer();
 		if (!Config.person().isMobile(mobile)) {
@@ -29,7 +29,7 @@ class ActionValidateCodeAnswer extends BaseAction {
 			throw new ExceptionUnableConnect();
 		}
 		if (BooleanUtils.isNotTrue(this.validateCodeAnswer(mobile, codeAnswer))) {
-			wo.setValue(false);
+			wo = new WrapBoolean(false);
 		}
 		result.setData(wo);
 		return result;

@@ -61,7 +61,7 @@ class ActionRowInsert extends BaseAction {
 			}
 			os.clear();
 			Wo wo = new Wo();
-			wo.setValue(size);
+			wo = new WrapInteger(size);
 			result.setData(wo);
 			return result;
 		}

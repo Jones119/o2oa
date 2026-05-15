@@ -32,9 +32,7 @@ class ActionCloseCheck extends BaseAction {
 		LOGGER.debug("execute:{}, id:{}.", effectivePerson::getDistinguishedName, () -> id);
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		WoDraft woDraft = new WoDraft();
-		woDraft.setValue(false);
-		wo.setDraft(woDraft);
+		wo.setDraft(new WrapBoolean(false));
 		Work work = null;
 		Process process = null;
 		boolean check = false;
@@ -49,9 +47,9 @@ class ActionCloseCheck extends BaseAction {
 		if ((null != work) && (null != process) && check) {
 			ThisApplication.context().applications().deleteQuery(x_processplatform_service_processing.class,
 					Applications.joinQueryUri("work", work.getId()), work.getJob()).getData(Wo.class);
-			wo.getDraft().setValue(true);
+			wo.setDraft(new WrapBoolean(true));
 		} else {
-			wo.getDraft().setValue(false);
+			wo.setDraft(new WrapBoolean(false));
 		}
 		result.setData(wo);
 		return result;
@@ -74,22 +72,15 @@ class ActionCloseCheck extends BaseAction {
 
 		@FieldDescribe("检查删除草稿结果.")
 		@Schema(description = "检查删除草稿结果.")
-		private WoDraft draft;
+		private WrapBoolean draft;
 
-		public WoDraft getDraft() {
+		public WrapBoolean getDraft() {
 			return draft;
 		}
 
-		public void setDraft(WoDraft draft) {
+		public void setDraft(WrapBoolean draft) {
 			this.draft = draft;
 		}
-
-	}
-
-	@Schema(name = "com.x.processplatform.assemble.surface.jaxrs.work.ActionCloseCheck$WoDraft")
-	public static class WoDraft extends WrapBoolean {
-
-		private static final long serialVersionUID = 376594708278621837L;
 
 	}
 

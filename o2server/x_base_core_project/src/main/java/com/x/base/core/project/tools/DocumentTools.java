@@ -97,7 +97,7 @@ public class DocumentTools {
 		if (StringUtils.isNotEmpty(respText)) {
 			ActionResponse response = XGsonBuilder.instance().fromJson(respText, ActionResponse.class);
 			WrapString wrap = XGsonBuilder.instance().fromJson(response.getData(), WrapString.class);
-			return Base64.decodeBase64(wrap.getValue());
+			return Base64.decodeBase64(wrap.value());
 		}
 		return null;
 
@@ -178,7 +178,7 @@ public class DocumentTools {
 		if (StringUtils.isNotEmpty(respText)) {
 			ActionResponse response = XGsonBuilder.instance().fromJson(respText, ActionResponse.class);
 			WrapString wrap = XGsonBuilder.instance().fromJson(response.getData(), WrapString.class);
-			return Base64.decodeBase64(wrap.getValue());
+			return Base64.decodeBase64(wrap.value());
 		}
 		return null;
 
@@ -196,8 +196,8 @@ public class DocumentTools {
 		ActionResponse response = ConnectionAction
 				.post(Config.collect().url("/o2_collect_assemble/jaxrs/document/doc/to/word"), null, req);
 		WrapString wrap = response.getData(WrapString.class);
-		if (StringUtils.isNotEmpty(wrap.getValue())) {
-			return Base64.decodeBase64(wrap.getValue());
+		if (StringUtils.isNotEmpty(wrap.value())) {
+			return Base64.decodeBase64(wrap.value());
 		}
 		return null;
 	}
@@ -329,7 +329,7 @@ public class DocumentTools {
 			if (StringUtils.isNotEmpty(respText)) {
 				ActionResponse response = XGsonBuilder.instance().fromJson(respText, ActionResponse.class);
 				WrapString wrap = XGsonBuilder.instance().fromJson(response.getData(), WrapString.class);
-				return Base64.decodeBase64(wrap.getValue());
+				return Base64.decodeBase64(wrap.value());
 			}
 		} catch (Exception e) {
 			logger.warn(fileName+"-转换html异常："+e.getMessage());
@@ -425,7 +425,7 @@ public class DocumentTools {
 			if (StringUtils.isNotEmpty(respText)) {
 				ActionResponse response = XGsonBuilder.instance().fromJson(respText, ActionResponse.class);
 				WrapString wrap = XGsonBuilder.instance().fromJson(response.getData(), WrapString.class);
-				return Base64.decodeBase64(wrap.getValue());
+				return Base64.decodeBase64(wrap.value());
 			}
 		} catch (Exception e) {
 			logger.warn(fileName+"-转换pdf异常："+e.getMessage());

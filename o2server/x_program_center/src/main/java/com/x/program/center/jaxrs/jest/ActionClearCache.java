@@ -42,9 +42,9 @@ class ActionClearCache extends BaseAction {
     ActionResult<Wo> execute(HttpServletRequest request, String source) throws Exception {
         ActionResult<Wo> result = new ActionResult<>();
         Wo wo = new Wo();
-        wo.setValue(false);
+        wo = new WrapBoolean(false);
         if (StringUtils.isEmpty(source)) {
-            wo.setValue(false);
+            wo = new WrapBoolean(false);
         } else if ("all".equalsIgnoreCase(source)) {
             // cms
             CacheManager.notify(CategoryInfo.class);
@@ -85,7 +85,7 @@ class ActionClearCache extends BaseAction {
             CacheManager.notify(PersonAttribute.class);
             CacheManager.notify(Group.class);
             CacheManager.notify(Empower.class);
-            wo.setValue(true);
+            wo = new WrapBoolean(true);
         } else if ("cms".equalsIgnoreCase(source)) {
             CacheManager.notify(CategoryInfo.class);
             CacheManager.notify(AppDictItem.class);
@@ -94,21 +94,21 @@ class ActionClearCache extends BaseAction {
             CacheManager.notify(Script.class);
             CacheManager.notify(AppInfo.class);
 
-            wo.setValue(true);
+            wo = new WrapBoolean(true);
         } else if ("portal".equalsIgnoreCase(source)) {
             CacheManager.notify(com.x.portal.core.entity.Script.class);
             CacheManager.notify(Page.class);
             CacheManager.notify(Widget.class);
             CacheManager.notify(Portal.class);
 
-            wo.setValue(true);
+            wo = new WrapBoolean(true);
         } else if ("query".equalsIgnoreCase(source)) {
             CacheManager.notify(Stat.class);
             CacheManager.notify(View.class);
             CacheManager.notify(Table.class);
             CacheManager.notify(Statement.class);
 
-            wo.setValue(true);
+            wo = new WrapBoolean(true);
         } else if ("process".equalsIgnoreCase(source)) {
             CacheManager.notify(ApplicationDictItem.class);
             CacheManager.notify(ApplicationDict.class);
@@ -118,15 +118,15 @@ class ActionClearCache extends BaseAction {
             CacheManager.notify(Process.class);
             CacheManager.notify(Application.class);
 
-            wo.setValue(true);
+            wo = new WrapBoolean(true);
         } else if ("agent".equalsIgnoreCase(source)) {
             CacheManager.notify(Agent.class);
 
-            wo.setValue(true);
+            wo = new WrapBoolean(true);
         } else if ("invoke".equalsIgnoreCase(source)) {
             CacheManager.notify(Invoke.class);
 
-            wo.setValue(true);
+            wo = new WrapBoolean(true);
         } else if ("org".equalsIgnoreCase(source)) {
             CacheManager.notify(Identity.class);
             CacheManager.notify(Unit.class);
@@ -138,7 +138,7 @@ class ActionClearCache extends BaseAction {
             CacheManager.notify(Group.class);
             CacheManager.notify(Empower.class);
 
-            wo.setValue(true);
+            wo = new WrapBoolean(true);
         }
         result.setData(wo);
         return result;

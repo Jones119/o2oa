@@ -31,7 +31,7 @@ class ActionUpload extends BaseAction {
 		missionRestore.setStamp(stamp);
 		ThisApplication.setMissionRestore(missionRestore);
 		Wo wo = new Wo();
-		wo.setValue(true);
+		wo = new WrapBoolean(true);
 		result.setData(wo);
 		return result;
 	}

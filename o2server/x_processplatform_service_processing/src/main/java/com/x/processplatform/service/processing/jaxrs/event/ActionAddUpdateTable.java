@@ -41,7 +41,7 @@ class ActionAddUpdateTable extends BaseAction {
 			ThisApplication.updateTableQueue.send(event.getId());
 		}
 		Wo wo = new Wo();
-		wo.setValue(true);
+		wo = new WrapBoolean(true);
 		result.setData(wo);
 		return result;
 	}

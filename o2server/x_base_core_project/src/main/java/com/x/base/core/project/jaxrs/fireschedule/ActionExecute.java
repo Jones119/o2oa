@@ -26,7 +26,7 @@ class ActionExecute extends BaseAction {
 		Class<?> clz = Thread.currentThread().getContextClassLoader().loadClass(className);
 		ctx.fireScheduleOnLocal((Class<AbstractJob>) clz, 1);
 		Wo wo = new Wo();
-		wo.setValue(true);
+		wo = new WrapBoolean(true);
 		result.setData(wo);
 		return result;
 	}

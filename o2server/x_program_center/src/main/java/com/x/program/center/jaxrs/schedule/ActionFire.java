@@ -40,9 +40,9 @@ class ActionFire extends BaseAction {
 
 			if (optional.isPresent()) {
 				this.fire(effectivePerson, application, optional.get());
-				wo.setValue(true);
+				wo = new WrapBoolean(true);
 			} else {
-				wo.setValue(false);
+				wo = new WrapBoolean(false);
 			}
 			result.setData(wo);
 			return result;

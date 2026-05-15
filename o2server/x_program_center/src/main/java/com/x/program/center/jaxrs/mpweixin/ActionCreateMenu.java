@@ -69,7 +69,7 @@ public class ActionCreateMenu  extends BaseAction {
             if (resp.getErrcode() != null && resp.getErrcode() == 0) {
                 logger.info("保存菜单成功！");
                 Wo wo = new Wo();
-                wo.setValue(true);
+                wo = new WrapBoolean(true);
                 result.setData(wo);
                 return result;
             }else {

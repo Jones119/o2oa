@@ -23,7 +23,7 @@ class ActionCurrentUpdate extends BaseAction {
 			Wo wo = new Wo();
 			Business business = new Business(emc);
 			List<Portal> portals = this.listMobilePortal(business);
-			wo.setValue(this.hash(Config.appStyle(), portals));
+			wo = new WrapString(this.hash(Config.appStyle(), portals));
 			result.setData(wo);
 			return result;
 		}

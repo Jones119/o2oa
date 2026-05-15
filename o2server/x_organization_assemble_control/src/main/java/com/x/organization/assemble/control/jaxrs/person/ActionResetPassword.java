@@ -40,7 +40,7 @@ class ActionResetPassword extends BaseAction {
 				emc.commit();
 				CacheManager.notify(Person.class);
 				Wo wo = new Wo();
-				wo.setValue(true);
+				wo = new WrapBoolean(true);
 				result.setData(wo);
 			}
 

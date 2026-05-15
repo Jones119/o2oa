@@ -74,7 +74,7 @@ class ActionUninstall extends BaseAction {
 			installLog.setUnInstallPerson(effectivePerson.getDistinguishedName());
 			installLog.setUnInstallTime(new Date());
 			emc.commit();
-			wo.setValue(true);
+			wo = new WrapBoolean(true);
 			result.setData(wo);
 			return result;
 		}

@@ -14,7 +14,7 @@ public class ActionIsHoliday extends BaseAction {
 		ActionResult<Wo> result = new ActionResult<>();
 		Date dateObject = DateTools.parse(date);
 		Wo wo = new Wo();
-		wo.setValue(!Config.workTime().isWorkDay(dateObject));
+		wo = new WrapBoolean(!Config.workTime().isWorkDay(dateObject));
 		result.setData(wo);
 		return result;
 	}

@@ -43,7 +43,7 @@ class ActionCountPerson extends BaseAction {
 
         ThisApplication.wsClients().values().stream().forEach(set::add);
         Wo wo = new Wo();
-        wo.setCount((long) set.size());
+        wo = new WrapCount((long) set.size());
         result.setData(wo);
         return result;
     }

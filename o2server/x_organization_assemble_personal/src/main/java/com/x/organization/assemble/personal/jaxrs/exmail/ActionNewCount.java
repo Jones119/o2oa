@@ -55,14 +55,14 @@ class ActionNewCount extends BaseAction {
 
 	private Wo get(String mail) throws Exception {
 		Wo wo = new Wo();
-		wo.setCount(0L);
+		wo = new WrapCount(0L);
 		String address = Config.exmail().getNewCountAddress() + "?access_token="
 				+ Config.exmail().newRemindAccessToken() + "&userid=" + mail;
 		Resp resp = HttpConnection.getAsObject(address, null, Resp.class);
 		if (resp.errcode == null || resp.errcode != 0) {
 			throw new ExceptionNewCount(gson.toJson(resp));
 		}
-		wo.setCount(resp.count);
+		wo = new WrapCount(resp.count);
 		return wo;
 	}
 

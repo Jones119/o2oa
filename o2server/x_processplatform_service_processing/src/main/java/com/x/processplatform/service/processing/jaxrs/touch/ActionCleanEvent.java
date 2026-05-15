@@ -22,7 +22,7 @@ class ActionCleanEvent extends BaseAction {
             ActionResult<Wo> result = new ActionResult<>();
             ThisApplication.context().scheduleLocal(CleanEvent.class, 1);
             Wo wo = new Wo();
-            wo.setValue(true);
+            wo = new WrapBoolean(true);
             result.setData(wo);
             return result;
         }
