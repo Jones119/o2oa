@@ -44,7 +44,7 @@ class ActionStopGenerating extends BaseAction {
 			}
 			Generate.stop();
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

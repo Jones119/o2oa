@@ -22,7 +22,7 @@ class ActionExpire extends BaseAction {
 			ActionResult<Wo> result = new ActionResult<>();
 			ThisApplication.context().scheduleLocal(Expire.class, 1);
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

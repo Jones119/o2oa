@@ -2,16 +2,24 @@ package com.x.base.core.project.http;
 
 import com.x.base.core.project.gson.GsonRecord;
 
-public record WrapOutCount(Long count) implements GsonRecord {
+public class WrapOutCount implements GsonRecord {
 
-    public WrapOutCount {
-    }
+	private static final long serialVersionUID = 1L;
 
-    public WrapOutCount() {
-        this(null);
-    }
+	private Long count;
 
-    public WrapOutCount(Integer count) {
-        this(count != null ? count.longValue() : null);
-    }
+	public WrapOutCount() {
+	}
+
+	public WrapOutCount(Long count) {
+		this.count = count;
+	}
+
+	public Long getCount() {
+		return count;
+	}
+
+	public void setCount(Long count) {
+		this.count = count;
+	}
 }

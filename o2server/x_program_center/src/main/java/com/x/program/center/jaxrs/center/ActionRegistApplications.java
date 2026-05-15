@@ -28,11 +28,11 @@ class ActionRegistApplications extends BaseAction {
 					CenterQueueRegistApplicationsBody.class);
 			body.setNode(wi.getNode());
 			ThisApplication.centerQueue.send(body);
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 		} else {
 			logger.warn("server time is too different, node:{}, time:{}.", wi.getNode(),
 					DateTools.format(wi.getServerTime()));
-			wo = new WrapBoolean(false);
+			wo.setValue(false);
 		}
 		result.setData(wo);
 		return result;

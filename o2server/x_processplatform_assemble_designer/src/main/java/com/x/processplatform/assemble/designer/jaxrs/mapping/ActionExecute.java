@@ -39,7 +39,7 @@ class ActionExecute extends BaseAction {
 				throw new ExceptionAlreadyAddQueue();
 			}
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

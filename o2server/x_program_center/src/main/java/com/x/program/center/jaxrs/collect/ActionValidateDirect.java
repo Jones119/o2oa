@@ -21,7 +21,7 @@ class ActionValidateDirect extends BaseAction {
 		}
 		Wi wi = this.convertToWrapIn(jsonElement, Wi.class);
 		Wo wo = new Wo();
-		wo = new WrapBoolean(true);
+		wo.setValue(true);
 		if (BooleanUtils.isNotTrue(this.connect())) {
 			throw new ExceptionUnableConnect();
 		}
@@ -34,7 +34,7 @@ class ActionValidateDirect extends BaseAction {
 			throw new ExceptionPasswordEmpty();
 		}
 		if (BooleanUtils.isNotTrue(this.validate(name, password))) {
-			wo = new WrapBoolean(false);
+			wo.setValue(false);
 		}
 		if (BooleanUtils.isTrue(wo.getValue())) {
 			Config.collect().setEnable(true);

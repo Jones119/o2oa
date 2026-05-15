@@ -86,10 +86,10 @@ public class ActionAndroidPack extends BaseAction {
 		AppPackResult<IdValue> appPackResult = XGsonBuilder.instance().fromJson(s, type);
 		Wo wo = new Wo();
 		if (appPackResult.getResult().equals(AppPackResult.result_failure)) {
-			wo = new WrapBoolean(false);
+			wo.setValue(false);
 			result.setMessage(appPackResult.getMessage());
 		} else {
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 		}
 		result.setData(wo);
 		return result;

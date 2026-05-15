@@ -58,7 +58,7 @@ public class ActionCreateFormProcessPlatform extends BaseAction {
 				emc.commit();
 			}
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

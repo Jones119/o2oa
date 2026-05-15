@@ -26,7 +26,7 @@ class ActionEdit extends BaseAction {
 			Config.appStyle().save();
 			Config.flush();
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

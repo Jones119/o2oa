@@ -44,14 +44,14 @@ class ActionNewCountPassive extends BaseAction {
 
 	private Wo get(Business business, EffectivePerson effectivePerson) throws Exception {
 		Wo wo = new Wo();
-		wo = new WrapCount(0L);
+		wo.setCount(0L);
 		Person person = business.person().pick(effectivePerson.getDistinguishedName());
 		if (null != person) {
 			PersonExtend personExtend = business.entityManagerContainer().firstEqualAndEqual(PersonExtend.class,
 					PersonExtend.TYPE_FIELDNAME, ExtendExmail.TYPE, PersonExtend.PERSON_FIELDNAME, person.getId());
 			if (null != personExtend) {
 				ExtendExmail extendExmail = gson.fromJson(personExtend.getExtend(), ExtendExmail.class);
-				wo = new WrapCount(extendExmail.getUnreadCount());
+				wo.setCount(extendExmail.getUnreadCount());
 			}
 		}
 		return wo;

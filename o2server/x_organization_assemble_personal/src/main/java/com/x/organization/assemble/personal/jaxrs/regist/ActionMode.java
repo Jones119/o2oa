@@ -14,7 +14,7 @@ class ActionMode extends BaseAction {
 	ActionResult<Wo> execute(EffectivePerson effectivePerson) throws Exception {
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		wo = new WrapString(Config.person().getRegister());
+		wo.setValue(Config.person().getRegister());
 		result.setData(wo);
 		return result;
 	}

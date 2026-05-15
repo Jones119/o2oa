@@ -29,7 +29,7 @@ class ActionDelete extends BaseAction {
 			throw new CodeAnswerEmptyException();
 		}
 		Wo wo = new Wo();
-		wo = new WrapBoolean(this.delete(name, mobile, codeAnswer));
+		wo.setValue(this.delete(name, mobile, codeAnswer));
 		if (BooleanUtils.isTrue(wo.getValue()) && name.equals(Config.collect().getName())) {
 			Config.collect().setEnable(false);
 			Config.collect().setName("");

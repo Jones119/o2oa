@@ -37,7 +37,7 @@ class ActionAllowVisitWithPerson extends BaseAction {
 					app = workCompleted.getApplication();
 				}
 			}
-			wo = new WrapBoolean(business.ifPersonHasTaskReadTaskCompletedReadCompletedReviewWithJob(person, job)
+			wo.setValue(business.ifPersonHasTaskReadTaskCompletedReadCompletedReviewWithJob(person, job)
 					|| business.ifPersonCanManageApplicationOrProcess(person, app, pro)
 					|| business.ifJobHasBeenCorrelation(person, job));
 		}

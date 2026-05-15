@@ -22,7 +22,7 @@ class ActionMerge extends BaseAction {
 			ActionResult<Wo> result = new ActionResult<>();
 			ThisApplication.context().scheduleLocal(Merge.class, 1);
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

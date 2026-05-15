@@ -68,7 +68,7 @@ public class ActionPost extends BaseAction {
             emc.persist(leaveData, CheckPersistType.all);
             emc.commit();
             Wo wo = new Wo();
-            wo = new WrapBoolean(true);
+            wo.setValue(true);
             result.setData(wo);
             return result;
         }

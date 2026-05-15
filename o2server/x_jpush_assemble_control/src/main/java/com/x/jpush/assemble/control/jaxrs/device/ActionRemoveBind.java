@@ -35,14 +35,14 @@ public class ActionRemoveBind extends BaseAction {
 			if (ListTools.isNotEmpty(deviceList)) {
 				if (deviceList.contains(device)) {
 					deviceList.remove(device);
-					wraps = new WrapBoolean(business.organization().personAttribute().setWithPersonWithName(
+					wraps.setValue(business.organization().personAttribute().setWithPersonWithName(
 							effectivePerson.getDistinguishedName(), ActionListAll.DEVICE_PERSON_ATTR_KEY, deviceList));
 				} else {
-					wraps = new WrapBoolean(true);
+					wraps.setValue(true);
 					result.setMessage("当前设备不存在，无需解绑！");
 				}
 			} else {
-				wraps = new WrapBoolean(true);
+				wraps.setValue(true);
 				result.setMessage("当前设备不存在，无需解绑！");
 			}
 			result.setData(wraps);

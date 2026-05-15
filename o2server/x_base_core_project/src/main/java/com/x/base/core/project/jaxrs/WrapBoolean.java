@@ -4,12 +4,25 @@ import com.x.base.core.project.gson.GsonRecord;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-public record WrapBoolean(@Schema(description = "布尔值.") Boolean value) implements GsonRecord {
+public class WrapBoolean implements GsonRecord {
 
-    public WrapBoolean {
-    }
+	private static final long serialVersionUID = 1L;
 
-    public WrapBoolean() {
-        this(null);
-    }
+	@Schema(description = "布尔值.")
+	private Boolean value;
+
+	public WrapBoolean() {
+	}
+
+	public WrapBoolean(Boolean value) {
+		this.value = value;
+	}
+
+	public Boolean getValue() {
+		return value;
+	}
+
+	public void setValue(Boolean value) {
+		this.value = value;
+	}
 }

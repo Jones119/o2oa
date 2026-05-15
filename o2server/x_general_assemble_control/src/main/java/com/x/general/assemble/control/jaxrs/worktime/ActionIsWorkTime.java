@@ -14,7 +14,7 @@ public class ActionIsWorkTime extends BaseAction {
 		ActionResult<Wo> result = new ActionResult<>();
 		Date dateObject = DateTools.parse(date);
 		Wo wo = new Wo();
-		wo = new WrapBoolean(Config.workTime().isWorkTime(dateObject));
+		wo.setValue(Config.workTime().isWorkTime(dateObject));
 		result.setData(wo);
 		return result;
 	}

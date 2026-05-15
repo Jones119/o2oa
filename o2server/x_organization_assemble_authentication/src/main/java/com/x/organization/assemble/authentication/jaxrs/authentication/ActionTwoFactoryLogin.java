@@ -37,7 +37,7 @@ class ActionTwoFactoryLogin extends BaseAction {
         ActionResult<Wo> result = new ActionResult<>();
         Wi wi = this.convertToWrapIn(jsonElement, Wi.class);
         Wo wo = new Wo();
-        wo = new WrapBoolean(true);
+        wo.setValue(true);
         if (BooleanUtils.isFalse(Config.person().getTwoFactorLogin())) {
             throw new ExceptionLoginDisable();
         }

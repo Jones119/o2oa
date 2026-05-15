@@ -54,7 +54,7 @@ class ActionSetPasswordExpiredTime extends BaseAction {
                 emc.commit();
                 CacheManager.notify(Person.class);
                 Wo wo = new Wo();
-                wo = new WrapBoolean(true);
+                wo.setValue(true);
                 result.setData(wo);
             }
 

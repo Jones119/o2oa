@@ -70,7 +70,7 @@ class ActionRowSave extends BaseAction {
 			emc.commit();
 
 			Wo wo = new Wo();
-			wo = new WrapInteger(size);
+			wo.setValue(size);
 			result.setData(wo);
 			return result;
 		}

@@ -10,9 +10,9 @@ class ActionConnect extends BaseAction {
 	ActionResult<Wo> execute() throws Exception {
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		wo = new WrapBoolean(true);
+		wo.setValue(true);
 		if (BooleanUtils.isNotTrue(this.connect())) {
-			wo = new WrapBoolean(false);
+			wo.setValue(false);
 		}
 		result.setData(wo);
 		return result;

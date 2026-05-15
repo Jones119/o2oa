@@ -51,7 +51,7 @@ class ActionUpdateMcp extends BaseAction {
         wi.setId(id);
         this.saveOrUpdate(wi, aiConfig);
         Wo wo = new Wo();
-        wo = new WrapBoolean(true);
+        wo.setValue(true);
         result.setData(wo);
         return result;
     }

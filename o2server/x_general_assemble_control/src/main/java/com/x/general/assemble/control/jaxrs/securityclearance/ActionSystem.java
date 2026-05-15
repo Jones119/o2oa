@@ -15,7 +15,7 @@ public class ActionSystem extends BaseAction {
 		LOGGER.debug("execute:{}.", effectivePerson::getDistinguishedName);
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		wo = new WrapInteger(Config.ternaryManagement().getSystemSecurityClearance());
+		wo.setValue(Config.ternaryManagement().getSystemSecurityClearance());
 		result.setData(wo);
 		return result;
 	}

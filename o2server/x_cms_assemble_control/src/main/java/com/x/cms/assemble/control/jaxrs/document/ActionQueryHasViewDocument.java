@@ -15,12 +15,12 @@ public class ActionQueryHasViewDocument extends BaseAction {
 	protected ActionResult<Wo> execute(EffectivePerson effectivePerson, String docId) throws Exception {
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		wo = new WrapBoolean(false);
+		wo.setValue(false);
 		try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
 			Long count = emc.countEqualAndEqual(DocumentViewRecord.class, DocumentViewRecord.documentId_FIELDNAME, docId,
 					DocumentViewRecord.viewerName_FIELDNAME, effectivePerson.getDistinguishedName());
 			if(count!=null && count>0){
-				wo = new WrapBoolean(true);
+				wo.setValue(true);
 			}
 		}
 

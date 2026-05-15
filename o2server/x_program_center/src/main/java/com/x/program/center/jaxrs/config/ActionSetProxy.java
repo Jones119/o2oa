@@ -56,7 +56,7 @@ class ActionSetProxy extends BaseAction {
 
 		ThisApplication.context().scheduleLocal(CollectPerson.class);
 		Wo wo = new Wo();
-		wo = new WrapBoolean(true);
+		wo.setValue(true);
 		result.setData(wo);
 		return result;
 	}

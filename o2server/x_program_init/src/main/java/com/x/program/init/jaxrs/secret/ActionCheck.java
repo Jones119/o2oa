@@ -15,7 +15,7 @@ class ActionCheck extends BaseAction {
 		LOGGER.debug("execute:{}.", effectivePerson::getDistinguishedName);
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		wo = new WrapBoolean(MissionSetSecret.check());
+		wo.setValue(MissionSetSecret.check());
 		result.setData(wo);
 		return result;
 	}

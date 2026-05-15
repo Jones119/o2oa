@@ -170,12 +170,12 @@ public class ListTools {
 			stream = stream.filter(Objects::nonNull);
 		}
 		if (unique) {
-			return stream.gather(Gatherers.fold(ArrayList::new, (acc, t) -> {
+			return stream.gather(Gatherers.<T, ArrayList<T>>fold(ArrayList::new, (acc, t) -> {
 				if (!acc.contains(t)) {
 					acc.add(t);
 				}
 				return acc;
-			})).findFirst().orElse(new ArrayList<>());
+			})).findFirst().orElseGet(ArrayList::new);
 		}
 		return stream.collect(Collectors.toCollection(ArrayList::new));
 	}

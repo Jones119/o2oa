@@ -38,7 +38,7 @@ class ActionCmsDocIndexWithApp extends BaseAction {
 			ThisApplication.queueDocumentIndex.send(docId);
 		}
 		Wo wo = new Wo();
-		wo = new WrapBoolean(true);
+		wo.setValue(true);
 		result.setData(wo);
 		return result;
 	}

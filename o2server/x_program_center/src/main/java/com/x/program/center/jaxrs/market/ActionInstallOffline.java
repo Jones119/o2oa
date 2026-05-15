@@ -33,10 +33,10 @@ class ActionInstallOffline extends BaseAction {
             Application2 app = new Application2();
             logger.info("{}发起离线安装或更新应用：{}", effectivePerson.getDistinguishedName(), fileName);
             Wo wo = new Wo();
-            wo = new WrapBoolean(false);
+            wo.setValue(false);
             if ((null != bytes) && (bytes.length > 0)) {
                 InstallData installData = this.install(app, bytes);
-                wo = new WrapBoolean(true);
+                wo.setValue(true);
                 emc.beginTransaction(InstallLog.class);
                 InstallLog installLog = emc.find(app.getId(), InstallLog.class);
                 boolean exist = true;

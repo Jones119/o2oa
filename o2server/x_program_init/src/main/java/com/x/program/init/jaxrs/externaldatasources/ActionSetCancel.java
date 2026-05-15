@@ -16,7 +16,7 @@ class ActionSetCancel extends BaseAction {
 		ActionResult<Wo> result = new ActionResult<>();
 		ThisApplication.setMissionExternalDataSources(null);
 		Wo wo = new Wo();
-		wo = new WrapBoolean(true);
+		wo.setValue(true);
 		result.setData(wo);
 		return result;
 	}

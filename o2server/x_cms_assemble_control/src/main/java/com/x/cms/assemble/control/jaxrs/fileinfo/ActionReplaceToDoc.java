@@ -56,7 +56,7 @@ class ActionReplaceToDoc extends BaseAction {
                 person = wi.getPerson();
             }
             if (ListTools.isEmpty(wi.getSiteFileInfoList())) {
-                wo = new WrapBoolean(false);
+                wo.setValue(false);
                 return result;
             }
             Map<String, List<Attachment>> attMap = new HashMap<>();
@@ -170,7 +170,7 @@ class ActionReplaceToDoc extends BaseAction {
         private static final long serialVersionUID = -5986602289699981815L;
 
         public Wo() {
-            this = new WrapBoolean(true);
+            this.setValue(true);
         }
     }
 

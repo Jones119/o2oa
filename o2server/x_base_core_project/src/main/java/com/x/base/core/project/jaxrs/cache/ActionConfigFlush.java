@@ -3,9 +3,9 @@ package com.x.base.core.project.jaxrs.cache;
 import jakarta.servlet.ServletContext;
 
 import com.x.base.core.project.config.Config;
+import com.x.base.core.project.gson.GsonRecord;
 import com.x.base.core.project.http.ActionResult;
 import com.x.base.core.project.http.EffectivePerson;
-import com.x.base.core.project.jaxrs.WrapBoolean;
 import com.x.base.core.project.logger.Logger;
 import com.x.base.core.project.logger.LoggerFactory;
 
@@ -19,15 +19,19 @@ class ActionConfigFlush extends BaseAction {
 		LOGGER.debug("execute:{}.", effectivePerson::getDistinguishedName);
 		ActionResult<Wo> result = new ActionResult<>();
 		Config.flush();
-		Wo wo = new Wo();
-		wo = new WrapBoolean(true);
-		result.setData(wo);
+		result.setData(new Wo(true));
 		return result;
 	}
 
 	@Schema(name = "com.x.base.core.project.jaxrs.cache.ActionConfigFlush$Wo")
-	public static class Wo extends WrapBoolean {
+	public record Wo(@Schema(description = "布尔值.") Boolean value) implements GsonRecord {
 
+		public Wo {
+		}
+
+		public Wo() {
+			this(null);
+		}
 	}
 
 }

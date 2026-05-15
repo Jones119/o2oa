@@ -58,7 +58,7 @@ class ActionGetImageWidthHeightBase64 extends BaseAction {
 						ImageIO.write(scalrImage, "png", baos);
 						String str = Base64.encodeBase64String(baos.toByteArray());
 						Wo wo = new Wo();
-						wo = new WrapString(str);
+						wo.setValue(str);
 						result.setData(wo);
 					}
 				}

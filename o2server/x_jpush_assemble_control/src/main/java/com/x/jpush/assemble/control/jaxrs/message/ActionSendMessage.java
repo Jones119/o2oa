@@ -58,7 +58,7 @@ public class ActionSendMessage extends BaseAction {
             } else {
                 logger.warn("极光推送设备为空，{}", wi.getPerson());
             }
-            wraps = new WrapBoolean(true);
+            wraps.setValue(true);
             result.setData(wraps);
         } catch (Exception e) {
             logger.error(e);

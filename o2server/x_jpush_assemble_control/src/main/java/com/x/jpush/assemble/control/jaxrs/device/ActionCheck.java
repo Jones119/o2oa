@@ -31,17 +31,17 @@ public class ActionCheck extends BaseAction {
 			Business business = new Business(emc);
 			String unique = deviceUnique(deviceType, deviceName, pushType, effectivePerson.getDistinguishedName());
 			if (business.pushDeviceFactory().existDeviceUnique(unique)) {
-				wraps = new WrapBoolean(true);
+				wraps.setValue(true);
 			} else {
-				wraps = new WrapBoolean(false);
+				wraps.setValue(false);
 			}
 //            List<String> deviceList = business.organization().personAttribute()
 //                    .listAttributeWithPersonWithName(effectivePerson.getDistinguishedName(), ActionListAll.DEVICE_PERSON_ATTR_KEY);
 //            if( ListTools.isNotEmpty( deviceList ) ){
 //                String device = deviceName+"_"+deviceType;
-//                wraps = new WrapBoolean(deviceList.contains(device));
+//                wraps.setValue(deviceList.contains(device));
 //            }else {
-//               wraps = new WrapBoolean(false);
+//               wraps.setValue(false);
 //            }
 			result.setData(wraps);
 		} catch (Exception e) {

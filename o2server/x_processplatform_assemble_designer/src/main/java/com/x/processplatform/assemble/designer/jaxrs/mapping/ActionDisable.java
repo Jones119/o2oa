@@ -40,7 +40,7 @@ class ActionDisable extends BaseAction {
 			mapping.setEnable(false);
 			emc.commit();
 			wo = new Wo();
-			wo = new WrapBoolean(false);
+			wo.setValue(false);
 			result.setData(wo);
 			return result;
 		}

@@ -739,11 +739,11 @@ public class Config {
 		return instance().commonScript;
 	}
 
-	private MimeTypes mimeTypes;
+	private MimeTypes.Mutable mimeTypes;
 
-	public static synchronized MimeTypes mimeTypes() throws Exception {
+	public static synchronized MimeTypes.Mutable mimeTypes() throws Exception {
 		if (null == instance().mimeTypes) {
-			MimeTypes mimeTypes = new MimeTypes();
+			MimeTypes.Mutable mimeTypes = new MimeTypes.Mutable();
 			/* 添加o2自定义格式 */
 			mimeTypes.addMimeMapping("wcss", "application/json");
 			/* TXT和HTML文件以utf-8输出，解决在线打开乱码问题 */

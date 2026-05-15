@@ -33,7 +33,7 @@ class ActionUpdate extends BaseAction {
 				emc.commit();
 			}
 			Wo wo = new Wo();
-			wo = new WrapNumber(os.size());
+			wo.setValue(os.size());
 			result.setData(wo);
 			return result;
 		}

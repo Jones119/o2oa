@@ -19,7 +19,7 @@ class ActionValidatePassword extends BaseAction {
 			throw new ExceptionPasswordEmpty();
 		}
 		if (!password.matches(Person.DEFAULT_PASSWORDREGEX)) {
-			wo = new WrapString(Person.DEFAULT_PASSWORDREGEXHINT);
+			wo.setValue(Person.DEFAULT_PASSWORDREGEXHINT);
 		}
 		result.setData(wo);
 		return result;

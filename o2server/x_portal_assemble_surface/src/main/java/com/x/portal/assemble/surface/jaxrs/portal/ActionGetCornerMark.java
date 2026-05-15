@@ -39,7 +39,7 @@ class ActionGetCornerMark extends BaseAction {
 				throw new ExceptionPortalAccessDenied(effectivePerson.getDistinguishedName(), o.getName(), o.getId());
 			}
 			Wo wo = new Wo();
-			wo = new WrapCount(this.getCornerMark(o, business, effectivePerson));
+			wo.setCount(this.getCornerMark(o, business, effectivePerson));
 			result.setData(wo);
 			return result;
 		}

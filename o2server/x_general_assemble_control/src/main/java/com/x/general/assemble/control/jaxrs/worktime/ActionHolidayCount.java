@@ -22,7 +22,7 @@ public class ActionHolidayCount extends BaseAction {
 			}
 		}
 		Wo wo = new Wo();
-		wo = new WrapInteger(holidayCount);
+		wo.setValue(holidayCount);
 		result.setData(wo);
 		return result;
 	}

@@ -47,7 +47,7 @@ class ActionDelete extends BaseAction {
 				aem.getTransaction().commit();
 			}
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

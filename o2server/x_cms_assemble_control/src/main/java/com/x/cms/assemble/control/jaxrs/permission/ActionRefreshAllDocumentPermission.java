@@ -30,10 +30,10 @@ public class ActionRefreshAllDocumentPermission extends BaseAction {
 					logger.info("开始更新所有文档权限........");
 					documentPersistService.refreshAllDocumentPermission(true);
 					logger.info("完成更新所有文档权限........");
-					wo = new WrapString("权限处理完成！");
+					wo.setValue("权限处理完成！");
 					lock.unlock();
 				}else{
-					wo = new WrapString("正在处理中！");
+					wo.setValue("正在处理中！");
 				}
 				result.setData(wo);
 			} catch (Exception e) {

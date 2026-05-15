@@ -65,7 +65,7 @@ class ActionSaveToFolder extends BaseAction {
 			saveToFolder(business, share, fileId, folderId, effectivePerson);
 
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

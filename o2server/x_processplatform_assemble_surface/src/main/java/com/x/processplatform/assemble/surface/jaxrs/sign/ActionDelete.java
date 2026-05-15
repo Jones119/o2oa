@@ -55,7 +55,7 @@ class ActionDelete extends BaseAction {
 			emc.remove(docSign);
 			emc.commit();
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

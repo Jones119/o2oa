@@ -25,7 +25,7 @@ public class V2View extends BaseAction {
 
         ActionResult<Wo> result = new ActionResult<>();
         Wo wo = new Wo();
-        wo = new WrapBoolean(false);
+        wo.setValue(false);
         try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
             List<Read> reads = emc.listEqualAndEqualAndEqual(Read.class, Read.job_FIELDNAME, job,
                     Read.person_FIELDNAME,
@@ -50,7 +50,7 @@ public class V2View extends BaseAction {
                 emc.commit();
             }
         }
-        wo = new WrapBoolean(true);
+        wo.setValue(true);
         result.setData(wo);
         return result;
     }

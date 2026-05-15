@@ -44,7 +44,7 @@ class ActionUpload extends BaseAction {
 					emc.persist(snap, CheckPersistType.all);
 					emc.commit();
 					Wo wo = new Wo();
-					wo = new WrapString(snap.getId());
+					wo.setValue(snap.getId());
 					result.setData(wo);
 					return result;
 				}

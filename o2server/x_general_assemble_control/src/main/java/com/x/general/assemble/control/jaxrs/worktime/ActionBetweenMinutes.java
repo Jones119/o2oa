@@ -15,7 +15,7 @@ public class ActionBetweenMinutes extends BaseAction {
 		Date dateOfStart = DateTools.parse(start);
 		Date dateOfEnd = DateTools.parse(end);
 		Wo wo = new Wo();
-		wo = new WrapInteger((int) Config.workTime().betweenMinutes(dateOfStart, dateOfEnd));
+		wo.setValue((int) Config.workTime().betweenMinutes(dateOfStart, dateOfEnd));
 		result.setData(wo);
 		return result;
 	}

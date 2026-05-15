@@ -29,7 +29,7 @@ class ActionDelete extends BaseAction {
 		map.put("idList", List.of(clueId));
 		ConnectionAction.post(url, heads, map);
 		Wo wo = new Wo();
-        wo = new WrapBoolean(true);
+        wo.setValue(true);
 		result.setData(wo);
 		return result;
 	}

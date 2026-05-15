@@ -47,7 +47,7 @@ public class ActionManageOpinion extends BaseAction {
 			read.setOpinion(Objects.toString(wi.getOpinion(), ""));
 			emc.commit();
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

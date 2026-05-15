@@ -6,19 +6,24 @@ import java.util.List;
 
 import com.x.base.core.project.gson.GsonRecord;
 
-public record WrapNumberList(List<Number> valueList) implements GsonRecord {
+public class WrapNumberList implements GsonRecord {
 
-    public WrapNumberList {
-        if (valueList == null) {
-            valueList = new ArrayList<>();
-        }
-    }
+	private static final long serialVersionUID = 1L;
 
-    public WrapNumberList() {
-        this(new ArrayList<>());
-    }
+	private List<Number> valueList = new ArrayList<>();
 
-    public WrapNumberList(Collection<Number> collection) {
-        this(new ArrayList<>(collection));
-    }
+	public WrapNumberList() {
+	}
+
+	public WrapNumberList(Collection<Number> collection) {
+		this.valueList = new ArrayList<>(collection);
+	}
+
+	public List<Number> getValueList() {
+		return valueList;
+	}
+
+	public void setValueList(List<Number> valueList) {
+		this.valueList = valueList;
+	}
 }

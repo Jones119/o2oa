@@ -59,7 +59,7 @@ class ActionEdit extends BaseAction {
 			emc.persist(component, CheckPersistType.all);
 			emc.commit();
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			CacheManager.notify(Component.class);
 			return result;

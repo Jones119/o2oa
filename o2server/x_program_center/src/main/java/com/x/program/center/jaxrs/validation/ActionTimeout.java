@@ -14,7 +14,7 @@ class ActionTimeout extends BaseAction {
 		LOGGER.debug("execute:{}.", effectivePerson::getDistinguishedName);
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		wo = new WrapBoolean(true);
+		wo.setValue(true);
 		try {
 			Thread.sleep(timeout);
 		} catch (InterruptedException e) {

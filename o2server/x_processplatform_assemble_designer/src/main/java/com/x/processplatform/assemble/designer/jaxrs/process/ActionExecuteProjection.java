@@ -37,12 +37,12 @@ class ActionExecuteProjection extends BaseAction {
 			if (XGsonBuilder.isJsonArray(process.getProjection())) {
 				if (!ThisApplication.projectionExecuteQueue.contains(process.getId())) {
 					ThisApplication.projectionExecuteQueue.send(process.getId());
-					wo = new WrapBoolean(true);
+					wo.setValue(true);
 				} else {
 					throw new ExceptionAlreadyAddQueue();
 				}
 			} else {
-				wo = new WrapBoolean(false);
+				wo.setValue(false);
 			}
 			result.setData(wo);
 			return result;

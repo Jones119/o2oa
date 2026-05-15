@@ -6,19 +6,24 @@ import java.util.List;
 
 import com.x.base.core.project.gson.GsonRecord;
 
-public record WrapBooleanList(List<Boolean> valueList) implements GsonRecord {
+public class WrapBooleanList implements GsonRecord {
 
-    public WrapBooleanList {
-        if (valueList == null) {
-            valueList = new ArrayList<>();
-        }
-    }
+	private static final long serialVersionUID = 1L;
 
-    public WrapBooleanList() {
-        this(new ArrayList<>());
-    }
+	private List<Boolean> valueList = new ArrayList<>();
 
-    public WrapBooleanList(Collection<Boolean> collection) {
-        this(new ArrayList<>(collection));
-    }
+	public WrapBooleanList() {
+	}
+
+	public WrapBooleanList(Collection<Boolean> collection) {
+		this.valueList = new ArrayList<>(collection);
+	}
+
+	public List<Boolean> getValueList() {
+		return valueList;
+	}
+
+	public void setValueList(List<Boolean> valueList) {
+		this.valueList = valueList;
+	}
 }

@@ -68,7 +68,7 @@ class ActionReplace extends BaseAction {
         public ActionResult<Wo> call() throws Exception {
             try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
                 Wo wo = new Wo();
-				wo = new WrapBoolean(true);
+				wo.setValue(true);
 				Read read = emc.find(id, Read.class);
 				emc.beginTransaction(Read.class);
 				emc.beginTransaction(ReadCompleted.class);

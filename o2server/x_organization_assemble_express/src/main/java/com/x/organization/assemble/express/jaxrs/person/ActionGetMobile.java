@@ -27,7 +27,7 @@ class ActionGetMobile extends BaseAction {
 				Wo wo = new Wo();
 				Person person = business.person().pick(flag);
 				if(person != null) {
-					wo = new WrapString(person.getMobile());
+					wo.setValue(person.getMobile());
 				}
 				CacheManager.put(cacheCategory, cacheKey, wo);
 				result.setData(wo);

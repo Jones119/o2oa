@@ -14,7 +14,7 @@ class ActionIsManager extends BaseAction {
 			ActionResult<Wo> result = new ActionResult<>();
 			Business business = new Business(emc);
 			Wo wo = new Wo();
-			wo = new WrapBoolean(business.controlAble(effectivePerson));
+			wo.setValue(business.controlAble(effectivePerson));
 			result.setData(wo);
 			return result;
 		}

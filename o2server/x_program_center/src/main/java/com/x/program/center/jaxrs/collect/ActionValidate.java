@@ -11,13 +11,13 @@ class ActionValidate extends BaseAction {
 	ActionResult<Wo> execute() throws Exception {
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		wo = new WrapBoolean(true);
+		wo.setValue(true);
 		if (BooleanUtils.isNotTrue(this.connect())) {
-			wo = new WrapBoolean(false);
+			wo.setValue(false);
 		}else if (BooleanUtils.isFalse(Config.collect().getEnable())) {
-			wo = new WrapBoolean(false);
+			wo.setValue(false);
 		}else if (BooleanUtils.isNotTrue(this.validate(Config.collect().getName(), Config.collect().getPassword()))) {
-			wo = new WrapBoolean(false);
+			wo.setValue(false);
 		}
 		result.setData(wo);
 		return result;

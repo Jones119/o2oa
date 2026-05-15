@@ -86,7 +86,7 @@ class ActionMergeWithProcess extends BaseAction {
 				}
 			} while (ListTools.isNotEmpty(ids));
 			Wo wo = new Wo();
-			wo = new WrapInteger(count);
+			wo.setValue(count);
 			result.setData(wo);
 			return result;
 		}

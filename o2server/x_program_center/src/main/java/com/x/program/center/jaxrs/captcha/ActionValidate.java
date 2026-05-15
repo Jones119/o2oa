@@ -20,7 +20,7 @@ class ActionValidate extends BaseAction {
 			Wo wo = new Wo();
 			Captcha captcha = emc.find(id, Captcha.class);
 			if (null == captcha) {
-				wo = new WrapBoolean(false);
+				wo.setValue(false);
 			} else {
 				boolean match = this.check(captcha.getAnswer(), answer);
 				if (match) {
@@ -28,7 +28,7 @@ class ActionValidate extends BaseAction {
 					emc.remove(captcha);
 					emc.commit();
 				}
-				wo = new WrapBoolean(match);
+				wo.setValue(match);
 			}
 			result.setData(wo);
 			return result;

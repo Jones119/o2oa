@@ -82,7 +82,7 @@ public class ActionSendGetPrivateInfoMessage extends BaseAction {
         }
         ActionResult<Wo> result = new ActionResult<>();
         Wo wo = new Wo();
-        wo = new WrapBoolean(true);
+        wo.setValue(true);
         return result;
     }
 

@@ -70,7 +70,7 @@ class ActionChangePassword extends ActionBase {
 			business.person().setPassword(person, wi.getNewPassword());
 			emc.commit();
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

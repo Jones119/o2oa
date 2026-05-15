@@ -14,7 +14,7 @@ public class ActionForwardMinutes extends BaseAction {
 		ActionResult<Wo> result = new ActionResult<>();
 		Date dateOfStart = DateTools.parse(start);
 		Wo wo = new Wo();
-		wo = new WrapString(DateTools.format(Config.workTime().forwardMinutes(dateOfStart, minutes)));
+		wo.setValue(DateTools.format(Config.workTime().forwardMinutes(dateOfStart, minutes)));
 		result.setData(wo);
 		return result;
 	}

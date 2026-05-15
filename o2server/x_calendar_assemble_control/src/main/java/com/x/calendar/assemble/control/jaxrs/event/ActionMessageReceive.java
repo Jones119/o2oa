@@ -33,7 +33,7 @@ public class ActionMessageReceive extends BaseAction {
 		ActionResult<Wo> result = new ActionResult<>();
 		Wi message = new Wi();
 		Wo wo = new Wo();
-		wo = new WrapBoolean( false );
+		wo.setValue( false );
 		Calendar_Event calendar_Event = null;
 		Boolean check = true;
 		
@@ -60,7 +60,7 @@ public class ActionMessageReceive extends BaseAction {
 							calendar_Event = calendar_EventServiceAdv.createByCipher( calendar_Event );
 							List<String> ids = new ArrayList<>();
 							ids.add( calendar_Event.getId() );
-							wo = new WrapBoolean( true );
+							wo.setValue( true );
 						} catch (Exception e) {
 							check = false;
 							exception = new ExceptionMessageProcess( e, "处理消息信息时发生异常." );
@@ -70,7 +70,7 @@ public class ActionMessageReceive extends BaseAction {
 					}
 				}else if( "calendar_event_delete".equalsIgnoreCase( message.getType() ) ) {
 					deleteCalendarEvent( message );
-					wo = new WrapBoolean( true );
+					wo.setValue( true );
 				}
 			}
 		}

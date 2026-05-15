@@ -35,10 +35,10 @@ class V3Pin extends BaseAction {
 			emc.beginTransaction(Task.class);
 			if (Objects.isNull(task.getOrderNumber())) {
 				task.setOrderNumber(-(new Date()).getTime());
-				wo = new WrapBoolean(true);
+				wo.setValue(true);
 			} else {
 				task.setOrderNumber(null);
-				wo = new WrapBoolean(false);
+				wo.setValue(false);
 			}
 			emc.persist(task, CheckPersistType.all);
 			emc.commit();

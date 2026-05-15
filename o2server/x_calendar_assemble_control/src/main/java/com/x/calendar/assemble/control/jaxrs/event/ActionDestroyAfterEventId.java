@@ -123,7 +123,7 @@ public class ActionDestroyAfterEventId extends BaseAction {
 		if( check ){
 			try {
 				count = calendar_EventServiceAdv.destoryAfterEventId( calendar_Event.getRepeatMasterId(), calendar_Event );
-				wo = new WrapInteger( count );
+				wo.setValue( count );
 				result.setData( wo );
 			} catch (Exception e) {
 				check = false;

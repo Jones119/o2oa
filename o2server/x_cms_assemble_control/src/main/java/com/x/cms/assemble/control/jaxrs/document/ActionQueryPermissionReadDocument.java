@@ -21,7 +21,7 @@ public class ActionQueryPermissionReadDocument extends BaseAction {
 		logger.debug(effectivePerson.getDistinguishedName());
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		wo = new WrapBoolean(false);
+		wo.setValue(false);
 		result.setData(wo);
 		try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
 			Business business = new Business(emc);
@@ -31,7 +31,7 @@ public class ActionQueryPermissionReadDocument extends BaseAction {
 					effectivePerson =  new EffectivePerson(queryPerson, TokenType.user,
 							Config.token().getCipher(), Config.person().getEncryptType());
 				}
-				wo = new WrapBoolean(business.isDocumentReader(effectivePerson, document));
+				wo.setValue(business.isDocumentReader(effectivePerson, document));
 			}
 		}
 		return result;

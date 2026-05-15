@@ -20,7 +20,7 @@ class ActionUseCapacity extends BaseAction {
 				queryPerson = person;
 			}
 			Wo wo = new Wo();
-			wo = new WrapLong(business.attachment2().getUseCapacity(queryPerson));
+			wo.setValue(business.attachment2().getUseCapacity(queryPerson));
 			result.setData(wo);
 			return result;
 		}

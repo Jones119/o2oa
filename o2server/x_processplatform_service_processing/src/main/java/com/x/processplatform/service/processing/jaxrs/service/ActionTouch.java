@@ -71,7 +71,7 @@ class ActionTouch extends BaseAction {
 				emc.check(work, CheckPersistType.all);
 				emc.commit();
 				Wo wo = new Wo();
-				wo = new WrapBoolean(true);
+				wo.setValue(true);
 				result.setData(wo);
 				return result;
 			}

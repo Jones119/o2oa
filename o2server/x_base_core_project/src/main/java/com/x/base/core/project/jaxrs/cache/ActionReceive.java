@@ -4,10 +4,10 @@ import jakarta.servlet.ServletContext;
 
 import com.google.gson.JsonElement;
 import com.x.base.core.project.cache.CacheManager;
+import com.x.base.core.project.gson.GsonRecord;
 import com.x.base.core.project.http.ActionResult;
 import com.x.base.core.project.http.EffectivePerson;
 import com.x.base.core.project.jaxrs.WrapClearCacheRequest;
-import com.x.base.core.project.jaxrs.WrapString;
 import com.x.base.core.project.logger.Logger;
 import com.x.base.core.project.logger.LoggerFactory;
 
@@ -28,12 +28,14 @@ class ActionReceive extends BaseAction {
 	}
 
 	@Schema(name = "com.x.base.core.project.jaxrs.cache.ActionReceive$Wo")
-	public static class Wo extends WrapString {
+	public record Wo(@Schema(description = "字符串值.") String value) implements GsonRecord {
 
-		public Wo(String str) {
-			super(str);
+		public Wo {
 		}
 
+		public Wo() {
+			this(null);
+		}
 	}
 
 	@Schema(name = "com.x.base.core.project.jaxrs.cache.ActionReceive$Wi")

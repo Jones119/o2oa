@@ -201,7 +201,7 @@ public class SerialBuilder {
 							Applications.joinQueryUri("work", "process", process.getId(), "name", name, "serial"), null,
 							process.getApplication())
 					.getData(WrapInteger.class);
-			return wrapInteger.value();
+			return wrapInteger.getValue();
 		}
 	}
 

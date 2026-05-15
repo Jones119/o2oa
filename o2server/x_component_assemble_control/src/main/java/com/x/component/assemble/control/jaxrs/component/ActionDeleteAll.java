@@ -35,7 +35,7 @@ class ActionDeleteAll extends BaseAction {
 			}
 			emc.commit();
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			CacheManager.notify(Component.class);
 			return result;

@@ -14,7 +14,7 @@ class ActionVersion extends BaseAction {
 	ActionResult<Wo> execute(EffectivePerson effectivePerson) throws Exception {
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		wo = new WrapString(Config.version());
+		wo.setValue(Config.version());
 		result.setData(wo);
 		return result;
 	}

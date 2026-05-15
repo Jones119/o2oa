@@ -92,12 +92,12 @@ class V2Projection extends BaseAction {
 		public ActionResult<Wo> call() throws Exception {
 			ActionResult<Wo> result = new ActionResult<>();
 			Wo wo = new Wo();
-			wo = new WrapBoolean(false);
+			wo.setValue(false);
 			try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
 				List<Projection> projections = listProjections(process);
 				if (ListTools.isNotEmpty(projections)) {
 					projection(new Business(emc), job, data, projections);
-					wo = new WrapBoolean(true);
+					wo.setValue(true);
 				}
 			}
 			result.setData(wo);

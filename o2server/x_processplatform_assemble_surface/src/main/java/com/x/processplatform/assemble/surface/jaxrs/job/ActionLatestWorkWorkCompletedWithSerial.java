@@ -50,7 +50,7 @@ class ActionLatestWorkWorkCompletedWithSerial extends BaseAction {
 			Pair o = pairs.stream().sorted(Comparator.comparing(Pair::getCreateTime).reversed()).findFirst()
 					.orElse(null);
 			if (null != o) {
-				wo = new WrapString(o.getJob());
+				wo.setValue(o.getJob());
 			}
 			result.setData(wo);
 			return result;

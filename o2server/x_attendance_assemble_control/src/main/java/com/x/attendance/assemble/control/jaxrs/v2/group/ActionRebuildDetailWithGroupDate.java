@@ -44,7 +44,7 @@ public class ActionRebuildDetailWithGroupDate  extends BaseAction {
         if (!AttendanceV2Helper.beforeToday(date)) {
             ActionResult<Wo> result = new ActionResult<>();
             Wo wo = new Wo();
-            wo = new WrapBoolean(false);
+            wo.setValue(false);
             result.setData(wo);
             return result;
         }
@@ -75,7 +75,7 @@ public class ActionRebuildDetailWithGroupDate  extends BaseAction {
             }
             ActionResult<Wo> result = new ActionResult<>();
             Wo wo = new Wo();
-            wo = new WrapBoolean(true);
+            wo.setValue(true);
             result.setData(wo);
             return result;
         }

@@ -2,12 +2,24 @@ package com.x.base.core.project.jaxrs;
 
 import com.x.base.core.project.gson.GsonRecord;
 
-public record WrapInteger(Integer value) implements GsonRecord {
+public class WrapInteger implements GsonRecord {
 
-    public WrapInteger {
-    }
+	private static final long serialVersionUID = 1L;
 
-    public WrapInteger() {
-        this(null);
-    }
+	private Integer value;
+
+	public WrapInteger() {
+	}
+
+	public WrapInteger(Integer value) {
+		this.value = value;
+	}
+
+	public Integer getValue() {
+		return value;
+	}
+
+	public void setValue(Integer value) {
+		this.value = value;
+	}
 }

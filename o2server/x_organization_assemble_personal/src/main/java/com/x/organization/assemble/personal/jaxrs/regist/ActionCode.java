@@ -36,7 +36,7 @@ class ActionCode extends BaseAction {
 			}
 			business.instrument().code().create(mobile);
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

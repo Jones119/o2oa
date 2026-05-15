@@ -64,10 +64,10 @@ public class ActionToHtml extends BaseAction {
 		Wo wo = new Wo();
 		switch (type) {
 		case (TYPE_DOC):
-			wo = new WrapString(this.doc(bytes));
+			wo.setValue(this.doc(bytes));
 			break;
 		case (TYPE_DOCX):
-			wo = new WrapString(this.docx(bytes));
+			wo.setValue(this.docx(bytes));
 			break;
 		default:
 			throw new ExceptionUnsupportType(type);

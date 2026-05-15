@@ -22,7 +22,7 @@ public class ActionPostCreate extends BaseAction {
 		ActionResult<Wo> result = new ActionResult<>();
 		byte[] bytes = this.create(wi.getWidth(), wi.getHeight(), wi.getText());
 		Wo wo = new Wo();
-		wo = new WrapString(Base64.encodeBase64String(bytes));
+		wo.setValue(Base64.encodeBase64String(bytes));
 		result.setData(wo);
 		return result;
 	}

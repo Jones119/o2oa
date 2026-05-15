@@ -23,7 +23,7 @@ class ActionSet extends BaseAction {
 		missionSetSecret.setSecret(wi.getSecret());
 		ThisApplication.setMissionSetSecret(missionSetSecret);
 		Wo wo = new Wo();
-		wo = new WrapBoolean(true);
+		wo.setValue(true);
 		result.setData(wo);
 		return result;
 	}

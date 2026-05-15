@@ -42,12 +42,12 @@ class ActionSetWithPersonWithName extends BaseAction {
 			Business business = new Business(emc);
 			Person person = business.person().pick(wi.getPerson());
 			if (null == person) {
-				wo = new WrapBoolean(false);
+				wo.setValue(false);
 				logger.warn("user {} set personAttribute {} fail, person {} not exist.",
 						effectivePerson.getDistinguishedName(), StringUtils.join(wi.getAttributeList(), ","),
 						wi.getPerson());
 			} else if (!enable(business, effectivePerson, person)) {
-				wo = new WrapBoolean(false);
+				wo.setValue(false);
 				logger.warn("user {} set personAttribute person: {}, value: {} fail, permission denied.",
 						effectivePerson.getDistinguishedName(), wi.getPerson(),
 						StringUtils.join(wi.getAttributeList(), ","));
@@ -66,7 +66,7 @@ class ActionSetWithPersonWithName extends BaseAction {
 					personAttribute.setPerson(person.getId());
 					emc.check(personAttribute, CheckPersistType.all);
 				}
-				wo = new WrapBoolean(true);
+				wo.setValue(true);
 				emc.commit();
 				CacheManager.notify(PersonAttribute.class);
 				CacheManager.notify(Person.class);

@@ -31,12 +31,12 @@ class ActionGetNickName extends BaseAction {
 					person = business.person().pick(flag);
 				}
 				if(person==null) {
-					wo = new WrapString(flag);
+					wo.setValue(flag);
 				}else{
 					if(StringUtils.isNoneBlank(person.getNickName())){
-						wo = new WrapString(person.getNickName());
+						wo.setValue(person.getNickName());
 					}else{
-						wo = new WrapString(person.getName());
+						wo.setValue(person.getName());
 					}
 				}
 				CacheManager.put(cacheCategory, cacheKey, wo);

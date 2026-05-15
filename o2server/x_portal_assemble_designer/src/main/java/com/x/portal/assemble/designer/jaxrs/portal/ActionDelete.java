@@ -54,7 +54,7 @@ class ActionDelete extends BaseAction {
 			CacheManager.notify(Script.class);
 			CacheManager.notify(File.class);
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

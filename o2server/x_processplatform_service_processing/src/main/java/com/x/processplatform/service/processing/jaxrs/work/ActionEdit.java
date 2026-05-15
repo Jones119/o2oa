@@ -50,7 +50,7 @@ class ActionEdit extends BaseAction {
 					emc.commit();
 					ActionResult<Wo> result = new ActionResult<>();
 					Wo wo = new Wo();
-					wo = new WrapBoolean(true);
+					wo.setValue(true);
 					result.setData(wo);
 					return result;
 				}

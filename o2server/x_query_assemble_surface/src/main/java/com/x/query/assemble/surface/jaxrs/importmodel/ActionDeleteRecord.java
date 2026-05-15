@@ -39,7 +39,7 @@ class ActionDeleteRecord extends BaseAction {
 			emc.remove(record);
 			emc.commit();
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

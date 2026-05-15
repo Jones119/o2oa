@@ -35,7 +35,7 @@ class ActionAvailable extends BaseAction {
 
 			Boolean exist = o.existContent(mapping);
 			Wo wo = new Wo();
-			wo = new WrapBoolean(exist);
+			wo.setValue(exist);
 			result.setData(wo);
 		}
 		return result;

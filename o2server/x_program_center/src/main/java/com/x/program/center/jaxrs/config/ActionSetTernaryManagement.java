@@ -55,7 +55,7 @@ public class ActionSetTernaryManagement extends BaseAction {
 		Config.ternaryManagement().save();
 		this.configFlush(effectivePerson);
 		Wo wo = new Wo();
-		wo = new WrapBoolean(true);
+		wo.setValue(true);
 		result.setData(wo);
 		return result;
 	}

@@ -82,7 +82,7 @@ class ActionHasRole extends BaseAction {
 
 	private Wo get(Business business, Wi wi) throws Exception {
 		Wo wo = new Wo();
-		wo = new WrapBoolean(false);
+		wo.setValue(false);
 		if (StringUtils.isEmpty(wi.getGroup()) || ListTools.isEmpty(wi.getRoleList())) {
 			return wo;
 		}
@@ -107,7 +107,7 @@ class ActionHasRole extends BaseAction {
 				.getResultList().stream().distinct().collect(Collectors.toList());
 		boolean value = ListTools.containsAny(os,
 				ListTools.extractProperty(roles, JpaObject.id_FIELDNAME, String.class, true, true));
-		wo = new WrapBoolean(value);
+		wo.setValue(value);
 		return wo;
 	}
 

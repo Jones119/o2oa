@@ -1,9 +1,9 @@
 package com.x.base.core.project.jaxrs.cache;
 
 import com.x.base.core.project.config.Config;
+import com.x.base.core.project.gson.GsonRecord;
 import com.x.base.core.project.http.ActionResult;
 import com.x.base.core.project.http.EffectivePerson;
-import com.x.base.core.project.jaxrs.WrapBoolean;
 import com.x.base.core.project.logger.Logger;
 import com.x.base.core.project.logger.LoggerFactory;
 import com.x.base.core.project.scripting.GraalvmScriptingFactory;
@@ -17,16 +17,18 @@ class ActionCommonScriptFlush extends BaseAction {
 		ActionResult<Wo> result = new ActionResult<>();
 		Config.flush();
 		GraalvmScriptingFactory.flush();
-		Wo wo = new Wo();
-		wo = new WrapBoolean(true);
-		result.setData(wo);
+		result.setData(new Wo(true));
 		return result;
 	}
 
-	public static class Wo extends WrapBoolean {
+	public record Wo(Boolean value) implements GsonRecord {
 
-		private static final long serialVersionUID = -981020846674268676L;
+		public Wo {
+		}
 
+		public Wo() {
+			this(null);
+		}
 	}
 
 }

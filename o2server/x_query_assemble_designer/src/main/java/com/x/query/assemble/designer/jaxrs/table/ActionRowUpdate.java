@@ -38,14 +38,14 @@ class ActionRowUpdate extends BaseAction {
 			Class<? extends JpaObject> cls = (Class<JpaObject>) classLoader.loadClass(dynamicEntity.className());
 			JpaObject o = emc.find(id, cls);
 			Wo wo = new Wo();
-			wo = new WrapBoolean(false);
+			wo.setValue(false);
 			if (null != o) {
 				JpaObject n = XGsonBuilder.instance().fromJson(jsonElement, cls);
 				n.copyTo(o, JpaObject.FieldsUnmodify);
 				emc.beginTransaction(cls);
 				emc.check(o, CheckPersistType.all);
 				emc.commit();
-				wo = new WrapBoolean(true);
+				wo.setValue(true);
 			}
 			result.setData(wo);
 			return result;

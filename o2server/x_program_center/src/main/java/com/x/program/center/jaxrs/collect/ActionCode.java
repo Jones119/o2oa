@@ -12,14 +12,14 @@ class ActionCode extends BaseAction {
 	ActionResult<Wo> execute(EffectivePerson effectivePerson, String mobile) throws Exception {
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		wo = new WrapBoolean(true);
+		wo.setValue(true);
 		if (BooleanUtils.isNotTrue(this.connect())) {
 			throw new ExceptionUnableConnect();
 		}
 		if (!Config.person().isMobile(mobile)) {
 			throw new ExceptionInvalidMobile(mobile);
 		}
-		wo = new WrapBoolean(this.code(mobile));
+		wo.setValue(this.code(mobile));
 		result.setData(wo);
 		return result;
 	}

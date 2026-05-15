@@ -34,16 +34,16 @@ class ActionEnableType extends BaseAction {
 			Wo wo = new Wo();
 
 			if (BooleanUtils.isTrue(Config.qiyeweixin().getEnable())) {
-				wo = new WrapString(Mass.TYPE_QIYEWEIXIN);
+				wo.setValue(Mass.TYPE_QIYEWEIXIN);
 			} else if (BooleanUtils.isTrue(Config.dingding().getEnable())) {
-				wo = new WrapString(Mass.TYPE_DINGDING);
+				wo.setValue(Mass.TYPE_DINGDING);
 			} else if (BooleanUtils.isTrue(Config.zhengwuDingding().getEnable())) {
-				wo = new WrapString(Mass.TYPE_ZHENGWUDINGDING);
+				wo.setValue(Mass.TYPE_ZHENGWUDINGDING);
 			} else if (BooleanUtils.isTrue(Config.weLink().getEnable())
 					&& BooleanUtils.isTrue(Config.weLink().getMessageEnable())) {
-				wo = new WrapString(Mass.TYPE_WELINK);
+				wo.setValue(Mass.TYPE_WELINK);
 			} else {
-				wo = new WrapString("");
+				wo.setValue("");
 			}
 			result.setData(wo);
 			return result;

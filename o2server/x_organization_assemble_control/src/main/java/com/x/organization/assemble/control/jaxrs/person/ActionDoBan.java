@@ -59,7 +59,7 @@ class ActionDoBan extends BaseAction {
 			CacheManager.notify(Role.class);
 			CacheManager.notify(Group.class);
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

@@ -25,7 +25,7 @@ class ActionGetSelectConfig extends BaseAction {
 				throw new ExceptionEntityNotExist(id, Route.class);
 			}
 			Wo wo = new Wo();
-			wo = new WrapString(route.getSelectConfig());
+			wo.setValue(route.getSelectConfig());
 			result.setData(wo);
 			return result;
 		}

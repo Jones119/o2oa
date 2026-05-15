@@ -25,7 +25,7 @@ class ActionUpload extends BaseAction {
 			emc.persist(custom, CheckPersistType.all);
 			emc.commit();
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

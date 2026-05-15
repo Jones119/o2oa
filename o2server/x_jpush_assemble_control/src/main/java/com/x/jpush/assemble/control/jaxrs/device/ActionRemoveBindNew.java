@@ -45,9 +45,9 @@ public class ActionRemoveBindNew extends BaseAction {
 				EntityManager m = emc.beginTransaction(PushDevice.class);
 				emc.delete(PushDevice.class, pushDevice.getId());
 				m.getTransaction().commit();
-				wraps = new WrapBoolean(true);
+				wraps.setValue(true);
 			} else {
-				wraps = new WrapBoolean(true);
+				wraps.setValue(true);
 				result.setMessage("当前设备不存在，无需解绑！");
 			}
 //            List<String> deviceList = business.organization().personAttribute()
@@ -56,14 +56,14 @@ public class ActionRemoveBindNew extends BaseAction {
 //            if(ListTools.isNotEmpty( deviceList ) ){
 //                if (deviceList.contains(device)) {
 //                    deviceList.remove(device);
-//                    wraps = new WrapBoolean(business.organization().personAttribute()
+//                    wraps.setValue(business.organization().personAttribute()
 //                            .setWithPersonWithName(effectivePerson.getDistinguishedName(), ActionListAll.DEVICE_PERSON_ATTR_KEY, deviceList));
 //                }else {
-//                    wraps = new WrapBoolean(true);
+//                    wraps.setValue(true);
 //                    result.setMessage("当前设备不存在，无需解绑！");
 //                }
 //            }else {
-//                wraps = new WrapBoolean(true);
+//                wraps.setValue(true);
 //                result.setMessage("当前设备不存在，无需解绑！");
 //            }
 			result.setData(wraps);

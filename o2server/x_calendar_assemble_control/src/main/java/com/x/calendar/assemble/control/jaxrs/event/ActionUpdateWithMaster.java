@@ -164,7 +164,7 @@ public class ActionUpdateWithMaster extends BaseAction {
 		if( check ){
 			try {
 				count = calendar_EventServiceAdv.updateWithMaster( calendar_Event.getRepeatMasterId(), new_Event, effectivePerson);
-				wo = new WrapInteger( count );
+				wo.setValue( count );
 				result.setData( wo );
 			} catch (Exception e) {
 				check = false;

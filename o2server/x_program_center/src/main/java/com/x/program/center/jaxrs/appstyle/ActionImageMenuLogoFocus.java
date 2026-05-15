@@ -65,7 +65,7 @@ class ActionImageMenuLogoFocus extends BaseAction {
 			Config.appStyle().setImages(new TreeSet<>(images));
 			Config.appStyle().save();
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			Config.flush();
 			return result;

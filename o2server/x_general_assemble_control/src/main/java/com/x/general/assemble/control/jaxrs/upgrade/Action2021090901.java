@@ -29,7 +29,7 @@ public class Action2021090901 extends BaseAction {
 
 			Wo wo = new Wo();
 
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 
 			result.setData(wo);
 

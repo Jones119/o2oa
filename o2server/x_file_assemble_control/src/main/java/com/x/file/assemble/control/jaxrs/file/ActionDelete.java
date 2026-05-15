@@ -19,7 +19,7 @@ class ActionDelete extends BaseAction {
 		map.put(FileRemoveQueue.REFERENCE, reference);
 		ThisApplication.fileRemoveQueue.send(map);
 		Wo wo = new Wo();
-		wo = new WrapBoolean(true);
+		wo.setValue(true);
 		result.setData(wo);
 		return result;
 	}

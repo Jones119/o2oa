@@ -14,7 +14,7 @@ class ActionDisconnect extends BaseAction {
 		if (BooleanUtils.isNotTrue(Config.general().getConfigApiEnable())) {
 			throw new ExceptionModifyConfig();
 		}
-		wo = new WrapBoolean(true);
+		wo.setValue(true);
 		Config.collect().setEnable(false);
 		Config.collect().save();
 		Config.flush();

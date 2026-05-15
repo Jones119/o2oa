@@ -50,7 +50,7 @@ class ActionCreate extends BaseAction {
 		v3Save(instant, messages);
 		this.v3SendMessage(messages);
 		Wo wo = new Wo();
-		wo = new WrapBoolean(true);
+		wo.setValue(true);
 		result.setData(wo);
 		return result;
 	}

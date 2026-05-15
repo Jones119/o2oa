@@ -55,7 +55,7 @@ class ActionRowDeleteAll extends BaseAction {
 				}
 			} while (!ids.isEmpty());
 			Wo wo = new Wo();
-			wo = new WrapLong(count);
+			wo.setValue(count);
 			result.setData(wo);
 			return result;
 		}

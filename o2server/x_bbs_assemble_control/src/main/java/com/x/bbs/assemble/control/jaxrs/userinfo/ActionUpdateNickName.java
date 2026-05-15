@@ -17,7 +17,7 @@ public class ActionUpdateNickName extends BaseAction {
 		if(!effectivePerson.isManager()){
 			person = effectivePerson.getDistinguishedName();
 		}
-		wrap = new WrapBoolean(true);
+		wrap.setValue(true);
 		ThisApplication.nickNameConsumeQueue.send(person);
 		return result;
 	}

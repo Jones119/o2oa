@@ -28,7 +28,7 @@ class ActionCreate extends BaseAction {
         ActionResult<Wo> result = new ActionResult<>();
         Wi wi = this.convertToWrapIn(jsonElement, Wi.class);
         Wo wo = new Wo();
-        wo = new WrapBoolean(false);
+        wo.setValue(false);
 
         for (Entry<Session, String> entry : ThisApplication.wsClients().entrySet()) {
             if (StringUtils.equals(entry.getValue(), wi.getPerson())) {
@@ -36,7 +36,7 @@ class ActionCreate extends BaseAction {
                 if (session != null && session.isOpen()) {
                     LOGGER.debug("send ws, message: {}.", () -> wi);
                     session.getBasicRemote().sendText(jsonElement.toString());
-                    wo = new WrapBoolean(true);
+                    wo.setValue(true);
                 }
             }
         }

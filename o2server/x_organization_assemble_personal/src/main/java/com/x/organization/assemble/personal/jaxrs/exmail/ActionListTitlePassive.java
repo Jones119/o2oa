@@ -54,7 +54,7 @@ class ActionListTitlePassive extends BaseAction {
 			ExtendExmail extendExmail = gson.fromJson(personExtend.getExtend(), ExtendExmail.class);
 			for (String str : extendExmail.getTitleList()) {
 				Wo wo = new Wo();
-				wo = new WrapString(str);
+				wo.setValue(str);
 				wos.add(wo);
 			}
 		}

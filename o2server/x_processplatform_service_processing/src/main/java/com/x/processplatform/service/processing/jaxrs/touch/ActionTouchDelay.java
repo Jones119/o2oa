@@ -22,7 +22,7 @@ class ActionTouchDelay extends BaseAction {
 			ActionResult<Wo> result = new ActionResult<>();
 			ThisApplication.context().scheduleLocal(TouchDelay.class, 1);
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

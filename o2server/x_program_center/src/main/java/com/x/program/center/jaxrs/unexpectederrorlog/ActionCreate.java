@@ -28,7 +28,7 @@ class ActionCreate extends BaseAction {
 		pair.setValue(o);
 		ThisApplication.logQueue.send(pair);
 		Wo wo = new Wo();
-		wo = new WrapBoolean(true);
+		wo.setValue(true);
 		result.setData(wo);
 		return result;
 	}

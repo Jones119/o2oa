@@ -94,7 +94,7 @@ class ActionCreate extends BaseAction {
 			this.createIdentity(person, wi.getUnit());
 		}
 		Wo wo = new Wo();
-		wo = new WrapBoolean(true);
+		wo.setValue(true);
 		result.setData(wo);
 		return result;
 	}

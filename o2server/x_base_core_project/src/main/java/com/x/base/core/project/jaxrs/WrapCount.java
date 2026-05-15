@@ -2,16 +2,24 @@ package com.x.base.core.project.jaxrs;
 
 import com.x.base.core.project.gson.GsonRecord;
 
-public record WrapCount(Long count) implements GsonRecord {
+public class WrapCount implements GsonRecord {
 
-    public WrapCount {
-    }
+	private static final long serialVersionUID = 1L;
 
-    public WrapCount() {
-        this(null);
-    }
+	private Long count;
 
-    public WrapCount(Integer o) {
-        this(o != null ? o.longValue() : null);
-    }
+	public WrapCount() {
+	}
+
+	public WrapCount(Long count) {
+		this.count = count;
+	}
+
+	public Long getCount() {
+		return count;
+	}
+
+	public void setCount(Long count) {
+		this.count = count;
+	}
 }

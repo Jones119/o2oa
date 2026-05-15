@@ -48,14 +48,14 @@ class ActionOauthBind extends BaseAction {
 		oauthCheckCredential(credential);
 		LOGGER.debug("credential:{}", credential);
 		Wo wo = new Wo();
-		wo = new WrapBoolean(false);
+		wo.setValue(false);
 		if (!Config.token().isInitialManager(credential)) {
 			try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
 				Person o = emc.flag(effectivePerson.getDistinguishedName(), Person.class);
 				if (null != o) {
 					emc.beginTransaction(Person.class);
 					PropertyUtils.setProperty(o, oauthClient.getBindingField(), credential);
-					wo = new WrapBoolean(true);
+					wo.setValue(true);
 					emc.commit();
 				}
 			}

@@ -4,12 +4,24 @@ import java.util.Date;
 
 import com.x.base.core.project.gson.GsonRecord;
 
-public record WrapDate(Date date) implements GsonRecord {
+public class WrapDate implements GsonRecord {
 
-    public WrapDate {
-    }
+	private static final long serialVersionUID = 1L;
 
-    public WrapDate() {
-        this(null);
-    }
+	private Date date;
+
+	public WrapDate() {
+	}
+
+	public WrapDate(Date date) {
+		this.date = date;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
 }

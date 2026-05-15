@@ -10,7 +10,7 @@ class ActionGetDisableExportEnable extends BaseAction {
 	ActionResult<Wo> execute(EffectivePerson effectivePerson) throws Exception {
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		wo = new WrapBoolean(Config.general().getDisableExportEnable());
+		wo.setValue(Config.general().getDisableExportEnable());
 		result.setData(wo);
 		return result;
 	}

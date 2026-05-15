@@ -26,7 +26,7 @@ class ActionLowFreqWorkReset extends BaseAction {
         LOGGER.info("execute:{}.", effectivePerson::getDistinguishedName);
         ActionResult<Wo> result = new ActionResult<>();
         Wo wo = new Wo();
-        wo = new WrapBoolean(false);
+        wo.setValue(false);
         try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
             List<State> list = new ArrayList<>();
             if (!StringUtils.equals(node, EMPTY_SYMBOL)) {
@@ -46,7 +46,7 @@ class ActionLowFreqWorkReset extends BaseAction {
                     emc.remove(state);
                 }
                 emc.commit();
-                wo = new WrapBoolean(true);
+                wo.setValue(true);
             }
         }
         result.setData(wo);

@@ -14,7 +14,7 @@ public class ActionInDefinedHoliday extends BaseAction {
 		ActionResult<Wo> result = new ActionResult<>();
 		Date value = DateTools.parse(date);
 		Wo wo = new Wo();
-		wo = new WrapBoolean(Config.workTime().inDefinedHoliday(value));
+		wo.setValue(Config.workTime().inDefinedHoliday(value));
 		result.setData(wo);
 		return result;
 	}

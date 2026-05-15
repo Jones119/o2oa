@@ -17,7 +17,7 @@ public class ActionTest1 extends BaseAction {
 	protected ActionResult<Wo> execute(HttpServletRequest request, EffectivePerson effectivePerson) throws Exception {
 		ActionResult<Wo> result = new ActionResult<>();
 		Wo wo = new Wo();
-		wo = new WrapBoolean(true);
+		wo.setValue(true);
 		ThisApplication.context().scheduleLocal(AlarmTrigger.class,1);
 		result.setData(wo);
 		return result;

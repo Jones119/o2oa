@@ -26,7 +26,7 @@ class ActionToken extends BaseAction {
 			throw new ExceptionClientNotExist(wi.getClient());
 		}
 
-		wo = new WrapString(Crypto.encrypt(effectivePerson.getDistinguishedName() + SPLIT + System.currentTimeMillis(),
+		wo.setValue(Crypto.encrypt(effectivePerson.getDistinguishedName() + SPLIT + System.currentTimeMillis(),
 				sso.getKey(), Config.person().getEncryptType()));
 		result.setData(wo);
 		return result;

@@ -27,7 +27,7 @@ class ActionGetCoverPic extends BaseAction {
 			Wo wo = new Wo();
 			List<Attachment> attList = emc.listEqualAndEqual(Attachment.class, Attachment.application_FIELDNAME, id, Attachment.type_FIELDNAME, "coverPic");
 			if(attList!=null && !attList.isEmpty()){
-				wo = new WrapString(attList.get(0).getIcon());
+				wo.setValue(attList.get(0).getIcon());
 			}
 			result.setData(wo);
 			return result;

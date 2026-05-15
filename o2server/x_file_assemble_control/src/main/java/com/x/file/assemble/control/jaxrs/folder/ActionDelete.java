@@ -50,7 +50,7 @@ class ActionDelete extends BaseAction {
 				m.getTransaction().commit();
 			}
 			Wo wo = new Wo();
-			wo = new WrapBoolean(true);
+			wo.setValue(true);
 			result.setData(wo);
 			return result;
 		}

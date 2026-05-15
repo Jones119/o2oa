@@ -109,7 +109,7 @@ class ActionCopyToDoc extends BaseAction {
 	public static class Wo extends WrapBoolean {
 		private static final long serialVersionUID = -5986602289699981815L;
 		public Wo() {
-			this.setValue(true);
+			super(true);
 		}
 	}
 
