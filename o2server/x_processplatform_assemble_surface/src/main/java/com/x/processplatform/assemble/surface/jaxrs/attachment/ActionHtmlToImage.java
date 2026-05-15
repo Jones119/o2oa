@@ -127,7 +127,7 @@ class ActionHtmlToImage extends BaseAction {
 			List<BrowserType> browserTypes = Arrays.asList(playwright.chromium(), playwright.firefox(),
 					playwright.webkit());
 			for (BrowserType browserType : browserTypes) {
-				LOGGER.print(STR."Playwright user browser:\{browserType.name()}");
+				LOGGER.print("Playwright user browser:" + browserType.name());
 				BrowserType.LaunchOptions options = new BrowserType.LaunchOptions();
 				options.setHeadless(true);
 				try (Browser browser = browserType.launch(options);

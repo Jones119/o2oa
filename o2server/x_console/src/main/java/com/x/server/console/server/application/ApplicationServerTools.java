@@ -83,7 +83,7 @@ public class ApplicationServerTools extends JettySeverTools {
             // Servers.centerServer = server;
             LOGGER.print("****************************************");
             LOGGER.print("* center server is started in the application server.");
-            LOGGER.print(STR."* port: \{Config.currentNode().getApplication().getPort()}.");
+            LOGGER.print("* port: " + Config.currentNode().getApplication().getPort() + ".");
             LOGGER.print("****************************************");
         }
 
@@ -103,7 +103,7 @@ public class ApplicationServerTools extends JettySeverTools {
 
         LOGGER.print("****************************************");
         LOGGER.print("* application server start completed.");
-        LOGGER.print(STR."* port: \{applicationServer.getPort()}.");
+        LOGGER.print("* port: " + applicationServer.getPort() + ".");
         LOGGER.print("****************************************");
         return server;
     }

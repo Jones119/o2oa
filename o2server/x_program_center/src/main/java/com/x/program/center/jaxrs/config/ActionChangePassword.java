@@ -110,7 +110,7 @@ class ActionChangePassword extends BaseAction {
             if (BooleanUtils.isTrue(o.getEnable()) && (!Config.externalDataSources().enable())) {
                 try (Connection conn = DriverManager.getConnection(
                         "jdbc:h2:tcp://" + en.getKey() + ":" + o.getTcpPort() + "/X", "sa", oldPassword)) {
-                    RunScript.execute(conn, new StringReader(STR."ALTER USER SA SET PASSWORD '\{newPassword}'"));
+                    RunScript.execute(conn, new StringReader("ALTER USER SA SET PASSWORD '" + newPassword + "'"));
                 } catch (Exception e) {
                     throw new IllegalStateException("Verify that the dataServer:" + en.getKey()
                             + " is started and that the dataServer password is updated synchronously.", e);

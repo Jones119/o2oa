@@ -50,7 +50,7 @@ public class ActionSyncOrganizationCallbackUrlRegister extends BaseAction {
             }else {
                 address = Config.dingding().getOapiAddress() + "/call_back/update_call_back?access_token=" + Config.dingding().corpAccessToken();
             }
-            logger.info(STR."register url :\{address}");
+            logger.info("register url :" + address);
             DingdingMessageResp resp = HttpConnection.postAsObject(address, null, registerObject.toString(), DingdingMessageResp.class);
             if (resp.getErrcode() != 0) {
                 throw  new ExceptionRegisterCallbackMessage(resp.getErrcode(), resp.getErrmsg());

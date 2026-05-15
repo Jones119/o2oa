@@ -30,8 +30,8 @@ public class ActionPackInfoLogoDownload extends BaseAction {
             if (optional.isPresent()) {
                 wo = (Wo) optional.get();
             } else {
-                String url = STR."\{Config.collect().appPackServerUrl()}\{info.getAppLogoPath()}?token=\{getPackServerSSOToken()}";
-                logger.info(STR."下载 logo 的url： \{url}");
+                String url = Config.collect().appPackServerUrl() + info.getAppLogoPath() + "?token=" + getPackServerSSOToken();
+                logger.info("下载 logo 的url： " + url);
                 byte[] bytes = ConnectionAction.getBinary(url, null);
                 wo = new Wo(bytes, this.contentType(false, "logo.png"),
                         this.contentDisposition(false, "logo.png"));

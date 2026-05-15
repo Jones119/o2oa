@@ -67,12 +67,12 @@ public class ActionDateIsRestDay extends BaseAction {
           continue;
         }
         if (logger.isDebugEnabled()) {
-          logger.debug(STR."date: \{date}");
+          logger.debug("date: " + date);
         }
         // 周几 0-6 代表 星期天 - 星期六
         int day = DateTools.dayForWeekAttendanceV2(d);
         if (logger.isDebugEnabled()) {
-          logger.debug(STR."day: \{day}");
+          logger.debug("day: " + day);
         }
         // 是否工作日
         boolean isWorkDay = false;
@@ -104,7 +104,7 @@ public class ActionDateIsRestDay extends BaseAction {
       wo.setRestDateList(restDateList);
       result.setData(wo);
       if (logger.isDebugEnabled()) {
-        logger.debug(STR."restDateList: \{ListTools.toStringJoin(restDateList)}");
+        logger.debug("restDateList: " + ListTools.toStringJoin(restDateList));
       }
       return result;
     }
@@ -120,12 +120,12 @@ public class ActionDateIsRestDay extends BaseAction {
         continue;
       }
       if (logger.isDebugEnabled()) {
-        logger.debug(STR."date: \{date}");
+        logger.debug("date: " + date);
       }
       // 周几 0-6 代表 星期天 - 星期六
       int day = DateTools.dayForWeekAttendanceV2(d);
       if (logger.isDebugEnabled()) {
-        logger.debug(STR."day: \{day}");
+        logger.debug("day: " + day);
       }
       if (day == 0 || day == 6) {
         restDateList.add(date);

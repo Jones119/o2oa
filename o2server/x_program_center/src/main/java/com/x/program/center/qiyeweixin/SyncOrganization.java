@@ -73,7 +73,7 @@ public class SyncOrganization {
 		logger.print("开始与企业微信进行人员 userid 的绑定.");
 		PullResult result = new PullResult();
 		String accessToken = Config.qiyeweixin().syncAccessToken();
-		logger.print(STR."accessToken：\{accessToken}");
+		logger.print("accessToken：" + accessToken);
 		QiyeweixinFactory factory = new QiyeweixinFactory(accessToken);
 		for (User user : factory.getUsers()) {
 			this.checkBindPerson(business, result, user);
@@ -92,7 +92,7 @@ public class SyncOrganization {
 		logger.print("开始与企业微信同步组织,方向:拉入.");
 		PullResult result = new PullResult();
 		String accessToken = Config.qiyeweixin().syncAccessToken();
-		logger.print(STR."accessToken：\{accessToken}");
+		logger.print("accessToken：" + accessToken);
 		List<Unit> units = new ArrayList<>();
 		List<Person> people = new ArrayList<>();
 		List<PersonAttribute> personAttributes = new ArrayList<>();

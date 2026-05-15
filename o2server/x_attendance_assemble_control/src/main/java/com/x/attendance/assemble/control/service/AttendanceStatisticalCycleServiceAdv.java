@@ -181,7 +181,7 @@ public class AttendanceStatisticalCycleServiceAdv {
 			unitAttendanceStatisticalCycleMap = topUnitAttendanceStatisticalCycleMap.get( q_topUnitName );
 			if( unitAttendanceStatisticalCycleMap != null ){
 				topUnitName = q_topUnitName;
-				logger.info(STR."0>>>>>>>>>>查询到顶层组织[\{topUnitName}]的统计周期配置");
+				logger.info("0>>>>>>>>>>查询到顶层组织[" + topUnitName + "]的统计周期配置");
 				//存在当前顶层组织的配置信息，再根据组织查询组织的配置列表是否存在[topUnit - unit]
 				unitCycles = unitAttendanceStatisticalCycleMap.get( q_unitName );
 				if( unitCycles != null){

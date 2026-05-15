@@ -182,12 +182,12 @@ public class DingdingConsumeQueue extends AbstractQueue<Message> {
 					workUrl += "&redirectlink=" + portal;
 				}
 				// 2021-11-1 钉钉那边无法使用了 不能进行encode 否则签名不通过
-				LOGGER.debug(STR."o2oa workUrl：\{workUrl}");
+				LOGGER.debug("o2oa workUrl：" + workUrl);
 				o2oaUrl = o2oaUrl + URLEncoder.encode(workUrl, DefaultCharset.name);
 			} else {
 				o2oaUrl = o2oaUrl + URLEncoder.encode(openPage, DefaultCharset.name);
 			}
-			LOGGER.info(STR."o2oa 地址：\{o2oaUrl}");
+			LOGGER.info("o2oa 地址：" + o2oaUrl);
 			return o2oaUrl+"&encode=true";
 		} catch (Exception e) {
 			LOGGER.error(e);
@@ -268,7 +268,7 @@ public class DingdingConsumeQueue extends AbstractQueue<Message> {
 				} else {
 					o2oaUrl = o2oaUrl + URLEncoder.encode(openPage, DefaultCharset.name);
 				}
-				LOGGER.info(STR."o2oa 业务地址：\{o2oaUrl}");
+				LOGGER.info("o2oa 业务地址：" + o2oaUrl);
 				return o2oaUrl+"&encode=true";
 			} catch (Exception e) {
 				LOGGER.error(e);

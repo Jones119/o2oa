@@ -144,43 +144,43 @@ public class AttendanceSelfHolidayFactory extends AbstractFactory {
         }
 
         Integer index = 1;
-        sql_stringBuffer.append(STR."SELECT o FROM \{AttendanceSelfHoliday.class.getCanonicalName()} o where 1=1");
+        sql_stringBuffer.append("SELECT o FROM " + AttendanceSelfHoliday.class.getCanonicalName() + " o where 1=1");
 
         if ((null != sequence)) {
             sql_stringBuffer.append(
-                    STR." and o.sequence \{StringUtils.equalsIgnoreCase(order, "DESC") ? "<" : ">"} ?\{index}");
+                    " and o.sequence " + (StringUtils.equalsIgnoreCase(order, "DESC") ? "<" : ">") + " ?" + index);
             vs.add(sequence);
             index++;
         }
         if ((null != wrapIn.getQ_empName()) && (!wrapIn.getQ_empName().isEmpty())) {
-            sql_stringBuffer.append(STR." and o.employeeName = ?\{index}");
+            sql_stringBuffer.append(" and o.employeeName = ?" + index);
             vs.add(wrapIn.getQ_empName());
             index++;
         }
         if (null != wrapIn.getUnitNames() && wrapIn.getUnitNames().size() > 0) {
-            sql_stringBuffer.append(STR." and o.unitOu in ( ?\{index})");
+            sql_stringBuffer.append(" and o.unitOu in ( ?" + index + ")");
             vs.add(wrapIn.getUnitNames());
             index++;
         }
         if (null != wrapIn.getTopUnitNames() && wrapIn.getTopUnitNames().size() > 0) {
-            sql_stringBuffer.append(STR." and o.topUnitOu in ( ?\{index})");
+            sql_stringBuffer.append(" and o.topUnitOu in ( ?" + index + ")");
             vs.add(wrapIn.getTopUnitNames());
             index++;
         }
         if (null != wrapIn.getStartdate() && null != wrapIn.getEnddate()) {
-            sql_stringBuffer.append(STR." and o.startTime >=  ?\{index}");
+            sql_stringBuffer.append(" and o.startTime >=  ?" + index);
             vs.add(wrapIn.getStartdate());
             index++;
 
-            sql_stringBuffer.append(STR." and o.endTime <= ?\{index}");
+            sql_stringBuffer.append(" and o.endTime <= ?" + index);
             vs.add(wrapIn.getEnddate());
             index++;
         }
 
         if (StringUtils.isNotEmpty(wrapIn.getKey())) {
-            sql_stringBuffer.append(STR." order by o.\{wrapIn.getKey()} \{order}");
+            sql_stringBuffer.append(" order by o." + wrapIn.getKey() + " " + order);
         } else {
-            sql_stringBuffer.append(STR." order by o.sequence \{order}");
+            sql_stringBuffer.append(" order by o.sequence " + order);
         }
 
         Query query = em.createQuery(sql_stringBuffer.toString(), AttendanceSelfHoliday.class);
@@ -216,33 +216,33 @@ public class AttendanceSelfHolidayFactory extends AbstractFactory {
             order = "DESC";
         }
 
-        sql_stringBuffer.append(STR."SELECT o FROM \{AttendanceSelfHoliday.class.getCanonicalName()} o where 1=1");
+        sql_stringBuffer.append("SELECT o FROM " + AttendanceSelfHoliday.class.getCanonicalName() + " o where 1=1");
         if ((null != sequence)) {
             sql_stringBuffer.append(
-                    STR." and o.sequence \{StringUtils.equalsIgnoreCase(order, "DESC") ? ">" : "<"} ?\{index}");
+                    " and o.sequence " + (StringUtils.equalsIgnoreCase(order, "DESC") ? ">" : "<") + " ?" + index);
             vs.add(sequence);
             index++;
         }
         if ((null != wrapIn.getQ_empName()) && (!wrapIn.getQ_empName().isEmpty())) {
-            sql_stringBuffer.append(STR." and o.employeeName = ?\{index}");
+            sql_stringBuffer.append(" and o.employeeName = ?" + index);
             vs.add(wrapIn.getQ_empName());
             index++;
         }
         if (null != wrapIn.getUnitNames() && wrapIn.getUnitNames().size() > 0) {
-            sql_stringBuffer.append(STR." and o.unitName in ( ?\{index})");
+            sql_stringBuffer.append(" and o.unitName in ( ?" + index + ")");
             vs.add(wrapIn.getUnitNames());
             index++;
         }
         if (null != wrapIn.getTopUnitNames() && wrapIn.getTopUnitNames().size() > 0) {
-            sql_stringBuffer.append(STR." and o.topUnitName in ( ?\{index})");
+            sql_stringBuffer.append(" and o.topUnitName in ( ?" + index + ")");
             vs.add(wrapIn.getTopUnitNames());
             index++;
         }
 
         if (StringUtils.isNotEmpty(wrapIn.getKey())) {
-            sql_stringBuffer.append(STR." order by o.\{wrapIn.getKey()} \{order}");
+            sql_stringBuffer.append(" order by o." + wrapIn.getKey() + " " + order);
         } else {
-            sql_stringBuffer.append(STR." order by o.sequence \{order}");
+            sql_stringBuffer.append(" order by o.sequence " + order);
         }
 
         Query query = em.createQuery(sql_stringBuffer.toString(), AttendanceSelfHoliday.class);
@@ -269,20 +269,20 @@ public class AttendanceSelfHolidayFactory extends AbstractFactory {
         Integer index = 1;
 
         sql_stringBuffer
-                .append(STR."SELECT count(o.id) FROM \{AttendanceSelfHoliday.class.getCanonicalName()} o where 1=1");
+                .append("SELECT count(o.id) FROM " + AttendanceSelfHoliday.class.getCanonicalName() + " o where 1=1");
 
         if ((null != wrapIn.getQ_empName()) && (!wrapIn.getQ_empName().isEmpty())) {
-            sql_stringBuffer.append(STR." and o.employeeName = ?\{index}");
+            sql_stringBuffer.append(" and o.employeeName = ?" + index);
             vs.add(wrapIn.getQ_empName());
             index++;
         }
         if (null != wrapIn.getUnitNames() && wrapIn.getUnitNames().size() > 0) {
-            sql_stringBuffer.append(STR." and o.unitName in ( ?\{index})");
+            sql_stringBuffer.append(" and o.unitName in ( ?" + index + ")");
             vs.add(wrapIn.getUnitNames());
             index++;
         }
         if (null != wrapIn.getTopUnitNames() && wrapIn.getTopUnitNames().size() > 0) {
-            sql_stringBuffer.append(STR." and o.topUnitName in ( ?\{index})");
+            sql_stringBuffer.append(" and o.topUnitName in ( ?" + index + ")");
             vs.add(wrapIn.getTopUnitNames());
             index++;
         }

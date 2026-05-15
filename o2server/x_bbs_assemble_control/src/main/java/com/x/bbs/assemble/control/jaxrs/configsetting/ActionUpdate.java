@@ -49,7 +49,7 @@ public class ActionUpdate extends BaseAction {
 				if (!userManagerService.isHasPlatformRole( effectivePerson.getDistinguishedName(),
 						ThisApplication.BBSMANAGER ) && !effectivePerson.isManager()) {
 					check = false;
-					logger.warn(STR."用户没有BBSManager角色，并且也不是系统管理员！USER：\{effectivePerson.getDistinguishedName()}");
+					logger.warn("用户没有BBSManager角色，并且也不是系统管理员！USER：" + effectivePerson.getDistinguishedName());
 					Exception exception = new ExceptionInsufficientPermissions(effectivePerson.getDistinguishedName(),
 							ThisApplication.BBSMANAGER);
 					result.error(exception);

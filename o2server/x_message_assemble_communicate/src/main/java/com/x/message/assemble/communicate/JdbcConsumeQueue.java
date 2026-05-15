@@ -107,7 +107,7 @@ public class JdbcConsumeQueue extends AbstractQueue<Message> {
         for (int i = 0; i < map.keySet().size(); i++) {
             aux.add("?");
         }
-        return STR."INSERT INTO \{StringUtils.isEmpty(schema) ? table : STR."\{schema}.\{table}"} (\{StringUtils.join(map.keySet(), ",")}) VALUES (\{StringUtils.join(aux, ",")})";
+        return "INSERT INTO " + (StringUtils.isEmpty(schema) ? table : schema + "." + table) + " (" + StringUtils.join(map.keySet(), ",") + ") VALUES (" + StringUtils.join(aux, ",") + ")";
     }
 
     private void success(String id) {

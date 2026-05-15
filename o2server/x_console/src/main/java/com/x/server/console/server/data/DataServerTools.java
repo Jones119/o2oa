@@ -79,9 +79,9 @@ public class DataServerTools {
 		}
 		LOGGER.print("****************************************");
 		LOGGER.print("* data server start completed.");
-		LOGGER.print(STR."* port: \{dataServer.getTcpPort()}.");
+		LOGGER.print("* port: " + dataServer.getTcpPort() + ".");
 		if ((null != webPort) && (webPort > 0)) {
-			LOGGER.print(STR."* web console port: \{dataServer.getWebPort()}.");
+			LOGGER.print("* web console port: " + dataServer.getWebPort() + ".");
 		}
 		LOGGER.print("****************************************");
 		writeVersion();

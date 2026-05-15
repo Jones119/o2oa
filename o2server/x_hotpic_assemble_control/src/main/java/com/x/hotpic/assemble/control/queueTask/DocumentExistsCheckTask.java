@@ -37,7 +37,7 @@ public class DocumentExistsCheckTask extends AbstractQueue<DocumentCheckQueue> {
 				infoCheckerInf = new BbsInfoChecker();
 				//logger.info( "BBS Document is exists:" + infoTitle );
 			} else {
-				logger.info(STR."hot picture application is not in CMS or BBS.delete document title:\{infoTitle}");
+				logger.info("hot picture application is not in CMS or BBS.delete document title:" + infoTitle);
 				try {
 					hotPictureInfoServiceAdv.deleteWithInfoId( infoId );
 				} catch (Exception e) {
@@ -50,7 +50,7 @@ public class DocumentExistsCheckTask extends AbstractQueue<DocumentCheckQueue> {
 			}
 			if (!exists) {
 				hotPictureInfoServiceAdv.deleteWithInfoId( infoId );
-				logger.info(STR."Timertask Hotpicture InfoExistsCheckTask : hot picture has deleted.title:\{infoTitle}");
+				logger.info("Timertask Hotpicture InfoExistsCheckTask : hot picture has deleted.title:" + infoTitle);
 			}
 		}else{
 			try {// 删除，超过100条了，无意义

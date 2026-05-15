@@ -98,7 +98,7 @@ public class LogQueue extends AbstractQueue<NameValuePair> {
 				ids = emc.idsLessThanMax(cls, JpaObject.createTime_FIELDNAME, threshold.getTime(), 50);
 				if (!ids.isEmpty()) {
 					EntityManager em = emc.beginTransaction(cls);
-					Query query = em.createQuery(STR."DELETE FROM \{cls.getName()} o WHERE o.id IN :ids");
+					Query query = em.createQuery("DELETE FROM " + cls.getName() + " o WHERE o.id IN :ids");
 					query.setParameter("ids", ids).executeUpdate();
 					emc.commit();
 				}

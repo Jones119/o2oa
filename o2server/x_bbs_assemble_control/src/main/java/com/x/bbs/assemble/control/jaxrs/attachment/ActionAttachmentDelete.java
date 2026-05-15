@@ -61,7 +61,7 @@ public class ActionAttachmentDelete extends BaseAction {
 			try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
 				subjectInfo = emc.find(subjectAttachment.getSubjectId(), BBSSubjectInfo.class);
 				if (null == subjectInfo) {
-					logger.warn(STR."subjectInfo{id:\{subjectAttachment.getSubjectId()}} is not exists, anyone can delete the attachments.");
+					logger.warn("subjectInfo{id:" + subjectAttachment.getSubjectId() + "} is not exists, anyone can delete the attachments.");
 				}
 			} catch (Exception e) {
 				check = false;

@@ -58,7 +58,7 @@ class ActionDocToWordWorkOrWorkCompleted extends BaseAction {
 				String decodedContent = URLDecoder.decode(wi.getContent(), StandardCharsets.UTF_8.name());
 				wi.setContent(decodedContent);
 			} catch (Exception e) {
-				LOGGER.warn(STR."docContent URLDecoder error:\{e.getMessage()}");
+				LOGGER.warn("docContent URLDecoder error:" + e.getMessage());
 			}
 		}
 		Work work = null;

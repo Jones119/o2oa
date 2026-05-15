@@ -102,7 +102,7 @@ class ActionDelete extends BaseAction {
 
 	private <T extends JpaObject> void delete(Business business, Class<T> clz, List<String> ids) throws Exception {
 		EntityManager em = business.entityManagerContainer().get(clz);
-		Query query = em.createQuery(STR."DELETE FROM \{clz.getName()} o WHERE o.id IN :ids");
+		Query query = em.createQuery("DELETE FROM " + clz.getName() + " o WHERE o.id IN :ids");
 		query.setParameter("ids", ids);
 		query.executeUpdate();
 	}

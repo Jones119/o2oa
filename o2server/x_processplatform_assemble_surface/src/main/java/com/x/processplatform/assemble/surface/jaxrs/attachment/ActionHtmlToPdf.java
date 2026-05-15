@@ -85,7 +85,7 @@ class ActionHtmlToPdf extends BaseAction {
 
 			return generalFile.getId();
 		} catch (Exception e) {
-			LOGGER.warn(STR."写work信息异常:\{e.getMessage()}");
+			LOGGER.warn("写work信息异常:" + e.getMessage());
 		}
 		return "";
 	}

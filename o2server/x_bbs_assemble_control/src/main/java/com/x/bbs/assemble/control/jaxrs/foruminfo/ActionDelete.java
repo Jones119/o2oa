@@ -36,7 +36,7 @@ public class ActionDelete extends BaseAction {
 			try {
 				if ( !ThisApplication.isBBSManager(effectivePerson) ) {
 					check = false;
-					logger.warn(STR."用户没有BBSManager角色，并且也不是系统管理员！USER：\{effectivePerson.getDistinguishedName()}");
+					logger.warn("用户没有BBSManager角色，并且也不是系统管理员！USER：" + effectivePerson.getDistinguishedName());
 					Exception exception = new ExceptionInsufficientPermissions(effectivePerson.getDistinguishedName(), ThisApplication.BBSMANAGER );
 					result.error(exception);
 				}
@@ -86,7 +86,7 @@ public class ActionDelete extends BaseAction {
 		if (check) {
 			if (sectionCount > 0) {
 				check = false;
-				logger.warn(STR."论坛[\{forumInfo.getForumName()}]中仍存在\{sectionCount}个版块，无法继续进行删除操作！ID=\{id}");
+				logger.warn("论坛[" + forumInfo.getForumName() + "]中仍存在" + sectionCount + "个版块，无法继续进行删除操作！ID=" + id);
 				Exception exception = new ExceptionForumCanNotDelete(
 						"论坛[" + forumInfo.getForumName() + "]中仍存在" + sectionCount + "个版块，无法继续进行删除操作！");
 				result.error(exception);

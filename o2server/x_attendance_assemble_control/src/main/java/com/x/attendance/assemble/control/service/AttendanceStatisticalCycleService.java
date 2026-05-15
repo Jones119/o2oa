@@ -283,7 +283,7 @@ public class AttendanceStatisticalCycleService {
                     throw new Exception("can not get identity of person:" + employeeName + ".");
                 }
             } catch (Exception e) {
-                logger.warn(STR."系统在查询员工[\{employeeName}]在系统中存在的身份时发生异常！");
+                logger.warn("系统在查询员工[" + employeeName + "]在系统中存在的身份时发生异常！");
                 // modify by ray 20221101 这个异常会导致后面的程序不执行下去
                 // throw e;
             }

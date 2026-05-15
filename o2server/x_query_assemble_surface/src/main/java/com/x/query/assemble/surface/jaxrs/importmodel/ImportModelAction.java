@@ -46,7 +46,7 @@ public class ImportModelAction extends StandardJaxrsAction {
 			String uuid = UUID.randomUUID().toString();
 			result.setData(uuid);
 		} catch (Exception e) {
-			logger.warn(STR."user[\{currentPerson.getDistinguishedName()}] get a new UUID error！", e);
+			logger.warn("user[" + currentPerson.getDistinguishedName() + "] get a new UUID error！", e);
 		}
 		asyncResponse.resume(ResponseFactory.getEntityTagActionResultResponse(request, result));
 	}

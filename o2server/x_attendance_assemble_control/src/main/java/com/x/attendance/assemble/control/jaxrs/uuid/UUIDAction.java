@@ -43,7 +43,7 @@ public class UUIDAction extends StandardJaxrsAction {
 		EffectivePerson currentPerson = this.effectivePerson(request);
 		try {
 			uuid = UUID.randomUUID().toString();
-			logger.info(STR."user[\{currentPerson.getDistinguishedName()}] get a new UUID：\{uuid}");
+			logger.info("user[" + currentPerson.getDistinguishedName() + "] get a new UUID：" + uuid);
 			data.add(uuid);
 			result.setData(data);
 		} catch (Exception e) {

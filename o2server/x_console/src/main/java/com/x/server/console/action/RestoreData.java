@@ -349,7 +349,7 @@ public class RestoreData {
 				T t = os.get(os.size() - 1);
 				em.detach(t);
 				em.getTransaction().begin();
-				Query query = em.createQuery(STR."DELETE FROM \{cls.getName()} o WHERE o.id = :id");
+				Query query = em.createQuery("DELETE FROM " + cls.getName() + " o WHERE o.id = :id");
 				query.setParameter(JpaObject.id_FIELDNAME, id);
 				query.executeUpdate();
 				em.getTransaction().commit();

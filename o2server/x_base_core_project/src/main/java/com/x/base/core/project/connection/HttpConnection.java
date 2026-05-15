@@ -425,7 +425,7 @@ public class HttpConnection {
             } catch (Exception e) {
                 response.setMessage(e.getMessage());
             }
-            LOGGER.warn(STR."connection{url:\{connection.getURL()}}, response error{responseCode:\{code}}, response:\{XGsonBuilder.toJson(response)}.");
+            LOGGER.warn("connection{url:" + connection.getURL() + "}, response error{responseCode:" + code + "}, response:" + XGsonBuilder.toJson(response) + ".");
         }
     }
 

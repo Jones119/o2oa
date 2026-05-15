@@ -81,7 +81,7 @@ public class CollectPerson extends BaseAction {
 												null, req);
 								response.getData(WrapOutBoolean.class);
 							} catch (Exception e) {
-								LOGGER.warn(STR."与云服务器连接错误:{}.\{e.getMessage()}");
+								LOGGER.warn("与云服务器连接错误:{}." + e.getMessage());
 							}
 						} else {
 							LOGGER.debug("无法登录到云服务器.");

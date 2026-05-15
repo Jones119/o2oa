@@ -60,7 +60,7 @@ public class ActionUpdateStatusByAdmin extends BaseAction {
         ThisApplication.queueV2Detail
             .send(new QueueAttendanceV2DetailModel(record.getUserId(), record.getRecordDateString()));
       } else {
-        LOGGER.info(STR."没有找到对应的打卡记录数据，\{info.getRecordId()}");
+        LOGGER.info("没有找到对应的打卡记录数据，" + info.getRecordId());
       }
     }
     ActionResult<Wo> result = new ActionResult<>();

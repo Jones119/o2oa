@@ -92,7 +92,7 @@ public class ActionDeleteMessageByConversation extends BaseAction {
                     hasMore = false;
                 }
             }
-            LOGGER.info(STR."  删除消息数量 \{count} ！！！！！！！！！");
+            LOGGER.info("  删除消息数量 " + count + " ！！！！！！！！！");
         }
     }
 

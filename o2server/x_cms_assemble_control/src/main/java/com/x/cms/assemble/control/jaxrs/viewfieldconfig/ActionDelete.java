@@ -32,7 +32,7 @@ public class ActionDelete extends BaseAction {
 			ViewFieldConfig viewFieldConfig = business.getViewFieldConfigFactory().get(id);
 
 			if (null == viewFieldConfig) {
-				logger.warn(STR."viewFieldConfig{id:\{id}} 应用信息不存在.");
+				logger.warn("viewFieldConfig{id:" + id + "} 应用信息不存在.");
 			}
 			// 查询视图信息
 			View view = business.getViewFactory().get(viewFieldConfig.getViewId());

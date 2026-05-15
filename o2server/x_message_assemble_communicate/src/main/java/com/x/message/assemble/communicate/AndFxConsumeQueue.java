@@ -186,13 +186,13 @@ public class AndFxConsumeQueue extends AbstractQueue<Message> {
 					portal = URLEncoder.encode(portal, DefaultCharset.name);
 					workUrl += "&redirectlink=" + portal;
 				}
-				LOGGER.debug(STR."o2oa workUrl：\{workUrl}");
+				LOGGER.debug("o2oa workUrl：" + workUrl);
 				workUrl = URLEncoder.encode(workUrl, DefaultCharset.name);
 				o2oaUrl = o2oaUrl + workUrl;
 			} else {
 				o2oaUrl = o2oaUrl + openPage;
 			}
-			LOGGER.info(STR."o2oa 地址：\{o2oaUrl}");
+			LOGGER.info("o2oa 地址：" + o2oaUrl);
 			o2oaUrl = URLEncoder.encode(o2oaUrl, DefaultCharset.name);
 			return o2oaUrl;
 		} catch (Exception e) {
@@ -266,7 +266,7 @@ public class AndFxConsumeQueue extends AbstractQueue<Message> {
 				} else {
 					o2oaUrl = o2oaUrl + openPage;
 				}
-				LOGGER.info(STR."o2oa 业务地址：\{o2oaUrl}");
+				LOGGER.info("o2oa 业务地址：" + o2oaUrl);
 				return o2oaUrl;
 			} catch (Exception e) {
 				LOGGER.error(e);

@@ -52,7 +52,7 @@ public class ActionSendMessageTest extends BaseAction {
         }
         try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
             Business business = new Business(emc);
-            logger.info(STR."person:\{effectivePerson.getDistinguishedName()}");
+            logger.info("person:" + effectivePerson.getDistinguishedName());
             List<String> deviceList = business.organization().personAttribute()
                     .listAttributeWithPersonWithName(effectivePerson.getDistinguishedName(),
                             ActionListAll.DEVICE_PERSON_ATTR_KEY);
@@ -63,7 +63,7 @@ public class ActionSendMessageTest extends BaseAction {
                     try {
                         String[] split = s.split("_");
                         deviceId = split[0];
-                        logger.info(STR."device Id:\{deviceId}");
+                        logger.info("device Id:" + deviceId);
                     } catch (Exception e) {
                         logger.error(e);
                     }

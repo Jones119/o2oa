@@ -93,7 +93,7 @@ public class BaseAction extends StandardJaxrsAction {
 		try {// 从数据库中查询出人员信息，进行信息更新
 			userInfoService.updatePermission(userName, permissionContent);
 		} catch (Exception e) {
-			logger.warn(STR."system save user info got an exception. username:\{userName}");
+			logger.warn("system save user info got an exception. username:" + userName);
 			logger.error(e);
 		}
 	}

@@ -42,7 +42,7 @@ public class QueueDingdingAttendance extends AbstractQueue<DingdingQywxSyncRecor
 
     @Override
     protected void execute(DingdingQywxSyncRecord record) throws Exception {
-        logger.info(STR."开始执行钉钉打卡数据同步，from:\{record.getDateFrom()}, to:\{record.getDateTo()}");
+        logger.info("开始执行钉钉打卡数据同步，from:" + record.getDateFrom() + ", to:" + record.getDateTo());
         if (DingdingQywxSyncRecord.syncType_dingding.equals(record.getType())) {
             try {
                 dingdingSync(record);

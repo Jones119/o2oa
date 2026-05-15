@@ -111,7 +111,7 @@ class ActionGetAllTableFields extends BaseAction {
 				}
 			}
 		} catch (ClassNotFoundException | NoSuchMethodException e) {
-			logger.info(STR."无法解析实体类\{containerEntity},请检查类依赖情况。");
+			logger.info("无法解析实体类" + containerEntity + ",请检查类依赖情况。");
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {

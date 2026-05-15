@@ -57,7 +57,7 @@ public class ActionSectionIconUpdate extends BaseAction {
 			} catch (Exception e) {
 				check = false;
 				result.error(e);
-				logger.warn(STR."system query section info with id got an exception!id:\{sectionId}");
+				logger.warn("system query section info with id got an exception!id:" + sectionId);
 				logger.error(e);
 			}
 		}

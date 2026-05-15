@@ -52,12 +52,12 @@ class ActionListRowSelect extends BaseAction {
 			Class<? extends JpaObject> cls = (Class<? extends JpaObject>) classLoader
 					.loadClass(dynamicEntity.className());
 			EntityManager em = emc.get(cls);
-			String sql = STR."SELECT o FROM \{cls.getName()} o";
+			String sql = "SELECT o FROM " + cls.getName() + " o";
 			if (StringUtils.isNotBlank(wi.getWhere())) {
-				sql = STR."\{sql} where \{wi.getWhere()}";
+				sql = sql + " where " + wi.getWhere();
 			}
 			if (StringUtils.isNotBlank(wi.getOrderBy())) {
-				sql = STR."\{sql} order by \{wi.getOrderBy()}";
+				sql = sql + " order by " + wi.getOrderBy();
 			}
 			List<?> list;
 			if (wi.getSize() != null && wi.getSize() > 0) {

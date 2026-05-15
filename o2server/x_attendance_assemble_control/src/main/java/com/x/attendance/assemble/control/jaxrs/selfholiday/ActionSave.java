@@ -103,7 +103,7 @@ public class ActionSave extends BaseAction {
 								for( AttendanceSelfHoliday holiday : holidayList ){
 									emc.remove( emc.find(holiday.getId(), AttendanceSelfHoliday.class ), CheckRemoveType.all );
 								}
-								logger.info(STR."删除\{holidayList.size()}条旧请假信息数据。");
+								logger.info("删除" + holidayList.size() + "条旧请假信息数据。");
 							}
 						}
 						if( StringUtils.isNotEmpty( wrapIn.getId() ) ){
@@ -113,7 +113,7 @@ public class ActionSave extends BaseAction {
 								//更新已经存在的信息
 								wrapIn.copyTo( attendanceSelfHoliday );
 								attendanceSelfHoliday.setBatchFlag(wrapIn.getBatchFlag());
-								logger.info(STR."更新：gson.toJson( attendanceSelfHoliday ) = \{gson.toJson(attendanceSelfHoliday)}");
+								logger.info("更新：gson.toJson( attendanceSelfHoliday ) = " + gson.toJson(attendanceSelfHoliday));
 
 								attendanceSelfHoliday.setUnitName( unitName );
 								attendanceSelfHoliday.setUnitOu( unitOu );
@@ -127,7 +127,7 @@ public class ActionSave extends BaseAction {
 								//使用参数传入的ID作为记录的ID
 								attendanceSelfHoliday.setId( wrapIn.getId() );
 								attendanceSelfHoliday.setBatchFlag(wrapIn.getBatchFlag());
-								logger.info(STR."新增：gson.toJson( attendanceSelfHoliday ) = \{gson.toJson(attendanceSelfHoliday)}");
+								logger.info("新增：gson.toJson( attendanceSelfHoliday ) = " + gson.toJson(attendanceSelfHoliday));
 
 								attendanceSelfHoliday.setUnitName( unitName );
 								attendanceSelfHoliday.setUnitOu( unitOu );
@@ -142,7 +142,7 @@ public class ActionSave extends BaseAction {
 
 							wrapIn.copyTo( attendanceSelfHoliday );
 							attendanceSelfHoliday.setBatchFlag(wrapIn.getBatchFlag());
-							logger.debug(STR."新增,无ID：gson.toJson( attendanceSelfHoliday ) = \{gson.toJson(attendanceSelfHoliday)}");
+							logger.debug("新增,无ID：gson.toJson( attendanceSelfHoliday ) = " + gson.toJson(attendanceSelfHoliday));
 
 							attendanceSelfHoliday.setUnitName( unitName );
 							attendanceSelfHoliday.setUnitOu( unitOu );

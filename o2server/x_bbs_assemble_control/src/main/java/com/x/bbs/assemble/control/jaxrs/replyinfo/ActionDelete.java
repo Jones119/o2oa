@@ -64,7 +64,7 @@ public class ActionDelete extends BaseAction {
 					List<String> subIds = replyInfoService.listAllSubReplyIds(id, null);
 					if (ListTools.isNotEmpty(subIds)) {
 						for (String replyId : subIds) {
-							logger.debug(STR."删除下级回复信息，ID=\{replyId}");
+							logger.debug("删除下级回复信息，ID=" + replyId);
 							replyInfoService.delete(replyId);
 						}
 					}

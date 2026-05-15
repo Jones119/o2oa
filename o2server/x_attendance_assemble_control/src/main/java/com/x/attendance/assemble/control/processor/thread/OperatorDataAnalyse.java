@@ -59,8 +59,8 @@ public class OperatorDataAnalyse implements Runnable{
 				}
 			}
 		} else {
-			logger.info(STR."no attendance detail need to analyse.personName:\{entityAnalyseData.getPersonName()}");
+			logger.info("no attendance detail need to analyse.personName:" + entityAnalyseData.getPersonName());
 	}
-	logger.info(STR."attendance detail analyse completed.person:\{detail.getEmpName()}, count:\{detail_ids.size()}");
+	logger.info("attendance detail analyse completed.person:" + detail.getEmpName() + ", count:" + detail_ids.size());
 	}
 }

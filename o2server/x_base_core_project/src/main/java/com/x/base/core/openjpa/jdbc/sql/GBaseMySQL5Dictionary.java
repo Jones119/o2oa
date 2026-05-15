@@ -260,7 +260,7 @@ public class GBaseMySQL5Dictionary extends DBDictionary {
 	public String[] getDropPrimaryKeySQL(PrimaryKey pk) {
 		if (DBIdentifier.isNull(pk.getIdentifier()))
 			return new String[0];
-		return new String[] { STR."ALTER TABLE \{getFullName(pk.getTable(), false)} DROP PRIMARY KEY" };
+		return new String[] { "ALTER TABLE " + getFullName(pk.getTable(), false) + " DROP PRIMARY KEY" };
 	}
 
 	/**
@@ -272,10 +272,10 @@ public class GBaseMySQL5Dictionary extends DBDictionary {
 		if (DBIdentifier.isNull(fk.getIdentifier())) {
 			DBIdentifier fkName = fk.loadIdentifierFromDB(this, conn);
 			String[] retVal = (fkName == null) ? new String[0]
-					: new String[] { STR."ALTER TABLE \{getFullName(fk.getTable(), false)} DROP FOREIGN KEY \{toDBName(fkName)}" };
+					: new String[] { "ALTER TABLE " + getFullName(fk.getTable(), false) + " DROP FOREIGN KEY " + toDBName(fkName) };
 			return retVal;
 		}
-		return new String[] { STR."ALTER TABLE \{getFullName(fk.getTable(), false)} DROP FOREIGN KEY \{toDBName(fk.getIdentifier())}" };
+		return new String[] { "ALTER TABLE " + getFullName(fk.getTable(), false) + " DROP FOREIGN KEY " + toDBName(fk.getIdentifier()) };
 	}
 
 	@Override
@@ -287,7 +287,7 @@ public class GBaseMySQL5Dictionary extends DBDictionary {
 		Column[] cols = pk.getColumns();
 		String[] ret = new String[cols.length + sql.length];
 		for (int i = 0; i < cols.length; i++) {
-			ret[i] = STR."ALTER TABLE \{getFullName(cols[i].getTable(), false)} CHANGE \{toDBName(cols[i].getIdentifier())} \{toDBName(cols[i].getIdentifier())} \{getTypeName(cols[i])} NOT NULL";
+			ret[i] = "ALTER TABLE " + getFullName(cols[i].getTable(), false) + " CHANGE " + toDBName(cols[i].getIdentifier()) + " " + toDBName(cols[i].getIdentifier()) + " " + getTypeName(cols[i]) + " NOT NULL";
 		}
 
 		System.arraycopy(sql, 0, ret, cols.length, sql.length);

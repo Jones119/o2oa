@@ -84,8 +84,8 @@ public class ActionCheckQrCode extends BaseAction {
             throw new ExceptionProxyEmpty("web服务器");
         }
 
-        String url = STR."\{protocol}://\{wo.getWeb().getProxyHost()}:\{wo.getWeb().getProxyPort()}/x_desktop/appMobileConnectCheck.html";
-        logger.info(STR."扫码测试连接的地址： \{url}");
+        String url = protocol + "://" + wo.getWeb().getProxyHost() + ":" + wo.getWeb().getProxyPort() + "/x_desktop/appMobileConnectCheck.html";
+        logger.info("扫码测试连接的地址： " + url);
 
         /**
          * 生成二维码

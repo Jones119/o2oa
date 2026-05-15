@@ -56,25 +56,25 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 				sequence = PropertyUtils.getProperty(emc.find(id, cls, ExceptionWhen.not_found), sequenceField);
 			}
 			EntityManager em = emc.get(cls);
-			String str = STR."SELECT o FROM \{cls.getCanonicalName()} o";
+			String str = "SELECT o FROM " + cls.getCanonicalName() + " o";
 			Integer index = 1;
 			List<String> ps = new ArrayList<>();
 			List<Object> vs = new ArrayList<>();
 			if (null != sequence) {
-				ps.add(STR."o.\{sequenceField} \{StringUtils.equalsIgnoreCase(order, DESC) ? "<" : ">"} ?\{index}");
+				ps.add("o." + sequenceField + " " + (StringUtils.equalsIgnoreCase(order, DESC) ? "<" : ">") + " ?" + index);
 				vs.add(sequence);
 				index++;
 			}
 			if (null != equals && (!equals.isEmpty())) {
 				for (Entry<String, Object> en : equals.entrySet()) {
-					ps.add(STR."o.\{en.getKey()} = ?\{index}");
+					ps.add("o." + en.getKey() + " = ?" + index);
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != notEquals && (!notEquals.isEmpty())) {
 				for (Entry<String, Object> en : notEquals.entrySet()) {
-					ps.add(STR."(o.\{en.getKey()} <> ?\{index} or o.\{en.getKey()} is null)");
+					ps.add("(o." + en.getKey() + " <> ?" + index + " or o." + en.getKey() + " is null)");
 					vs.add(en.getValue());
 					index++;
 				}
@@ -83,44 +83,44 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 				List<String> ors = new ArrayList<>();
 				for (Entry<String, Object> en : likes.entrySet()) {
 					for (String s : StringUtils.split(en.getValue().toString(), " ")) {
-						ors.add(STR."o.\{en.getKey()} Like ?\{index}");
-						vs.add(STR."%\{s}%");
+						ors.add("o." + en.getKey() + " Like ?" + index);
+						vs.add("%" + s + "%");
 						index++;
 					}
 				}
-				ps.add(STR."(\{StringUtils.join(ors, " or ")})");
+				ps.add("(" + StringUtils.join(ors, " or ") + ")");
 			}
 			if (null != ins && (!ins.isEmpty())) {
 				for (Entry<String, Collection<?>> en : ins.entrySet()) {
-					ps.add(STR."o.\{en.getKey()} in ?\{index}");
+					ps.add("o." + en.getKey() + " in ?" + index);
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != notIns && (!notIns.isEmpty())) {
 				for (Entry<String, Collection<?>> en : notIns.entrySet()) {
-					ps.add(STR."o.\{en.getKey()} not in ?\{index}");
+					ps.add("o." + en.getKey() + " not in ?" + index);
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != members && (!members.isEmpty())) {
 				for (Entry<String, Object> en : members.entrySet()) {
-					ps.add(STR."?\{index} member of o.\{en.getKey()}");
+					ps.add("?" + index + " member of o." + en.getKey());
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != notMembers && (!notMembers.isEmpty())) {
 				for (Entry<String, Object> en : notMembers.entrySet()) {
-					ps.add(STR."?\{index} not member of o.\{en.getKey()}");
+					ps.add("?" + index + " not member of o." + en.getKey());
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != betweens && (!betweens.isEmpty())) {
 				for (Entry<String, List<Object>> en : betweens.entrySet()) {
-					ps.add(STR."(o.\{en.getKey()} between ?\{index} AND ?\{index + 1})");
+					ps.add("(o." + en.getKey() + " between ?" + index + " AND ?" + index + 1 + ")");
 					vs.add(en.getValue().get(0));
 					vs.add(en.getValue().get(1));
 					index++;
@@ -128,9 +128,9 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 				}
 			}
 			if (!ps.isEmpty()) {
-				str = STR."\{str} where \{StringUtils.join(ps, andJoin ? " and " : " or ")}";
+				str = str + " where " + StringUtils.join(ps, andJoin ? " and " : " or ");
 			}
-			str = STR."\{str} order by o.\{sequenceField} \{StringUtils.equalsIgnoreCase(order, DESC) ? DESC : ASC}";
+			str = str + " order by o." + sequenceField + " " + (StringUtils.equalsIgnoreCase(order, DESC) ? DESC : ASC);
 			Query query = em.createQuery(str, cls);
 			for (int i = 0; i < vs.size(); i++) {
 				query.setParameter(i + 1, vs.get(i));
@@ -168,25 +168,25 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 				sequence = PropertyUtils.getProperty(emc.find(id, tClass, ExceptionWhen.not_found), sequenceField);
 			}
 			EntityManager em = emc.get(tClass);
-			String str = STR."SELECT o FROM \{tClass.getCanonicalName()} o";
+			String str = "SELECT o FROM " + tClass.getCanonicalName() + " o";
 			Integer index = 1;
 			List<String> ps = new ArrayList<>();
 			List<Object> vs = new ArrayList<>();
 			if (null != sequence) {
-				ps.add(STR."o.\{sequenceField} \{StringUtils.equalsIgnoreCase(order, DESC) ? "<" : ">"} ?\{index}");
+				ps.add("o." + sequenceField + " " + (StringUtils.equalsIgnoreCase(order, DESC) ? "<" : ">") + " ?" + index);
 				vs.add(sequence);
 				index++;
 			}
 			if (null != equals && (!equals.isEmpty())) {
 				for (Entry<String, Object> en : equals.entrySet()) {
-					ps.add(STR."o.\{en.getKey()} = ?\{index}");
+					ps.add("o." + en.getKey() + " = ?" + index);
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != notEquals && (!notEquals.isEmpty())) {
 				for (Entry<String, Object> en : notEquals.entrySet()) {
-					ps.add(STR."(o.\{en.getKey()} <> ?\{index} or o.\{en.getKey()} is null)");
+					ps.add("(o." + en.getKey() + " <> ?" + index + " or o." + en.getKey() + " is null)");
 					vs.add(en.getValue());
 					index++;
 				}
@@ -195,44 +195,44 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 				List<String> ors = new ArrayList<>();
 				for (Entry<String, Object> en : likes.entrySet()) {
 					for (String s : StringUtils.split(en.getValue().toString(), " ")) {
-						ors.add(STR."o.\{en.getKey()} Like ?\{index}");
-						vs.add(STR."%\{s}%");
+						ors.add("o." + en.getKey() + " Like ?" + index);
+						vs.add("%" + s + "%");
 						index++;
 					}
 				}
-				ps.add(STR."(\{StringUtils.join(ors, " or ")})");
+				ps.add("(" + StringUtils.join(ors, " or ") + ")");
 			}
 			if (null != ins && (!ins.isEmpty())) {
 				for (Entry<String, Collection<?>> en : ins.entrySet()) {
-					ps.add(STR."o.\{en.getKey()} in ?\{index}");
+					ps.add("o." + en.getKey() + " in ?" + index);
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != notIns && (!notIns.isEmpty())) {
 				for (Entry<String, Collection<?>> en : notIns.entrySet()) {
-					ps.add(STR."o.\{en.getKey()} not in ?\{index}");
+					ps.add("o." + en.getKey() + " not in ?" + index);
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != members && (!members.isEmpty())) {
 				for (Entry<String, Object> en : members.entrySet()) {
-					ps.add(STR."?\{index} member of o.\{en.getKey()}");
+					ps.add("?" + index + " member of o." + en.getKey());
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != notMembers && (!notMembers.isEmpty())) {
 				for (Entry<String, Object> en : notMembers.entrySet()) {
-					ps.add(STR."?\{index} not member of o.\{en.getKey()}");
+					ps.add("?" + index + " not member of o." + en.getKey());
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != betweens && (!betweens.isEmpty())) {
 				for (Entry<String, List<Object>> en : betweens.entrySet()) {
-					ps.add(STR."(o.\{en.getKey()} between ?\{index} AND ?\{index + 1})");
+					ps.add("(o." + en.getKey() + " between ?" + index + " AND ?" + index + 1 + ")");
 					vs.add(en.getValue().get(0));
 					vs.add(en.getValue().get(1));
 					index++;
@@ -240,9 +240,9 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 				}
 			}
 			if (!ps.isEmpty()) {
-				str = STR."\{str} where \{StringUtils.join(ps, andJoin ? " and " : " or ")}";
+				str = str + " where " + StringUtils.join(ps, andJoin ? " and " : " or ");
 			}
-			str = STR."\{str} order by o.\{sequenceField} \{StringUtils.equalsIgnoreCase(order, DESC) ? DESC : ASC}";
+			str = str + " order by o." + sequenceField + " " + (StringUtils.equalsIgnoreCase(order, DESC) ? DESC : ASC);
 			Query query = em.createQuery(str, tClass);
 			for (int i = 0; i < vs.size(); i++) {
 				query.setParameter(i + 1, vs.get(i));
@@ -278,25 +278,25 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 				sequence = PropertyUtils.getProperty(emc.find(id, cls, ExceptionWhen.not_found), sequenceField);
 			}
 			EntityManager em = emc.get(cls);
-			String str = STR."SELECT o FROM \{cls.getCanonicalName()} o";
+			String str = "SELECT o FROM " + cls.getCanonicalName() + " o";
 			Integer index = 1;
 			List<String> ps = new ArrayList<>();
 			List<Object> vs = new ArrayList<>();
 			if (null != sequence) {
-				ps.add(STR."o.\{sequenceField} \{StringUtils.equalsIgnoreCase(order, DESC) ? ">" : "<"} ?\{index}");
+				ps.add("o." + sequenceField + " " + (StringUtils.equalsIgnoreCase(order, DESC) ? ">" : "<") + " ?" + index);
 				vs.add(sequence);
 				index++;
 			}
 			if (null != equals && (!equals.isEmpty())) {
 				for (Entry<String, Object> en : equals.entrySet()) {
-					ps.add(STR."o.\{en.getKey()} = ?\{index}");
+					ps.add("o." + en.getKey() + " = ?" + index);
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != notEquals && (!notEquals.isEmpty())) {
 				for (Entry<String, Object> en : notEquals.entrySet()) {
-					ps.add(STR."(o.\{en.getKey()} <> ?\{index} or o.\{en.getKey()} is null)");
+					ps.add("(o." + en.getKey() + " <> ?" + index + " or o." + en.getKey() + " is null)");
 					vs.add(en.getValue());
 					index++;
 				}
@@ -305,44 +305,44 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 				List<String> ors = new ArrayList<>();
 				for (Entry<String, Object> en : likes.entrySet()) {
 					for (String s : StringUtils.split(en.getValue().toString(), " ")) {
-						ors.add(STR."o.\{en.getKey()} Like ?\{index}");
-						vs.add(STR."%\{s}%");
+						ors.add("o." + en.getKey() + " Like ?" + index);
+						vs.add("%" + s + "%");
 						index++;
 					}
 				}
-				ps.add(STR."(\{StringUtils.join(ors, " or ")})");
+				ps.add("(" + StringUtils.join(ors, " or ") + ")");
 			}
 			if (null != ins && (!ins.isEmpty())) {
 				for (Entry<String, Collection<?>> en : ins.entrySet()) {
-					ps.add(STR."o.\{en.getKey()} in ?\{index}");
+					ps.add("o." + en.getKey() + " in ?" + index);
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != notIns && (!notIns.isEmpty())) {
 				for (Entry<String, Collection<?>> en : notIns.entrySet()) {
-					ps.add(STR."o.\{en.getKey()} not in ?\{index}");
+					ps.add("o." + en.getKey() + " not in ?" + index);
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != members && (!members.isEmpty())) {
 				for (Entry<String, Object> en : members.entrySet()) {
-					ps.add(STR."?\{index} member of o.\{en.getKey()}");
+					ps.add("?" + index + " member of o." + en.getKey());
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != notMembers && (!notMembers.isEmpty())) {
 				for (Entry<String, Object> en : notMembers.entrySet()) {
-					ps.add(STR."?\{index} not member of o.\{en.getKey()}");
+					ps.add("?" + index + " not member of o." + en.getKey());
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != betweens && (!betweens.isEmpty())) {
 				for (Entry<String, List<Object>> en : betweens.entrySet()) {
-					ps.add(STR."(o.\{en.getKey()} between ?\{index} AND ?\{index + 1})");
+					ps.add("(o." + en.getKey() + " between ?" + index + " AND ?" + index + 1 + ")");
 					vs.add(en.getValue().get(0));
 					vs.add(en.getValue().get(1));
 					index++;
@@ -350,9 +350,9 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 				}
 			}
 			if (!ps.isEmpty()) {
-				str = STR."\{str} where \{StringUtils.join(ps, andJoin ? " and " : " or ")}";
+				str = str + " where " + StringUtils.join(ps, andJoin ? " and " : " or ");
 			}
-			str = STR."\{str} order by o.\{sequenceField} \{StringUtils.equalsIgnoreCase(order, DESC) ? ASC : DESC}";
+			str = str + " order by o." + sequenceField + " " + (StringUtils.equalsIgnoreCase(order, DESC) ? ASC : DESC);
 			Query query = em.createQuery(str, cls);
 			for (int i = 0; i < vs.size(); i++) {
 				query.setParameter(i + 1, vs.get(i));
@@ -390,25 +390,25 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 				sequence = PropertyUtils.getProperty(emc.find(id, tClass, ExceptionWhen.not_found), sequenceField);
 			}
 			EntityManager em = emc.get(tClass);
-			String str = STR."SELECT o FROM \{tClass.getCanonicalName()} o";
+			String str = "SELECT o FROM " + tClass.getCanonicalName() + " o";
 			Integer index = 1;
 			List<String> ps = new ArrayList<>();
 			List<Object> vs = new ArrayList<>();
 			if (null != sequence) {
-				ps.add(STR."o.\{sequenceField} \{StringUtils.equalsIgnoreCase(order, DESC) ? ">" : "<"} ?\{index}");
+				ps.add("o." + sequenceField + " " + (StringUtils.equalsIgnoreCase(order, DESC) ? ">" : "<") + " ?" + index);
 				vs.add(sequence);
 				index++;
 			}
 			if (null != equals && (!equals.isEmpty())) {
 				for (Entry<String, Object> en : equals.entrySet()) {
-					ps.add(STR."o.\{en.getKey()} = ?\{index}");
+					ps.add("o." + en.getKey() + " = ?" + index);
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != notEquals && (!notEquals.isEmpty())) {
 				for (Entry<String, Object> en : notEquals.entrySet()) {
-					ps.add(STR."(o.\{en.getKey()} <> ?\{index} or o.\{en.getKey()} is null)");
+					ps.add("(o." + en.getKey() + " <> ?" + index + " or o." + en.getKey() + " is null)");
 					vs.add(en.getValue());
 					index++;
 				}
@@ -417,44 +417,44 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 				List<String> ors = new ArrayList<>();
 				for (Entry<String, Object> en : likes.entrySet()) {
 					for (String s : StringUtils.split(en.getValue().toString(), " ")) {
-						ors.add(STR."o.\{en.getKey()} Like ?\{index}");
-						vs.add(STR."%\{s}%");
+						ors.add("o." + en.getKey() + " Like ?" + index);
+						vs.add("%" + s + "%");
 						index++;
 					}
 				}
-				ps.add(STR."(\{StringUtils.join(ors, " or ")})");
+				ps.add("(" + StringUtils.join(ors, " or ") + ")");
 			}
 			if (null != ins && (!ins.isEmpty())) {
 				for (Entry<String, Collection<?>> en : ins.entrySet()) {
-					ps.add(STR."o.\{en.getKey()} in ?\{index}");
+					ps.add("o." + en.getKey() + " in ?" + index);
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != notIns && (!notIns.isEmpty())) {
 				for (Entry<String, Collection<?>> en : notIns.entrySet()) {
-					ps.add(STR."o.\{en.getKey()} not in ?\{index}");
+					ps.add("o." + en.getKey() + " not in ?" + index);
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != members && (!members.isEmpty())) {
 				for (Entry<String, Object> en : members.entrySet()) {
-					ps.add(STR."?\{index} member of o.\{en.getKey()}");
+					ps.add("?" + index + " member of o." + en.getKey());
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != notMembers && (!notMembers.isEmpty())) {
 				for (Entry<String, Object> en : notMembers.entrySet()) {
-					ps.add(STR."?\{index} not member of o.\{en.getKey()}");
+					ps.add("?" + index + " not member of o." + en.getKey());
 					vs.add(en.getValue());
 					index++;
 				}
 			}
 			if (null != betweens && (!betweens.isEmpty())) {
 				for (Entry<String, List<Object>> en : betweens.entrySet()) {
-					ps.add(STR."(o.\{en.getKey()} between ?\{index} AND ?\{index + 1})");
+					ps.add("(o." + en.getKey() + " between ?" + index + " AND ?" + index + 1 + ")");
 					vs.add(en.getValue().get(0));
 					vs.add(en.getValue().get(1));
 					index++;
@@ -462,9 +462,9 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 				}
 			}
 			if (!ps.isEmpty()) {
-				str = STR."\{str} where \{StringUtils.join(ps, andJoin ? " and " : " or ")}";
+				str = str + " where " + StringUtils.join(ps, andJoin ? " and " : " or ");
 			}
-			str = STR."\{str} order by o.\{sequenceField} \{StringUtils.equalsIgnoreCase(order, DESC) ? ASC : DESC}";
+			str = str + " order by o." + sequenceField + " " + (StringUtils.equalsIgnoreCase(order, DESC) ? ASC : DESC);
 			Query query = em.createQuery(str, tClass);
 			for (int i = 0; i < vs.size(); i++) {
 				query.setParameter(i + 1, vs.get(i));
@@ -497,25 +497,25 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 			ListOrderedMap<String, Collection<?>> notIns, ListOrderedMap<String, Object> members,
 			ListOrderedMap<String, Object> notMembers, boolean andJoin, String order) throws Exception {
 		EntityManager em = emc.get(cls);
-		String str = STR."SELECT count(o) FROM \{cls.getCanonicalName()} o";
+		String str = "SELECT count(o) FROM " + cls.getCanonicalName() + " o";
 		Integer index = 1;
 		List<String> ps = new ArrayList<>();
 		List<Object> vs = new ArrayList<>();
 		if (null != sequence) {
-			ps.add(STR."o.\{sequenceField} \{StringUtils.equalsIgnoreCase(order, DESC) ? ">" : "<"} ?\{index}");
+			ps.add("o." + sequenceField + " " + (StringUtils.equalsIgnoreCase(order, DESC) ? ">" : "<") + " ?" + index);
 			vs.add(sequence);
 			index++;
 		}
 		if (null != equals && (!equals.isEmpty())) {
 			for (Entry<String, Object> en : equals.entrySet()) {
-				ps.add(STR."o.\{en.getKey()} = ?\{index}");
+				ps.add("o." + en.getKey() + " = ?" + index);
 				vs.add(en.getValue());
 				index++;
 			}
 		}
 		if (null != notEquals && (!notEquals.isEmpty())) {
 			for (Entry<String, Object> en : notEquals.entrySet()) {
-				ps.add(STR."(o.\{en.getKey()} <> ?\{index} or o.\{en.getKey()} is null)");
+				ps.add("(o." + en.getKey() + " <> ?" + index + " or o." + en.getKey() + " is null)");
 				vs.add(en.getValue());
 				index++;
 			}
@@ -523,42 +523,42 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 		if (null != likes && (!likes.isEmpty())) {
 			List<String> ors = new ArrayList<>();
 			for (Entry<String, Object> en : likes.entrySet()) {
-				ors.add(STR."o.\{en.getKey()} Like ?\{index}");
-				vs.add(STR."%\{en.getValue()}%");
+				ors.add("o." + en.getKey() + " Like ?" + index);
+				vs.add("%" + en.getValue() + "%");
 				index++;
 			}
-			ps.add(STR."(\{StringUtils.join(ors, " or ")})");
+			ps.add("(" + StringUtils.join(ors, " or ") + ")");
 		}
 		if (null != ins && (!ins.isEmpty())) {
 			for (Entry<String, Collection<?>> en : ins.entrySet()) {
-				ps.add(STR."o.\{en.getKey()} in ?\{index}");
+				ps.add("o." + en.getKey() + " in ?" + index);
 				vs.add(en.getValue());
 				index++;
 			}
 		}
 		if (null != notIns && (!notIns.isEmpty())) {
 			for (Entry<String, Collection<?>> en : notIns.entrySet()) {
-				ps.add(STR."o.\{en.getKey()} not in ?\{index}");
+				ps.add("o." + en.getKey() + " not in ?" + index);
 				vs.add(en.getValue());
 				index++;
 			}
 		}
 		if (null != members && (!members.isEmpty())) {
 			for (Entry<String, Object> en : members.entrySet()) {
-				ps.add(STR."?\{index} member of o.\{en.getKey()}");
+				ps.add("?" + index + " member of o." + en.getKey());
 				vs.add(en.getValue());
 				index++;
 			}
 		}
 		if (null != notMembers && (!notMembers.isEmpty())) {
 			for (Entry<String, Object> en : notMembers.entrySet()) {
-				ps.add(STR."?\{index} not member of o.\{en.getKey()}");
+				ps.add("?" + index + " not member of o." + en.getKey());
 				vs.add(en.getValue());
 				index++;
 			}
 		}
 		if (!ps.isEmpty()) {
-			str = STR."\{str} where \{StringUtils.join(ps, andJoin ? " and " : " or ")}";
+			str = str + " where " + StringUtils.join(ps, andJoin ? " and " : " or ");
 		}
 		Query query = em.createQuery(str, cls);
 		for (int i = 0; i < vs.size(); i++) {
@@ -588,7 +588,7 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 		if (null != likes && (!likes.isEmpty())) {
 			List<Predicate> ors = new ArrayList<>();
 			for (Entry<String, Object> en : likes.entrySet()) {
-				ors.add(cb.like(root.get(en.getKey()), STR."%\{en.getValue()}%"));
+				ors.add(cb.like(root.get(en.getKey()), "%" + en.getValue() + "%"));
 			}
 			ps.add(cb.or(CollectionTools.toArray(ors, Predicate.class)));
 		}
@@ -634,25 +634,25 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 			}
 		}
 		EntityManager em = emc.get(tClass);
-		String str = STR."SELECT o.id FROM \{tClass.getCanonicalName()} o";
+		String str = "SELECT o.id FROM " + tClass.getCanonicalName() + " o";
 		Integer index = 1;
 		List<String> ps = new ArrayList<>();
 		List<Object> vs = new ArrayList<>();
 		if (null != sequence) {
-			ps.add(STR."o.\{sequenceField} \{StringUtils.equalsIgnoreCase(order, DESC) ? "<" : ">"} ?\{index}");
+			ps.add("o." + sequenceField + " " + (StringUtils.equalsIgnoreCase(order, DESC) ? "<" : ">") + " ?" + index);
 			vs.add(sequence);
 			index++;
 		}
 		if (null != equals && (!equals.isEmpty())) {
 			for (Entry<String, Object> en : equals.entrySet()) {
-				ps.add(STR."o.\{en.getKey()} = ?\{index}");
+				ps.add("o." + en.getKey() + " = ?" + index);
 				vs.add(en.getValue());
 				index++;
 			}
 		}
 		if (null != notEquals && (!notEquals.isEmpty())) {
 			for (Entry<String, Object> en : notEquals.entrySet()) {
-				ps.add(STR."(o.\{en.getKey()} <> ?\{index} or o.\{en.getKey()} is null)");
+				ps.add("(o." + en.getKey() + " <> ?" + index + " or o." + en.getKey() + " is null)");
 				vs.add(en.getValue());
 				index++;
 			}
@@ -661,45 +661,45 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 			List<String> ors = new ArrayList<>();
 			for (Entry<String, Object> en : likes.entrySet()) {
 				for (String s : StringUtils.split(en.getValue().toString(), " ")) {
-					ors.add(STR."o.\{en.getKey()} Like ?\{index}");
-					vs.add(STR."%\{s}%");
+					ors.add("o." + en.getKey() + " Like ?" + index);
+					vs.add("%" + s + "%");
 					index++;
 				}
 			}
-			ps.add(STR."(\{StringUtils.join(ors, " or ")})");
+			ps.add("(" + StringUtils.join(ors, " or ") + ")");
 		}
 		if (null != ins && (!ins.isEmpty())) {
 			for (Entry<String, Collection<?>> en : ins.entrySet()) {
-				ps.add(STR."o.\{en.getKey()} in ?\{index}");
+				ps.add("o." + en.getKey() + " in ?" + index);
 				vs.add(en.getValue());
 				index++;
 			}
 		}
 		if (null != notIns && (!notIns.isEmpty())) {
 			for (Entry<String, Collection<?>> en : notIns.entrySet()) {
-				ps.add(STR."o.\{en.getKey()} not in ?\{index}");
+				ps.add("o." + en.getKey() + " not in ?" + index);
 				vs.add(en.getValue());
 				index++;
 			}
 		}
 		if (null != members && (!members.isEmpty())) {
 			for (Entry<String, Object> en : members.entrySet()) {
-				ps.add(STR."?\{index} member of o.\{en.getKey()}");
+				ps.add("?" + index + " member of o." + en.getKey());
 				vs.add(en.getValue());
 				index++;
 			}
 		}
 		if (null != notMembers && (!notMembers.isEmpty())) {
 			for (Entry<String, Object> en : notMembers.entrySet()) {
-				ps.add(STR."?\{index} not member of o.\{en.getKey()}");
+				ps.add("?" + index + " not member of o." + en.getKey());
 				vs.add(en.getValue());
 				index++;
 			}
 		}
 		if (!ps.isEmpty()) {
-			str = STR."\{str} where \{StringUtils.join(ps, andJoin ? " and " : " or ")}";
+			str = str + " where " + StringUtils.join(ps, andJoin ? " and " : " or ");
 		}
-		str = STR."\{str} order by o.\{sequenceField} \{StringUtils.equalsIgnoreCase(order, DESC) ? DESC : ASC}";
+		str = str + " order by o." + sequenceField + " " + (StringUtils.equalsIgnoreCase(order, DESC) ? DESC : ASC);
 		Query query = em.createQuery(str, tClass);
 		for (int i = 0; i < vs.size(); i++) {
 			query.setParameter(i + 1, vs.get(i));
@@ -733,25 +733,25 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 			}
 		}
 		EntityManager em = emc.get(tClass);
-		String str = STR."SELECT o.id FROM \{tClass.getCanonicalName()} o";
+		String str = "SELECT o.id FROM " + tClass.getCanonicalName() + " o";
 		Integer index = 1;
 		List<String> ps = new ArrayList<>();
 		List<Object> vs = new ArrayList<>();
 		if (null != sequence) {
-			ps.add(STR."o.\{sequenceField} \{StringUtils.equalsIgnoreCase(order, DESC) ? ">" : "<"} ?\{index}");
+			ps.add("o." + sequenceField + " " + (StringUtils.equalsIgnoreCase(order, DESC) ? ">" : "<") + " ?" + index);
 			vs.add(sequence);
 			index++;
 		}
 		if (null != equals && (!equals.isEmpty())) {
 			for (Entry<String, Object> en : equals.entrySet()) {
-				ps.add(STR."o.\{en.getKey()} = ?\{index}");
+				ps.add("o." + en.getKey() + " = ?" + index);
 				vs.add(en.getValue());
 				index++;
 			}
 		}
 		if (null != notEquals && (!notEquals.isEmpty())) {
 			for (Entry<String, Object> en : notEquals.entrySet()) {
-				ps.add(STR."(o.\{en.getKey()} <> ?\{index} or o.\{en.getKey()} is null)");
+				ps.add("(o." + en.getKey() + " <> ?" + index + " or o." + en.getKey() + " is null)");
 				vs.add(en.getValue());
 				index++;
 			}
@@ -760,45 +760,45 @@ public abstract class StandardJaxrsAction extends AbstractJaxrsAction {
 			List<String> ors = new ArrayList<>();
 			for (Entry<String, Object> en : likes.entrySet()) {
 				for (String s : StringUtils.split(en.getValue().toString(), " ")) {
-					ors.add(STR."o.\{en.getKey()} Like ?\{index}");
-					vs.add(STR."%\{s}%");
+					ors.add("o." + en.getKey() + " Like ?" + index);
+					vs.add("%" + s + "%");
 					index++;
 				}
 			}
-			ps.add(STR."(\{StringUtils.join(ors, " or ")})");
+			ps.add("(" + StringUtils.join(ors, " or ") + ")");
 		}
 		if (null != ins && (!ins.isEmpty())) {
 			for (Entry<String, Collection<?>> en : ins.entrySet()) {
-				ps.add(STR."o.\{en.getKey()} in ?\{index}");
+				ps.add("o." + en.getKey() + " in ?" + index);
 				vs.add(en.getValue());
 				index++;
 			}
 		}
 		if (null != notIns && (!notIns.isEmpty())) {
 			for (Entry<String, Collection<?>> en : notIns.entrySet()) {
-				ps.add(STR."o.\{en.getKey()} not in ?\{index}");
+				ps.add("o." + en.getKey() + " not in ?" + index);
 				vs.add(en.getValue());
 				index++;
 			}
 		}
 		if (null != members && (!members.isEmpty())) {
 			for (Entry<String, Object> en : members.entrySet()) {
-				ps.add(STR."?\{index} member of o.\{en.getKey()}");
+				ps.add("?" + index + " member of o." + en.getKey());
 				vs.add(en.getValue());
 				index++;
 			}
 		}
 		if (null != notMembers && (!notMembers.isEmpty())) {
 			for (Entry<String, Object> en : notMembers.entrySet()) {
-				ps.add(STR."?\{index} not member of o.\{en.getKey()}");
+				ps.add("?" + index + " not member of o." + en.getKey());
 				vs.add(en.getValue());
 				index++;
 			}
 		}
 		if (!ps.isEmpty()) {
-			str = STR."\{str} where \{StringUtils.join(ps, andJoin ? " and " : " or ")}";
+			str = str + " where " + StringUtils.join(ps, andJoin ? " and " : " or ");
 		}
-		str = STR."\{str} order by o.\{sequenceField} \{StringUtils.equalsIgnoreCase(order, DESC) ? ASC : DESC}";
+		str = str + " order by o." + sequenceField + " " + (StringUtils.equalsIgnoreCase(order, DESC) ? ASC : DESC);
 		Query query = em.createQuery(str, tClass);
 		for (int i = 0; i < vs.size(); i++) {
 			query.setParameter(i + 1, vs.get(i));

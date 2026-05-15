@@ -77,7 +77,7 @@ public class WebServerTools extends JettySeverTools {
 		webContext.start();
 		LOGGER.print("****************************************");
 		LOGGER.print("* web server is started in the application server.");
-		LOGGER.print(STR."* port: \{Config.currentNode().getApplication().getPort()}.");
+		LOGGER.print("* port: " + Config.currentNode().getApplication().getPort() + ".");
 		LOGGER.print("****************************************");
 		return Servers.getApplicationServer();
 	}

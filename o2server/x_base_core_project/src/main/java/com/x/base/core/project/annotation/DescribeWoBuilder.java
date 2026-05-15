@@ -576,7 +576,7 @@ public class DescribeWoBuilder {
 					}
 				}
 			} catch (Exception e) {
-				logger.info(STR."getJaxrsFieldType error:\{e.getMessage()}");
+				logger.info("getJaxrsFieldType error:" + e.getMessage());
 			}
 		}
 		return value;

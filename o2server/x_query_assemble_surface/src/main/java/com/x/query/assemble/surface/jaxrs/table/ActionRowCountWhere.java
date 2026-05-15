@@ -47,9 +47,9 @@ class ActionRowCountWhere extends BaseAction {
 			Class<? extends JpaObject> cls = (Class<? extends JpaObject>) classLoader
 					.loadClass(dynamicEntity.className());
 			EntityManager em = emc.get(cls);
-			String sql = STR."SELECT count(o) FROM \{cls.getName()} o";
+			String sql = "SELECT count(o) FROM " + cls.getName() + " o";
 			if (StringUtils.isNotBlank(where) && (!StringUtils.equals(where, EMPTY_SYMBOL))) {
-				sql = STR."\{sql} where (\{where})";
+				sql = sql + " where (" + where + ")";
 			}
 			Long count = (Long) em.createQuery(sql).getSingleResult();
 			Wo wo = new Wo();

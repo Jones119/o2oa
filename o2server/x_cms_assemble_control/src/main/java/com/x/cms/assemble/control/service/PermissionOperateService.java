@@ -125,7 +125,7 @@ public class PermissionOperateService {
 				}
 				return new PermissionInfo(permission, permissionObjectType, personFlag, permissionObjectName);
 			}else {
-				logger.warn(STR."can not find person with identity. Identity:\{permissionObjectCode}");
+				logger.warn("can not find person with identity. Identity:" + permissionObjectCode);
 				return null;
 			}			
 		}else {

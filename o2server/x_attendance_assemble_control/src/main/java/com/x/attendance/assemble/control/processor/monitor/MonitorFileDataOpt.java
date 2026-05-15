@@ -144,7 +144,7 @@ public class MonitorFileDataOpt {
 			try {
 				fileInfo = importFileInfoService.get(file_id);
 			} catch (Exception e) {
-				logger.warn(STR."system get import file info from db with id got an exception.id:\{file_id}");
+				logger.warn("system get import file info from db with id got an exception.id:" + file_id);
 				e.printStackTrace();
 			}
 
@@ -162,7 +162,7 @@ public class MonitorFileDataOpt {
 									&& "success".equalsIgnoreCase(cacheImportFileStatus.getCheckStatus())
 									&& cacheImportFileStatus.getDetailList() != null
 									&& cacheImportFileStatus.getDetailList().size() > 0) {
-								logger.info(STR."file[\{file_id}], send before, record total:\{cacheImportFileStatus.getDetailList().size()}");
+								logger.info("file[" + file_id + "], send before, record total:" + cacheImportFileStatus.getDetailList().size());
 								cacheImportFileStatus.setCurrentProcessName(ImportOptDefine.SAVEDATA);
 								fileInfo.setCurrentProcessName(ImportOptDefine.SAVEDATA);
 								cacheImportFileStatus.setProcessing(true);
@@ -179,7 +179,7 @@ public class MonitorFileDataOpt {
 									}
 								}
 								// 如果数据已经处理完成开始保存数据
-								logger.info(STR."file[\{file_id}], excel validate complete, system will try to save record to database, record total:\{process_total}");
+								logger.info("file[" + file_id + "], excel validate complete, system will try to save record to database, record total:" + process_total);
 								new SenderForSaveData().execute(cacheImportFileStatus, debugger);
 							} else {
 								cacheImportFileStatus.setCurrentProcessName(ImportOptDefine.COMPLETED);
@@ -189,7 +189,7 @@ public class MonitorFileDataOpt {
 								cacheImportFileStatus.setProcessing_save(false);
 								fileInfo.setProcessing(false);
 								fileInfo.setValidateOk(false);
-								logger.warn(STR."file[\{file_id}], excel validate complete, record can not to save, validate is not success!");
+								logger.warn("file[" + file_id + "], excel validate complete, record can not to save, validate is not success!");
 							}
 						} else {
 							cacheImportFileStatus.setCurrentProcessName(ImportOptDefine.VALIDATE);
@@ -198,7 +198,7 @@ public class MonitorFileDataOpt {
 							cacheImportFileStatus.setProcessing_validate(true);
 							cacheImportFileStatus.setProcessing_save(false);
 							fileInfo.setProcessing(true);
-							logger.info(STR."file[\{file_id}], validating:\{process_count}/\{process_total}");
+							logger.info("file[" + file_id + "], validating:" + process_count + "/" + process_total);
 
 							int error_count = Integer.parseInt(cacheImportFileStatus.getErrorCount() + "");
 							if (error_count + process_count == process_total) {
@@ -228,7 +228,7 @@ public class MonitorFileDataOpt {
 							cacheImportFileStatus.setProcessing_save(false);
 							fileInfo.setProcessing(false);
 
-							logger.info(STR."file[\{file_id}], save data complete, save record :\{process_count}");
+							logger.info("file[" + file_id + "], save data complete, save record :" + process_count);
 
 						} else {
 							cacheImportFileStatus.setCurrentProcessName(ImportOptDefine.SAVEDATA);
@@ -237,7 +237,7 @@ public class MonitorFileDataOpt {
 							cacheImportFileStatus.setProcessing_validate(false);
 							cacheImportFileStatus.setProcessing_save(true);
 							fileInfo.setProcessing(true);
-							logger.info(STR."file[\{file_id}], saving:\{process_count}/\{process_total}");
+							logger.info("file[" + file_id + "], saving:" + process_count + "/" + process_total);
 
 							int error_count = Integer.parseInt(cacheImportFileStatus.getErrorCount() + "");
 							if (error_count + process_count == process_total) {

@@ -263,7 +263,7 @@ public class ActionReceiveMsg extends BaseAction {
                     body.setOpenId(toUser);
                     ActionResponse result = CipherConnectionAction.post(false,
                             Config.url_x_program_center_jaxrs("invoke", scriptId, "execute"), body);
-                    logger.info(STR."执行脚本结果： \{result.toJson()}");
+                    logger.info("执行脚本结果： " + result.toJson());
                 } else {
                     logger.warn("没有配置服务脚本id");
                 }

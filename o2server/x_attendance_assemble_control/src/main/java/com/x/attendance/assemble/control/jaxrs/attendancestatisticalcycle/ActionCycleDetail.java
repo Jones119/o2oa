@@ -47,7 +47,7 @@ public class ActionCycleDetail extends BaseAction {
 		}
 		if (check) {
 			try {
-				logger.info(STR."++++++++尝试获取人员的顶级组织：personName:\{effectivePerson.getDistinguishedName()}");
+				logger.info("++++++++尝试获取人员的顶级组织：personName:" + effectivePerson.getDistinguishedName());
 				topUnitName = userManagerService.getTopUnitNameWithPersonName(effectivePerson.getDistinguishedName());
 				if ( StringUtils.isEmpty( topUnitName ) ) {
 					check = false;

@@ -32,13 +32,13 @@ class ActionManagerClear extends BaseAction {
 				throw new ExceptionAccessDenied(effectivePerson);
 			}
 			EntityManager em = emc.get(TaskProcessMode.class);
-			String sql = STR."DELETE FROM \{TaskProcessMode.class.getName()}";
+			String sql = "DELETE FROM " + TaskProcessMode.class.getName();
 			if(!EMPTY_SYMBOL.equals(person)){
 				Person personObj = business.organization().person().getObject(person);
 				if(personObj != null){
 					person = personObj.getUnique();
 				}
-				sql = STR."\{sql} o WHERE o.person = '\{person}'";
+				sql = sql + " o WHERE o.person = '" + person + "'";
 			}
 			emc.beginTransaction(TaskProcessMode.class);
 			Query query = em.createQuery(sql);

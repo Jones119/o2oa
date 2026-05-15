@@ -159,14 +159,14 @@ public class BaseTools {
 			dos.writeUTF(syncFilePath);
 			dos.flush();
 
-			LOGGER.info(STR."同步文件:\{syncFilePath} starting...");
+			LOGGER.info("同步文件:" + syncFilePath + " starting...");
 			byte[] bytes = new byte[1024];
 			int length = 0;
 			while ((length = fileInputStream.read(bytes, 0, bytes.length)) != -1) {
 				dos.write(bytes, 0, length);
 				dos.flush();
 			}
-			LOGGER.info(STR."同步文件:\{syncFilePath} end.");
+			LOGGER.info("同步文件:" + syncFilePath + " end.");
 
 			syncFileFlag = true;
 		} catch (Exception ex) {

@@ -1150,7 +1150,7 @@ public class EntityManagerContainer extends EntityManagerContainerBasic {
 	public <T extends JpaObject> List<String> idsLessThan(Class<T> cls, String attribute, Object value)
 			throws Exception {
 		EntityManager em = this.get(cls);
-		String str = STR."SELECT o.id FROM \{cls.getCanonicalName()} o where o.\{attribute} < ?1";
+		String str = "SELECT o.id FROM " + cls.getCanonicalName() + " o where o." + attribute + " < ?1";
 		TypedQuery<String> query = em.createQuery(str, String.class);
 		query.setParameter(1, value);
 		List<String> os = query.getResultList();
@@ -1173,7 +1173,7 @@ public class EntityManagerContainer extends EntityManagerContainerBasic {
 	public <T extends JpaObject> List<String> idsGreaterThan(Class<T> cls, String attribute, Object value)
 			throws Exception {
 		EntityManager em = this.get(cls);
-		String str = STR."SELECT o.id FROM \{cls.getCanonicalName()} o where o.\{attribute} > ?1";
+		String str = "SELECT o.id FROM " + cls.getCanonicalName() + " o where o." + attribute + " > ?1";
 		TypedQuery<String> query = em.createQuery(str, String.class);
 		query.setParameter(1, value);
 		List<String> os = query.getResultList();

@@ -46,7 +46,7 @@ public class UUIDAction extends StandardJaxrsAction {
 			data.add(uuid);
 			result.setData(data);
 		} catch (Exception e) {
-			logger.warn(STR."user[\{effectivePerson.getDistinguishedName()}] get a new UUID error！", e);
+			logger.warn("user[" + effectivePerson.getDistinguishedName() + "] get a new UUID error！", e);
 		}
 		asyncResponse.resume(ResponseFactory.getEntityTagActionResultResponse(request, result));
 	}

@@ -144,7 +144,7 @@ public class ActionEraseDocumentWithAppInfo extends BaseAction {
 						}
 
 						count = documentServiceAdv.countByAppId( id );
-						logger.debug(STR."cms delete \{queryMaxCount}documents, and left \{count} documents need to delete.");
+						logger.debug("cms delete " + queryMaxCount + "documents, and left " + count + " documents need to delete.");
 					}
 				}
 			}
