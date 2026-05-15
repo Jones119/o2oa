@@ -55,9 +55,7 @@ public class MetaModelBuilder {
 
 			fileManager.list(StandardLocation.SOURCE_PATH, "", EnumSet.of(JavaFileObject.Kind.SOURCE), true)
 					.forEach(o -> {
-						if (StringUtils.endsWith(o.getName(), "_.java")) {
-							o.delete();
-						} else if (paths.contains(o.getName())) {
+						if (paths.contains(o.getName())) {
 							res.add(o);
 						}
 					});
