@@ -13,8 +13,8 @@ import com.x.portal.core.entity.Portal;
 import com.x.portal.core.entity.Portal_;
 import org.apache.commons.lang3.StringUtils;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.*;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;

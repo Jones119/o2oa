@@ -50,7 +50,7 @@ public class ActionMsgCreate extends BaseAction {
 			msg.setCreatePerson(effectivePerson.getDistinguishedName());
 			escapeHTML(msg); // 清除可执行的代码
 			msg.setCreateTime(new Date());
-			LOGGER.info("escape html json:" + msg.getBody());
+			LOGGER.info(STR."escape html json:\{msg.getBody()}");
 			emc.beginTransaction(IMMsg.class);
 			emc.persist(msg, CheckPersistType.all);
 			emc.commit();

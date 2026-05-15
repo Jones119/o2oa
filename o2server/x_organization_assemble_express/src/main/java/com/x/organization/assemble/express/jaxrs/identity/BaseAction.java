@@ -40,7 +40,7 @@ class BaseAction extends StandardJaxrsAction {
 
 	protected <T extends com.x.base.core.project.organization.Identity> T convert(Business business, Identity identity,
 			Class<T> clz) throws Exception {
-		T t = clz.newInstance();
+		T t = clz.getDeclaredConstructor().newInstance();
 		t.setName(identity.getName());
 		t.setUnique(identity.getUnique());
 		t.setDescription(identity.getDescription());

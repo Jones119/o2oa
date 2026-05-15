@@ -15,7 +15,7 @@ class ActionStop extends BaseAction {
 
 		ActionResult<Wo> result = new ActionResult<>();
 		LOGGER.debug("execute:{}.", effectivePerson::getDistinguishedName);
-		new Thread(() -> {
+		Thread.ofVirtual().name(ActionStop.class.getName() + "-stop").start(() -> {
 			try {
 				Thread.sleep(1000);
 				Config.resource_commandQueue().put("stop init");
@@ -25,7 +25,7 @@ class ActionStop extends BaseAction {
 			} catch (Exception e) {
 				LOGGER.error(e);
 			}
-		}).start();
+		});
 		Wo wo = new Wo();
 		wo.setValue(true);
 		result.setData(wo);

@@ -23,7 +23,7 @@ public class QueueShareNotify extends AbstractQueue<MindBaseInfo> {
 			logger.warn("can not send publish notify for mind, because mindBaseInfo is NULL!" );
 			return;
 		}
-		logger.debug("system try to send notify for mind:" + mindBaseInfo.getName() );
+		logger.debug(STR."system try to send notify for mind:\{mindBaseInfo.getName()}");
 
 		List<String> persons = caculatePerson( mindBaseInfo );
 		MessageWo wo = composeMessageWo( mindBaseInfo );

@@ -3,7 +3,7 @@ package com.x.attendance.assemble.control.jaxrs.v2;
 import com.x.attendance.entity.v2.AttendanceV2Group;
 import com.x.base.core.project.exception.PromptException;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import java.util.stream.Collectors;
 

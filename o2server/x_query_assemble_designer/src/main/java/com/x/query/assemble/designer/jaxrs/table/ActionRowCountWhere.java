@@ -1,6 +1,6 @@
 package com.x.query.assemble.designer.jaxrs.table;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -37,9 +37,9 @@ class ActionRowCountWhere extends BaseAction {
 			@SuppressWarnings("unchecked")
 			Class<? extends JpaObject> cls = (Class<JpaObject>) classLoader.loadClass(dynamicEntity.className());
 			EntityManager em = emc.get(cls);
-			String sql = "SELECT count(o) FROM " + cls.getName() + " o";
+			String sql = STR."SELECT count(o) FROM \{cls.getName()} o";
 			if (StringUtils.isNotBlank(where) && (!StringUtils.equals(where, EMPTY_SYMBOL))) {
-				sql += " where (" + where + ")";
+				sql = STR."\{sql} where (\{where})";
 			}
 			Long count = (Long) em.createQuery(sql).getSingleResult();
 			Wo wo = new Wo();

@@ -118,7 +118,7 @@ class ActionUploadForm extends BaseAction {
 			String key = generalFile.getId();
 			return key;
 		} catch (Exception e) {
-			logger.warn("写表单信息异常" + e.getMessage());
+			logger.warn(STR."写表单信息异常\{e.getMessage()}");
 		}
 		return "";
 	}

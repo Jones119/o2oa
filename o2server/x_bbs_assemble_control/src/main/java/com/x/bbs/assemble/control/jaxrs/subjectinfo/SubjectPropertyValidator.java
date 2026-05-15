@@ -2,7 +2,7 @@ package com.x.bbs.assemble.control.jaxrs.subjectinfo;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.x.base.core.project.tools.ListTools;
 import com.x.bbs.assemble.control.jaxrs.subjectinfo.ActionSubjectSave.Wi;

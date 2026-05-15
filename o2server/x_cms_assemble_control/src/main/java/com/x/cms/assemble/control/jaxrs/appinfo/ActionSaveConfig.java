@@ -13,7 +13,7 @@ import com.x.cms.core.entity.AppInfo;
 import com.x.cms.core.entity.AppInfoConfig;
 import org.apache.commons.lang3.StringUtils;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * 保存栏目配置支持信息

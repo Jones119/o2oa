@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
-import javax.persistence.Column;
+import jakarta.persistence.Column;
 
 import com.x.base.core.entity.dynamic.DynamicEntity;
 import com.x.base.core.project.jaxrs.WrapString;

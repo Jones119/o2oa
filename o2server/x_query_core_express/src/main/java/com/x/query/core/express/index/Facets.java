@@ -31,10 +31,8 @@ public class Facets {
                         // 存在可能为null
                         .filter(o -> null != o.groupValue && StringUtils.isNotEmpty(o.groupValue.utf8ToString()))
                         .map(o -> {
-                            ValueCountPair valueCountPair = new ValueCountPair();
-
-                            valueCountPair.setValue(o.groupValue.utf8ToString());
-                            valueCountPair.setCount(o.totalHits.value);
+                            ValueCountPair valueCountPair = new ValueCountPair(
+                                    o.groupValue.utf8ToString(), o.totalHits.value);
                             return valueCountPair;
                         }).collect(Collectors.toList());
                 if (StringUtils.equalsIgnoreCase(facetGroupOrder,

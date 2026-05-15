@@ -3,7 +3,7 @@ package com.x.program.center.jaxrs.distribute;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.x.base.core.project.http.ActionResult;
 

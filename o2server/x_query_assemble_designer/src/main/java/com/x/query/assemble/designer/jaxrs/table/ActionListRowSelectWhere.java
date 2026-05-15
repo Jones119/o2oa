@@ -2,7 +2,7 @@ package com.x.query.assemble.designer.jaxrs.table;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -38,9 +38,9 @@ class ActionListRowSelectWhere extends BaseAction {
 			@SuppressWarnings("unchecked")
 			Class<? extends JpaObject> clz = (Class<JpaObject>) classLoader.loadClass(dynamicEntity.className());
 			EntityManager em = emc.get(clz);
-			String sql = "SELECT o FROM " + clz.getName() + " o";
+			String sql = STR."SELECT o FROM \{clz.getName()} o";
 			if (StringUtils.isNotBlank(where) && (!StringUtils.equals(where, EMPTY_SYMBOL))) {
-				sql += " where (" + where + ")";
+				sql = STR."\{sql} where (\{where})";
 			}
 			List<?> list = em.createQuery(sql).getResultList();
 			result.setData(list);

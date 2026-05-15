@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -42,7 +42,7 @@ public class QueueDingdingAttendance extends AbstractQueue<DingdingQywxSyncRecor
 
     @Override
     protected void execute(DingdingQywxSyncRecord record) throws Exception {
-        logger.info("开始执行钉钉打卡数据同步，from:" + record.getDateFrom() + ", to:"+record.getDateTo());
+        logger.info(STR."开始执行钉钉打卡数据同步，from:\{record.getDateFrom()}, to:\{record.getDateTo()}");
         if (DingdingQywxSyncRecord.syncType_dingding.equals(record.getType())) {
             try {
                 dingdingSync(record);

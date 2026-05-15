@@ -265,16 +265,13 @@ public class EndProcessor extends AbstractEndProcessor {
 	 * @param workId
 	 */
 	private void touchWork(String workId) {
-		new Thread(EndProcessor.class.getName() + "_touchWork") {
-			@Override
-			public void run() {
-				try {
-					new Processing(new ProcessingAttributes()).processing(workId);
-				} catch (Exception e) {
-					LOGGER.error(e);
-				}
+		Thread.ofVirtual().name(EndProcessor.class.getName() + "_touchWork").start(() -> {
+			try {
+				new Processing(new ProcessingAttributes()).processing(workId);
+			} catch (Exception e) {
+				LOGGER.error(e);
 			}
-		}.start();
+		});
 	}
 
 	@Override

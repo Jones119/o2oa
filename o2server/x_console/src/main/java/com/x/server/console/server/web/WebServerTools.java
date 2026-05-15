@@ -27,7 +27,7 @@ import org.eclipse.jetty.util.resource.ResourceCollection;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
 import org.eclipse.jetty.webapp.WebAppContext;
 
-import javax.servlet.DispatcherType;
+import jakarta.servlet.DispatcherType;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -77,7 +77,7 @@ public class WebServerTools extends JettySeverTools {
 		webContext.start();
 		LOGGER.print("****************************************");
 		LOGGER.print("* web server is started in the application server.");
-		LOGGER.print("* port: " + Config.currentNode().getApplication().getPort() + ".");
+		LOGGER.print(STR."* port: \{Config.currentNode().getApplication().getPort()}.");
 		LOGGER.print("****************************************");
 		return Servers.getApplicationServer();
 	}

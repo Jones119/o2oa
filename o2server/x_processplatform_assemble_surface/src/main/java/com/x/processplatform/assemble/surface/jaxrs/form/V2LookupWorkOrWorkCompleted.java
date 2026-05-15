@@ -1,10 +1,10 @@
 package com.x.processplatform.assemble.surface.jaxrs.form;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 import java.util.zip.CRC32;
 
@@ -52,12 +52,15 @@ class V2LookupWorkOrWorkCompleted extends BaseAction {
 				this.wo = (Wo) optional.get();
 			} else {
 				List<String> list = new ArrayList<>();
-				CompletableFuture<List<String>> relatedFormFuture = this.relatedFormFuture(this.form);
-				CompletableFuture<List<String>> relatedScriptFuture = this.relatedScriptFuture(this.form);
-				list.add(this.form.getId() + this.form.getUpdateTime().getTime());
-				list.addAll(relatedFormFuture.get(Config.processPlatform().getAsynchronousTimeout(), TimeUnit.SECONDS));
-				list.addAll(
-						relatedScriptFuture.get(Config.processPlatform().getAsynchronousTimeout(), TimeUnit.SECONDS));
+				try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+					var relatedFormSubtask = scope.fork(() -> this.relatedForm(this.form));
+					var relatedScriptSubtask = scope.fork(() -> this.relatedScript(this.form));
+					scope.joinUntil(Instant.now().plusSeconds(Config.processPlatform().getAsynchronousTimeout()));
+					scope.throwIfFailed();
+					list.add(this.form.getId() + this.form.getUpdateTime().getTime());
+					list.addAll(relatedFormSubtask.get());
+					list.addAll(relatedScriptSubtask.get());
+				}
 				list = list.stream().sorted().collect(Collectors.toList());
 				this.wo.setId(this.form.getId());
 				CRC32 crc = new CRC32();
@@ -115,41 +118,32 @@ class V2LookupWorkOrWorkCompleted extends BaseAction {
 		return o;
 	}
 
-	private CompletableFuture<List<String>> relatedFormFuture(Form form) {
-		return CompletableFuture.supplyAsync(() -> {
-			List<String> list = new ArrayList<>();
-			Form f;
-			if (ListTools.isNotEmpty(form.getProperties().getRelatedFormList())) {
-				try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
-					for (String id : form.getProperties().getRelatedFormList()) {
-						f = emc.find(id, Form.class);
-						if (null != f) {
-							list.add(f.getId() + f.getUpdateTime().getTime());
-						}
+	private List<String> relatedForm(Form form) throws Exception {
+		List<String> list = new ArrayList<>();
+		Form f;
+		if (ListTools.isNotEmpty(form.getProperties().getRelatedFormList())) {
+			try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
+				for (String id : form.getProperties().getRelatedFormList()) {
+					f = emc.find(id, Form.class);
+					if (null != f) {
+						list.add(f.getId() + f.getUpdateTime().getTime());
 					}
-				} catch (Exception e) {
-					LOGGER.error(e);
 				}
 			}
-			return list;
-		}, ThisApplication.forkJoinPool());
+		}
+		return list;
 	}
 
-	private CompletableFuture<List<String>> relatedScriptFuture(Form form) {
-		return CompletableFuture.supplyAsync(() -> {
-			List<String> list = new ArrayList<>();
-			if ((null != form.getProperties().getRelatedScriptMap())
-					&& (form.getProperties().getRelatedScriptMap().size() > 0)) {
-				try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
-					Business business = new Business(emc);
-					list = convertScriptToCacheTag(business, form.getProperties().getRelatedScriptMap());
-				} catch (Exception e) {
-					LOGGER.error(e);
-				}
+	private List<String> relatedScript(Form form) throws Exception {
+		List<String> list = new ArrayList<>();
+		if ((null != form.getProperties().getRelatedScriptMap())
+				&& (form.getProperties().getRelatedScriptMap().size() > 0)) {
+			try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
+				Business business = new Business(emc);
+				list = convertScriptToCacheTag(business, form.getProperties().getRelatedScriptMap());
 			}
-
-			return list;
-		}, ThisApplication.forkJoinPool());
+		}
+		return list;
 	}
 
 	public static class Wo extends AbstractWo {

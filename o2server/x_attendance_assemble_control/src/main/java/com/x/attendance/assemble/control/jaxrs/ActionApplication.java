@@ -34,7 +34,7 @@ import com.x.attendance.assemble.control.jaxrs.v2.workplace.WorkPlaceV2Action;
 import com.x.attendance.assemble.control.jaxrs.workplace.AttendanceWorkPlaceAction;
 import com.x.base.core.project.jaxrs.AbstractActionApplication;
 import java.util.Set;
-import javax.ws.rs.ApplicationPath;
+import jakarta.ws.rs.ApplicationPath;
 
 @ApplicationPath("jaxrs")
 public class ActionApplication extends AbstractActionApplication {

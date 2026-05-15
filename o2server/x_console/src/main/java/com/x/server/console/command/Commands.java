@@ -31,7 +31,7 @@ public class Commands {
 			Pair.of(ExitCommand.PATTERN, ExitCommand.consumer()));
 
 	public static void execute(String cmd) {
-		new Thread(() -> {
+		Thread.ofVirtual().name(Commands.class.getName() + "-execute").start(() -> {
 			Optional<Pair<Matcher, Consumer<Matcher>>> opt = PATTERN_COMMANDS.stream()
 					.map(p -> Pair.of(p.first().matcher(cmd), p.second())).filter(p -> p.first().matches()).findFirst();
 			if (opt.isPresent()) {
@@ -45,7 +45,7 @@ public class Commands {
 				Thread.currentThread().interrupt();
 				LOGGER.error(e);
 			}
-		}).start();
+		});
 	}
 
 }

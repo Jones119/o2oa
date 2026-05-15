@@ -2,7 +2,7 @@ package com.x.cms.assemble.control.jaxrs.viewfieldconfig;
 
 import java.util.ArrayList;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.x.base.core.container.EntityManagerContainer;
 import com.x.base.core.container.factory.EntityManagerContainerFactory;
@@ -32,7 +32,7 @@ public class ActionDelete extends BaseAction {
 			ViewFieldConfig viewFieldConfig = business.getViewFieldConfigFactory().get(id);
 
 			if (null == viewFieldConfig) {
-				logger.warn("viewFieldConfig{id:" + id + "} 应用信息不存在.");
+				logger.warn(STR."viewFieldConfig{id:\{id}} 应用信息不存在.");
 			}
 			// 查询视图信息
 			View view = business.getViewFactory().get(viewFieldConfig.getViewId());

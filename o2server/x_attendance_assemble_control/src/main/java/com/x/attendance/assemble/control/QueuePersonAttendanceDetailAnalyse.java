@@ -29,22 +29,22 @@ public class QueuePersonAttendanceDetailAnalyse extends AbstractQueue<String> {
         AttendanceDetailServiceAdv detailServiceAdv = new AttendanceDetailServiceAdv();
         AttendanceDetail record = detailServiceAdv.get( detailId );
         if( record != null ){
-            logger.debug("system try to analyse attendance detail for person, Id:" + record.getId() );
+            logger.debug(STR."system try to analyse attendance detail for person, Id:\{record.getId()}");
 
             try {
                 List<AttendanceWorkDayConfig> workDayConfigList = attendanceWorkDayConfigServiceAdv.getAllWorkDayConfigWithCache( false );
                 Map<String, Map<String, List<AttendanceStatisticalCycle>>> statisticalCycleMap = statisticalCycleServiceAdv.getAllStatisticalCycleMapWithCache( false );
 
                 detailAnalyseServiceAdv.analyseAttendanceDetail( record, workDayConfigList, statisticalCycleMap, false );
-                logger.debug( "attendance detail analyse completed.person:" + record.getEmpName() + ", date:" + record.getRecordDateString());
+                logger.debug(STR."attendance detail analyse completed.person:\{record.getEmpName()}, date:\{record.getRecordDateString()}");
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            logger.debug("["+record.getEmpName()+"]["+ record.getRecordDateString() +"] attendance detail record analyse task execute completed。" );
+            logger.debug(STR."[\{record.getEmpName()}][\{record.getRecordDateString()}] attendance detail record analyse task execute completed。");
         }else{
-            logger.warn("attandence detail not exists, id:" + detailId );
+            logger.warn(STR."attandence detail not exists, id:\{detailId}");
         }
 
     }

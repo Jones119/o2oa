@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -90,7 +90,7 @@ class ActionGetAllTableFields extends BaseAction {
 		try {
 			Class cls_entity = Thread.currentThread().getContextClassLoader().loadClass(containerEntity);
 			Class cls_annotation_table = Thread.currentThread().getContextClassLoader()
-					.loadClass("javax.persistence.Table");
+					.loadClass("jakarta.persistence.Table");
 			Method cls_annotation_table_method_name = cls_annotation_table.getMethod("name");
 
 			Annotation annotation_table = cls_entity.getAnnotation(cls_annotation_table);
@@ -111,7 +111,7 @@ class ActionGetAllTableFields extends BaseAction {
 				}
 			}
 		} catch (ClassNotFoundException | NoSuchMethodException e) {
-			logger.info("无法解析实体类" + containerEntity + ",请检查类依赖情况。");
+			logger.info(STR."无法解析实体类\{containerEntity},请检查类依赖情况。");
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
@@ -125,7 +125,7 @@ class ActionGetAllTableFields extends BaseAction {
 		Object result = null;
 		try {
 			Class cls_annotation_field_column = Thread.currentThread().getContextClassLoader()
-					.loadClass("javax.persistence.Column");
+					.loadClass("jakarta.persistence.Column");
 			Class cls_annotation_field_describe = Thread.currentThread().getContextClassLoader()
 					.loadClass("com.x.base.core.project.annotation.FieldDescribe");
 			Method cls_annotation_field_method_name = cls_annotation_field_describe.getMethod("value");

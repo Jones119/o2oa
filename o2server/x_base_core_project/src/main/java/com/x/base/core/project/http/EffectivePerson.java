@@ -11,6 +11,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.ScopedValue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,6 +35,8 @@ public class EffectivePerson extends GsonPropertyObject {
 	private static final Logger LOGGER = LoggerFactory.getLogger(EffectivePerson.class);
 
 	private static final long serialVersionUID = -6961607633719115852L;
+
+	public static final ScopedValue<EffectivePerson> SCOPED = ScopedValue.newInstance();
 
 	public static final String ANONYMOUS = "anonymous";
 	public static final String CIPHER = "cipher";

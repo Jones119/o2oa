@@ -4,9 +4,9 @@
 //import java.util.List;
 //import java.util.Objects;
 //
-//import javax.persistence.EntityManager;
-//import javax.persistence.Parameter;
-//import javax.persistence.Query;
+//import jakarta.persistence.EntityManager;
+//import jakarta.persistence.Parameter;
+//import jakarta.persistence.Query;
 //import javax.script.Bindings;
 //import javax.script.CompiledScript;
 //import javax.script.ScriptContext;

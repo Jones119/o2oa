@@ -45,7 +45,7 @@ public class ActionPersonConversationList extends BaseAction {
 				if (ext != null) {
 					wo.setExt(ext);
 				} else {
-					LOGGER.info("没有找到对应 IMConversationExt ？？ " + wi.getPerson() + "  " + wo.getId());
+					LOGGER.info(STR."没有找到对应 IMConversationExt ？？ \{wi.getPerson()}  \{wo.getId()}");
 				}
 				if (BooleanUtils.isTrue(wi.getNeedCount())) {
 					wo.setMessageCount(business.imConversationFactory().conversationMessageTotalCount(wo.getId()));

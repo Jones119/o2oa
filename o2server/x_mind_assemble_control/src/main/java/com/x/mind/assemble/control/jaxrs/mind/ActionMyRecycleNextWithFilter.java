@@ -3,7 +3,7 @@ package com.x.mind.assemble.control.jaxrs.mind;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.google.gson.JsonElement;
 import com.x.base.core.entity.JpaObject;

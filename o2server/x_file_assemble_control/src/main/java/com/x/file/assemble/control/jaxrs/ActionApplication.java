@@ -2,7 +2,7 @@ package com.x.file.assemble.control.jaxrs;
 
 import java.util.Set;
 
-import javax.ws.rs.ApplicationPath;
+import jakarta.ws.rs.ApplicationPath;
 
 import com.x.base.core.project.jaxrs.AbstractActionApplication;
 import com.x.file.assemble.control.jaxrs.attachment.AttachmentAction;

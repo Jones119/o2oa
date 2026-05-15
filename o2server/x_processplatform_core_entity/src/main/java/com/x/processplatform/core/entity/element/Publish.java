@@ -19,8 +19,8 @@ import org.apache.openjpa.persistence.PersistentCollection;
 import org.apache.openjpa.persistence.jdbc.Index;
 import org.apache.openjpa.persistence.jdbc.*;
 
-import javax.persistence.OrderColumn;
-import javax.persistence.*;
+import jakarta.persistence.OrderColumn;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +32,7 @@ import java.util.List;
 				+ JpaObject.DefaultUniqueConstraintSuffix, columnNames = { JpaObject.IDCOLUMN,
 						JpaObject.CREATETIMECOLUMN, JpaObject.UPDATETIMECOLUMN, JpaObject.SEQUENCECOLUMN }) })
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Publish extends Activity {
+public non-sealed class Publish extends Activity {
 
 	private static final long serialVersionUID = 588240173459487399L;
 	private static final String TABLE = PersistenceProperties.Element.Publish.table;

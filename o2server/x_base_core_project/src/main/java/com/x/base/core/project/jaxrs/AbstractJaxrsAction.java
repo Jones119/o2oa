@@ -2,8 +2,8 @@ package com.x.base.core.project.jaxrs;
 
 import java.net.URLEncoder;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.core.MediaType;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.ws.rs.core.MediaType;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.BooleanUtils;
@@ -37,7 +37,7 @@ abstract class AbstractJaxrsAction {
 	protected <T> T convertToWrapIn(JsonElement jsonElement, Class<T> clz) throws Exception {
 		try {
 			if (null == jsonElement || jsonElement.isJsonNull()) {
-				return clz.newInstance();
+				return clz.getDeclaredConstructor().newInstance();
 			}
 			return gson.fromJson(jsonElement, clz);
 		} catch (Exception e) {
@@ -46,6 +46,9 @@ abstract class AbstractJaxrsAction {
 	}
 
 	protected EffectivePerson effectivePerson(HttpServletRequest request) {
+		if (EffectivePerson.SCOPED.isBound()) {
+			return EffectivePerson.SCOPED.get();
+		}
 		Object o = request.getAttribute(HttpToken.X_PERSON);
 		if (null != o) {
 			return (EffectivePerson) o;

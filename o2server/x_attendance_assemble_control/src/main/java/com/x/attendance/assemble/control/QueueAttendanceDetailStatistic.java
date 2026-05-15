@@ -32,7 +32,7 @@ public class QueueAttendanceDetailStatistic extends AbstractQueue<String> {
         AttendanceStatisticRequireLog log = statisticRequireLogServiceAdv.get(logId);
 
         if( log != null ){
-            logger.debug("system try to statistic attendance detail, logId:" + logId );
+            logger.debug(STR."system try to statistic attendance detail, logId:\{logId}");
             AttendanceStatisticalCycle attendanceStatisticalCycle  = null;
             List<AttendanceWorkDayConfig> workDayConfigList = null;
             List<AttendanceStatisticRequireLog> attendanceStatisticRequireLogList = null;
@@ -115,7 +115,7 @@ public class QueueAttendanceDetailStatistic extends AbstractQueue<String> {
             }
             logger.debug("["+logId+"] attendance detail record statistic task execute completed。" );
         }else{
-            logger.warn("attandence statistic require logId not exists, id:" + logId );
+            logger.warn(STR."attandence statistic require logId not exists, id:\{logId}");
         }
     }
 }

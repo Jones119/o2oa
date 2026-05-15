@@ -2,7 +2,7 @@ package com.x.processplatform.assemble.bam.jaxrs;
 
 import java.util.Set;
 
-import javax.ws.rs.ApplicationPath;
+import jakarta.ws.rs.ApplicationPath;
 
 import com.x.base.core.project.jaxrs.AbstractActionApplication;
 import com.x.processplatform.assemble.bam.jaxrs.period.PeriodAction;

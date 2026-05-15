@@ -2,7 +2,7 @@ package com.x.cms.assemble.control.jaxrs.appinfo;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -144,7 +144,7 @@ public class ActionEraseDocumentWithAppInfo extends BaseAction {
 						}
 
 						count = documentServiceAdv.countByAppId( id );
-						logger.debug("cms delete " + queryMaxCount + "documents, and left "+count+" documents need to delete.");
+						logger.debug(STR."cms delete \{queryMaxCount}documents, and left \{count} documents need to delete.");
 					}
 				}
 			}

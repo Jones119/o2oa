@@ -62,7 +62,7 @@ abstract class BaseAction extends StandardJaxrsAction {
 			map.put("collectName", Config.collect().getName()); // o2云账号
 			map.put("password", Config.collect().getPassword()); // o2云密码
 			String result = HttpConnection.postAsString(url, null, XGsonBuilder.instance().toJson(map));
-			logger.info("打包服务器认证，结果: " + result);
+			logger.info(STR."打包服务器认证，结果: \{result}");
 			Type type = new TypeToken<AppPackResult<AuthTokenData>>() {
 			}.getType();
 			AppPackResult<AuthTokenData> packResult = XGsonBuilder.instance().fromJson(result, type);
@@ -84,11 +84,11 @@ abstract class BaseAction extends StandardJaxrsAction {
 		try {
 			String collectNameEncode = URLEncoder.encode(Config.collect().getName(), DefaultCharset.name);
 			String url = Config.collect().appPackServerApi(String.format(Collect.ADDRESS_APPPACK_INFO, collectNameEncode));
-			logger.info("打包信息请求，url：" + url);
+			logger.info(STR."打包信息请求，url：\{url}");
 			ArrayList<NameValuePair> heads = new ArrayList<>();
 			heads.add(new NameValuePair("token", getPackServerSSOToken()));
 			String result = HttpConnection.getAsString(url, heads);
-			logger.info("获取到打包信息，结果: " + result);
+			logger.info(STR."获取到打包信息，结果: \{result}");
 			Type type = new TypeToken<AppPackResult<PackInfoFromServer>>() {
 			}.getType();
 			AppPackResult<PackInfoFromServer> appPackResult = XGsonBuilder.instance().fromJson(result, type);

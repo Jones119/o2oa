@@ -19,8 +19,8 @@ import com.x.organization.assemble.authentication.Business;
 import com.x.organization.core.entity.Person;
 import org.apache.commons.lang3.StringUtils;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.util.*;
 
 class ActionMoaLogin extends BaseAction {

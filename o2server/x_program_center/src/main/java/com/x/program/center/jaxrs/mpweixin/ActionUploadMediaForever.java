@@ -67,15 +67,14 @@ public class ActionUploadMediaForever extends BaseAction {
 			}
 		}
 
-		logger.info("发起打包请求，form : " + type + " ," + fileName + " ," + videoTitle + " ," + videoIntroduction);
+		logger.info(STR."发起打包请求，form : \{type} ,\{fileName} ,\{videoTitle} ,\{videoIntroduction}");
 		String boundary = "abcdefghijk";
 		String end = "\r\n";
 		String twoHyphens = "--";
 
 		String accessToken = Config.mpweixin().accessToken();
-		String addMediaUrl = Mpweixin.default_apiAddress + "/cgi-bin/material/add_material?access_token=" + accessToken
-				+ "&type=" + type;
-		logger.info("上传永久素材url: " + addMediaUrl);
+		String addMediaUrl = STR."\{Mpweixin.default_apiAddress}/cgi-bin/material/add_material?access_token=\{accessToken}&type=\{type}";
+		logger.info(STR."上传永久素材url: \{addMediaUrl}");
 
 		URL url = new URL(addMediaUrl);
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -132,7 +131,7 @@ public class ActionUploadMediaForever extends BaseAction {
 				throw new Exception("connection{url:" + connection.getURL() + "}, response error{responseCode:" + code
 						+ "}, response:" + result + ".");
 			}
-			logger.info("微信上传素材请求返回，result : " + wxResult);
+			logger.info(STR."微信上传素材请求返回，result : \{wxResult}");
 		} catch (Exception e) {
 			logger.error(e);
 		} finally {

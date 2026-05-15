@@ -1,20 +1,19 @@
 package com.x.processplatform.assemble.surface.jaxrs.work;
 
-import java.util.ArrayList;
+import java.time.Instant;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -27,7 +26,6 @@ import com.x.base.core.project.http.EffectivePerson;
 import com.x.base.core.project.logger.Logger;
 import com.x.base.core.project.logger.LoggerFactory;
 import com.x.processplatform.assemble.surface.Business;
-import com.x.processplatform.assemble.surface.ThisApplication;
 import com.x.processplatform.core.entity.content.Work;
 import com.x.processplatform.core.entity.content.WorkStatus;
 import com.x.processplatform.core.entity.content.Work_;
@@ -50,26 +48,20 @@ class ActionFilterAttribute extends BaseAction {
 			if (null == application) {
 				throw new ExceptionApplicationNotExist(applicationFlag);
 			}
-			CompletableFuture<List<NameValueCountPair>> processFuture = this.processFuture(business, effectivePerson,
-					application);
-			CompletableFuture<List<NameValueCountPair>> creatorUnitFuture = this.creatorUnitFuture(business,
-					effectivePerson, application);
-			CompletableFuture<List<NameValueCountPair>> activityNameFuture = this.activityNameFuture(business,
-					effectivePerson, application);
-			CompletableFuture<List<NameValueCountPair>> startTimeMonthFuture = this.startTimeMonthFuture(business,
-					effectivePerson, application);
-			CompletableFuture<List<NameValueCountPair>> workStatusFuture = this.workStatusFuture(business,
-					effectivePerson, application);
-
-			wo.setProcessList(processFuture.get(Config.processPlatform().getAsynchronousTimeout(), TimeUnit.SECONDS));
-			wo.setCreatorUnitList(
-					creatorUnitFuture.get(Config.processPlatform().getAsynchronousTimeout(), TimeUnit.SECONDS));
-			wo.setActivityNameList(
-					activityNameFuture.get(Config.processPlatform().getAsynchronousTimeout(), TimeUnit.SECONDS));
-			wo.setStartTimeMonthList(
-					startTimeMonthFuture.get(Config.processPlatform().getAsynchronousTimeout(), TimeUnit.SECONDS));
-			wo.setWorkStatusList(
-					workStatusFuture.get(Config.processPlatform().getAsynchronousTimeout(), TimeUnit.SECONDS));
+			try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+				var processSubtask = scope.fork(() -> listProcess(business, effectivePerson, application));
+				var creatorUnitSubtask = scope.fork(() -> listCreatorUnit(business, effectivePerson, application));
+				var activityNameSubtask = scope.fork(() -> listActivityName(business, effectivePerson, application));
+				var startTimeMonthSubtask = scope.fork(() -> listStartTimeMonth(business, effectivePerson, application));
+				var workStatusSubtask = scope.fork(() -> listWorkStatus(business, effectivePerson, application));
+				scope.joinUntil(Instant.now().plusSeconds(Config.processPlatform().getAsynchronousTimeout()));
+				scope.throwIfFailed();
+				wo.setProcessList(processSubtask.get());
+				wo.setCreatorUnitList(creatorUnitSubtask.get());
+				wo.setActivityNameList(activityNameSubtask.get());
+				wo.setStartTimeMonthList(startTimeMonthSubtask.get());
+				wo.setWorkStatusList(workStatusSubtask.get());
+			}
 			result.setData(wo);
 			return result;
 		}
@@ -82,146 +74,106 @@ class ActionFilterAttribute extends BaseAction {
 
 	}
 
-	private CompletableFuture<List<NameValueCountPair>> processFuture(Business business,
-			EffectivePerson effectivePerson, Application application) {
-		return CompletableFuture.supplyAsync(() -> {
-			List<NameValueCountPair> list = new ArrayList<>();
+	private List<NameValueCountPair> listProcess(Business business,
+			EffectivePerson effectivePerson, Application application) throws Exception {
+		EntityManager em = business.entityManagerContainer().get(Work.class);
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<String> cq = cb.createQuery(String.class);
+		Root<Work> root = cq.from(Work.class);
+		Predicate p = cb.equal(root.get(Work_.application), application.getId());
+		p = cb.and(p, cb.equal(root.get(Work_.creatorPerson), effectivePerson.getDistinguishedName()));
+		List<String> os = em.createQuery(cq.select(root.get(Work_.process)).distinct(true).where(p))
+				.getResultList();
+		final Map<String, NameValueCountPair> map = new HashMap<>();
+		os.stream().filter(StringUtils::isNotEmpty).forEach(o -> {
 			try {
-				EntityManager em = business.entityManagerContainer().get(Work.class);
-				CriteriaBuilder cb = em.getCriteriaBuilder();
-				CriteriaQuery<String> cq = cb.createQuery(String.class);
-				Root<Work> root = cq.from(Work.class);
-				Predicate p = cb.equal(root.get(Work_.application), application.getId());
-				p = cb.and(p, cb.equal(root.get(Work_.creatorPerson), effectivePerson.getDistinguishedName()));
-				List<String> os = em.createQuery(cq.select(root.get(Work_.process)).distinct(true).where(p))
-						.getResultList();
-				final Map<String, NameValueCountPair> map = new HashMap<>();
-				os.stream().filter(StringUtils::isNotEmpty).forEach(o -> {
-					try {
-						Process process = business.process().pick(o);
-						if (null != process) {
-							String key = StringUtils.isBlank(process.getEdition()) ? process.getId() : process.getEdition();
-							if (!map.containsKey(key)) {
-								NameValueCountPair pair = new NameValueCountPair();
-								pair.setValue(process.getId());
-								pair.setName(process.getName());
-								map.put(key, pair);
-							}
-						}
-					} catch (Exception e) {
-						LOGGER.error(e);
+				Process process = business.process().pick(o);
+				if (null != process) {
+					String key = StringUtils.isBlank(process.getEdition()) ? process.getId() : process.getEdition();
+					if (!map.containsKey(key)) {
+						NameValueCountPair pair = new NameValueCountPair();
+						pair.setValue(process.getId());
+						pair.setName(process.getName());
+						map.put(key, pair);
 					}
-				});
-				list = map.values().stream().sorted(Comparator.comparing(o -> Objects.toString(o.getName()))).collect(Collectors.toList());
+				}
 			} catch (Exception e) {
 				LOGGER.error(e);
 			}
-			return list;
-		}, ThisApplication.forkJoinPool());
+		});
+		return map.values().stream().sorted(Comparator.comparing(o -> Objects.toString(o.getName()))).collect(Collectors.toList());
 	}
 
-	private CompletableFuture<List<NameValueCountPair>> creatorUnitFuture(Business business,
-			EffectivePerson effectivePerson, Application application) {
-		return CompletableFuture.supplyAsync(() -> {
-			List<NameValueCountPair> list = new ArrayList<>();
-			try {
-				EntityManager em = business.entityManagerContainer().get(Work.class);
-				CriteriaBuilder cb = em.getCriteriaBuilder();
-				CriteriaQuery<String> cq = cb.createQuery(String.class);
-				Root<Work> root = cq.from(Work.class);
-				Predicate p = cb.equal(root.get(Work_.application), application.getId());
-				p = cb.and(p, cb.equal(root.get(Work_.creatorPerson), effectivePerson.getDistinguishedName()));
-				List<String> os = em.createQuery(cq.select(root.get(Work_.creatorUnit)).distinct(true).where(p))
-						.getResultList();
-				list = os.stream().filter(StringUtils::isNotEmpty).map(o -> {
-					NameValueCountPair pair = new NameValueCountPair();
-					pair.setValue(o);
-					pair.setName(StringUtils.defaultString(StringUtils.substringBefore(o, "@"), o));
-					return pair;
-				}).sorted(Comparator.comparing(o -> Objects.toString(o.getName()))).collect(Collectors.toList());
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			return list;
-		}, ThisApplication.forkJoinPool());
+	private List<NameValueCountPair> listCreatorUnit(Business business,
+			EffectivePerson effectivePerson, Application application) throws Exception {
+		EntityManager em = business.entityManagerContainer().get(Work.class);
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<String> cq = cb.createQuery(String.class);
+		Root<Work> root = cq.from(Work.class);
+		Predicate p = cb.equal(root.get(Work_.application), application.getId());
+		p = cb.and(p, cb.equal(root.get(Work_.creatorPerson), effectivePerson.getDistinguishedName()));
+		List<String> os = em.createQuery(cq.select(root.get(Work_.creatorUnit)).distinct(true).where(p))
+				.getResultList();
+		return os.stream().filter(StringUtils::isNotEmpty).map(o -> {
+			NameValueCountPair pair = new NameValueCountPair();
+			pair.setValue(o);
+			pair.setName(StringUtils.defaultString(StringUtils.substringBefore(o, "@"), o));
+			return pair;
+		}).sorted(Comparator.comparing(o -> Objects.toString(o.getName()))).collect(Collectors.toList());
 	}
 
-	private CompletableFuture<List<NameValueCountPair>> activityNameFuture(Business business,
-			EffectivePerson effectivePerson, Application application) {
-		return CompletableFuture.supplyAsync(() -> {
-			List<NameValueCountPair> list = new ArrayList<>();
-			try {
-				EntityManager em = business.entityManagerContainer().get(Work.class);
-				CriteriaBuilder cb = em.getCriteriaBuilder();
-				CriteriaQuery<String> cq = cb.createQuery(String.class);
-				Root<Work> root = cq.from(Work.class);
-				Predicate p = cb.equal(root.get(Work_.application), application.getId());
-				p = cb.and(p, cb.equal(root.get(Work_.creatorPerson), effectivePerson.getDistinguishedName()));
-				List<String> os = em.createQuery(cq.select(root.get(Work_.activityName)).distinct(true).where(p))
-						.getResultList();
-				list = os.stream().filter(StringUtils::isNotEmpty).map(o -> {
-					NameValueCountPair pair = new NameValueCountPair();
-					pair.setValue(o);
-					pair.setName(StringUtils.defaultString(StringUtils.substringBefore(o, "@"), o));
-					return pair;
-				}).sorted(Comparator.comparing(o -> Objects.toString(o.getName()))).collect(Collectors.toList());
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			return list;
-		}, ThisApplication.forkJoinPool());
+	private List<NameValueCountPair> listActivityName(Business business,
+			EffectivePerson effectivePerson, Application application) throws Exception {
+		EntityManager em = business.entityManagerContainer().get(Work.class);
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<String> cq = cb.createQuery(String.class);
+		Root<Work> root = cq.from(Work.class);
+		Predicate p = cb.equal(root.get(Work_.application), application.getId());
+		p = cb.and(p, cb.equal(root.get(Work_.creatorPerson), effectivePerson.getDistinguishedName()));
+		List<String> os = em.createQuery(cq.select(root.get(Work_.activityName)).distinct(true).where(p))
+				.getResultList();
+		return os.stream().filter(StringUtils::isNotEmpty).map(o -> {
+			NameValueCountPair pair = new NameValueCountPair();
+			pair.setValue(o);
+			pair.setName(StringUtils.defaultString(StringUtils.substringBefore(o, "@"), o));
+			return pair;
+		}).sorted(Comparator.comparing(o -> Objects.toString(o.getName()))).collect(Collectors.toList());
 	}
 
-	private CompletableFuture<List<NameValueCountPair>> startTimeMonthFuture(Business business,
-			EffectivePerson effectivePerson, Application application) {
-		return CompletableFuture.supplyAsync(() -> {
-			List<NameValueCountPair> list = new ArrayList<>();
-			try {
-				EntityManager em = business.entityManagerContainer().get(Work.class);
-				CriteriaBuilder cb = em.getCriteriaBuilder();
-				CriteriaQuery<String> cq = cb.createQuery(String.class);
-				Root<Work> root = cq.from(Work.class);
-				Predicate p = cb.equal(root.get(Work_.application), application.getId());
-				p = cb.and(p, cb.equal(root.get(Work_.creatorPerson), effectivePerson.getDistinguishedName()));
-				List<String> os = em.createQuery(cq.select(root.get(Work_.startTimeMonth)).distinct(true).where(p))
-						.getResultList();
-				list = os.stream().filter(StringUtils::isNotEmpty).map(o -> {
-					NameValueCountPair pair = new NameValueCountPair();
-					pair.setValue(o);
-					pair.setName(StringUtils.defaultString(StringUtils.substringBefore(o, "@"), o));
-					return pair;
-				}).sorted(Comparator.comparing(o -> Objects.toString(o.getName()))).collect(Collectors.toList());
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			return list;
-		}, ThisApplication.forkJoinPool());
+	private List<NameValueCountPair> listStartTimeMonth(Business business,
+			EffectivePerson effectivePerson, Application application) throws Exception {
+		EntityManager em = business.entityManagerContainer().get(Work.class);
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<String> cq = cb.createQuery(String.class);
+		Root<Work> root = cq.from(Work.class);
+		Predicate p = cb.equal(root.get(Work_.application), application.getId());
+		p = cb.and(p, cb.equal(root.get(Work_.creatorPerson), effectivePerson.getDistinguishedName()));
+		List<String> os = em.createQuery(cq.select(root.get(Work_.startTimeMonth)).distinct(true).where(p))
+				.getResultList();
+		return os.stream().filter(StringUtils::isNotEmpty).map(o -> {
+			NameValueCountPair pair = new NameValueCountPair();
+			pair.setValue(o);
+			pair.setName(StringUtils.defaultString(StringUtils.substringBefore(o, "@"), o));
+			return pair;
+		}).sorted(Comparator.comparing(o -> Objects.toString(o.getName()))).collect(Collectors.toList());
 	}
 
-	private CompletableFuture<List<NameValueCountPair>> workStatusFuture(Business business,
-			EffectivePerson effectivePerson, Application application) {
-		return CompletableFuture.supplyAsync(() -> {
-			List<NameValueCountPair> list = new ArrayList<>();
-			try {
-				EntityManager em = business.entityManagerContainer().get(Work.class);
-				CriteriaBuilder cb = em.getCriteriaBuilder();
-				CriteriaQuery<WorkStatus> cq = cb.createQuery(WorkStatus.class);
-				Root<Work> root = cq.from(Work.class);
-				Predicate p = cb.equal(root.get(Work_.application), application.getId());
-				p = cb.and(p, cb.equal(root.get(Work_.creatorPerson), effectivePerson.getDistinguishedName()));
-				List<WorkStatus> os = em.createQuery(cq.select(root.get(Work_.workStatus)).distinct(true).where(p))
-						.getResultList();
-				list = os.stream().filter(o -> !Objects.isNull(o)).map(o -> {
-					NameValueCountPair pair = new NameValueCountPair();
-					pair.setValue(o);
-					pair.setName(o);
-					return pair;
-				}).sorted(Comparator.comparing(o -> Objects.toString(o.getName()))).collect(Collectors.toList());
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			return list;
-		}, ThisApplication.forkJoinPool());
+	private List<NameValueCountPair> listWorkStatus(Business business,
+			EffectivePerson effectivePerson, Application application) throws Exception {
+		EntityManager em = business.entityManagerContainer().get(Work.class);
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<WorkStatus> cq = cb.createQuery(WorkStatus.class);
+		Root<Work> root = cq.from(Work.class);
+		Predicate p = cb.equal(root.get(Work_.application), application.getId());
+		p = cb.and(p, cb.equal(root.get(Work_.creatorPerson), effectivePerson.getDistinguishedName()));
+		List<WorkStatus> os = em.createQuery(cq.select(root.get(Work_.workStatus)).distinct(true).where(p))
+				.getResultList();
+		return os.stream().filter(o -> !Objects.isNull(o)).map(o -> {
+			NameValueCountPair pair = new NameValueCountPair();
+			pair.setValue(o);
+			pair.setName(o);
+			return pair;
+		}).sorted(Comparator.comparing(o -> Objects.toString(o.getName()))).collect(Collectors.toList());
 	}
 
 }

@@ -12,19 +12,19 @@ import com.x.base.core.project.jaxrs.StandardJaxrsAction;
 import com.x.base.core.project.logger.Logger;
 import com.x.base.core.project.logger.LoggerFactory;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.container.AsyncResponse;
-import javax.ws.rs.container.Suspended;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.sse.Sse;
-import javax.ws.rs.sse.SseEventSink;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.container.AsyncResponse;
+import jakarta.ws.rs.container.Suspended;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.sse.Sse;
+import jakarta.ws.rs.sse.SseEventSink;
 import org.glassfish.jersey.media.sse.SseFeature;
 
 /**
@@ -47,7 +47,7 @@ public class ChatAction extends StandardJaxrsAction {
             JsonElement jsonElement) {
         final EffectivePerson effectivePerson = this.effectivePerson(request);
         final ActionChat actionChat = new ActionChat();
-        new Thread(() -> actionChat.execute(effectivePerson, sse, eventSink, jsonElement)).start();
+        Thread.ofVirtual().name(ChatAction.class.getName() + "-completion").start(() -> actionChat.execute(effectivePerson, sse, eventSink, jsonElement));
     }
 
     @JaxrsMethodDescribe(value = "分页查找线索.", action = ActionListPaging.class)

@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
 
 
@@ -52,7 +52,7 @@ public class ActionSendMessageTest extends BaseAction {
         }
         try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
             Business business = new Business(emc);
-            logger.info("person:" + effectivePerson.getDistinguishedName());
+            logger.info(STR."person:\{effectivePerson.getDistinguishedName()}");
             List<String> deviceList = business.organization().personAttribute()
                     .listAttributeWithPersonWithName(effectivePerson.getDistinguishedName(),
                             ActionListAll.DEVICE_PERSON_ATTR_KEY);
@@ -63,7 +63,7 @@ public class ActionSendMessageTest extends BaseAction {
                     try {
                         String[] split = s.split("_");
                         deviceId = split[0];
-                        logger.info("device Id:" + deviceId);
+                        logger.info(STR."device Id:\{deviceId}");
                     } catch (Exception e) {
                         logger.error(e);
                     }

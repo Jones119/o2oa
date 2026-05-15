@@ -6,7 +6,7 @@ import com.x.ai.assemble.control.jaxrs.file.FileAction;
 import com.x.ai.assemble.control.jaxrs.index.IndexAction;
 import com.x.base.core.project.jaxrs.AbstractActionApplication;
 import java.util.Set;
-import javax.ws.rs.ApplicationPath;
+import jakarta.ws.rs.ApplicationPath;
 
 /**
  * Jaxrs服务注册类，在此类中注册的Action会向外提供服务

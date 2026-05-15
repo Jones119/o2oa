@@ -10,7 +10,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import org.apache.openjpa.persistence.Persistent;
 import org.apache.openjpa.persistence.jdbc.Strategy;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * 班次

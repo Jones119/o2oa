@@ -1,13 +1,13 @@
 package com.x.cms.assemble.control.jaxrs.form;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.TreeMap;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
@@ -23,7 +23,6 @@ import com.x.base.core.project.logger.Logger;
 import com.x.base.core.project.logger.LoggerFactory;
 import com.x.base.core.project.tools.ListTools;
 import com.x.cms.assemble.control.Business;
-import com.x.cms.assemble.control.ThisApplication;
 import com.x.cms.core.entity.element.Form;
 import com.x.cms.core.entity.element.FormProperties;
 import com.x.cms.core.entity.element.Script;
@@ -54,12 +53,14 @@ class V2Get extends BaseAction {
 			final FormProperties properties = form.getProperties();
 			final List<String> list = new CopyOnWriteArrayList<>();
 			wo.setForm(new RelatedForm(form, form.getData()));
-			CompletableFuture<Map<String, RelatedForm>> getRelatedFormFuture = this.getRelatedFormFuture(properties,
-					list);
-			CompletableFuture<Map<String, RelatedScript>> getRelatedScriptFuture = this
-					.getRelatedScriptFuture(properties, list);
-			wo.setRelatedFormMap(getRelatedFormFuture.get(10, TimeUnit.SECONDS));
-			wo.setRelatedScriptMap(getRelatedScriptFuture.get(10, TimeUnit.SECONDS));
+			try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+				var getRelatedFormSubtask = scope.fork(() -> this.getRelatedForm(properties, list));
+				var getRelatedScriptSubtask = scope.fork(() -> this.getRelatedScript(properties, list));
+				scope.joinUntil(Instant.now().plusSeconds(10));
+				scope.throwIfFailed();
+				wo.setRelatedFormMap(getRelatedFormSubtask.get());
+				wo.setRelatedScriptMap(getRelatedScriptSubtask.get());
+			}
 			if (StringUtils.isNotBlank(tag)) {
 				wo.setMaxAge(3600 * 24);
 			}
@@ -72,42 +73,34 @@ class V2Get extends BaseAction {
 		return result;
 	}
 
-	private CompletableFuture<Map<String, RelatedForm>> getRelatedFormFuture(FormProperties properties,
-			final List<String> list) {
-		return CompletableFuture.supplyAsync(() -> {
-			Map<String, RelatedForm> map = new TreeMap<>();
-			if (ListTools.isNotEmpty(properties.getRelatedFormList())) {
-				try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
-					Business bus = new Business(emc);
-					for (String id : properties.getRelatedFormList()) {
-						Form f = bus.getFormFactory().pick(id);
-						if (null != f) {
-							map.put(id, new RelatedForm(f, f.getData()));
-							list.add(f.getId() + f.getUpdateTime().getTime());
-						}
+	private Map<String, RelatedForm> getRelatedForm(FormProperties properties,
+			final List<String> list) throws Exception {
+		Map<String, RelatedForm> map = new TreeMap<>();
+		if (ListTools.isNotEmpty(properties.getRelatedFormList())) {
+			try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
+				Business bus = new Business(emc);
+				for (String id : properties.getRelatedFormList()) {
+					Form f = bus.getFormFactory().pick(id);
+					if (null != f) {
+						map.put(id, new RelatedForm(f, f.getData()));
+						list.add(f.getId() + f.getUpdateTime().getTime());
 					}
-				} catch (Exception e) {
-					LOGGER.error(e);
 				}
 			}
-			return map;
-		}, ThisApplication.forkJoinPool());
+		}
+		return map;
 	}
 
-	private CompletableFuture<Map<String, RelatedScript>> getRelatedScriptFuture(FormProperties properties,
-			final List<String> list) {
-		return CompletableFuture.supplyAsync(() -> {
-			Map<String, RelatedScript> map = new TreeMap<>();
-			if ((null != properties.getRelatedScriptMap()) && (properties.getRelatedScriptMap().size() > 0)) {
-				try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
-					Business business = new Business(emc);
-					map = convertScript(business, properties, list);
-				} catch (Exception e) {
-					LOGGER.error(e);
-				}
+	private Map<String, RelatedScript> getRelatedScript(FormProperties properties,
+			final List<String> list) throws Exception {
+		Map<String, RelatedScript> map = new TreeMap<>();
+		if ((null != properties.getRelatedScriptMap()) && (properties.getRelatedScriptMap().size() > 0)) {
+			try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
+				Business business = new Business(emc);
+				map = convertScript(business, properties, list);
 			}
-			return map;
-		}, ThisApplication.forkJoinPool());
+		}
+		return map;
 	}
 
 	private Map<String, RelatedScript> convertScript(Business bus, FormProperties properties, final List<String> list)

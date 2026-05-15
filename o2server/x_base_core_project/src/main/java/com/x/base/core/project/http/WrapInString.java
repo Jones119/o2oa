@@ -1,17 +1,13 @@
 package com.x.base.core.project.http;
 
-import com.x.base.core.project.gson.GsonPropertyObject;
+import com.x.base.core.project.gson.GsonRecord;
 
-public class WrapInString extends GsonPropertyObject {
+public record WrapInString(String value) implements GsonRecord {
 
-	private String value;
+    public WrapInString {
+    }
 
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
-	}
-
+    public WrapInString() {
+        this(null);
+    }
 }

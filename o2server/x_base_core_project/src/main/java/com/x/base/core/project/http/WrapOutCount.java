@@ -1,32 +1,17 @@
 package com.x.base.core.project.http;
 
-import com.x.base.core.project.gson.GsonPropertyObject;
+import com.x.base.core.project.gson.GsonRecord;
 
-public class WrapOutCount extends GsonPropertyObject {
+public record WrapOutCount(Long count) implements GsonRecord {
 
-	public WrapOutCount(Long count) throws Exception {
-		this.count = count;
-	}
+    public WrapOutCount {
+    }
 
-	public WrapOutCount(Integer count) throws Exception {
-		this.count = count.longValue();
-	}
+    public WrapOutCount() {
+        this(null);
+    }
 
-	public WrapOutCount() {
-	}
-
-	private Long count;
-
-	public Long getCount() {
-		return count;
-	}
-
-	public void setCount(Long count) {
-		this.count = count;
-	}
-
-	public void setCount(Integer count) {
-		this.count = count.longValue();
-	}
-
+    public WrapOutCount(Integer count) {
+        this(count != null ? count.longValue() : null);
+    }
 }

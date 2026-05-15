@@ -5,8 +5,8 @@ import com.x.processplatform.core.entity.element.Process_;
 import com.x.processplatform.service.processing.AbstractFactory;
 import com.x.processplatform.service.processing.Business;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.*;
 import java.util.List;
 
 public class ProcessFactory extends AbstractFactory {

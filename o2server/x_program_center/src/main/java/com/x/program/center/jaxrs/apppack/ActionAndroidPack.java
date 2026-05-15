@@ -112,14 +112,12 @@ public class ActionAndroidPack extends BaseAction {
 			String o2ServerPort, String o2ServerContext, String isPackAppIdOuter, String urlMapping,
 			String appVersionName, String appBuildNo, String deleteHuawei, String fileName, byte[] bytes)
 			throws Exception {
-		logger.info("发起打包请求，form : " + appName + " ," + o2ServerProtocol + " ," + o2ServerHost + " ,"
-				+ o2ServerPort + " ," + o2ServerContext + " ," + isPackAppIdOuter + " ," + urlMapping + " ,"
-				+ appVersionName + " ," + appBuildNo + " ," + deleteHuawei + " ," + fileName);
+		logger.info(STR."发起打包请求，form : \{appName} ,\{o2ServerProtocol} ,\{o2ServerHost} ,\{o2ServerPort} ,\{o2ServerContext} ,\{isPackAppIdOuter} ,\{urlMapping} ,\{appVersionName} ,\{appBuildNo} ,\{deleteHuawei} ,\{fileName}");
 		String boundary = "abcdefghijk";
 		String end = "\r\n";
 		String twoHyphens = "--";
 		String address = Config.collect().appPackServerApi(Collect.ADDRESS_APPPACK_SAVE);
-		logger.info("发起打包请求，url " + address);
+		logger.info(STR."发起打包请求，url \{address}");
 		URL url = new URL(address);
 		HttpURLConnection connection = null;
 		String result = "";
@@ -189,7 +187,7 @@ public class ActionAndroidPack extends BaseAction {
 				connection.disconnect();
 			}
 		}
-		logger.info("打包请求返回，result : " + result);
+		logger.info(STR."打包请求返回，result : \{result}");
 		return result;
 	}
 

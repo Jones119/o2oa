@@ -4,7 +4,7 @@ import java.util.Objects;
 
 import org.apache.commons.lang3.builder.CompareToBuilder;
 
-public abstract class Triple<A, B, C> implements Comparable<Triple<A, B, C>> {
+public sealed abstract class Triple<A, B, C> implements Comparable<Triple<A, B, C>> permits Triple.ImmutableTriple {
 
     protected A first;
 
@@ -48,7 +48,7 @@ public abstract class Triple<A, B, C> implements Comparable<Triple<A, B, C>> {
         return Objects.hashCode(first()) ^ Objects.hashCode(second());
     }
 
-    public static class ImmutableTriple<A, B, C> extends Triple<A, B, C> {
+    public static final class ImmutableTriple<A, B, C> extends Triple<A, B, C> {
 
         public ImmutableTriple(final A first, final B second, final C third) {
             this.first = first;

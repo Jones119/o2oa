@@ -2,7 +2,7 @@ package com.x.processplatform.assemble.surface.jaxrs.taskcompleted;
 
 import java.util.List;
 
-import javax.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Predicate;
 
 import com.google.gson.JsonElement;
 import com.x.base.core.container.EntityManagerContainer;

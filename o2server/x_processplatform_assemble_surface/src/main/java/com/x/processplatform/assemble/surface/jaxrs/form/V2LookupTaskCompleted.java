@@ -22,11 +22,11 @@ import com.x.processplatform.core.entity.element.Activity;
 import com.x.processplatform.core.entity.element.Application;
 import com.x.processplatform.core.entity.element.Form;
 import com.x.processplatform.core.entity.element.FormProperties;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 import java.util.zip.CRC32;
 import org.apache.commons.lang3.StringUtils;
@@ -54,13 +54,15 @@ class V2LookupTaskCompleted extends BaseAction {
 				this.wo = (Wo) optional.get();
 			} else {
 				List<String> list = new ArrayList<>();
-				CompletableFuture<List<String>> relatedFormFuture = this.relatedFormFuture(this.form.getProperties());
-				CompletableFuture<List<String>> relatedScriptFuture = this
-						.relatedScriptFuture(this.form.getProperties());
-				list.add(this.form.getId() + this.form.getUpdateTime().getTime());
-				list.addAll(relatedFormFuture.get(Config.processPlatform().getAsynchronousTimeout(), TimeUnit.SECONDS));
-				list.addAll(
-						relatedScriptFuture.get(Config.processPlatform().getAsynchronousTimeout(), TimeUnit.SECONDS));
+				try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+					var relatedFormSubtask = scope.fork(() -> this.relatedForm(this.form.getProperties()));
+					var relatedScriptSubtask = scope.fork(() -> this.relatedScript(this.form.getProperties()));
+					scope.joinUntil(Instant.now().plusSeconds(Config.processPlatform().getAsynchronousTimeout()));
+					scope.throwIfFailed();
+					list.add(this.form.getId() + this.form.getUpdateTime().getTime());
+					list.addAll(relatedFormSubtask.get());
+					list.addAll(relatedScriptSubtask.get());
+				}
 				list = list.stream().sorted().collect(Collectors.toList());
 				this.wo.setId(this.form.getId());
 				CRC32 crc = new CRC32();
@@ -124,38 +126,30 @@ class V2LookupTaskCompleted extends BaseAction {
 		return o;
 	}
 
-	private CompletableFuture<List<String>> relatedFormFuture(FormProperties properties) {
-		return CompletableFuture.supplyAsync(() -> {
-			List<String> list = new ArrayList<>();
-			if (ListTools.isNotEmpty(properties.getRelatedFormList())) {
-				try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
-					for (String id : properties.getRelatedFormList()) {
-						Form f = emc.find(id, Form.class);
-						if (null != f) {
-							list.add(f.getId() + f.getUpdateTime().getTime());
-						}
+	private List<String> relatedForm(FormProperties properties) throws Exception {
+		List<String> list = new ArrayList<>();
+		if (ListTools.isNotEmpty(properties.getRelatedFormList())) {
+			try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
+				for (String id : properties.getRelatedFormList()) {
+					Form f = emc.find(id, Form.class);
+					if (null != f) {
+						list.add(f.getId() + f.getUpdateTime().getTime());
 					}
-				} catch (Exception e) {
-					LOGGER.error(e);
 				}
 			}
-			return list;
-		}, ThisApplication.forkJoinPool());
+		}
+		return list;
 	}
 
-	private CompletableFuture<List<String>> relatedScriptFuture(FormProperties properties) {
-		return CompletableFuture.supplyAsync(() -> {
-			List<String> list = new ArrayList<>();
-			if ((null != properties.getRelatedScriptMap()) && (properties.getRelatedScriptMap().size() > 0)) {
-				try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
-					Business business = new Business(emc);
-					list = convertScriptToCacheTag(business, properties.getRelatedScriptMap());
-				} catch (Exception e) {
-					LOGGER.error(e);
-				}
+	private List<String> relatedScript(FormProperties properties) throws Exception {
+		List<String> list = new ArrayList<>();
+		if ((null != properties.getRelatedScriptMap()) && (properties.getRelatedScriptMap().size() > 0)) {
+			try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
+				Business business = new Business(emc);
+				list = convertScriptToCacheTag(business, properties.getRelatedScriptMap());
 			}
-			return list;
-		}, ThisApplication.forkJoinPool());
+		}
+		return list;
 	}
 
 	public static class Wo extends AbstractWo {

@@ -70,7 +70,7 @@ public class MappingExecuteQueue extends AbstractQueue<String> {
 					data = this.data(business, o);
 					JpaObject jpaObject = business.entityManagerContainer().find(o.getJob(), cls);
 					if (null == jpaObject) {
-						jpaObject = (JpaObject) cls.newInstance();
+						jpaObject = (JpaObject) cls.getDeclaredConstructor().newInstance();
 						jpaObject.setId(o.getJob());
 						business.entityManagerContainer().persist(jpaObject, CheckPersistType.all);
 					}

@@ -13,15 +13,15 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import javax.persistence.Tuple;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import javax.persistence.criteria.Selection;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
+import jakarta.persistence.Tuple;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
+import jakarta.persistence.criteria.Selection;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.collections4.list.TreeList;
@@ -1150,7 +1150,7 @@ public class EntityManagerContainer extends EntityManagerContainerBasic {
 	public <T extends JpaObject> List<String> idsLessThan(Class<T> cls, String attribute, Object value)
 			throws Exception {
 		EntityManager em = this.get(cls);
-		String str = "SELECT o.id FROM " + cls.getCanonicalName() + " o where o." + attribute + " < ?1";
+		String str = STR."SELECT o.id FROM \{cls.getCanonicalName()} o where o.\{attribute} < ?1";
 		TypedQuery<String> query = em.createQuery(str, String.class);
 		query.setParameter(1, value);
 		List<String> os = query.getResultList();
@@ -1173,7 +1173,7 @@ public class EntityManagerContainer extends EntityManagerContainerBasic {
 	public <T extends JpaObject> List<String> idsGreaterThan(Class<T> cls, String attribute, Object value)
 			throws Exception {
 		EntityManager em = this.get(cls);
-		String str = "SELECT o.id FROM " + cls.getCanonicalName() + " o where o." + attribute + " > ?1";
+		String str = STR."SELECT o.id FROM \{cls.getCanonicalName()} o where o.\{attribute} > ?1";
 		TypedQuery<String> query = em.createQuery(str, String.class);
 		query.setParameter(1, value);
 		List<String> os = query.getResultList();

@@ -45,14 +45,14 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.stream.Collectors;
-import javax.persistence.EntityManager;
-import javax.persistence.Tuple;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Order;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import javax.persistence.criteria.Subquery;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Tuple;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Order;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
+import jakarta.persistence.criteria.Subquery;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.list.TreeList;
 import org.apache.commons.lang3.BooleanUtils;
@@ -697,23 +697,17 @@ public abstract class Plan extends GsonPropertyObject {
 	}
 
 	private String girdToExcelObjectToString(Object object) {
-		String str = "";
-		if (object instanceof Integer) {
-			str = object.toString();
-		} else if (object instanceof Double) {
-			str = object.toString();
-		} else if (object instanceof Float) {
-			str = object.toString();
-		} else if (object instanceof Boolean) {
-			str = String.valueOf(object);
-		} else if (object instanceof Date) {
-			str = DateTools.format((Date) object);
-		} else if (object instanceof List) {
-			str = XGsonBuilder.toJson(object);
-			str = StringUtils.replaceChars(str.substring(1, str.length() - 1), "\"", "");
-		} else {
-			str = object.toString();
-		}
-		return str;
+		return switch (object) {
+			case Integer i -> i.toString();
+			case Double d -> d.toString();
+			case Float f -> f.toString();
+			case Boolean b -> String.valueOf(b);
+			case Date dt -> DateTools.format(dt);
+			case List<?> l -> {
+				String str = XGsonBuilder.toJson(l);
+				yield StringUtils.replaceChars(str.substring(1, str.length() - 1), "\"", "");
+			}
+			default -> object.toString();
+		};
 	}
 }

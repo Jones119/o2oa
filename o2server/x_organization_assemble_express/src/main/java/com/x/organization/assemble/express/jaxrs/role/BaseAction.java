@@ -41,7 +41,7 @@ class BaseAction extends StandardJaxrsAction {
 
 	protected <T extends com.x.base.core.project.organization.Role> T convert(Business business, Role role,
 			Class<T> clz) throws Exception {
-		T t = clz.newInstance();
+		T t = clz.getDeclaredConstructor().newInstance();
 		t.setName(role.getName());
 		t.setDescription(role.getDescription());
 		t.setUnique(role.getUnique());

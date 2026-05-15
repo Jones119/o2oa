@@ -3,8 +3,8 @@ package com.x.base.core.project.jaxrs;
 import com.x.base.core.project.config.Config;
 import org.apache.commons.lang3.BooleanUtils;
 
-import javax.servlet.*;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.*;
+import jakarta.servlet.http.HttpServletResponse;
 
 public class ApiAccessFilter implements Filter {
 

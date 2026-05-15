@@ -159,9 +159,9 @@ class ActionCreate extends BaseAction {
 			m.setMsgContent(body);
 			Date now = new Date();
 			m.setCreateTime(now.getTime() + "");
-			LOGGER.info("welink send body: " + m.toString());
+			LOGGER.info(STR."welink send body: \{m.toString()}");
 			String address = Config.weLink().getOapiAddress() + "/messages/v3/send";
-			LOGGER.info("welink send url: " + address);
+			LOGGER.info(STR."welink send url: \{address}");
 			List<NameValuePair> heads = new ArrayList<>();
 			heads.add(new NameValuePair(WeLink.WeLink_Auth_Head_Key, Config.weLink().accessToken()));
 			WeLinkMessageResp resp = HttpConnection.postAsObject(address, heads, m.toString(), WeLinkMessageResp.class);

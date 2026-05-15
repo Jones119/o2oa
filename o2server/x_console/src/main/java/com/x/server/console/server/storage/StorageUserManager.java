@@ -23,34 +23,33 @@ public class StorageUserManager implements UserManager {
 
 	@Override
 	public User authenticate(Authentication authentication) throws AuthenticationFailedException {
-		if (authentication instanceof UsernamePasswordAuthentication) {
-			UsernamePasswordAuthentication upauth = (UsernamePasswordAuthentication) authentication;
-			String name = upauth.getUsername();
-			String password = upauth.getPassword();
-			if (name == null) {
-				throw new AuthenticationFailedException("Authentication failed");
+		switch (authentication) {
+			case UsernamePasswordAuthentication upauth -> {
+				String name = upauth.getUsername();
+				String password = upauth.getPassword();
+				if (name == null) {
+					throw new AuthenticationFailedException("Authentication failed");
+				}
+				if (password == null) {
+					password = "";
+				}
+				User user;
+				try {
+					user = getUserByName(name);
+				} catch (FtpException e) {
+					throw new AuthenticationFailedException("Authentication failed");
+				}
+				if (null == user) {
+					throw new AuthenticationFailedException("Authentication failed");
+				}
+				if (StringUtils.equals(user.getPassword(), password)) {
+					return user;
+				} else {
+					throw new AuthenticationFailedException("Authentication failed");
+				}
 			}
-			if (password == null) {
-				password = "";
-			}
-			User user;
-			try {
-				user = getUserByName(name);
-			} catch (FtpException e) {
-				throw new AuthenticationFailedException("Authentication failed");
-			}
-			if (null == user) {
-				throw new AuthenticationFailedException("Authentication failed");
-			}
-			if (StringUtils.equals(user.getPassword(), password)) {
-				return user;
-			} else {
-				throw new AuthenticationFailedException("Authentication failed");
-			}
-		} else if (authentication instanceof AnonymousAuthentication) {
-			throw new AuthenticationFailedException("Authentication failed");
-		} else {
-			throw new IllegalArgumentException("Authentication not supported by this user manager");
+			case AnonymousAuthentication _ -> throw new AuthenticationFailedException("Authentication failed");
+			default -> throw new IllegalArgumentException("Authentication not supported by this user manager");
 		}
 	}
 

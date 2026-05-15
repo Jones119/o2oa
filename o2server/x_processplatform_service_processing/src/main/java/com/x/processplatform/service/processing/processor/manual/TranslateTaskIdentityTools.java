@@ -192,27 +192,27 @@ public class TranslateTaskIdentityTools {
 			throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 		List<String> list = new ArrayList<>();
 		if (null != o) {
-			if (o instanceof CharSequence) {
-				list.add(Objects.toString(o));
-			} else if (o instanceof Iterable) {
-				asIterable(o, list);
-			} else {
-				Object obj = PropertyUtils.getProperty(o, JpaObject.DISTINGUISHEDNAME);
-				String str = Objects.toString(obj, "");
-				if (StringUtils.isNotEmpty(str)) {
-					list.add(str);
+			switch (o) {
+				case CharSequence cs -> list.add(Objects.toString(cs));
+				case Iterable<?> it -> asIterable(it, list);
+				default -> {
+					Object obj = PropertyUtils.getProperty(o, JpaObject.DISTINGUISHEDNAME);
+					String str = Objects.toString(obj, "");
+					if (StringUtils.isNotEmpty(str)) {
+						list.add(str);
+					}
 				}
 			}
 		}
 		return list;
 	}
 
-	private static void asIterable(Object o, List<String> list)
+	private static void asIterable(Iterable<?> it, List<String> list)
 			throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		for (Object obj : (Iterable<?>) o) {
+		for (Object obj : it) {
 			if (null != obj) {
-				if (obj instanceof CharSequence) {
-					list.add(Objects.toString(obj));
+				if (obj instanceof CharSequence cs) {
+					list.add(Objects.toString(cs));
 				} else {
 					Object d = PropertyUtils.getProperty(obj, JpaObject.DISTINGUISHEDNAME);
 					if (null != d) {

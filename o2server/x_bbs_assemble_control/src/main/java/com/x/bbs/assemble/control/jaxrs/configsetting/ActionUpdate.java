@@ -3,7 +3,7 @@ package com.x.bbs.assemble.control.jaxrs.configsetting;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.google.gson.JsonElement;
 import com.x.base.core.entity.JpaObject;
@@ -49,7 +49,7 @@ public class ActionUpdate extends BaseAction {
 				if (!userManagerService.isHasPlatformRole( effectivePerson.getDistinguishedName(),
 						ThisApplication.BBSMANAGER ) && !effectivePerson.isManager()) {
 					check = false;
-					logger.warn("用户没有BBSManager角色，并且也不是系统管理员！USER：" + effectivePerson.getDistinguishedName());
+					logger.warn(STR."用户没有BBSManager角色，并且也不是系统管理员！USER：\{effectivePerson.getDistinguishedName()}");
 					Exception exception = new ExceptionInsufficientPermissions(effectivePerson.getDistinguishedName(),
 							ThisApplication.BBSMANAGER);
 					result.error(exception);

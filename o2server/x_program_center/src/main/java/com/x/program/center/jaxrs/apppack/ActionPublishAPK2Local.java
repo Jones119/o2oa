@@ -103,8 +103,8 @@ public class ActionPublishAPK2Local extends BaseAction {
                 if (null == mapping) {
                     throw new ExceptionAllocateStorageMapping();
                 }
-                String url = Config.collect().appPackServerUrl() + wi.getApkPath() + "?token=" + getPackServerSSOToken();
-                logger.info("下载apk的url： " + url);
+                String url = STR."\{Config.collect().appPackServerUrl()}\{wi.getApkPath()}?token=\{getPackServerSSOToken()}";
+                logger.info(STR."下载apk的url： \{url}");
                 byte[] bytes = ConnectionAction.getBinary(url, null);
                 try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
                     AppPackApkFile file = emc.find(this.id, AppPackApkFile.class);
@@ -162,7 +162,7 @@ public class ActionPublishAPK2Local extends BaseAction {
          */
         private void updateAppUrl(String webUrl) {
             try {
-                logger.info("updateAppUrl : " + webUrl);
+                logger.info(STR."updateAppUrl : \{webUrl}");
                 if (StringUtils.isNotEmpty(webUrl)) {
                     String myUrl = webUrl;
                     String protocol = Config.nodes().centerServers().first().getValue().getHttpProtocol();
@@ -183,8 +183,8 @@ public class ActionPublishAPK2Local extends BaseAction {
                             myUrl = url;
                         }
                     }
-                    logger.info("最后的URL ：" + myUrl);
-                    Config.collect().setAppUrl(myUrl + "/x_desktop/appDownload.html");
+                    logger.info(STR."最后的URL ：\{myUrl}");
+                    Config.collect().setAppUrl(STR."\{myUrl}/x_desktop/appDownload.html");
                     updateConfigFileOnLine(Config.NAME_CONFIG_COLLECT, Config.collect().toString());
                 }
 

@@ -1,8 +1,8 @@
 package com.x.attendance.assemble.control;
 
 import java.util.List;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -58,10 +58,8 @@ public class ThisApplication {
     // V2
     public static final QueueAttendanceV2Detail queueV2Detail = new QueueAttendanceV2Detail();
     
-    // 同步执行器  这里还有集群服务器的问题
-    public static final ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(1);
-    // 打卡
-    public static final ThreadPoolExecutor checkInExecutor = (ThreadPoolExecutor) Executors.newFixedThreadPool(1);
+    public static final ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();
+    public static final ExecutorService checkInExecutor = Executors.newVirtualThreadPerTaskExecutor();
 
     public static void init() throws Exception {
         try {

@@ -1,6 +1,6 @@
 package com.x.cms.assemble.control;
 
-import javax.activation.MimetypesFileTypeMap;
+import jakarta.activation.MimetypesFileTypeMap;
 
 public class MimeTypeDefinition {
 	public static MimetypesFileTypeMap instance;

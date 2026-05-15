@@ -1,7 +1,7 @@
 package com.x.file.assemble.control.jaxrs.attachment2;
 
-import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.core.StreamingOutput;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.ws.rs.core.StreamingOutput;
 
 import org.apache.commons.lang3.StringUtils;
 

@@ -2,7 +2,7 @@ package com.x.bbs.assemble.control.jaxrs.configsetting;
 
 import java.util.Optional;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.x.base.core.entity.JpaObject;
 import com.x.base.core.project.bean.WrapCopier;

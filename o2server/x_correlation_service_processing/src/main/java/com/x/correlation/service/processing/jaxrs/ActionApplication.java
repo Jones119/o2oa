@@ -1,6 +1,6 @@
 package com.x.correlation.service.processing.jaxrs;
 
-import javax.ws.rs.ApplicationPath;
+import jakarta.ws.rs.ApplicationPath;
 
 import com.x.base.core.project.jaxrs.AbstractActionApplication;
 import com.x.correlation.service.processing.jaxrs.correlation.CorrelationAction;

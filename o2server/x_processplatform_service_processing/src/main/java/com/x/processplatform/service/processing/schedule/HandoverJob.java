@@ -18,9 +18,9 @@ import com.x.processplatform.service.processing.ThisApplication;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Tuple;
-import javax.persistence.criteria.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Tuple;
+import jakarta.persistence.criteria.*;
 import java.util.*;
 
 /**

@@ -2,7 +2,7 @@ package com.x.portal.assemble.surface.jaxrs;
 
 import java.util.Set;
 
-import javax.ws.rs.ApplicationPath;
+import jakarta.ws.rs.ApplicationPath;
 
 import com.x.base.core.project.jaxrs.AbstractActionApplication;
 import com.x.portal.assemble.surface.jaxrs.dict.DictAction;

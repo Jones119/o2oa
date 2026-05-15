@@ -5,7 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.Hashtable;
 
 import javax.imageio.ImageIO;
-import javax.ws.rs.core.UriBuilder;
+import jakarta.ws.rs.core.UriBuilder;
 
 import org.apache.commons.codec.binary.Base64;
 

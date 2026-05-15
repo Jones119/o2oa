@@ -2,7 +2,7 @@ package com.x.bbs.assemble.control.jaxrs.replyinfo;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -64,7 +64,7 @@ public class ActionDelete extends BaseAction {
 					List<String> subIds = replyInfoService.listAllSubReplyIds(id, null);
 					if (ListTools.isNotEmpty(subIds)) {
 						for (String replyId : subIds) {
-							logger.debug("删除下级回复信息，ID=" + replyId);
+							logger.debug(STR."删除下级回复信息，ID=\{replyId}");
 							replyInfoService.delete(replyId);
 						}
 					}

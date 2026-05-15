@@ -3,7 +3,7 @@ package com.x.attendance.assemble.control.jaxrs.attendanceschedulesetting;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.x.attendance.entity.AttendanceScheduleSetting;
 import com.x.base.core.entity.JpaObject;

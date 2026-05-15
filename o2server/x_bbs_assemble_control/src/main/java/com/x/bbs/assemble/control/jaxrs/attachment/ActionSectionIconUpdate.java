@@ -7,7 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
@@ -57,7 +57,7 @@ public class ActionSectionIconUpdate extends BaseAction {
 			} catch (Exception e) {
 				check = false;
 				result.error(e);
-				logger.warn("system query section info with id got an exception!id:" + sectionId);
+				logger.warn(STR."system query section info with id got an exception!id:\{sectionId}");
 				logger.error(e);
 			}
 		}

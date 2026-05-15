@@ -18,7 +18,7 @@ import com.x.cms.core.entity.Log;
 import com.x.cms.core.entity.element.Script;
 import com.x.cms.core.entity.element.ScriptVersion;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.List;
 

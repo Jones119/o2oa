@@ -1,6 +1,6 @@
 package com.x.program.center.jaxrs.jest;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.google.gson.JsonObject;
 import com.x.base.core.project.config.Config;

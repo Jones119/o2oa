@@ -35,13 +35,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.ScopedValue;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.servlet.http.Cookie;
+import jakarta.servlet.http.Cookie;
 
 import org.eclipse.jetty.http.HttpFields;
 import org.eclipse.jetty.http.QuotedCSV;
@@ -297,7 +298,7 @@ public class ServerRequestLog extends ContainerLifeCycle implements RequestLog {
 	public static final String NCSA_FORMAT = "%{client}a - %u %t \"%r\" %s %O";
 	public static final String EXTENDED_NCSA_FORMAT = "%{client}a - %u %t \"%r\" %s %O \"%{Referer}i\" \"%{User-Agent}i\"";
 
-	private static ThreadLocal<StringBuilder> _buffers = ThreadLocal.withInitial(() -> new StringBuilder(256));
+	private static final ScopedValue<StringBuilder> BUFFERS = ScopedValue.newInstance();
 
 	private String[] _ignorePaths;
 	private transient PathMappings<String> _ignorePathMap;
@@ -344,16 +345,17 @@ public class ServerRequestLog extends ContainerLifeCycle implements RequestLog {
 			if (_ignorePathMap != null && _ignorePathMap.getMatch(request.getRequestURI()) != null) {
 				return;
 			}
-
-			StringBuilder sb = _buffers.get();
-			sb.setLength(0);
-
-			_logHandle.invoke(sb, request, response);
-
-			customLog(request, sb);
-
-			String log = sb.toString();
-			_requestLogWriter.write(log);
+			ScopedValue.where(BUFFERS, new StringBuilder(256)).run(() -> {
+				try {
+					StringBuilder sb = BUFFERS.get();
+					_logHandle.invoke(sb, request, response);
+					customLog(request, sb);
+					String log = sb.toString();
+					_requestLogWriter.write(log);
+				} catch (Throwable e) {
+					LOG.warn(e);
+				}
+			});
 		} catch (Throwable e) {
 			LOG.warn(e);
 		}

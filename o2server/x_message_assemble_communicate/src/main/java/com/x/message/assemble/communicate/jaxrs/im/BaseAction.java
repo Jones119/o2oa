@@ -72,7 +72,7 @@ abstract class BaseAction extends StandardJaxrsAction {
      * @param conversationId 会话 id
      */
     protected void generateConversationIcon(String conversationId) {
-        Thread thread = new Thread(() -> {
+        Thread.ofVirtual().name(BaseAction.class.getName() + "-generateConversationIcon").start(() -> {
             try {
                 try (EntityManagerContainer emc = EntityManagerContainerFactory.instance()
                         .create()) {
@@ -117,7 +117,6 @@ abstract class BaseAction extends StandardJaxrsAction {
                 LOGGER.error( e);
             }
         });
-        thread.start();
     }
 
 
@@ -274,7 +273,7 @@ abstract class BaseAction extends StandardJaxrsAction {
             LOGGER.error(e);
         }
         for (String person : persons) {
-            LOGGER.info("发送im消息， person: " + person + " messageType: " + messageType);
+            LOGGER.info(STR."发送im消息， person: \{person} messageType: \{messageType}");
             String title = "您有一条来自 " + name + " 的消息";
             if (person.equals(effectivePerson.getDistinguishedName())) {
                 title = "您有一条新消息";
@@ -297,7 +296,7 @@ abstract class BaseAction extends StandardJaxrsAction {
                 && MessageConnector.TYPE_IM_CREATE.equals(messageType)) {
                 try {
                     if (!ThisApplication.wsClients().containsValue(person)) {
-                        LOGGER.info("向app 推送im消息， person: " + person);
+                        LOGGER.info(STR."向app 推送im消息， person: \{person}");
 
                         if (BooleanUtils.isTrue(Config.pushConfig().getEnable())) {
                             ThisApplication.pmsinnerConsumeQueue.send(message);

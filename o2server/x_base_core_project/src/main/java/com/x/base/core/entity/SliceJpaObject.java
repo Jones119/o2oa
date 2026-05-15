@@ -1,7 +1,7 @@
 package com.x.base.core.entity;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.Column;
+import jakarta.persistence.MappedSuperclass;
 
 import com.x.base.core.project.annotation.FieldDescribe;
 

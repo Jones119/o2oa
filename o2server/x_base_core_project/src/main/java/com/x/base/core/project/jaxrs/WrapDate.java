@@ -2,27 +2,14 @@ package com.x.base.core.project.jaxrs;
 
 import java.util.Date;
 
-import com.x.base.core.project.annotation.FieldDescribe;
-import com.x.base.core.project.gson.GsonPropertyObject;
+import com.x.base.core.project.gson.GsonRecord;
 
-public class WrapDate extends GsonPropertyObject {
+public record WrapDate(Date date) implements GsonRecord {
 
-	public WrapDate() {
-	}
+    public WrapDate {
+    }
 
-	public WrapDate(Date date) throws Exception {
-		this.date = date;
-	}
-
-	@FieldDescribe("date")
-	private Date date;
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
+    public WrapDate() {
+        this(null);
+    }
 }

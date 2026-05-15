@@ -1,6 +1,6 @@
 package com.x.mind.assemble.control.jaxrs.mind;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.x.base.core.project.annotation.AuditLog;
 import com.x.base.core.project.http.ActionResult;

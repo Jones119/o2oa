@@ -1,10 +1,10 @@
 package com.x.processplatform.assemble.surface.jaxrs.form;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 import java.util.zip.CRC32;
 
@@ -24,7 +24,6 @@ import com.x.base.core.project.logger.Logger;
 import com.x.base.core.project.logger.LoggerFactory;
 import com.x.base.core.project.tools.ListTools;
 import com.x.processplatform.assemble.surface.Business;
-import com.x.processplatform.assemble.surface.ThisApplication;
 import com.x.processplatform.core.entity.content.TaskCompleted;
 import com.x.processplatform.core.entity.content.Work;
 import com.x.processplatform.core.entity.content.WorkCompleted;
@@ -56,12 +55,15 @@ class V2LookupTaskCompletedMobile extends BaseAction {
 				this.wo = (Wo) optional.get();
 			} else {
 				List<String> list = new ArrayList<>();
-				CompletableFuture<List<String>> relatedFormFuture = this.relatedFormFuture(this.form);
-				CompletableFuture<List<String>> relatedScriptFuture = this.relatedScriptFuture(this.form);
-				list.add(this.form.getId() + this.form.getUpdateTime().getTime());
-				list.addAll(relatedFormFuture.get(Config.processPlatform().getAsynchronousTimeout(), TimeUnit.SECONDS));
-				list.addAll(
-						relatedScriptFuture.get(Config.processPlatform().getAsynchronousTimeout(), TimeUnit.SECONDS));
+				try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+					var relatedFormSubtask = scope.fork(() -> this.relatedForm(this.form));
+					var relatedScriptSubtask = scope.fork(() -> this.relatedScript(this.form));
+					scope.joinUntil(Instant.now().plusSeconds(Config.processPlatform().getAsynchronousTimeout()));
+					scope.throwIfFailed();
+					list.add(this.form.getId() + this.form.getUpdateTime().getTime());
+					list.addAll(relatedFormSubtask.get());
+					list.addAll(relatedScriptSubtask.get());
+				}
 				list = list.stream().sorted().collect(Collectors.toList());
 				this.wo.setId(this.form.getId());
 				CRC32 crc = new CRC32();
@@ -125,103 +127,55 @@ class V2LookupTaskCompletedMobile extends BaseAction {
 		return o;
 	}
 
-//	private CompletableFuture<List<String>> relatedFormFuture(FormProperties properties) {
-//		return CompletableFuture.supplyAsync(() -> {
-//			List<String> list = new ArrayList<>();
-//			if (ListTools.isNotEmpty(properties.getMobileRelatedFormList())) {
-//				try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
-//					Form f;
-//					for (String id : properties.getMobileRelatedFormList()) {
-//						f = emc.find(id, Form.class);
-//						if (null != f) {
-//							list.add(f.getId() + f.getUpdateTime().getTime());
-//						}
-//					}
-//				} catch (Exception e) {
-//					LOGGER.error(e);
-//				}
-//			}
-//			return list;
-//		}, ThisApplication.forkJoinPool());
-//	}
-//
-//	private CompletableFuture<List<String>> relatedScriptFuture(FormProperties properties) {
-//		return CompletableFuture.supplyAsync(() -> {
-//			List<String> list = new ArrayList<>();
-//			if ((null != properties.getMobileRelatedScriptMap())
-//					&& (properties.getMobileRelatedScriptMap().size() > 0)) {
-//				try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
-//					Business business = new Business(emc);
-//					list = convertScriptToCacheTag(business, properties.getMobileRelatedScriptMap());
-//				} catch (Exception e) {
-//					LOGGER.error(e);
-//				}
-//			}
-//			return list;
-//		}, ThisApplication.forkJoinPool());
-//	}
-
-	private CompletableFuture<List<String>> relatedFormFuture(Form form) {
-		return CompletableFuture.supplyAsync(() -> {
-			List<String> list = new ArrayList<>();
-			Form f;
-			if (BooleanUtils.isTrue(form.getHasMobile())) {
-				if (ListTools.isNotEmpty(form.getProperties().getMobileRelatedFormList())) {
-					try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
-						for (String id : form.getProperties().getMobileRelatedFormList()) {
-							f = emc.find(id, Form.class);
-							if (null != f) {
-								list.add(f.getId() + f.getUpdateTime().getTime());
-							}
+	private List<String> relatedForm(Form form) throws Exception {
+		List<String> list = new ArrayList<>();
+		Form f;
+		if (BooleanUtils.isTrue(form.getHasMobile())) {
+			if (ListTools.isNotEmpty(form.getProperties().getMobileRelatedFormList())) {
+				try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
+					for (String id : form.getProperties().getMobileRelatedFormList()) {
+						f = emc.find(id, Form.class);
+						if (null != f) {
+							list.add(f.getId() + f.getUpdateTime().getTime());
 						}
-					} catch (Exception e) {
-						LOGGER.error(e);
-					}
-				}
-			} else {
-				if (ListTools.isNotEmpty(form.getProperties().getRelatedFormList())) {
-					try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
-						for (String id : form.getProperties().getRelatedFormList()) {
-							f = emc.find(id, Form.class);
-							if (null != f) {
-								list.add(f.getId() + f.getUpdateTime().getTime());
-							}
-						}
-					} catch (Exception e) {
-						LOGGER.error(e);
 					}
 				}
 			}
-			return list;
-		}, ThisApplication.forkJoinPool());
+		} else {
+			if (ListTools.isNotEmpty(form.getProperties().getRelatedFormList())) {
+				try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
+					for (String id : form.getProperties().getRelatedFormList()) {
+						f = emc.find(id, Form.class);
+						if (null != f) {
+							list.add(f.getId() + f.getUpdateTime().getTime());
+						}
+					}
+				}
+			}
+		}
+		return list;
 	}
 
-	private CompletableFuture<List<String>> relatedScriptFuture(Form form) {
-		return CompletableFuture.supplyAsync(() -> {
-			List<String> list = new ArrayList<>();
-			if (BooleanUtils.isTrue(form.getHasMobile())) {
-				if ((null != form.getProperties().getMobileRelatedScriptMap())
-						&& (form.getProperties().getMobileRelatedScriptMap().size() > 0)) {
-					try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
-						Business business = new Business(emc);
-						list = convertScriptToCacheTag(business, form.getProperties().getMobileRelatedScriptMap());
-					} catch (Exception e) {
-						LOGGER.error(e);
-					}
-				}
-			} else {
-				if ((null != form.getProperties().getRelatedScriptMap())
-						&& (form.getProperties().getRelatedScriptMap().size() > 0)) {
-					try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
-						Business business = new Business(emc);
-						list = convertScriptToCacheTag(business, form.getProperties().getRelatedScriptMap());
-					} catch (Exception e) {
-						LOGGER.error(e);
-					}
+	private List<String> relatedScript(Form form) throws Exception {
+		List<String> list = new ArrayList<>();
+		if (BooleanUtils.isTrue(form.getHasMobile())) {
+			if ((null != form.getProperties().getMobileRelatedScriptMap())
+					&& (form.getProperties().getMobileRelatedScriptMap().size() > 0)) {
+				try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
+					Business business = new Business(emc);
+					list = convertScriptToCacheTag(business, form.getProperties().getMobileRelatedScriptMap());
 				}
 			}
-			return list;
-		}, ThisApplication.forkJoinPool());
+		} else {
+			if ((null != form.getProperties().getRelatedScriptMap())
+					&& (form.getProperties().getRelatedScriptMap().size() > 0)) {
+				try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
+					Business business = new Business(emc);
+					list = convertScriptToCacheTag(business, form.getProperties().getRelatedScriptMap());
+				}
+			}
+		}
+		return list;
 	}
 
 	public static class Wo extends AbstractWo {

@@ -1,6 +1,6 @@
 package com.x.attendance.assemble.control.jaxrs.attendanceemployeeconfig;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.x.attendance.entity.AttendanceEmployeeConfig;
 import com.x.base.core.project.http.ActionResult;

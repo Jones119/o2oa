@@ -20,14 +20,14 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.FlushModeType;
-import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.FlushModeType;
+import jakarta.persistence.Query;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections4.ListUtils;
@@ -71,8 +71,7 @@ public class RestoreData {
 		}
 
 		Path dir = dir(path);
-		Thread thread = new Thread(new RunnableImpl(dir, start));
-		thread.start();
+		Thread.ofVirtual().name(RestoreData.class.getName() + "-restore").start(new RunnableImpl(dir, start));
 		return true;
 	}
 
@@ -350,7 +349,7 @@ public class RestoreData {
 				T t = os.get(os.size() - 1);
 				em.detach(t);
 				em.getTransaction().begin();
-				Query query = em.createQuery("DELETE FROM " + cls.getName() + " o WHERE o.id = :id");
+				Query query = em.createQuery(STR."DELETE FROM \{cls.getName()} o WHERE o.id = :id");
 				query.setParameter(JpaObject.id_FIELDNAME, id);
 				query.executeUpdate();
 				em.getTransaction().commit();
@@ -399,7 +398,7 @@ public class RestoreData {
 			CriteriaBuilder cb = em.getCriteriaBuilder();
 			CriteriaQuery<String> cq = cb.createQuery(String.class);
 			Root<T> root = cq.from(cls);
-			javax.persistence.criteria.Path<String> idPath = root.get(JpaObject.id_FIELDNAME);
+			jakarta.persistence.criteria.Path<String> idPath = root.get(JpaObject.id_FIELDNAME);
 			Predicate p = cb.conjunction();
 			if (null != latestId) {
 				p = cb.greaterThan(idPath, latestId);

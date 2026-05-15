@@ -1,15 +1,15 @@
 package com.x.message.core.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Lob;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Lob;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 import com.x.base.core.entity.JpaObject;
 import com.x.base.core.entity.SliceJpaObject;
@@ -26,10 +26,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @Entity
 @ContainerEntity(dumpSize = 1000, type = ContainerEntity.Type.content, reference = ContainerEntity.Reference.strong)
 @Table(name = PersistenceProperties.IMMsg.table, indexes = {
-        @javax.persistence.Index(name = PersistenceProperties.IMMsg.table
+        @jakarta.persistence.Index(name = PersistenceProperties.IMMsg.table
                                         + JpaObject.IndexNameMiddle
                                         + JpaObject.createTime_FIELDNAME, columnList = JpaObject.CREATETIMECOLUMN),
-        @javax.persistence.Index(name = PersistenceProperties.IMMsg.table + "_conversationId_createTime", columnList = "xconversationId, " + JpaObject.CREATETIMECOLUMN)
+        @jakarta.persistence.Index(name = PersistenceProperties.IMMsg.table + "_conversationId_createTime", columnList = "xconversationId, " + JpaObject.CREATETIMECOLUMN)
 }, uniqueConstraints = {
         @UniqueConstraint(name = PersistenceProperties.IMMsg.table + JpaObject.IndexNameMiddle
                                  + JpaObject.DefaultUniqueConstraintSuffix, columnNames = {

@@ -83,7 +83,7 @@ class ActionProcessing extends BaseAction {
 
 		LinkedBlockingQueue<Wo> responeQueue = new LinkedBlockingQueue<>();
 
-		new Thread(() -> {
+		Thread.ofVirtual().name(String.format("%s:processing:%s", ActionProcessing.class.getName(), id)).start(() -> {
 			Wo wo = new Wo();
 			try {
 				Record rec = null;
@@ -105,7 +105,7 @@ class ActionProcessing extends BaseAction {
 					Thread.currentThread().interrupt();
 				}
 			}
-		}, String.format("%s:processing:%s", ActionProcessing.class.getName(), id)).start();
+		});
 
 		startSignalThreadIfAsyncSupported(param, id, responeQueue);
 
@@ -225,7 +225,7 @@ class ActionProcessing extends BaseAction {
 
 	private void startSignalThreadIfAsyncSupported(Param param, String id, LinkedBlockingQueue<Wo> responeQueue) {
 		if (BooleanUtils.isNotFalse(param.asyncSupported)) {
-			new Thread(() -> {
+			Thread.ofVirtual().name(String.format("%s:processingSignal:%s", ActionProcessing.class.getName(), id)).start(() -> {
 				RespProcessingSignal resp = null;
 				try {
 					resp = ThisApplication.context().applications().getQuery(x_processplatform_service_processing.class,
@@ -248,7 +248,7 @@ class ActionProcessing extends BaseAction {
 						Thread.currentThread().interrupt();
 					}
 				}
-			}, String.format("%s:processingSignal:%s", ActionProcessing.class.getName(), id)).start();
+			});
 		}
 	}
 

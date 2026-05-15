@@ -53,7 +53,7 @@ public class ActionPublishHtml extends BaseAction {
 		try {
 			htmlContent =  URLDecoder.decode(htmlContent, StandardCharsets.UTF_8.name());
 		} catch (Exception e) {
-			logger.warn("docContent URLDecoder error:" + e.getMessage());
+			logger.warn(STR."docContent URLDecoder error:\{e.getMessage()}");
 		}
 		this.dispatch(true, id+".html", PUBLISH_PATH, htmlContent.getBytes(StandardCharsets.UTF_8));
 

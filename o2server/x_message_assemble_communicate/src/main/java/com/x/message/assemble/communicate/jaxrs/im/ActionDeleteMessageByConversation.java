@@ -54,7 +54,7 @@ public class ActionDeleteMessageByConversation extends BaseAction {
     }
 
     private void startThread(Wi wi) {
-        Thread thread = new Thread(() -> {
+        Thread.ofVirtual().name(ActionDeleteMessageByConversation.class.getName() + "-deleteMessages").start(() -> {
             try {
                 deleteMessages(wi);
             } catch (Exception e) {
@@ -62,7 +62,6 @@ public class ActionDeleteMessageByConversation extends BaseAction {
                 LOGGER.error(e);
             }
         });
-        thread.start();
     }
 
     private void deleteMessages(Wi wi) throws Exception {
@@ -93,7 +92,7 @@ public class ActionDeleteMessageByConversation extends BaseAction {
                     hasMore = false;
                 }
             }
-            LOGGER.info("  删除消息数量 " + count + " ！！！！！！！！！");
+            LOGGER.info(STR."  删除消息数量 \{count} ！！！！！！！！！");
         }
     }
 

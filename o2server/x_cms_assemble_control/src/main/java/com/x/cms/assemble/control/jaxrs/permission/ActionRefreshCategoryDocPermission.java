@@ -1,6 +1,6 @@
 package com.x.cms.assemble.control.jaxrs.permission;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.x.base.core.project.cache.CacheManager;
 import com.x.base.core.project.http.ActionResult;

@@ -2,8 +2,9 @@ package com.x.base.core.entity.tools;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Gatherers;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import com.x.base.core.container.EntityManagerContainer;
 import com.x.base.core.entity.JpaObject;
@@ -23,18 +24,16 @@ public class EntityManagerContainerTools {
 		}
 		Integer count = 0;
 		EntityManager em = emc.get(clz);
-		for (int i = 0; i < ids.size(); i++) {
-			if (i % batchSize == 0) {
-				em.getTransaction().begin();
+		for (List<String> batch : ids.stream().gather(Gatherers.windowFixed(batchSize)).toList()) {
+			em.getTransaction().begin();
+			for (String id : batch) {
+				T t = em.find(clz, id);
+				if (null != t) {
+					em.remove(t);
+				}
 			}
-			T t = em.find(clz, ids.get(i));
-			if (null != t) {
-				em.remove(t);
-			}
-			if ((i % batchSize == (batchSize - 1)) || (i == ids.size() - 1)) {
-				em.getTransaction().commit();
-				count++;
-			}
+			em.getTransaction().commit();
+			count++;
 		}
 		return count;
 	}

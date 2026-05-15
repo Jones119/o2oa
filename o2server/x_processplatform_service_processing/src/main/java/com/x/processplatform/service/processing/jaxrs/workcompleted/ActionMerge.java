@@ -1,5 +1,6 @@
 package com.x.processplatform.service.processing.jaxrs.workcompleted;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
@@ -8,7 +9,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.concurrent.Callable;
-import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.StructuredTaskScope;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -96,34 +97,47 @@ class ActionMerge extends BaseAction {
 				List<Read> reads = new ArrayList<>();
 				List<DocumentVersion> documentVersions = new ArrayList<>();
 				if (null != workCompleted) {
-
 					Form form = business.element().get(workCompleted.getForm(), Form.class);
 					if (null != form) {
 						StoreForm storeForm = new StoreForm();
 						StoreForm mobileStoreForm = new StoreForm();
 						storeForm.setForm(new RelatedForm(form, form.getData()));
 						mobileStoreForm.setForm(new RelatedForm(form, form.getMobileDataOrData()));
-						CompletableFuture
-								.allOf(relateForm(business, form, storeForm), relateScript(business, form, storeForm),
-										relateFormMobile(business, form, mobileStoreForm),
-										relateScriptMobile(business, form, mobileStoreForm))
-								.get();
+						try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+							scope.fork(() -> relateForm(business, form, storeForm));
+							scope.fork(() -> relateScript(business, form, storeForm));
+							scope.fork(() -> relateFormMobile(business, form, mobileStoreForm));
+							scope.fork(() -> relateScriptMobile(business, form, mobileStoreForm));
+							scope.joinUntil(Instant.now().plusSeconds(60));
+							scope.throwIfFailed();
+						}
 						workCompleted.setStoreForm(storeForm);
 						workCompleted.setMobileStoreForm(mobileStoreForm);
 					}
-					CompletableFuture.allOf(mergeItem(business, workCompleted, items),
-							mergeTaskCompleted(business, workCompleted, taskCompleteds),
-							mergeReadCompleted(business, workCompleted, readCompleteds),
-							mergeReview(business, workCompleted, reviews),
-							mergeWorkLog(business, workCompleted, workLogs),
-							mergeRecord(business, workCompleted, records), listRead(business, workCompleted, reads),
-							listDocumentVersion(business, workCompleted, documentVersions)).get();
+					try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+						scope.fork(() -> mergeItem(business, workCompleted, items));
+						scope.fork(() -> mergeTaskCompleted(business, workCompleted, taskCompleteds));
+						scope.fork(() -> mergeReadCompleted(business, workCompleted, readCompleteds));
+						scope.fork(() -> mergeReview(business, workCompleted, reviews));
+						scope.fork(() -> mergeWorkLog(business, workCompleted, workLogs));
+						scope.fork(() -> mergeRecord(business, workCompleted, records));
+						scope.fork(() -> listRead(business, workCompleted, reads));
+						scope.fork(() -> listDocumentVersion(business, workCompleted, documentVersions));
+						scope.joinUntil(Instant.now().plusSeconds(60));
+						scope.throwIfFailed();
+					}
 					emc.beginTransaction(WorkCompleted.class);
 					workCompleted.setMerged(true);
 					emc.commit();
-					CompletableFuture.allOf(deleteItem(business, items), deleteWorkLog(business, workLogs),
-							deleteRecord(business, records), deleteRead(business, reads),
-							deleteDocumentVersion(business, documentVersions)).get();
+					try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+						scope.fork(() -> deleteItem(business, items));
+						scope.fork(() -> deleteWorkLog(business, workLogs));
+						scope.fork(() -> deleteRecord(business, records));
+						scope.fork(() -> deleteRead(business, reads));
+						scope.fork(() -> deleteDocumentVersion(business, documentVersions));
+						scope.joinUntil(Instant.now().plusSeconds(60));
+						scope.throwIfFailed();
+					}
 					emc.commit();
 					LOGGER.print("已完成工作合并, id: {}, title:{}, sequence:{}.", workCompleted.getId(),
 							workCompleted.getTitle(), workCompleted.getSequence());
@@ -139,302 +153,201 @@ class ActionMerge extends BaseAction {
 			return result;
 		}
 
-		private CompletableFuture<Void> mergeItem(Business business, WorkCompleted workCompleted, List<Item> items) {
-			return CompletableFuture.runAsync(() -> {
-				try {
-					List<Item> os = business.entityManagerContainer().listEqualAndEqual(Item.class,
-							DataItem.bundle_FIELDNAME, workCompleted.getJob(), DataItem.itemCategory_FIELDNAME,
-							ItemCategory.pp);
-					DataItemConverter<Item> converter = new DataItemConverter<>(Item.class);
-					JsonElement jsonElement = converter.assemble(os);
-					workCompleted.setData(gson.fromJson(jsonElement, Data.class));
-					items.addAll(os);
-				} catch (Exception e) {
-					LOGGER.error(e);
-				}
-				// }, ThisApplication.threadPool());
-			}, ThisApplication.forkJoinPool());
+		private Void mergeItem(Business business, WorkCompleted workCompleted, List<Item> items) throws Exception {
+			List<Item> os = business.entityManagerContainer().listEqualAndEqual(Item.class,
+					DataItem.bundle_FIELDNAME, workCompleted.getJob(), DataItem.itemCategory_FIELDNAME,
+					ItemCategory.pp);
+			DataItemConverter<Item> converter = new DataItemConverter<>(Item.class);
+			JsonElement jsonElement = converter.assemble(os);
+			workCompleted.setData(gson.fromJson(jsonElement, Data.class));
+			items.addAll(os);
+			return null;
 		}
 
-		private CompletableFuture<Void> mergeTaskCompleted(Business business, WorkCompleted workCompleted,
-				List<TaskCompleted> taskCompleteds) {
-			return CompletableFuture.runAsync(() -> {
-				try {
-					List<TaskCompleted> os = business.entityManagerContainer()
-							.listEqual(TaskCompleted.class, TaskCompleted.job_FIELDNAME, workCompleted.getJob())
-							.stream().sorted(Comparator.comparing(TaskCompleted::getCreateTime,
-									Comparator.nullsLast(Date::compareTo)))
-							.collect(Collectors.toList());
-					workCompleted.setTaskCompletedList(os);
-					taskCompleteds.addAll(os);
-				} catch (Exception e) {
-					LOGGER.error(e);
-				}
-				// }, ThisApplication.threadPool());
-			}, ThisApplication.forkJoinPool());
+		private Void mergeTaskCompleted(Business business, WorkCompleted workCompleted,
+				List<TaskCompleted> taskCompleteds) throws Exception {
+			List<TaskCompleted> os = business.entityManagerContainer()
+					.listEqual(TaskCompleted.class, TaskCompleted.job_FIELDNAME, workCompleted.getJob())
+					.stream().sorted(Comparator.comparing(TaskCompleted::getCreateTime,
+							Comparator.nullsLast(Date::compareTo)))
+					.collect(Collectors.toList());
+			workCompleted.setTaskCompletedList(os);
+			taskCompleteds.addAll(os);
+			return null;
 		}
 
-		private CompletableFuture<Void> mergeReadCompleted(Business business, WorkCompleted workCompleted,
-				List<ReadCompleted> readCompleteds) {
-			return CompletableFuture.runAsync(() -> {
-				try {
-					List<ReadCompleted> os = business.entityManagerContainer()
-							.listEqual(ReadCompleted.class, ReadCompleted.job_FIELDNAME, workCompleted.getJob())
-							.stream().sorted(Comparator.comparing(ReadCompleted::getCreateTime,
-									Comparator.nullsLast(Date::compareTo)))
-							.collect(Collectors.toList());
-					workCompleted.setReadCompletedList(os);
-					readCompleteds.addAll(os);
-				} catch (Exception e) {
-					LOGGER.error(e);
-				}
-				// }, ThisApplication.threadPool());
-			}, ThisApplication.forkJoinPool());
+		private Void mergeReadCompleted(Business business, WorkCompleted workCompleted,
+				List<ReadCompleted> readCompleteds) throws Exception {
+			List<ReadCompleted> os = business.entityManagerContainer()
+					.listEqual(ReadCompleted.class, ReadCompleted.job_FIELDNAME, workCompleted.getJob())
+					.stream().sorted(Comparator.comparing(ReadCompleted::getCreateTime,
+							Comparator.nullsLast(Date::compareTo)))
+					.collect(Collectors.toList());
+			workCompleted.setReadCompletedList(os);
+			readCompleteds.addAll(os);
+			return null;
 		}
 
-		private CompletableFuture<Void> mergeReview(Business business, WorkCompleted workCompleted,
-				List<Review> reviews) {
-			return CompletableFuture.runAsync(() -> {
-				try {
-					List<Review> os = business.entityManagerContainer()
-							.listEqual(Review.class, Review.job_FIELDNAME, workCompleted.getJob()).stream()
-							.sorted(Comparator.comparing(Review::getCreateTime, Comparator.nullsLast(Date::compareTo)))
-							.collect(Collectors.toList());
-					workCompleted.setReviewList(os);
-					reviews.addAll(os);
-				} catch (Exception e) {
-					LOGGER.error(e);
-				}
-				// }, ThisApplication.threadPool());
-			}, ThisApplication.forkJoinPool());
+		private Void mergeReview(Business business, WorkCompleted workCompleted,
+				List<Review> reviews) throws Exception {
+			List<Review> os = business.entityManagerContainer()
+					.listEqual(Review.class, Review.job_FIELDNAME, workCompleted.getJob()).stream()
+					.sorted(Comparator.comparing(Review::getCreateTime, Comparator.nullsLast(Date::compareTo)))
+					.collect(Collectors.toList());
+			workCompleted.setReviewList(os);
+			reviews.addAll(os);
+			return null;
 		}
 
-		private CompletableFuture<Void> mergeWorkLog(Business business, WorkCompleted workCompleted,
-				List<WorkLog> workLogs) {
-			return CompletableFuture.runAsync(() -> {
-				try {
-					List<WorkLog> os = business.entityManagerContainer()
-							.listEqual(WorkLog.class, WorkLog.JOB_FIELDNAME, workCompleted.getJob()).stream()
-							.sorted(Comparator.comparing(WorkLog::getCreateTime, Comparator.nullsLast(Date::compareTo)))
-							.collect(Collectors.toList());
-					workCompleted.setWorkLogList(os);
-					workLogs.addAll(os);
-				} catch (Exception e) {
-					LOGGER.error(e);
-				}
-				// }, ThisApplication.threadPool());
-			}, ThisApplication.forkJoinPool());
+		private Void mergeWorkLog(Business business, WorkCompleted workCompleted,
+				List<WorkLog> workLogs) throws Exception {
+			List<WorkLog> os = business.entityManagerContainer()
+					.listEqual(WorkLog.class, WorkLog.JOB_FIELDNAME, workCompleted.getJob()).stream()
+					.sorted(Comparator.comparing(WorkLog::getCreateTime, Comparator.nullsLast(Date::compareTo)))
+					.collect(Collectors.toList());
+			workCompleted.setWorkLogList(os);
+			workLogs.addAll(os);
+			return null;
 		}
 
-		private CompletableFuture<Void> mergeRecord(Business business, WorkCompleted workCompleted,
-				List<Record> records) {
-			return CompletableFuture.runAsync(() -> {
-				try {
-					List<Record> os = business.entityManagerContainer()
-							.listEqual(Record.class, Record.job_FIELDNAME, workCompleted.getJob()).stream()
-							.sorted(Comparator.comparing(Record::getCreateTime, Comparator.nullsLast(Date::compareTo)))
-							.collect(Collectors.toList());
-					workCompleted.setRecordList(os);
-					records.addAll(os);
-				} catch (Exception e) {
-					LOGGER.error(e);
-				}
-				// }, ThisApplication.threadPool());
-			}, ThisApplication.forkJoinPool());
+		private Void mergeRecord(Business business, WorkCompleted workCompleted,
+				List<Record> records) throws Exception {
+			List<Record> os = business.entityManagerContainer()
+					.listEqual(Record.class, Record.job_FIELDNAME, workCompleted.getJob()).stream()
+					.sorted(Comparator.comparing(Record::getCreateTime, Comparator.nullsLast(Date::compareTo)))
+					.collect(Collectors.toList());
+			workCompleted.setRecordList(os);
+			records.addAll(os);
+			return null;
 		}
 
-		private CompletableFuture<Void> listDocumentVersion(Business business, WorkCompleted workCompleted,
-				List<DocumentVersion> documentVersions) {
-			return CompletableFuture.runAsync(() -> {
-				try {
-					List<DocumentVersion> os = business.entityManagerContainer().listEqual(DocumentVersion.class,
-							DocumentVersion.job_FIELDNAME, workCompleted.getJob());
-					documentVersions.addAll(os);
-				} catch (Exception e) {
-					LOGGER.error(e);
-				}
-				// }, ThisApplication.threadPool());
-			}, ThisApplication.forkJoinPool());
+		private Void listDocumentVersion(Business business, WorkCompleted workCompleted,
+				List<DocumentVersion> documentVersions) throws Exception {
+			List<DocumentVersion> os = business.entityManagerContainer().listEqual(DocumentVersion.class,
+					DocumentVersion.job_FIELDNAME, workCompleted.getJob());
+			documentVersions.addAll(os);
+			return null;
 		}
 
-		private CompletableFuture<Void> listRead(Business business, WorkCompleted workCompleted, List<Read> reads) {
-			return CompletableFuture.runAsync(() -> {
-				try {
-					List<Read> os = business.entityManagerContainer()
-							.listEqual(Read.class, Read.job_FIELDNAME, workCompleted.getJob()).stream()
-							.sorted(Comparator.comparing(Read::getCreateTime, Comparator.nullsLast(Date::compareTo)))
-							.collect(Collectors.toList());
-					reads.addAll(os);
-				} catch (Exception e) {
-					LOGGER.error(e);
-				}
-				// }, ThisApplication.threadPool());
-			}, ThisApplication.forkJoinPool());
+		private Void listRead(Business business, WorkCompleted workCompleted, List<Read> reads) throws Exception {
+			List<Read> os = business.entityManagerContainer()
+					.listEqual(Read.class, Read.job_FIELDNAME, workCompleted.getJob()).stream()
+					.sorted(Comparator.comparing(Read::getCreateTime, Comparator.nullsLast(Date::compareTo)))
+					.collect(Collectors.toList());
+			reads.addAll(os);
+			return null;
 		}
 
-		private CompletableFuture<Void> deleteItem(Business business, List<Item> items) {
-			return CompletableFuture.runAsync(() -> {
-				try {
-					business.entityManagerContainer().beginTransaction(Item.class);
-					for (Item o : items) {
-						business.entityManagerContainer().remove(o);
-					}
-				} catch (Exception e) {
-					LOGGER.error(e);
-				}
-				// }, ThisApplication.threadPool());
-			}, ThisApplication.forkJoinPool());
+		private Void deleteItem(Business business, List<Item> items) throws Exception {
+			business.entityManagerContainer().beginTransaction(Item.class);
+			for (Item o : items) {
+				business.entityManagerContainer().remove(o);
+			}
+			return null;
 		}
 
-		private CompletableFuture<Void> deleteWorkLog(Business business, List<WorkLog> workLogs) {
-			return CompletableFuture.runAsync(() -> {
-				try {
-					business.entityManagerContainer().beginTransaction(WorkLog.class);
-					for (WorkLog o : workLogs) {
-						business.entityManagerContainer().remove(o);
-					}
-				} catch (Exception e) {
-					LOGGER.error(e);
-				}
-				// }, ThisApplication.threadPool());
-			}, ThisApplication.forkJoinPool());
+		private Void deleteWorkLog(Business business, List<WorkLog> workLogs) throws Exception {
+			business.entityManagerContainer().beginTransaction(WorkLog.class);
+			for (WorkLog o : workLogs) {
+				business.entityManagerContainer().remove(o);
+			}
+			return null;
 		}
 
-		private CompletableFuture<Void> deleteRecord(Business business, List<Record> records) {
-			return CompletableFuture.runAsync(() -> {
-				try {
-					business.entityManagerContainer().beginTransaction(Record.class);
-					for (Record o : records) {
-						business.entityManagerContainer().remove(o);
-					}
-				} catch (Exception e) {
-					LOGGER.error(e);
-				}
-				// }, ThisApplication.threadPool());
-			}, ThisApplication.forkJoinPool());
+		private Void deleteRecord(Business business, List<Record> records) throws Exception {
+			business.entityManagerContainer().beginTransaction(Record.class);
+			for (Record o : records) {
+				business.entityManagerContainer().remove(o);
+			}
+			return null;
 		}
 
-		private CompletableFuture<Void> deleteDocumentVersion(Business business,
-				List<DocumentVersion> documentVersions) {
-			return CompletableFuture.runAsync(() -> {
-				try {
-					business.entityManagerContainer().beginTransaction(DocumentVersion.class);
-					for (DocumentVersion o : documentVersions) {
-						business.entityManagerContainer().remove(o);
-					}
-				} catch (Exception e) {
-					LOGGER.error(e);
-				}
-				// }, ThisApplication.threadPool());
-			}, ThisApplication.forkJoinPool());
+		private Void deleteDocumentVersion(Business business,
+				List<DocumentVersion> documentVersions) throws Exception {
+			business.entityManagerContainer().beginTransaction(DocumentVersion.class);
+			for (DocumentVersion o : documentVersions) {
+				business.entityManagerContainer().remove(o);
+			}
+			return null;
 		}
 
-		private CompletableFuture<Void> deleteRead(Business business, List<Read> reads) {
-			return CompletableFuture.runAsync(() -> {
-				try {
-					business.entityManagerContainer().beginTransaction(Read.class);
-					for (Read o : reads) {
-						business.entityManagerContainer().remove(o);
-					}
-				} catch (Exception e) {
-					LOGGER.error(e);
-				}
-				// }, ThisApplication.threadPool());
-			}, ThisApplication.forkJoinPool());
+		private Void deleteRead(Business business, List<Read> reads) throws Exception {
+			business.entityManagerContainer().beginTransaction(Read.class);
+			for (Read o : reads) {
+				business.entityManagerContainer().remove(o);
+			}
+			return null;
 		}
 
-		private CompletableFuture<Void> relateForm(Business business, Form form, StoreForm storeForm) {
-			return CompletableFuture.runAsync(() -> {
-				Map<String, RelatedForm> map = new TreeMap<>();
-				try {
-					Form f;
-					for (String fid : form.getProperties().getRelatedFormList()) {
-						f = business.element().get(fid, Form.class);
-						if (null != f) {
-							map.put(fid, new RelatedForm(f, f.getData()));
-						}
-					}
-				} catch (Exception e) {
-					LOGGER.error(e);
+		private Void relateForm(Business business, Form form, StoreForm storeForm) throws Exception {
+			Map<String, RelatedForm> map = new TreeMap<>();
+			Form f;
+			for (String fid : form.getProperties().getRelatedFormList()) {
+				f = business.element().get(fid, Form.class);
+				if (null != f) {
+					map.put(fid, new RelatedForm(f, f.getData()));
 				}
-				storeForm.setRelatedFormMap(map);
-				// }, ThisApplication.threadPool());
-			}, ThisApplication.forkJoinPool());
+			}
+			storeForm.setRelatedFormMap(map);
+			return null;
 		}
 
-		private CompletableFuture<Void> relateScript(Business business, Form form, StoreForm storeForm) {
-			return CompletableFuture.runAsync(() -> {
-				Map<String, RelatedScript> map = new TreeMap<>();
-				try {
-					for (Entry<String, String> entry : form.getProperties().getRelatedScriptMap().entrySet()) {
-						switch (entry.getValue()) {
-						case WorkCompletedProperties.RelatedScript.TYPE_PROCESSPLATFORM:
-							processPlatformScript(business, map, entry);
-							break;
-						case WorkCompletedProperties.RelatedScript.TYPE_CMS:
-							cmsScript(business, map, entry);
-							break;
-						case WorkCompletedProperties.RelatedScript.TYPE_PORTAL:
-							portalScript(business, map, entry);
-							break;
-						default:
-							break;
-						}
-					}
-				} catch (Exception e) {
-					LOGGER.error(e);
+		private Void relateScript(Business business, Form form, StoreForm storeForm) throws Exception {
+			Map<String, RelatedScript> map = new TreeMap<>();
+			for (Entry<String, String> entry : form.getProperties().getRelatedScriptMap().entrySet()) {
+				switch (entry.getValue()) {
+				case WorkCompletedProperties.RelatedScript.TYPE_PROCESSPLATFORM:
+					processPlatformScript(business, map, entry);
+					break;
+				case WorkCompletedProperties.RelatedScript.TYPE_CMS:
+					cmsScript(business, map, entry);
+					break;
+				case WorkCompletedProperties.RelatedScript.TYPE_PORTAL:
+					portalScript(business, map, entry);
+					break;
+				default:
+					break;
 				}
-				storeForm.setRelatedScriptMap(map);
-			}, ThisApplication.forkJoinPool());
+			}
+			storeForm.setRelatedScriptMap(map);
+			return null;
 		}
 
-		private CompletableFuture<Void> relateFormMobile(Business business, Form form, StoreForm storeForm) {
-			return CompletableFuture.runAsync(() -> {
-				Map<String, RelatedForm> map = new TreeMap<>();
-				try {
-					Form f;
-					for (String fid : form.getProperties().getMobileRelatedFormList()) {
-						f = business.element().get(fid, Form.class);
-						if (null != f) {
-							map.put(fid, new RelatedForm(f, f.getMobileDataOrData()));
-						}
-					}
-				} catch (Exception e) {
-					LOGGER.error(e);
+		private Void relateFormMobile(Business business, Form form, StoreForm storeForm) throws Exception {
+			Map<String, RelatedForm> map = new TreeMap<>();
+			Form f;
+			for (String fid : form.getProperties().getMobileRelatedFormList()) {
+				f = business.element().get(fid, Form.class);
+				if (null != f) {
+					map.put(fid, new RelatedForm(f, f.getMobileDataOrData()));
 				}
-				storeForm.setRelatedFormMap(map);
-				// }, ThisApplication.threadPool());
-			}, ThisApplication.forkJoinPool());
+			}
+			storeForm.setRelatedFormMap(map);
+			return null;
 		}
 
-		private CompletableFuture<Void> relateScriptMobile(Business business, Form form, StoreForm storeForm) {
-			return CompletableFuture.runAsync(() -> {
-				Map<String, RelatedScript> map = new TreeMap<>();
-				try {
-					for (Entry<String, String> entry : form.getProperties().getMobileRelatedScriptMap().entrySet()) {
-						switch (entry.getValue()) {
-						case WorkCompletedProperties.RelatedScript.TYPE_PROCESSPLATFORM:
-							processPlatformScript(business, map, entry);
-							break;
-						case WorkCompletedProperties.RelatedScript.TYPE_CMS:
-							cmsScript(business, map, entry);
-							break;
-						case WorkCompletedProperties.RelatedScript.TYPE_PORTAL:
-							portalScript(business, map, entry);
-							break;
-						case WorkCompletedProperties.RelatedScript.TYPE_SERVICE:
-							serviceScript(business, map, entry);
-							break;
-						default:
-							break;
-						}
-					}
-				} catch (Exception e) {
-					LOGGER.error(e);
+		private Void relateScriptMobile(Business business, Form form, StoreForm storeForm) throws Exception {
+			Map<String, RelatedScript> map = new TreeMap<>();
+			for (Entry<String, String> entry : form.getProperties().getMobileRelatedScriptMap().entrySet()) {
+				switch (entry.getValue()) {
+				case WorkCompletedProperties.RelatedScript.TYPE_PROCESSPLATFORM:
+					processPlatformScript(business, map, entry);
+					break;
+				case WorkCompletedProperties.RelatedScript.TYPE_CMS:
+					cmsScript(business, map, entry);
+					break;
+				case WorkCompletedProperties.RelatedScript.TYPE_PORTAL:
+					portalScript(business, map, entry);
+					break;
+				case WorkCompletedProperties.RelatedScript.TYPE_SERVICE:
+					serviceScript(business, map, entry);
+					break;
+				default:
+					break;
 				}
-				storeForm.setRelatedScriptMap(map);
-				// }, ThisApplication.threadPool());
-			}, ThisApplication.forkJoinPool());
+			}
+			storeForm.setRelatedScriptMap(map);
+			return null;
 		}
 
 		private void serviceScript(Business business, Map<String, RelatedScript> map, Entry<String, String> entry)

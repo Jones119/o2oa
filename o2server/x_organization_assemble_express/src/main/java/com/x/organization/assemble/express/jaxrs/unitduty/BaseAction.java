@@ -3,11 +3,11 @@ package com.x.organization.assemble.express.jaxrs.unitduty;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
 import com.x.base.core.project.annotation.FieldDescribe;
 import com.x.base.core.project.cache.Cache.CacheCategory;
@@ -55,7 +55,7 @@ class BaseAction extends StandardJaxrsAction {
 
 	protected <T extends com.x.base.core.project.organization.UnitDuty> T convert(Business business, UnitDuty unitDuty,
 			Class<T> clz) throws Exception {
-		T t = clz.newInstance();
+		T t = clz.getDeclaredConstructor().newInstance();
 		t.setName(unitDuty.getName());
 		Unit unit = business.unit().pick(unitDuty.getUnit());
 		if (null != unit) {

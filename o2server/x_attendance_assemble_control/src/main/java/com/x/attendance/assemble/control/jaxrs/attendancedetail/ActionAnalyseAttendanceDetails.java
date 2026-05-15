@@ -3,7 +3,7 @@ package com.x.attendance.assemble.control.jaxrs.attendancedetail;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.x.attendance.assemble.control.processor.monitor.StatusSystemImportOpt;
 import com.x.attendance.assemble.control.processor.sender.SenderForAnalyseData;

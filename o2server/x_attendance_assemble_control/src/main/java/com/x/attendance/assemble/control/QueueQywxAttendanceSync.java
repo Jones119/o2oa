@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -42,7 +42,7 @@ public class QueueQywxAttendanceSync extends AbstractQueue<DingdingQywxSyncRecor
 
     @Override
     protected void execute(DingdingQywxSyncRecord record) throws Exception {
-        logger.info("开始执行企业微信打卡数据同步，from:" + record.getDateFrom() + ", to:"+record.getDateTo());
+        logger.info(STR."开始执行企业微信打卡数据同步，from:\{record.getDateFrom()}, to:\{record.getDateTo()}");
         if (DingdingQywxSyncRecord.syncType_qywx.equals(record.getType())) {
             try {
                 qywxSync(record);
@@ -83,9 +83,9 @@ public class QueueQywxAttendanceSync extends AbstractQueue<DingdingQywxSyncRecor
                     post.setEndtime(DateTools.toUnixTimeStamp(toDate.getTime()));
                     post.setUseridlist(qywxUsers);
                     post.setOpencheckindatatype(3);//全部打卡信息
-                    logger.info("企业微信 post ：" + post.toString());
+                    logger.info(STR."企业微信 post ：\{post.toString()}");
                     QywxResult result = HttpConnection.postAsObject(qywxuri, null, post.toString(), QywxResult.class);
-                    logger.info("返回结果："+result.toString());
+                    logger.info(STR."返回结果：\{result.toString()}");
                     if (result.errcode == 0) {
                         List<QywxResultItem> resultList = result.getCheckindata();
                         saveQywxAttendance(resultList, list);

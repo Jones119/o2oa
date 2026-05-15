@@ -45,7 +45,7 @@ public class ActionSetPassword extends ActionBase {
 					"jdbc:h2:tcp://" + Config.currentNode() + ":" + dataServer.getTcpPort() + "/" + H2Tools.DATABASE,
 					H2Tools.USER, oldPassword)) {
 				RunScript.execute(conn,
-						new StringReader("ALTER USER " + H2Tools.USER + " SET PASSWORD '" + newPassword + "'"));
+						new StringReader(STR."ALTER USER \{H2Tools.USER} SET PASSWORD '\{newPassword}'"));
 			}
 		} else {
 			Path path = Config.pathLocalRepositoryData(true).resolve(H2Tools.DATABASE);
@@ -53,7 +53,7 @@ public class ActionSetPassword extends ActionBase {
 				try (Connection conn = DriverManager.getConnection("jdbc:h2:" + path.toAbsolutePath().toString(),
 						H2Tools.USER, oldPassword)) {
 					RunScript.execute(conn,
-							new StringReader("ALTER USER " + H2Tools.USER + " SET PASSWORD '" + newPassword + "'"));
+							new StringReader(STR."ALTER USER \{H2Tools.USER} SET PASSWORD '\{newPassword}'"));
 				}
 			}
 		}

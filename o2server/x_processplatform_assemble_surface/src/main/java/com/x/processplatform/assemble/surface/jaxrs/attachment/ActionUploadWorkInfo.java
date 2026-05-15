@@ -144,7 +144,7 @@ class ActionUploadWorkInfo extends BaseAction {
 			String key = generalFile.getId();
 			return key;
 		} catch (Exception e) {
-			logger.warn("写work信息异常" + e.getMessage());
+			logger.warn(STR."写work信息异常\{e.getMessage()}");
 		}
 		return "";
 	}

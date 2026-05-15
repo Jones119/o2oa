@@ -2,7 +2,7 @@ package com.x.cms.assemble.control.jaxrs.appinfo;
 
 import com.x.cms.core.entity.element.File;
 import com.x.cms.core.entity.element.Script;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.x.base.core.project.annotation.AuditLog;
 import com.x.base.core.project.cache.CacheManager;

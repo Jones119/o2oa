@@ -1,6 +1,6 @@
 package com.x.attendance.assemble.control.jaxrs.attendanceworkdayconfig;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.x.attendance.entity.AttendanceWorkDayConfig;
 import com.x.base.core.container.EntityManagerContainer;

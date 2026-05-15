@@ -1,11 +1,11 @@
 package com.x.processplatform.assemble.surface.jaxrs.worklog;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.BooleanUtils;
@@ -57,16 +57,17 @@ class ActionListRollbackWithWorkOrWorkCompleted extends BaseAction {
 
 		final String workLogJob = job;
 
-		CompletableFuture<List<WoTaskCompleted>> futureTaskCompleteds = CompletableFuture
-				.supplyAsync(() -> this.taskCompleteds(workLogJob), ThisApplication.forkJoinPool());
-
-		CompletableFuture<List<Wo>> futureWorkLogs = CompletableFuture.supplyAsync(() -> this.workLogs(workLogJob),
-				ThisApplication.forkJoinPool());
-		List<WoTaskCompleted> taskCompleteds = futureTaskCompleteds.get();
-		List<Wo> wos = futureWorkLogs.get();
-		ListTools.groupStick(wos, taskCompleteds, WorkLog.FROMACTIVITYTOKEN_FIELDNAME,
-				TaskCompleted.activityToken_FIELDNAME, TASKCOMPLETEDLIST_FIELDNAME);
-		result.setData(wos);
+		try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+			var taskCompletedsSubtask = scope.fork(() -> this.taskCompleteds(workLogJob));
+			var workLogsSubtask = scope.fork(() -> this.workLogs(workLogJob));
+			scope.joinUntil(Instant.now().plusSeconds(60));
+			scope.throwIfFailed();
+			List<WoTaskCompleted> taskCompleteds = taskCompletedsSubtask.get();
+			List<Wo> wos = workLogsSubtask.get();
+			ListTools.groupStick(wos, taskCompleteds, WorkLog.FROMACTIVITYTOKEN_FIELDNAME,
+					TaskCompleted.activityToken_FIELDNAME, TASKCOMPLETEDLIST_FIELDNAME);
+			result.setData(wos);
+		}
 		return result;
 	}
 

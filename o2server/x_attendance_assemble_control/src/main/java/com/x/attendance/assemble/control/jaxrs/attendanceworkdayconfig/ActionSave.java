@@ -2,7 +2,7 @@ package com.x.attendance.assemble.control.jaxrs.attendanceworkdayconfig;
 
 import java.util.Date;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.google.gson.JsonElement;
 import com.x.attendance.assemble.common.date.DateOperation;

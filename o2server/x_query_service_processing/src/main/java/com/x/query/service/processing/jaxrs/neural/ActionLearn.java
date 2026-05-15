@@ -26,17 +26,15 @@ class ActionLearn extends BaseAction {
 			if (StringUtils.isNotEmpty(Learn.learningModel())) {
 				throw new ExceptionLearn(model.getName());
 			}
-			new Thread() {
-				public void run() {
-					Learn learn;
-					try {
-						learn = Learn.newInstance();
-						learn.execute(model.getId());
-					} catch (Exception e) {
-						logger.error(e);
-					}
-				};
-			}.start();
+			Thread.ofVirtual().name(ActionLearn.class.getName() + "-learn").start(() -> {
+				Learn learn;
+				try {
+					learn = Learn.newInstance();
+					learn.execute(model.getId());
+				} catch (Exception e) {
+					logger.error(e);
+				}
+			});
 			Wo wo = new Wo();
 			wo.setValue(true);
 			result.setData(wo);

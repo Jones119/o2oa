@@ -7,16 +7,16 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
 
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.mail.PasswordAuthentication;
+import jakarta.mail.Session;
+import jakarta.mail.Transport;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
@@ -99,7 +99,7 @@ public class MailConsumeQueue extends AbstractQueue<Message> {
 		properties.put("mail.smtp.ssl.enable", consumer.getSslEnable());
 		properties.put("mail.smtp.starttls.enable", consumer.getStartTlsEnable());
 		properties.put("mail.smtp.auth", consumer.getAuth());
-		Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+		Session session = Session.getInstance(properties, new jakarta.mail.Authenticator() {
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(consumer.getFrom(), consumer.getPassword());
@@ -107,7 +107,7 @@ public class MailConsumeQueue extends AbstractQueue<Message> {
 		});
 		MimeMessage mime = new MimeMessage(session);
 		mime.setFrom(new InternetAddress(consumer.getFrom()));
-		mime.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(recipient));
+		mime.addRecipient(jakarta.mail.Message.RecipientType.TO, new InternetAddress(recipient));
 		mime.setSubject(message.getTitle());
 		mime.setText(message.getBody(), StandardCharsets.UTF_8.name(), "html");
 		Transport.send(mime);

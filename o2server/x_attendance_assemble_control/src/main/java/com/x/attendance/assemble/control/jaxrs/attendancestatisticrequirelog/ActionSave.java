@@ -1,6 +1,6 @@
 package com.x.attendance.assemble.control.jaxrs.attendancestatisticrequirelog;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.google.gson.JsonElement;
 import com.x.attendance.assemble.control.ExceptionWrapInConvert;

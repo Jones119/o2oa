@@ -30,7 +30,7 @@ import com.x.query.core.entity.Item;
 import org.apache.commons.collections4.ListUtils;
 
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 

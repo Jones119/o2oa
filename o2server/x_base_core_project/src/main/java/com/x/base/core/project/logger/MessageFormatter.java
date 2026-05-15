@@ -279,26 +279,16 @@ final public class MessageFormatter {
 		if (!o.getClass().isArray()) {
 			safeObjectAppend(sbuf, o);
 		} else {
-			// check for primitive array types because they
-			// unfortunately cannot be cast to Object[]
-			if (o instanceof boolean[]) {
-				booleanArrayAppend(sbuf, (boolean[]) o);
-			} else if (o instanceof byte[]) {
-				byteArrayAppend(sbuf, (byte[]) o);
-			} else if (o instanceof char[]) {
-				charArrayAppend(sbuf, (char[]) o);
-			} else if (o instanceof short[]) {
-				shortArrayAppend(sbuf, (short[]) o);
-			} else if (o instanceof int[]) {
-				intArrayAppend(sbuf, (int[]) o);
-			} else if (o instanceof long[]) {
-				longArrayAppend(sbuf, (long[]) o);
-			} else if (o instanceof float[]) {
-				floatArrayAppend(sbuf, (float[]) o);
-			} else if (o instanceof double[]) {
-				doubleArrayAppend(sbuf, (double[]) o);
-			} else {
-				objectArrayAppend(sbuf, (Object[]) o, seenMap);
+			switch (o) {
+				case boolean[] arr -> booleanArrayAppend(sbuf, arr);
+				case byte[] arr -> byteArrayAppend(sbuf, arr);
+				case char[] arr -> charArrayAppend(sbuf, arr);
+				case short[] arr -> shortArrayAppend(sbuf, arr);
+				case int[] arr -> intArrayAppend(sbuf, arr);
+				case long[] arr -> longArrayAppend(sbuf, arr);
+				case float[] arr -> floatArrayAppend(sbuf, arr);
+				case double[] arr -> doubleArrayAppend(sbuf, arr);
+				default -> objectArrayAppend(sbuf, (Object[]) o, seenMap);
 			}
 		}
 	}

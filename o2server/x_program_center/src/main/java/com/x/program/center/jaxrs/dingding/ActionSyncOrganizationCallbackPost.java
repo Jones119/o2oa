@@ -34,7 +34,7 @@ public class ActionSyncOrganizationCallbackPost extends BaseAction {
             Wi wi = this.convertToWrapIn(body, Wi.class);
             DingTalkEncryptor dingTalkEncryptor = new DingTalkEncryptor(Config.dingding().getToken(), Config.dingding().getEncodingAesKey(), Config.dingding().getCorpId());
             String plainText = dingTalkEncryptor.getDecryptMsg(signature, timestamp, nonce, wi.getEncrypt());
-            logger.info("解密后的结果：" + plainText);
+            logger.info(STR."解密后的结果：\{plainText}");
             DingtalkEvent event = gson.fromJson(plainText, DingtalkEvent.class);
             if ("check_url".equals(event.getEventType())) { //检查回调地址
                 logger.info("检查url，无需处理");

@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.apache.commons.codec.binary.Base64;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
@@ -39,8 +39,7 @@ public class ActionUploadAndEncode extends BaseAction {
 			}
 			ImageIO.write(image, "png", baos);
 			byte[] byteArray = baos.toByteArray();
-			WrapOutString wrap = new WrapOutString();
-			wrap.setValue(Base64.encodeBase64String(byteArray));
+			WrapOutString wrap = new WrapOutString(Base64.encodeBase64String(byteArray));
 			result.setData( wrap);
 		} catch (IOException e) {
 			e.printStackTrace();

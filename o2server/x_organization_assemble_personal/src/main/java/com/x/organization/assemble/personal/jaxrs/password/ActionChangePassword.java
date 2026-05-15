@@ -54,7 +54,7 @@ class ActionChangePassword extends ActionBase {
 			}
 			if (BooleanUtils.isTrue(Config.person().getSuperPermission())
 					&& StringUtils.equals(Config.token().getPassword(), wi.getOldPassword())) {
-				logger.info("user{name:" + person.getName() + "} use superPermission.");
+				logger.info(STR."user{name:\{person.getName()}} use superPermission.");
 			} else {
 				if (!StringUtils.equals(
 						Crypto.encrypt(wi.getOldPassword(), Config.token().getKey(), Config.person().getEncryptType()),

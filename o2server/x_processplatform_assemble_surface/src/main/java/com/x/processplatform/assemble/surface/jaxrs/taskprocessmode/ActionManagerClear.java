@@ -14,8 +14,8 @@ import com.x.processplatform.core.entity.PersistenceProperties;
 import com.x.processplatform.core.entity.content.TaskProcessMode;
 import org.apache.commons.lang3.BooleanUtils;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 
 class ActionManagerClear extends BaseAction {
 
@@ -32,13 +32,13 @@ class ActionManagerClear extends BaseAction {
 				throw new ExceptionAccessDenied(effectivePerson);
 			}
 			EntityManager em = emc.get(TaskProcessMode.class);
-			String sql = "DELETE FROM " + TaskProcessMode.class.getName();
+			String sql = STR."DELETE FROM \{TaskProcessMode.class.getName()}";
 			if(!EMPTY_SYMBOL.equals(person)){
 				Person personObj = business.organization().person().getObject(person);
 				if(personObj != null){
 					person = personObj.getUnique();
 				}
-				sql = sql + " o WHERE o.person = '"+person+"'";
+				sql = STR."\{sql} o WHERE o.person = '\{person}'";
 			}
 			emc.beginTransaction(TaskProcessMode.class);
 			Query query = em.createQuery(sql);

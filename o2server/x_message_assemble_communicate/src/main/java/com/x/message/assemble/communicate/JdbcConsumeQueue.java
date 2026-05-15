@@ -17,11 +17,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -107,8 +107,7 @@ public class JdbcConsumeQueue extends AbstractQueue<Message> {
         for (int i = 0; i < map.keySet().size(); i++) {
             aux.add("?");
         }
-        return "INSERT INTO " + (StringUtils.isEmpty(schema) ? table : (schema + "." + table)) + " ("
-                + StringUtils.join(map.keySet(), ",") + ") VALUES (" + StringUtils.join(aux, ",") + ")";
+        return STR."INSERT INTO \{StringUtils.isEmpty(schema) ? table : STR."\{schema}.\{table}"} (\{StringUtils.join(map.keySet(), ",")}) VALUES (\{StringUtils.join(aux, ",")})";
     }
 
     private void success(String id) {

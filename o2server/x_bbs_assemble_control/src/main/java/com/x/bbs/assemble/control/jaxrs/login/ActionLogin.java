@@ -1,7 +1,7 @@
 package com.x.bbs.assemble.control.jaxrs.login;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.core.Context;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.ws.rs.core.Context;
 
 import org.apache.commons.lang3.StringUtils;
 

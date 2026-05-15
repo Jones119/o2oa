@@ -13,8 +13,8 @@ import com.x.organization.core.entity.Person;
 import com.x.organization.core.express.assemble.authentication.jaxrs.authentication.ActionCaptchaLoginWi;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 

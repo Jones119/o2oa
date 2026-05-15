@@ -6,9 +6,9 @@
 //import java.util.regex.Matcher;
 //import java.util.regex.Pattern;
 //
-//import javax.persistence.EntityManager;
-//import javax.persistence.Parameter;
-//import javax.persistence.Query;
+//import jakarta.persistence.EntityManager;
+//import jakarta.persistence.Parameter;
+//import jakarta.persistence.Query;
 //import javax.script.Bindings;
 //import javax.script.CompiledScript;
 //import javax.script.ScriptContext;

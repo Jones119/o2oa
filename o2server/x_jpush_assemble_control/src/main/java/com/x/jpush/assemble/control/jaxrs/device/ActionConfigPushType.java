@@ -8,7 +8,7 @@ import com.x.base.core.project.logger.Logger;
 import com.x.base.core.project.logger.LoggerFactory;
 import com.x.jpush.core.entity.PushDevice;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * android 端 app使用 当前服务器启用了哪种推送渠道 极光还是华为

@@ -1,26 +1,24 @@
 package com.x.base.core.project.jaxrs;
 
 import java.io.IOException;
+import java.util.ScopedValue;
 
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.FilterConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.net.HttpHeaders;
 import com.x.base.core.project.config.Config;
+import com.x.base.core.project.http.EffectivePerson;
 import com.x.base.core.project.http.FilterTools;
 import com.x.base.core.project.http.HttpToken;
 
-/**
- * 必须由前台已经登陆的用户访问
- * @author sword
- */
 public abstract class AnonymousCipherManagerUserJaxrsFilter extends TokenFilter {
 
 	@Override
@@ -33,8 +31,14 @@ public abstract class AnonymousCipherManagerUserJaxrsFilter extends TokenFilter 
 			FilterTools.allow(request, response);
 			if (!request.getMethod().equalsIgnoreCase(HTTP_OPTIONS)) {
 				HttpToken httpToken = new HttpToken();
-				httpToken.whoNotRefreshToken(request, response, Config.token().getCipher());
-				chain.doFilter(request, response);
+				EffectivePerson effectivePerson = httpToken.whoNotRefreshToken(request, response, Config.token().getCipher());
+				ScopedValue.where(EffectivePerson.SCOPED, effectivePerson).run(() -> {
+					try {
+						chain.doFilter(request, response);
+					} catch (ServletException | IOException e) {
+						throw new RuntimeException(e);
+					}
+				});
 			} else {
 				options(request, response);
 			}

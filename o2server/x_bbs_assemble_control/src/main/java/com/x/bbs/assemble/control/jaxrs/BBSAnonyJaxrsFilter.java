@@ -1,14 +1,15 @@
 package com.x.bbs.assemble.control.jaxrs;
 
 import java.io.IOException;
+import java.util.ScopedValue;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -43,7 +44,13 @@ public class BBSAnonyJaxrsFilter extends AnonymousCipherManagerUserJaxrsFilter {
 					response.setHeader("Content-Type", "application/json;charset=UTF-8");
 					response.getWriter().write(FilterTools.APPLICATION_NOT_MANAGERUSER_JSON);
 				}else{
-					chain.doFilter(request, response);
+					ScopedValue.where(EffectivePerson.SCOPED, effectivePerson).run(() -> {
+						try {
+							chain.doFilter(request, response);
+						} catch (ServletException | IOException e) {
+							throw new RuntimeException(e);
+						}
+					});
 				}
 
 			}

@@ -2,7 +2,7 @@ package com.x.cms.assemble.control.jaxrs.fileinfo;
 
 import java.util.Arrays;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.google.gson.JsonElement;
 import com.x.base.core.project.annotation.AuditLog;

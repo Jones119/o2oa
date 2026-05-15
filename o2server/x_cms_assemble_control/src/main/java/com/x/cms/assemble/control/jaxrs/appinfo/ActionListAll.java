@@ -3,7 +3,7 @@ package com.x.cms.assemble.control.jaxrs.appinfo;
 import java.util.List;
 import java.util.Optional;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.x.base.core.project.cache.Cache;
 import com.x.base.core.project.cache.CacheManager;

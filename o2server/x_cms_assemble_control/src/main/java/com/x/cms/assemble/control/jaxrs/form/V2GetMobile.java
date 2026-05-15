@@ -1,5 +1,18 @@
 package com.x.cms.assemble.control.jaxrs.form;
 
+import java.time.Instant;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Optional;
+import java.util.TreeMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.StructuredTaskScope;
+import java.util.stream.Collectors;
+
+import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
+
 import com.x.base.core.container.EntityManagerContainer;
 import com.x.base.core.container.factory.EntityManagerContainerFactory;
 import com.x.base.core.project.cache.Cache.CacheKey;
@@ -11,21 +24,9 @@ import com.x.base.core.project.logger.Logger;
 import com.x.base.core.project.logger.LoggerFactory;
 import com.x.base.core.project.tools.ListTools;
 import com.x.cms.assemble.control.Business;
-import com.x.cms.assemble.control.ThisApplication;
 import com.x.cms.core.entity.element.Form;
 import com.x.cms.core.entity.element.FormProperties;
 import com.x.cms.core.entity.element.Script;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Optional;
-import java.util.TreeMap;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
-import org.apache.commons.lang3.BooleanUtils;
-import org.apache.commons.lang3.StringUtils;
 
 class V2GetMobile extends BaseAction {
 
@@ -50,12 +51,14 @@ class V2GetMobile extends BaseAction {
 			Wo wo = new Wo();
 			final List<String> list = new CopyOnWriteArrayList<>();
 			wo.setForm(new RelatedForm(form, form.getMobileDataOrData()));
-			CompletableFuture<Map<String, RelatedForm>> getRelatedFormFuture = this.getRelatedFormFuture(form,
-					list);
-			CompletableFuture<Map<String, RelatedScript>> getRelatedScriptFuture = this
-					.getRelatedScriptFuture(form, list);
-			wo.setRelatedFormMap(getRelatedFormFuture.get(10, TimeUnit.SECONDS));
-			wo.setRelatedScriptMap(getRelatedScriptFuture.get(10, TimeUnit.SECONDS));
+			try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+				var getRelatedFormSubtask = scope.fork(() -> this.getRelatedForm(form, list));
+				var getRelatedScriptSubtask = scope.fork(() -> this.getRelatedScript(form, list));
+				scope.joinUntil(Instant.now().plusSeconds(10));
+				scope.throwIfFailed();
+				wo.setRelatedFormMap(getRelatedFormSubtask.get());
+				wo.setRelatedScriptMap(getRelatedScriptSubtask.get());
+			}
 			if (StringUtils.isNotBlank(tag)) {
 				wo.setMaxAge(3600 * 24);
 			}
@@ -68,59 +71,49 @@ class V2GetMobile extends BaseAction {
 		return result;
 	}
 
-	private CompletableFuture<Map<String, RelatedForm>> getRelatedFormFuture(Form form,
-			final List<String> list) {
-		return CompletableFuture.supplyAsync(() -> {
-			Map<String, RelatedForm> map = new TreeMap<>();
-			FormProperties properties = form.getProperties();
-			boolean hasMobile = BooleanUtils.isTrue(form.getHasMobile());
-			List<String> formList = hasMobile ? properties.getMobileRelatedFormList() : properties.getRelatedFormList();
-			if (ListTools.isNotEmpty(formList)) {
-				try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
-					Business bus = new Business(emc);
-					for (String id : formList) {
-						Form f = bus.getFormFactory().pick(id);
-						if (null != f) {
-							map.put(id, new RelatedForm(f, f.getMobileDataOrData()));
-							list.add(f.getId() + f.getUpdateTime().getTime());
-						}
+	private Map<String, RelatedForm> getRelatedForm(Form form,
+			final List<String> list) throws Exception {
+		Map<String, RelatedForm> map = new TreeMap<>();
+		FormProperties properties = form.getProperties();
+		boolean hasMobile = BooleanUtils.isTrue(form.getHasMobile());
+		List<String> formList = hasMobile ? properties.getMobileRelatedFormList() : properties.getRelatedFormList();
+		if (ListTools.isNotEmpty(formList)) {
+			try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
+				Business bus = new Business(emc);
+				for (String id : formList) {
+					Form f = bus.getFormFactory().pick(id);
+					if (null != f) {
+						map.put(id, new RelatedForm(f, f.getMobileDataOrData()));
+						list.add(f.getId() + f.getUpdateTime().getTime());
 					}
-				} catch (Exception e) {
-					LOGGER.error(e);
 				}
 			}
-			return map;
-		}, ThisApplication.forkJoinPool());
+		}
+		return map;
 	}
 
-	private CompletableFuture<Map<String, RelatedScript>> getRelatedScriptFuture(Form form,
-			final List<String> list) {
+	private Map<String, RelatedScript> getRelatedScript(Form form,
+			final List<String> list) throws Exception {
 		final FormProperties properties = form.getProperties();
-		return CompletableFuture.supplyAsync(() -> {
-			Map<String, RelatedScript> map = new TreeMap<>();
-			if (BooleanUtils.isTrue(form.getHasMobile())) {
-				if ((null != properties.getMobileRelatedScriptMap())
-						&& (!properties.getMobileRelatedScriptMap().isEmpty())) {
-					try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
-						Business business = new Business(emc);
-						map = convertScript(business, form, list);
-					} catch (Exception e) {
-						LOGGER.error(e);
-					}
-				}
-			} else {
-				if ((null != properties.getRelatedScriptMap())
-						&& (!properties.getRelatedScriptMap().isEmpty())) {
-					try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
-						Business business = new Business(emc);
-						map = convertScript(business, form, list);
-					} catch (Exception e) {
-						LOGGER.error(e);
-					}
+		Map<String, RelatedScript> map = new TreeMap<>();
+		if (BooleanUtils.isTrue(form.getHasMobile())) {
+			if ((null != properties.getMobileRelatedScriptMap())
+					&& (!properties.getMobileRelatedScriptMap().isEmpty())) {
+				try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
+					Business business = new Business(emc);
+					map = convertScript(business, form, list);
 				}
 			}
-			return map;
-		}, ThisApplication.forkJoinPool());
+		} else {
+			if ((null != properties.getRelatedScriptMap())
+					&& (!properties.getRelatedScriptMap().isEmpty())) {
+				try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
+					Business business = new Business(emc);
+					map = convertScript(business, form, list);
+				}
+			}
+		}
+		return map;
 	}
 
 	private Map<String, RelatedScript> convertScript(Business bus, Form form, final List<String> list)

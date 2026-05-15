@@ -3,8 +3,8 @@ package com.x.processplatform.assemble.designer.jaxrs.form;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -102,7 +102,7 @@ class ActionDelete extends BaseAction {
 
 	private <T extends JpaObject> void delete(Business business, Class<T> clz, List<String> ids) throws Exception {
 		EntityManager em = business.entityManagerContainer().get(clz);
-		Query query = em.createQuery("DELETE FROM " + clz.getName() + " o WHERE o.id IN :ids");
+		Query query = em.createQuery(STR."DELETE FROM \{clz.getName()} o WHERE o.id IN :ids");
 		query.setParameter("ids", ids);
 		query.executeUpdate();
 	}

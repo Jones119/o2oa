@@ -74,13 +74,11 @@ public interface Cache {
 		if (null == o) {
 			return "";
 		}
-		if (o instanceof Class<?>) {
-			return ((Class<?>) o).getName();
-		} else if (o instanceof Collection<?>) {
-			return StringUtils.join((Collection<?>) o, ",");
-		} else {
-			return Objects.toString(o);
-		}
+		return switch (o) {
+			case Class<?> cls -> cls.getName();
+			case Collection<?> col -> StringUtils.join(col, ",");
+			default -> Objects.toString(o);
+		};
 	}
 
 }

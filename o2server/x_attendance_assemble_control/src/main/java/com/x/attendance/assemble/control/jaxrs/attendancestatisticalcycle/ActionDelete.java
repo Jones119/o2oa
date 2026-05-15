@@ -1,6 +1,6 @@
 package com.x.attendance.assemble.control.jaxrs.attendancestatisticalcycle;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.x.attendance.entity.AttendanceStatisticalCycle;
 import com.x.base.core.container.EntityManagerContainer;

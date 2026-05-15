@@ -48,13 +48,12 @@ public class ActionDeleteGroupConversation extends BaseAction {
             // 然后删除会话扩展对象
             List<String> extIds = business.imConversationFactory().listAllConversationExtIdsWithConversationId(conversationId);
             if (extIds == null || extIds.isEmpty()) {
-                LOGGER.info("没有会话扩展，无需清空！ conversationId:" + conversationId);
+                LOGGER.info(STR."没有会话扩展，无需清空！ conversationId:\{conversationId}");
             } else {
                 emc.beginTransaction(IMConversationExt.class);
                 emc.delete(IMConversationExt.class, extIds);
                 emc.commit();
-                LOGGER.info("成功删除会话扩展！conversationId:" + conversationId + " ext size：" + extIds.size() + " person："
-                        + effectivePerson.getDistinguishedName());
+                LOGGER.info(STR."成功删除会话扩展！conversationId:\{conversationId} ext size：\{extIds.size()} person：\{effectivePerson.getDistinguishedName()}");
             }
             // 最后删除会话对象
             emc.beginTransaction(IMConversation.class);

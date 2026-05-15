@@ -2,7 +2,7 @@ package com.x.attendance.assemble.control.jaxrs.attendancestatistic;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.x.attendance.entity.StatisticTopUnitForMonth;
 import com.x.base.core.entity.JpaObject;

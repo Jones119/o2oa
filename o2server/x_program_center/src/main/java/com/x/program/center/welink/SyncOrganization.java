@@ -10,11 +10,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.collections4.ListUtils;
@@ -56,7 +56,7 @@ public class SyncOrganization {
 		logger.print("开始与WeLink同步人员组织,方向:拉入.");
 		PullResult result = new PullResult();
 		String accessToken = Config.weLink().accessToken();
-		logger.print("accessToken：" + accessToken);
+		logger.print(STR."accessToken：\{accessToken}");
 		List<Unit> units = new ArrayList<>();
 		List<Person> people = new ArrayList<>();
 		List<PersonAttribute> personAttributes = new ArrayList<>();

@@ -1,7 +1,7 @@
 package com.x.calendar.core.tools;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.Predicate;
 
 /**
  * 数据查询语句构建辅助类

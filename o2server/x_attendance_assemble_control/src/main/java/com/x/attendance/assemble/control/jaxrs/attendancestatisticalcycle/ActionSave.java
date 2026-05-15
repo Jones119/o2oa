@@ -2,7 +2,7 @@ package com.x.attendance.assemble.control.jaxrs.attendancestatisticalcycle;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.google.gson.JsonElement;
 import com.x.attendance.assemble.control.Business;

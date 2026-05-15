@@ -48,27 +48,29 @@ public class Data extends ListOrderedMap<String, Object> {
 		if (StringUtils.isNotEmpty(path)) {
 			Object o = PropertyUtils.getProperty(this, path);
 			if (null != o) {
-				if (o instanceof CharSequence) {
-					list.add(o.toString());
-				} else if (o instanceof Iterable) {
-					for (Object v : (Iterable<?>) o) {
-						if (null != v) {
-							if ((v instanceof CharSequence)) {
-								list.add(v.toString());
-							} else {
-								Object d = PropertyUtils.getProperty(v, JpaObject.DISTINGUISHEDNAME);
-								String s = Objects.toString(d, "");
-								if (StringUtils.isNotEmpty(s)) {
-									list.add(s);
+				switch (o) {
+					case CharSequence cs -> list.add(cs.toString());
+					case Iterable<?> it -> {
+						for (Object v : it) {
+							if (null != v) {
+								if ((v instanceof CharSequence vcs)) {
+									list.add(vcs.toString());
+								} else {
+									Object d = PropertyUtils.getProperty(v, JpaObject.DISTINGUISHEDNAME);
+									String s = Objects.toString(d, "");
+									if (StringUtils.isNotEmpty(s)) {
+										list.add(s);
+									}
 								}
 							}
 						}
 					}
-				} else {
-					Object d = PropertyUtils.getProperty(o, JpaObject.DISTINGUISHEDNAME);
-					String s = Objects.toString(d, "");
-					if (StringUtils.isNotEmpty(s)) {
-						list.add(s);
+					default -> {
+						Object d = PropertyUtils.getProperty(o, JpaObject.DISTINGUISHEDNAME);
+						String s = Objects.toString(d, "");
+						if (StringUtils.isNotEmpty(s)) {
+							list.add(s);
+						}
 					}
 				}
 			}

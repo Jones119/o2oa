@@ -1,7 +1,7 @@
 package com.x.server.console.server.web;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jetty.client.api.Request;

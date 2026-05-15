@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.MappedSuperclass;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.openjpa.persistence.PersistenceProviderImpl;

@@ -61,7 +61,7 @@ public class ActionImportExcel extends BaseAction {
             int errorRowNumber = 0;
             for (int i = firstRow; i <= lastRow; i++) {
                 if (LOGGER.isDebugEnabled()) {
-                    LOGGER.debug("处理行数：" + i + " ========================================");
+                    LOGGER.debug(STR."处理行数：\{i} ========================================");
                 }
                 Row row = sheet.getRow(i);
                 try {

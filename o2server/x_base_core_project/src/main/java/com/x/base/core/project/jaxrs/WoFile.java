@@ -1,6 +1,6 @@
 package com.x.base.core.project.jaxrs;
 
-import javax.ws.rs.core.StreamingOutput;
+import jakarta.ws.rs.core.StreamingOutput;
 
 import com.x.base.core.project.annotation.FieldDescribe;
 

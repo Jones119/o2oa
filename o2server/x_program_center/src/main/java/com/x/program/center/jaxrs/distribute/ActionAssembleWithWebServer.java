@@ -3,7 +3,7 @@ package com.x.program.center.jaxrs.distribute;
 import java.util.Map;
 import java.util.Objects;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.google.gson.JsonObject;
 import com.x.base.core.project.annotation.FieldDescribe;

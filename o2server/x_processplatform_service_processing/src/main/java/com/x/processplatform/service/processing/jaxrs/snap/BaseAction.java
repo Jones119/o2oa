@@ -1,11 +1,10 @@
 package com.x.processplatform.service.processing.jaxrs.snap;
 
-import java.util.ArrayList;
+import java.time.Instant;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
+import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 
 import org.apache.commons.codec.binary.Base64;
@@ -48,20 +47,25 @@ abstract class BaseAction extends StandardJaxrsAction {
 			List<TaskCompleted> taskCompleteds, List<Read> reads, List<ReadCompleted> readCompleteds,
 			List<Review> reviews, List<WorkLog> workLogs, List<Record> records, List<DocumentVersion> documentVersions,
 			List<DocSign> docSigns, List<DocSignScrawl> docSignScrawls)
-			throws InterruptedException, ExecutionException {
+			throws Exception {
 		SnapProperties properties = new SnapProperties();
 		properties.setJob(job);
-		CompletableFuture.allOf(mergeItem(business, job, properties, items),
-				mergeWork(business, job, properties, works), mergeTask(business, job, properties, tasks),
-				mergeTaskCompleted(business, job, properties, taskCompleteds),
-				mergeRead(business, job, properties, reads),
-				mergeReadCompleted(business, job, properties, readCompleteds),
-				mergeReview(business, job, properties, reviews), mergeWorkLog(business, job, properties, workLogs),
-				mergeRecord(business, job, properties, records),
-				// mergeAttachment(business, job, properties, attachments),
-				mergeDocumentVersion(business, job, properties, documentVersions),
-				mergeDocSign(business, job, properties, docSigns),
-				mergeDocSignScrawl(business, job, properties, docSignScrawls)).get();
+		try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+			scope.fork(() -> mergeItem(business, job, properties, items));
+			scope.fork(() -> mergeWork(business, job, properties, works));
+			scope.fork(() -> mergeTask(business, job, properties, tasks));
+			scope.fork(() -> mergeTaskCompleted(business, job, properties, taskCompleteds));
+			scope.fork(() -> mergeRead(business, job, properties, reads));
+			scope.fork(() -> mergeReadCompleted(business, job, properties, readCompleteds));
+			scope.fork(() -> mergeReview(business, job, properties, reviews));
+			scope.fork(() -> mergeWorkLog(business, job, properties, workLogs));
+			scope.fork(() -> mergeRecord(business, job, properties, records));
+			scope.fork(() -> mergeDocumentVersion(business, job, properties, documentVersions));
+			scope.fork(() -> mergeDocSign(business, job, properties, docSigns));
+			scope.fork(() -> mergeDocSignScrawl(business, job, properties, docSignScrawls));
+			scope.joinUntil(Instant.now().plusSeconds(60));
+			scope.throwIfFailed();
+		}
 		if (ListTools.isNotEmpty(works)) {
 			properties.setTitle(works.get(0).getTitle());
 		}
@@ -71,25 +75,26 @@ abstract class BaseAction extends StandardJaxrsAction {
 	protected SnapProperties snap(Business business, String job, List<Item> items, WorkCompleted workCompleted,
 			List<TaskCompleted> taskCompleteds, List<Read> reads, List<ReadCompleted> readCompleteds,
 			List<Review> reviews, List<WorkLog> workLogs, List<Record> records, List<DocSign> docSigns,
-			List<DocSignScrawl> docSignScrawls) throws InterruptedException, ExecutionException {
+			List<DocSignScrawl> docSignScrawls) throws Exception {
 		SnapProperties properties = new SnapProperties();
 		properties.setJob(job);
 		properties.setWorkCompleted(workCompleted);
 		properties.setTitle(workCompleted.getTitle());
-		List<CompletableFuture<Void>> futures = new ArrayList<>();
-		futures.add(mergeTaskCompleted(business, job, properties, taskCompleteds));
-		futures.add(mergeRead(business, job, properties, reads));
-		futures.add(mergeReadCompleted(business, job, properties, readCompleteds));
-		futures.add(mergeReview(business, job, properties, reviews));
-		futures.add(mergeWorkLog(business, job, properties, workLogs));
-		futures.add(mergeRecord(business, job, properties, records));
-		// futures.add(mergeAttachment(business, job, properties, attachments));
-		futures.add(mergeDocSign(business, job, properties, docSigns));
-		futures.add(mergeDocSignScrawl(business, job, properties, docSignScrawls));
-		if (BooleanUtils.isNotTrue(workCompleted.getMerged())) {
-			futures.add(mergeItem(business, job, properties, items));
+		try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+			scope.fork(() -> mergeTaskCompleted(business, job, properties, taskCompleteds));
+			scope.fork(() -> mergeRead(business, job, properties, reads));
+			scope.fork(() -> mergeReadCompleted(business, job, properties, readCompleteds));
+			scope.fork(() -> mergeReview(business, job, properties, reviews));
+			scope.fork(() -> mergeWorkLog(business, job, properties, workLogs));
+			scope.fork(() -> mergeRecord(business, job, properties, records));
+			scope.fork(() -> mergeDocSign(business, job, properties, docSigns));
+			scope.fork(() -> mergeDocSignScrawl(business, job, properties, docSignScrawls));
+			if (BooleanUtils.isNotTrue(workCompleted.getMerged())) {
+				scope.fork(() -> mergeItem(business, job, properties, items));
+			}
+			scope.joinUntil(Instant.now().plusSeconds(60));
+			scope.throwIfFailed();
 		}
-		CompletableFuture.allOf(futures.toArray(new CompletableFuture<?>[0])).get();
 
 		return properties;
 	}
@@ -98,635 +103,426 @@ abstract class BaseAction extends StandardJaxrsAction {
 			List<TaskCompleted> taskCompleteds, List<Read> reads, List<ReadCompleted> readCompleteds,
 			List<Review> reviews, List<WorkLog> workLogs, List<Record> records, List<DocumentVersion> documentVersions,
 			List<DocSign> docSigns, List<DocSignScrawl> docSignScrawls)
-			throws InterruptedException, ExecutionException {
-		CompletableFuture.allOf(deleteItem(business, items), deleteWork(business, works), deleteTask(business, tasks),
-				deleteTaskCompleted(business, taskCompleteds), deleteRead(business, reads),
-				deleteReadCompleted(business, readCompleteds), deleteReview(business, reviews),
-				deleteWorkLog(business, workLogs), deleteRecord(business, records),
-				deleteDocumentVersion(business, documentVersions), deleteDocSign(business, docSigns),
-				deleteDocSignScrawl(business, docSignScrawls)).get();
+			throws Exception {
+		try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+			scope.fork(() -> deleteItem(business, items));
+			scope.fork(() -> deleteWork(business, works));
+			scope.fork(() -> deleteTask(business, tasks));
+			scope.fork(() -> deleteTaskCompleted(business, taskCompleteds));
+			scope.fork(() -> deleteRead(business, reads));
+			scope.fork(() -> deleteReadCompleted(business, readCompleteds));
+			scope.fork(() -> deleteReview(business, reviews));
+			scope.fork(() -> deleteWorkLog(business, workLogs));
+			scope.fork(() -> deleteRecord(business, records));
+			scope.fork(() -> deleteDocumentVersion(business, documentVersions));
+			scope.fork(() -> deleteDocSign(business, docSigns));
+			scope.fork(() -> deleteDocSignScrawl(business, docSignScrawls));
+			scope.joinUntil(Instant.now().plusSeconds(60));
+			scope.throwIfFailed();
+		}
 	}
 
 	protected void clean(Business business, List<Item> items, WorkCompleted workCompleted,
 			List<TaskCompleted> taskCompleteds, List<Read> reads, List<ReadCompleted> readCompleteds,
 			List<Review> reviews, List<WorkLog> workLogs, List<Record> records, List<DocSign> docSigns,
-			List<DocSignScrawl> docSignScrawls) throws InterruptedException, ExecutionException {
-		CompletableFuture.allOf(deleteItem(business, items), deleteWork(business, workCompleted),
-				deleteTaskCompleted(business, taskCompleteds), deleteRead(business, reads),
-				deleteReadCompleted(business, readCompleteds), deleteReview(business, reviews),
-				deleteWorkLog(business, workLogs), deleteRecord(business, records), deleteDocSign(business, docSigns),
-				deleteDocSignScrawl(business, docSignScrawls)).get();
+			List<DocSignScrawl> docSignScrawls) throws Exception {
+		try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+			scope.fork(() -> deleteItem(business, items));
+			scope.fork(() -> deleteWork(business, workCompleted));
+			scope.fork(() -> deleteTaskCompleted(business, taskCompleteds));
+			scope.fork(() -> deleteRead(business, reads));
+			scope.fork(() -> deleteReadCompleted(business, readCompleteds));
+			scope.fork(() -> deleteReview(business, reviews));
+			scope.fork(() -> deleteWorkLog(business, workLogs));
+			scope.fork(() -> deleteRecord(business, records));
+			scope.fork(() -> deleteDocSign(business, docSigns));
+			scope.fork(() -> deleteDocSignScrawl(business, docSignScrawls));
+			scope.joinUntil(Instant.now().plusSeconds(60));
+			scope.throwIfFailed();
+		}
 	}
 
-	private CompletableFuture<Void> mergeItem(Business business, String job, SnapProperties snapProperties,
-			List<Item> items) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				List<Item> os = business.entityManagerContainer().listEqualAndEqual(Item.class,
-						DataItem.bundle_FIELDNAME, job, DataItem.itemCategory_FIELDNAME, ItemCategory.pp);
-				DataItemConverter<Item> converter = new DataItemConverter<>(Item.class);
-				JsonElement jsonElement = converter.assemble(os);
-				snapProperties.setData(gson.fromJson(jsonElement, Data.class));
-				items.addAll(os);
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
+	private Void mergeItem(Business business, String job, SnapProperties snapProperties,
+			List<Item> items) throws Exception {
+		List<Item> os = business.entityManagerContainer().listEqualAndEqual(Item.class,
+				DataItem.bundle_FIELDNAME, job, DataItem.itemCategory_FIELDNAME, ItemCategory.pp);
+		DataItemConverter<Item> converter = new DataItemConverter<>(Item.class);
+		JsonElement jsonElement = converter.assemble(os);
+		snapProperties.setData(gson.fromJson(jsonElement, Data.class));
+		items.addAll(os);
+		return null;
 	}
 
-	private CompletableFuture<Void> mergeWork(Business business, String job, SnapProperties snapProperties,
-			List<Work> works) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				List<Work> os = business.entityManagerContainer().listEqual(Work.class, Work.job_FIELDNAME, job)
-						.stream()
-						.sorted(Comparator.comparing(Work::getCreateTime, Comparator.nullsLast(Date::compareTo)))
-						.collect(Collectors.toList());
-				snapProperties.setWorkList(os);
-				works.addAll(os);
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
+	private Void mergeWork(Business business, String job, SnapProperties snapProperties,
+			List<Work> works) throws Exception {
+		List<Work> os = business.entityManagerContainer().listEqual(Work.class, Work.job_FIELDNAME, job)
+				.stream()
+				.sorted(Comparator.comparing(Work::getCreateTime, Comparator.nullsLast(Date::compareTo)))
+				.collect(Collectors.toList());
+		snapProperties.setWorkList(os);
+		works.addAll(os);
+		return null;
 	}
 
-	private CompletableFuture<Void> mergeTask(Business business, String job, SnapProperties snapProperties,
-			List<Task> tasks) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				List<Task> os = business.entityManagerContainer().listEqual(Task.class, Task.job_FIELDNAME, job)
-						.stream()
-						.sorted(Comparator.comparing(Task::getCreateTime, Comparator.nullsLast(Date::compareTo)))
-						.collect(Collectors.toList());
-				snapProperties.setTaskList(os);
-				tasks.addAll(os);
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
+	private Void mergeTask(Business business, String job, SnapProperties snapProperties,
+			List<Task> tasks) throws Exception {
+		List<Task> os = business.entityManagerContainer().listEqual(Task.class, Task.job_FIELDNAME, job)
+				.stream()
+				.sorted(Comparator.comparing(Task::getCreateTime, Comparator.nullsLast(Date::compareTo)))
+				.collect(Collectors.toList());
+		snapProperties.setTaskList(os);
+		tasks.addAll(os);
+		return null;
 	}
 
-	private CompletableFuture<Void> mergeTaskCompleted(Business business, String job, SnapProperties snapProperties,
-			List<TaskCompleted> taskCompleteds) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				List<TaskCompleted> os = business.entityManagerContainer()
-						.listEqual(TaskCompleted.class, TaskCompleted.job_FIELDNAME, job).stream().sorted(Comparator
-								.comparing(TaskCompleted::getCreateTime, Comparator.nullsLast(Date::compareTo)))
-						.collect(Collectors.toList());
-				snapProperties.setTaskCompletedList(os);
-				taskCompleteds.addAll(os);
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
+	private Void mergeTaskCompleted(Business business, String job, SnapProperties snapProperties,
+			List<TaskCompleted> taskCompleteds) throws Exception {
+		List<TaskCompleted> os = business.entityManagerContainer()
+				.listEqual(TaskCompleted.class, TaskCompleted.job_FIELDNAME, job).stream().sorted(Comparator
+						.comparing(TaskCompleted::getCreateTime, Comparator.nullsLast(Date::compareTo)))
+				.collect(Collectors.toList());
+		snapProperties.setTaskCompletedList(os);
+		taskCompleteds.addAll(os);
+		return null;
 	}
 
-	private CompletableFuture<Void> mergeRead(Business business, String job, SnapProperties snapProperties,
-			List<Read> reads) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				List<Read> os = business.entityManagerContainer().listEqual(Read.class, Read.job_FIELDNAME, job)
-						.stream()
-						.sorted(Comparator.comparing(Read::getCreateTime, Comparator.nullsLast(Date::compareTo)))
-						.collect(Collectors.toList());
-				snapProperties.setReadList(os);
-				reads.addAll(os);
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
+	private Void mergeRead(Business business, String job, SnapProperties snapProperties,
+			List<Read> reads) throws Exception {
+		List<Read> os = business.entityManagerContainer().listEqual(Read.class, Read.job_FIELDNAME, job)
+				.stream()
+				.sorted(Comparator.comparing(Read::getCreateTime, Comparator.nullsLast(Date::compareTo)))
+				.collect(Collectors.toList());
+		snapProperties.setReadList(os);
+		reads.addAll(os);
+		return null;
 	}
 
-	private CompletableFuture<Void> mergeReadCompleted(Business business, String job, SnapProperties snapProperties,
-			List<ReadCompleted> readCompleteds) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				List<ReadCompleted> os = business.entityManagerContainer()
-						.listEqual(ReadCompleted.class, ReadCompleted.job_FIELDNAME, job).stream().sorted(Comparator
-								.comparing(ReadCompleted::getCreateTime, Comparator.nullsLast(Date::compareTo)))
-						.collect(Collectors.toList());
-				snapProperties.setReadCompletedList(os);
-				readCompleteds.addAll(os);
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
+	private Void mergeReadCompleted(Business business, String job, SnapProperties snapProperties,
+			List<ReadCompleted> readCompleteds) throws Exception {
+		List<ReadCompleted> os = business.entityManagerContainer()
+				.listEqual(ReadCompleted.class, ReadCompleted.job_FIELDNAME, job).stream().sorted(Comparator
+						.comparing(ReadCompleted::getCreateTime, Comparator.nullsLast(Date::compareTo)))
+				.collect(Collectors.toList());
+		snapProperties.setReadCompletedList(os);
+		readCompleteds.addAll(os);
+		return null;
 	}
 
-	private CompletableFuture<Void> mergeReview(Business business, String job, SnapProperties snapProperties,
-			List<Review> reviews) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				List<Review> os = business.entityManagerContainer().listEqual(Review.class, Review.job_FIELDNAME, job)
-						.stream()
-						.sorted(Comparator.comparing(Review::getCreateTime, Comparator.nullsLast(Date::compareTo)))
-						.collect(Collectors.toList());
-				snapProperties.setReviewList(os);
-				reviews.addAll(os);
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
+	private Void mergeReview(Business business, String job, SnapProperties snapProperties,
+			List<Review> reviews) throws Exception {
+		List<Review> os = business.entityManagerContainer().listEqual(Review.class, Review.job_FIELDNAME, job)
+				.stream()
+				.sorted(Comparator.comparing(Review::getCreateTime, Comparator.nullsLast(Date::compareTo)))
+				.collect(Collectors.toList());
+		snapProperties.setReviewList(os);
+		reviews.addAll(os);
+		return null;
 	}
 
-	private CompletableFuture<Void> mergeWorkLog(Business business, String job, SnapProperties snapProperties,
-			List<WorkLog> workLogs) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				List<WorkLog> os = business.entityManagerContainer()
-						.listEqual(WorkLog.class, WorkLog.JOB_FIELDNAME, job).stream()
-						.sorted(Comparator.comparing(WorkLog::getCreateTime, Comparator.nullsLast(Date::compareTo)))
-						.collect(Collectors.toList());
-				snapProperties.setWorkLogList(os);
-				workLogs.addAll(os);
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
+	private Void mergeWorkLog(Business business, String job, SnapProperties snapProperties,
+			List<WorkLog> workLogs) throws Exception {
+		List<WorkLog> os = business.entityManagerContainer()
+				.listEqual(WorkLog.class, WorkLog.JOB_FIELDNAME, job).stream()
+				.sorted(Comparator.comparing(WorkLog::getCreateTime, Comparator.nullsLast(Date::compareTo)))
+				.collect(Collectors.toList());
+		snapProperties.setWorkLogList(os);
+		workLogs.addAll(os);
+		return null;
 	}
 
-	private CompletableFuture<Void> mergeRecord(Business business, String job, SnapProperties snapProperties,
-			List<Record> records) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				List<Record> os = business.entityManagerContainer().listEqual(Record.class, Record.job_FIELDNAME, job)
-						.stream()
-						.sorted(Comparator.comparing(Record::getCreateTime, Comparator.nullsLast(Date::compareTo)))
-						.collect(Collectors.toList());
-				snapProperties.setRecordList(os);
-				records.addAll(os);
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
+	private Void mergeRecord(Business business, String job, SnapProperties snapProperties,
+			List<Record> records) throws Exception {
+		List<Record> os = business.entityManagerContainer().listEqual(Record.class, Record.job_FIELDNAME, job)
+				.stream()
+				.sorted(Comparator.comparing(Record::getCreateTime, Comparator.nullsLast(Date::compareTo)))
+				.collect(Collectors.toList());
+		snapProperties.setRecordList(os);
+		records.addAll(os);
+		return null;
 	}
 
-	private CompletableFuture<Void> mergeDocumentVersion(Business business, String job, SnapProperties snapProperties,
-			List<DocumentVersion> documentVersions) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				List<DocumentVersion> os = business.entityManagerContainer()
-						.listEqual(DocumentVersion.class, DocumentVersion.job_FIELDNAME, job).stream().sorted(Comparator
-								.comparing(DocumentVersion::getCreateTime, Comparator.nullsLast(Date::compareTo)))
-						.collect(Collectors.toList());
-				snapProperties.setDocumentVersionList(os);
-				documentVersions.addAll(os);
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
+	private Void mergeDocumentVersion(Business business, String job, SnapProperties snapProperties,
+			List<DocumentVersion> documentVersions) throws Exception {
+		List<DocumentVersion> os = business.entityManagerContainer()
+				.listEqual(DocumentVersion.class, DocumentVersion.job_FIELDNAME, job).stream().sorted(Comparator
+						.comparing(DocumentVersion::getCreateTime, Comparator.nullsLast(Date::compareTo)))
+				.collect(Collectors.toList());
+		snapProperties.setDocumentVersionList(os);
+		documentVersions.addAll(os);
+		return null;
 	}
 
-	private CompletableFuture<Void> mergeDocSign(Business business, String job, SnapProperties snapProperties,
-			List<DocSign> docSigns) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				List<DocSign> os = business.entityManagerContainer()
-						.listEqual(DocSign.class, DocSign.job_FIELDNAME, job).stream()
-						.sorted(Comparator.comparing(DocSign::getCreateTime, Comparator.nullsLast(Date::compareTo)))
-						.collect(Collectors.toList());
-				snapProperties.setDocSignList(os);
-				docSigns.addAll(os);
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
+	private Void mergeDocSign(Business business, String job, SnapProperties snapProperties,
+			List<DocSign> docSigns) throws Exception {
+		List<DocSign> os = business.entityManagerContainer()
+				.listEqual(DocSign.class, DocSign.job_FIELDNAME, job).stream()
+				.sorted(Comparator.comparing(DocSign::getCreateTime, Comparator.nullsLast(Date::compareTo)))
+				.collect(Collectors.toList());
+		snapProperties.setDocSignList(os);
+		docSigns.addAll(os);
+		return null;
 	}
 
-	private CompletableFuture<Void> mergeDocSignScrawl(Business business, String job, SnapProperties snapProperties,
-			List<DocSignScrawl> docSignScrawls) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				List<DocSignScrawl> os = business.entityManagerContainer()
-						.listEqual(DocSignScrawl.class, DocSignScrawl.job_FIELDNAME, job).stream().sorted(Comparator
-								.comparing(DocSignScrawl::getCreateTime, Comparator.nullsLast(Date::compareTo)))
-						.collect(Collectors.toList());
-				snapProperties.setDocSignScrawlList(os);
-				docSignScrawls.addAll(os);
-				for (DocSignScrawl docSignScrawl : os) {
-					if (StringUtils.isNotBlank(docSignScrawl.getStorage())) {
-						StorageMapping mapping = ThisApplication.context().storageMappings().get(DocSignScrawl.class,
-								docSignScrawl.getStorage());
-						if (null != mapping) {
-							byte[] bytes = docSignScrawl.readContent(mapping);
-							snapProperties.getAttachmentContentMap().put(docSignScrawl.getId(),
-									Base64.encodeBase64URLSafeString(bytes));
-						}
-					}
+	private Void mergeDocSignScrawl(Business business, String job, SnapProperties snapProperties,
+			List<DocSignScrawl> docSignScrawls) throws Exception {
+		List<DocSignScrawl> os = business.entityManagerContainer()
+				.listEqual(DocSignScrawl.class, DocSignScrawl.job_FIELDNAME, job).stream().sorted(Comparator
+						.comparing(DocSignScrawl::getCreateTime, Comparator.nullsLast(Date::compareTo)))
+				.collect(Collectors.toList());
+		snapProperties.setDocSignScrawlList(os);
+		docSignScrawls.addAll(os);
+		for (DocSignScrawl docSignScrawl : os) {
+			if (StringUtils.isNotBlank(docSignScrawl.getStorage())) {
+				StorageMapping mapping = ThisApplication.context().storageMappings().get(DocSignScrawl.class,
+						docSignScrawl.getStorage());
+				if (null != mapping) {
+					byte[] bytes = docSignScrawl.readContent(mapping);
+					snapProperties.getAttachmentContentMap().put(docSignScrawl.getId(),
+							Base64.encodeBase64URLSafeString(bytes));
 				}
-			} catch (Exception e) {
-				LOGGER.error(e);
 			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
+		}
+		return null;
 	}
 
-	private CompletableFuture<Void> deleteItem(Business business, List<Item> items) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(Item.class);
-				for (Item o : items) {
-					business.entityManagerContainer().remove(o);
+	private Void deleteItem(Business business, List<Item> items) throws Exception {
+		business.entityManagerContainer().beginTransaction(Item.class);
+		for (Item o : items) {
+			business.entityManagerContainer().remove(o);
+		}
+		return null;
+	}
+
+	private Void deleteWork(Business business, List<Work> works) throws Exception {
+		business.entityManagerContainer().beginTransaction(Work.class);
+		for (Work o : works) {
+			business.entityManagerContainer().remove(o);
+			MessageFactory.work_delete(o);
+		}
+		return null;
+	}
+
+	private Void deleteWork(Business business, WorkCompleted workCompleted) throws Exception {
+		business.entityManagerContainer().beginTransaction(WorkCompleted.class);
+		business.entityManagerContainer().remove(workCompleted);
+		MessageFactory.workCompleted_delete(workCompleted);
+		return null;
+	}
+
+	private Void deleteTask(Business business, List<Task> tasks) throws Exception {
+		business.entityManagerContainer().beginTransaction(Task.class);
+		for (Task o : tasks) {
+			business.entityManagerContainer().remove(o);
+			MessageFactory.task_delete(o);
+		}
+		return null;
+	}
+
+	private Void deleteTaskCompleted(Business business, List<TaskCompleted> taskCompleteds) throws Exception {
+		business.entityManagerContainer().beginTransaction(TaskCompleted.class);
+		for (TaskCompleted o : taskCompleteds) {
+			business.entityManagerContainer().remove(o);
+			MessageFactory.taskCompleted_delete(o);
+		}
+		return null;
+	}
+
+	private Void deleteRead(Business business, List<Read> reads) throws Exception {
+		business.entityManagerContainer().beginTransaction(Read.class);
+		for (Read o : reads) {
+			business.entityManagerContainer().remove(o);
+			MessageFactory.read_delete(o);
+		}
+		return null;
+	}
+
+	private Void deleteReadCompleted(Business business, List<ReadCompleted> readCompleteds) throws Exception {
+		business.entityManagerContainer().beginTransaction(ReadCompleted.class);
+		for (ReadCompleted o : readCompleteds) {
+			business.entityManagerContainer().remove(o);
+			MessageFactory.readCompleted_delete(o);
+		}
+		return null;
+	}
+
+	private Void deleteReview(Business business, List<Review> reviews) throws Exception {
+		business.entityManagerContainer().beginTransaction(Review.class);
+		for (Review o : reviews) {
+			business.entityManagerContainer().remove(o);
+			MessageFactory.review_delete(o);
+		}
+		return null;
+	}
+
+	private Void deleteWorkLog(Business business, List<WorkLog> workLogs) throws Exception {
+		business.entityManagerContainer().beginTransaction(WorkLog.class);
+		for (WorkLog o : workLogs) {
+			business.entityManagerContainer().remove(o);
+		}
+		return null;
+	}
+
+	private Void deleteRecord(Business business, List<Record> records) throws Exception {
+		business.entityManagerContainer().beginTransaction(Record.class);
+		for (Record o : records) {
+			business.entityManagerContainer().remove(o);
+		}
+		return null;
+	}
+
+	private Void deleteDocumentVersion(Business business, List<DocumentVersion> documentVersions) throws Exception {
+		business.entityManagerContainer().beginTransaction(DocumentVersion.class);
+		for (DocumentVersion o : documentVersions) {
+			business.entityManagerContainer().remove(o);
+		}
+		return null;
+	}
+
+	private Void deleteDocSign(Business business, List<DocSign> docSigns) throws Exception {
+		business.entityManagerContainer().beginTransaction(DocSign.class);
+		for (DocSign o : docSigns) {
+			business.entityManagerContainer().remove(o);
+		}
+		return null;
+	}
+
+	private Void deleteDocSignScrawl(Business business, List<DocSignScrawl> docSignScrawls) throws Exception {
+		business.entityManagerContainer().beginTransaction(DocSignScrawl.class);
+		for (DocSignScrawl o : docSignScrawls) {
+			if (StringUtils.isNotBlank(o.getStorage())) {
+				StorageMapping mapping = ThisApplication.context().storageMappings().get(DocSignScrawl.class,
+						o.getStorage());
+				if (null != mapping) {
+					o.deleteContent(mapping);
 				}
-			} catch (Exception e) {
-				LOGGER.error(e);
 			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
+			business.entityManagerContainer().remove(o);
+		}
+		return null;
 	}
 
-	private CompletableFuture<Void> deleteWork(Business business, List<Work> works) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(Work.class);
-				for (Work o : works) {
-					business.entityManagerContainer().remove(o);
-					MessageFactory.work_delete(o);
+	protected Void deleteItem(Business business, String job) throws Exception {
+		business.entityManagerContainer().beginTransaction(Item.class);
+		for (Item o : business.entityManagerContainer().listEqual(Item.class, DataItem.bundle_FIELDNAME, job)) {
+			business.entityManagerContainer().remove(o);
+		}
+		return null;
+	}
+
+	protected Void deleteWork(Business business, String job) throws Exception {
+		business.entityManagerContainer().beginTransaction(Work.class);
+		for (Work o : business.entityManagerContainer().listEqual(Work.class, Work.job_FIELDNAME, job)) {
+			business.entityManagerContainer().remove(o);
+			MessageFactory.work_delete(o);
+		}
+		return null;
+	}
+
+	protected Void deleteWorkCompleted(Business business, String job) throws Exception {
+		business.entityManagerContainer().beginTransaction(WorkCompleted.class);
+		for (WorkCompleted o : business.entityManagerContainer().listEqual(WorkCompleted.class,
+				WorkCompleted.job_FIELDNAME, job)) {
+			business.entityManagerContainer().remove(o);
+			MessageFactory.workCompleted_delete(o);
+		}
+		return null;
+	}
+
+	protected Void deleteTask(Business business, String job) throws Exception {
+		business.entityManagerContainer().beginTransaction(Task.class);
+		for (Task o : business.entityManagerContainer().listEqual(Task.class, Task.job_FIELDNAME, job)) {
+			business.entityManagerContainer().remove(o);
+			MessageFactory.task_delete(o);
+		}
+		return null;
+	}
+
+	protected Void deleteTaskCompleted(Business business, String job) throws Exception {
+		business.entityManagerContainer().beginTransaction(TaskCompleted.class);
+		for (TaskCompleted o : business.entityManagerContainer().listEqual(TaskCompleted.class,
+				TaskCompleted.job_FIELDNAME, job)) {
+			business.entityManagerContainer().remove(o);
+			MessageFactory.taskCompleted_delete(o);
+		}
+		return null;
+	}
+
+	protected Void deleteRead(Business business, String job) throws Exception {
+		business.entityManagerContainer().beginTransaction(Read.class);
+		for (Read o : business.entityManagerContainer().listEqual(Read.class, Read.job_FIELDNAME, job)) {
+			business.entityManagerContainer().remove(o);
+			MessageFactory.read_delete(o);
+		}
+		return null;
+	}
+
+	protected Void deleteReadCompleted(Business business, String job) throws Exception {
+		business.entityManagerContainer().beginTransaction(ReadCompleted.class);
+		for (ReadCompleted o : business.entityManagerContainer().listEqual(ReadCompleted.class,
+				ReadCompleted.job_FIELDNAME, job)) {
+			business.entityManagerContainer().remove(o);
+			MessageFactory.readCompleted_delete(o);
+		}
+		return null;
+	}
+
+	protected Void deleteReview(Business business, String job) throws Exception {
+		business.entityManagerContainer().beginTransaction(Review.class);
+		for (Review o : business.entityManagerContainer().listEqual(Review.class, Review.job_FIELDNAME, job)) {
+			business.entityManagerContainer().remove(o);
+			MessageFactory.review_delete(o);
+		}
+		return null;
+	}
+
+	protected Void deleteWorkLog(Business business, String job) throws Exception {
+		business.entityManagerContainer().beginTransaction(WorkLog.class);
+		for (WorkLog o : business.entityManagerContainer().listEqual(WorkLog.class, WorkLog.JOB_FIELDNAME,
+				job)) {
+			business.entityManagerContainer().remove(o);
+		}
+		return null;
+	}
+
+	protected Void deleteRecord(Business business, String job) throws Exception {
+		business.entityManagerContainer().beginTransaction(Record.class);
+		for (Record o : business.entityManagerContainer().listEqual(Record.class, Record.job_FIELDNAME, job)) {
+			business.entityManagerContainer().remove(o);
+		}
+		return null;
+	}
+
+	protected Void deleteDocumentVersion(Business business, String job) throws Exception {
+		business.entityManagerContainer().beginTransaction(DocumentVersion.class);
+		for (DocumentVersion o : business.entityManagerContainer().listEqual(DocumentVersion.class,
+				DocumentVersion.job_FIELDNAME, job)) {
+			business.entityManagerContainer().remove(o);
+		}
+		return null;
+	}
+
+	protected Void deleteDocSign(Business business, String job) throws Exception {
+		business.entityManagerContainer().beginTransaction(DocSign.class);
+		for (DocSign o : business.entityManagerContainer().listEqual(DocSign.class, DocSign.job_FIELDNAME,
+				job)) {
+			business.entityManagerContainer().remove(o);
+		}
+		return null;
+	}
+
+	protected Void deleteDocSignScrawl(Business business, String job) throws Exception {
+		business.entityManagerContainer().beginTransaction(DocSignScrawl.class);
+		for (DocSignScrawl o : business.entityManagerContainer().listEqual(DocSignScrawl.class,
+				DocSignScrawl.job_FIELDNAME, job)) {
+			if (StringUtils.isNotBlank(o.getStorage())) {
+				StorageMapping mapping = ThisApplication.context().storageMappings().get(DocSignScrawl.class,
+						o.getStorage());
+				if (null != mapping) {
+					o.deleteContent(mapping);
 				}
-			} catch (Exception e) {
-				LOGGER.error(e);
 			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	private CompletableFuture<Void> deleteWork(Business business, WorkCompleted workCompleted) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(WorkCompleted.class);
-				business.entityManagerContainer().remove(workCompleted);
-				MessageFactory.workCompleted_delete(workCompleted);
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	private CompletableFuture<Void> deleteTask(Business business, List<Task> tasks) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(Task.class);
-				for (Task o : tasks) {
-					business.entityManagerContainer().remove(o);
-					MessageFactory.task_delete(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	private CompletableFuture<Void> deleteTaskCompleted(Business business, List<TaskCompleted> taskCompleteds) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(TaskCompleted.class);
-				for (TaskCompleted o : taskCompleteds) {
-					business.entityManagerContainer().remove(o);
-					MessageFactory.taskCompleted_delete(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	private CompletableFuture<Void> deleteRead(Business business, List<Read> reads) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(Read.class);
-				for (Read o : reads) {
-					business.entityManagerContainer().remove(o);
-					MessageFactory.read_delete(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	private CompletableFuture<Void> deleteReadCompleted(Business business, List<ReadCompleted> readCompleteds) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(ReadCompleted.class);
-				for (ReadCompleted o : readCompleteds) {
-					business.entityManagerContainer().remove(o);
-					MessageFactory.readCompleted_delete(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	private CompletableFuture<Void> deleteReview(Business business, List<Review> reviews) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(Review.class);
-				for (Review o : reviews) {
-					business.entityManagerContainer().remove(o);
-					MessageFactory.review_delete(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	private CompletableFuture<Void> deleteWorkLog(Business business, List<WorkLog> workLogs) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(WorkLog.class);
-				for (WorkLog o : workLogs) {
-					business.entityManagerContainer().remove(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	private CompletableFuture<Void> deleteRecord(Business business, List<Record> records) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(Record.class);
-				for (Record o : records) {
-					business.entityManagerContainer().remove(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	private CompletableFuture<Void> deleteDocumentVersion(Business business, List<DocumentVersion> documentVersions) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(DocumentVersion.class);
-				for (DocumentVersion o : documentVersions) {
-					business.entityManagerContainer().remove(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	private CompletableFuture<Void> deleteDocSign(Business business, List<DocSign> docSigns) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(DocSign.class);
-				for (DocSign o : docSigns) {
-					business.entityManagerContainer().remove(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	private CompletableFuture<Void> deleteDocSignScrawl(Business business, List<DocSignScrawl> docSignScrawls) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(DocSignScrawl.class);
-				for (DocSignScrawl o : docSignScrawls) {
-					if (StringUtils.isNotBlank(o.getStorage())) {
-						StorageMapping mapping = ThisApplication.context().storageMappings().get(DocSignScrawl.class,
-								o.getStorage());
-						if (null != mapping) {
-							o.deleteContent(mapping);
-						}
-					}
-					business.entityManagerContainer().remove(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	protected CompletableFuture<Void> deleteItem(Business business, String job) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(Item.class);
-				for (Item o : business.entityManagerContainer().listEqual(Item.class, DataItem.bundle_FIELDNAME, job)) {
-					business.entityManagerContainer().remove(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	protected CompletableFuture<Void> deleteWork(Business business, String job) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(Work.class);
-				for (Work o : business.entityManagerContainer().listEqual(Work.class, Work.job_FIELDNAME, job)) {
-					business.entityManagerContainer().remove(o);
-					MessageFactory.work_delete(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	protected CompletableFuture<Void> deleteWorkCompleted(Business business, String job) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(WorkCompleted.class);
-				for (WorkCompleted o : business.entityManagerContainer().listEqual(WorkCompleted.class,
-						WorkCompleted.job_FIELDNAME, job)) {
-					business.entityManagerContainer().remove(o);
-					MessageFactory.workCompleted_delete(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	protected CompletableFuture<Void> deleteTask(Business business, String job) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(Task.class);
-				for (Task o : business.entityManagerContainer().listEqual(Task.class, Task.job_FIELDNAME, job)) {
-					business.entityManagerContainer().remove(o);
-					MessageFactory.task_delete(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	protected CompletableFuture<Void> deleteTaskCompleted(Business business, String job) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(TaskCompleted.class);
-				for (TaskCompleted o : business.entityManagerContainer().listEqual(TaskCompleted.class,
-						TaskCompleted.job_FIELDNAME, job)) {
-					business.entityManagerContainer().remove(o);
-					MessageFactory.taskCompleted_delete(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	protected CompletableFuture<Void> deleteRead(Business business, String job) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(Read.class);
-				for (Read o : business.entityManagerContainer().listEqual(Read.class, Read.job_FIELDNAME, job)) {
-					business.entityManagerContainer().remove(o);
-					MessageFactory.read_delete(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	protected CompletableFuture<Void> deleteReadCompleted(Business business, String job) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(ReadCompleted.class);
-				for (ReadCompleted o : business.entityManagerContainer().listEqual(ReadCompleted.class,
-						ReadCompleted.job_FIELDNAME, job)) {
-					business.entityManagerContainer().remove(o);
-					MessageFactory.readCompleted_delete(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	protected CompletableFuture<Void> deleteReview(Business business, String job) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(Review.class);
-				for (Review o : business.entityManagerContainer().listEqual(Review.class, Review.job_FIELDNAME, job)) {
-					business.entityManagerContainer().remove(o);
-					MessageFactory.review_delete(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	protected CompletableFuture<Void> deleteWorkLog(Business business, String job) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(WorkLog.class);
-				for (WorkLog o : business.entityManagerContainer().listEqual(WorkLog.class, WorkLog.JOB_FIELDNAME,
-						job)) {
-					business.entityManagerContainer().remove(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	protected CompletableFuture<Void> deleteRecord(Business business, String job) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(Record.class);
-				for (Record o : business.entityManagerContainer().listEqual(Record.class, Record.job_FIELDNAME, job)) {
-					business.entityManagerContainer().remove(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	protected CompletableFuture<Void> deleteDocumentVersion(Business business, String job) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(DocumentVersion.class);
-				for (DocumentVersion o : business.entityManagerContainer().listEqual(DocumentVersion.class,
-						DocumentVersion.job_FIELDNAME, job)) {
-					business.entityManagerContainer().remove(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	protected CompletableFuture<Void> deleteDocSign(Business business, String job) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(DocSign.class);
-				for (DocSign o : business.entityManagerContainer().listEqual(DocSign.class, DocSign.job_FIELDNAME,
-						job)) {
-					business.entityManagerContainer().remove(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
-	}
-
-	protected CompletableFuture<Void> deleteDocSignScrawl(Business business, String job) {
-		return CompletableFuture.runAsync(() -> {
-			try {
-				business.entityManagerContainer().beginTransaction(DocSignScrawl.class);
-				for (DocSignScrawl o : business.entityManagerContainer().listEqual(DocSignScrawl.class,
-						DocSignScrawl.job_FIELDNAME, job)) {
-					if (StringUtils.isNotBlank(o.getStorage())) {
-						StorageMapping mapping = ThisApplication.context().storageMappings().get(DocSignScrawl.class,
-								o.getStorage());
-						if (null != mapping) {
-							o.deleteContent(mapping);
-						}
-					}
-					business.entityManagerContainer().remove(o);
-				}
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			// }, ThisApplication.threadPool());
-		}, ThisApplication.forkJoinPool());
+			business.entityManagerContainer().remove(o);
+		}
+		return null;
 	}
 }

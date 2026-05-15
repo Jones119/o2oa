@@ -120,16 +120,16 @@ public class PersistenceXmlHelper {
 
 	private static void writeForDdlExternalProperty(Element properties) throws Exception {
 		Element property = properties.addElement("property");
-		property.addAttribute("name", "javax.persistence.jdbc.driver");
+		property.addAttribute("name", "jakarta.persistence.jdbc.driver");
 		property.addAttribute("value", Config.externalDataSources().get(0).getDriverClassName());
 		property = properties.addElement("property");
-		property.addAttribute("name", "javax.persistence.jdbc.url");
+		property.addAttribute("name", "jakarta.persistence.jdbc.url");
 		property.addAttribute("value", Config.externalDataSources().get(0).getUrl());
 		property = properties.addElement("property");
-		property.addAttribute("name", "javax.persistence.jdbc.user");
+		property.addAttribute("name", "jakarta.persistence.jdbc.user");
 		property.addAttribute("value", Config.externalDataSources().get(0).getUsername());
 		property = properties.addElement("property");
-		property.addAttribute("name", "javax.persistence.jdbc.password");
+		property.addAttribute("name", "jakarta.persistence.jdbc.password");
 		property.addAttribute("value", Config.externalDataSources().get(0).getPassword());
 		property = properties.addElement("property");
 		property.addAttribute("name", "openjpa.DynamicEnhancementAgent");
@@ -138,20 +138,20 @@ public class PersistenceXmlHelper {
 
 	private static void writeForDdlInternalProperty(Element properties) throws Exception {
 		Element property = properties.addElement("property");
-		property.addAttribute("name", "javax.persistence.jdbc.driver");
+		property.addAttribute("name", "jakarta.persistence.jdbc.driver");
 		property.addAttribute("value", SlicePropertiesBuilder.driver_h2);
 		property = properties.addElement("property");
-		property.addAttribute("name", "javax.persistence.jdbc.url");
+		property.addAttribute("name", "jakarta.persistence.jdbc.url");
 		Node node = Config.currentNode();
 		String url = "jdbc:h2:tcp://" + Config.node() + ":" + node.getData().getTcpPort() + "/X;JMX="
 				+ (node.getData().getJmxEnable() ? "TRUE" : "FALSE") + ";CACHE_SIZE="
 				+ (node.getData().getCacheSize() * 1024);
 		property.addAttribute("value", url);
 		property = properties.addElement("property");
-		property.addAttribute("name", "javax.persistence.jdbc.user");
+		property.addAttribute("name", "jakarta.persistence.jdbc.user");
 		property.addAttribute("value", "sa");
 		property = properties.addElement("property");
-		property.addAttribute("name", "javax.persistence.jdbc.password");
+		property.addAttribute("name", "jakarta.persistence.jdbc.password");
 		property.addAttribute("value", Config.token().getPassword());
 		property = properties.addElement("property");
 		property.addAttribute("name", "openjpa.DynamicEnhancementAgent");

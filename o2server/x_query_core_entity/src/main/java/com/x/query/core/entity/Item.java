@@ -2,20 +2,20 @@ package com.x.query.core.entity;
 
 import java.util.Date;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Lob;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.UniqueConstraint;
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Lob;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import jakarta.persistence.UniqueConstraint;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
@@ -39,12 +39,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 				+ JpaObject.DefaultUniqueConstraintSuffix, columnNames = { JpaObject.IDCOLUMN,
 						JpaObject.CREATETIMECOLUMN, JpaObject.UPDATETIMECOLUMN, JpaObject.SEQUENCECOLUMN }) },
 		indexes = {
-				@javax.persistence.Index(name = Item.TABLE + Item.IndexNameMiddle + Item.bundle_FIELDNAME,
+				@jakarta.persistence.Index(name = Item.TABLE + Item.IndexNameMiddle + Item.bundle_FIELDNAME,
 						columnList = Item.ColumnNamePrefix + Item.bundle_FIELDNAME+","+
 								Item.ColumnNamePrefix + Item.path0_FIELDNAME+","+
 						Item.ColumnNamePrefix + Item.path1_FIELDNAME+","+Item.ColumnNamePrefix + Item.path2_FIELDNAME+","+
 						Item.ColumnNamePrefix + Item.path3_FIELDNAME),
-				@javax.persistence.Index(name = Item.TABLE + Item.IndexNameMiddle + Item.stringShortValue_FIELDNAME,
+				@jakarta.persistence.Index(name = Item.TABLE + Item.IndexNameMiddle + Item.stringShortValue_FIELDNAME,
 						columnList = Item.ColumnNamePrefix + Item.bundle_FIELDNAME+","+
 								Item.ColumnNamePrefix + Item.stringShortValue_FIELDNAME+","+
 								Item.ColumnNamePrefix + Item.path0_FIELDNAME+","+

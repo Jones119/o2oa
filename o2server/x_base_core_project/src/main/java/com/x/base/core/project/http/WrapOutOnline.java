@@ -1,30 +1,16 @@
 package com.x.base.core.project.http;
 
-import com.x.base.core.project.gson.GsonPropertyObject;
+import com.x.base.core.project.gson.GsonRecord;
 
-public class WrapOutOnline extends GsonPropertyObject {
+public record WrapOutOnline(String person, String onlineStatus) implements GsonRecord {
 
-	public final static String status_online = "online";
-	public final static String status_offline = "offline";
+    public WrapOutOnline {
+    }
 
-	private String person;
+    public WrapOutOnline() {
+        this(null, null);
+    }
 
-	private String onlineStatus;
-
-	public String getPerson() {
-		return person;
-	}
-
-	public void setPerson(String person) {
-		this.person = person;
-	}
-
-	public String getOnlineStatus() {
-		return onlineStatus;
-	}
-
-	public void setOnlineStatus(String onlineStatus) {
-		this.onlineStatus = onlineStatus;
-	}
-
+    public static final String status_online = "online";
+    public static final String status_offline = "offline";
 }

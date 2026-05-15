@@ -2,7 +2,7 @@ package com.x.cms.assemble.control.jaxrs.appinfo;
 
 import java.util.Optional;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 

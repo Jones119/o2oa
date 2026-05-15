@@ -12,11 +12,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.collections4.ListUtils;
@@ -73,7 +73,7 @@ public class SyncOrganization {
 		logger.print("开始与企业微信进行人员 userid 的绑定.");
 		PullResult result = new PullResult();
 		String accessToken = Config.qiyeweixin().syncAccessToken();
-		logger.print("accessToken：" + accessToken);
+		logger.print(STR."accessToken：\{accessToken}");
 		QiyeweixinFactory factory = new QiyeweixinFactory(accessToken);
 		for (User user : factory.getUsers()) {
 			this.checkBindPerson(business, result, user);
@@ -88,12 +88,11 @@ public class SyncOrganization {
 		return result;
 	}
 
-	// 同步企业微信组织用户
-	private PullResult pullFromQywx(Business business) throws Exception {
-		logger.print("开始与企业微信同步人员组织,方向:拉入.");
+	public PullResult syncOrgUnit(Business business) throws Exception {
+		logger.print("开始与企业微信同步组织,方向:拉入.");
 		PullResult result = new PullResult();
 		String accessToken = Config.qiyeweixin().syncAccessToken();
-		logger.print("accessToken：" + accessToken);
+		logger.print(STR."accessToken：\{accessToken}");
 		List<Unit> units = new ArrayList<>();
 		List<Person> people = new ArrayList<>();
 		List<PersonAttribute> personAttributes = new ArrayList<>();

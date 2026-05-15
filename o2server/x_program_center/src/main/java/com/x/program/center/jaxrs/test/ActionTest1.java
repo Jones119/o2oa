@@ -74,7 +74,7 @@ class ActionTest1 extends BaseAction {
 				primesMain.execute();
 				long took = System.currentTimeMillis() - start;
 				sum += took;
-				LOGGER.print("iteration: " + took);
+				LOGGER.print(STR."iteration: \{took}");
 			}
 		}
 		return sum;
@@ -115,7 +115,7 @@ class ActionTest1 extends BaseAction {
 				inv.invokeFunction(PRIMESMAIN);
 				long took = System.currentTimeMillis() - start;
 				sum += took;
-				LOGGER.print("iteration: " + (took));
+				LOGGER.print(STR."iteration: \{took}");
 			}
 		} catch (Exception ex) {
 			LOGGER.error(ex);

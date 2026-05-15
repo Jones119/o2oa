@@ -64,7 +64,7 @@ public class MissionSetSecret implements Mission {
 					+ Config.pathLocalRepositoryData(true).resolve(H2Tools.DATABASE).toAbsolutePath().toString(),
 					H2Tools.USER, oldPassword)) {
 				RunScript.execute(conn,
-						new StringReader("ALTER USER " + H2Tools.USER + " SET PASSWORD '" + newPassword + "'"));
+						new StringReader(STR."ALTER USER \{H2Tools.USER} SET PASSWORD '\{newPassword}'"));
 			} catch (SQLException e) {
 				throw new ExceptionMissionExecute("本地H2数据库密码修改失败,数据库文件损坏或旧密码不匹配.");
 			}

@@ -1,17 +1,15 @@
 package com.x.server.console.node;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map.Entry;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.StructuredTaskScope;
 
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.concurrent.BasicThreadFactory;
+
 import org.eclipse.jetty.quickstart.QuickStartWebApp;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
@@ -114,14 +112,16 @@ public class RegistApplicationsEvent implements Event {
 	}
 
 	private boolean healthCheck(List<Application> list) {
-		List<CompletableFuture<Long>> futures = new ArrayList<>();
-		try {
+		try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+			List<StructuredTaskScope.Subtask<Long>> subtasks = new ArrayList<>();
 			for (Application o : list) {
-				futures.add(healthCheckTask(o));
+				subtasks.add(scope.fork(() -> healthCheckTask(o)));
 			}
+			scope.joinUntil(Instant.now().plusSeconds(3));
+			scope.throwIfFailed();
 			long max = Long.MIN_VALUE;
-			for (CompletableFuture<Long> future : futures) {
-				long difference = future.get(3000, TimeUnit.MILLISECONDS);
+			for (StructuredTaskScope.Subtask<Long> subtask : subtasks) {
+				long difference = subtask.get();
 				if (difference < 0) {
 					return false;
 				}
@@ -138,24 +138,16 @@ public class RegistApplicationsEvent implements Event {
 		return true;
 	}
 
-	private CompletableFuture<Long> healthCheckTask(Application application) {
-		return CompletableFuture.supplyAsync(() -> {
-			try {
-				Resp resp = CipherConnectionAction.get(false, 2000, 4000, application, "echo").getData(Resp.class);
-				Date date = resp.getServerTime();
-				return Math.abs(date.getTime() - ((new Date()).getTime()));
-			} catch (Exception e) {
-				logger.error(new RunningException(e, "health check failure:{},{}.", application.getNode(),
-						application.getContextPath()));
-			}
-			return -1L;
-		}, Inner.executorService);
-	}
-
-	private static class Inner {
-		private static final ExecutorService executorService = Executors.newFixedThreadPool(2,
-				new BasicThreadFactory.Builder().namingPattern("RegistApplicationsEvent-healthCheck-%d").daemon(true)
-						.build());
+	private Long healthCheckTask(Application application) {
+		try {
+			Resp resp = CipherConnectionAction.get(false, 2000, 4000, application, "echo").getData(Resp.class);
+			Date date = resp.getServerTime();
+			return Math.abs(date.getTime() - ((new Date()).getTime()));
+		} catch (Exception e) {
+			logger.error(new RunningException(e, "health check failure:{},{}.", application.getNode(),
+					application.getContextPath()));
+		}
+		return -1L;
 	}
 
 	public static class Resp {

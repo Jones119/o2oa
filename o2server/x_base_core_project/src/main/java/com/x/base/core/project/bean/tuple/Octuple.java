@@ -1,6 +1,6 @@
 package com.x.base.core.project.bean.tuple;
 
-public abstract class Octuple<A, B, C, D, E, F, G, H> {
+public sealed abstract class Octuple<A, B, C, D, E, F, G, H> permits Octuple.ImmutableOctuple {
 
     protected A first;
 
@@ -62,7 +62,7 @@ public abstract class Octuple<A, B, C, D, E, F, G, H> {
         return this.eighth;
     }
 
-    public static class ImmutableOctuple<A, B, C, D, E, F, G, H> extends Octuple<A, B, C, D, E, F, G, H> {
+    public static final class ImmutableOctuple<A, B, C, D, E, F, G, H> extends Octuple<A, B, C, D, E, F, G, H> {
 
         public ImmutableOctuple(final A first, final B second, final C third, final D fourth, E fifth, F sixth,
                 G seventh, H eighth) {

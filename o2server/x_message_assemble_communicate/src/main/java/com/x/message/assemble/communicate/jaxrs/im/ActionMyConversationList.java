@@ -50,7 +50,7 @@ public class ActionMyConversationList extends BaseAction {
 					wo.setUnreadNumber(unreadMap.getOrDefault(wo.getId(), 0L));
 					wo.setExt(ext);
 				} else {
-					LOGGER.info("没有找到对应 IMConversationExt ？？ " + effectivePerson.getDistinguishedName() + "  " + wo.getId());
+					LOGGER.info(STR."没有找到对应 IMConversationExt ？？ \{effectivePerson.getDistinguishedName()}  \{wo.getId()}");
 				}
 			}
 

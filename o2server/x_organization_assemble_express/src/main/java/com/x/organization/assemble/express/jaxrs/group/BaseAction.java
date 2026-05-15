@@ -35,7 +35,7 @@ class BaseAction extends StandardJaxrsAction {
 
 	protected <T extends com.x.base.core.project.organization.Group> T convert(Business business, Group group,
 			Class<T> clz) throws Exception {
-		T t = clz.newInstance();
+		T t = clz.getDeclaredConstructor().newInstance();
 		t.setId(group.getId());
 		t.setName(group.getName());
 		t.setDescription(group.getDescription());

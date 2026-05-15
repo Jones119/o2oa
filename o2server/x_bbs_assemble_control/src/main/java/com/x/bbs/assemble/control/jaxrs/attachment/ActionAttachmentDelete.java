@@ -1,7 +1,7 @@
 package com.x.bbs.assemble.control.jaxrs.attachment;
 
 import com.x.base.core.project.exception.ExceptionAccessDenied;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.x.base.core.container.EntityManagerContainer;
 import com.x.base.core.container.factory.EntityManagerContainerFactory;
@@ -61,7 +61,7 @@ public class ActionAttachmentDelete extends BaseAction {
 			try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
 				subjectInfo = emc.find(subjectAttachment.getSubjectId(), BBSSubjectInfo.class);
 				if (null == subjectInfo) {
-					logger.warn("subjectInfo{id:" + subjectAttachment.getSubjectId() + "} is not exists, anyone can delete the attachments.");
+					logger.warn(STR."subjectInfo{id:\{subjectAttachment.getSubjectId()}} is not exists, anyone can delete the attachments.");
 				}
 			} catch (Exception e) {
 				check = false;

@@ -81,8 +81,7 @@ public class ActionReceiveMsg extends BaseAction {
                             String scriptId = content.substring(WX_MSG_BACK_MEDIA_KEY_SCRIPT.length());
                             if (StringUtils.isNotBlank(scriptId)) {
                                 ExecuteServiceScriptThread runner1 = new ExecuteServiceScriptThread(toUser, "", scriptId);
-                                Thread thread1 = new Thread(runner1);
-                                thread1.start();
+                                Thread.ofVirtual().name(ActionReceiveMsg.class.getName() + "-executeScript").start(runner1);
                             }
                             //执行脚本了 不回复消息
                             wo.setText("success");
@@ -121,8 +120,7 @@ public class ActionReceiveMsg extends BaseAction {
                 String id = Config.mpweixin().getScriptId();
                 if (StringUtils.isNotBlank(id)) {
                     ExecuteServiceScriptThread runner1 = new ExecuteServiceScriptThread(toUser, text, id);
-                    Thread thread1 = new Thread(runner1);
-                    thread1.start();
+                    Thread.ofVirtual().name(ActionReceiveMsg.class.getName() + "-executeScript").start(runner1);
                 }
             } else {
                 logger.info("未处理消息类型, MsgType: {}", msgType);
@@ -265,7 +263,7 @@ public class ActionReceiveMsg extends BaseAction {
                     body.setOpenId(toUser);
                     ActionResponse result = CipherConnectionAction.post(false,
                             Config.url_x_program_center_jaxrs("invoke", scriptId, "execute"), body);
-                    logger.info("执行脚本结果： " + result.toJson());
+                    logger.info(STR."执行脚本结果： \{result.toJson()}");
                 } else {
                     logger.warn("没有配置服务脚本id");
                 }

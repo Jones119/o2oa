@@ -13,7 +13,7 @@ import com.x.base.core.project.logger.LoggerFactory;
 import com.x.base.core.project.organization.Person;
 import org.apache.commons.lang3.StringUtils;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -61,7 +61,7 @@ public class ThisApplication {
 				}
 			}
 		} catch (Exception e) {
-			logger.warn("初始化模型数据时发生异常:" + e.getMessage());
+			logger.warn(STR."初始化模型数据时发生异常:\{e.getMessage()}");
 		}
 	}
 

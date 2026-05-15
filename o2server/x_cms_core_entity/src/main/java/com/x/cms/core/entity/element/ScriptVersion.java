@@ -12,7 +12,7 @@ import com.x.cms.core.entity.PersistenceProperties;
 import io.swagger.v3.oas.annotations.media.Schema;
 import org.apache.openjpa.persistence.jdbc.Index;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Schema(name = "ScriptVersion", description = "内容管理脚本历史版本.")
 @Entity

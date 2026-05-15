@@ -118,7 +118,7 @@ public class ActionImportExcel extends BaseAction {
                 wi.setDescription(desc);
                 wi.setJobId(job);
                 if (LOGGER.isDebugEnabled()) {
-                    LOGGER.debug("导入数据，row ： " + i + " ， " + wi.toString());
+                    LOGGER.debug(STR."导入数据，row ： \{i} ， \{wi.toString()}");
                 }
                 try {
                     ActionPost.Wo postResult = ThisApplication.context().applications().postQuery(x_attendance_assemble_control.class, "v2/leave", wi).getData(ActionPost.Wo.class);

@@ -4,27 +4,21 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import com.x.base.core.project.annotation.FieldDescribe;
-import com.x.base.core.project.gson.GsonPropertyObject;
+import com.x.base.core.project.gson.GsonRecord;
 
-public   class WrapNumberList extends GsonPropertyObject {
+public record WrapNumberList(List<Number> valueList) implements GsonRecord {
 
-	public WrapNumberList() {
-	}
+    public WrapNumberList {
+        if (valueList == null) {
+            valueList = new ArrayList<>();
+        }
+    }
 
-	public WrapNumberList(Collection<Number> collection) {
-		this.valueList = new ArrayList<Number>(collection);
-	}
+    public WrapNumberList() {
+        this(new ArrayList<>());
+    }
 
-	@FieldDescribe("数值多值.")
-	private List<Number> valueList = new ArrayList<>();
-
-	public List<Number> getValueList() {
-		return valueList;
-	}
-
-	public void setValueList(List<Number> valueList) {
-		this.valueList = valueList;
-	}
-
+    public WrapNumberList(Collection<Number> collection) {
+        this(new ArrayList<>(collection));
+    }
 }

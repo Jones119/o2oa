@@ -1,92 +1,61 @@
 package com.x.processplatform.service.processing;
 
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.x.base.core.project.logger.Logger;
 import com.x.base.core.project.logger.LoggerFactory;
 import com.x.base.core.project.tools.StringTools;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.atomic.AtomicInteger;
 import org.apache.commons.lang3.StringUtils;
 
 public class ProcessPlatformKeyClassifyExecutorFactory {
 
 	private ProcessPlatformKeyClassifyExecutorFactory() {
-		// nothing
 	}
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ProcessPlatformKeyClassifyExecutorFactory.class);
 
-	private static final Map<String, ThreadPoolExecutor> pool = new HashMap<>();
+	private static final ConcurrentHashMap<String, ExecutorService> pool = new ConcurrentHashMap<>();
 
-	private static int disjointInterval = 20;
+	private static volatile int disjointInterval = 20;
 
-	private static int loop = 0;
-
-	private static final ReentrantLock LOCK = new ReentrantLock();
-
+	private static final AtomicInteger loop = new AtomicInteger(0);
 
 	public static void init(int coreSize) {
-		loop = 0;
+		loop.set(0);
 		disjointInterval = coreSize * 2;
 	}
 
 	public static void shutdown() {
-		final ReentrantLock lock = LOCK;
-		lock.lock();
-		try {
-			pool.values().stream().filter(o -> !o.isShutdown()).forEach(ThreadPoolExecutor::shutdown);
-			pool.clear();
-		} finally {
-			lock.unlock();
-		}
+		pool.values().stream().filter(o -> !o.isShutdown()).forEach(ExecutorService::shutdown);
+		pool.clear();
 	}
 
-	public static ThreadPoolExecutor get(String key) {
-		final ReentrantLock lock = LOCK;
-		lock.lock();
-		try {
-			loop = (++loop) % disjointInterval;
-			key = createUniqueKeyIfBlank(key);
-			return  (loop == 0) ? disjoint(key)
-					: pool.computeIfAbsent(key, ProcessPlatformKeyClassifyExecutorFactory::createThreadPoolExecutor);
-		} finally {
-			lock.unlock();
+	public static ExecutorService get(String key) {
+		if (loop.incrementAndGet() % disjointInterval == 0) {
+			disjoint(key);
 		}
+		key = createUniqueKeyIfBlank(key);
+		return pool.computeIfAbsent(key, ProcessPlatformKeyClassifyExecutorFactory::createExecutorService);
 	}
 
-	private static ThreadPoolExecutor disjoint(String key) {
-		ThreadPoolExecutor executor = null;
-		Iterator<Map.Entry<String, ThreadPoolExecutor>> iterator = pool.entrySet().iterator();
+	private static void disjoint(String key) {
+		Iterator<Map.Entry<String, ExecutorService>> iterator = pool.entrySet().iterator();
 		while (iterator.hasNext()) {
-			Map.Entry<String, ThreadPoolExecutor> entry = iterator.next();
-			if (StringUtils.equals(key, entry.getKey())) {
-				executor = entry.getValue();
-				LOGGER.info("disjoint found existing ThreadPoolExecutor: {}, queue size:{}, active count;{}.", key,
-						executor.getQueue().size(), executor.getActiveCount());
-			} else if (idle(entry.getValue())) {
-				entry.getValue().shutdown();
-				iterator.remove();
-				LOGGER.info("disjoint remove ThreadPoolExecutor: {}.", entry.getKey());
+			Map.Entry<String, ExecutorService> entry = iterator.next();
+			if (!StringUtils.equals(key, entry.getKey()) && entry.getValue().isTerminated()) {
+				pool.remove(entry.getKey(), entry.getValue());
+				LOGGER.info("disjoint remove ExecutorService: {}.", entry.getKey());
 			}
 		}
-		if (null == executor) {
-			executor = createThreadPoolExecutor(key);
-			pool.put(key, executor);
-			LOGGER.info("disjoint create ThreadPoolExecutor: {}.", key);
-		}
-		return executor;
 	}
 
-	private static ThreadPoolExecutor createThreadPoolExecutor(String key) {
-		ThreadFactory threadFactory = new ThreadFactoryBuilder()
-				.setNameFormat(ProcessPlatformKeyClassifyExecutorFactory.class.getName() + "-auxiliary-" + key + "-%d")
-				.build();
-		return (ThreadPoolExecutor) Executors.newFixedThreadPool(1, threadFactory);
+	private static ExecutorService createExecutorService(String key) {
+		return Executors.newSingleThreadExecutor(Thread.ofVirtual().name(
+				ProcessPlatformKeyClassifyExecutorFactory.class.getName() + "-auxiliary-" + key + "-").factory());
 	}
 
 	private static String createUniqueKeyIfBlank(String key) {
@@ -95,10 +64,6 @@ public class ProcessPlatformKeyClassifyExecutorFactory {
 		} else {
 			return StringTools.uniqueToken();
 		}
-	}
-
-	private static boolean idle(ThreadPoolExecutor threadPoolExecutor) {
-		return threadPoolExecutor.getQueue().isEmpty() && (threadPoolExecutor.getActiveCount() == 0);
 	}
 
 }

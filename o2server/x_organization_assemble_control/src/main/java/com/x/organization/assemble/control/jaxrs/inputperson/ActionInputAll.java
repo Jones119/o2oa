@@ -13,11 +13,11 @@ import java.util.Random;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -123,7 +123,7 @@ class ActionInputAll extends BaseAction {
 		Sheet sheet = workbook.getSheetAt(2);
 		configuratorPerson = new PersonSheetConfigurator(workbook, sheet);
 		person = this.scanPersonList(configuratorPerson, sheet);
-		logger.info("person=" + person.size());
+		logger.info(STR."person=\{person.size()}");
 		wholeFlag = this.checkPerson(business, workbook, configuratorPerson, person);
 		if (wholeFlag) {
 			this.scanIdentity(business, workbook, person, unit);
@@ -617,7 +617,7 @@ class ActionInputAll extends BaseAction {
 				Person pc = null;
 				pc = emc.flag(o.getMobile(), Person.class);
 				if (null != pc) {
-					logger.info("手机号码: " + o.getMobile() + " 与已经存在手机号码: " + pc.getMobile() + " 冲突.");
+					logger.info(STR."手机号码: \{o.getMobile()} 与已经存在手机号码: \{pc.getMobile()} 冲突.");
 					this.setPersonMemo(workbook, configurator, o,
 							"手机号码: " + o.getMobile() + " 与已经存在手机号码: " + pc.getMobile() + " 冲突.");
 					validate = false;
@@ -843,7 +843,7 @@ class ActionInputAll extends BaseAction {
 							String respAtt = saveUnitAttribute("unitattribute", unitAttribute);
 							if ("".equals(respAtt)) {
 							} else {
-								logger.info("respMass=" + respAtt);
+								logger.info(STR."respMass=\{respAtt}");
 								this.setUnitMemo(workbook, configurator, o, respAtt);
 							}
 						}
@@ -852,7 +852,7 @@ class ActionInputAll extends BaseAction {
 						this.setUnitMemo(workbook, configurator, o, "已导入.");
 					}
 				} else {
-					logger.info("respMass=" + resp);
+					logger.info(STR."respMass=\{resp}");
 					this.setUnitMemo(workbook, configurator, o, resp);
 				}
 
@@ -894,7 +894,7 @@ class ActionInputAll extends BaseAction {
 						this.setPersonMemo(workbook, configurator, o, "已导入.");
 					}
 				} else {
-					logger.info("respMass=" + resp);
+					logger.info(STR."respMass=\{resp}");
 					this.setPersonMemo(workbook, configurator, o, resp);
 				}
 
@@ -915,7 +915,7 @@ class ActionInputAll extends BaseAction {
 				if ("".equals(resp)) {
 					this.setIdentityMemo(workbook, configurator, o, "已导入.");
 				} else {
-					logger.info("respMass=" + resp);
+					logger.info(STR."respMass=\{resp}");
 					this.setIdentityMemo(workbook, configurator, o, resp);
 				}
 
@@ -929,14 +929,14 @@ class ActionInputAll extends BaseAction {
 		for (List<DutyItem> list : ListTools.batch(dutyItems, 200)) {
 			for (DutyItem o : list) {
 				if (!this.getDuty(business, o)) {
-					logger.info("正在保存职务:{}." + o.getName());
+					logger.info(STR."正在保存职务:{}.\{o.getName()}");
 					UnitDuty dutyObject = new UnitDuty();
 					o.copyTo(dutyObject);
 					String resp = this.saveDuty("unitduty", dutyObject);
 					if ("".equals(resp)) {
 						this.setDutyMemo(workbook, configurator, o, "已导入.");
 					} else {
-						logger.info("respMassduty=" + resp);
+						logger.info(STR."respMassduty=\{resp}");
 						this.setDutyMemo(workbook, configurator, o, resp);
 					}
 
@@ -987,7 +987,7 @@ class ActionInputAll extends BaseAction {
 					if ("".equals(respEdit)) {
 						this.setGroupMemo(workbook, configurator, o, "已导入.");
 					} else {
-						logger.info("respEditMass=" + respEdit);
+						logger.info(STR."respEditMass=\{respEdit}");
 						this.setGroupMemo(workbook, configurator, o, respEdit);
 					}
 
@@ -1013,7 +1013,7 @@ class ActionInputAll extends BaseAction {
 					if ("".equals(resp)) {
 						this.setGroupMemo(workbook, configurator, o, "已导入.");
 					} else {
-						logger.info("respMass=" + resp);
+						logger.info(STR."respMass=\{resp}");
 						this.setGroupMemo(workbook, configurator, o, resp);
 					}
 				}
@@ -1126,7 +1126,7 @@ class ActionInputAll extends BaseAction {
 		unitDutyList = this.listUnitDutyList(business, dutyItem.getName(), dutyItem.getUnit());
 		if (ListTools.isNotEmpty(unitDutyList)) {
 			UnitDuty unitDuty = unitDutyList.get(0);
-			logger.info("更新职务：" + unitDuty.getName());
+			logger.info(STR."更新职务：\{unitDuty.getName()}");
 			checkduty = true;
 			List<String> identityList = new ArrayList<>();
 			identityList = unitDuty.getIdentityList();

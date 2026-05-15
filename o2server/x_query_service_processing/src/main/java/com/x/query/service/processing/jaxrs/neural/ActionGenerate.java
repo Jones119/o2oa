@@ -52,17 +52,15 @@ class ActionGenerate extends BaseAction {
 			if (StringUtils.isNotEmpty(Generate.generatingModel())) {
 				throw new ExceptionGenerate(model.getName());
 			}
-			new Thread() {
-				public void run() {
-					Generate generate;
-					try {
-						generate = Generate.newInstance();
-						generate.execute(model.getId());
-					} catch (Exception e) {
-						logger.error(e);
-					}
-				};
-			}.start();
+			Thread.ofVirtual().name(ActionGenerate.class.getName() + "-generate").start(() -> {
+				Generate generate;
+				try {
+					generate = Generate.newInstance();
+					generate.execute(model.getId());
+				} catch (Exception e) {
+					logger.error(e);
+				}
+			});
 			Wo wo = new Wo();
 			wo.setValue(true);
 			result.setData(wo);

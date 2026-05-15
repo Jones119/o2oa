@@ -6,8 +6,8 @@ import com.x.portal.assemble.surface.AbstractFactory;
 import com.x.portal.assemble.surface.Business;
 import org.apache.commons.lang3.StringUtils;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.*;
 import java.util.List;
 
 public class ApplicationDictItemFactory extends AbstractFactory {

@@ -3,7 +3,7 @@ package com.x.message.assemble.communicate;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import javax.websocket.Session;
+import jakarta.websocket.Session;
 
 import org.apache.commons.lang3.BooleanUtils;
 

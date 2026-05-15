@@ -63,7 +63,7 @@ public class ActionPostDailyRecord extends BaseAction {
                 throw new ExceptionWithMessage("日期格式不正确！");
             }
             if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("打卡日期：" + wi.getDate());
+                LOGGER.debug(STR."打卡日期：\{wi.getDate()}");
             }
             if (recordDate.after(new Date())) {
                 throw new ExceptionWithMessage("不能导入未来的数据！");
@@ -139,7 +139,7 @@ public class ActionPostDailyRecord extends BaseAction {
         try {
             String timeStr = date + " " + dutyTime + ":00";
             if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("打卡时间：" + timeStr);
+                LOGGER.debug(STR."打卡时间：\{timeStr}");
             }
             Date time = DateTools.parse(timeStr, DateTools.format_yyyyMMddHHmmss);
             recordList.add(time);

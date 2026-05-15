@@ -1,6 +1,6 @@
 package com.x.base.core.project.jaxrs.cache;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 
 import com.x.base.core.project.cache.CacheManager;
 import com.x.base.core.project.http.ActionResult;

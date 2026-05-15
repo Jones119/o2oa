@@ -114,7 +114,7 @@ public class NodeAgent extends Thread {
 									String strCommand = commandObject.getCommand();
 									strCommand = strCommand.trim();
 									strCommand = strCommand.substring(strCommand.indexOf(":") + 1, strCommand.length());
-									LOGGER.info("收接到同步命令:" + strCommand);
+									LOGGER.info(STR."收接到同步命令:\{strCommand}");
 									String syncFilePath = dis.readUTF();
 									File file = new File(Config.base(), syncFilePath);
 									try (FileOutputStream fos = new FileOutputStream(file)) {
@@ -144,7 +144,7 @@ public class NodeAgent extends Thread {
 								if (matcher.find()) {
 									String strCommand = commandObject.getCommand().trim();
 									strCommand = StringUtils.substringAfter(strCommand, ":");
-									LOGGER.info("收接到命令:" + strCommand);
+									LOGGER.info(STR."收接到命令:\{strCommand}");
 									String filename = dis.readUTF();
 									FileUtils.forceMkdir(Config.dir_local_temp());
 									File tempFile = new File(Config.dir_local_temp(), filename);
@@ -160,7 +160,7 @@ public class NodeAgent extends Thread {
 									filename = filename.substring(0, filename.lastIndexOf("."));
 									// 部署
 									String result = this.redeploy(strCommand, filename, tempFile);
-									LOGGER.info("部署:" + result);
+									LOGGER.info(STR."部署:\{result}");
 									dos.writeUTF(result);
 									dos.flush();
 									FileUtils.forceDelete(tempFile);
@@ -211,7 +211,7 @@ public class NodeAgent extends Thread {
 									String strCommand = commandObject.getCommand();
 									strCommand = strCommand.trim();
 									strCommand = strCommand.substring(strCommand.indexOf(":") + 1, strCommand.length());
-									LOGGER.info("收接到命令:" + strCommand);
+									LOGGER.info(STR."收接到命令:\{strCommand}");
 									// 为了同步文件
 									commandQueue.add(strCommand);
 									continue;

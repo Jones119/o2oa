@@ -1,6 +1,6 @@
 package com.x.attendance.assemble.control.jaxrs.attendanceimportfileinfo;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.x.attendance.entity.AttendanceImportFileInfo;
 import com.x.base.core.entity.JpaObject;

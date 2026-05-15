@@ -10,7 +10,7 @@ import com.x.base.core.project.logger.Logger;
 import com.x.base.core.project.logger.LoggerFactory;
 import com.x.message.assemble.communicate.ThisApplication;
 import com.x.message.core.entity.IMMsgFile;
-import javax.ws.rs.core.StreamingOutput;
+import jakarta.ws.rs.core.StreamingOutput;
 
 /**
  * Created by fancyLou on 2020-06-15. Copyright © 2020 O2. All rights reserved.

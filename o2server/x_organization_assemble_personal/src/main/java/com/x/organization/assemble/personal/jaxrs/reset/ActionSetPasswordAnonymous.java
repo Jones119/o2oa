@@ -76,7 +76,7 @@ public class ActionSetPasswordAnonymous extends BaseAction {
 
                 if (BooleanUtils.isTrue(Config.person().getSuperPermission())
                         && StringUtils.equals(Config.token().getPassword(), oldPassword)) {
-                    LOGGER.info("user{name:" + person.getName() + "} use superPermission.");
+                    LOGGER.info(STR."user{name:\{person.getName()}} use superPermission.");
                 } else {
                     if (!StringUtils.equals(
                             Crypto.encrypt(oldPassword, Config.token().getKey(),

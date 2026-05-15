@@ -2,9 +2,9 @@ package com.x.message.assemble.communicate.ws.collaboration;
 
 import java.util.List;
 
-import javax.websocket.HandshakeResponse;
-import javax.websocket.server.HandshakeRequest;
-import javax.websocket.server.ServerEndpointConfig;
+import jakarta.websocket.HandshakeResponse;
+import jakarta.websocket.server.HandshakeRequest;
+import jakarta.websocket.server.ServerEndpointConfig;
 
 import org.apache.commons.lang3.StringUtils;
 

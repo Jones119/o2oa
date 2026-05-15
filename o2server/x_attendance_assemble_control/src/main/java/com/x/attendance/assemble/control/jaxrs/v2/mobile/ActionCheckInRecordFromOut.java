@@ -61,7 +61,7 @@ public class ActionCheckInRecordFromOut extends BaseAction {
                 throw new ExceptionWithMessage("日期格式不正确！");
             }
             if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("打卡日期：" + checkInDate);
+                LOGGER.debug(STR."打卡日期：\{checkInDate}");
             }
             if (!isToday(checkInDate)) {
                 throw new ExceptionWithMessage("打卡日期"+DateTools.format(checkInDate)+"不是今天！");

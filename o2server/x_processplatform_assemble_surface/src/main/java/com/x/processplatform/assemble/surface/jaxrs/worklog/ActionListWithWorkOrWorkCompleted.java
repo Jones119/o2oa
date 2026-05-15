@@ -1,10 +1,11 @@
 package com.x.processplatform.assemble.surface.jaxrs.worklog;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.BooleanUtils;
@@ -55,37 +56,31 @@ class ActionListWithWorkOrWorkCompleted extends BaseAction {
 
 		final String workLogJob = job;
 
-		CompletableFuture<List<WoTask>> tasksFuture = CompletableFuture.supplyAsync(() -> this.tasks(workLogJob),
-				ThisApplication.forkJoinPool());
-		CompletableFuture<List<WoTaskCompleted>> taskCompletedsFuture = CompletableFuture
-				.supplyAsync(() -> this.taskCompleteds(workLogJob), ThisApplication.forkJoinPool());
-		CompletableFuture<List<WoRead>> readsFuture = CompletableFuture.supplyAsync(() -> this.reads(workLogJob),
-				ThisApplication.forkJoinPool());
-		CompletableFuture<List<WoReadCompleted>> readCompletedsFuture = CompletableFuture
-				.supplyAsync(() -> this.readCompleteds(workLogJob), ThisApplication.forkJoinPool());
-		CompletableFuture<List<WorkLog>> workLogsFuture = CompletableFuture.supplyAsync(() -> this.workLogs(workLogJob),
-				ThisApplication.forkJoinPool());
-		CompletableFuture<Boolean> controlFuture = CompletableFuture.supplyAsync(() -> {
-			Boolean value = false;
-			try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
-				Business business = new Business(emc);
-				Control control = new JobControlBuilder(effectivePerson, business, workLogJob).enableAllowVisit()
-						.build();
-				value = control.getAllowVisit();
-			} catch (Exception e) {
-				LOGGER.error(e);
-			}
-			return value;
-		}, ThisApplication.forkJoinPool());
+		try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+			var tasksSubtask = scope.fork(() -> this.tasks(workLogJob));
+			var taskCompletedsSubtask = scope.fork(() -> this.taskCompleteds(workLogJob));
+			var readsSubtask = scope.fork(() -> this.reads(workLogJob));
+			var readCompletedsSubtask = scope.fork(() -> this.readCompleteds(workLogJob));
+			var workLogsSubtask = scope.fork(() -> this.workLogs(workLogJob));
+			var controlSubtask = scope.fork(() -> {
+				try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
+					Business business = new Business(emc);
+					Control control = new JobControlBuilder(effectivePerson, business, workLogJob).enableAllowVisit()
+							.build();
+					return control.getAllowVisit();
+				}
+			});
+			scope.joinUntil(Instant.now().plusSeconds(60));
+			scope.throwIfFailed();
 
-		if (BooleanUtils.isFalse(controlFuture.get())) {
-			throw new ExceptionAccessDenied(effectivePerson, workOrWorkCompleted);
-		}
-		List<WoTask> tasks = tasksFuture.get();
-		List<WoTaskCompleted> taskCompleteds = taskCompletedsFuture.get();
-		List<WoRead> reads = readsFuture.get();
-		List<WoReadCompleted> readCompleteds = readCompletedsFuture.get();
-		List<WorkLog> workLogs = workLogsFuture.get();
+			if (BooleanUtils.isFalse(controlSubtask.get())) {
+				throw new ExceptionAccessDenied(effectivePerson, workOrWorkCompleted);
+			}
+			List<WoTask> tasks = tasksSubtask.get();
+			List<WoTaskCompleted> taskCompleteds = taskCompletedsSubtask.get();
+			List<WoRead> reads = readsSubtask.get();
+			List<WoReadCompleted> readCompleteds = readCompletedsSubtask.get();
+			List<WorkLog> workLogs = workLogsSubtask.get();
 
 		if (!workLogs.isEmpty()) {
 			WorkLogTree tree = new WorkLogTree(workLogs);
@@ -138,6 +133,7 @@ class ActionListWithWorkOrWorkCompleted extends BaseAction {
 			ListTools.groupStick(wos, readCompleteds, WorkLog.FROMACTIVITYTOKEN_FIELDNAME,
 					ReadCompleted.activityToken_FIELDNAME, READCOMPLETEDLIST_FIELDNAME);
 			result.setData(wos);
+		}
 		}
 		return result;
 	}

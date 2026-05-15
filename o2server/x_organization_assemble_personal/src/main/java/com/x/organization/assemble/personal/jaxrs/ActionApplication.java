@@ -1,7 +1,7 @@
 package com.x.organization.assemble.personal.jaxrs;
 
 import com.x.organization.assemble.personal.jaxrs.signature.SignatureAction;
-import javax.ws.rs.ApplicationPath;
+import jakarta.ws.rs.ApplicationPath;
 
 import com.x.base.core.project.jaxrs.AbstractActionApplication;
 import com.x.organization.assemble.personal.jaxrs.custom.CustomAction;

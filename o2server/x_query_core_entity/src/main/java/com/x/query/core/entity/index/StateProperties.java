@@ -3,7 +3,7 @@ package com.x.query.core.entity.index;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Transient;
+import jakarta.persistence.Transient;
 
 import com.x.base.core.entity.JsonProperties;
 import com.x.base.core.project.annotation.FieldDescribe;

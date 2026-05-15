@@ -10,11 +10,11 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
 import com.x.message.assemble.communicate.AbstractFactory;
 import com.x.message.assemble.communicate.Business;
@@ -24,7 +24,7 @@ import com.x.message.core.entity.IMConversationExt_;
 import com.x.message.core.entity.IMConversation_;
 import com.x.message.core.entity.IMMsg;
 import com.x.message.core.entity.IMMsg_;
-import javax.persistence.criteria.Subquery;
+import jakarta.persistence.criteria.Subquery;
 import org.apache.commons.lang3.StringUtils;
 
 public class IMConversationFactory extends AbstractFactory {

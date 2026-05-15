@@ -1,27 +1,13 @@
 package com.x.base.core.project.jaxrs;
 
-import com.x.base.core.project.annotation.FieldDescribe;
-import com.x.base.core.project.gson.GsonPropertyObject;
+import com.x.base.core.project.gson.GsonRecord;
 
-public class WrapLong extends GsonPropertyObject {
+public record WrapLong(Long value) implements GsonRecord {
 
-	public WrapLong() {
+    public WrapLong {
+    }
 
-	}
-
-	public WrapLong(Long o) {
-		this.value = o;
-	}
-
-	@FieldDescribe("长整型值")
-	private Long value;
-
-	public Long getValue() {
-		return value;
-	}
-
-	public void setValue(Long value) {
-		this.value = value;
-	}
-
+    public WrapLong() {
+        this(null);
+    }
 }

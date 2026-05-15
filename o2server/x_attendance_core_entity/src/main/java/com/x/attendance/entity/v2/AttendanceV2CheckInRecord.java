@@ -11,7 +11,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 /**
@@ -24,7 +24,7 @@ import java.util.Date;
 @ContainerEntity(dumpSize = 1000, type = ContainerEntity.Type.content, reference = ContainerEntity.Reference.strong)
 @Entity
 @Table(name = PersistenceProperties.AttendanceV2CheckInRecord.table, indexes = {
-        @javax.persistence.Index(name = PersistenceProperties.AttendanceV2CheckInRecord.table + JpaObject.IndexNameMiddle + AttendanceV2CheckInRecord.userId_FIELDNAME + "_IDX",
+        @jakarta.persistence.Index(name = PersistenceProperties.AttendanceV2CheckInRecord.table + JpaObject.IndexNameMiddle + AttendanceV2CheckInRecord.userId_FIELDNAME + "_IDX",
                 columnList = JpaObject.ColumnNamePrefix + AttendanceV2CheckInRecord.userId_FIELDNAME + "," + JpaObject.ColumnNamePrefix + AttendanceV2CheckInRecord.recordDateString_FIELDNAME),
 }, uniqueConstraints = {
         @UniqueConstraint(name = PersistenceProperties.AttendanceV2CheckInRecord.table + JpaObject.IndexNameMiddle

@@ -1,7 +1,7 @@
 package com.x.program.center.jaxrs.invoke;
 
 import com.x.base.core.project.exception.ExceptionAccessDenied;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.BooleanUtils;
 

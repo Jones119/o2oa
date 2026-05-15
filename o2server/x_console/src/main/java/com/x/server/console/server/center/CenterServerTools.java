@@ -25,7 +25,7 @@ import java.nio.file.Paths;
 import java.util.EnumSet;
 import java.util.Objects;
 import java.util.TimeZone;
-import javax.servlet.DispatcherType;
+import jakarta.servlet.DispatcherType;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.file.PathUtils;
 import org.apache.commons.lang3.BooleanUtils;

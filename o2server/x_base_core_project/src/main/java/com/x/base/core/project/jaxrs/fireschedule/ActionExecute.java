@@ -1,7 +1,7 @@
 package com.x.base.core.project.jaxrs.fireschedule;
 
-import javax.servlet.ServletContext;
-import javax.ws.rs.core.Context;
+import jakarta.servlet.ServletContext;
+import jakarta.ws.rs.core.Context;
 
 import com.x.base.core.project.AbstractContext;
 import com.x.base.core.project.http.ActionResult;

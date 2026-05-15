@@ -10,7 +10,7 @@ import com.x.base.core.project.annotation.FieldDescribe;
 import io.swagger.v3.oas.annotations.media.Schema;
 import org.apache.openjpa.persistence.jdbc.Index;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Schema(name = "ApplicationDict", description = "流程平台数据字典.")
 @ContainerEntity(dumpSize = 5, type = ContainerEntity.Type.element, reference = ContainerEntity.Reference.strong)

@@ -1,6 +1,6 @@
 package com.x.base.core.project.bean.tuple;
 
-public abstract class Sextuple<A, B, C, D, E, F> {
+public sealed abstract class Sextuple<A, B, C, D, E, F> permits Sextuple.ImmutableSextuple {
 
     protected A first;
 
@@ -49,7 +49,7 @@ public abstract class Sextuple<A, B, C, D, E, F> {
         return this.sixth;
     }
 
-    public static class ImmutableSextuple<A, B, C, D, E, F> extends Sextuple<A, B, C, D, E, F> {
+    public static final class ImmutableSextuple<A, B, C, D, E, F> extends Sextuple<A, B, C, D, E, F> {
 
         public ImmutableSextuple(final A first, final B second, final C third, final D fourth, E fifth, F sixth) {
             this.first = first;

@@ -4,11 +4,11 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
 import com.x.base.core.container.EntityManagerContainer;
 import com.x.base.core.container.factory.EntityManagerContainerFactory;
@@ -37,8 +37,8 @@ class ActionListCountWithApplication extends BaseAction {
 			CriteriaQuery<Wo> cq = cb.createQuery(Wo.class);
 			Root<Work> root = cq.from(Work.class);
 			Predicate p = cb.equal(root.get(Work_.creatorPerson), effectivePerson.getDistinguishedName());
-			javax.persistence.criteria.Path<String> applicationPath = root.get(Work_.application);
-			javax.persistence.criteria.Path<String> applicationNamePath = root.get(Work_.applicationName);
+			jakarta.persistence.criteria.Path<String> applicationPath = root.get(Work_.application);
+			jakarta.persistence.criteria.Path<String> applicationNamePath = root.get(Work_.applicationName);
 			cq.multiselect(applicationPath, applicationNamePath, cb.count(root).as(Long.class)).where(p)
 					.groupBy(applicationPath, applicationNamePath);
 			List<Wo> wos = em.createQuery(cq).getResultList().stream()

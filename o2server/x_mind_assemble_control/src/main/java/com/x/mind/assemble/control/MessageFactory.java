@@ -52,8 +52,8 @@ public class MessageFactory {
 	public static void notify_forMindSend( String person, MessageWo messageWo ) throws Exception {
 		if(StringUtils.isNotEmpty( person ) ){
 			String personName = StringUtils.isNotEmpty( messageWo.getCreatePerson() )?"":messageWo.getCreatePerson().split("@")[0];
-			String title = personName + "向您发送了脑图文件:" + messageWo.getTitle();
-			logger.debug("mind send notification for mind send [" +  messageWo.getTitle() + "], target：" + person );
+			String title = STR."\{personName}向您发送了脑图文件:\{messageWo.getTitle()}";
+			logger.debug(STR."mind send notification for mind send [\{messageWo.getTitle()}], target：\{person}");
 			MessageConnector.send( MessageConnector.TYPE_MIND_FILESEND,  title, person, messageWo );
 		}
 	}
@@ -67,8 +67,8 @@ public class MessageFactory {
 	public static void notify_forMindShare( String person, MessageWo messageWo ) throws Exception {
 		if(StringUtils.isNotEmpty( person ) ){
 			String personName = StringUtils.isNotEmpty( messageWo.getCreatePerson() )?"":messageWo.getCreatePerson().split("@")[0];
-			String title = personName + "向您分享了脑图文件:" + messageWo.getTitle();
-			logger.debug("mind send notification for mind share [" +  messageWo.getTitle() + "], target：" + person );
+			String title = STR."\{personName}向您分享了脑图文件:\{messageWo.getTitle()}";
+			logger.debug(STR."mind send notification for mind share [\{messageWo.getTitle()}], target：\{person}");
 			MessageConnector.send( MessageConnector.TYPE_MIND_FILESHARE,  title, person, messageWo );
 		}
 	}

@@ -1,26 +1,13 @@
 package com.x.base.core.project.http;
 
-import com.x.base.core.project.gson.GsonPropertyObject;
+import com.x.base.core.project.gson.GsonRecord;
 
-public class WrapOutInteger extends GsonPropertyObject {
+public record WrapOutInteger(Integer value) implements GsonRecord {
 
-	public WrapOutInteger(Integer value) throws Exception {
-		this.value = value;
-	}
+    public WrapOutInteger {
+    }
 
-	public WrapOutInteger() {
-	}
-
-	private Integer value;
-
-	public Integer getValue() {
-		return value;
-	}
-
-	public void setValue(Integer value) {
-		this.value = value;
-	}
-
-
-
+    public WrapOutInteger() {
+        this(null);
+    }
 }

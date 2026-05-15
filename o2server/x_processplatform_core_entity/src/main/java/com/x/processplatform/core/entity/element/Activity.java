@@ -5,9 +5,11 @@ import java.util.List;
 
 import com.google.gson.JsonElement;
 import com.x.base.core.entity.SliceJpaObject;
-import javax.persistence.Transient;
+import jakarta.persistence.Transient;
 
-public abstract class Activity extends SliceJpaObject {
+public sealed abstract class Activity extends SliceJpaObject
+		permits Agent, Begin, Cancel, Choice, Delay, Embed, End, Invoke, Manual, Merge, Parallel, Publish, Service,
+				Split {
 
 	private static final long serialVersionUID = 4981905102396583697L;
 
@@ -138,36 +140,22 @@ public abstract class Activity extends SliceJpaObject {
 	public abstract void setCustomData(JsonElement customData);
 
 	public ActivityType getActivityType() throws Exception {
-		if (this instanceof Agent) {
-			return ActivityType.agent;
-		} else if (this instanceof Begin) {
-			return ActivityType.begin;
-		} else if (this instanceof Cancel) {
-			return ActivityType.cancel;
-		} else if (this instanceof Choice) {
-			return ActivityType.choice;
-		} else if (this instanceof Delay) {
-			return ActivityType.delay;
-		} else if (this instanceof Embed) {
-			return ActivityType.embed;
-		} else if (this instanceof End) {
-			return ActivityType.end;
-		} else if (this instanceof Invoke) {
-			return ActivityType.invoke;
-		} else if (this instanceof Manual) {
-			return ActivityType.manual;
-		} else if (this instanceof Merge) {
-			return ActivityType.merge;
-		} else if (this instanceof Parallel) {
-			return ActivityType.parallel;
-		} else if (this instanceof Publish) {
-			return ActivityType.publish;
-		} else if (this instanceof Service) {
-			return ActivityType.service;
-		} else if (this instanceof Split) {
-			return ActivityType.split;
-		}
-		throw new Exception("invalid actvityType.");
+		return switch (this) {
+			case Agent a -> ActivityType.agent;
+			case Begin b -> ActivityType.begin;
+			case Cancel c -> ActivityType.cancel;
+			case Choice ch -> ActivityType.choice;
+			case Delay d -> ActivityType.delay;
+			case Embed e -> ActivityType.embed;
+			case End en -> ActivityType.end;
+			case Invoke i -> ActivityType.invoke;
+			case Manual m -> ActivityType.manual;
+			case Merge me -> ActivityType.merge;
+			case Parallel p -> ActivityType.parallel;
+			case Publish pu -> ActivityType.publish;
+			case Service s -> ActivityType.service;
+			case Split sp -> ActivityType.split;
+		};
 	}
 
 	public static final String group_FIELDNAME = "group";

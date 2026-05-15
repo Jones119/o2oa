@@ -1,6 +1,6 @@
 package com.x.attendance.assemble.control.jaxrs.attendancesetting;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.x.attendance.entity.AttendanceSetting;
 import com.x.base.core.entity.JpaObject;

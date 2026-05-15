@@ -6,7 +6,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
@@ -125,8 +125,7 @@ public class ActionImageToBase64 extends BaseAction {
 					}
 				}
 				ImageIO.write(image, "png", output);
-				wrap = new WrapOutString();
-				wrap.setValue(Base64.encodeBase64String(output.toByteArray()));
+				wrap = new WrapOutString(Base64.encodeBase64String(output.toByteArray()));
 				result.setData(wrap);
 			} catch (Exception e) {
 				check = false;

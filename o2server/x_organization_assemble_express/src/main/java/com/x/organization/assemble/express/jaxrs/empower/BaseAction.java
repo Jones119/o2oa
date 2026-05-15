@@ -30,7 +30,7 @@ class BaseAction extends StandardJaxrsAction {
 
 	protected <T extends com.x.base.core.project.organization.Unit> T convert(Business business, Unit unit,
 			Class<T> clz) throws Exception {
-		T t = clz.newInstance();
+		T t = clz.getDeclaredConstructor().newInstance();
 		t.setName(unit.getName());
 		t.setUnique(unit.getUnique());
 		t.setDistinguishedName(unit.getDistinguishedName());

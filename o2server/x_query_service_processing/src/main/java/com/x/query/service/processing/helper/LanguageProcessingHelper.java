@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Gatherers;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
@@ -60,13 +61,13 @@ public class LanguageProcessingHelper {
 //						&& (!StringUtils.startsWithIgnoreCase(o.getLabel(), "w")) && (!label_skip_m(o)))
 				.collect(Collectors.toList());
 		Map<Item, Long> map = items.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-		List<Item> list = new ArrayList<>();
-		map.entrySet().stream().sorted(Map.Entry.<Item, Long>comparingByValue().reversed()).forEach(o -> {
-			Item t = o.getKey();
-			t.setCount(o.getValue());
-			list.add(t);
-		});
-		return list;
+		return map.entrySet().stream()
+				.sorted(Map.Entry.<Item, Long>comparingByValue().reversed())
+				.gather(Gatherers.fold(ArrayList<Item>::new, (list, entry) -> {
+					entry.getKey().setCount(entry.getValue());
+					list.add(entry.getKey());
+					return list;
+				})).findFirst().orElse(new ArrayList<>());
 	}
 
 	private boolean skip(Item o) {

@@ -1,6 +1,6 @@
 package com.x.base.core.project.bean.tuple;
 
-public abstract class Nonuple<A, B, C, D, E, F, G, H, I> {
+public sealed abstract class Nonuple<A, B, C, D, E, F, G, H, I> permits Nonuple.ImmutableNonuple {
 
     protected A first;
 
@@ -69,7 +69,7 @@ public abstract class Nonuple<A, B, C, D, E, F, G, H, I> {
         return this.ninth;
     }
 
-    public static class ImmutableNonuple<A, B, C, D, E, F, G, H, I> extends Nonuple<A, B, C, D, E, F, G, H, I> {
+    public static final class ImmutableNonuple<A, B, C, D, E, F, G, H, I> extends Nonuple<A, B, C, D, E, F, G, H, I> {
 
         public ImmutableNonuple(final A first, final B second, final C third, final D fourth, E fifth, F sixth,
                 G seventh, H eighth, I ninth) {

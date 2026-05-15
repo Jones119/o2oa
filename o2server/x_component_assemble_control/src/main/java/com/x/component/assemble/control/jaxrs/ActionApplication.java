@@ -1,6 +1,6 @@
 package com.x.component.assemble.control.jaxrs;
 
-import javax.ws.rs.ApplicationPath;
+import jakarta.ws.rs.ApplicationPath;
 
 import com.x.base.core.project.Version;
 import com.x.base.core.project.jaxrs.AbstractActionApplication;

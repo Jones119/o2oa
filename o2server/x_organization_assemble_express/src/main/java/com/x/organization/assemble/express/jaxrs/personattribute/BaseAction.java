@@ -3,11 +3,11 @@ package com.x.organization.assemble.express.jaxrs.personattribute;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
 import com.x.base.core.project.annotation.FieldDescribe;
 import com.x.base.core.project.cache.Cache.CacheCategory;
@@ -61,7 +61,7 @@ class BaseAction extends StandardJaxrsAction {
 
 	protected <T extends com.x.base.core.project.organization.PersonAttribute> T convert(Business business,
 			PersonAttribute personAttribute, Class<T> clz) throws Exception {
-		T t = clz.newInstance();
+		T t = clz.getDeclaredConstructor().newInstance();
 		t.setName(personAttribute.getName());
 		List<String> attrubutes = new ArrayList<>();
 		if (ListTools.isNotEmpty(personAttribute.getAttributeList())) {
