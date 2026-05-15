@@ -33,11 +33,11 @@
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-client</artifactId>
-			<version>5.18.6</version>
+			<version>6.1.6</version>
 			<exclusions>
 				<exclusion>
-					<groupId>org.apache.geronimo.specs</groupId>
-					<artifactId>geronimo-jms_1.1_spec</artifactId>
+					<groupId>jakarta.jms</groupId>
+					<artifactId>jakarta.jms-api</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
