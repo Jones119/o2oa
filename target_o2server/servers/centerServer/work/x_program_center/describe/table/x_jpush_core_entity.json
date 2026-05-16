@@ -1,0 +1,46 @@
+{
+  "tables": [
+    {
+      "moduleName": "PushDevice",
+      "tableName": "JPUSH_DEVICE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xdeviceId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "设备id，发送推送消息用的设备唯一编码"
+        },
+        {
+          "name": "xdeviceType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "设备类型：ios|android"
+        },
+        {
+          "name": "xpushType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "推送通道类型：jpush|huawei"
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "人员标识"
+        },
+        {
+          "name": "xunique",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "唯一编码，md5(deviceType+deviceId+pushType+person)"
+        }
+      ]
+    }
+  ]
+}

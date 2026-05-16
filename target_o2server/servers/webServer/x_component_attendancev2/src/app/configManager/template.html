@@ -1,0 +1,90 @@
+<div class="manager-box white-bg">
+    <div class="index_page_header_container">
+        <div class="index_page_header_title">{{$.lp.configManagerTitle}}</div>
+    </div>
+    <div class="form">
+         
+        <!-- 补卡申请配置 -->
+        <div class="margin-top">
+            <div class="form-item-label">
+                {{$.lp.config.appealConfig}}
+            </div>
+            <div class="form-item-content margin-top padding-bottom">
+                <!-- 是否启用补卡申请 -->
+                <div class="margin-top margin-left flex" @click="clickEnableAppeal">
+                    <div class="o2-icon-14">
+                        <i class="{{ $.form.appealEnable ? 'o2icon-icon__ok2_click_b primary_color' : 'o2icon-icon_quan'}}"></i>
+                    </div>
+                    <label style="margin-left: 8px;">{{$.lp.config.appealEnableLabel}}</label>
+                </div>
+                <div class="margin-top margin-left" oo-if="$.form.appealEnable">
+                    <!-- 自定义流程 -->
+                    <o-selector-process oo-prop="$.processSelector" ></o-selector-process>
+                </div>
+            </div>
+            <div class="margin-left" oo-if="$.form.appealEnable">
+                <div>{{$.lp.config.appealMaxTimesLabel}}</div>
+                <o-input oo-prop="{'value': $.form.appealMaxTimes}" oo-model="form.appealMaxTimes"></o-input>
+            </div>
+            
+        </div>
+
+        <div class="margin-top">
+            <div class="form-item-label">
+                {{$.lp.config.checkInAlert}}
+            </div>
+            <div class="form-item-content margin-top padding-bottom">
+                <!-- 打卡提醒 -->
+                <div class="margin-top margin-left flex" @click="clickCheckInAlertEnable">
+                    <div class="o2-icon-14">
+                        <i class="{{ $.form.checkInAlertEnable ? 'o2icon-icon__ok2_click_b primary_color' : 'o2icon-icon_quan'}}"></i>
+                    </div>
+                    <label style="margin: 5px;" >{{$.lp.config.checkInAlertEnable}}</label>
+                </div>
+                <!-- 异常打卡提醒 -->
+                <div class="margin-top margin-left flex" @click="clickExceptionAlertEnable">
+                    <div class="o2-icon-14">
+                        <i class="{{ $.form.exceptionAlertEnable ? 'o2icon-icon__ok2_click_b primary_color' : 'o2icon-icon_quan'}}"></i>
+                    </div>
+                    <label style="margin: 5px;" >
+                        {{$.lp.config.exceptionAlertEnable}} 
+                        {{$.lp.config.exceptionAlertEnableTime1}} 
+                        <o-time-picker oo-prop="{'value': $.form.exceptionAlertTime, 'key': 'form.exceptionAlertTime'}"></o-time-picker>
+                        {{$.lp.config.exceptionAlertEnableTime2}} 
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- 定时器配置 -->
+        <div class="margin-top">
+            <div class="form-item-label">
+                {{$.lp.config.detailStatisticCron}}
+            </div>
+            <div class="form-item-content margin-top padding-bottom">
+                <div class="config-input-div" id="detailCron">
+                    {{$.form.detailStatisticCronString}}
+                </div>
+            </div>
+        </div>
+
+        <!-- 人脸比对功能 -->
+        <div class="margin-top" oo-if="$.form.aliFaceControlEnable">
+            <div class="form-item-label">
+                {{$.lp.config.faceDetectionLabel}}
+                <label style="margin-left: 10px;color: var(--oo-color-main);font-size: 14px;text-decoration: underline;cursor: pointer;" @click="clickToAliface" >人脸模块配置</label>
+            </div>
+            <div class="form-item-content margin-top padding-bottom">
+                <div class="margin-top margin-left flex" @click="clickFaceDetectionEnable">
+                    <div class="o2-icon-14">
+                        <i class="{{ $.form.faceDetectionEnable ? 'o2icon-icon__ok2_click_b primary_color' : 'o2icon-icon_quan'}}"></i>
+                    </div>
+                    <label style="margin: 5px;" >{{$.lp.config.faceDetectionEnableLabel}}</label>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 32px;">
+            <button style="width: 320px;" class="mainColor_bg" @click="submit">{{$.lp.save}}</button>
+        </div>
+    </div>
+</div>

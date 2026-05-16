@@ -133,7 +133,7 @@ public class PersistenceXmlHelper {
 		property.addAttribute("value", Config.externalDataSources().get(0).getPassword());
 		property = properties.addElement("property");
 		property.addAttribute("name", "openjpa.DynamicEnhancementAgent");
-		property.addAttribute("value", "false");
+		property.addAttribute("value", "true");
 	}
 
 	private static void writeForDdlInternalProperty(Element properties) throws Exception {
@@ -155,7 +155,7 @@ public class PersistenceXmlHelper {
 		property.addAttribute("value", Config.token().getPassword());
 		property = properties.addElement("property");
 		property.addAttribute("name", "openjpa.DynamicEnhancementAgent");
-		property.addAttribute("value", "false");
+		property.addAttribute("value", "true");
 	}
 
 	@SuppressWarnings("unchecked")
@@ -273,7 +273,7 @@ public class PersistenceXmlHelper {
 		properties.put("openjpa.LockManager", "none");
 		properties.put("openjpa.jdbc.ResultSetType", "scroll-insensitive");
 		/* 如果启用本地初始化会导致classLoad的问题 */
-		properties.put("openjpa.DynamicEnhancementAgent", "false");
+		properties.put("openjpa.DynamicEnhancementAgent", "true");
 		properties.put("openjpa.jdbc.SynchronizeMappings", "buildSchema(ForeignKeys=false)");
 		properties.put("openjpa.Log", "DefaultLevel=WARN");
 		return properties;
@@ -317,7 +317,7 @@ public class PersistenceXmlHelper {
 		// 使用ture支持多线程访问,但是是通过lock同步执行的.
 		properties.put("openjpa.Multithreaded", "true");
 		/* 如果启用本地初始化会导致classLoad的问题 */
-		properties.put("openjpa.DynamicEnhancementAgent", "false");
+		properties.put("openjpa.DynamicEnhancementAgent", "true");
 		properties.put("openjpa.jdbc.SynchronizeMappings", "buildSchema(ForeignKeys=false)");
 		return properties;
 	}

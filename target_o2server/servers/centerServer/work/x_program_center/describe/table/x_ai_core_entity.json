@@ -1,0 +1,247 @@
+{
+  "tables": [
+    {
+      "moduleName": "AiModel",
+      "tableName": "AI_MODEL",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "模型名称."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "模型服务商：ali(阿里云)|deepSeek|openAi(本地模型)."
+        },
+        {
+          "name": "xmodel",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "模型版本."
+        },
+        {
+          "name": "xcompletionUrl",
+          "type": "VARCHAR",
+          "length": "500",
+          "remark": "模型服务地址."
+        },
+        {
+          "name": "xapiKey",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "模型秘钥."
+        },
+        {
+          "name": "xenable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否启用."
+        },
+        {
+          "name": "xasDefault",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否为默认服务模型."
+        },
+        {
+          "name": "xdesc",
+          "type": "VARCHAR",
+          "length": "500",
+          "remark": "模型描述."
+        },
+        {
+          "name": "xproxyEnable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否启用代理."
+        },
+        {
+          "name": "xproxyHost",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "代理主机."
+        },
+        {
+          "name": "xproxyPort",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "代理端口."
+        },
+        {
+          "name": "xproxyUser",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "代理认证用户."
+        },
+        {
+          "name": "xproxyPass",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "代理认证密码."
+        }
+      ]
+    },
+    {
+      "moduleName": "Clue",
+      "tableName": "AI_CLUE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "所属用户."
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "标题."
+        }
+      ]
+    },
+    {
+      "moduleName": "Completion",
+      "tableName": "AI_COMPLETION",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "所属用户."
+        },
+        {
+          "name": "xclueId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "线索ID"
+        },
+        {
+          "name": "xgenerateType",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "生成类型"
+        },
+        {
+          "name": "xinput",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "输入内容."
+        },
+        {
+          "name": "xcontent",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "输出内容."
+        },
+        {
+          "name": "referenceIdList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "关联素材ID列表.",
+          "containerTableProperty": {
+            "name": "AI_COMPLETION_referenceIdList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Completion_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xreferenceIdList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "moduleName": "File",
+      "tableName": "AI_FILE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xcreator",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建者."
+        },
+        {
+          "name": "xfileId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "关联文件ID."
+        },
+        {
+          "name": "xextension",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "扩展名,必须要有扩展名的文件才允许上传."
+        },
+        {
+          "name": "xstorage",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "存储器的名称,也就是多个存放节点的名字."
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        },
+        {
+          "name": "xdeepPath",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否使用更深的路径."
+        }
+      ]
+    }
+  ]
+}

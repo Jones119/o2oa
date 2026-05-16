@@ -126,6 +126,7 @@ public class CenterServerTools extends JettySeverTools {
 		Path dir = Paths.get(Config.dir_servers_centerServer_work(true).toString(),
 				x_program_center.class.getSimpleName());
 		WebAppContext webApp = new WebAppContext();
+		disableQuickStart(webApp);
 		webApp.setDisplayName(x_program_center.class.getSimpleName());
 		webApp.setContextPath("/" + x_program_center.class.getSimpleName());
 		webApp.setBaseResource(ResourceFactory.of(webApp).newResource(dir.toAbsolutePath().toString()));

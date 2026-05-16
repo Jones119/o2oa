@@ -134,6 +134,7 @@ public class WebServerTools extends JettySeverTools {
 
 	private static WebAppContext webContext() throws Exception {
 		WebAppContext context = new WebAppContext();
+		disableQuickStart(context);
 		moveNonDefaultDirectoryToWebroot();
 		context.setContextPath("/");
 		ResourceFactory resourceFactory = ResourceFactory.of(context);

@@ -1,0 +1,562 @@
+{
+  "tables": [
+    {
+      "moduleName": "ApplicationDict",
+      "tableName": "GEN_DICT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xapplication",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "应用."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "字典名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "别名."
+        },
+        {
+          "name": "xproject",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "归属项目."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "说明."
+        }
+      ]
+    },
+    {
+      "moduleName": "ApplicationDictItem",
+      "tableName": "GEN_DICT_ITEM",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xpath0",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath1",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath2",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath3",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath4",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath5",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath6",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath7",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath0Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath1Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath2Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath3Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath4Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath5Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath6Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath7Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xitemCategory",
+          "type": "com.x.base.core.entity.dataitem.ItemCategory",
+          "length": "16",
+          "remark": ""
+        },
+        {
+          "name": "xitemType",
+          "type": "com.x.base.core.entity.dataitem.ItemType",
+          "length": "1",
+          "remark": ""
+        },
+        {
+          "name": "xitemPrimitiveType",
+          "type": "com.x.base.core.entity.dataitem.ItemPrimitiveType",
+          "length": "1",
+          "remark": ""
+        },
+        {
+          "name": "xitemStringValueType",
+          "type": "com.x.base.core.entity.dataitem.ItemStringValueType",
+          "length": "2",
+          "remark": ""
+        },
+        {
+          "name": "xbundle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "数据标识"
+        },
+        {
+          "name": "xstringShortValue",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xstringLongValue",
+          "type": "Lob",
+          "length": "104857600",
+          "remark": ""
+        },
+        {
+          "name": "xnumberValue",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xdateTimeValue",
+          "type": "DATE",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xdateValue",
+          "type": "DATE",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xtimeValue",
+          "type": "DATE",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xbooleanValue",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xapplication",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属应用ID."
+        }
+      ]
+    },
+    {
+      "moduleName": "GeneralFile",
+      "tableName": "GEN_GENERAL_FILE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "上传用户."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件名称."
+        },
+        {
+          "name": "xextension",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "扩展名,必须要有扩展名的文件才允许上传."
+        },
+        {
+          "name": "xstorage",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "存储器的名称,也就是多个存放节点的名字."
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        },
+        {
+          "name": "xdeepPath",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否使用更深的路径."
+        }
+      ]
+    },
+    {
+      "moduleName": "Invoice",
+      "tableName": "GEN_INVOICE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "上传用户."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "发票文件名称."
+        },
+        {
+          "name": "xextension",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "扩展名,必须要有扩展名的文件才允许上传."
+        },
+        {
+          "name": "xstorage",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "存储器的名称,也就是多个存放节点的名字."
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        },
+        {
+          "name": "xdeepPath",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否使用更深的路径."
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "发票抬头."
+        },
+        {
+          "name": "xcode",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "发票代码."
+        },
+        {
+          "name": "xnumber",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "发票号码."
+        },
+        {
+          "name": "xdate",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "开票日期，发票上的日期."
+        },
+        {
+          "name": "xinvoiceDate",
+          "type": "DATE",
+          "length": "255",
+          "remark": "开票日期，时间格式"
+        },
+        {
+          "name": "xamount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "未税金额."
+        },
+        {
+          "name": "xtaxAmount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "税费."
+        },
+        {
+          "name": "xtotalAmountString",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "总金额(大写)."
+        },
+        {
+          "name": "xtotalAmount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "总金额."
+        },
+        {
+          "name": "xbuyerName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "购买方名称."
+        },
+        {
+          "name": "xbuyerCode",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "购买方纳税人识别号."
+        },
+        {
+          "name": "xbuyerAddress",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "购买方地址."
+        },
+        {
+          "name": "xbuyerAccount",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "购买方开户行及账号."
+        },
+        {
+          "name": "xsellerName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "销售方名称."
+        },
+        {
+          "name": "xsellerCode",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "销售方纳税人识别号."
+        },
+        {
+          "name": "xsellerAddress",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "销售方地址."
+        },
+        {
+          "name": "xsellerAccount",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "销售方开户行及账号."
+        },
+        {
+          "name": "xdrawer",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "开票人."
+        },
+        {
+          "name": "xrider",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "乘车人."
+        },
+        {
+          "name": "xstartStation",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "起点站."
+        },
+        {
+          "name": "xendStation",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "终点站."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "发票类型."
+        },
+        {
+          "name": "xdetail",
+          "type": "VARCHAR",
+          "length": "500",
+          "remark": "开票项目."
+        },
+        {
+          "name": "xremark",
+          "type": "VARCHAR",
+          "length": "500",
+          "remark": "备注."
+        },
+        {
+          "name": "xapplyStatus",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "报销状态."
+        },
+        {
+          "name": "xproperties",
+          "type": "com.x.general.core.entity.InvoiceProperties",
+          "length": "1048576",
+          "remark": "属性对象存储字段."
+        }
+      ]
+    },
+    {
+      "moduleName": "District",
+      "tableName": "GEN_ARA_DISTRICT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xzipCode",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "邮编."
+        },
+        {
+          "name": "xcityCode",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "城市区号."
+        },
+        {
+          "name": "xlevel",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "级别."
+        },
+        {
+          "name": "xcenter",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "中心坐标."
+        },
+        {
+          "name": "xprovince",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "上级省."
+        },
+        {
+          "name": "xcity",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "上级市."
+        },
+        {
+          "name": "xdistrict",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "上级区."
+        },
+        {
+          "name": "xsha",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "md5校验码."
+        }
+      ]
+    }
+  ]
+}

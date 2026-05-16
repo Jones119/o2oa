@@ -1,0 +1,52 @@
+{
+  "tables": [
+    {
+      "moduleName": "HotPictureInfo",
+      "tableName": "HOT_PICTURE_INFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xapplication",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "应用名称"
+        },
+        {
+          "name": "xinfoId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "信息对象ID"
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "信息标题"
+        },
+        {
+          "name": "xsummary",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "主题摘要"
+        },
+        {
+          "name": "xpicId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "信息图片URL"
+        },
+        {
+          "name": "xcreator",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "创建者"
+        }
+      ]
+    }
+  ]
+}

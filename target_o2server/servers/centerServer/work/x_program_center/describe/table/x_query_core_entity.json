@@ -1,0 +1,2156 @@
+{
+  "tables": [
+    {
+      "moduleName": "ImportModel",
+      "tableName": "QRY_IMPORT_MODEL",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "别名."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xquery",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属查询."
+        },
+        {
+          "name": "xlayout",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "显示布局."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "访问方案."
+        },
+        {
+          "name": "xcode",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "前台运行脚本."
+        },
+        {
+          "name": "xenableValid",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否启用校验."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "类型."
+        },
+        {
+          "name": "xprocessStatus",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "流程状态."
+        },
+        {
+          "name": "availableIdentityList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "允许使用的用户.",
+          "containerTableProperty": {
+            "name": "QRY_IMPORT_MODEL_availableIdentityList",
+            "containerTableColumnProperty": [
+              {
+                "name": "ImportModel_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xavailableIdentityList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "availableUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "允许使用的组织.",
+          "containerTableProperty": {
+            "name": "QRY_IMPORT_MODEL_availableUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "ImportModel_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xavailableUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "availableGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "允许使用的群组.",
+          "containerTableProperty": {
+            "name": "QRY_IMPORT_MODEL_availableGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "ImportModel_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xavailableGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xcount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "最大导入数量."
+        },
+        {
+          "name": "xdisplay",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否前端可见."
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,为空在最后"
+        }
+      ]
+    },
+    {
+      "moduleName": "ImportRecord",
+      "tableName": "QRY_IMPORT_RECORD",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "导入模型名称."
+        },
+        {
+          "name": "xcreatorPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建者"
+        },
+        {
+          "name": "xmodelId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属导入模型."
+        },
+        {
+          "name": "xquery",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属查询."
+        },
+        {
+          "name": "xstatus",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "状态."
+        },
+        {
+          "name": "xcount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "导入数量."
+        },
+        {
+          "name": "xfailCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "导入失败数量."
+        },
+        {
+          "name": "xdistribution",
+          "type": "Lob",
+          "length": "4096",
+          "remark": "导入结果描述."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "20971520",
+          "remark": "导入数据."
+        }
+      ]
+    },
+    {
+      "moduleName": "ImportRecordItem",
+      "tableName": "QRY_IMPORT_RECORD_ITEM",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xdocTitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "导入文档标题."
+        },
+        {
+          "name": "xdocId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "导入文档ID."
+        },
+        {
+          "name": "xdocType",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "导入文档类型."
+        },
+        {
+          "name": "xmodelId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属导入模型."
+        },
+        {
+          "name": "xrecordId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属导入记录."
+        },
+        {
+          "name": "xquery",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属查询."
+        },
+        {
+          "name": "xstatus",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "状态."
+        },
+        {
+          "name": "xdistribution",
+          "type": "Lob",
+          "length": "4096",
+          "remark": "导入结果描述."
+        },
+        {
+          "name": "xsrcData",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "原始数据."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "导入数据."
+        }
+      ]
+    },
+    {
+      "moduleName": "Item",
+      "tableName": "QRY_ITEM",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xbundle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "数据标识"
+        },
+        {
+          "name": "xpath0",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath1",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath2",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath3",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath4",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath5",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath6",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath7",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath0Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath1Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath2Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath3Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath4Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath5Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath6Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath7Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xitemCategory",
+          "type": "com.x.base.core.entity.dataitem.ItemCategory",
+          "length": "16",
+          "remark": ""
+        },
+        {
+          "name": "xitemType",
+          "type": "com.x.base.core.entity.dataitem.ItemType",
+          "length": "1",
+          "remark": ""
+        },
+        {
+          "name": "xitemPrimitiveType",
+          "type": "com.x.base.core.entity.dataitem.ItemPrimitiveType",
+          "length": "1",
+          "remark": ""
+        },
+        {
+          "name": "xitemStringValueType",
+          "type": "com.x.base.core.entity.dataitem.ItemStringValueType",
+          "length": "2",
+          "remark": ""
+        },
+        {
+          "name": "xstringShortValue",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xstringLongValue",
+          "type": "Lob",
+          "length": "104857600",
+          "remark": ""
+        },
+        {
+          "name": "xnumberValue",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xdateTimeValue",
+          "type": "DATE",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xdateValue",
+          "type": "DATE",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xtimeValue",
+          "type": "DATE",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xbooleanValue",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "moduleName": "ItemAccess",
+      "tableName": "QRY_ITEM_ACCESS",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xappId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "应用ID."
+        },
+        {
+          "name": "xitemCategoryId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "流程ID或者内容管理分类ID."
+        },
+        {
+          "name": "xitemCategory",
+          "type": "com.x.base.core.entity.dataitem.ItemCategory",
+          "length": "16",
+          "remark": "字段所属业务：流程为pp，内容管理为cms."
+        },
+        {
+          "name": "xpath",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "字段路径."
+        },
+        {
+          "name": "xproperties",
+          "type": "com.x.query.core.entity.ItemAccessProperties",
+          "length": "10485760",
+          "remark": "属性存储字段."
+        }
+      ]
+    },
+    {
+      "moduleName": "Query",
+      "tableName": "QRY_QUERY",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "应用别名,如果有必须唯一."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "availableIdentityList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "允许使用的用户.",
+          "containerTableProperty": {
+            "name": "QRY_QUERY_availableIdentityList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Query_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xavailableIdentityList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "availableUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "允许使用的组织.",
+          "containerTableProperty": {
+            "name": "QRY_QUERY_availableUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Query_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xavailableUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "availableGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "允许使用的群组.",
+          "containerTableProperty": {
+            "name": "QRY_QUERY_availableGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Query_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xavailableGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xicon",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "icon Base64编码后的文本."
+        },
+        {
+          "name": "xiconHue",
+          "type": "VARCHAR",
+          "length": "8",
+          "remark": "icon的主色调"
+        },
+        {
+          "name": "controllerList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "查询管理者",
+          "containerTableProperty": {
+            "name": "QRY_QUERY_controllerList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Query_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xcontrollerList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xcreatorPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "查询的创建者"
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "查询的最后修改时间"
+        },
+        {
+          "name": "xlastUpdatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "查询的最后修改者"
+        },
+        {
+          "name": "xqueryCategory",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "分类"
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "自定义字段."
+        }
+      ]
+    },
+    {
+      "moduleName": "Stat",
+      "tableName": "QRY_STAT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "别名."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xquery",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属查询."
+        },
+        {
+          "name": "xview",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "绑定的视图."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "访问方案."
+        },
+        {
+          "name": "availableIdentityList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "允许使用的用户.",
+          "containerTableProperty": {
+            "name": "QRY_STAT_availableIdentityList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Stat_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xavailableIdentityList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "availableUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "允许使用的组织.",
+          "containerTableProperty": {
+            "name": "QRY_STAT_availableUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Stat_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xavailableUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "availableGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "允许使用的群组.",
+          "containerTableProperty": {
+            "name": "QRY_STAT_availableGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Stat_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xavailableGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xdisplay",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否前端可见."
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,为空在最后"
+        }
+      ]
+    },
+    {
+      "moduleName": "View",
+      "tableName": "QRY_VIEW",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "别名."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xquery",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属查询."
+        },
+        {
+          "name": "xenableCache",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否对结果进行缓存."
+        },
+        {
+          "name": "xlayout",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "显示布局."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "访问方案."
+        },
+        {
+          "name": "xafterGridScriptText",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "gird生成后运行脚本."
+        },
+        {
+          "name": "xafterGroupGridScriptText",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "gropuGird生成后运行脚本."
+        },
+        {
+          "name": "xafterCalculateGridScriptText",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "calculateGrid生成后运行脚本."
+        },
+        {
+          "name": "xcode",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "前台运行脚本."
+        },
+        {
+          "name": "xdisplay",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否前端可见."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "类型."
+        },
+        {
+          "name": "xcacheAccess",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否缓存访问内容."
+        },
+        {
+          "name": "availableIdentityList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "允许使用的用户.",
+          "containerTableProperty": {
+            "name": "QRY_VIEW_availableIdentityList",
+            "containerTableColumnProperty": [
+              {
+                "name": "View_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xavailableIdentityList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "availableUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "允许使用的组织.",
+          "containerTableProperty": {
+            "name": "QRY_VIEW_availableUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "View_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xavailableUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "availableGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "允许使用的群组.",
+          "containerTableProperty": {
+            "name": "QRY_VIEW_availableGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "View_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xavailableGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xcount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "最大返回数量."
+        },
+        {
+          "name": "xpageSize",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "分页单页数量."
+        },
+        {
+          "name": "xtoolbar",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "工具条."
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,为空在最后"
+        }
+      ]
+    },
+    {
+      "moduleName": "State",
+      "tableName": "QRY_IDX_STATE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xlatestUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新对象时间."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "类型."
+        },
+        {
+          "name": "xnode",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "节点."
+        },
+        {
+          "name": "xfreq",
+          "type": "VARCHAR",
+          "length": "8",
+          "remark": "频率."
+        },
+        {
+          "name": "xmode",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "模式."
+        },
+        {
+          "name": "xproperties",
+          "type": "com.x.query.core.entity.index.StateProperties",
+          "length": "10485760",
+          "remark": "属性对象存储字段."
+        }
+      ]
+    },
+    {
+      "moduleName": "Entry",
+      "tableName": "QRY_NRL_ENTRY",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "类型,test或者learn"
+        },
+        {
+          "name": "xbundle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "通用数据标识,cms为doucment.getId(),processPlatform为workCompletedId"
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "标题"
+        },
+        {
+          "name": "xmodel",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "模型"
+        },
+        {
+          "name": "inValueLabelList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "输入标签",
+          "containerTableProperty": {
+            "name": "QRY_NRL_ENTRY_inValueLabelList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Entry_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xinValueLabelList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "outValueLabelList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "结果标签",
+          "containerTableProperty": {
+            "name": "QRY_NRL_ENTRY_outValueLabelList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Entry_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xoutValueLabelList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xinValueCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "输入值数量"
+        },
+        {
+          "name": "xoutValueCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "输出值数量"
+        }
+      ]
+    },
+    {
+      "moduleName": "InText",
+      "tableName": "QRY_NRL_INTEXT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xtext",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "值"
+        },
+        {
+          "name": "xmodel",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "模型"
+        },
+        {
+          "name": "xserial",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "编号"
+        },
+        {
+          "name": "xcount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "数量"
+        }
+      ]
+    },
+    {
+      "moduleName": "InValue",
+      "tableName": "QRY_NRL_INVALUE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xtext",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "值"
+        },
+        {
+          "name": "xmodel",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "模型"
+        },
+        {
+          "name": "xserial",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "编号"
+        },
+        {
+          "name": "xinTextSerial",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "原始编号"
+        },
+        {
+          "name": "xcount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "数量"
+        }
+      ]
+    },
+    {
+      "moduleName": "Model",
+      "tableName": "QRY_NRL_MODEL",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xneuralNetworkType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "神经网络类型:mlp."
+        },
+        {
+          "name": "xdataType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "数据类型:cms,processPlatform"
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "说明"
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "别名."
+        },
+        {
+          "name": "xinValueScriptText",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "输入值脚本,脚本中的操作对象是inValues,对象类型Set"
+        },
+        {
+          "name": "xoutValueScriptText",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "输出值脚本,脚本中的操作对象是outValues,对象类型Set"
+        },
+        {
+          "name": "xattachmentScriptText",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "附件过滤脚本,脚本中的操作对象是attachments,对象类型List,内容是附件名称,可以删除不要进行分词的附件名."
+        },
+        {
+          "name": "processList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "包含流程.",
+          "containerTableProperty": {
+            "name": "QRY_NRL_MODEL_processList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Model_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xprocessList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "applicationList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "包含应用.",
+          "containerTableProperty": {
+            "name": "QRY_NRL_MODEL_applicationList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Model_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xapplicationList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xanalyzeType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "分析类型,default,full,customized"
+        },
+        {
+          "name": "xmaxResult",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "最大输出值"
+        },
+        {
+          "name": "xinValueCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "输入数量"
+        },
+        {
+          "name": "xoutValueCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "输出数量"
+        },
+        {
+          "name": "propertyMap",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "神经网络参数.",
+          "containerTableProperty": {
+            "name": "QRY_NRL_MODEL_propertyMap",
+            "containerTableColumnProperty": [
+              {
+                "name": "Model_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xpropertyMap",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xstartDate",
+          "type": "DATE",
+          "length": "255",
+          "remark": "开始时间"
+        },
+        {
+          "name": "xendDate",
+          "type": "DATE",
+          "length": "255",
+          "remark": "开始时间"
+        },
+        {
+          "name": "xentryCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "条目数量"
+        },
+        {
+          "name": "xeffectiveEntryCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "有效条目数量"
+        },
+        {
+          "name": "xstatus",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "状态,generating or learning"
+        },
+        {
+          "name": "xnnet",
+          "type": "Lob",
+          "length": "104857600",
+          "remark": "方案二进制代码"
+        },
+        {
+          "name": "xintermediateNnet",
+          "type": "Lob",
+          "length": "104857600",
+          "remark": "方案二进制代码"
+        },
+        {
+          "name": "xgeneratingPercent",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "当前条目生成进度"
+        },
+        {
+          "name": "xtotalError",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "学习总错误,当前均方误差"
+        },
+        {
+          "name": "xlearnEntryCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "学习条目数量"
+        },
+        {
+          "name": "xvalidationEntryCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "测试条目数量"
+        },
+        {
+          "name": "xvalidationMeanSquareError",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "测试结果"
+        }
+      ]
+    },
+    {
+      "moduleName": "OutText",
+      "tableName": "QRY_NRL_OUTTEXT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xtext",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "值"
+        },
+        {
+          "name": "xmodel",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "模型"
+        },
+        {
+          "name": "xserial",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "编号"
+        },
+        {
+          "name": "xcount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "数量"
+        }
+      ]
+    },
+    {
+      "moduleName": "OutValue",
+      "tableName": "QRY_NRL_OUTVALUE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xtext",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "值"
+        },
+        {
+          "name": "xmodel",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "模型"
+        },
+        {
+          "name": "xserial",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "编号"
+        },
+        {
+          "name": "xcount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "数量"
+        }
+      ]
+    },
+    {
+      "moduleName": "ExternalConnection",
+      "tableName": "QRY_SCH_EXTERNALCONNECTION",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xenable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否启用."
+        },
+        {
+          "name": "xurl",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xuser",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "数据库jdbc连接用户名."
+        },
+        {
+          "name": "xpass",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "数据库jdbc连接密码."
+        },
+        {
+          "name": "xdriverClassName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "数据库驱动类名."
+        },
+        {
+          "name": "xschema",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "模式."
+        }
+      ]
+    },
+    {
+      "moduleName": "Statement",
+      "tableName": "QRY_SCH_STATEMENT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "语句名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "别名."
+        },
+        {
+          "name": "xformat",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "格式,jpql或者script."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xquery",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属查询."
+        },
+        {
+          "name": "xfv",
+          "type": "FLOAT",
+          "length": "255",
+          "remark": "功能版本号."
+        },
+        {
+          "name": "executePersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可执行的用户.",
+          "containerTableProperty": {
+            "name": "QRY_SCH_STATEMENT_executePersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Statement_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xexecutePersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "executeUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可以访问的组织.",
+          "containerTableProperty": {
+            "name": "QRY_SCH_STATEMENT_executeUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Statement_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xexecuteUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "executeGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可以访问的群组.",
+          "containerTableProperty": {
+            "name": "QRY_SCH_STATEMENT_executeGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Statement_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xexecuteGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "32768",
+          "remark": "jpql语句."
+        },
+        {
+          "name": "xscriptText",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "类型为script的执行脚本."
+        },
+        {
+          "name": "xcountData",
+          "type": "Lob",
+          "length": "32768",
+          "remark": "jpql语句，用于查询总数."
+        },
+        {
+          "name": "xcountScriptText",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "类型为script的执行脚本，用于查询总数."
+        },
+        {
+          "name": "xsql",
+          "type": "Lob",
+          "length": "32768",
+          "remark": "sql语句."
+        },
+        {
+          "name": "xsqlScriptText",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "sqlScript的执行脚本."
+        },
+        {
+          "name": "xsqlCount",
+          "type": "Lob",
+          "length": "32768",
+          "remark": "sql总数统计语句."
+        },
+        {
+          "name": "xsqlCountScriptText",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "sql总数统计语句脚本."
+        },
+        {
+          "name": "xview",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "展现视图."
+        },
+        {
+          "name": "xcreatorPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建者"
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后修改时间"
+        },
+        {
+          "name": "xlastUpdatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后修改者"
+        },
+        {
+          "name": "xtable",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "执行的表"
+        },
+        {
+          "name": "xentityClassName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "custom,official时使用的类名."
+        },
+        {
+          "name": "xentityCategory",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "表类型,official,dynamic,custom"
+        },
+        {
+          "name": "xtestParameters",
+          "type": "Lob",
+          "length": "4096",
+          "remark": "测试参数（json格式文本）."
+        },
+        {
+          "name": "xanonymousAccessible",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否允许匿名访问（boolean类型）"
+        },
+        {
+          "name": "xdisplay",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否前端可见."
+        },
+        {
+          "name": "xviewEnable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否允许作为视图嵌入到表单."
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,为空在最后"
+        },
+        {
+          "name": "xcountMethod",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "数量总计方法,ignore:忽略,auto:自动,assign:指定."
+        }
+      ]
+    },
+    {
+      "moduleName": "Table",
+      "tableName": "QRY_SCH_TABLE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xquery",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属查询."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "表名,最大64个字符."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "别名."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "readPersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可以访问数据的用户.",
+          "containerTableProperty": {
+            "name": "QRY_SCH_TABLE_readPersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Table_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xreadPersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "readUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可以访问数据的组织.",
+          "containerTableProperty": {
+            "name": "QRY_SCH_TABLE_readUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Table_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xreadUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "readGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可以访问数据的群组.",
+          "containerTableProperty": {
+            "name": "QRY_SCH_TABLE_readGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Table_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xreadGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "editPersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可以修改数据的用户.",
+          "containerTableProperty": {
+            "name": "QRY_SCH_TABLE_editPersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Table_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xeditPersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "editUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可以修改数据的组织.",
+          "containerTableProperty": {
+            "name": "QRY_SCH_TABLE_editUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Table_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xeditUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "editGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可以修改数据的群组.",
+          "containerTableProperty": {
+            "name": "QRY_SCH_TABLE_editGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Table_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xeditGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xcreatorPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "表的创建者"
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "表的最后修改时间"
+        },
+        {
+          "name": "xlastUpdatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "表的最后修改者"
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "表结构方案."
+        },
+        {
+          "name": "xdraftData",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "草稿表结构方案."
+        },
+        {
+          "name": "xstatus",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "状态"
+        },
+        {
+          "name": "xbuildSuccess",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否编译成功."
+        },
+        {
+          "name": "xdisplay",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否前端可见."
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,为空在最后"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "x_calendar_core_entity": "x_calendar_core_entity.json",
+  "x_meeting_core_entity": "x_meeting_core_entity.json",
+  "x_mind_core_entity": "x_mind_core_entity.json",
+  "x_query_core_entity": "x_query_core_entity.json",
+  "x_component_core_entity": "x_component_core_entity.json",
+  "x_jpush_core_entity": "x_jpush_core_entity.json",
+  "x_hotpic_core_entity": "x_hotpic_core_entity.json",
+  "x_ai_core_entity": "x_ai_core_entity.json",
+  "x_attendance_core_entity": "x_attendance_core_entity.json",
+  "x_program_center_core_entity": "x_program_center_core_entity.json",
+  "x_portal_core_entity": "x_portal_core_entity.json",
+  "x_correlation_core_entity": "x_correlation_core_entity.json",
+  "x_general_core_entity": "x_general_core_entity.json",
+  "x_processplatform_core_entity": "x_processplatform_core_entity.json",
+  "x_bbs_core_entity": "x_bbs_core_entity.json",
+  "x_file_core_entity": "x_file_core_entity.json",
+  "x_organization_core_entity": "x_organization_core_entity.json",
+  "x_message_core_entity": "x_message_core_entity.json",
+  "x_cms_core_entity": "x_cms_core_entity.json"
+}

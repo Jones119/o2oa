@@ -115,6 +115,7 @@ public class InitServerTools extends JettySeverTools {
 	public static WebAppContext webContext() throws Exception {
 		Path dir = Config.path_servers_initServer_work(true).resolve(x_program_init.class.getSimpleName());
 		WebAppContext webApp = new WebAppContext();
+		disableQuickStart(webApp);
 		webApp.setDisplayName(x_program_init.class.getSimpleName());
 		webApp.setContextPath("/");
 		ResourceFactory resourceFactory = ResourceFactory.of(webApp);

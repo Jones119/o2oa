@@ -1,0 +1,544 @@
+{
+  "tables": [
+    {
+      "moduleName": "IMConversation",
+      "tableName": "MSG_IM_CONVERSATION",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "会话类型 单人 、 群."
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "会话标题 人名、群名"
+        },
+        {
+          "name": "personList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "会话对象、群成员.",
+          "containerTableProperty": {
+            "name": "MSG_IM_CONVERSATION_personList",
+            "containerTableColumnProperty": [
+              {
+                "name": "IMConversation_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xpersonList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xadminPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "管理员，群会话需要管理员"
+        },
+        {
+          "name": "xnote",
+          "type": "VARCHAR",
+          "length": "2048",
+          "remark": "群公告"
+        },
+        {
+          "name": "xlastMessageTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "会话最后一条消息时间"
+        },
+        {
+          "name": "xbusinessId",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "业务对象Id. （流程的jobId）"
+        },
+        {
+          "name": "xbusinessBody",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "业务对象内容."
+        },
+        {
+          "name": "xbusinessType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "业务类型. process"
+        },
+        {
+          "name": "xgroupIcon",
+          "type": "Lob",
+          "length": "131072",
+          "remark": "群聊头像."
+        }
+      ]
+    },
+    {
+      "moduleName": "IMConversationExt",
+      "tableName": "MSG_IM_CONVERSATION_EXT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xconversationId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "会话id， 关联的会话."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "所属人员"
+        },
+        {
+          "name": "xisTop",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否置顶."
+        },
+        {
+          "name": "xlastReadTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后阅读时间"
+        },
+        {
+          "name": "xlastDeleteTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "当前用户把会话删除的时间"
+        },
+        {
+          "name": "xisDeleted",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否删除，个人删除后不显示到会话列表，如果会话中有新的聊天消息会重置为true."
+        }
+      ]
+    },
+    {
+      "moduleName": "IMMsg",
+      "tableName": "MSG_IM_MESSAGE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xconversationId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "会话id， 关联的会话."
+        },
+        {
+          "name": "xbody",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "消息内容."
+        },
+        {
+          "name": "xbodyFileId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "消息内容如果是有 fileId 的填入这个字段."
+        },
+        {
+          "name": "xcreatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人，消息发送人"
+        },
+        {
+          "name": "xquoteMessageId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "引用消息id."
+        }
+      ]
+    },
+    {
+      "moduleName": "IMMsgCollection",
+      "tableName": "MSG_IM_MESSAGE_COLLECTION",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xmessageId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "消息id， 关联的消息."
+        },
+        {
+          "name": "xcreatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "消息收藏人"
+        }
+      ]
+    },
+    {
+      "moduleName": "IMMsgFile",
+      "tableName": "MSG_IM_MESSAGE_FILE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "上传用户."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件名称."
+        },
+        {
+          "name": "xstorage",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "存储器的名称,也就是多个存放节点的名字."
+        },
+        {
+          "name": "xextension",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "扩展名,必须要有扩展名的文件才允许上传."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        },
+        {
+          "name": "xdeepPath",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否使用更深的路径."
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        },
+        {
+          "name": "xconversationId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "会话id， 关联的会话."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文件分类，对应消息类型."
+        }
+      ]
+    },
+    {
+      "moduleName": "Instant",
+      "tableName": "MSG_INSTANT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "通知标题."
+        },
+        {
+          "name": "xbody",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "内容."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "消息类型."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "通知对象."
+        },
+        {
+          "name": "xconsumed",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否已经消费掉."
+        }
+      ]
+    },
+    {
+      "moduleName": "Mass",
+      "tableName": "MSG_MASS",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xcreatorPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "xbody",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "内容."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "消息类型."
+        },
+        {
+          "name": "personList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "个人对象.",
+          "containerTableProperty": {
+            "name": "MSG_MASS_personList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Mass_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xpersonList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "identityList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "身份对象.",
+          "containerTableProperty": {
+            "name": "MSG_MASS_identityList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Mass_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xidentityList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "groupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "群组对象.",
+          "containerTableProperty": {
+            "name": "MSG_MASS_groupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Mass_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xgroupList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "unitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "组织对象.",
+          "containerTableProperty": {
+            "name": "MSG_MASS_unitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Mass_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xunitList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "sendPersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "发送人员对象.",
+          "containerTableProperty": {
+            "name": "MSG_MASS_sendPersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Mass_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xsendPersonList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "moduleName": "Message",
+      "tableName": "MSG_MESSAGE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "通知标题."
+        },
+        {
+          "name": "xbody",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "内容."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "消息类型."
+        },
+        {
+          "name": "xconsumer",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "消费者."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "通知对象."
+        },
+        {
+          "name": "xconsumed",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否已经消费掉."
+        },
+        {
+          "name": "xinstant",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主体消息id."
+        },
+        {
+          "name": "xproperties",
+          "type": "com.x.message.core.entity.MessageProperties",
+          "length": "10485760",
+          "remark": "属性对象存储字段."
+        }
+      ]
+    }
+  ]
+}

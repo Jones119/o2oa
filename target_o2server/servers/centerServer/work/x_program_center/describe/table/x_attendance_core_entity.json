@@ -1,0 +1,3736 @@
+{
+  "tables": [
+    {
+      "moduleName": "AttendanceAdmin",
+      "tableName": "ATDC_ATTENDANCE_ADMIN",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xunitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "组织名称"
+        },
+        {
+          "name": "xunitOu",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "组织编号"
+        },
+        {
+          "name": "xadminName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "管理员姓名"
+        },
+        {
+          "name": "xadmin",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "管理员标识"
+        },
+        {
+          "name": "xadminLevel",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "管理级别:UNIT|TOPUNIT"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceAppealAuditInfo",
+      "tableName": "ATDC_ATTENDANCE_APPEALAUDITINFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xdetailId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "申诉的打卡记录ID."
+        },
+        {
+          "name": "xauditFlowType",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "审批方式:WORKFLOW|BUILTIN，使用自定义流程或者使用内置流程"
+        },
+        {
+          "name": "xworkId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "自定义审批流程WorkID"
+        },
+        {
+          "name": "xlastFlowSyncTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "上次进行状态同步时间"
+        },
+        {
+          "name": "xcurrentProcessor",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "当前审核人"
+        },
+        {
+          "name": "xprocessPerson1",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "审批人一"
+        },
+        {
+          "name": "xprocessPersonUnit1",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "审批人组织一"
+        },
+        {
+          "name": "xprocessPersonTopUnit1",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "审批人顶层组织一"
+        },
+        {
+          "name": "xopinion1",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "审批意见一"
+        },
+        {
+          "name": "xprocessTime1",
+          "type": "DATE",
+          "length": "255",
+          "remark": "审批日期一"
+        },
+        {
+          "name": "xprocessPerson2",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "审批人二"
+        },
+        {
+          "name": "xprocessPersonUnit2",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "审批人组织二"
+        },
+        {
+          "name": "xprocessPersonTopUnit2",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "审批人顶层组织二"
+        },
+        {
+          "name": "xopinion2",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "审批意见二"
+        },
+        {
+          "name": "xprocessTime2",
+          "type": "DATE",
+          "length": "255",
+          "remark": "审批日期二"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceAppealInfo",
+      "tableName": "ATDC_ATTENDANCE_APPEALINFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xdetailId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "申诉的打卡记录ID."
+        },
+        {
+          "name": "xempName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "申诉员工标识:distinguishedName"
+        },
+        {
+          "name": "xtopUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "员工所属顶层组织distinguishedName"
+        },
+        {
+          "name": "xunitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "员工所属组织名称distinguishedName"
+        },
+        {
+          "name": "xrecordDate",
+          "type": "DATE",
+          "length": "255",
+          "remark": "记录日期"
+        },
+        {
+          "name": "xyearString",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "申诉年份"
+        },
+        {
+          "name": "xmonthString",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "申诉月份"
+        },
+        {
+          "name": "xappealDateString",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "申诉日期字符串"
+        },
+        {
+          "name": "xrecordDateString",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "记录日期字符串"
+        },
+        {
+          "name": "xstartTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "申诉开始时间"
+        },
+        {
+          "name": "xendTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "申诉结束时间"
+        },
+        {
+          "name": "xappealReason",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "申诉原因简述（60个汉字）"
+        },
+        {
+          "name": "xselfHolidayType",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "请假类型"
+        },
+        {
+          "name": "xaddress",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "地址"
+        },
+        {
+          "name": "xreason",
+          "type": "Lob",
+          "length": "2048",
+          "remark": "申诉详细事由"
+        },
+        {
+          "name": "xappealDescription",
+          "type": "Lob",
+          "length": "2048",
+          "remark": "申诉详细说明"
+        },
+        {
+          "name": "xstatus",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "审批状态:0-待处理，1-审批通过，-1-审批不能过，2-需要下一次审批"
+        },
+        {
+          "name": "xcurrentProcessor",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "当前审核人"
+        },
+        {
+          "name": "xarchiveTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "归档时间字符串"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceDetail",
+      "tableName": "ATDC_ATTENDANCE_DETAIL",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xempNo",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "员工号"
+        },
+        {
+          "name": "xempName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "员工姓名distinguishedName"
+        },
+        {
+          "name": "xtopUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "顶层组织名称distinguishedName"
+        },
+        {
+          "name": "xunitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "组织名称distinguishedName"
+        },
+        {
+          "name": "xrecordDate",
+          "type": "DATE",
+          "length": "255",
+          "remark": "打卡记录日期"
+        },
+        {
+          "name": "xyearString",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "打卡记录年份"
+        },
+        {
+          "name": "xmonthString",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "打卡记录月份"
+        },
+        {
+          "name": "xrecordDateString",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "打卡记录日期字符串"
+        },
+        {
+          "name": "xcycleYear",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计周期年份"
+        },
+        {
+          "name": "xcycleMonth",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计周期月份"
+        },
+        {
+          "name": "xselfHolidayDayTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "请假时段:上午|下午|全天"
+        },
+        {
+          "name": "xabsentDayTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "缺勤时段:上午|下午|全天"
+        },
+        {
+          "name": "xabnormalDutyDayTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "异常打卡时段:上午|下午|全天"
+        },
+        {
+          "name": "xgetSelfHolidayDays",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "休假天数: 0|0.5|1"
+        },
+        {
+          "name": "xonWorkTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "上班时间"
+        },
+        {
+          "name": "xoffWorkTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "下班时间"
+        },
+        {
+          "name": "xmiddayRestStartTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "午休开始时间"
+        },
+        {
+          "name": "xmiddayRestEndTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "午休结束时间"
+        },
+        {
+          "name": "xonDutyTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "上班打卡签到时间"
+        },
+        {
+          "name": "xmorningOffDutyTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "上班下午打卡签退时间"
+        },
+        {
+          "name": "xafternoonOnDutyTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "下午上班打卡签到时间"
+        },
+        {
+          "name": "xoffDutyTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "下班打卡签退时间"
+        },
+        {
+          "name": "xlateTimeDuration",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "迟到时长"
+        },
+        {
+          "name": "xleaveEarlierTimeDuration",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "早退时长"
+        },
+        {
+          "name": "xworkOvertimeTimeDuration",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "加班时长"
+        },
+        {
+          "name": "xworkTimeDuration",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "出勤时长"
+        },
+        {
+          "name": "xattendance",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "出勤天数（0|0.5|1）"
+        },
+        {
+          "name": "xabsence",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "缺勤天数（0|0.5|1）"
+        },
+        {
+          "name": "xrecordStatus",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "记录状态：0-未分析 1-已分析"
+        },
+        {
+          "name": "xbatchName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "导入批次号:导入文件的ID"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "说明备注"
+        },
+        {
+          "name": "xappealStatus",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "申诉状态:0-未申诉，1-申诉中，-1-申诉未通过，9-申诉通过"
+        },
+        {
+          "name": "xappealReason",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "申诉原因"
+        },
+        {
+          "name": "xappealProcessor",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "申诉处理人"
+        },
+        {
+          "name": "xappealDescription",
+          "type": "Lob",
+          "length": "2048",
+          "remark": "申诉具体说明"
+        },
+        {
+          "name": "xisHoliday",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否法定节假日"
+        },
+        {
+          "name": "xisWorkday",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否调休工作日"
+        },
+        {
+          "name": "xisGetSelfHolidays",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否休假"
+        },
+        {
+          "name": "xleaveType",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "休假类型"
+        },
+        {
+          "name": "xisAbsent",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否缺勤"
+        },
+        {
+          "name": "xisAbnormalDuty",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否异常打卡"
+        },
+        {
+          "name": "xisLackOfTime",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否工时不足"
+        },
+        {
+          "name": "xisWorkOvertime",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否加班"
+        },
+        {
+          "name": "xisLeaveEarlier",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否早退"
+        },
+        {
+          "name": "xisLate",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否迟到"
+        },
+        {
+          "name": "xisWeekend",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否周末"
+        },
+        {
+          "name": "xarchiveTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "记录归档时间"
+        },
+        {
+          "name": "xisExternal",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否范围外打卡"
+        },
+        {
+          "name": "xrecordAddress",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "打卡地址"
+        },
+        {
+          "name": "xoptMachineType",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "设备信息"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceDetailMobile",
+      "tableName": "ATDC_ATTENDANCE_DETAIL_MOBILE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xempNo",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "员工号"
+        },
+        {
+          "name": "xempName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "员工姓名distinguishedName"
+        },
+        {
+          "name": "xrecordDateString",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "打卡记录日期字符串"
+        },
+        {
+          "name": "xrecordDate",
+          "type": "DATE",
+          "length": "255",
+          "remark": "打卡记录日期"
+        },
+        {
+          "name": "xcheckin_type",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "打卡类型。字符串，目前有：上午上班打卡，上午下班打卡，下午上班打卡，下午下班打卡，外出打卡，午间打卡"
+        },
+        {
+          "name": "xcheckin_time",
+          "type": "long",
+          "length": "255",
+          "remark": "打卡时间。Unix时间戳"
+        },
+        {
+          "name": "xsignTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "打卡时间"
+        },
+        {
+          "name": "xsignDescription",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "打卡说明"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "其他说明备注"
+        },
+        {
+          "name": "xrecordAddress",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "打卡地点描述"
+        },
+        {
+          "name": "xlongitude",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "经度"
+        },
+        {
+          "name": "xlatitude",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "纬度"
+        },
+        {
+          "name": "xoptMachineType",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "操作设备类别：手机品牌|PAD|PC|其他"
+        },
+        {
+          "name": "xoptSystemName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "操作设备类别：Mac|Windows|IOS|Android|其他"
+        },
+        {
+          "name": "xrecordStatus",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "记录状态：0-未分析 1-已分析"
+        },
+        {
+          "name": "xworkAddress",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "打卡地点描述"
+        },
+        {
+          "name": "xisExternal",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否范围外打卡"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceDingtalkDetail",
+      "tableName": "ATDC_ATTENDANCE_DINGTALK",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xddId",
+          "type": "long",
+          "length": "255",
+          "remark": "钉钉打卡结果id"
+        },
+        {
+          "name": "xuserId",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "钉钉的用户id"
+        },
+        {
+          "name": "xo2User",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "O2OA用户distinguishedName"
+        },
+        {
+          "name": "xo2Unit",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "O2OA用户所在的组织distinguishedName"
+        },
+        {
+          "name": "xbaseCheckTime",
+          "type": "long",
+          "length": "255",
+          "remark": "基准时间，用于计算迟到和早退"
+        },
+        {
+          "name": "xuserCheckTime",
+          "type": "long",
+          "length": "255",
+          "remark": "实际打卡时间,  用户打卡时间的毫秒数"
+        },
+        {
+          "name": "xuserCheckTimeDate",
+          "type": "DATE",
+          "length": "255",
+          "remark": "实际打卡时间,  用Date格式存储"
+        },
+        {
+          "name": "xworkDate",
+          "type": "long",
+          "length": "255",
+          "remark": "工作日"
+        },
+        {
+          "name": "xtimeResult",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "时间结果"
+        },
+        {
+          "name": "xcheckType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "考勤类型"
+        },
+        {
+          "name": "xlocationResult",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "位置结果"
+        },
+        {
+          "name": "xsourceType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "数据来源"
+        },
+        {
+          "name": "xgroupId",
+          "type": "long",
+          "length": "255",
+          "remark": "考勤组ID"
+        },
+        {
+          "name": "xplanId",
+          "type": "long",
+          "length": "255",
+          "remark": "排班ID"
+        },
+        {
+          "name": "xrecordId",
+          "type": "long",
+          "length": "255",
+          "remark": "打卡记录ID"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceEmployeeConfig",
+      "tableName": "ATDC_ATTENDANCE_EMPLOYEE_CONFIG",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xtopUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "顶层组织名称distinguishedName"
+        },
+        {
+          "name": "xtopUnitOu",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "顶层组织编号distinguishedName"
+        },
+        {
+          "name": "xunitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "组织名称distinguishedName"
+        },
+        {
+          "name": "xunitOu",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "组织编号"
+        },
+        {
+          "name": "xemployeeName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "员工姓名distinguishedName"
+        },
+        {
+          "name": "xemployeeNumber",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "员工号"
+        },
+        {
+          "name": "xempInTopUnitTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "员工入职时间"
+        },
+        {
+          "name": "xconfigType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "配置类型:REQUIRED（需要考勤）|NOTREQUIRED（不需要考勤）"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceImportFileInfo",
+      "tableName": "ATDC_ATTENDANCE_IMPORTFILE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        },
+        {
+          "name": "xfileName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件真实名称"
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件真实名称"
+        },
+        {
+          "name": "xfileBody",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "文件内容, 10M大约可以存储50万行Excel"
+        },
+        {
+          "name": "xdataContent",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "文件数据JSON内容, 10M大约可以存储50万行Excel"
+        },
+        {
+          "name": "xerrorContent",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "错误数据JSON内容, 10M大约可以存储50万行Excel"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件说明"
+        },
+        {
+          "name": "xcreatorUid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "创建者UID"
+        },
+        {
+          "name": "xextension",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "扩展名"
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        },
+        {
+          "name": "xrowCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "记录行数."
+        },
+        {
+          "name": "xfileStatus",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "文件状态:new|imported."
+        },
+        {
+          "name": "xtempFilePath",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "临时文件地址"
+        },
+        {
+          "name": "xcurrentProcessName",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "当前数据处理操作步骤:GETDATA|CHECKDATA|SAVEDATA|SUPPLEMENT|ANALYSIS"
+        },
+        {
+          "name": "xvalidateOk",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "数据校验结果"
+        },
+        {
+          "name": "xprocessing",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "数据操作状态"
+        },
+        {
+          "name": "xrecordTotle",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "数据总量"
+        },
+        {
+          "name": "xprocessCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "当前数据操作数量"
+        },
+        {
+          "name": "xstartDate",
+          "type": "DATE",
+          "length": "255",
+          "remark": "数据开始日期"
+        },
+        {
+          "name": "xendDate",
+          "type": "DATE",
+          "length": "255",
+          "remark": "数据结束日期"
+        },
+        {
+          "name": "xsite",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "附件框分类."
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceQywxDetail",
+      "tableName": "ATDC_ATTENDANCE_QYWX",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xo2User",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "O2用户distinguishedName"
+        },
+        {
+          "name": "xo2Unit",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "O2用户所在的组织distinguishedName"
+        },
+        {
+          "name": "xuserid",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "用户id"
+        },
+        {
+          "name": "xgroupname",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "打卡规则名称"
+        },
+        {
+          "name": "xcheckin_type",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "打卡类型。字符串，目前有：上班打卡，下班打卡，外出打卡"
+        },
+        {
+          "name": "xcheckin_time",
+          "type": "long",
+          "length": "255",
+          "remark": "打卡时间。Unix时间戳"
+        },
+        {
+          "name": "xcheckin_time_date",
+          "type": "DATE",
+          "length": "255",
+          "remark": "实际打卡时间,  用Date格式存储"
+        },
+        {
+          "name": "xexception_type",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "异常类型，字符串，包括：时间异常，地点异常，未打卡，wifi异常，非常用设备。如果有多个异常，以分号间隔"
+        },
+        {
+          "name": "xlocation_title",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "打卡地点title"
+        },
+        {
+          "name": "xlocation_detail",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "打卡地点详情"
+        },
+        {
+          "name": "xwifiname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "打卡wifi名称"
+        },
+        {
+          "name": "xnotes",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "打卡备注"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceScheduleSetting",
+      "tableName": "ATDC_ATTENDANCE_SCHEDULE_SETTING",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xtopUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "顶层组织名称distinguishedName"
+        },
+        {
+          "name": "xunitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "组织名称distinguishedName"
+        },
+        {
+          "name": "xunitOu",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "组织编号distinguishedName"
+        },
+        {
+          "name": "xonDutyTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "上午上班时间"
+        },
+        {
+          "name": "xmiddayRestStartTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "午休开始时间|上午下班时间"
+        },
+        {
+          "name": "xmiddayRestEndTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "午休结束时间|下午上班时间"
+        },
+        {
+          "name": "xoffDutyTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "下午下班时间"
+        },
+        {
+          "name": "xsignProxy",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "打卡策略：1-两次打卡（上午上班，下午下班） 2-三次打卡（上午上班，下午下班加中午一次共三次） 3-四次打卡（上午下午都打上班下班卡）"
+        },
+        {
+          "name": "xlateStartTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "上午上班迟到起算时间"
+        },
+        {
+          "name": "xlateStartTimeAfternoon",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "下午上班迟到起算时间"
+        },
+        {
+          "name": "xabsenceStartTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "缺勤起算时间：第一次打卡在什么时间算是当天缺勤"
+        },
+        {
+          "name": "xleaveEarlyStartTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "下午早退起算时间"
+        },
+        {
+          "name": "xleaveEarlyStartTimeMorning",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "上午早退起算时间"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceSelfHoliday",
+      "tableName": "ATDC_ATTENDANCE_SELFHOLIDAYS",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xtopUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "顶层组织名称"
+        },
+        {
+          "name": "xtopUnitOu",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "顶层组织编号"
+        },
+        {
+          "name": "xunitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "组织名称"
+        },
+        {
+          "name": "xunitOu",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "组织编号"
+        },
+        {
+          "name": "xemployeeName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "员工姓名：员工的标识，distinguishedName"
+        },
+        {
+          "name": "xemployeeNumber",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "员工号，如果没有员工号，可以使用员工标识代替，不可为空"
+        },
+        {
+          "name": "xleaveType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "请假类型:带薪年休假|带薪病假|带薪福利假|扣薪事假|出差|培训|其他"
+        },
+        {
+          "name": "xstartTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "开始时间"
+        },
+        {
+          "name": "xendTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "结束时间"
+        },
+        {
+          "name": "xleaveDayNumber",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "请假天数"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "请假说明"
+        },
+        {
+          "name": "xbatchFlag",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "录入批次标识：可以填写流程workId，jobId, CMS的文档ID，或者自定义信息，数据保存时会先根据batchFlag做删除，然后再保存新的数据"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceSetting",
+      "tableName": "ATDC_ATTENDANCE_SETTING",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xconfigCode",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "配置编码"
+        },
+        {
+          "name": "xconfigName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "配置名称"
+        },
+        {
+          "name": "xconfigValue",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "配置内容"
+        },
+        {
+          "name": "xvalueType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "值类型: select | identity | number | date | text"
+        },
+        {
+          "name": "xselectContent",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "可选值，和select配合使用，以‘|’号分隔"
+        },
+        {
+          "name": "xisMultiple",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否可以多值"
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "备注说明"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceStatisticRequireLog",
+      "tableName": "ATDC_ATTENDANCE_STATISTIC_REQUIRELOG",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xstatisticName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "统计名称"
+        },
+        {
+          "name": "xstatisticType",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "统计类型:PERSON_PER_MONTH|UNIT_PER_MONTH|TOPUNIT_PER_MONTH|UNIT_PER_DAY|TOPUNIT_PER_DAY"
+        },
+        {
+          "name": "xstatisticKey",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "统计键值"
+        },
+        {
+          "name": "xstatisticYear",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "统计年月"
+        },
+        {
+          "name": "xstatisticMonth",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "统计月份"
+        },
+        {
+          "name": "xstatisticDay",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "统计日期"
+        },
+        {
+          "name": "xprocessTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "处理时间"
+        },
+        {
+          "name": "xprocessStatus",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "处理状态"
+        },
+        {
+          "name": "xdescription",
+          "type": "Lob",
+          "length": "2048",
+          "remark": "说明备注"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceStatisticalCycle",
+      "tableName": "ATDC_STATISTIC_CYCLE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xtopUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "顶层组织名称"
+        },
+        {
+          "name": "xunitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "组织名称"
+        },
+        {
+          "name": "xcycleYear",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计周期年份"
+        },
+        {
+          "name": "xcycleMonth",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计周期月份"
+        },
+        {
+          "name": "xcycleStartDateString",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "月周期开始日期"
+        },
+        {
+          "name": "xcycleEndDateString",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "月周期结束日期"
+        },
+        {
+          "name": "xcycleStartDate",
+          "type": "DATE",
+          "length": "255",
+          "remark": "月周期开始日期"
+        },
+        {
+          "name": "xcycleEndDate",
+          "type": "DATE",
+          "length": "255",
+          "remark": "月周期结束日期"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "说明备注"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceWorkDayConfig",
+      "tableName": "ATDC_ATTENDANCE_WORKDAYCONFIG",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xconfigName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "配置项名称"
+        },
+        {
+          "name": "xconfigYear",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "配置年份"
+        },
+        {
+          "name": "xconfigMonth",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "配置月份"
+        },
+        {
+          "name": "xconfigDate",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "配置日期"
+        },
+        {
+          "name": "xconfigType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "配置类型：Holiday|Workday"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "配置说明"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceWorkPlace",
+      "tableName": "ATDC_WORK_PLACE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xplaceName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "场所名称"
+        },
+        {
+          "name": "xplaceAlias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "场所别名"
+        },
+        {
+          "name": "xcreator",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人"
+        },
+        {
+          "name": "xlongitude",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "经度"
+        },
+        {
+          "name": "xlatitude",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "纬度"
+        },
+        {
+          "name": "xerrorRange",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "误差范围"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "说明备注"
+        }
+      ]
+    },
+    {
+      "moduleName": "DingdingQywxSyncRecord",
+      "tableName": "ATDC_DD_QYWX_RECORD",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xstartTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "同步开始时间"
+        },
+        {
+          "name": "xendTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "同步结束时间"
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "同步类型，qywx（企业微信同步） ， dingding(钉钉同步)"
+        },
+        {
+          "name": "xdateFrom",
+          "type": "long",
+          "length": "255",
+          "remark": "同步打卡记录的开始时间"
+        },
+        {
+          "name": "xdateTo",
+          "type": "long",
+          "length": "255",
+          "remark": "同步打卡记录的结束时间， 起始与结束工作日最多相隔7天"
+        },
+        {
+          "name": "xstatus",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "同步状态，loading（正在进行） ， end（结束） , error（执行异常）"
+        },
+        {
+          "name": "xexceptionMessage",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "异常信息"
+        }
+      ]
+    },
+    {
+      "moduleName": "StatisticDingdingPersonForMonth",
+      "tableName": "ATDC_STATISTIC_DD_PERSON_FORMONTH",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xo2User",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "O2用户"
+        },
+        {
+          "name": "xo2Unit",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "O2用户所在的组织"
+        },
+        {
+          "name": "xstatisticYear",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计年份"
+        },
+        {
+          "name": "xstatisticMonth",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计月份"
+        },
+        {
+          "name": "xworkDayCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "出勤天数"
+        },
+        {
+          "name": "xonDutyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "上班签到次数"
+        },
+        {
+          "name": "xoffDutyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "下班签到次数"
+        },
+        {
+          "name": "xresultNormal",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "正常签到次数"
+        },
+        {
+          "name": "xlateTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "迟到次数"
+        },
+        {
+          "name": "xseriousLateTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "严重迟到次数"
+        },
+        {
+          "name": "xleaveEarlyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "早退次数"
+        },
+        {
+          "name": "xabsenteeismTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "旷工次数"
+        },
+        {
+          "name": "xnotSignedCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "未打卡次数"
+        }
+      ]
+    },
+    {
+      "moduleName": "StatisticDingdingUnitForDay",
+      "tableName": "ATDC_STATISTIC_DD_UNIT_FORDAY",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xo2Unit",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "O2用户所在的组织"
+        },
+        {
+          "name": "xstatisticYear",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计年份"
+        },
+        {
+          "name": "xstatisticMonth",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计月份"
+        },
+        {
+          "name": "xstatisticDate",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计日期"
+        },
+        {
+          "name": "xworkDayCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "出勤人数"
+        },
+        {
+          "name": "xonDutyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "上班签到人数"
+        },
+        {
+          "name": "xoffDutyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "下班签到人数"
+        },
+        {
+          "name": "xresultNormal",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "正常签到次数"
+        },
+        {
+          "name": "xlateTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "迟到人数"
+        },
+        {
+          "name": "xseriousLateTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "严重迟到人数"
+        },
+        {
+          "name": "xleaveEarlyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "早退人数"
+        },
+        {
+          "name": "xabsenteeismTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "旷工人数"
+        },
+        {
+          "name": "xnotSignedCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "未打卡人数"
+        }
+      ]
+    },
+    {
+      "moduleName": "StatisticDingdingUnitForMonth",
+      "tableName": "ATDC_STATISTIC_DD_UNIT_FORMONTH",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xo2Unit",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "O2用户所在的组织"
+        },
+        {
+          "name": "xstatisticYear",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计年份"
+        },
+        {
+          "name": "xstatisticMonth",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计月份"
+        },
+        {
+          "name": "xworkDayCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "出勤天数"
+        },
+        {
+          "name": "xonDutyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "上班签到人数"
+        },
+        {
+          "name": "xoffDutyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "下班签到人数"
+        },
+        {
+          "name": "xresultNormal",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "正常签到次数"
+        },
+        {
+          "name": "xlateTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "迟到人数"
+        },
+        {
+          "name": "xseriousLateTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "严重迟到人数"
+        },
+        {
+          "name": "xleaveEarlyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "早退人数"
+        },
+        {
+          "name": "xabsenteeismTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "旷工人数"
+        },
+        {
+          "name": "xnotSignedCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "未打卡人数"
+        }
+      ]
+    },
+    {
+      "moduleName": "StatisticPersonForMonth",
+      "tableName": "ATDC_STATISTIC_PERSON_FORMONTH",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xemployeeName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "员工姓名"
+        },
+        {
+          "name": "xunitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "组织名称"
+        },
+        {
+          "name": "xtopUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "顶层组织名称"
+        },
+        {
+          "name": "xstatisticYear",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计年份"
+        },
+        {
+          "name": "xstatisticMonth",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计月份"
+        },
+        {
+          "name": "xworkDayCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "应出勤天数"
+        },
+        {
+          "name": "xonDutyDayCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "实际出勤天数"
+        },
+        {
+          "name": "xabsenceDayCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "缺勤天数"
+        },
+        {
+          "name": "xonSelfHolidayCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "休假天数"
+        },
+        {
+          "name": "xonDutyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "签到次数"
+        },
+        {
+          "name": "xoffDutyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "签退次数"
+        },
+        {
+          "name": "xlateTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "迟到次数"
+        },
+        {
+          "name": "xleaveEarlyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "早退次数"
+        },
+        {
+          "name": "xlackOfTimeCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "工时不足次数"
+        },
+        {
+          "name": "xabNormalDutyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "异常打卡人数"
+        }
+      ]
+    },
+    {
+      "moduleName": "StatisticQywxPersonForMonth",
+      "tableName": "ATDC_STATISTIC_QYWX_PERSON_FORMONTH",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xo2User",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "O2用户"
+        },
+        {
+          "name": "xo2Unit",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "O2用户所在的组织"
+        },
+        {
+          "name": "xstatisticYear",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计年份"
+        },
+        {
+          "name": "xstatisticMonth",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计月份"
+        },
+        {
+          "name": "xworkDayCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "出勤天数"
+        },
+        {
+          "name": "xonDutyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "上班签到次数"
+        },
+        {
+          "name": "xoffDutyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "下班签到次数"
+        },
+        {
+          "name": "xoutsideDutyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "外出签到次数"
+        },
+        {
+          "name": "xresultNormal",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "正常签到次数"
+        },
+        {
+          "name": "xlateTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "迟到次数"
+        },
+        {
+          "name": "xleaveEarlyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "早退次数"
+        },
+        {
+          "name": "xabsenteeismTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "旷工次数"
+        },
+        {
+          "name": "xnotSignedCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "未打卡次数"
+        }
+      ]
+    },
+    {
+      "moduleName": "StatisticQywxUnitForDay",
+      "tableName": "ATDC_STATISTIC_QYWX_UNIT_FORDAY",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xo2Unit",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "O2用户所在的组织"
+        },
+        {
+          "name": "xstatisticYear",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计年份"
+        },
+        {
+          "name": "xstatisticMonth",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计月份"
+        },
+        {
+          "name": "xstatisticDate",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计日期"
+        },
+        {
+          "name": "xworkDayCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "出勤天数"
+        },
+        {
+          "name": "xonDutyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "上班签到次数"
+        },
+        {
+          "name": "xoffDutyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "下班签到次数"
+        },
+        {
+          "name": "xoutsideDutyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "外出签到次数"
+        },
+        {
+          "name": "xresultNormal",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "正常签到次数"
+        },
+        {
+          "name": "xlateTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "迟到次数"
+        },
+        {
+          "name": "xleaveEarlyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "早退次数"
+        },
+        {
+          "name": "xabsenteeismTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "旷工次数"
+        },
+        {
+          "name": "xnotSignedCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "未打卡次数"
+        }
+      ]
+    },
+    {
+      "moduleName": "StatisticQywxUnitForMonth",
+      "tableName": "ATDC_STATISTIC_QYWX_UNIT_FORMONTH",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xo2Unit",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "O2用户所在的组织"
+        },
+        {
+          "name": "xstatisticYear",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计年份"
+        },
+        {
+          "name": "xstatisticMonth",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计月份"
+        },
+        {
+          "name": "xworkDayCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "出勤天数"
+        },
+        {
+          "name": "xonDutyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "上班签到次数"
+        },
+        {
+          "name": "xoffDutyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "下班签到次数"
+        },
+        {
+          "name": "xoutsideDutyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "外出签到次数"
+        },
+        {
+          "name": "xresultNormal",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "正常签到次数"
+        },
+        {
+          "name": "xlateTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "迟到次数"
+        },
+        {
+          "name": "xleaveEarlyTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "早退次数"
+        },
+        {
+          "name": "xabsenteeismTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "旷工次数"
+        },
+        {
+          "name": "xnotSignedCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "未打卡次数"
+        }
+      ]
+    },
+    {
+      "moduleName": "StatisticTopUnitForDay",
+      "tableName": "ATDC_STATISTIC_TOPUNIT_FORDAY",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xtopUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "顶层组织名称"
+        },
+        {
+          "name": "xstatisticYear",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计年份"
+        },
+        {
+          "name": "xstatisticMonth",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计月份"
+        },
+        {
+          "name": "xstatisticDate",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计日期"
+        },
+        {
+          "name": "xemployeeCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "应出勤人数"
+        },
+        {
+          "name": "xonDutyEmployeeCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "实际出勤人数"
+        },
+        {
+          "name": "xabsenceDayCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "缺勤人数"
+        },
+        {
+          "name": "xonSelfHolidayEmployeeCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "休假人数"
+        },
+        {
+          "name": "xonDutyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "签到人数"
+        },
+        {
+          "name": "xoffDutyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "签退人数"
+        },
+        {
+          "name": "xlateCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "迟到人数"
+        },
+        {
+          "name": "xleaveEarlyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "早退人数"
+        },
+        {
+          "name": "xlackOfTimeCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "工时不足人数"
+        },
+        {
+          "name": "xabNormalDutyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "异常打卡人数"
+        }
+      ]
+    },
+    {
+      "moduleName": "StatisticTopUnitForMonth",
+      "tableName": "ATDC_STATISTIC_TOPUNIT_FORMONTH",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xtopUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "顶层组织名称"
+        },
+        {
+          "name": "xstatisticYear",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计年份"
+        },
+        {
+          "name": "xstatisticMonth",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计月份"
+        },
+        {
+          "name": "xemployeeCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "应出勤人天数"
+        },
+        {
+          "name": "xonDutyEmployeeCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "实际出勤人天数"
+        },
+        {
+          "name": "xabsenceDayCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "缺勤人天数"
+        },
+        {
+          "name": "xonSelfHolidayCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "休假人天数"
+        },
+        {
+          "name": "xonDutyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "签到人数"
+        },
+        {
+          "name": "xoffDutyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "签退人数"
+        },
+        {
+          "name": "xlateCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "迟到人数"
+        },
+        {
+          "name": "xleaveEarlyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "早退人数"
+        },
+        {
+          "name": "xlackOfTimeCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "工时不足人次"
+        },
+        {
+          "name": "xabNormalDutyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "异常打卡人次"
+        }
+      ]
+    },
+    {
+      "moduleName": "StatisticUnitForDay",
+      "tableName": "ATDC_STATISTIC_UNIT_FORDAY",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xunitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "组织名称"
+        },
+        {
+          "name": "xtopUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "顶层组织名称"
+        },
+        {
+          "name": "xstatisticYear",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计年份"
+        },
+        {
+          "name": "xstatisticMonth",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计月份"
+        },
+        {
+          "name": "xstatisticDate",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计日期"
+        },
+        {
+          "name": "xemployeeCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "应出勤人数"
+        },
+        {
+          "name": "xonDutyEmployeeCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "实际出勤人数"
+        },
+        {
+          "name": "xabsenceDayCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "缺勤人数"
+        },
+        {
+          "name": "xonSelfHolidayEmployeeCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "休假人数"
+        },
+        {
+          "name": "xonDutyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "签到人数"
+        },
+        {
+          "name": "xoffDutyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "签退人数"
+        },
+        {
+          "name": "xlateCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "迟到人数"
+        },
+        {
+          "name": "xleaveEarlyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "早退人数"
+        },
+        {
+          "name": "xlackOfTimeCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "工时不足人数"
+        },
+        {
+          "name": "xabNormalDutyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "异常打卡人数"
+        }
+      ]
+    },
+    {
+      "moduleName": "StatisticUnitForMonth",
+      "tableName": "ATDC_STATISTIC_UNIT_FORMONTH",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xunitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "组织名称"
+        },
+        {
+          "name": "xtopUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "顶层组织名称"
+        },
+        {
+          "name": "xstatisticYear",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计年份"
+        },
+        {
+          "name": "xstatisticMonth",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "统计月份"
+        },
+        {
+          "name": "xemployeeCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "应出勤人数"
+        },
+        {
+          "name": "xonDutyEmployeeCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "实际出勤人数"
+        },
+        {
+          "name": "xabsenceDayCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "缺勤人天数"
+        },
+        {
+          "name": "xonSelfHolidayCount",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "休假人天数"
+        },
+        {
+          "name": "xonDutyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "签到人数"
+        },
+        {
+          "name": "xoffDutyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "签退人数"
+        },
+        {
+          "name": "xlateCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "迟到人数"
+        },
+        {
+          "name": "xleaveEarlyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "早退人数"
+        },
+        {
+          "name": "xlackOfTimeCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "工时不足人次"
+        },
+        {
+          "name": "xabNormalDutyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "异常打卡人数"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceV2AlertMessage",
+      "tableName": "ATTEND_V2_ALERT_MESSAGE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xuserId",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "用户标识"
+        },
+        {
+          "name": "xsendDateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "消息发送时间."
+        },
+        {
+          "name": "xcheckInType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "考勤类型: OnDuty|OffDuty"
+        },
+        {
+          "name": "xsendStatus",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否已经发送消息"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceV2AppealInfo",
+      "tableName": "ATTEND_V2_APPEAL_INFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xrecordId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "申诉的打卡考勤记录ID."
+        },
+        {
+          "name": "xuserId",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "用户标识"
+        },
+        {
+          "name": "xrecordDateString",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "打卡记录日期，yyyy-MM-dd，来自申诉的打卡考勤记录."
+        },
+        {
+          "name": "xrecordDate",
+          "type": "DATE",
+          "length": "255",
+          "remark": "打卡记录时间，来自申诉的打卡考勤记录."
+        },
+        {
+          "name": "xstartTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "申诉开始时间"
+        },
+        {
+          "name": "xendTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "申诉结束时间"
+        },
+        {
+          "name": "xreason",
+          "type": "Lob",
+          "length": "2048",
+          "remark": "申诉详细，申诉流程结束后写入."
+        },
+        {
+          "name": "xstatus",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "申诉状态:0-待处理，1-审批中（已发起流程），2-审批通过，3-审批不通过, 4-管理员处理"
+        },
+        {
+          "name": "xjobId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "流程的jobId，申诉流程结束后写入."
+        },
+        {
+          "name": "xupdateStatusAdminPerson",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "管理员标识，最后操作人"
+        },
+        {
+          "name": "xsendStatus",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否已经发送消息"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceV2CheckInRecord",
+      "tableName": "ATTEND_V2_CHECKIN_RECORD",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xuserId",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "打卡的用户标识DN"
+        },
+        {
+          "name": "xrecordDateString",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "打卡记录日期字符串: YYYY-MM-dd"
+        },
+        {
+          "name": "xrecordDate",
+          "type": "DATE",
+          "length": "255",
+          "remark": "打卡记录时间: YYYY-MM-dd HH:mm:ss"
+        },
+        {
+          "name": "xpreDutyTime",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "打卡时间"
+        },
+        {
+          "name": "xpreDutyTimeBeforeLimit",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "打卡时间前限制打卡时间"
+        },
+        {
+          "name": "xpreDutyTimeAfterLimit",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "打卡时间后限制打卡时间"
+        },
+        {
+          "name": "xsourceType",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "打卡数据来源：USER_CHECK|AUTO_CHECK|FAST_CHECK|SYSTEM_IMPORT"
+        },
+        {
+          "name": "xcheckInResult",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "打卡结果: Normal|Early|Late|SeriousLate|NotSigned"
+        },
+        {
+          "name": "xcheckInType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "考勤类型: OnDuty|OffDuty"
+        },
+        {
+          "name": "xsourceDevice",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "来源设备"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "其他说明备注"
+        },
+        {
+          "name": "xrecordAddress",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "打卡地点描述"
+        },
+        {
+          "name": "xlongitude",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "经度"
+        },
+        {
+          "name": "xlatitude",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "纬度"
+        },
+        {
+          "name": "xsignDescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "外勤打卡说明"
+        },
+        {
+          "name": "xfieldWork",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否外勤打卡."
+        },
+        {
+          "name": "xgroupId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "对应的考勤组id."
+        },
+        {
+          "name": "xgroupName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "考勤组名称"
+        },
+        {
+          "name": "xgroupCheckType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "考勤组的考勤类型，自由工时的时候打卡处理方式不同，不需要打卡时间"
+        },
+        {
+          "name": "xshiftId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "对应的班次id."
+        },
+        {
+          "name": "xshiftName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "班次名称"
+        },
+        {
+          "name": "xworkPlaceId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "对应的工作场所id."
+        },
+        {
+          "name": "xplaceName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "场所名称"
+        },
+        {
+          "name": "xoffDutyNextDay",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否次日"
+        },
+        {
+          "name": "xappealId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "考勤申诉信息记录ID(申诉成功后记录)."
+        },
+        {
+          "name": "xleaveDataId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "请假数据id，关联请假数据，如果有值表示在请假时间段内."
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceV2Config",
+      "tableName": "ATTEND_V2_CONFIG",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xappealEnable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否开启补卡申诉功能"
+        },
+        {
+          "name": "xappealMaxTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "每个月最多申诉次数，0不限制"
+        },
+        {
+          "name": "xprocessId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自定义流程id"
+        },
+        {
+          "name": "xprocessName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自定义流程名称"
+        },
+        {
+          "name": "xonDutyFastCheckInEnable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "上班极速打卡，app端有效"
+        },
+        {
+          "name": "xoffDutyFastCheckInEnable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "下班极速打卡，app端有效"
+        },
+        {
+          "name": "xcheckInAlertEnable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "打卡提醒，上班前，下班后会收到提醒，不要忘记打卡."
+        },
+        {
+          "name": "xexceptionAlertEnable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "异常打卡提醒，次日将收到异常打卡提醒."
+        },
+        {
+          "name": "xexceptionAlertTime",
+          "type": "VARCHAR",
+          "length": "8",
+          "remark": "异常打卡提醒时间：HH:mm"
+        },
+        {
+          "name": "xexceptionAlertDate",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "异常打卡定时执行日期：yyyy-MM-dd ."
+        },
+        {
+          "name": "xdetailStatisticCronString",
+          "type": "VARCHAR",
+          "length": "1024",
+          "remark": "统计定时任务表达式 ."
+        },
+        {
+          "name": "xcloseOldAttendance",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "关闭旧版考勤，移动端旧版打卡界面会有提示."
+        },
+        {
+          "name": "xfaceDetectionEnable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否启用人脸比对."
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceV2Detail",
+      "tableName": "ATTEND_V2_DETAIL",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xuserId",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "用户标识"
+        },
+        {
+          "name": "xyearString",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "记录年份"
+        },
+        {
+          "name": "xmonthString",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "记录月份"
+        },
+        {
+          "name": "xrecordDateString",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "记录日期"
+        },
+        {
+          "name": "xrecordDay",
+          "type": "VARCHAR",
+          "length": "4",
+          "remark": "记录日期的周几，0-6"
+        },
+        {
+          "name": "xworkDay",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否工作日"
+        },
+        {
+          "name": "xlateTimeDuration",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "迟到时长(分钟)"
+        },
+        {
+          "name": "xleaveEarlierTimeDuration",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "早退时长(分钟)"
+        },
+        {
+          "name": "xworkTimeDuration",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "工作时长(分钟)"
+        },
+        {
+          "name": "xattendance",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "出勤天数"
+        },
+        {
+          "name": "xrest",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "休息天数"
+        },
+        {
+          "name": "xabsenteeismDays",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "旷工天数"
+        },
+        {
+          "name": "xleaveDays",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "请假天数"
+        },
+        {
+          "name": "xlateTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "迟到次数"
+        },
+        {
+          "name": "xleaveEarlierTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "早退次数"
+        },
+        {
+          "name": "xonDutyAbsenceTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "上班缺卡次数"
+        },
+        {
+          "name": "xoffDutyAbsenceTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "下班缺卡次数"
+        },
+        {
+          "name": "xfieldWorkTimes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "外勤打卡次数"
+        },
+        {
+          "name": "recordIdList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "考勤记录id列表",
+          "containerTableProperty": {
+            "name": "ATTEND_V2_DETAIL_recordIdList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AttendanceV2Detail_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xrecordIdList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xgroupId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "考勤组id."
+        },
+        {
+          "name": "xgroupName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "考勤组名称"
+        },
+        {
+          "name": "xshiftId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "班次id."
+        },
+        {
+          "name": "xshiftName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "班次名称，休息日"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceV2Group",
+      "tableName": "ATTEND_V2_GROUP",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xgroupName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "考勤组名称"
+        },
+        {
+          "name": "xcheckType",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "打卡类型 "
+        },
+        {
+          "name": "xshiftId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "节假日调班的工作班次id."
+        },
+        {
+          "name": "xoperator",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后操作人"
+        },
+        {
+          "name": "xstatus",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "考勤组数据状态."
+        },
+        {
+          "name": "assistAdminList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "协助管理员.",
+          "containerTableProperty": {
+            "name": "ATTEND_V2_GROUP_assistAdminList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AttendanceV2Group_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xassistAdminList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "participateList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "考勤打卡人员、组织.",
+          "containerTableProperty": {
+            "name": "ATTEND_V2_GROUP_participateList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AttendanceV2Group_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xparticipateList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "unParticipateList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "无需考勤打卡的人员.",
+          "containerTableProperty": {
+            "name": "ATTEND_V2_GROUP_unParticipateList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AttendanceV2Group_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xunParticipateList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "trueParticipantList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "真实的考勤打卡的人员列表，participateList和unParticipateList组合计算的结果.",
+          "containerTableProperty": {
+            "name": "ATTEND_V2_GROUP_trueParticipantList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AttendanceV2Group_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xtrueParticipantList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xworkDateList",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "考勤工作日设置.打卡类型为 自由打卡 的时候需要配置，如 1,2,3,4,5 。 0-6代表周日到周六."
+        },
+        {
+          "name": "xworkDateProperties",
+          "type": "com.x.attendance.entity.v2.AttendanceV2GroupWorkDayProperties",
+          "length": "10485760",
+          "remark": "考勤工作日设置. 打卡类型为 固定班制 的时候需要配置，可以为每个打卡日配置班次"
+        },
+        {
+          "name": "xallowFieldWork",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否允许外勤打卡."
+        },
+        {
+          "name": "xrequiredFieldWorkRemarks",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "外勤打卡备注是否必填."
+        },
+        {
+          "name": "xfieldWorkMarkError",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "外勤打卡是否作为异常数据处理."
+        },
+        {
+          "name": "workPlaceIdList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "工作场所列表.",
+          "containerTableProperty": {
+            "name": "ATTEND_V2_GROUP_workPlaceIdList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AttendanceV2Group_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xworkPlaceIdList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "requiredCheckInDateList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "必须打卡的日期，包含日期 ｜ 班次id ｜ 是否循环，如 2023-01-01|shiftId|week.",
+          "containerTableProperty": {
+            "name": "ATTEND_V2_GROUP_requiredCheckInDateList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AttendanceV2Group_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xrequiredCheckInDateList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "noNeedCheckInDateList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "无需打卡的日期，包含日期 ｜ 是否循环 如 2023-01-01|week .",
+          "containerTableProperty": {
+            "name": "ATTEND_V2_GROUP_noNeedCheckInDateList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AttendanceV2Group_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xnoNeedCheckInDateList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceV2GroupSchedule",
+      "tableName": "ATTEND_V2_GROUP_SCHEDULE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xgroupId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "考勤组id."
+        },
+        {
+          "name": "xuserId",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "排班用户标识DN"
+        },
+        {
+          "name": "xscheduleMonthString",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "排班月份: YYYY-MM"
+        },
+        {
+          "name": "xscheduleDateString",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "排班日期: YYYY-MM-dd"
+        },
+        {
+          "name": "xshiftId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "当天绑定的班次id, 为空就是休息."
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceV2GroupScheduleConfig",
+      "tableName": "ATTEND_V2_GROUP_SCHEDULE_CONFIG",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xgroupId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "考勤组id."
+        },
+        {
+          "name": "xscheduleConfigJson",
+          "type": "Lob",
+          "length": "131072",
+          "remark": "配置 json 字符串"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceV2LeaveData",
+      "tableName": "ATTEND_V2_LEAVE_DATA",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "用户标识"
+        },
+        {
+          "name": "xleaveType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "请假类型:带薪年休假|带薪病假|带薪福利假|扣薪事假|出差|培训|其他"
+        },
+        {
+          "name": "xstartTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "开始时间：yyyy-MM-dd HH:mm:ss"
+        },
+        {
+          "name": "xendTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "结束时间：yyyy-MM-dd HH:mm:ss"
+        },
+        {
+          "name": "xleaveDayNumber",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "请假天数"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "请假说明"
+        },
+        {
+          "name": "xjobId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "流程的jobId，申诉流程结束后写入."
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceV2PersonConfig",
+      "tableName": "ATTEND_V2_CONFIG_PERSON",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "人员DN"
+        },
+        {
+          "name": "xonDutyFastCheckInEnable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "上班极速打卡，app端有效"
+        },
+        {
+          "name": "xonDutyFastCheckInBegin",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "上班极速打卡开始，上班打卡前几分钟，默认上班时间前1小时，app端有效"
+        },
+        {
+          "name": "xonDutyFastCheckInEnd",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "上班极速打卡结束，上班打卡后几分钟，默认到上班时间，app端有效"
+        },
+        {
+          "name": "xoffDutyFastCheckInEnable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "下班极速打卡，app端有效"
+        },
+        {
+          "name": "xoffDutyFastCheckInBegin",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "下班极速打卡开始，下班后几分钟，默认下班时间，app端有效"
+        },
+        {
+          "name": "xoffDutyFastCheckInEnd",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "下班极速打卡结束，下班后几分钟，默认到下班后1小时，app端有效"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceV2Shift",
+      "tableName": "ATTEND_V2_SHIFT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xshiftName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "班次名称"
+        },
+        {
+          "name": "xoperator",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后操作人"
+        },
+        {
+          "name": "xproperties",
+          "type": "com.x.attendance.entity.v2.AttendanceV2ShiftCheckTimeProperties",
+          "length": "10485760",
+          "remark": "班次上下班打卡时间."
+        },
+        {
+          "name": "xworkTime",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "工作时长分钟数."
+        },
+        {
+          "name": "xneedLimitWorkTime",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "工作时长不足是否记为早退."
+        },
+        {
+          "name": "xseriousTardinessLateMinutes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "严重迟到分钟数."
+        },
+        {
+          "name": "xabsenteeismLateMinutes",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "旷工迟到分钟数."
+        },
+        {
+          "name": "xlateAndEarlyOnTime",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "上班最多可晚时间"
+        },
+        {
+          "name": "xlateAndEarlyOffTime",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "下班最多可早走时间"
+        }
+      ]
+    },
+    {
+      "moduleName": "AttendanceV2WorkPlace",
+      "tableName": "ATTEND_V2_WORK_PLACE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xplaceName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "场所名称"
+        },
+        {
+          "name": "xplaceAlias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "场所别名"
+        },
+        {
+          "name": "xcreator",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人"
+        },
+        {
+          "name": "xpositionType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "坐标类型，百度、高德"
+        },
+        {
+          "name": "xlongitude",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "经度"
+        },
+        {
+          "name": "xlatitude",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "纬度"
+        },
+        {
+          "name": "xgpsLng",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "经度, gps"
+        },
+        {
+          "name": "xgpsLat",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "纬度, gps"
+        },
+        {
+          "name": "xerrorRange",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "误差范围"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "说明备注"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,520 @@
+{
+  "tables": [
+    {
+      "moduleName": "MindBaseInfo",
+      "tableName": "MIND_BASE_INFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "脑图名称"
+        },
+        {
+          "name": "xfolderId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属目录ID"
+        },
+        {
+          "name": "xicon",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "缩略图信息"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "备注信息"
+        },
+        {
+          "name": "xcreator",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，创建者"
+        },
+        {
+          "name": "xcreatorUnit",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，创建者所属组织"
+        },
+        {
+          "name": "xshared",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "自动生成，是否已经分享"
+        },
+        {
+          "name": "xcooperative",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "自动生成，是否协作模式"
+        },
+        {
+          "name": "sharePersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "共享人员",
+          "containerTableProperty": {
+            "name": "MIND_BASE_INFO_sharePersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "MindBaseInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xsharePersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "shareUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "共享组织",
+          "containerTableProperty": {
+            "name": "MIND_BASE_INFO_shareUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "MindBaseInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xshareUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "shareGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "共享群组",
+          "containerTableProperty": {
+            "name": "MIND_BASE_INFO_shareGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "MindBaseInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xshareGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "editorList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可编辑人员",
+          "containerTableProperty": {
+            "name": "MIND_BASE_INFO_editorList",
+            "containerTableColumnProperty": [
+              {
+                "name": "MindBaseInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xeditorList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xshared_sequence",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，shared列表序号."
+        },
+        {
+          "name": "xfolder_sequence",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，folder列表序号"
+        },
+        {
+          "name": "xcreator_sequence",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，creator列表序号."
+        },
+        {
+          "name": "xcreatorUnit_sequence",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，creatorUnit列表序号."
+        },
+        {
+          "name": "xcooperative_sequence",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，cooperative列表序号."
+        },
+        {
+          "name": "xfileVersion",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "自动生成，版本号"
+        }
+      ]
+    },
+    {
+      "moduleName": "MindContentInfo",
+      "tableName": "MIND_CONTENT_INFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xcontent",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "脑图内容"
+        }
+      ]
+    },
+    {
+      "moduleName": "MindFolderInfo",
+      "tableName": "MIND_FOLDER_INFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "目录名称"
+        },
+        {
+          "name": "xparentId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "上级目录Id，默认为‘0’ "
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "编号，默认为1"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "备注信息"
+        },
+        {
+          "name": "xcreator",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，创建者"
+        },
+        {
+          "name": "xcreatorUnit",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，创建者所属组织"
+        }
+      ]
+    },
+    {
+      "moduleName": "MindIconInfo",
+      "tableName": "MIND_ICON_INFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xcontent",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "图标内容"
+        }
+      ]
+    },
+    {
+      "moduleName": "MindRecycleInfo",
+      "tableName": "MIND_RECYCLE_INFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "脑图名称"
+        },
+        {
+          "name": "xfolderId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属目录"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "备注信息"
+        },
+        {
+          "name": "xcreator",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，创建者"
+        },
+        {
+          "name": "xcreatorUnit",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，创建者所属组织"
+        },
+        {
+          "name": "xfileVersion",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "自动生成，版本号"
+        },
+        {
+          "name": "xfileCreateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "自动生成，文件创建时间"
+        },
+        {
+          "name": "xdeleteor",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，删除者"
+        },
+        {
+          "name": "xshared",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否已经分享"
+        },
+        {
+          "name": "xshared_sequence",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，shared列表序号."
+        },
+        {
+          "name": "xfolder_sequence",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，folder列表序号"
+        },
+        {
+          "name": "xcreator_sequence",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，creator列表序号."
+        },
+        {
+          "name": "xcreatorUnit_sequence",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，creatorUnit列表序号."
+        }
+      ]
+    },
+    {
+      "moduleName": "MindShareRecord",
+      "tableName": "MIND_SHARE_RECORED",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xfileId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文件ID"
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件名称"
+        },
+        {
+          "name": "xfileType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "文件类型：MIND | FOLDER"
+        },
+        {
+          "name": "xshareType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "共享类型：分享 | 协作"
+        },
+        {
+          "name": "xsource",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "发送者"
+        },
+        {
+          "name": "xtarget",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "目标用户"
+        },
+        {
+          "name": "xtargetType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "目标类型：PERSON | UNIT | GROUP | ROLE"
+        },
+        {
+          "name": "xfileStatus",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "文件类型：正常 | 已删除"
+        }
+      ]
+    },
+    {
+      "moduleName": "MindVersionContent",
+      "tableName": "MIND_VERSION_CONTENT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xcontent",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "脑图内容"
+        }
+      ]
+    },
+    {
+      "moduleName": "MindVersionInfo",
+      "tableName": "MIND_VERSION_INFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xmindId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "脑图文件ID"
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "脑图名称"
+        },
+        {
+          "name": "xfolderId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属目录"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "备注信息"
+        },
+        {
+          "name": "xcreator",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，创建者"
+        },
+        {
+          "name": "xcreatorUnit",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "自动生成，创建者所属组织"
+        },
+        {
+          "name": "xfileVersion",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "自动生成，版本号"
+        },
+        {
+          "name": "xshared",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "自动生成，是否已经分享"
+        }
+      ]
+    }
+  ]
+}

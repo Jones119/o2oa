@@ -166,6 +166,7 @@ public class ApplicationServerTools extends JettySeverTools {
                                     Paths.get(dir.toString(), PathTools.WEB_INF_CLASSES))
                             .loadClass(className);
                     WebAppContext webApp = new WebAppContext();
+                    disableQuickStart(webApp);
                     webApp.setDisplayName(name);
                     webApp.setContextPath("/" + name);
                     webApp.setBaseResource(ResourceFactory.of(webApp).newResource(dir.toAbsolutePath().toString()));
@@ -236,6 +237,7 @@ public class ApplicationServerTools extends JettySeverTools {
                 if (Files.exists(war)) {
                     modified(war, dir);
                     WebAppContext webApp = new WebAppContext();
+                    disableQuickStart(webApp);
                     webApp.setDisplayName(clz.getSimpleName());
                     webApp.setContextPath("/" + clz.getSimpleName());
                     webApp.setBaseResource(ResourceFactory.of(webApp).newResource(dir.toAbsolutePath().toString()));

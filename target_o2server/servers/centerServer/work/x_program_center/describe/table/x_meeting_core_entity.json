@@ -1,0 +1,532 @@
+{
+  "tables": [
+    {
+      "moduleName": "Attachment",
+      "tableName": "MT_ATTACHMENT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xmeeting",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "关联的会议."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件名称."
+        },
+        {
+          "name": "xextension",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "扩展名。"
+        },
+        {
+          "name": "xstorage",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "关联类型的名称."
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        },
+        {
+          "name": "xsummary",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否是会议纪要附件."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        },
+        {
+          "name": "xlastUpdatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后更新人员"
+        },
+        {
+          "name": "xdeepPath",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否使用更深的路径."
+        }
+      ]
+    },
+    {
+      "moduleName": "Building",
+      "tableName": "MT_BUILDING",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xpinyin",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音."
+        },
+        {
+          "name": "xpinyinInitial",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音首字母."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称,不可重名."
+        },
+        {
+          "name": "xaddress",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "地点."
+        }
+      ]
+    },
+    {
+      "moduleName": "Meeting",
+      "tableName": "MT_MEETING",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xsubject",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称"
+        },
+        {
+          "name": "xpinyin",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音."
+        },
+        {
+          "name": "xpinyinInitial",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音首字母."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "说明"
+        },
+        {
+          "name": "xsummary",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "说明"
+        },
+        {
+          "name": "xroom",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属楼层."
+        },
+        {
+          "name": "xstartTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "开始时间."
+        },
+        {
+          "name": "xcompletedTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "结束时间."
+        },
+        {
+          "name": "inviteMemberList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "邀请人员,身份,组织，群组.",
+          "containerTableProperty": {
+            "name": "MT_MEETING_inviteMemberList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meeting_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xinviteMemberList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "invitePersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "邀请人员.",
+          "containerTableProperty": {
+            "name": "MT_MEETING_invitePersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meeting_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xinvitePersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "inviteDelPersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "邀请人员,身份,组织已删列表.",
+          "containerTableProperty": {
+            "name": "MT_MEETING_inviteDelPersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meeting_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xinviteDelPersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "acceptPersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "接受人员.",
+          "containerTableProperty": {
+            "name": "MT_MEETING_acceptPersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meeting_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xacceptPersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "rejectPersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "拒绝人员.",
+          "containerTableProperty": {
+            "name": "MT_MEETING_rejectPersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meeting_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xrejectPersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "checkinPersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "签到人员.",
+          "containerTableProperty": {
+            "name": "MT_MEETING_checkinPersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meeting_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xcheckinPersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xconfirmStatus",
+          "type": "com.x.meeting.core.entity.ConfirmStatus",
+          "length": "8",
+          "remark": "会议预定状态"
+        },
+        {
+          "name": "xmanualCompleted",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "会议是否手工结束"
+        },
+        {
+          "name": "xactualStartTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "实际开始时间."
+        },
+        {
+          "name": "xactualCompletedTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "实际结束时间."
+        },
+        {
+          "name": "xapplicant",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "会议申请人"
+        },
+        {
+          "name": "xauditor",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "会议审核人"
+        },
+        {
+          "name": "xmemo",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "备注."
+        },
+        {
+          "name": "xhostUnit",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "承办部门"
+        },
+        {
+          "name": "xhostPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "主持人"
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "会议类型"
+        },
+        {
+          "name": "xmode",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "会议方式：online|线上会议;offline|线下会议"
+        },
+        {
+          "name": "xroomId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "线上会议的会议号"
+        },
+        {
+          "name": "xroomLink",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "线上会议的链接"
+        },
+        {
+          "name": "xroomInviteCode",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "线上会议的会议邀请码"
+        },
+        {
+          "name": "xexternalPerson",
+          "type": "VARCHAR",
+          "length": "500",
+          "remark": "外部参会人员"
+        }
+      ]
+    },
+    {
+      "moduleName": "MeetingConfig",
+      "tableName": "MT_CONFIG",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "配置名称."
+        },
+        {
+          "name": "xproperties",
+          "type": "com.x.meeting.core.entity.MeetingConfigProperties",
+          "length": "4096",
+          "remark": "属性对象存储字段(json对象)."
+        }
+      ]
+    },
+    {
+      "moduleName": "Room",
+      "tableName": "MT_ROOM",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xpinyin",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音."
+        },
+        {
+          "name": "xpinyinInitial",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音首字母."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称,不可重名."
+        },
+        {
+          "name": "xbuilding",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属building."
+        },
+        {
+          "name": "xfloor",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "所属楼层."
+        },
+        {
+          "name": "xroomNumber",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "房号."
+        },
+        {
+          "name": "xphoneNumber",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "分机号."
+        },
+        {
+          "name": "xdevice",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "设备内容."
+        },
+        {
+          "name": "xphoto",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "照片."
+        },
+        {
+          "name": "xcapacity",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "会议室容量"
+        },
+        {
+          "name": "xauditor",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "会议室申请审核人"
+        },
+        {
+          "name": "xavailable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "会议室状态,可用,不可用"
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,升序排列,为空在最后"
+        }
+      ]
+    }
+  ]
+}

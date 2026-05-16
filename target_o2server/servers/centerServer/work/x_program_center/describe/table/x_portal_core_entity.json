@@ -1,0 +1,706 @@
+{
+  "tables": [
+    {
+      "moduleName": "File",
+      "tableName": "PTL_FILE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件别名."
+        },
+        {
+          "name": "xshortUrlCode",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文件短url编码."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xportal",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文件所属门户."
+        },
+        {
+          "name": "xlastUpdatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后的编辑者."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后的编辑时间."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "编码后文本内容."
+        },
+        {
+          "name": "xfileName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件名称."
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        }
+      ]
+    },
+    {
+      "moduleName": "Page",
+      "tableName": "PTL_PAGE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "别名."
+        },
+        {
+          "name": "xcategory",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "分类"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xportal",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属的Portal."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "文本内容."
+        },
+        {
+          "name": "xmobileData",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "移动端文本内容."
+        },
+        {
+          "name": "xhasMobile",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否有移动端内容."
+        },
+        {
+          "name": "xproperties",
+          "type": "com.x.portal.core.entity.PageProperties",
+          "length": "10485760",
+          "remark": "属性对象存储字段."
+        }
+      ]
+    },
+    {
+      "moduleName": "PageVersion",
+      "tableName": "PTL_PAGE_VERSION",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xpage",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属页面."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "操作人."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "文本内容."
+        }
+      ]
+    },
+    {
+      "moduleName": "Portal",
+      "tableName": "PTL_PORTAL",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "别名."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "availableIdentityList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可访问的身份.",
+          "containerTableProperty": {
+            "name": "PTL_PORTAL_availableIdentityList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Portal_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xavailableIdentityList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "availableUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可访问的组织.",
+          "containerTableProperty": {
+            "name": "PTL_PORTAL_availableUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Portal_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xavailableUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "availableGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可访问的群组.",
+          "containerTableProperty": {
+            "name": "PTL_PORTAL_availableGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Portal_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xavailableGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xportalCategory",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "应用分类."
+        },
+        {
+          "name": "xicon",
+          "type": "Lob",
+          "length": "131072",
+          "remark": "icon Base64编码后的文本."
+        },
+        {
+          "name": "xfirstPage",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "默认首页."
+        },
+        {
+          "name": "controllerList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "应用管理者。",
+          "containerTableProperty": {
+            "name": "PTL_PORTAL_controllerList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Portal_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xcontrollerList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xcreatorPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "应用的创建者。"
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "应用的最后修改时间。"
+        },
+        {
+          "name": "xlastUpdatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "应用的最后修改者"
+        },
+        {
+          "name": "xpcClient",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否在pc终端显示."
+        },
+        {
+          "name": "xmobileClient",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否在移动设备显示."
+        },
+        {
+          "name": "xproperties",
+          "type": "com.x.portal.core.entity.PortalProperties",
+          "length": "10485760",
+          "remark": "属性对象存储字段."
+        }
+      ]
+    },
+    {
+      "moduleName": "Script",
+      "tableName": "PTL_SCRIPT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "别名."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xvalidated",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "代码格式是否正确."
+        },
+        {
+          "name": "xportal",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "脚本所属应用."
+        },
+        {
+          "name": "xtext",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "脚本内容."
+        },
+        {
+          "name": "dependScriptList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "依赖的函数列表.",
+          "containerTableProperty": {
+            "name": "PTL_SCRIPT_dependScriptList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Script_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xdependScriptList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xcreatorPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "流程创建者."
+        },
+        {
+          "name": "xlastUpdatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后的编辑者."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后的编辑时间."
+        }
+      ]
+    },
+    {
+      "moduleName": "ScriptVersion",
+      "tableName": "PTL_SCRIPT_VERSION",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xscript",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属脚本."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "操作人."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "文本内容."
+        }
+      ]
+    },
+    {
+      "moduleName": "TemplatePage",
+      "tableName": "PTL_TEMPLATEPAGE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "表单别名."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xcategory",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "模版分类."
+        },
+        {
+          "name": "availableIdentityList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "允许使用此模版的身份.",
+          "containerTableProperty": {
+            "name": "PTL_TEMPLATEPAGE_availableIdentityList",
+            "containerTableColumnProperty": [
+              {
+                "name": "TemplatePage_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xavailableIdentityList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "availableUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "允许使用此模版的部门.",
+          "containerTableProperty": {
+            "name": "PTL_TEMPLATEPAGE_availableUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "TemplatePage_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xavailableUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xicon",
+          "type": "Lob",
+          "length": "131072",
+          "remark": "icon Base64编码后的文本."
+        },
+        {
+          "name": "xpreview",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "缩略图."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "文本内容."
+        },
+        {
+          "name": "xmobileData",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "移动端文本内容."
+        },
+        {
+          "name": "controllerList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "管理者.",
+          "containerTableProperty": {
+            "name": "PTL_TEMPLATEPAGE_controllerList",
+            "containerTableColumnProperty": [
+              {
+                "name": "TemplatePage_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xcontrollerList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xcreatorPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建者."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后修改时间."
+        },
+        {
+          "name": "xlastUpdatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后修改者."
+        }
+      ]
+    },
+    {
+      "moduleName": "Widget",
+      "tableName": "PTL_WIDGET",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "别名."
+        },
+        {
+          "name": "xcategory",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "分类"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xportal",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属的Portal."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "文本内容."
+        },
+        {
+          "name": "xmobileData",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "移动端文本内容."
+        },
+        {
+          "name": "xhasMobile",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否有移动端内容."
+        }
+      ]
+    }
+  ]
+}

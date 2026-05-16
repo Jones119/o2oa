@@ -19,6 +19,9 @@ import org.apache.commons.io.filefilter.IOFileFilter;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
+import org.eclipse.jetty.ee10.webapp.Configuration;
+import org.eclipse.jetty.ee10.webapp.Configurations;
+import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.http.HttpVersion;
 import org.eclipse.jetty.server.HttpConfiguration;
 import org.eclipse.jetty.server.HttpConnectionFactory;
@@ -53,7 +56,14 @@ public abstract class JettySeverTools {
 			.map(FileFilterUtils::or).reduce(FileFilterUtils::or);
 
 	protected JettySeverTools() {
-		// nothing
+	}
+
+	protected static void disableQuickStart(WebAppContext webApp) {
+		List<Configuration> configs = Configurations.getKnown();
+		configs = configs.stream()
+				.filter(c -> !c.getClass().getName().contains("QuickStart"))
+				.toList();
+		webApp.setConfigurations(configs.toArray(new Configuration[0]));
 	}
 
 	protected static void addHttpsConnector(Server server, Integer port, boolean persistentConnectionsEnable)

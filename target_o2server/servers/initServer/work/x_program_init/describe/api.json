@@ -1,0 +1,154 @@
+{
+  "jaxrs": [
+    {
+      "name": "CacheAction",
+      "methods": [
+        {
+          "name": "receive",
+          "uri": "jaxrs/cache",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "configFlush",
+          "uri": "jaxrs/cache/config/flush",
+          "method": "GET"
+        },
+        {
+          "name": "commonScriptFlush",
+          "uri": "jaxrs/cache/commonscript/flush",
+          "method": "GET"
+        },
+        {
+          "name": "detail",
+          "uri": "jaxrs/cache/detail",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "EchoAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/echo",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "ExternalDataSourcesAction",
+      "methods": [
+        {
+          "name": "list",
+          "uri": "jaxrs/externaldatasources/list",
+          "method": "GET"
+        },
+        {
+          "name": "validate",
+          "uri": "jaxrs/externaldatasources/validate",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "set",
+          "uri": "jaxrs/externaldatasources/set",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "check",
+          "uri": "jaxrs/externaldatasources/check",
+          "method": "GET"
+        },
+        {
+          "name": "setCancel",
+          "uri": "jaxrs/externaldatasources/set/cancel",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "FireScheduleAction",
+      "methods": [
+        {
+          "name": "execute",
+          "uri": "jaxrs/fireschedule/classname/{className}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "H2Action",
+      "methods": [
+        {
+          "name": "check",
+          "uri": "jaxrs/h2/check",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "RestoreAction",
+      "methods": [
+        {
+          "name": "uploadCancel",
+          "uri": "jaxrs/restore/upload/cancel",
+          "method": "GET"
+        },
+        {
+          "name": "upload",
+          "uri": "jaxrs/restore/upload",
+          "method": "POST",
+          "enctype": "formData"
+        }
+      ]
+    },
+    {
+      "name": "SecretAction",
+      "methods": [
+        {
+          "name": "set",
+          "uri": "jaxrs/secret/set",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "check",
+          "uri": "jaxrs/secret/check",
+          "method": "GET"
+        },
+        {
+          "name": "setCancel",
+          "uri": "jaxrs/secret/set/cancel",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "ServerAction",
+      "methods": [
+        {
+          "name": "stop",
+          "uri": "jaxrs/server/stop",
+          "method": "GET"
+        },
+        {
+          "name": "execute",
+          "uri": "jaxrs/server/execute",
+          "method": "GET"
+        },
+        {
+          "name": "executeStatus",
+          "uri": "jaxrs/server/execute/status",
+          "method": "GET"
+        },
+        {
+          "name": "getLicenseInfo",
+          "uri": "jaxrs/server/license",
+          "method": "GET"
+        }
+      ]
+    }
+  ]
+}
