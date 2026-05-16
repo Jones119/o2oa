@@ -3,7 +3,7 @@
 # Uses Maven's dependency:resolve to list deps, then downloads missing ones
 
 M2=~/.m2/repository
-BASE_URL="https://repo1.maven.org/maven2"
+BASE_URL="https://maven.aliyun.com/repository/central"
 
 download() {
   local g=$1 a=$2 v=$3 packaging=${4:-jar}

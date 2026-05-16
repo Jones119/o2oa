@@ -41,4 +41,4 @@ if [ -d ${current_dir}/local/update ]; then
 		exit 1
 	fi
 fi
-setsid ${current_dir}/jvm/mips_java11/bin/java -javaagent:${current_dir}/console.jar -server -Djava.awt.headless=true -Xms4g -Xmx4g -Duser.timezone=GMT+08 -XX:+HeapDumpOnOutOfMemoryError -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI --module-path=${current_dir}/commons/module_java11 --upgrade-module-path=${current_dir}/commons/module_java11/compiler.jar:${current_dir}/commons/module_java11/compiler-management.jar -jar ${current_dir}/console.jar
+setsid ${current_dir}/jvm/mips_java25/bin/java -javaagent:${current_dir}/console.jar -server -Djava.awt.headless=true -Xms4g -Xmx4g -Duser.timezone=GMT+08 -XX:+HeapDumpOnOutOfMemoryError -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI --module-path=${current_dir}/commons/module_java25 --upgrade-module-path=${current_dir}/commons/module_java25/compiler.jar:${current_dir}/commons/module_java25/compiler-management.jar -jar ${current_dir}/console.jar

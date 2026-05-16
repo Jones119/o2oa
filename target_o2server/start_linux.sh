@@ -42,6 +42,6 @@ if [ -d ${current_dir}/local/update ]; then
 	fi
 fi
 export MALLOC_ARENA_MAX=1
-java_cmd="${current_dir}/jvm/linux_java11/bin/java"
+java_cmd="${current_dir}/jvm/linux_java25/bin/java"
 heap_size=" -Xms2g -Xmx2g"
-setsid ${java_cmd} -javaagent:${current_dir}/console.jar -javaagent:${current_dir}/commons/ext_java11/openjpa-4.1.1.jar -server -Djava.awt.headless=true ${heap_size} -Duser.timezone=GMT+08 -XX:+HeapDumpOnOutOfMemoryError -jar ${current_dir}/console.jar
+setsid ${java_cmd} -javaagent:${current_dir}/console.jar -javaagent:${current_dir}/commons/ext_java25/openjpa-4.1.1.jar -server -Djava.awt.headless=true ${heap_size} -Duser.timezone=GMT+08 -XX:+HeapDumpOnOutOfMemoryError -jar ${current_dir}/console.jar
