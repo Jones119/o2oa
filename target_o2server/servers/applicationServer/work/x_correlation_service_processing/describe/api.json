@@ -1,0 +1,123 @@
+{
+  "jaxrs": [
+    {
+      "name": "CacheAction",
+      "methods": [
+        {
+          "name": "configFlush",
+          "uri": "jaxrs/cache/config/flush",
+          "method": "GET"
+        },
+        {
+          "name": "commonScriptFlush",
+          "uri": "jaxrs/cache/commonscript/flush",
+          "method": "GET"
+        },
+        {
+          "name": "receive",
+          "uri": "jaxrs/cache",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "detail",
+          "uri": "jaxrs/cache/detail",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "CorrelationAction",
+      "methods": [
+        {
+          "name": "updateTypeProcessPlatform",
+          "uri": "jaxrs/correlation/update/type/processplatform/job/{job}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createTypeCms",
+          "uri": "jaxrs/correlation/type/cms/document/{document}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateTypeCms",
+          "uri": "jaxrs/correlation/update/type/cms/document/{document}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createTypeProcessPlatform",
+          "uri": "jaxrs/correlation/type/processplatform/job/{job}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteTypeProcessPlatform",
+          "uri": "jaxrs/correlation/delete/type/processplatform/job/{job}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listTypeProcessPlatform",
+          "uri": "jaxrs/correlation/list/type/processplatform/job/{job}",
+          "method": "GET"
+        },
+        {
+          "name": "listTypeCms",
+          "uri": "jaxrs/correlation/list/type/cms/document/{document}",
+          "method": "GET"
+        },
+        {
+          "name": "listTypeCmsWithSite",
+          "uri": "jaxrs/correlation/list/type/cms/document/{document}/site/{site}",
+          "method": "GET"
+        },
+        {
+          "name": "deleteTypeCms",
+          "uri": "jaxrs/correlation/delete/type/cms/document/{document}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "readableTypeCms",
+          "uri": "jaxrs/correlation/readable/type/cms",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "readableTypeProcessPlatform",
+          "uri": "jaxrs/correlation/readable/type/processplatform",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listTypeProcessPlatformWithSite",
+          "uri": "jaxrs/correlation/list/type/processplatform/job/{job}/site/{site}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "EchoAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/echo",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "FireScheduleAction",
+      "methods": [
+        {
+          "name": "execute",
+          "uri": "jaxrs/fireschedule/classname/{className}",
+          "method": "GET"
+        }
+      ]
+    }
+  ]
+}

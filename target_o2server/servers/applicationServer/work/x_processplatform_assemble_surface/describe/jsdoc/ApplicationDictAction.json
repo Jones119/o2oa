@@ -1,0 +1,736 @@
+{
+  "name": "ApplicationDictAction",
+  "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ApplicationDictAction",
+  "description": "数据字典接口.",
+  "methods": [
+    {
+      "name": "createDataPath0",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionCreateDataPath0",
+      "description": "指定应用根据一级路径添加数据字典数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createDataPath1",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionCreateDataPath1",
+      "description": "指定应用根据二级路径添加数据字典数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createDataPath2",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionCreateDataPath2",
+      "description": "指定应用根据三级路径添加数据字典数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createDataPath3",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionCreateDataPath3",
+      "description": "指定应用根据四级路径添加数据字典数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createDataPath4",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionCreateDataPath4",
+      "description": "根据字典ID和路径添加Application下的新的局部数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createDataPath5",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionCreateDataPath5",
+      "description": "指定应用根据六级路径添加数据字典数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createDataPath6",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionCreateDataPath6",
+      "description": "指定应用根据七级路径添加数据字典数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createDataPath7",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionCreateDataPath7",
+      "description": "指定应用根据八级路径添加数据字典数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteDataPath0",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionDeleteDataPath0",
+      "description": "指定应用根据一级路径删除数据字典数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteDataPath0MockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionDeleteDataPath0",
+      "description": "指定应用根据一级路径删除数据字典数据(mock delete to get).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteDataPath1",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionDeleteDataPath1",
+      "description": "指定应用根据一级路径删除数据字典数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteDataPath1MockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionDeleteDataPath1",
+      "description": "指定应用根据二级路径删除数据字典数据(mock delete to get).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteDataPath2",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionDeleteDataPath2",
+      "description": "指定应用根据三级路径删除数据字典数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteDataPath2MockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionDeleteDataPath2",
+      "description": "指定应用根据三级路径删除数据字典数据(mock delete to get).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteDataPath3",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionDeleteDataPath3",
+      "description": "指定应用根据四级路径删除数据字典数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteDataPath3MockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionDeleteDataPath3",
+      "description": "指定应用根据四级路径删除数据字典数据(mock delete to get).",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteDataPath4",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionDeleteDataPath4",
+      "description": "指定应用根据五级路径删除数据字典数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteDataPath4MockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionDeleteDataPath4",
+      "description": "指定应用根据五级路径删除数据字典数据(mock delete to get).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteDataPath5",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionDeleteDataPath5",
+      "description": "指定应用根据六级路径删除数据字典数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteDataPath5MockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionDeleteDataPath5",
+      "description": "指定应用根据六级路径删除数据字典数据(mock delete to get).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteDataPath6",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionDeleteDataPath6",
+      "description": "指定应用根据七级路径删除数据字典数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteDataPath6MockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionDeleteDataPath6",
+      "description": "指定应用根据七级路径删除数据字典数据(mock delete to get).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteDataPath7",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionDeleteDataPath7",
+      "description": "指定应用根据八级路径删除数据字典数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteDataPath7MockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionDeleteDataPath7",
+      "description": "指定应用根据八级路径删除数据字典数据(mock delete to get).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "get",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionGet",
+      "description": "获取单个数据字典以及数据字典数据.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "data",
+          "type": "JsonElement",
+          "isCollection": false,
+          "description": "字典数据."
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "字典名称."
+        },
+        {
+          "name": "alias",
+          "type": "String",
+          "isCollection": false,
+          "description": "别名."
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "getData",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionGetData",
+      "description": "指定应用获取数据字典数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getDataPath0",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionGetDataPath0",
+      "description": "指定应用根据一级路径获取数据字典数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getDataPath1",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionGetDataPath1",
+      "description": "指定应用根据二级路径获取数据字典数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getDataPath2",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionGetDataPath2",
+      "description": "指定应用根据三级路径获取数据字典数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getDataPath3",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionGetDataPath3",
+      "description": "指定应用根据四级路径获取数据字典数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getDataPath4",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionGetDataPath4",
+      "description": "指定应用根据五级路径获取数据字典数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getDataPath5",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionGetDataPath5",
+      "description": "指定应用根据六级路径获取数据字典数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getDataPath6",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionGetDataPath6",
+      "description": "指定应用根据七级路径获取数据字典数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getDataPath7",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionGetDataPath7",
+      "description": "指定应用根据八级路径获取数据字典数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "listWithApplication",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionListWithApplication",
+      "description": "获取指定应用的数据字典列表.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "字典名称."
+        },
+        {
+          "name": "alias",
+          "type": "String",
+          "isCollection": false,
+          "description": "别名."
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "updateDataPath0",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionUpdateDataPath0",
+      "description": "指定应用根据一级路径更新数据字典数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateDataPath0MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionUpdateDataPath0",
+      "description": "指定应用根据一级路径更新数据字典数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateDataPath1",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionUpdateDataPath1",
+      "description": "指定应用根据二级路径更新数据字典数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateDataPath1MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionUpdateDataPath1",
+      "description": "指定应用根据二级路径更新数据字典数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateDataPath2",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionUpdateDataPath2",
+      "description": "指定应用根据三级路径更新数据字典数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateDataPath2MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionUpdateDataPath2",
+      "description": "指定应用根据三级路径更新数据字典数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateDataPath3",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionUpdateDataPath3",
+      "description": "指定应用根据四级路径更新数据字典数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateDataPath3MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionUpdateDataPath3",
+      "description": "指定应用根据四级路径更新数据字典数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateDataPath4",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionUpdateDataPath4",
+      "description": "指定应用根据五级路径更新数据字典数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateDataPath4MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionUpdateDataPath4",
+      "description": "指定应用根据五级路径更新数据字典数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateDataPath5",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionUpdateDataPath5",
+      "description": "指定应用根据六级路径更新数据字典数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateDataPath5MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionUpdateDataPath5",
+      "description": "指定应用根据六级路径更新数据字典数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateDataPath6",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionUpdateDataPath6",
+      "description": "指定应用根据七级路径更新数据字典数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateDataPath6MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionUpdateDataPath6",
+      "description": "指定应用根据七级路径更新数据字典数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateDataPath7",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionUpdateDataPath7",
+      "description": "指定应用根据八级路径更新数据字典数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateDataPath7MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.applicationdict.ActionUpdateDataPath7",
+      "description": "指定应用根据八级路径更新数据字典数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    }
+  ]
+}

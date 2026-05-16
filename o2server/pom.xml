@@ -29,8 +29,8 @@
 		<developerConnection>scm:git:https://github.com/o2oa/o2oa.git</developerConnection>
 	</scm>
 	<properties>
-		<maven.compiler.source>25</maven.compiler.source>
-		<maven.compiler.target>25</maven.compiler.target>
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8
 		</project.reporting.outputEncoding>
@@ -493,11 +493,8 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.13.0</version>
 					<configuration>
-						<target>25</target>
-						<source>25</source>
-						<compilerArgs>
-							<arg>--enable-preview</arg>
-						</compilerArgs>
+						<target>21</target>
+						<source>21</source>
 						<annotationProcessorPaths>
 							<path>
 								<groupId>jakarta.persistence</groupId>

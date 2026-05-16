@@ -301,22 +301,22 @@ public class Executor {
     private static void checkDeleteInsertUpdateDml(net.sf.jsqlparser.statement.Statement statement)
             throws Exception {
         switch (statement) {
-            case net.sf.jsqlparser.statement.delete.Delete _ -> {
+            case net.sf.jsqlparser.statement.delete.Delete ignored1 -> {
                 if (BooleanUtils.isNotTrue(Config.query().getStatementDeleteEnable())) {
                     throw new ExceptionDisableDelete();
                 }
             }
-            case net.sf.jsqlparser.statement.update.Update _ -> {
+            case net.sf.jsqlparser.statement.update.Update ignored2 -> {
                 if (BooleanUtils.isNotTrue(Config.query().getStatementUpdateEnable())) {
                     throw new ExceptionDisableUpdate();
                 }
             }
-            case net.sf.jsqlparser.statement.insert.Insert _ -> {
+            case net.sf.jsqlparser.statement.insert.Insert ignored3 -> {
                 if (BooleanUtils.isNotTrue(Config.query().getStatementInsertEnable())) {
                     throw new ExceptionDisableInsert();
                 }
             }
-            case net.sf.jsqlparser.statement.select.Select _ -> {}
+            case net.sf.jsqlparser.statement.select.Select ignored4 -> {}
             default -> throw new ExceptionDmlNotAllowed();
         }
     }

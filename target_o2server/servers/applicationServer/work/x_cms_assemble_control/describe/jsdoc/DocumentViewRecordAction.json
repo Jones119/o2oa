@@ -1,0 +1,318 @@
+{
+  "name": "DocumentViewRecordAction",
+  "className": "com.x.cms.assemble.control.jaxrs.document.DocumentViewRecordAction",
+  "description": "信息访问日志管理",
+  "methods": [
+    {
+      "name": "hasViewDocument",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryHasViewDocument",
+      "description": "根据文档ID查询当前用户是否有阅读记录.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "listByDocumentFilterNext",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListViewRecordByFilterNext",
+      "description": "根据文档ID获取该文档的访问用户记录信息，按时间倒序，前50条.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类ID"
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "documentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档ID"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档标题"
+        },
+        {
+          "name": "viewerName",
+          "type": "String",
+          "isCollection": false,
+          "description": "访问者姓名"
+        },
+        {
+          "name": "viewerUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "访问者所属组织名称"
+        },
+        {
+          "name": "viewerTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "访问者所属顶层组织名称"
+        },
+        {
+          "name": "viewCount",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "访问次数"
+        },
+        {
+          "name": "lastViewTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后访问时间."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listByPerson",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListViewRecordByPerson",
+      "description": "根据人员姓名，获取该用户访问的文档记录，按时间倒序，前50条.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类ID"
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "documentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档ID"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档标题"
+        },
+        {
+          "name": "viewerName",
+          "type": "String",
+          "isCollection": false,
+          "description": "访问者姓名"
+        },
+        {
+          "name": "viewerUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "访问者所属组织名称"
+        },
+        {
+          "name": "viewerTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "访问者所属顶层组织名称"
+        },
+        {
+          "name": "viewCount",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "访问次数"
+        },
+        {
+          "name": "lastViewTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后访问时间."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listPaging",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListViewRecordPaging",
+      "description": "分页查询阅读记录.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类ID"
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "documentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档ID"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档标题"
+        },
+        {
+          "name": "viewerName",
+          "type": "String",
+          "isCollection": false,
+          "description": "访问者姓名"
+        },
+        {
+          "name": "viewerUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "访问者所属组织名称"
+        },
+        {
+          "name": "viewerTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "访问者所属顶层组织名称"
+        },
+        {
+          "name": "viewCount",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "访问次数"
+        },
+        {
+          "name": "lastViewTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后访问时间."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listUnReadIds",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListUnReadDocIds",
+      "description": "从指定的文档ID列表中判断未读过的文档ID列表.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "unReadDocIds",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "未读文档ID列表."
+        }
+      ]
+    },
+    {
+      "name": "listUnReadIdsMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListUnReadDocIds",
+      "description": "从指定的文档ID列表中判断未读过的文档ID列表.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "unReadDocIds",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "未读文档ID列表."
+        }
+      ]
+    }
+  ]
+}

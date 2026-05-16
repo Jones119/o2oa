@@ -226,7 +226,10 @@ public class ApplicationServerTools extends JettySeverTools {
 
     private static void deployOfficial(ApplicationServer applicationServer, Handler.Sequence handlers,
             List<ClassInfo> officialClassInfos) {
+        ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
         officialClassInfos.parallelStream().forEach(info -> {
+            ClassLoader originalClassLoader = Thread.currentThread().getContextClassLoader();
+            Thread.currentThread().setContextClassLoader(contextClassLoader);
             try {
                 Class<?> clz = Thread.currentThread().getContextClassLoader()
                         .loadClass(info.getName());
@@ -267,6 +270,8 @@ public class ApplicationServerTools extends JettySeverTools {
                 }
             } catch (Exception e) {
                 LOGGER.error(e);
+            } finally {
+                Thread.currentThread().setContextClassLoader(originalClassLoader);
             }
         });
     }

@@ -1,0 +1,48 @@
+{
+  "name": "JobAction",
+  "className": "com.x.processplatform.assemble.surface.jaxrs.job.JobAction",
+  "description": "任务接口.",
+  "methods": [
+    {
+      "name": "allowVisitWithPerson",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.job.ActionAllowVisitWithPerson",
+      "description": "返回指定job是否allowVisit.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "findWorkWorkCompleted",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.job.ActionFindWorkWorkCompleted",
+      "description": "根据任务标识查找属于这个工作和已完成工作.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "workList",
+          "type": "List\u003cWoWork\u003e",
+          "isCollection": true,
+          "description": "属于job的work"
+        },
+        {
+          "name": "workCompletedList",
+          "type": "List\u003cWoWorkCompleted\u003e",
+          "isCollection": true,
+          "description": "属于job的workCompleted"
+        }
+      ]
+    },
+    {
+      "name": "latestWorkWorkCompletedWithSerial",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.job.ActionLatestWorkWorkCompletedWithSerial",
+      "description": "根据问号查找工作或已完成工作,并返回最新创建的一个工作或已完成工作.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "v2Projection",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.job.V2Projection",
+      "description": "根据给定的任务标识立即执行字段映射.",
+      "type": "GET",
+      "outs": []
+    }
+  ]
+}

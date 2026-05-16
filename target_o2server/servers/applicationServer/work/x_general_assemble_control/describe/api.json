@@ -1,0 +1,346 @@
+{
+  "jaxrs": [
+    {
+      "name": "AreaAction",
+      "methods": [
+        {
+          "name": "listCity",
+          "uri": "jaxrs/area/list/province/{province}",
+          "method": "GET"
+        },
+        {
+          "name": "listProvince",
+          "uri": "jaxrs/area/list",
+          "method": "GET"
+        },
+        {
+          "name": "listDistrict",
+          "uri": "jaxrs/area/list/province/{province}/city/{city}",
+          "method": "GET"
+        },
+        {
+          "name": "listStreet",
+          "uri": "jaxrs/area/list/province/{province}/city/{city}/district/{district}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "CacheAction",
+      "methods": [
+        {
+          "name": "receive",
+          "uri": "jaxrs/cache",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "configFlush",
+          "uri": "jaxrs/cache/config/flush",
+          "method": "GET"
+        },
+        {
+          "name": "commonScriptFlush",
+          "uri": "jaxrs/cache/commonscript/flush",
+          "method": "GET"
+        },
+        {
+          "name": "detail",
+          "uri": "jaxrs/cache/detail",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "EchoAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/echo",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "EcnetAction",
+      "methods": [
+        {
+          "name": "check",
+          "uri": "jaxrs/ecnet/check",
+          "method": "POST",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "ExcelAction",
+      "methods": [
+        {
+          "name": "excelWithDataList",
+          "uri": "jaxrs/excel/excelName/{excelName}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "excelSheetWithDataList",
+          "uri": "jaxrs/excel/excelName/{excelName}/sheetList",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "excelResult",
+          "uri": "jaxrs/excel/result/{flag}",
+          "method": "GET"
+        },
+        {
+          "name": "excelToDataListWithUrl",
+          "uri": "jaxrs/excel/upload/with/url",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "excelToDataList",
+          "uri": "jaxrs/excel/upload",
+          "method": "POST",
+          "enctype": "formData"
+        }
+      ]
+    },
+    {
+      "name": "FireScheduleAction",
+      "methods": [
+        {
+          "name": "execute",
+          "uri": "jaxrs/fireschedule/classname/{className}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "GeneralFileAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/generalfile/flag/{flag}",
+          "method": "GET"
+        },
+        {
+          "name": "transfer",
+          "uri": "jaxrs/generalfile",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "getBase64",
+          "uri": "jaxrs/generalfile/flag/{flag}/binary/base64",
+          "method": "GET"
+        },
+        {
+          "name": "download",
+          "uri": "jaxrs/generalfile/download/flag/{flag}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "InvoiceAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/invoice/get/{id}",
+          "method": "GET"
+        },
+        {
+          "name": "update",
+          "uri": "jaxrs/invoice/update/{id}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "create",
+          "uri": "jaxrs/invoice/create",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "delete",
+          "uri": "jaxrs/invoice/delete/{id}",
+          "method": "GET"
+        },
+        {
+          "name": "uploadForCreate",
+          "uri": "jaxrs/invoice/upload/for/create",
+          "method": "POST",
+          "enctype": "formData"
+        },
+        {
+          "name": "updateApplyStatus",
+          "uri": "jaxrs/invoice/update/apply/status/{id}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "uploadWithUrl",
+          "uri": "jaxrs/invoice/upload/with/url",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listPaging",
+          "uri": "jaxrs/invoice/list/paging/{page}/size/{size}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "download",
+          "uri": "jaxrs/invoice/download/flag/{flag}",
+          "method": "GET"
+        },
+        {
+          "name": "upload",
+          "uri": "jaxrs/invoice/upload",
+          "method": "POST",
+          "enctype": "formData"
+        }
+      ]
+    },
+    {
+      "name": "OfficeAction",
+      "methods": [
+        {
+          "name": "input",
+          "uri": "jaxrs/office",
+          "method": "POST",
+          "enctype": "formData"
+        },
+        {
+          "name": "htmlToWord",
+          "uri": "jaxrs/office/html/to/word",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "htmlToWordResult",
+          "uri": "jaxrs/office/html/to/word/result/{flag}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "QrCodeAction",
+      "methods": [
+        {
+          "name": "postCreate",
+          "uri": "jaxrs/qrcode",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "getCreate",
+          "uri": "jaxrs/qrcode/width/{width}/height/{height}/text/{text}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "SecurityClearanceAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/securityclearance",
+          "method": "GET"
+        },
+        {
+          "name": "system",
+          "uri": "jaxrs/securityclearance/system",
+          "method": "GET"
+        },
+        {
+          "name": "enable",
+          "uri": "jaxrs/securityclearance/enable",
+          "method": "GET"
+        },
+        {
+          "name": "subject",
+          "uri": "jaxrs/securityclearance/subject",
+          "method": "GET"
+        },
+        {
+          "name": "object",
+          "uri": "jaxrs/securityclearance/object",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "UpgradeAction",
+      "methods": [
+        {
+          "name": "action2021090901",
+          "uri": "jaxrs/upgrade/2021090901",
+          "method": "GET"
+        },
+        {
+          "name": "action2021090902",
+          "uri": "jaxrs/upgrade/2021090902",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "WorkTimeAction",
+      "methods": [
+        {
+          "name": "betweenHolidayCount",
+          "uri": "jaxrs/worktime/betweenholidaycount/start/{startDate}/end/{endDate}",
+          "method": "GET"
+        },
+        {
+          "name": "isWorkDay",
+          "uri": "jaxrs/worktime/isworkday/{date}",
+          "method": "GET"
+        },
+        {
+          "name": "isHoliday",
+          "uri": "jaxrs/worktime/isholiday/{date}",
+          "method": "GET"
+        },
+        {
+          "name": "forwardDays",
+          "uri": "jaxrs/worktime/forwarddays/start/{start}/days/{days}",
+          "method": "GET"
+        },
+        {
+          "name": "inDefinedHoliday",
+          "uri": "jaxrs/worktime/indefinedholiday/{date}",
+          "method": "GET"
+        },
+        {
+          "name": "minutesOfWorkDay",
+          "uri": "jaxrs/worktime/minutesofworkday",
+          "method": "GET"
+        },
+        {
+          "name": "betweenMinutes",
+          "uri": "jaxrs/worktime/betweenminutes/start/{start}/end/{end}",
+          "method": "GET"
+        },
+        {
+          "name": "isWorkTime",
+          "uri": "jaxrs/worktime/isworktime/{date}",
+          "method": "GET"
+        },
+        {
+          "name": "inDefinedWorkDay",
+          "uri": "jaxrs/worktime/indefinedworkday/{date}",
+          "method": "GET"
+        },
+        {
+          "name": "forwardMinutes",
+          "uri": "jaxrs/worktime/forwardminutes/start/{start}/minutes/{minutes}",
+          "method": "GET"
+        }
+      ]
+    }
+  ]
+}

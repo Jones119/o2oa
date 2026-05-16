@@ -1,0 +1,164 @@
+package com.x.processplatform.assemble.surface.jaxrs.form;
+
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.zip.CRC32;
+
+import org.apache.commons.lang3.StringUtils;
+
+import com.x.base.core.container.EntityManagerContainer;
+import com.x.base.core.container.factory.EntityManagerContainerFactory;
+import com.x.base.core.entity.JpaObject;
+import com.x.base.core.project.cache.Cache.CacheKey;
+import com.x.base.core.project.cache.CacheManager;
+import com.x.base.core.project.config.Config;
+import com.x.base.core.project.http.ActionResult;
+import com.x.base.core.project.http.EffectivePerson;
+import com.x.base.core.project.logger.Logger;
+import com.x.base.core.project.logger.LoggerFactory;
+import com.x.base.core.project.tools.ListTools;
+import com.x.processplatform.assemble.surface.Business;
+import com.x.processplatform.assemble.surface.ThisApplication;
+import com.x.processplatform.core.entity.content.Work;
+import com.x.processplatform.core.entity.content.WorkCompleted;
+import com.x.processplatform.core.entity.element.Activity;
+import com.x.processplatform.core.entity.element.Application;
+import com.x.processplatform.core.entity.element.Form;
+
+class V2LookupWorkOrWorkCompleted extends BaseAction {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(V2LookupWorkOrWorkCompleted.class);
+
+	private Form form = null;
+	private Wo wo = new Wo();
+
+	ActionResult<Wo> execute(EffectivePerson effectivePerson, String workOrWorkCompleted) throws Exception {
+
+		LOGGER.debug("execute:{}, workOrWorkCompleted:{}.", effectivePerson::getDistinguishedName,
+				() -> workOrWorkCompleted);
+
+		ActionResult<Wo> result = new ActionResult<>();
+
+		this.getWorkWorkCompletedForm(workOrWorkCompleted);
+
+		if (null != this.form) {
+			CacheKey cacheKey = new CacheKey(this.getClass(), this.form.getId());
+			Optional<?> optional = CacheManager.get(cacheCategory, cacheKey);
+			if (optional.isPresent()) {
+			} else {
+				List<String> list = new ArrayList<>();
+				list = list.stream().sorted().collect(Collectors.toList());
+				this.wo.setId(this.form.getId());
+				CRC32 crc = new CRC32();
+				crc.update(StringUtils.join(list, "#").getBytes());
+				this.wo.setCacheTag(crc.getValue() + "");
+				CacheManager.put(cacheCategory, cacheKey, wo);
+			}
+		}
+		result.setData(wo);
+		return result;
+	}
+
+	private void getWorkWorkCompletedForm(String flag) throws Exception {
+		try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
+			Business business = new Business(emc);
+			WorkCompleted workCompleted = null;
+			Work work = emc.fetch(flag, Work.class, ListTools.toList(JpaObject.id_FIELDNAME, Work.form_FIELDNAME,
+					Work.activity_FIELDNAME, Work.activityType_FIELDNAME, Work.application_FIELDNAME));
+			if (null == work) {
+				workCompleted = emc.flag(flag, WorkCompleted.class);
+			}
+			if (null != work) {
+				this.form = getFormWithWork(business, work);
+			} else if (null != workCompleted) {
+				this.form = getFormWithWorkCompleted(business, workCompleted);
+			}
+		}
+	}
+
+	private Form getFormWithWork(Business business, Work work) throws Exception {
+		Form o = business.form().pick(work.getForm());
+		if (null == o) {
+			Activity activity = business.getActivity(work);
+			if (null != activity) {
+				o = business.form().pick(activity.getForm());
+			}
+		}
+		if (null == o) {
+			Application application = business.application().pick(work.getApplication());
+			if ((null != application) && StringUtils.isNotEmpty(application.getDefaultForm())) {
+				o = business.form().pick(application.getDefaultForm());
+			}
+		}
+		return o;
+	}
+
+	private Form getFormWithWorkCompleted(Business business, WorkCompleted workCompleted) throws Exception {
+		Form o = business.form().pick(workCompleted.getForm());
+		if (null == o) {
+			Application application = business.application().pick(workCompleted.getApplication());
+			if ((null != application) && StringUtils.isNotEmpty(application.getDefaultForm())) {
+				o = business.form().pick(application.getDefaultForm());
+			}
+		}
+		return o;
+	}
+
+	private List<String> relatedForm(Form form) throws Exception {
+		List<String> list = new ArrayList<>();
+		Form f;
+		if (ListTools.isNotEmpty(form.getProperties().getRelatedFormList())) {
+			try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
+				for (String id : form.getProperties().getRelatedFormList()) {
+					f = emc.find(id, Form.class);
+					if (null != f) {
+						list.add(f.getId() + f.getUpdateTime().getTime());
+					}
+				}
+			}
+		}
+		return list;
+	}
+
+	private List<String> relatedScript(Form form) throws Exception {
+		List<String> list = new ArrayList<>();
+		if ((null != form.getProperties().getRelatedScriptMap())
+				&& (form.getProperties().getRelatedScriptMap().size() > 0)) {
+			try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
+				Business business = new Business(emc);
+				list = convertScriptToCacheTag(business, form.getProperties().getRelatedScriptMap());
+			}
+		}
+		return list;
+	}
+
+	public static class Wo extends AbstractWo {
+
+		private static final long serialVersionUID = 4034113778768000046L;
+
+		private String id;
+
+		private String cacheTag;
+
+		public String getId() {
+			return id;
+		}
+
+		public void setId(String id) {
+			this.id = id;
+		}
+
+		public String getCacheTag() {
+			return cacheTag;
+		}
+
+		public void setCacheTag(String cacheTag) {
+			this.cacheTag = cacheTag;
+		}
+
+	}
+
+}

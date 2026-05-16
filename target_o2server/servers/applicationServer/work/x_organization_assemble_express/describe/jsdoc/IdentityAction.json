@@ -1,0 +1,713 @@
+{
+  "name": "IdentityAction",
+  "className": "com.x.organization.assemble.express.jaxrs.identity.IdentityAction",
+  "description": "身份接口",
+  "methods": [
+    {
+      "name": "list",
+      "className": "com.x.organization.assemble.express.jaxrs.identity.ActionList",
+      "description": "批量查询身份",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "identityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "身份识别名"
+        }
+      ]
+    },
+    {
+      "name": "listMajorWithPerson",
+      "className": "com.x.organization.assemble.express.jaxrs.identity.ActionListMajorWithPerson",
+      "description": "批量查询个人的主身份.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "identityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "身份识别名"
+        }
+      ]
+    },
+    {
+      "name": "listMajorWithPersonObject",
+      "className": "com.x.organization.assemble.express.jaxrs.identity.ActionListMajorWithPersonObject",
+      "description": "批量查询个人的主身份对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "身份名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "身份标识"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "人员"
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织"
+        },
+        {
+          "name": "unitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unitLevel",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织级别"
+        },
+        {
+          "name": "unitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织级别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "major",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否是设定的主身份"
+        }
+      ]
+    },
+    {
+      "name": "listObject",
+      "className": "com.x.organization.assemble.express.jaxrs.identity.ActionListObject",
+      "description": "批量查询身份对象",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "woUnit",
+          "type": "WoUnit",
+          "isCollection": false,
+          "description": "组织对象"
+        },
+        {
+          "name": "woUnitDutyList",
+          "type": "List\u003cWoUnitDuty\u003e",
+          "isCollection": true,
+          "description": "组织职务对象"
+        },
+        {
+          "name": "woGroupList",
+          "type": "List\u003cWoGroup\u003e",
+          "isCollection": true,
+          "description": "群组对象"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "pinyin",
+          "type": "String",
+          "isCollection": false,
+          "description": "name拼音,自动生成"
+        },
+        {
+          "name": "pinyinInitial",
+          "type": "String",
+          "isCollection": false,
+          "description": "name拼音首字母,自动生成"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "描述."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "名称,可重名."
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识,不可重复,为空则使用自动填充值"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名."
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "身份所属个人,存放个人 ID,不为空."
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "属性所属组织,不可为空."
+        },
+        {
+          "name": "unitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称."
+        },
+        {
+          "name": "unitLevel",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织级别."
+        },
+        {
+          "name": "unitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "显示的层级名."
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "major",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "主身份标识"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listWithGroup",
+      "className": "com.x.organization.assemble.express.jaxrs.identity.ActionListWithGroup",
+      "description": "批量查询群组对应的身份,个人如果在组织中没有指定,那么取主身份,组织不递归.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "identityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "身份识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithGroupObject",
+      "className": "com.x.organization.assemble.express.jaxrs.identity.ActionListWithGroupObject",
+      "description": "批量查询群组对应的身份对象,个人如果在组织中没有指定,那么取主身份,组织不递归.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "身份名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "身份标识"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "人员"
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织"
+        },
+        {
+          "name": "unitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unitLevel",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织级别"
+        },
+        {
+          "name": "unitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织级别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "major",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否是设定的主身份"
+        }
+      ]
+    },
+    {
+      "name": "listWithPerson",
+      "className": "com.x.organization.assemble.express.jaxrs.identity.ActionListWithPerson",
+      "description": "批量查询个人对应的身份.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "identityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "身份识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithPersonObject",
+      "className": "com.x.organization.assemble.express.jaxrs.identity.ActionListWithPersonObject",
+      "description": "批量查询个人对应的身份对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "身份名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "身份标识"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "人员"
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织"
+        },
+        {
+          "name": "unitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unitLevel",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织级别"
+        },
+        {
+          "name": "unitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织级别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "major",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否是设定的主身份"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitPerson",
+      "className": "com.x.organization.assemble.express.jaxrs.identity.ActionListWithPersonWithUnit",
+      "description": "批量查询指定组织和指定个人对应的身份",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "identityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "身份识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitPersonObject",
+      "className": "com.x.organization.assemble.express.jaxrs.identity.ActionListWithPersonWithUnitObject",
+      "description": "批量查询指定组织和指定个人对应的身份对象",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "身份名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "身份标识"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "人员"
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织"
+        },
+        {
+          "name": "unitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unitLevel",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织级别"
+        },
+        {
+          "name": "unitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织级别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "major",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否是设定的主身份"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSubDirect",
+      "className": "com.x.organization.assemble.express.jaxrs.identity.ActionListWithUnitSubDirect",
+      "description": "批量查询组织的直接成员对应的个人",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "identityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "身份识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSubDirectObject",
+      "className": "com.x.organization.assemble.express.jaxrs.identity.ActionListWithUnitSubDirectObject",
+      "description": "批量查询组织的直接成员对应的个人对象",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "身份名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "身份标识"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "人员"
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织"
+        },
+        {
+          "name": "unitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unitLevel",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织级别"
+        },
+        {
+          "name": "unitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织级别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "major",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否是设定的主身份"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSubNested",
+      "className": "com.x.organization.assemble.express.jaxrs.identity.ActionListWithUnitSubNested",
+      "description": "批量组织的嵌套成员对应的个人",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "identityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "身份识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSubNestedObject",
+      "className": "com.x.organization.assemble.express.jaxrs.identity.ActionListWithUnitSubNestedObject",
+      "description": "批量组织的嵌套成员对应的个人对象",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "身份名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "身份标识"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "人员"
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织"
+        },
+        {
+          "name": "unitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unitLevel",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织级别"
+        },
+        {
+          "name": "unitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织级别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "major",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否是设定的主身份"
+        }
+      ]
+    }
+  ]
+}

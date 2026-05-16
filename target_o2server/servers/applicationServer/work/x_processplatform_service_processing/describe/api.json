@@ -1,0 +1,825 @@
+{
+  "jaxrs": [
+    {
+      "name": "ApplicationDictAction",
+      "methods": [
+        {
+          "name": "update",
+          "uri": "jaxrs/applicationdict/{id}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createDataPath2",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/data",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createDataPath5",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/data",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath5",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/data",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createDataPath1",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/data",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath3",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/{path3}/data",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath4",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/data",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath0",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/data",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteDataPath5",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/data",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteDataPath0",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/data",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteDataPath7",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/data",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteDataPath6",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/data",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteDataPath1",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/data",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath1",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/data",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath2",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/data",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteDataPath3",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/{path3}/data",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createDataPath6",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/data",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createDataPath7",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/data",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath6",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/data",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createDataPath0",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/data",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteDataPath2",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/data",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath7",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/data",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteDataPath4",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/data",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createDataPath3",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/{path3}/data",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createDataPath4",
+          "uri": "jaxrs/applicationdict/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/data",
+          "method": "POST",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "AttachmentAction",
+      "methods": [
+        {
+          "name": "delete",
+          "uri": "jaxrs/attachment/{id}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteWithWorkCompleted",
+          "uri": "jaxrs/attachment/{id}/workcompleted/{workCompletedId}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "edit",
+          "uri": "jaxrs/attachment/{id}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "exitText",
+          "uri": "jaxrs/attachment/edit/{id}/text",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "copyToWorkCompleted",
+          "uri": "jaxrs/attachment/copy/workcompleted/{workCompletedId}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteWithWork",
+          "uri": "jaxrs/attachment/{id}/work/{workId}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "copyToWork",
+          "uri": "jaxrs/attachment/copy/work/{workId}",
+          "method": "POST",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "CacheAction",
+      "methods": [
+        {
+          "name": "commonScriptFlush",
+          "uri": "jaxrs/cache/commonscript/flush",
+          "method": "GET"
+        },
+        {
+          "name": "configFlush",
+          "uri": "jaxrs/cache/config/flush",
+          "method": "GET"
+        },
+        {
+          "name": "receive",
+          "uri": "jaxrs/cache",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "detail",
+          "uri": "jaxrs/cache/detail",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "DataAction",
+      "methods": [
+        {
+          "name": "deleteWithWorkPath",
+          "uri": "jaxrs/data/work/{id}/{path}/delete",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateWithWorkPath",
+          "uri": "jaxrs/data/work/{id}/{path}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateWithWorkCompleted",
+          "uri": "jaxrs/data/workcompleted/{id}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateWithWorkCompletedPath",
+          "uri": "jaxrs/data/workcompleted/{id}/{path}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateWithWork",
+          "uri": "jaxrs/data/work/{id}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateWithJob",
+          "uri": "jaxrs/data/job/{job}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateWithJobPath",
+          "uri": "jaxrs/data/job/{job}/{path}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteWithWork",
+          "uri": "jaxrs/data/work/{id}/delete",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createWithWork",
+          "uri": "jaxrs/data/work/{id}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createWithWorkPath",
+          "uri": "jaxrs/data/work/{id}/{path}",
+          "method": "POST",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "DocumentVersionAction",
+      "methods": [
+        {
+          "name": "processing",
+          "uri": "jaxrs/documentversion/work/{work}",
+          "method": "POST",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "EchoAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/echo",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "EventAction",
+      "methods": [
+        {
+          "name": "addUpdateTable",
+          "uri": "jaxrs/event/add/update/table",
+          "method": "POST",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "FireScheduleAction",
+      "methods": [
+        {
+          "name": "execute",
+          "uri": "jaxrs/fireschedule/classname/{className}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "FormAction",
+      "methods": [
+        {
+          "name": "suitableActivity",
+          "uri": "jaxrs/form/suitable/activity/{activityId}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "JobAction",
+      "methods": [
+        {
+          "name": "deleteWithJob",
+          "uri": "jaxrs/job/{job}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "v2Projection",
+          "uri": "jaxrs/job/v2/{job}/projection",
+          "method": "GET"
+        },
+        {
+          "name": "v2View",
+          "uri": "jaxrs/job/v2/{job}/person/{person}/view",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "ReadAction",
+      "methods": [
+        {
+          "name": "reset",
+          "uri": "jaxrs/read/{id}/reset",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "replace",
+          "uri": "jaxrs/read/{id}/replace",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "delete",
+          "uri": "jaxrs/read/{id}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createWithWork",
+          "uri": "jaxrs/read/work/{workId}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createWithWorkCompleted",
+          "uri": "jaxrs/read/workcompleted/{workCompletedId}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "processing",
+          "uri": "jaxrs/read/{id}/processing",
+          "method": "PUT",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "RecordAction",
+      "methods": [
+        {
+          "name": "delete",
+          "uri": "jaxrs/record/{id}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "workTerminate",
+          "uri": "jaxrs/record/work/terminate",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createWithJob",
+          "uri": "jaxrs/record/job/{job}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "edit",
+          "uri": "jaxrs/record/{id}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "taskProcessing",
+          "uri": "jaxrs/record/task/processing",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "workProcessing",
+          "uri": "jaxrs/record/work/processing",
+          "method": "POST",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "ReviewAction",
+      "methods": [
+        {
+          "name": "delete",
+          "uri": "jaxrs/review/{id}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "initForView",
+          "uri": "jaxrs/review/init/review",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createWithWork",
+          "uri": "jaxrs/review/create/work",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createWithWorkCompleted",
+          "uri": "jaxrs/review/create/workcompleted",
+          "method": "POST",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "ServiceAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/service/work/{id}/touch",
+          "method": "PUT",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "SnapAction",
+      "methods": [
+        {
+          "name": "delete",
+          "uri": "jaxrs/snap/{id}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "typeAbandonedWorkCompleted",
+          "uri": "jaxrs/snap/workcompleted/{workCompletedId}/type/abandonedworkcompleted",
+          "method": "GET"
+        },
+        {
+          "name": "typeSnap",
+          "uri": "jaxrs/snap/work/{workId}/type/snap",
+          "method": "GET"
+        },
+        {
+          "name": "typeAbandoned",
+          "uri": "jaxrs/snap/work/{workId}/type/abandoned",
+          "method": "GET"
+        },
+        {
+          "name": "restore",
+          "uri": "jaxrs/snap/{id}/restore",
+          "method": "GET"
+        },
+        {
+          "name": "typeSnapWorkCompleted",
+          "uri": "jaxrs/snap/workcompleted/{workCompletedId}/type/snapworkcompleted",
+          "method": "GET"
+        },
+        {
+          "name": "typeSuspend",
+          "uri": "jaxrs/snap/work/{workId}/type/suspend",
+          "method": "GET"
+        },
+        {
+          "name": "upload",
+          "uri": "jaxrs/snap/upload",
+          "method": "POST",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "TaskAction",
+      "methods": [
+        {
+          "name": "replace",
+          "uri": "jaxrs/task/{id}/replace",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "delete",
+          "uri": "jaxrs/task/{id}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "v2Pause",
+          "uri": "jaxrs/task/v2/{id}/pause",
+          "method": "GET"
+        },
+        {
+          "name": "passExpired",
+          "uri": "jaxrs/task/{id}/pass/expired",
+          "method": "GET"
+        },
+        {
+          "name": "press",
+          "uri": "jaxrs/task/{id}/press",
+          "method": "GET"
+        },
+        {
+          "name": "v2Resume",
+          "uri": "jaxrs/task/v2/{id}/resume",
+          "method": "GET"
+        },
+        {
+          "name": "v2Reset",
+          "uri": "jaxrs/task/v2/{id}/reset",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "expire",
+          "uri": "jaxrs/task/{id}/expire",
+          "method": "GET"
+        },
+        {
+          "name": "v3Add",
+          "uri": "jaxrs/task/v3/{id}/add",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "urge",
+          "uri": "jaxrs/task/{id}/urge",
+          "method": "GET"
+        },
+        {
+          "name": "v2Edit",
+          "uri": "jaxrs/task/v2/{id}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "will",
+          "uri": "jaxrs/task/{id}/will",
+          "method": "GET"
+        },
+        {
+          "name": "processing",
+          "uri": "jaxrs/task/{id}/processing",
+          "method": "PUT",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "TaskCompletedAction",
+      "methods": [
+        {
+          "name": "delete",
+          "uri": "jaxrs/taskcompleted/{id}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "press",
+          "uri": "jaxrs/taskcompleted/{id}/press/work/{work}",
+          "method": "GET"
+        },
+        {
+          "name": "updateNextTaskIdentity",
+          "uri": "jaxrs/taskcompleted/next/task/identity",
+          "method": "PUT",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "TouchAction",
+      "methods": [
+        {
+          "name": "merge",
+          "uri": "jaxrs/touch/merge",
+          "method": "GET"
+        },
+        {
+          "name": "logLongDetained",
+          "uri": "jaxrs/touch/loglongdetained",
+          "method": "GET"
+        },
+        {
+          "name": "cleanEvent",
+          "uri": "jaxrs/touch/cleanevent",
+          "method": "GET"
+        },
+        {
+          "name": "handoverJob",
+          "uri": "jaxrs/touch/handoverjob",
+          "method": "GET"
+        },
+        {
+          "name": "mergeItem",
+          "uri": "jaxrs/touch/mergeitem",
+          "method": "GET"
+        },
+        {
+          "name": "deleteDraft",
+          "uri": "jaxrs/touch/deletedraft",
+          "method": "GET"
+        },
+        {
+          "name": "urge",
+          "uri": "jaxrs/touch/urge",
+          "method": "GET"
+        },
+        {
+          "name": "touchDelay",
+          "uri": "jaxrs/touch/touchdelay",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "WorkAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/work/{id}",
+          "method": "GET"
+        },
+        {
+          "name": "create",
+          "uri": "jaxrs/work/process/{processId}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "delete",
+          "uri": "jaxrs/work/{id}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "v2GoBack",
+          "uri": "jaxrs/work/v2/{id}/goback",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "v2Terminate",
+          "uri": "jaxrs/work/v2/{id}/terminate",
+          "method": "GET"
+        },
+        {
+          "name": "v2AddSplit",
+          "uri": "jaxrs/work/v2/{id}/add/split",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "projection",
+          "uri": "jaxrs/work/{id}/projection",
+          "method": "GET"
+        },
+        {
+          "name": "v2Reroute",
+          "uri": "jaxrs/work/v2/{id}/reroute",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createWorkSerial",
+          "uri": "jaxrs/work/process/{processId}/name/{name}/serial",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "manualAfterProcessing",
+          "uri": "jaxrs/work/manual/after/processing",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "assignCreate",
+          "uri": "jaxrs/work",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "processingSignal",
+          "uri": "jaxrs/work/{id}/series/{series}/activitytoken/{activityToken}/processing/signal",
+          "method": "GET"
+        },
+        {
+          "name": "manualAppendIdentity",
+          "uri": "jaxrs/work/{id}/manual/append/identity",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "edit",
+          "uri": "jaxrs/work/{id}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "v3Retract",
+          "uri": "jaxrs/work/v3/retract",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "v2Rollback",
+          "uri": "jaxrs/work/v2/{id}/rollback",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteDraft",
+          "uri": "jaxrs/work/{id}/draft",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "v2Retract",
+          "uri": "jaxrs/work/v2/{id}/retract",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "processing",
+          "uri": "jaxrs/work/{id}/processing",
+          "method": "PUT",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "WorkCompletedAction",
+      "methods": [
+        {
+          "name": "merge",
+          "uri": "jaxrs/workcompleted/{flag}/merge",
+          "method": "GET"
+        },
+        {
+          "name": "create",
+          "uri": "jaxrs/workcompleted/process/{processFlag}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "shiftTime",
+          "uri": "jaxrs/workcompleted/shift/time",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "rollback",
+          "uri": "jaxrs/workcompleted/{flag}/rollback",
+          "method": "PUT",
+          "enctype": "application/json"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "jaxrs": [
+    {
+      "name": "CacheAction",
+      "methods": [
+        {
+          "name": "configFlush",
+          "uri": "jaxrs/cache/config/flush",
+          "method": "GET"
+        },
+        {
+          "name": "commonScriptFlush",
+          "uri": "jaxrs/cache/commonscript/flush",
+          "method": "GET"
+        },
+        {
+          "name": "receive",
+          "uri": "jaxrs/cache",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "detail",
+          "uri": "jaxrs/cache/detail",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "ComponentAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/component/{flag}",
+          "method": "GET"
+        },
+        {
+          "name": "create",
+          "uri": "jaxrs/component",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "delete",
+          "uri": "jaxrs/component/{flag}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "edit",
+          "uri": "jaxrs/component/{flag}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteAll",
+          "uri": "jaxrs/component/delete/all",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listAll",
+          "uri": "jaxrs/component/list/all",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "EchoAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/echo",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "FireScheduleAction",
+      "methods": [
+        {
+          "name": "execute",
+          "uri": "jaxrs/fireschedule/classname/{className}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "StatusAction",
+      "methods": [
+        {
+          "name": "list",
+          "uri": "jaxrs/status/list",
+          "method": "GET"
+        }
+      ]
+    }
+  ]
+}

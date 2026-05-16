@@ -1,0 +1,228 @@
+{
+  "name": "UnitDutyAction",
+  "className": "com.x.organization.assemble.express.jaxrs.unitduty.UnitDutyAction",
+  "description": "组织职务接口",
+  "methods": [
+    {
+      "name": "getWithUnitWithName",
+      "className": "com.x.organization.assemble.express.jaxrs.unitduty.ActionGetWithUnitWithName",
+      "description": "根据组织和职务名称获取职务信息.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "pinyin",
+          "type": "String",
+          "isCollection": false,
+          "description": "name拼音,自动生成"
+        },
+        {
+          "name": "pinyinInitial",
+          "type": "String",
+          "isCollection": false,
+          "description": "name拼音首字母,自动生成"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "描述."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "名称,同一组织下不可重名."
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识,不可重复,为空则使用自动填充值"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名,自动填充,@UD结尾."
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织职务所属组织,不可为空."
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "identityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织职务身份成员,多值."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listIdentityWithUnitWithName",
+      "className": "com.x.organization.assemble.express.jaxrs.unitduty.ActionListIdentityWithUnitWithName",
+      "description": "根据组织和组织职务名称获取身份.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "identityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "身份"
+        }
+      ]
+    },
+    {
+      "name": "listIdentityWithUnitWithNameObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unitduty.ActionListIdentityWithUnitWithNameObject",
+      "description": "根据组织和组织职务名称获取身份对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "身份名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "身份标识"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "人员"
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织"
+        },
+        {
+          "name": "unitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unitLevel",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织级别"
+        },
+        {
+          "name": "unitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织级别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "major",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否是设定的主身份"
+        }
+      ]
+    },
+    {
+      "name": "listNameWithIdentity",
+      "className": "com.x.organization.assemble.express.jaxrs.unitduty.ActionListNameWithIdentity",
+      "description": "批量查询身份的组织职务名称.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "listNameWithUnit",
+      "className": "com.x.organization.assemble.express.jaxrs.unitduty.ActionListNameWithUnit",
+      "description": "批量查询组织的组织职务名称.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "listWithName",
+      "className": "com.x.organization.assemble.express.jaxrs.unitduty.ActionListWithName",
+      "description": "根据组织职务名称获取组织职务标识.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "listWithUnitObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unitduty.ActionListWithUnitObject",
+      "description": "查询组织的组织职务对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人属性名称"
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织"
+        },
+        {
+          "name": "identityList",
+          "type": "List\u003cIdentity\u003e",
+          "isCollection": true,
+          "description": "身份对象"
+        }
+      ]
+    }
+  ]
+}

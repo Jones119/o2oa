@@ -1,0 +1,3479 @@
+{
+  "name": "DocumentAction",
+  "className": "com.x.cms.assemble.control.jaxrs.document.DocumentAction",
+  "description": "信息发布信息文档管理",
+  "methods": [
+    {
+      "name": "managerQuery_listWithFilterPaging",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListWithFilterPagingAdmin",
+      "description": "管理员分页查询符合过滤条件的已发布的信息内容.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档ID."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间"
+        },
+        {
+          "name": "publishTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "文档发布时间"
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最近修改时间"
+        },
+        {
+          "name": "summary",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档摘要"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档标题"
+        },
+        {
+          "name": "importBatchName",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件导入的批次号：一般是分类ID+时间缀"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明备注，可以填写说明信息，如导入信息检验失败原因等"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类唯一标识"
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类ID"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织名称，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织名称，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "docStatus",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档状态: published | draft | waitPublish"
+        },
+        {
+          "name": "viewCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被查看次数"
+        },
+        {
+          "name": "commentCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被评论次数"
+        },
+        {
+          "name": "commendCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被点赞次数"
+        },
+        {
+          "name": "hasIndexPic",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否含有首页图片"
+        },
+        {
+          "name": "pictureList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "首页图片列表，分页展现返回前3个图片"
+        },
+        {
+          "name": "data",
+          "type": "Map\u003c?,?\u003e",
+          "isCollection": false,
+          "description": "文档所有数据信息."
+        },
+        {
+          "name": "isTop",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否置顶."
+        },
+        {
+          "name": "isAllRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否全员可读."
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "hasRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否已读."
+        }
+      ]
+    },
+    {
+      "name": "persist_achive",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistArchive",
+      "description": "根据ID归档信息发布文档信息.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "persist_batchDataModify",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistBatchModifyData",
+      "description": "指修改指定文档的数据。",
+      "type": "PUT",
+      "outs": []
+    },
+    {
+      "name": "persist_batchDataModifyMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistBatchModifyData",
+      "description": "指修改指定文档的数据。",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "persist_changeCategory",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistChangeCategory",
+      "description": "变更指定文档的分类信息.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "total",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "需要调整分类的文档ID总数量."
+        },
+        {
+          "name": "successList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "成功调整分类的文档ID列表."
+        },
+        {
+          "name": "failtureList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "调整分类失败的文档ID列表."
+        }
+      ]
+    },
+    {
+      "name": "persist_changeCategoryMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistChangeCategory",
+      "description": "变更指定文档的分类信息.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "total",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "需要调整分类的文档ID总数量."
+        },
+        {
+          "name": "successList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "成功调整分类的文档ID列表."
+        },
+        {
+          "name": "failtureList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "调整分类失败的文档ID列表."
+        }
+      ]
+    },
+    {
+      "name": "persist_commend",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistCommend",
+      "description": "文档点赞.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "persist_delete",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistDeleteDocument",
+      "description": "根据ID删除信息发布文档信息.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "persist_deleteMockDeleteToGet",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistDeleteDocument",
+      "description": "根据ID删除信息发布文档信息.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "persist_deleteWithBatchName",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistDeleteWithBatch",
+      "description": "根据批次号删除信息发布文档信息.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "persist_deleteWithBatchNameMockDeleteToGet",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistDeleteWithBatch",
+      "description": "根据批次号删除信息发布文档信息.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "persist_publishAndNotify",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistPublishAndNotify",
+      "description": "根据文档ID正式发布文档，消息通过publishNotify接口发送。",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "persist_publishAndNotifyMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistPublishAndNotify",
+      "description": "根据文档ID正式发布文档，消息通过publishNotify接口发送。",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "persist_publishCancel",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistPublishCancel",
+      "description": "根据ID取消信息内容发布状态，修改为草稿.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "persist_publishCancelMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistPublishCancel",
+      "description": "根据ID取消信息内容发布状态，修改为草稿.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "persist_publishContent",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistPublishContent",
+      "description": "直接发布信息内容，创建新的信息发布文档并且直接发布.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "persist_publishContentMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistPublishContent",
+      "description": "直接发布信息内容，创建新的信息发布文档并且直接发布.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "persist_save",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistSaveDocument",
+      "description": "保存信息发布文档信息对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "persist_top",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistTopDocument",
+      "description": "文档置顶.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "persist_unCommend",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistUnCommend",
+      "description": "取消文档点赞.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "persist_unTop",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPersistUnTopDocument",
+      "description": "取消文档置顶.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "publishHtml",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionPublishHtml",
+      "description": "已发布文档发送html文本到webServer下。",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "publishNotify",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionNotify",
+      "description": "已发布文档消息通知。",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "query_PermissionReadDocument",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryPermissionReadDocument",
+      "description": "查询当前用户是否有阅读文档的权限.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "query_checkAllImportStatus",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryAllImportStatus",
+      "description": "查询所有的导入状态信息.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "query_checkImportStatus",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryImportStatusWithName",
+      "description": "根据导入批次号查询导入状态信息.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "query_countDocumentWithFilter",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryCountWithFilter",
+      "description": "查询符合过滤条件的已发布的信息数量.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "docCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "查询到的文档数量"
+        }
+      ]
+    },
+    {
+      "name": "query_countDocumentWithFilterMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryCountWithFilter",
+      "description": "查询符合过滤条件的已发布的信息数量.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "docCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "查询到的文档数量"
+        }
+      ]
+    },
+    {
+      "name": "query_get",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryGetDocument",
+      "description": "根据ID获取信息发布文档信息对象详细信息，包括附件列表，数据信息.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "document",
+          "type": "WoDocument",
+          "isCollection": false,
+          "description": "作为输出的CMS文档数据对象."
+        },
+        {
+          "name": "documentLogList",
+          "type": "List\u003cWoLog\u003e",
+          "isCollection": true,
+          "description": "作为输出的CMS文档操作日志."
+        },
+        {
+          "name": "data",
+          "type": "Data",
+          "isCollection": false,
+          "description": "文档所有数据信息."
+        },
+        {
+          "name": "form",
+          "type": "WoForm",
+          "isCollection": false,
+          "description": "作为编辑的CMS文档表单."
+        },
+        {
+          "name": "readForm",
+          "type": "WoForm",
+          "isCollection": false,
+          "description": "作为查看的CMS文档表单."
+        }
+      ]
+    },
+    {
+      "name": "query_getControl",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryGetControl",
+      "description": "获取文件访问控制信息.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "query_getDocumentData",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryGetDocumentData",
+      "description": "查看文档数据.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "docId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档ID."
+        },
+        {
+          "name": "document",
+          "type": "WoDocument",
+          "isCollection": false,
+          "description": "作为输出的CMS文档数据对象."
+        },
+        {
+          "name": "data",
+          "type": "Data",
+          "isCollection": false,
+          "description": "文档所有数据信息."
+        }
+      ]
+    },
+    {
+      "name": "query_getViewCount",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryCountViewTimes",
+      "description": "根据ID获取信息发布文档信息被访问次数.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "query_getVisiblePersons",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListVisiblePersons",
+      "description": "获取文件可见范围内的所有人员.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "valueList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "字符串多值."
+        }
+      ]
+    },
+    {
+      "name": "query_listDocument",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListDocument",
+      "description": "列示文档.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档ID."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间"
+        },
+        {
+          "name": "publishTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "文档发布时间"
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最近修改时间"
+        },
+        {
+          "name": "summary",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档摘要"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档标题"
+        },
+        {
+          "name": "importBatchName",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件导入的批次号：一般是分类ID+时间缀"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明备注，可以填写说明信息，如导入信息检验失败原因等"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类唯一标识"
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类ID"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织名称，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织名称，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "docStatus",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档状态: published | draft | waitPublish"
+        },
+        {
+          "name": "viewCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被查看次数"
+        },
+        {
+          "name": "commentCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被评论次数"
+        },
+        {
+          "name": "commendCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被点赞次数"
+        },
+        {
+          "name": "hasIndexPic",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否含有首页图片"
+        },
+        {
+          "name": "pictureList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "首页图片列表，分页展现返回前3个图片"
+        },
+        {
+          "name": "data",
+          "type": "Map\u003c?,?\u003e",
+          "isCollection": false,
+          "description": "文档所有数据信息."
+        },
+        {
+          "name": "isTop",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否置顶."
+        },
+        {
+          "name": "isAllRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否全员可读."
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "hasRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否已读."
+        }
+      ]
+    },
+    {
+      "name": "query_listDocumentData",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListDocumentData",
+      "description": "列示文档数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "docId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档ID."
+        },
+        {
+          "name": "document",
+          "type": "WoDocument",
+          "isCollection": false,
+          "description": "作为输出的CMS文档数据对象."
+        },
+        {
+          "name": "data",
+          "type": "Data",
+          "isCollection": false,
+          "description": "文档所有数据信息."
+        }
+      ]
+    },
+    {
+      "name": "query_listDocumentFields",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListDocumentFields",
+      "description": "列示文档对象可供排序和展示使用的列名.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "fieldNames",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "文档对象可供列表使用的列名."
+        }
+      ]
+    },
+    {
+      "name": "query_listDraftNextWithFilter",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListDraftNextWithFilter",
+      "description": "列示符合过滤条件的草稿信息内容, 下一页.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "summary",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档摘要"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档标题"
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档类型，跟随分类类型，信息 | 数据"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "appAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目别名"
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类ID"
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名"
+        },
+        {
+          "name": "form",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的表单模板ID"
+        },
+        {
+          "name": "formName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的表单模板名称"
+        },
+        {
+          "name": "importBatchName",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件导入的批次号：一般是分类ID+时间缀"
+        },
+        {
+          "name": "readFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "readFormName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "ppFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程平台表单ID"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "docStatus",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档状态: published | waitPublish | draft | archived"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明备注，可以填写说明信息，如导入信息检验失败原因等"
+        },
+        {
+          "name": "viewCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被查看次数"
+        },
+        {
+          "name": "commendCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被赞次数"
+        },
+        {
+          "name": "commentCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档评论次数"
+        },
+        {
+          "name": "publishTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "文档发布时间"
+        },
+        {
+          "name": "modifyTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "文档修改时间"
+        },
+        {
+          "name": "isTop",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否置顶"
+        },
+        {
+          "name": "isAllRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否全员可读"
+        },
+        {
+          "name": "hasIndexPic",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否含有首页图片"
+        },
+        {
+          "name": "reviewed",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否已经更新review信息."
+        },
+        {
+          "name": "indexPics",
+          "type": "String",
+          "isCollection": false,
+          "description": "首页图片，取自pictureList的前3个图片用于列表展示"
+        },
+        {
+          "name": "sequenceTitle",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于标题排序的sequence"
+        },
+        {
+          "name": "sequenceAppAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于栏目别名排序的sequence"
+        },
+        {
+          "name": "sequenceCategoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于分类别名排序的sequence"
+        },
+        {
+          "name": "sequenceCreatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于创建者排序的sequence"
+        },
+        {
+          "name": "sequenceCreatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于创建者组织排序的sequence"
+        },
+        {
+          "name": "readPersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "阅读人员"
+        },
+        {
+          "name": "readUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "阅读组织"
+        },
+        {
+          "name": "readGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "阅读群组"
+        },
+        {
+          "name": "authorPersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "作者人员"
+        },
+        {
+          "name": "authorUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "作者组织"
+        },
+        {
+          "name": "authorGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "作者群组"
+        },
+        {
+          "name": "managerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "管理者"
+        },
+        {
+          "name": "pictureList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "首页图片列表"
+        },
+        {
+          "name": "properties",
+          "type": "DocumentProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "query_listDraftNextWithFilterMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListDraftNextWithFilter",
+      "description": "列示符合过滤条件的草稿信息内容, 下一页.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "summary",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档摘要"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档标题"
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档类型，跟随分类类型，信息 | 数据"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "appAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目别名"
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类ID"
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名"
+        },
+        {
+          "name": "form",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的表单模板ID"
+        },
+        {
+          "name": "formName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的表单模板名称"
+        },
+        {
+          "name": "importBatchName",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件导入的批次号：一般是分类ID+时间缀"
+        },
+        {
+          "name": "readFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "readFormName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "ppFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程平台表单ID"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "docStatus",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档状态: published | waitPublish | draft | archived"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明备注，可以填写说明信息，如导入信息检验失败原因等"
+        },
+        {
+          "name": "viewCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被查看次数"
+        },
+        {
+          "name": "commendCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被赞次数"
+        },
+        {
+          "name": "commentCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档评论次数"
+        },
+        {
+          "name": "publishTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "文档发布时间"
+        },
+        {
+          "name": "modifyTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "文档修改时间"
+        },
+        {
+          "name": "isTop",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否置顶"
+        },
+        {
+          "name": "isAllRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否全员可读"
+        },
+        {
+          "name": "hasIndexPic",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否含有首页图片"
+        },
+        {
+          "name": "reviewed",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否已经更新review信息."
+        },
+        {
+          "name": "indexPics",
+          "type": "String",
+          "isCollection": false,
+          "description": "首页图片，取自pictureList的前3个图片用于列表展示"
+        },
+        {
+          "name": "sequenceTitle",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于标题排序的sequence"
+        },
+        {
+          "name": "sequenceAppAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于栏目别名排序的sequence"
+        },
+        {
+          "name": "sequenceCategoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于分类别名排序的sequence"
+        },
+        {
+          "name": "sequenceCreatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于创建者排序的sequence"
+        },
+        {
+          "name": "sequenceCreatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于创建者组织排序的sequence"
+        },
+        {
+          "name": "readPersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "阅读人员"
+        },
+        {
+          "name": "readUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "阅读组织"
+        },
+        {
+          "name": "readGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "阅读群组"
+        },
+        {
+          "name": "authorPersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "作者人员"
+        },
+        {
+          "name": "authorUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "作者组织"
+        },
+        {
+          "name": "authorGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "作者群组"
+        },
+        {
+          "name": "managerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "管理者"
+        },
+        {
+          "name": "pictureList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "首页图片列表"
+        },
+        {
+          "name": "properties",
+          "type": "DocumentProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "query_listNextWithFilter",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListNextWithFilter",
+      "description": "列示符合过滤条件的已发布的信息内容, 下一页.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档ID."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间"
+        },
+        {
+          "name": "publishTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "文档发布时间"
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最近修改时间"
+        },
+        {
+          "name": "summary",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档摘要"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档标题"
+        },
+        {
+          "name": "importBatchName",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件导入的批次号：一般是分类ID+时间缀"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明备注，可以填写说明信息，如导入信息检验失败原因等"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类唯一标识"
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类ID"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织名称，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织名称，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "docStatus",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档状态: published | draft | waitPublish"
+        },
+        {
+          "name": "viewCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被查看次数"
+        },
+        {
+          "name": "commentCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被评论次数"
+        },
+        {
+          "name": "commendCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被点赞次数"
+        },
+        {
+          "name": "hasIndexPic",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否含有首页图片"
+        },
+        {
+          "name": "pictureList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "首页图片列表，分页展现返回前3个图片"
+        },
+        {
+          "name": "data",
+          "type": "Map\u003c?,?\u003e",
+          "isCollection": false,
+          "description": "文档所有数据信息."
+        },
+        {
+          "name": "isTop",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否置顶."
+        },
+        {
+          "name": "isAllRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否全员可读."
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "hasRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否已读."
+        }
+      ]
+    },
+    {
+      "name": "query_listNextWithFilterMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListNextWithFilter",
+      "description": "列示符合过滤条件的已发布的信息内容, 下一页.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档ID."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间"
+        },
+        {
+          "name": "publishTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "文档发布时间"
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最近修改时间"
+        },
+        {
+          "name": "summary",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档摘要"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档标题"
+        },
+        {
+          "name": "importBatchName",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件导入的批次号：一般是分类ID+时间缀"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明备注，可以填写说明信息，如导入信息检验失败原因等"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类唯一标识"
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类ID"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织名称，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织名称，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "docStatus",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档状态: published | draft | waitPublish"
+        },
+        {
+          "name": "viewCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被查看次数"
+        },
+        {
+          "name": "commentCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被评论次数"
+        },
+        {
+          "name": "commendCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被点赞次数"
+        },
+        {
+          "name": "hasIndexPic",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否含有首页图片"
+        },
+        {
+          "name": "pictureList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "首页图片列表，分页展现返回前3个图片"
+        },
+        {
+          "name": "data",
+          "type": "Map\u003c?,?\u003e",
+          "isCollection": false,
+          "description": "文档所有数据信息."
+        },
+        {
+          "name": "isTop",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否置顶."
+        },
+        {
+          "name": "isAllRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否全员可读."
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "hasRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否已读."
+        }
+      ]
+    },
+    {
+      "name": "query_listPrevWithFilter",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListPrevWithFilter",
+      "description": "列示符合过滤条件的已发布的信息内容, 上一页.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档ID."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间"
+        },
+        {
+          "name": "publishTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "文档发布时间"
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最近修改时间"
+        },
+        {
+          "name": "summary",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档摘要"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档标题"
+        },
+        {
+          "name": "importBatchName",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件导入的批次号：一般是分类ID+时间缀"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明备注，可以填写说明信息，如导入信息检验失败原因等"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类唯一标识"
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类ID"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织名称，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织名称，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "docStatus",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档状态: published | draft | waitPublish"
+        },
+        {
+          "name": "viewCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被查看次数"
+        },
+        {
+          "name": "commentCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被评论次数"
+        },
+        {
+          "name": "commendCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被点赞次数"
+        },
+        {
+          "name": "hasIndexPic",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否含有首页图片"
+        },
+        {
+          "name": "pictureList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "首页图片列表，分页展现返回前3个图片"
+        },
+        {
+          "name": "data",
+          "type": "Map\u003c?,?\u003e",
+          "isCollection": false,
+          "description": "文档所有数据信息."
+        },
+        {
+          "name": "isTop",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否置顶."
+        },
+        {
+          "name": "isAllRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否全员可读."
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "hasRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否已读."
+        }
+      ]
+    },
+    {
+      "name": "query_listPrevWithFilterMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListPrevWithFilter",
+      "description": "列示符合过滤条件的已发布的信息内容, 上一页.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档ID."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间"
+        },
+        {
+          "name": "publishTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "文档发布时间"
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最近修改时间"
+        },
+        {
+          "name": "summary",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档摘要"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档标题"
+        },
+        {
+          "name": "importBatchName",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件导入的批次号：一般是分类ID+时间缀"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明备注，可以填写说明信息，如导入信息检验失败原因等"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类唯一标识"
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类ID"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织名称，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织名称，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "docStatus",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档状态: published | draft | waitPublish"
+        },
+        {
+          "name": "viewCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被查看次数"
+        },
+        {
+          "name": "commentCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被评论次数"
+        },
+        {
+          "name": "commendCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被点赞次数"
+        },
+        {
+          "name": "hasIndexPic",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否含有首页图片"
+        },
+        {
+          "name": "pictureList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "首页图片列表，分页展现返回前3个图片"
+        },
+        {
+          "name": "data",
+          "type": "Map\u003c?,?\u003e",
+          "isCollection": false,
+          "description": "文档所有数据信息."
+        },
+        {
+          "name": "isTop",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否置顶."
+        },
+        {
+          "name": "isAllRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否全员可读."
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "hasRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否已读."
+        }
+      ]
+    },
+    {
+      "name": "query_listWithFilterPaging",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListWithFilterPaging",
+      "description": "分页查询符合过滤条件的已发布的信息内容.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档ID."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间"
+        },
+        {
+          "name": "publishTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "文档发布时间"
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最近修改时间"
+        },
+        {
+          "name": "summary",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档摘要"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档标题"
+        },
+        {
+          "name": "importBatchName",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件导入的批次号：一般是分类ID+时间缀"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明备注，可以填写说明信息，如导入信息检验失败原因等"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类唯一标识"
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类ID"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织名称，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织名称，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "docStatus",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档状态: published | draft | waitPublish"
+        },
+        {
+          "name": "viewCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被查看次数"
+        },
+        {
+          "name": "commentCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被评论次数"
+        },
+        {
+          "name": "commendCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被点赞次数"
+        },
+        {
+          "name": "hasIndexPic",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否含有首页图片"
+        },
+        {
+          "name": "pictureList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "首页图片列表，分页展现返回前3个图片"
+        },
+        {
+          "name": "data",
+          "type": "Map\u003c?,?\u003e",
+          "isCollection": false,
+          "description": "文档所有数据信息."
+        },
+        {
+          "name": "isTop",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否置顶."
+        },
+        {
+          "name": "isAllRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否全员可读."
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "hasRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否已读."
+        }
+      ]
+    },
+    {
+      "name": "query_listWithFilterPagingMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryListWithFilterPaging",
+      "description": "分页查询符合过滤条件的已发布的信息内容.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档ID."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间"
+        },
+        {
+          "name": "publishTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "文档发布时间"
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最近修改时间"
+        },
+        {
+          "name": "summary",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档摘要"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档标题"
+        },
+        {
+          "name": "importBatchName",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件导入的批次号：一般是分类ID+时间缀"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明备注，可以填写说明信息，如导入信息检验失败原因等"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类唯一标识"
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类ID"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织名称，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织名称，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "docStatus",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档状态: published | draft | waitPublish"
+        },
+        {
+          "name": "viewCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被查看次数"
+        },
+        {
+          "name": "commentCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被评论次数"
+        },
+        {
+          "name": "commendCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文档被点赞次数"
+        },
+        {
+          "name": "hasIndexPic",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否含有首页图片"
+        },
+        {
+          "name": "pictureList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "首页图片列表，分页展现返回前3个图片"
+        },
+        {
+          "name": "data",
+          "type": "Map\u003c?,?\u003e",
+          "isCollection": false,
+          "description": "文档所有数据信息."
+        },
+        {
+          "name": "isTop",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否置顶."
+        },
+        {
+          "name": "isAllRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否全员可读."
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "hasRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否已读."
+        }
+      ]
+    },
+    {
+      "name": "query_view",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionQueryViewDocument",
+      "description": "根据ID访问信息发布文档信息对象详细信息，包括附件列表，数据信息.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "document",
+          "type": "WoDocument",
+          "isCollection": false,
+          "description": "作为输出的CMS文档数据对象."
+        },
+        {
+          "name": "documentLogList",
+          "type": "List\u003cWoLog\u003e",
+          "isCollection": true,
+          "description": "作为输出的CMS文档操作日志."
+        },
+        {
+          "name": "data",
+          "type": "Data",
+          "isCollection": false,
+          "description": "文档所有数据信息."
+        },
+        {
+          "name": "form",
+          "type": "WoForm",
+          "isCollection": false,
+          "description": "作为编辑的CMS文档表单."
+        },
+        {
+          "name": "readForm",
+          "type": "WoForm",
+          "isCollection": false,
+          "description": "作为查看的CMS文档表单."
+        },
+        {
+          "name": "isCommend",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "文档是否已被当前用户点赞."
+        }
+      ]
+    },
+    {
+      "name": "updateDocument",
+      "className": "com.x.cms.assemble.control.jaxrs.document.ActionUpdateDocument",
+      "description": "更新文档信息。",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3527 @@
+{
+  "name": "AttachmentAction",
+  "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.AttachmentAction",
+  "description": "附件接口.",
+  "methods": [
+    {
+      "name": "available",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionAvailable",
+      "description": "判断文件是否存在.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "batchDownload",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionBatchDownload",
+      "description": "根据工作的job批量下载附件并压缩.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "batchDownloadWithWorkOrWorkCompleted",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionBatchDownload",
+      "description": "根据工作标识或已完成工作标识批量下载附件并压缩.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "batchDownloadWithWorkOrWorkCompletedStream",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionBatchDownload",
+      "description": "根据工作标识或已完成工作标识批量下载附件并压缩,设定使用stream输出.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "changeOrderNumber",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionChangeOrderNumber",
+      "description": "更新指定附件标识的附件排序号.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "changeSite",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionChangeSite",
+      "description": "更新指定附件标识的附件位置信息.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "copyToWork",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionCopyToWork",
+      "description": "由工作标识指定的工作拷贝附件.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "copyToWorkCompleted",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionCopyToWorkCompleted",
+      "description": "由已完成工作标识指定的工作拷贝附件.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "copyToWorkCompletedSoft",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionCopyToWorkCompletedSoft",
+      "description": "由已完成工作标识指定的工作软拷贝附件(不拷贝真实存储附件，共用附件，此接口拷贝的附件删除时只删除记录不删附件).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "copyToWorkSoft",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionCopyToWorkSoft",
+      "description": "由工作标识指定的工作软拷贝附件(不拷贝真实存储附件，共用附件，此接口拷贝的附件删除时只删除记录不删附件).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "delete",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDelete",
+      "description": "删除指定标识的附件.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteMockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDelete",
+      "description": "删除指定标识的附件(mock delete to get).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWork",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDeleteWithWork",
+      "description": "根据工作标识和附件标识删除附件.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkCompleted",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDeleteWithWorkCompleted",
+      "description": "根据已完成工作标识和附件标识删除附件. ",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkCompletedMockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDeleteWithWorkCompleted",
+      "description": "根据已完成工作标识和附件标识删除附件(mock delete to get).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkMockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDeleteWithWork",
+      "description": "根据工作标识和附件标识删除附件(mock delete to get).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "docToWord",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDocToWord",
+      "description": "获取指定工作标识的工作,将html版式公文转换成成Word文件并添加在附件中.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "docToWordWorkOrWorkCompleted",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDocToWordWorkOrWorkCompleted",
+      "description": "获取指定工作标识或已完成工作标识,将html版式公文转换成成Word文件并添加在附件中.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "download",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDownload",
+      "description": "下载指定标识的附件.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "downloadInvoice",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDownloadInvoice",
+      "description": "下载工单内的指定发票.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "downloadStream",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDownloadStream",
+      "description": "下载指定标识的附件,设定使用流输出.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "downloadTransfer",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDownloadTransfer",
+      "description": "html转pdf工具类,下载转换后的附件.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "downloadWithWork",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDownloadWithWork",
+      "description": "根据工作标识和附件标识下载附件.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "downloadWithWorkCompleted",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDownloadWithWorkCompleted",
+      "description": "根据已完成工作标识和附件标识下载附件.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "downloadWithWorkCompletedStream",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDownloadWithWorkCompletedStream",
+      "description": "根据已完成工作标识和附件标识下载附件,设定使用流输出.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "downloadWithWorkCompletedStreamWithExtension",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDownloadWithWorkCompletedStream",
+      "description": "根据已完成工作标识和附件标识以指定的名称下载附件,设定使用流输出.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "downloadWithWorkCompletedWithExtension",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDownloadWithWorkCompleted",
+      "description": "根据已完成工作标识和附件标识以指定的名称下载附件.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "downloadWithWorkStream",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDownloadWithWorkStream",
+      "description": "根据工作标识和附件标识以指定的名称下载附件,设定使用流输出.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "downloadWithWorkStreamWithExtension",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDownloadWithWorkStream",
+      "description": "根据工作标识和附件标识以指定的名称下载附件,设定使用流输出.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "downloadWithWorkWithExtension",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDownloadWithWork",
+      "description": "根据工作标识和附件标识以指定的名称下载附件.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "downloadWorkInfo",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionDownloadWorkInfo",
+      "description": "下载工单的表单,审批记录等html信息.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "edit",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionEdit",
+      "description": "更新指定附件标识的附件信息.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "editMockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionEdit",
+      "description": "M更新指定附件标识的附件信息(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "exitText",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionEditText",
+      "description": "更新指定附件标识的附件的文本识别内容.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "exitTextMockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionEditText",
+      "description": "更新指定附件标识的附件的文本识别内容(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "getInvoiceInfo",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionGetInvoiceInfo",
+      "description": "获取工单内的发票信息.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "上传用户."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "发票文件名称."
+        },
+        {
+          "name": "extension",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展名,必须要有扩展名的文件才允许上传."
+        },
+        {
+          "name": "storage",
+          "type": "String",
+          "isCollection": false,
+          "description": "存储器的名称,也就是多个存放节点的名字."
+        },
+        {
+          "name": "length",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文件大小."
+        },
+        {
+          "name": "lastUpdateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后更新时间"
+        },
+        {
+          "name": "deepPath",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否使用更深的路径."
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "发票抬头."
+        },
+        {
+          "name": "code",
+          "type": "String",
+          "isCollection": false,
+          "description": "发票代码."
+        },
+        {
+          "name": "number",
+          "type": "String",
+          "isCollection": false,
+          "description": "发票号码."
+        },
+        {
+          "name": "date",
+          "type": "String",
+          "isCollection": false,
+          "description": "开票日期，发票上的日期."
+        },
+        {
+          "name": "invoiceDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "开票日期，时间格式"
+        },
+        {
+          "name": "amount",
+          "type": "Double",
+          "isCollection": false,
+          "description": "未税金额."
+        },
+        {
+          "name": "taxAmount",
+          "type": "Double",
+          "isCollection": false,
+          "description": "税费."
+        },
+        {
+          "name": "totalAmountString",
+          "type": "String",
+          "isCollection": false,
+          "description": "总金额(大写)."
+        },
+        {
+          "name": "totalAmount",
+          "type": "Double",
+          "isCollection": false,
+          "description": "总金额."
+        },
+        {
+          "name": "buyerName",
+          "type": "String",
+          "isCollection": false,
+          "description": "购买方名称."
+        },
+        {
+          "name": "buyerCode",
+          "type": "String",
+          "isCollection": false,
+          "description": "购买方纳税人识别号."
+        },
+        {
+          "name": "buyerAddress",
+          "type": "String",
+          "isCollection": false,
+          "description": "购买方地址."
+        },
+        {
+          "name": "buyerAccount",
+          "type": "String",
+          "isCollection": false,
+          "description": "购买方开户行及账号."
+        },
+        {
+          "name": "sellerName",
+          "type": "String",
+          "isCollection": false,
+          "description": "销售方名称."
+        },
+        {
+          "name": "sellerCode",
+          "type": "String",
+          "isCollection": false,
+          "description": "销售方纳税人识别号."
+        },
+        {
+          "name": "sellerAddress",
+          "type": "String",
+          "isCollection": false,
+          "description": "销售方地址."
+        },
+        {
+          "name": "sellerAccount",
+          "type": "String",
+          "isCollection": false,
+          "description": "销售方开户行及账号."
+        },
+        {
+          "name": "drawer",
+          "type": "String",
+          "isCollection": false,
+          "description": "开票人."
+        },
+        {
+          "name": "rider",
+          "type": "String",
+          "isCollection": false,
+          "description": "乘车人."
+        },
+        {
+          "name": "startStation",
+          "type": "String",
+          "isCollection": false,
+          "description": "起点站."
+        },
+        {
+          "name": "endStation",
+          "type": "String",
+          "isCollection": false,
+          "description": "终点站."
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "发票类型."
+        },
+        {
+          "name": "detail",
+          "type": "String",
+          "isCollection": false,
+          "description": "开票项目."
+        },
+        {
+          "name": "remark",
+          "type": "String",
+          "isCollection": false,
+          "description": "备注."
+        },
+        {
+          "name": "applyStatus",
+          "type": "String",
+          "isCollection": false,
+          "description": "报销状态."
+        },
+        {
+          "name": "properties",
+          "type": "InvoiceProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "detailList",
+          "type": "List\u003cInvoiceDetail\u003e",
+          "isCollection": true,
+          "description": "明细记录."
+        },
+        {
+          "name": "encryptKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件密钥."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "getOnlineInfo",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionOnlineInfo",
+      "description": "获取指定附件的在线编辑信息.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件ID."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "任务."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件名称."
+        },
+        {
+          "name": "extension",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展名."
+        },
+        {
+          "name": "length",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        },
+        {
+          "name": "ownerId",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建用户ID."
+        },
+        {
+          "name": "ownerName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建用户名称."
+        },
+        {
+          "name": "userId",
+          "type": "String",
+          "isCollection": false,
+          "description": "当前用户ID."
+        },
+        {
+          "name": "userName",
+          "type": "String",
+          "isCollection": false,
+          "description": "当前用户名称."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间."
+        },
+        {
+          "name": "lastUpdateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后更新时间."
+        },
+        {
+          "name": "canEdit",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "当前用户是否可编辑."
+        },
+        {
+          "name": "canRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "当前用户是否可阅读."
+        }
+      ]
+    },
+    {
+      "name": "getText",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionGetText",
+      "description": "获取指定附件标识的附件的文本识别内容.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "text",
+          "type": "String",
+          "isCollection": false,
+          "description": "文本."
+        }
+      ]
+    },
+    {
+      "name": "getWithWork",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionGetWithWork",
+      "description": "根据工作标识和附件标识获取附件信息.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件名称,带扩展名的文件名."
+        },
+        {
+          "name": "extension",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展名。"
+        },
+        {
+          "name": "storage",
+          "type": "String",
+          "isCollection": false,
+          "description": "关联的存储名称."
+        },
+        {
+          "name": "length",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文件大小."
+        },
+        {
+          "name": "workCreateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "关联的Work创建时间，用于分类目录。"
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "任务."
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所有者"
+        },
+        {
+          "name": "lastUpdateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后更新时间"
+        },
+        {
+          "name": "lastUpdatePerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "最后更新人员"
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动标识,可以为空,在给已完成工作添加附件时值为空."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动名称."
+        },
+        {
+          "name": "activityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "活动类型."
+        },
+        {
+          "name": "activityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动Token."
+        },
+        {
+          "name": "completed",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "整个job是否已经完成."
+        },
+        {
+          "name": "workCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作ID."
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "已完成工作ID."
+        },
+        {
+          "name": "site",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件框分类."
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "根据流文件判断的文件类型."
+        },
+        {
+          "name": "text",
+          "type": "String",
+          "isCollection": false,
+          "description": "文本."
+        },
+        {
+          "name": "readIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的身份."
+        },
+        {
+          "name": "readUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的组织."
+        },
+        {
+          "name": "editIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的用户."
+        },
+        {
+          "name": "editUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的组织."
+        },
+        {
+          "name": "controllerIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的用户."
+        },
+        {
+          "name": "controllerUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的组织."
+        },
+        {
+          "name": "deepPath",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否使用更深的路径."
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "divisionList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分组."
+        },
+        {
+          "name": "fromJob",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源任务，仅soft拷贝模式存储."
+        },
+        {
+          "name": "fromId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源附件ID，仅soft拷贝模式存储."
+        },
+        {
+          "name": "fromPath",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源存储路径，仅soft拷贝模式存储."
+        },
+        {
+          "name": "businessId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件业务ID，需要和job一起来确定唯一的ID."
+        },
+        {
+          "name": "properties",
+          "type": "AttachmentProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值03."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "encryptKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件密钥."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "getWithWorkCompleted",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionGetWithWorkCompleted",
+      "description": "根据WorkCompleted和附件Id获取单个附件信息",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件名称,带扩展名的文件名."
+        },
+        {
+          "name": "extension",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展名。"
+        },
+        {
+          "name": "storage",
+          "type": "String",
+          "isCollection": false,
+          "description": "关联的存储名称."
+        },
+        {
+          "name": "length",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文件大小."
+        },
+        {
+          "name": "workCreateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "关联的Work创建时间，用于分类目录。"
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "任务."
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所有者"
+        },
+        {
+          "name": "lastUpdateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后更新时间"
+        },
+        {
+          "name": "lastUpdatePerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "最后更新人员"
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动标识,可以为空,在给已完成工作添加附件时值为空."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动名称."
+        },
+        {
+          "name": "activityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "活动类型."
+        },
+        {
+          "name": "activityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动Token."
+        },
+        {
+          "name": "completed",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "整个job是否已经完成."
+        },
+        {
+          "name": "workCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作ID."
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "已完成工作ID."
+        },
+        {
+          "name": "site",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件框分类."
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "根据流文件判断的文件类型."
+        },
+        {
+          "name": "text",
+          "type": "String",
+          "isCollection": false,
+          "description": "文本."
+        },
+        {
+          "name": "readIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的身份."
+        },
+        {
+          "name": "readUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的组织."
+        },
+        {
+          "name": "editIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的用户."
+        },
+        {
+          "name": "editUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的组织."
+        },
+        {
+          "name": "controllerIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的用户."
+        },
+        {
+          "name": "controllerUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的组织."
+        },
+        {
+          "name": "deepPath",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否使用更深的路径."
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "divisionList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分组."
+        },
+        {
+          "name": "fromJob",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源任务，仅soft拷贝模式存储."
+        },
+        {
+          "name": "fromId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源附件ID，仅soft拷贝模式存储."
+        },
+        {
+          "name": "fromPath",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源存储路径，仅soft拷贝模式存储."
+        },
+        {
+          "name": "businessId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件业务ID，需要和job一起来确定唯一的ID."
+        },
+        {
+          "name": "properties",
+          "type": "AttachmentProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值03."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "encryptKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件密钥."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "getWithWorkOrWorkCompleted",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionGetWithWorkOrWorkCompleted",
+      "description": "根据工作标识或者已完成工作标识和附件标识获取附件信息.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件名称,带扩展名的文件名."
+        },
+        {
+          "name": "extension",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展名。"
+        },
+        {
+          "name": "storage",
+          "type": "String",
+          "isCollection": false,
+          "description": "关联的存储名称."
+        },
+        {
+          "name": "length",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文件大小."
+        },
+        {
+          "name": "workCreateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "关联的Work创建时间，用于分类目录。"
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "任务."
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所有者"
+        },
+        {
+          "name": "lastUpdateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后更新时间"
+        },
+        {
+          "name": "lastUpdatePerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "最后更新人员"
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动标识,可以为空,在给已完成工作添加附件时值为空."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动名称."
+        },
+        {
+          "name": "activityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "活动类型."
+        },
+        {
+          "name": "activityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动Token."
+        },
+        {
+          "name": "completed",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "整个job是否已经完成."
+        },
+        {
+          "name": "workCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作ID."
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "已完成工作ID."
+        },
+        {
+          "name": "site",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件框分类."
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "根据流文件判断的文件类型."
+        },
+        {
+          "name": "text",
+          "type": "String",
+          "isCollection": false,
+          "description": "文本."
+        },
+        {
+          "name": "readIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的身份."
+        },
+        {
+          "name": "readUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的组织."
+        },
+        {
+          "name": "editIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的用户."
+        },
+        {
+          "name": "editUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的组织."
+        },
+        {
+          "name": "controllerIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的用户."
+        },
+        {
+          "name": "controllerUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的组织."
+        },
+        {
+          "name": "deepPath",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否使用更深的路径."
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "divisionList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分组."
+        },
+        {
+          "name": "fromJob",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源任务，仅soft拷贝模式存储."
+        },
+        {
+          "name": "fromId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源附件ID，仅soft拷贝模式存储."
+        },
+        {
+          "name": "fromPath",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源存储路径，仅soft拷贝模式存储."
+        },
+        {
+          "name": "businessId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件业务ID，需要和job一起来确定唯一的ID."
+        },
+        {
+          "name": "properties",
+          "type": "AttachmentProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值03."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "encryptKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件密钥."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "htmlToImage",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionHtmlToImage",
+      "description": "html转图片工具类，通过微软playwright工具以截图方式生成图片，转换后如果工作不为空通过downloadWithWork接口下载，为空downloadTransfer接口下载.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "htmlToPdf",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionHtmlToPdf",
+      "description": "html转pdf工具类,转换后通过downloadTransfer接口下载.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "listWithJob",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionListWithJob",
+      "description": "根据任务标识获取附件列表.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件名称,带扩展名的文件名."
+        },
+        {
+          "name": "extension",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展名。"
+        },
+        {
+          "name": "storage",
+          "type": "String",
+          "isCollection": false,
+          "description": "关联的存储名称."
+        },
+        {
+          "name": "length",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文件大小."
+        },
+        {
+          "name": "workCreateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "关联的Work创建时间，用于分类目录。"
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "任务."
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所有者"
+        },
+        {
+          "name": "lastUpdateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后更新时间"
+        },
+        {
+          "name": "lastUpdatePerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "最后更新人员"
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动标识,可以为空,在给已完成工作添加附件时值为空."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动名称."
+        },
+        {
+          "name": "activityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "活动类型."
+        },
+        {
+          "name": "activityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动Token."
+        },
+        {
+          "name": "completed",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "整个job是否已经完成."
+        },
+        {
+          "name": "workCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作ID."
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "已完成工作ID."
+        },
+        {
+          "name": "site",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件框分类."
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "根据流文件判断的文件类型."
+        },
+        {
+          "name": "text",
+          "type": "String",
+          "isCollection": false,
+          "description": "文本."
+        },
+        {
+          "name": "readIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的身份."
+        },
+        {
+          "name": "readUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的组织."
+        },
+        {
+          "name": "editIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的用户."
+        },
+        {
+          "name": "editUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的组织."
+        },
+        {
+          "name": "controllerIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的用户."
+        },
+        {
+          "name": "controllerUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的组织."
+        },
+        {
+          "name": "deepPath",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否使用更深的路径."
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "divisionList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分组."
+        },
+        {
+          "name": "fromJob",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源任务，仅soft拷贝模式存储."
+        },
+        {
+          "name": "fromId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源附件ID，仅soft拷贝模式存储."
+        },
+        {
+          "name": "fromPath",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源存储路径，仅soft拷贝模式存储."
+        },
+        {
+          "name": "businessId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件业务ID，需要和job一起来确定唯一的ID."
+        },
+        {
+          "name": "properties",
+          "type": "AttachmentProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值03."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "encryptKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件密钥."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listWithWork",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionListWithWork",
+      "description": "根据工作标识列示附件.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "rank",
+          "type": "Long",
+          "isCollection": false,
+          "description": "排序号."
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件名称,带扩展名的文件名."
+        },
+        {
+          "name": "extension",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展名。"
+        },
+        {
+          "name": "storage",
+          "type": "String",
+          "isCollection": false,
+          "description": "关联的存储名称."
+        },
+        {
+          "name": "length",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文件大小."
+        },
+        {
+          "name": "workCreateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "关联的Work创建时间，用于分类目录。"
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "任务."
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所有者"
+        },
+        {
+          "name": "lastUpdateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后更新时间"
+        },
+        {
+          "name": "lastUpdatePerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "最后更新人员"
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动标识,可以为空,在给已完成工作添加附件时值为空."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动名称."
+        },
+        {
+          "name": "activityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "活动类型."
+        },
+        {
+          "name": "activityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动Token."
+        },
+        {
+          "name": "completed",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "整个job是否已经完成."
+        },
+        {
+          "name": "workCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作ID."
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "已完成工作ID."
+        },
+        {
+          "name": "site",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件框分类."
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "根据流文件判断的文件类型."
+        },
+        {
+          "name": "text",
+          "type": "String",
+          "isCollection": false,
+          "description": "文本."
+        },
+        {
+          "name": "readIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的身份."
+        },
+        {
+          "name": "readUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的组织."
+        },
+        {
+          "name": "editIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的用户."
+        },
+        {
+          "name": "editUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的组织."
+        },
+        {
+          "name": "controllerIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的用户."
+        },
+        {
+          "name": "controllerUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的组织."
+        },
+        {
+          "name": "deepPath",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否使用更深的路径."
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "divisionList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分组."
+        },
+        {
+          "name": "fromJob",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源任务，仅soft拷贝模式存储."
+        },
+        {
+          "name": "fromId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源附件ID，仅soft拷贝模式存储."
+        },
+        {
+          "name": "fromPath",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源存储路径，仅soft拷贝模式存储."
+        },
+        {
+          "name": "businessId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件业务ID，需要和job一起来确定唯一的ID."
+        },
+        {
+          "name": "properties",
+          "type": "AttachmentProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值03."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "encryptKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件密钥."
+        },
+        {
+          "name": "distributeFactor",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "分布式存储标识位."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "sequence",
+          "type": "String",
+          "isCollection": false,
+          "description": "列表序号,由创建时间以及ID组成.在保存时自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listWithWorkCompleted",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionListWithWorkCompleted",
+      "description": "根据已完成工作标识列示附件.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件名称,带扩展名的文件名."
+        },
+        {
+          "name": "extension",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展名。"
+        },
+        {
+          "name": "storage",
+          "type": "String",
+          "isCollection": false,
+          "description": "关联的存储名称."
+        },
+        {
+          "name": "length",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文件大小."
+        },
+        {
+          "name": "workCreateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "关联的Work创建时间，用于分类目录。"
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "任务."
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所有者"
+        },
+        {
+          "name": "lastUpdateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后更新时间"
+        },
+        {
+          "name": "lastUpdatePerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "最后更新人员"
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动标识,可以为空,在给已完成工作添加附件时值为空."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动名称."
+        },
+        {
+          "name": "activityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "活动类型."
+        },
+        {
+          "name": "activityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动Token."
+        },
+        {
+          "name": "completed",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "整个job是否已经完成."
+        },
+        {
+          "name": "workCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作ID."
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "已完成工作ID."
+        },
+        {
+          "name": "site",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件框分类."
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "根据流文件判断的文件类型."
+        },
+        {
+          "name": "text",
+          "type": "String",
+          "isCollection": false,
+          "description": "文本."
+        },
+        {
+          "name": "readIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的身份."
+        },
+        {
+          "name": "readUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的组织."
+        },
+        {
+          "name": "editIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的用户."
+        },
+        {
+          "name": "editUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的组织."
+        },
+        {
+          "name": "controllerIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的用户."
+        },
+        {
+          "name": "controllerUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的组织."
+        },
+        {
+          "name": "deepPath",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否使用更深的路径."
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "divisionList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分组."
+        },
+        {
+          "name": "fromJob",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源任务，仅soft拷贝模式存储."
+        },
+        {
+          "name": "fromId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源附件ID，仅soft拷贝模式存储."
+        },
+        {
+          "name": "fromPath",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源存储路径，仅soft拷贝模式存储."
+        },
+        {
+          "name": "businessId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件业务ID，需要和job一起来确定唯一的ID."
+        },
+        {
+          "name": "properties",
+          "type": "AttachmentProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值03."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "encryptKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件密钥."
+        },
+        {
+          "name": "distributeFactor",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "分布式存储标识位."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "sequence",
+          "type": "String",
+          "isCollection": false,
+          "description": "列表序号,由创建时间以及ID组成.在保存时自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listWithWorkOrWorkCompleted",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionListWithWorkOrWorkCompleted",
+      "description": "根据工作或已完成工作标识获取附件列表.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件名称,带扩展名的文件名."
+        },
+        {
+          "name": "extension",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展名。"
+        },
+        {
+          "name": "storage",
+          "type": "String",
+          "isCollection": false,
+          "description": "关联的存储名称."
+        },
+        {
+          "name": "length",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文件大小."
+        },
+        {
+          "name": "workCreateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "关联的Work创建时间，用于分类目录。"
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "任务."
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所有者"
+        },
+        {
+          "name": "lastUpdateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后更新时间"
+        },
+        {
+          "name": "lastUpdatePerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "最后更新人员"
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动标识,可以为空,在给已完成工作添加附件时值为空."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动名称."
+        },
+        {
+          "name": "activityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "活动类型."
+        },
+        {
+          "name": "activityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "活动Token."
+        },
+        {
+          "name": "completed",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "整个job是否已经完成."
+        },
+        {
+          "name": "workCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作ID."
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "已完成工作ID."
+        },
+        {
+          "name": "site",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件框分类."
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "根据流文件判断的文件类型."
+        },
+        {
+          "name": "text",
+          "type": "String",
+          "isCollection": false,
+          "description": "文本."
+        },
+        {
+          "name": "readIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的身份."
+        },
+        {
+          "name": "readUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的组织."
+        },
+        {
+          "name": "editIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的用户."
+        },
+        {
+          "name": "editUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的组织."
+        },
+        {
+          "name": "controllerIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的用户."
+        },
+        {
+          "name": "controllerUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的组织."
+        },
+        {
+          "name": "deepPath",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否使用更深的路径."
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "divisionList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分组."
+        },
+        {
+          "name": "fromJob",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源任务，仅soft拷贝模式存储."
+        },
+        {
+          "name": "fromId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源附件ID，仅soft拷贝模式存储."
+        },
+        {
+          "name": "fromPath",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件拷贝来源存储路径，仅soft拷贝模式存储."
+        },
+        {
+          "name": "businessId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件业务ID，需要和job一起来确定唯一的ID."
+        },
+        {
+          "name": "properties",
+          "type": "AttachmentProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "预留数据String值03."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "encryptKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件密钥."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "manageBatchDelete",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionManageBatchDelete",
+      "description": "管理员批量删除附件.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "manageBatchUpdate",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionManageBatchUpdate",
+      "description": "管理员批量替换附件.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "manageBatchUpload",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionManageBatchUpload",
+      "description": "管理员批量上传附件.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "manageDownload",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionManageDownload",
+      "description": "指定附件标识,管理员下载附件.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "manageDownloadStream",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionManageDownloadStream",
+      "description": "指定附件标识,管理员下载附件,设定使用stream输出.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "previewImage",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionPreviewImage",
+      "description": "获取指定附件标识返回图片格式预览文件信息,支持doc,docx.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "previewImageResult",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionPreviewImageResult",
+      "description": "获取指定附件标识返回图片格式预览文件,支持doc,docx.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "previewPdf",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionPreviewPdf",
+      "description": "获取指定附件标识返回pdf格式预览文件信息,支持doc,docx.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "previewPdfResult",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionPreviewPdfResult",
+      "description": "获取指定附件标识返回pdf格式预览文件,支持doc,docx.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "update",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionUpdate",
+      "description": "根据工作标识更新附件内容.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateCallback",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionUpdateCallback",
+      "description": "根据附件标识和工作标识更新附件,回调jsonp.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "callbackName",
+          "type": "String",
+          "isCollection": false,
+          "description": "回调函数名"
+        }
+      ]
+    },
+    {
+      "name": "updateContent",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionUpdateContent",
+      "description": "根据附件标识和工作标识更新附件信息.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateContentMockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionUpdateContent",
+      "description": "根据附件标识和工作标识更新附件信息(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateMockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionUpdate",
+      "description": "根据工作标识更新附件内容(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updatePost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionUpdate",
+      "description": "根据附件标识和工作标识更新附件,与update方法同,为了兼容ntko对于附件上传只能设置post方法.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "upload",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionUploadWithWork",
+      "description": "上传附件.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "uploadCallback",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionUploadCallback",
+      "description": "根据工作标识上传附件,回调jsonp.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "callbackName",
+          "type": "String",
+          "isCollection": false,
+          "description": "回调函数名"
+        }
+      ]
+    },
+    {
+      "name": "uploadWithUrl",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionUploadWithUrl",
+      "description": "上传附件",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "uploadWithWorkCompleted",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionUploadWithWorkCompleted",
+      "description": "上传附件.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "uploadWorkInfo",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionUploadWorkInfo",
+      "description": "上传工单的表单、审批记录等html信息到缓存.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "uploadWorkInfoMockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.ActionUploadWorkInfo",
+      "description": "上传工单的表单,审批记录等html信息到打包下载附件(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "v2UploadWorkOrWorkCompleted",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.V2UploadWorkOrWorkCompleted",
+      "description": "V2根据工作标识或已完成工作标识上传附件,如果同名附件存在则替换.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "v2UploadWorkOrWorkCompletedBase64",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.attachment.V2UploadWorkOrWorkCompletedBase64",
+      "description": "V2根据工作标识或已完成工作标识上传附件,上传文件内容经过base64编码后的文本,如果同名附件存在则替换.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    }
+  ]
+}

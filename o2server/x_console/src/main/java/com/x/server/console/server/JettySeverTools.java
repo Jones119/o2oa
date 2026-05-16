@@ -49,8 +49,8 @@ public abstract class JettySeverTools {
 	 * 需要在WebAppClassLoader加载 jakarta.xml.bind-api-*.jar
 	 */
 	private static final Collection<String> FILTER_STRINGS = Arrays.asList("openjpa-*.jar",
-			"jetty-all-*.jar", "jetty-proxy-*.jar", "quartz-*.jar", "filters-*.jar", "jakarta.xml.bind-api-*.jar",
-			"swagger-*.jar");
+			"jetty-all-*.jar", "jetty-http-*.jar", "jetty-util-*.jar", "jetty-proxy-*.jar", "quartz-*.jar",
+			"filters-*.jar", "jakarta.xml.bind-api-*.jar", "swagger-*.jar");
 
 	private static final Optional<IOFileFilter> JARS_FILTER = FILTER_STRINGS.stream().map(WildcardFileFilter::new)
 			.map(FileFilterUtils::or).reduce(FileFilterUtils::or);
@@ -62,6 +62,7 @@ public abstract class JettySeverTools {
 		List<Configuration> configs = Configurations.getKnown();
 		configs = configs.stream()
 				.filter(c -> !c.getClass().getName().contains("QuickStart"))
+				.filter(c -> !c.getClass().getName().contains("EnvConfiguration"))
 				.toList();
 		webApp.setConfigurations(configs.toArray(new Configuration[0]));
 	}
@@ -112,16 +113,18 @@ public abstract class JettySeverTools {
 		List<String> jars = new ArrayList<>();
 		jars.addAll(calculateExtraClassPathDefault());
 		Module module = cls.getAnnotation(Module.class);
-		for (String str : module.storeJars()) {
-			File file = new File(Config.dir_store_jars(), str + ".jar");
-			if (file.exists()) {
-				jars.add(file.getAbsolutePath());
+		if (module != null) {
+			for (String str : module.storeJars()) {
+				File file = new File(Config.dir_store_jars(), str + ".jar");
+				if (file.exists()) {
+					jars.add(file.getAbsolutePath());
+				}
 			}
-		}
-		for (String str : module.customJars()) {
-			File file = new File(Config.dir_custom_jars(), str + ".jar");
-			if (file.exists()) {
-				jars.add(file.getAbsolutePath());
+			for (String str : module.customJars()) {
+				File file = new File(Config.dir_custom_jars(), str + ".jar");
+				if (file.exists()) {
+					jars.add(file.getAbsolutePath());
+				}
 			}
 		}
 		for (Path path : paths) {

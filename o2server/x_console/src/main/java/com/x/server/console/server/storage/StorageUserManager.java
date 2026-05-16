@@ -48,7 +48,7 @@ public class StorageUserManager implements UserManager {
 					throw new AuthenticationFailedException("Authentication failed");
 				}
 			}
-			case AnonymousAuthentication _ -> throw new AuthenticationFailedException("Authentication failed");
+			case AnonymousAuthentication ignored -> throw new AuthenticationFailedException("Authentication failed");
 			default -> throw new IllegalArgumentException("Authentication not supported by this user manager");
 		}
 	}

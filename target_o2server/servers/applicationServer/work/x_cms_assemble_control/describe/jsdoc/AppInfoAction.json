@@ -1,0 +1,312 @@
+{
+  "name": "AppInfoAction",
+  "className": "com.x.cms.assemble.control.jaxrs.appinfo.AppInfoAction",
+  "description": "信息发布(CMS)-栏目(APPINFO)管理服务",
+  "methods": [
+    {
+      "name": "changeIcon",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionAppIconUpload",
+      "description": "上传或者替换栏目的图标内容，可以指定压缩大小\t.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "delete",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionDelete",
+      "description": "根据ID删除指定的栏目信息（如果栏目下仍存在分类信息，则不可删除）。",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteMockDeleteToGet",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionDelete",
+      "description": "根据ID删除指定的栏目信息（如果栏目下仍存在分类信息，则不可删除）。",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "eraseWithAppId",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionEraseDocumentWithAppInfo",
+      "description": "根据栏目ID删除指定栏目内所有的信息文档。",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "eraseWithAppIdMockDeleteToGet",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionEraseDocumentWithAppInfo",
+      "description": "根据栏目ID删除指定栏目内所有的信息文档。",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "get",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionGet",
+      "description": "根据标识获取信息栏目信息对象.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getByAlias",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionGetByAlias",
+      "description": "根据别名获取信息栏目信息对象.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getPublishableAppInfo",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionGetPublishableAppInfo",
+      "description": "获取用户有权限发布的所有信息栏目信息列表.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "listAllAppInfo",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListAll",
+      "description": "获取用户有权限访问到的所有信息栏目信息列表.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "listAllAppType",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListAllAppType",
+      "description": "获取所有的栏目分类信息列表.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "appType",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目类别名称"
+        },
+        {
+          "name": "count",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "栏目数量"
+        }
+      ]
+    },
+    {
+      "name": "listHasDocument",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListHasDocument",
+      "description": "获取有权限看到文档的栏目信息列表.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "listHasDocumentAppType",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListHasDocumentAppType",
+      "description": "获取栏目存在有权限文档的栏目分类列表.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "appType",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目类别名称"
+        },
+        {
+          "name": "count",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "栏目数量"
+        }
+      ]
+    },
+    {
+      "name": "listHasDocument_WithAppType",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListHasDocument_WithAppType",
+      "description": "获取有权限看到文档并指定分类的栏目列表.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "listManageableAllAppType",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListAllManageableAppType",
+      "description": "获取所有可管理的栏目分类信息列表.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "appType",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目类别名称"
+        },
+        {
+          "name": "count",
+          "type": "Long",
+          "isCollection": false,
+          "description": "栏目数量"
+        }
+      ]
+    },
+    {
+      "name": "listNextWithFilter",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListNextWithFilter",
+      "description": "列示根据过滤条件的信息栏目信息,下一页.",
+      "type": "PUT",
+      "outs": []
+    },
+    {
+      "name": "listNextWithFilterMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListNextWithFilter",
+      "description": "列示根据过滤条件的信息栏目信息,下一页.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "listPrevWithFilter",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListPrevWithFilter",
+      "description": "列示根据过滤条件的信息栏目信息,上一页.",
+      "type": "PUT",
+      "outs": []
+    },
+    {
+      "name": "listPrevWithFilterMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListPrevWithFilter",
+      "description": "列示根据过滤条件的信息栏目信息,上一页.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "listPublishWithProcess",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListPublishWithProcess",
+      "description": "获取用户有权限发布(关联流程的分类)的所有信息栏目信息列表.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "listWhatICanManage",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListWhatICanManage",
+      "description": "获取用户有权限管理的所有信息栏目信息列表.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "listWhatICanManage_WithAppType",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListWhatICanManage_WithAppType",
+      "description": "根据栏目类别名称获取用户有权限管理的所有信息栏目信息列表.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "listWhatICanPublish",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListWhatICanPublish",
+      "description": "获取用户有权限发布的所有信息栏目信息列表.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "listWhatICanPublish_WithAppType",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListWhatICanPublish_WithAppType",
+      "description": "获取用户有权限发布的所有信息栏目信息列表.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "listWhatICanViewAllType_WithAppType",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListWhatICanViewAllDocType_WithAppType",
+      "description": "获取用户有权限查看的所有栏目信息列表.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "listWhatICanViewArticle_WithAppType",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListWhatICanViewArticle_WithAppType",
+      "description": "获取用户有权限查看的所有信息栏目信息列表.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "listWhatICanViewData_WithAppType",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListWhatICanViewData_WithAppType",
+      "description": "获取用户有权限查看的所有信息栏目信息列表.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "listWhatICanView_AllType",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListWhatICanViewAllDocType",
+      "description": "获取用户有权限查看的所有栏目信息列表.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "listWhatICanView_Article",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListWhatICanViewArticle",
+      "description": "获取用户有权限查看的所有信息栏目信息列表.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "listWhatICanView_Data",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionListWhatICanViewData",
+      "description": "获取用户有权限查看的所有信息栏目信息列表.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "query_getControl",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionQueryGetControl",
+      "description": "获取栏目访问控制信息.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "save",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionSave",
+      "description": "创建新的栏目信息或者更新已存在的栏目信息。",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updatePermission",
+      "className": "com.x.cms.assemble.control.jaxrs.appinfo.ActionEditPermission",
+      "description": "设置栏目权限.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    }
+  ]
+}

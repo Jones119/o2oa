@@ -134,6 +134,9 @@ public class PersistenceXmlHelper {
 		property = properties.addElement("property");
 		property.addAttribute("name", "openjpa.DynamicEnhancementAgent");
 		property.addAttribute("value", "true");
+		property = properties.addElement("property");
+		property.addAttribute("name", "openjpa.RuntimeUnenhancedClasses");
+		property.addAttribute("value", "supported");
 	}
 
 	private static void writeForDdlInternalProperty(Element properties) throws Exception {
@@ -156,6 +159,9 @@ public class PersistenceXmlHelper {
 		property = properties.addElement("property");
 		property.addAttribute("name", "openjpa.DynamicEnhancementAgent");
 		property.addAttribute("value", "true");
+		property = properties.addElement("property");
+		property.addAttribute("name", "openjpa.RuntimeUnenhancedClasses");
+		property.addAttribute("value", "supported");
 	}
 
 	@SuppressWarnings("unchecked")
@@ -274,6 +280,7 @@ public class PersistenceXmlHelper {
 		properties.put("openjpa.jdbc.ResultSetType", "scroll-insensitive");
 		/* 如果启用本地初始化会导致classLoad的问题 */
 		properties.put("openjpa.DynamicEnhancementAgent", "true");
+		properties.put("openjpa.RuntimeUnenhancedClasses", "supported");
 		properties.put("openjpa.jdbc.SynchronizeMappings", "buildSchema(ForeignKeys=false)");
 		properties.put("openjpa.Log", "DefaultLevel=WARN");
 		return properties;
@@ -318,6 +325,7 @@ public class PersistenceXmlHelper {
 		properties.put("openjpa.Multithreaded", "true");
 		/* 如果启用本地初始化会导致classLoad的问题 */
 		properties.put("openjpa.DynamicEnhancementAgent", "true");
+		properties.put("openjpa.RuntimeUnenhancedClasses", "supported");
 		properties.put("openjpa.jdbc.SynchronizeMappings", "buildSchema(ForeignKeys=false)");
 		return properties;
 	}

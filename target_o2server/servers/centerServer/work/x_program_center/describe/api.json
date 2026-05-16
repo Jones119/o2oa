@@ -84,14 +84,8 @@
           "method": "GET"
         },
         {
-          "name": "androidPackStart",
-          "uri": "jaxrs/apppack/pack/info/android/start",
-          "method": "POST",
-          "enctype": "formData"
-        },
-        {
-          "name": "androidPackLastAPk",
-          "uri": "jaxrs/apppack/pack/info/file/last",
+          "name": "packInfo",
+          "uri": "jaxrs/apppack/pack/info",
           "method": "GET"
         },
         {
@@ -100,8 +94,8 @@
           "method": "GET"
         },
         {
-          "name": "packInfoLogo",
-          "uri": "jaxrs/apppack/pack/info/logo",
+          "name": "androidPackLastAPk",
+          "uri": "jaxrs/apppack/pack/info/file/last",
           "method": "GET"
         },
         {
@@ -111,9 +105,15 @@
           "enctype": "application/json"
         },
         {
-          "name": "packInfo",
-          "uri": "jaxrs/apppack/pack/info",
+          "name": "packInfoLogo",
+          "uri": "jaxrs/apppack/pack/info/logo",
           "method": "GET"
+        },
+        {
+          "name": "androidPackStart",
+          "uri": "jaxrs/apppack/pack/info/android/start",
+          "method": "POST",
+          "enctype": "formData"
         },
         {
           "name": "download",
@@ -141,13 +141,46 @@
       "name": "AppStyleAction",
       "methods": [
         {
-          "name": "currentUpdate",
-          "uri": "jaxrs/appstyle/current/update",
+          "name": "imageApplicationTopErase",
+          "uri": "jaxrs/appstyle/image/application/top/erase",
           "method": "GET"
         },
         {
-          "name": "imageApplicationTopErase",
-          "uri": "jaxrs/appstyle/image/application/top/erase",
+          "name": "imageLoginAvatarErase",
+          "uri": "jaxrs/appstyle/image/login/avatar/erase",
+          "method": "GET"
+        },
+        {
+          "name": "edit",
+          "uri": "jaxrs/appstyle",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "imageApplicationTop",
+          "uri": "jaxrs/appstyle/image/application/top",
+          "method": "PUT",
+          "enctype": "formData"
+        },
+        {
+          "name": "imageMenuLogoBlurErase",
+          "uri": "jaxrs/appstyle/image/menu/logo/blur/erase",
+          "method": "GET"
+        },
+        {
+          "name": "imageSetupAboutLogo",
+          "uri": "jaxrs/appstyle/image/setup/about/logo",
+          "method": "PUT",
+          "enctype": "formData"
+        },
+        {
+          "name": "imageMenuLogoFocusErase",
+          "uri": "jaxrs/appstyle/image/menu/logo/focus/erase",
+          "method": "GET"
+        },
+        {
+          "name": "imageLaunchLogoErase",
+          "uri": "jaxrs/appstyle/image/launch/logo/erase",
           "method": "GET"
         },
         {
@@ -163,9 +196,35 @@
           "enctype": "formData"
         },
         {
+          "name": "getIndexPortal",
+          "uri": "jaxrs/appstyle/index/portal",
+          "method": "GET"
+        },
+        {
+          "name": "currentStyle",
+          "uri": "jaxrs/appstyle/current/style",
+          "method": "GET"
+        },
+        {
+          "name": "currentUpdate",
+          "uri": "jaxrs/appstyle/current/update",
+          "method": "GET"
+        },
+        {
           "name": "imageProcessDefaultErase",
           "uri": "jaxrs/appstyle/image/process/default/erase",
           "method": "GET"
+        },
+        {
+          "name": "imageSetupAboutLogoErase",
+          "uri": "jaxrs/appstyle/image/setup/about/logo/erase",
+          "method": "GET"
+        },
+        {
+          "name": "imageLoginAvatar",
+          "uri": "jaxrs/appstyle/image/login/avatar",
+          "method": "PUT",
+          "enctype": "formData"
         },
         {
           "name": "imageProcessDefault",
@@ -178,65 +237,6 @@
           "uri": "jaxrs/appstyle/image/launch/logo",
           "method": "PUT",
           "enctype": "formData"
-        },
-        {
-          "name": "currentStyle",
-          "uri": "jaxrs/appstyle/current/style",
-          "method": "GET"
-        },
-        {
-          "name": "edit",
-          "uri": "jaxrs/appstyle",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "imageLaunchLogoErase",
-          "uri": "jaxrs/appstyle/image/launch/logo/erase",
-          "method": "GET"
-        },
-        {
-          "name": "imageLoginAvatarErase",
-          "uri": "jaxrs/appstyle/image/login/avatar/erase",
-          "method": "GET"
-        },
-        {
-          "name": "imageLoginAvatar",
-          "uri": "jaxrs/appstyle/image/login/avatar",
-          "method": "PUT",
-          "enctype": "formData"
-        },
-        {
-          "name": "imageMenuLogoBlurErase",
-          "uri": "jaxrs/appstyle/image/menu/logo/blur/erase",
-          "method": "GET"
-        },
-        {
-          "name": "imageMenuLogoFocusErase",
-          "uri": "jaxrs/appstyle/image/menu/logo/focus/erase",
-          "method": "GET"
-        },
-        {
-          "name": "getIndexPortal",
-          "uri": "jaxrs/appstyle/index/portal",
-          "method": "GET"
-        },
-        {
-          "name": "imageApplicationTop",
-          "uri": "jaxrs/appstyle/image/application/top",
-          "method": "PUT",
-          "enctype": "formData"
-        },
-        {
-          "name": "imageSetupAboutLogo",
-          "uri": "jaxrs/appstyle/image/setup/about/logo",
-          "method": "PUT",
-          "enctype": "formData"
-        },
-        {
-          "name": "imageSetupAboutLogoErase",
-          "uri": "jaxrs/appstyle/image/setup/about/logo/erase",
-          "method": "GET"
         }
       ]
     },
@@ -264,8 +264,8 @@
       "name": "BarAction",
       "methods": [
         {
-          "name": "select3",
-          "uri": "jaxrs/bar/select3/field/{field}/value/{value}/count/{count}",
+          "name": "createMass",
+          "uri": "jaxrs/bar/create/mass/{from}/{count}",
           "method": "GET"
         },
         {
@@ -274,8 +274,8 @@
           "method": "GET"
         },
         {
-          "name": "createMass",
-          "uri": "jaxrs/bar/create/mass/{from}/{count}",
+          "name": "select4",
+          "uri": "jaxrs/bar/select4/field/{field}/value/{value}/count/{count}",
           "method": "GET"
         },
         {
@@ -284,8 +284,8 @@
           "method": "GET"
         },
         {
-          "name": "select4",
-          "uri": "jaxrs/bar/select4/field/{field}/value/{value}/count/{count}",
+          "name": "select3",
+          "uri": "jaxrs/bar/select3/field/{field}/value/{value}/count/{count}",
           "method": "GET"
         }
       ]
@@ -387,15 +387,15 @@
           "method": "GET"
         },
         {
+          "name": "validateCascade",
+          "uri": "jaxrs/code/validate/mobile/{mobile}/answer/{answer}/cascade",
+          "method": "GET"
+        },
+        {
           "name": "listPaging",
           "uri": "jaxrs/code/list/paging/{page}/size/{size}",
           "method": "POST",
           "enctype": "application/json"
-        },
-        {
-          "name": "validateCascade",
-          "uri": "jaxrs/code/validate/mobile/{mobile}/answer/{answer}/cascade",
-          "method": "GET"
         }
       ]
     },
@@ -435,16 +435,9 @@
           "method": "GET"
         },
         {
-          "name": "regist",
-          "uri": "jaxrs/collect",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateUnit",
-          "uri": "jaxrs/collect/updateUnit",
-          "method": "PUT",
-          "enctype": "application/json"
+          "name": "mobileCheckConnect",
+          "uri": "jaxrs/collect/mobile/check/connect",
+          "method": "GET"
         },
         {
           "name": "person",
@@ -458,6 +451,11 @@
           "enctype": "application/json"
         },
         {
+          "name": "syncArea",
+          "uri": "jaxrs/collect/sync/area",
+          "method": "GET"
+        },
+        {
           "name": "controllerMobile",
           "uri": "jaxrs/collect/controllermobile/name/{name}/mobile/{mobile}",
           "method": "GET"
@@ -469,8 +467,31 @@
           "enctype": "application/json"
         },
         {
+          "name": "validatePassword",
+          "uri": "jaxrs/collect/validate/password",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "login",
+          "uri": "jaxrs/collect/login",
+          "method": "GET"
+        },
+        {
           "name": "validateDirect",
           "uri": "jaxrs/collect/validate/direct",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateUnit",
+          "uri": "jaxrs/collect/updateUnit",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "resetPassword",
+          "uri": "jaxrs/collect/resetpassword",
           "method": "PUT",
           "enctype": "application/json"
         },
@@ -480,30 +501,9 @@
           "method": "GET"
         },
         {
-          "name": "syncArea",
-          "uri": "jaxrs/collect/sync/area",
-          "method": "GET"
-        },
-        {
-          "name": "login",
-          "uri": "jaxrs/collect/login",
-          "method": "GET"
-        },
-        {
-          "name": "mobileCheckConnect",
-          "uri": "jaxrs/collect/mobile/check/connect",
-          "method": "GET"
-        },
-        {
-          "name": "resetPassword",
-          "uri": "jaxrs/collect/resetpassword",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "validatePassword",
-          "uri": "jaxrs/collect/validate/password",
-          "method": "PUT",
+          "name": "regist",
+          "uri": "jaxrs/collect",
+          "method": "POST",
           "enctype": "application/json"
         },
         {
@@ -555,10 +555,49 @@
           "enctype": "application/json"
         },
         {
+          "name": "openRuntimeConfig",
+          "uri": "jaxrs/config/open/run/time/config",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "getTernaryManagement",
+          "uri": "jaxrs/config/ternary/management",
+          "method": "GET"
+        },
+        {
+          "name": "changePassword",
+          "uri": "jaxrs/config/change/password",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "setTernaryManagement",
+          "uri": "jaxrs/config/ternary/management",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listApplication",
+          "uri": "jaxrs/config/list/application",
+          "method": "GET"
+        },
+        {
           "name": "setPerson",
           "uri": "jaxrs/config/person",
           "method": "PUT",
           "enctype": "application/json"
+        },
+        {
+          "name": "setToken",
+          "uri": "jaxrs/config/token",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "getCollect",
+          "uri": "jaxrs/config/collect",
+          "method": "GET"
         },
         {
           "name": "setCollect",
@@ -572,52 +611,13 @@
           "method": "GET"
         },
         {
-          "name": "setCenterServer",
-          "uri": "jaxrs/config/centerserver",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "getPortal",
-          "uri": "jaxrs/config/portal",
-          "method": "GET"
-        },
-        {
-          "name": "getCollect",
-          "uri": "jaxrs/config/collect",
-          "method": "GET"
-        },
-        {
           "name": "getPerson",
           "uri": "jaxrs/config/person",
           "method": "GET"
         },
         {
-          "name": "setTernaryManagement",
-          "uri": "jaxrs/config/ternary/management",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "changePassword",
-          "uri": "jaxrs/config/change/password",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "setToken",
-          "uri": "jaxrs/config/token",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "getLicenseInfo",
-          "uri": "jaxrs/config/license",
-          "method": "GET"
-        },
-        {
-          "name": "setPortal",
-          "uri": "jaxrs/config/portal",
+          "name": "setCenterServer",
+          "uri": "jaxrs/config/centerserver",
           "method": "PUT",
           "enctype": "application/json"
         },
@@ -627,10 +627,9 @@
           "method": "GET"
         },
         {
-          "name": "openRuntimeConfig",
-          "uri": "jaxrs/config/open/run/time/config",
-          "method": "POST",
-          "enctype": "application/json"
+          "name": "listDumpData",
+          "uri": "jaxrs/config/list/dump/data",
+          "method": "GET"
         },
         {
           "name": "listDumpDataCurrentNode",
@@ -638,19 +637,20 @@
           "method": "GET"
         },
         {
-          "name": "listApplication",
-          "uri": "jaxrs/config/list/application",
+          "name": "getLicenseInfo",
+          "uri": "jaxrs/config/license",
           "method": "GET"
         },
         {
-          "name": "listDumpData",
-          "uri": "jaxrs/config/list/dump/data",
+          "name": "getPortal",
+          "uri": "jaxrs/config/portal",
           "method": "GET"
         },
         {
-          "name": "getTernaryManagement",
-          "uri": "jaxrs/config/ternary/management",
-          "method": "GET"
+          "name": "setPortal",
+          "uri": "jaxrs/config/portal",
+          "method": "PUT",
+          "enctype": "application/json"
         },
         {
           "name": "getToken",
@@ -689,8 +689,8 @@
       "name": "DataStructureAction",
       "methods": [
         {
-          "name": "listAllModules",
-          "uri": "jaxrs/datastructure/modules/all",
+          "name": "listAllTables",
+          "uri": "jaxrs/datastructure/tables/all",
           "method": "GET"
         },
         {
@@ -699,8 +699,8 @@
           "method": "GET"
         },
         {
-          "name": "listAllTables",
-          "uri": "jaxrs/datastructure/tables/all",
+          "name": "listAllModules",
+          "uri": "jaxrs/datastructure/modules/all",
           "method": "GET"
         }
       ]
@@ -720,14 +720,14 @@
           "enctype": "application/json"
         },
         {
-          "name": "deployServerResource",
-          "uri": "jaxrs/deploy/server/resource",
+          "name": "deployWebResource",
+          "uri": "jaxrs/deploy/web/resource/as/new/{asNew}",
           "method": "POST",
           "enctype": "formData"
         },
         {
-          "name": "deployWebResource",
-          "uri": "jaxrs/deploy/web/resource/as/new/{asNew}",
+          "name": "deployServerResource",
+          "uri": "jaxrs/deploy/server/resource",
           "method": "POST",
           "enctype": "formData"
         },
@@ -787,15 +787,15 @@
           "method": "GET"
         },
         {
-          "name": "updateDataPathMockPutToPost",
-          "uri": "jaxrs/dict/{dictFlag}/{path}/data/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
           "name": "getDataPath",
           "uri": "jaxrs/dict/{dictFlag}/{path}/data",
           "method": "GET"
+        },
+        {
+          "name": "updateDataPath",
+          "uri": "jaxrs/dict/{dictFlag}/{path}/data",
+          "method": "PUT",
+          "enctype": "application/json"
         },
         {
           "name": "listPaging",
@@ -810,9 +810,14 @@
           "enctype": "application/json"
         },
         {
-          "name": "updateDataPath",
-          "uri": "jaxrs/dict/{dictFlag}/{path}/data",
-          "method": "PUT",
+          "name": "deleteDataPathMockDeleteToGet",
+          "uri": "jaxrs/dict/{dictFlag}/{path}/data/mockdeletetoget",
+          "method": "GET"
+        },
+        {
+          "name": "updateDataPathMockPutToPost",
+          "uri": "jaxrs/dict/{dictFlag}/{path}/data/mockputtopost",
+          "method": "POST",
           "enctype": "application/json"
         },
         {
@@ -820,11 +825,6 @@
           "uri": "jaxrs/dict/{dictFlag}/{path}/data",
           "method": "POST",
           "enctype": "application/json"
-        },
-        {
-          "name": "deleteDataPathMockDeleteToGet",
-          "uri": "jaxrs/dict/{dictFlag}/{path}/data/mockdeletetoget",
-          "method": "GET"
         }
       ]
     },
@@ -848,15 +848,15 @@
           "method": "GET"
         },
         {
+          "name": "registerSyncOrgCallbackUrl",
+          "uri": "jaxrs/dingding/sync/organization/register/callback/{enable}",
+          "method": "GET"
+        },
+        {
           "name": "requestPullSync",
           "uri": "jaxrs/dingding/request/pull/sync",
           "method": "POST",
           "enctype": "application/json"
-        },
-        {
-          "name": "registerSyncOrgCallbackUrl",
-          "uri": "jaxrs/dingding/sync/organization/register/callback/{enable}",
-          "method": "GET"
         }
       ]
     },
@@ -921,12 +921,6 @@
           "enctype": "application/json"
         },
         {
-          "name": "prepareCreate",
-          "uri": "jaxrs/input/prepare/create",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
           "name": "prepareCover",
           "uri": "jaxrs/input/prepare/cover",
           "method": "PUT",
@@ -935,6 +929,12 @@
         {
           "name": "cover",
           "uri": "jaxrs/input/cover",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "prepareCreate",
+          "uri": "jaxrs/input/prepare/create",
           "method": "PUT",
           "enctype": "application/json"
         }
@@ -984,11 +984,6 @@
           "enctype": "application/json"
         },
         {
-          "name": "listCategory",
-          "uri": "jaxrs/invoke/list/category",
-          "method": "GET"
-        },
-        {
           "name": "listWithCategory",
           "uri": "jaxrs/invoke/list/with/category/{category}",
           "method": "GET"
@@ -998,6 +993,11 @@
           "uri": "jaxrs/invoke/{flag}",
           "method": "PUT",
           "enctype": "application/json"
+        },
+        {
+          "name": "listCategory",
+          "uri": "jaxrs/invoke/list/category",
+          "method": "GET"
         },
         {
           "name": "executeToken",
@@ -1051,21 +1051,21 @@
           "method": "GET"
         },
         {
-          "name": "menuUpdate",
-          "uri": "jaxrs/mpweixin/menu/update/{id}",
+          "name": "menuCreate2Weixin",
+          "uri": "jaxrs/mpweixin/menu/create/to/weixin",
+          "method": "GET"
+        },
+        {
+          "name": "menuAdd",
+          "uri": "jaxrs/mpweixin/menu/add",
           "method": "POST",
           "enctype": "application/json"
         },
         {
-          "name": "menuDelete",
-          "uri": "jaxrs/mpweixin/menu/delete/{id}",
-          "method": "DELETE",
+          "name": "menuUpdate",
+          "uri": "jaxrs/mpweixin/menu/update/{id}",
+          "method": "POST",
           "enctype": "application/json"
-        },
-        {
-          "name": "menuWeixinList",
-          "uri": "jaxrs/mpweixin/menu/list/weixin",
-          "method": "GET"
         },
         {
           "name": "receiveMsg",
@@ -1078,21 +1078,21 @@
           "method": "POST"
         },
         {
-          "name": "menuCreate2Weixin",
-          "uri": "jaxrs/mpweixin/menu/create/to/weixin",
-          "method": "GET"
-        },
-        {
           "name": "addMedia",
           "uri": "jaxrs/mpweixin/media/add/forever",
           "method": "POST",
           "enctype": "formData"
         },
         {
-          "name": "menuAdd",
-          "uri": "jaxrs/mpweixin/menu/add",
-          "method": "POST",
+          "name": "menuDelete",
+          "uri": "jaxrs/mpweixin/menu/delete/{id}",
+          "method": "DELETE",
           "enctype": "application/json"
+        },
+        {
+          "name": "menuWeixinList",
+          "uri": "jaxrs/mpweixin/menu/list/weixin",
+          "method": "GET"
         }
       ]
     },
@@ -1102,43 +1102,6 @@
         {
           "name": "get",
           "uri": "jaxrs/market/{flag}",
-          "method": "GET"
-        },
-        {
-          "name": "installOffline",
-          "uri": "jaxrs/market/install/offline",
-          "method": "POST",
-          "enctype": "formData"
-        },
-        {
-          "name": "listPaging",
-          "uri": "jaxrs/market/list/paging/{page}/size/{size}",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "getInstallLog",
-          "uri": "jaxrs/market/{flag}/install/log",
-          "method": "GET"
-        },
-        {
-          "name": "listTopThree",
-          "uri": "jaxrs/market/list/top/three",
-          "method": "GET"
-        },
-        {
-          "name": "listCategory",
-          "uri": "jaxrs/market/list/category",
-          "method": "GET"
-        },
-        {
-          "name": "getCoverPic",
-          "uri": "jaxrs/market/{flag}/cover/pic",
-          "method": "GET"
-        },
-        {
-          "name": "getInstalledVersion",
-          "uri": "jaxrs/market/{flag}/installed/version",
           "method": "GET"
         },
         {
@@ -1153,13 +1116,50 @@
           "enctype": "application/json"
         },
         {
-          "name": "listByCategoryPaging",
-          "uri": "jaxrs/market/list/paging/{page}/size/{size}/category/{category}",
+          "name": "listPaging",
+          "uri": "jaxrs/market/list/paging/{page}/size/{size}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "installOffline",
+          "uri": "jaxrs/market/install/offline",
+          "method": "POST",
+          "enctype": "formData"
+        },
+        {
+          "name": "listCategory",
+          "uri": "jaxrs/market/list/category",
+          "method": "GET"
+        },
+        {
+          "name": "listTopThree",
+          "uri": "jaxrs/market/list/top/three",
           "method": "GET"
         },
         {
           "name": "cloudUnitIsVip",
           "uri": "jaxrs/market/cloud/unit/is/vip",
+          "method": "GET"
+        },
+        {
+          "name": "listByCategoryPaging",
+          "uri": "jaxrs/market/list/paging/{page}/size/{size}/category/{category}",
+          "method": "GET"
+        },
+        {
+          "name": "getInstallLog",
+          "uri": "jaxrs/market/{flag}/install/log",
+          "method": "GET"
+        },
+        {
+          "name": "getInstalledVersion",
+          "uri": "jaxrs/market/{flag}/installed/version",
+          "method": "GET"
+        },
+        {
+          "name": "getCoverPic",
+          "uri": "jaxrs/market/{flag}/cover/pic",
           "method": "GET"
         },
         {
@@ -1207,10 +1207,9 @@
           "enctype": "application/json"
         },
         {
-          "name": "compareUpload",
-          "uri": "jaxrs/module/compare/upload",
-          "method": "PUT",
-          "enctype": "formData"
+          "name": "listCategory",
+          "uri": "jaxrs/module/list/category",
+          "method": "GET"
         },
         {
           "name": "listStructure",
@@ -1218,14 +1217,15 @@
           "method": "GET"
         },
         {
-          "name": "listCategory",
-          "uri": "jaxrs/module/list/category",
-          "method": "GET"
-        },
-        {
           "name": "outputStructure",
           "uri": "jaxrs/module/output/structure",
           "method": "GET"
+        },
+        {
+          "name": "compareUpload",
+          "uri": "jaxrs/module/compare/upload",
+          "method": "PUT",
+          "enctype": "formData"
         },
         {
           "name": "outputFile",
@@ -1264,8 +1264,8 @@
           "method": "GET"
         },
         {
-          "name": "listNextWithLoggerName",
-          "uri": "jaxrs/prompterrorlog/list/{id}/next/{count}/loggername/{loggerName}",
+          "name": "listPrevWithExceptionClass",
+          "uri": "jaxrs/prompterrorlog/list/{id}/prev/{count}/exceptionclass/{exceptionClass}",
           "method": "GET"
         },
         {
@@ -1275,28 +1275,23 @@
           "enctype": "application/json"
         },
         {
-          "name": "listPrev",
-          "uri": "jaxrs/prompterrorlog/list/{id}/prev/{count}",
-          "method": "GET"
-        },
-        {
-          "name": "listNextWithExceptionClass",
-          "uri": "jaxrs/prompterrorlog/list/{id}/next/{count}/exceptionclass/{exceptionClass}",
-          "method": "GET"
-        },
-        {
-          "name": "countLoggerName",
-          "uri": "jaxrs/prompterrorlog/count/loggername",
-          "method": "GET"
-        },
-        {
           "name": "countExceptionClass",
           "uri": "jaxrs/prompterrorlog/count/exceptionclass",
           "method": "GET"
         },
         {
-          "name": "listPrevWithDate",
-          "uri": "jaxrs/prompterrorlog/list/{id}/prev/{count}/date/{date}",
+          "name": "listNextWithLoggerName",
+          "uri": "jaxrs/prompterrorlog/list/{id}/next/{count}/loggername/{loggerName}",
+          "method": "GET"
+        },
+        {
+          "name": "listNext",
+          "uri": "jaxrs/prompterrorlog/list/{id}/next/{count}",
+          "method": "GET"
+        },
+        {
+          "name": "listPrev",
+          "uri": "jaxrs/prompterrorlog/list/{id}/prev/{count}",
           "method": "GET"
         },
         {
@@ -1305,18 +1300,23 @@
           "method": "GET"
         },
         {
+          "name": "listNextWithExceptionClass",
+          "uri": "jaxrs/prompterrorlog/list/{id}/next/{count}/exceptionclass/{exceptionClass}",
+          "method": "GET"
+        },
+        {
           "name": "listNextWithDate",
           "uri": "jaxrs/prompterrorlog/list/{id}/next/{count}/date/{date}",
           "method": "GET"
         },
         {
-          "name": "listPrevWithExceptionClass",
-          "uri": "jaxrs/prompterrorlog/list/{id}/prev/{count}/exceptionclass/{exceptionClass}",
+          "name": "listPrevWithDate",
+          "uri": "jaxrs/prompterrorlog/list/{id}/prev/{count}/date/{date}",
           "method": "GET"
         },
         {
-          "name": "listNext",
-          "uri": "jaxrs/prompterrorlog/list/{id}/next/{count}",
+          "name": "countLoggerName",
+          "uri": "jaxrs/prompterrorlog/count/loggername",
           "method": "GET"
         }
       ]
@@ -1330,10 +1330,9 @@
           "method": "GET"
         },
         {
-          "name": "getPrivateInfoMessage",
-          "uri": "jaxrs/qiyeweixin/send/getprivateinfo/message",
-          "method": "POST",
-          "enctype": "application/json"
+          "name": "syncOrganizationCallbackGet",
+          "uri": "jaxrs/qiyeweixin",
+          "method": "GET"
         },
         {
           "name": "syncOrganizationCallbackEncodingAESKeyGet",
@@ -1352,20 +1351,16 @@
           "method": "POST"
         },
         {
-          "name": "syncOrganizationCallbackGet",
-          "uri": "jaxrs/qiyeweixin",
-          "method": "GET"
+          "name": "getPrivateInfoMessage",
+          "uri": "jaxrs/qiyeweixin/send/getprivateinfo/message",
+          "method": "POST",
+          "enctype": "application/json"
         }
       ]
     },
     {
       "name": "ScheduleAction",
       "methods": [
-        {
-          "name": "listSchedule",
-          "uri": "jaxrs/schedule/list/schedule",
-          "method": "GET"
-        },
         {
           "name": "listScheduleLocal",
           "uri": "jaxrs/schedule/list/schedulelocal",
@@ -1374,6 +1369,11 @@
         {
           "name": "listScheduleLog",
           "uri": "jaxrs/schedule/list/schedulelog/application/{application}",
+          "method": "GET"
+        },
+        {
+          "name": "listSchedule",
+          "uri": "jaxrs/schedule/list/schedule",
           "method": "GET"
         },
         {
@@ -1428,15 +1428,15 @@
           "enctype": "application/json"
         },
         {
-          "name": "listPaging",
-          "uri": "jaxrs/script/list/paging/{page}/size/{size}",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
           "name": "edit",
           "uri": "jaxrs/script/{id}",
           "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listPaging",
+          "uri": "jaxrs/script/list/paging/{page}/size/{size}",
+          "method": "POST",
           "enctype": "application/json"
         },
         {
@@ -1481,23 +1481,13 @@
           "method": "GET"
         },
         {
-          "name": "listPrev",
-          "uri": "jaxrs/unexpectederrorlog/list/{id}/prev/{count}",
-          "method": "GET"
-        },
-        {
-          "name": "listPrevWithDate",
-          "uri": "jaxrs/unexpectederrorlog/list/{id}/prev/{count}/date/{date}",
-          "method": "GET"
-        },
-        {
-          "name": "listNextWithDate",
-          "uri": "jaxrs/unexpectederrorlog/list/{id}/next/{count}/date/{date}",
-          "method": "GET"
-        },
-        {
           "name": "listNext",
           "uri": "jaxrs/unexpectederrorlog/list/{id}/next/{count}",
+          "method": "GET"
+        },
+        {
+          "name": "listPrev",
+          "uri": "jaxrs/unexpectederrorlog/list/{id}/prev/{count}",
           "method": "GET"
         },
         {
@@ -1505,6 +1495,16 @@
           "uri": "jaxrs/unexpectederrorlog",
           "method": "POST",
           "enctype": "application/json"
+        },
+        {
+          "name": "listNextWithDate",
+          "uri": "jaxrs/unexpectederrorlog/list/{id}/next/{count}/date/{date}",
+          "method": "GET"
+        },
+        {
+          "name": "listPrevWithDate",
+          "uri": "jaxrs/unexpectederrorlog/list/{id}/prev/{count}/date/{date}",
+          "method": "GET"
         }
       ]
     },
@@ -1542,19 +1542,19 @@
           "method": "GET"
         },
         {
-          "name": "listPrev",
-          "uri": "jaxrs/warnlog/list/{id}/prev/{count}",
-          "method": "GET"
-        },
-        {
           "name": "recordWarnLog",
           "uri": "jaxrs/warnlog",
           "method": "POST",
           "enctype": "application/json"
         },
         {
-          "name": "listPrevWithDate",
-          "uri": "jaxrs/warnlog/list/{id}/prev/{count}/date/{date}",
+          "name": "listNext",
+          "uri": "jaxrs/warnlog/list/{id}/next/{count}",
+          "method": "GET"
+        },
+        {
+          "name": "listPrev",
+          "uri": "jaxrs/warnlog/list/{id}/prev/{count}",
           "method": "GET"
         },
         {
@@ -1563,8 +1563,8 @@
           "method": "GET"
         },
         {
-          "name": "listNext",
-          "uri": "jaxrs/warnlog/list/{id}/next/{count}",
+          "name": "listPrevWithDate",
+          "uri": "jaxrs/warnlog/list/{id}/prev/{count}/date/{date}",
           "method": "GET"
         }
       ]
@@ -1594,15 +1594,15 @@
           "method": "GET"
         },
         {
+          "name": "getRegistCallback",
+          "uri": "jaxrs/zhengwudingding/regist/callback",
+          "method": "GET"
+        },
+        {
           "name": "syncOrganizationCallback",
           "uri": "jaxrs/zhengwudingding/sync/organization/callback",
           "method": "POST",
           "enctype": "application/json"
-        },
-        {
-          "name": "getRegistCallback",
-          "uri": "jaxrs/zhengwudingding/regist/callback",
-          "method": "GET"
         }
       ]
     }

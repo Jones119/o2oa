@@ -1,0 +1,714 @@
+{
+  "name": "DataAction",
+  "className": "com.x.cms.assemble.control.jaxrs.data.DataAction",
+  "description": "CMS文档数据操作",
+  "methods": [
+    {
+      "name": "createWithDocument",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionCreateWithDocument",
+      "description": "对指定的document添加局部data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createWithDocumentWithPath0",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionCreateWithDocumentPath0",
+      "description": "对指定的document添加局部data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createWithDocumentWithPath1",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionCreateWithDocumentPath1",
+      "description": "对指定的document添加局部data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createWithDocumentWithPath2",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionCreateWithDocumentPath2",
+      "description": "对指定的document添加局部data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createWithDocumentWithPath3",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionCreateWithDocumentPath3",
+      "description": "对指定的document添加局部data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createWithDocumentWithPath4",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionCreateWithDocumentPath4",
+      "description": "对指定的document添加局部data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createWithDocumentWithPath5",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionCreateWithDocumentPath5",
+      "description": "对指定的document添加局部data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createWithDocumentWithPath6",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionCreateWithDocumentPath6",
+      "description": "对指定的document添加局部data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createWithDocumentWithPath7",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionCreateWithDocumentPath7",
+      "description": "对指定的document添加局部data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocument",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocument",
+      "description": "对指定的document删除局部data数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocumentMockDeleteToGet",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocument",
+      "description": "对指定的document删除局部data数据.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocumentWithPath0",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocumentPath0",
+      "description": "对指定的document删除局部data数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocumentWithPath0MockDeleteToGet",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocumentPath0",
+      "description": "对指定的document删除局部data数据.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocumentWithPath1",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocumentPath1",
+      "description": "对指定的document删除局部data数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocumentWithPath1MockDeleteToGet",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocumentPath1",
+      "description": "对指定的document删除局部data数据.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocumentWithPath2",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocumentPath2",
+      "description": "对指定的document删除局部data数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocumentWithPath2MockDeleteToGet",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocumentPath2",
+      "description": "对指定的document删除局部data数据.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocumentWithPath3",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocumentPath3",
+      "description": "对指定的document删除局部data数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocumentWithPath3MockDeleteToGet",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocumentPath3",
+      "description": "对指定的document删除局部data数据.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocumentWithPath4",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocumentPath4",
+      "description": "对指定的document删除局部data数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocumentWithPath4MockDeleteToGet",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocumentPath4",
+      "description": "对指定的document删除局部data数据.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocumentWithPath5",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocumentPath5",
+      "description": "对指定的document删除局部data数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocumentWithPath5MockDeleteToGet",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocumentPath5",
+      "description": "对指定的document删除局部data数据.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocumentWithPath6",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocumentPath6",
+      "description": "对指定的document删除局部data数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocumentWithPath6MockDeleteToGet",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocumentPath6",
+      "description": "对指定的document删除局部data数据.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocumentWithPath7",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocumentPath7",
+      "description": "对指定的document删除局部data数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithDocumentWithPath7MockDeleteToGet",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionDeleteWithDocumentPath7",
+      "description": "对指定的document删除局部data数据.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "getWithDocument",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionGetWithDocument",
+      "description": "根据documentId获取Data",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithDocumentPath0",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionGetWithDocumentPath0",
+      "description": "根据路径获取指定document的data数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithDocumentWithPath1",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionGetWithDocumentPath1",
+      "description": "根据路径获取指定document的data数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithDocumentWithPath2",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionGetWithDocumentPath2",
+      "description": "根据路径获取指定document的data数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithDocumentWithPath3",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionGetWithDocumentPath3",
+      "description": "根据路径获取指定document的data数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithDocumentWithPath4",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionGetWithDocumentPath4",
+      "description": "根据路径获取指定document的data数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithDocumentWithPath5",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionGetWithDocumentPath5",
+      "description": "根据路径获取指定document的data数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithDocumentWithPath6",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionGetWithDocumentPath6",
+      "description": "根据路径获取指定document的data数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithDocumentWithPath7",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionGetWithDocumentPath7",
+      "description": "根据路径获取指定document的data数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "updateArrayDataWithDocument",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateArrayDataWithDocument",
+      "description": "根据文档标识更新指定路径的数组数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocument",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocument",
+      "description": "更新指定Document的Data数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocumentMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocument",
+      "description": "更新指定Document的Data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocumentWithPath0",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocumentPath0",
+      "description": "更新指定Document的Data数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocumentWithPath0MockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocumentPath0",
+      "description": "更新指定Document的Data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocumentWithPath1",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocumentPath1",
+      "description": "更新指定Document的Data数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocumentWithPath1MockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocumentPath1",
+      "description": "更新指定Document的Data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocumentWithPath2",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocumentPath2",
+      "description": "更新指定Document的Data数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocumentWithPath2MockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocumentPath2",
+      "description": "更新指定Document的Data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocumentWithPath3",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocumentPath3",
+      "description": "更新指定Document的Data数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocumentWithPath3MockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocumentPath3",
+      "description": "更新指定Document的Data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocumentWithPath4",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocumentPath4",
+      "description": "更新指定Document的Data数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocumentWithPath4MockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocumentPath4",
+      "description": "更新指定Document的Data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocumentWithPath5",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocumentPath5",
+      "description": "更新指定Document的Data数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocumentWithPath5MockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocumentPath5",
+      "description": "更新指定Document的Data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocumentWithPath6",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocumentPath6",
+      "description": "更新指定Document的Data数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocumentWithPath6MockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocumentPath6",
+      "description": "更新指定Document的Data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocumentWithPath7",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocumentPath7",
+      "description": "更新指定Document的Data数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithDocumentWithPath7MockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.data.ActionUpdateWithDocumentPath7",
+      "description": "更新指定Document的Data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    }
+  ]
+}

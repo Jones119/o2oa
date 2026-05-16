@@ -1,0 +1,793 @@
+{
+  "name": "RecordAction",
+  "className": "com.x.processplatform.assemble.surface.jaxrs.record.RecordAction",
+  "description": "记录接口.",
+  "methods": [
+    {
+      "name": "listWithJob",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.record.ActionListWithJob",
+      "description": "根据任务标识获取记录.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "routeName",
+          "type": "String",
+          "isCollection": false,
+          "description": "路由名称."
+        },
+        {
+          "name": "opinion",
+          "type": "String",
+          "isCollection": false,
+          "description": "意见."
+        },
+        {
+          "name": "mediaOpinion",
+          "type": "String",
+          "isCollection": false,
+          "description": "多媒体意见"
+        },
+        {
+          "name": "empowerFromIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "授权自身份"
+        },
+        {
+          "name": "nextManualList",
+          "type": "List\u003cNextManual\u003e",
+          "isCollection": true,
+          "description": "后续人工环节"
+        },
+        {
+          "name": "nextManualTaskIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "后续人工环节处理人"
+        },
+        {
+          "name": "startTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "开始时间."
+        },
+        {
+          "name": "personOrderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "人员排序值"
+        },
+        {
+          "name": "identityOrderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "身份排序值"
+        },
+        {
+          "name": "unitOrderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织排序值"
+        },
+        {
+          "name": "unitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层级"
+        },
+        {
+          "name": "taskCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "已办标识"
+        },
+        {
+          "name": "retractTaskCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "发起撤回的已办标识"
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "任务标识"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "workCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "已完成工作"
+        },
+        {
+          "name": "completed",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "工作是否已经完成."
+        },
+        {
+          "name": "display",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否显示."
+        },
+        {
+          "name": "order",
+          "type": "Long",
+          "isCollection": false,
+          "description": "显示排序."
+        },
+        {
+          "name": "properties",
+          "type": "RecordProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "fromActivity",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动Id"
+        },
+        {
+          "name": "fromActivityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "开始活动类型."
+        },
+        {
+          "name": "fromActivityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动名称"
+        },
+        {
+          "name": "fromActivityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动别名"
+        },
+        {
+          "name": "fromActivityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始节点Token"
+        },
+        {
+          "name": "recordTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "记录时间."
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录人员"
+        },
+        {
+          "name": "identity",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录身份"
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录人员所在组织."
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listWithJobPaging",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.record.ActionListWithJobPaging",
+      "description": "分页列示根据任务标识获取的记录.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "任务标识"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "workCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "已完成工作"
+        },
+        {
+          "name": "completed",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "工作是否已经完成."
+        },
+        {
+          "name": "display",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否显示."
+        },
+        {
+          "name": "order",
+          "type": "Long",
+          "isCollection": false,
+          "description": "显示排序."
+        },
+        {
+          "name": "properties",
+          "type": "RecordProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "fromActivity",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动Id"
+        },
+        {
+          "name": "fromActivityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "开始活动类型."
+        },
+        {
+          "name": "fromActivityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动名称"
+        },
+        {
+          "name": "fromActivityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动别名"
+        },
+        {
+          "name": "fromActivityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始节点Token"
+        },
+        {
+          "name": "recordTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "记录时间."
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录人员"
+        },
+        {
+          "name": "identity",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录身份"
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录人员所在组织."
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listWithWorkOrWorkCompleted",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.record.ActionListWithWorkOrWorkCompleted",
+      "description": "根据工作或完成工作标识获取记录.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "routeName",
+          "type": "String",
+          "isCollection": false,
+          "description": "路由名称."
+        },
+        {
+          "name": "opinion",
+          "type": "String",
+          "isCollection": false,
+          "description": "意见."
+        },
+        {
+          "name": "mediaOpinion",
+          "type": "String",
+          "isCollection": false,
+          "description": "多媒体意见"
+        },
+        {
+          "name": "empowerFromIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "授权自身份"
+        },
+        {
+          "name": "nextManualList",
+          "type": "List\u003cNextManual\u003e",
+          "isCollection": true,
+          "description": "后续人工环节"
+        },
+        {
+          "name": "nextManualTaskIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "后续人工环节处理人"
+        },
+        {
+          "name": "startTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "开始时间."
+        },
+        {
+          "name": "personOrderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "人员排序值"
+        },
+        {
+          "name": "identityOrderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "身份排序值"
+        },
+        {
+          "name": "unitOrderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织排序值"
+        },
+        {
+          "name": "unitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层级"
+        },
+        {
+          "name": "taskCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "已办标识"
+        },
+        {
+          "name": "retractTaskCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "发起撤回的已办标识"
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "任务标识"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "workCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "已完成工作"
+        },
+        {
+          "name": "completed",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "工作是否已经完成."
+        },
+        {
+          "name": "display",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否显示."
+        },
+        {
+          "name": "order",
+          "type": "Long",
+          "isCollection": false,
+          "description": "显示排序."
+        },
+        {
+          "name": "properties",
+          "type": "RecordProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "fromActivity",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动Id"
+        },
+        {
+          "name": "fromActivityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "开始活动类型."
+        },
+        {
+          "name": "fromActivityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动名称"
+        },
+        {
+          "name": "fromActivityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动别名"
+        },
+        {
+          "name": "fromActivityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始节点Token"
+        },
+        {
+          "name": "recordTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "记录时间."
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录人员"
+        },
+        {
+          "name": "identity",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录身份"
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录人员所在组织."
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listWithWorkOrWorkCompletedPaging",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.record.ActionListWithWorkOrWorkCompletedPaging",
+      "description": "分页列示根据工作或完成工作标识获取的记录.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "任务标识"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "workCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "已完成工作"
+        },
+        {
+          "name": "completed",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "工作是否已经完成."
+        },
+        {
+          "name": "display",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否显示."
+        },
+        {
+          "name": "order",
+          "type": "Long",
+          "isCollection": false,
+          "description": "显示排序."
+        },
+        {
+          "name": "properties",
+          "type": "RecordProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "fromActivity",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动Id"
+        },
+        {
+          "name": "fromActivityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "开始活动类型."
+        },
+        {
+          "name": "fromActivityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动名称"
+        },
+        {
+          "name": "fromActivityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动别名"
+        },
+        {
+          "name": "fromActivityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始节点Token"
+        },
+        {
+          "name": "recordTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "记录时间."
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录人员"
+        },
+        {
+          "name": "identity",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录身份"
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录人员所在组织."
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "manageCreateWithJob",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.record.ActionManageCreateWithJob",
+      "description": "根据任务标识创建记录,需要管理权限.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "manageDelete",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.record.ActionManageDelete",
+      "description": "根据记录标识删除记录,需要管理权限.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "manageDeleteMockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.record.ActionManageDelete",
+      "description": "根据记录标识删除记录,需要管理权限(mock delete to get).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "manageEdit",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.record.ActionManageEdit",
+      "description": "根据记录标识修改记录,需要管理权限.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "manageEditMockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.record.ActionManageEdit",
+      "description": "根据记录标识修改记录,需要管理权限(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    }
+  ]
+}

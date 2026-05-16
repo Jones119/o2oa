@@ -1,0 +1,2805 @@
+{
+  "jaxrs": [
+    {
+      "name": "AreaAction",
+      "className": "com.x.general.assemble.control.jaxrs.area.AreaAction",
+      "description": "行政区域.",
+      "methods": [
+        {
+          "name": "listCity",
+          "className": "com.x.general.assemble.control.jaxrs.area.ActionListCity",
+          "description": "列示指定省所属市级行政区域信息.",
+          "type": "GET",
+          "path": "jaxrs/area/list/province/{province}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "province",
+              "type": "String",
+              "description": "省"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "name",
+              "type": "String",
+              "isCollection": false,
+              "description": "名称."
+            },
+            {
+              "name": "zipCode",
+              "type": "String",
+              "isCollection": false,
+              "description": "邮编."
+            },
+            {
+              "name": "level",
+              "type": "String",
+              "isCollection": false,
+              "description": "级别."
+            },
+            {
+              "name": "center",
+              "type": "String",
+              "isCollection": false,
+              "description": "中心坐标."
+            }
+          ]
+        },
+        {
+          "name": "listDistrict",
+          "className": "com.x.general.assemble.control.jaxrs.area.ActionListDistrict",
+          "description": "列示指定省市所属区行政区域信息.",
+          "type": "GET",
+          "path": "jaxrs/area/list/province/{province}/city/{city}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "province",
+              "type": "String",
+              "description": "省"
+            },
+            {
+              "name": "city",
+              "type": "String",
+              "description": "市"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "name",
+              "type": "String",
+              "isCollection": false,
+              "description": "名称."
+            },
+            {
+              "name": "zipCode",
+              "type": "String",
+              "isCollection": false,
+              "description": "邮编."
+            },
+            {
+              "name": "level",
+              "type": "String",
+              "isCollection": false,
+              "description": "级别."
+            },
+            {
+              "name": "center",
+              "type": "String",
+              "isCollection": false,
+              "description": "中心坐标."
+            }
+          ]
+        },
+        {
+          "name": "listProvince",
+          "className": "com.x.general.assemble.control.jaxrs.area.ActionListProvince",
+          "description": "列示省级行政区域信息.",
+          "type": "GET",
+          "path": "jaxrs/area/list",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "name",
+              "type": "String",
+              "isCollection": false,
+              "description": "名称."
+            },
+            {
+              "name": "zipCode",
+              "type": "String",
+              "isCollection": false,
+              "description": "邮编."
+            },
+            {
+              "name": "level",
+              "type": "String",
+              "isCollection": false,
+              "description": "级别."
+            },
+            {
+              "name": "center",
+              "type": "String",
+              "isCollection": false,
+              "description": "中心坐标."
+            },
+            {
+              "name": "sha",
+              "type": "String",
+              "isCollection": false,
+              "description": "md5校验码."
+            }
+          ]
+        },
+        {
+          "name": "listStreet",
+          "className": "com.x.general.assemble.control.jaxrs.area.ActionListStreet",
+          "description": "列示指定省市区所属街道行政区域信息.",
+          "type": "GET",
+          "path": "jaxrs/area/list/province/{province}/city/{city}/district/{district}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "province",
+              "type": "String",
+              "description": "省"
+            },
+            {
+              "name": "city",
+              "type": "String",
+              "description": "市"
+            },
+            {
+              "name": "district",
+              "type": "String",
+              "description": "区"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "name",
+              "type": "String",
+              "isCollection": false,
+              "description": "名称."
+            },
+            {
+              "name": "zipCode",
+              "type": "String",
+              "isCollection": false,
+              "description": "邮编."
+            },
+            {
+              "name": "level",
+              "type": "String",
+              "isCollection": false,
+              "description": "级别."
+            },
+            {
+              "name": "center",
+              "type": "String",
+              "isCollection": false,
+              "description": "中心坐标."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CacheAction",
+      "className": "com.x.base.core.project.jaxrs.cache.CacheAction",
+      "description": "缓存操作接口",
+      "methods": [
+        {
+          "name": "commonScriptFlush",
+          "className": "com.x.base.core.project.jaxrs.cache.ActionCommonScriptFlush",
+          "description": "接收刷新CommonScript指令.",
+          "type": "GET",
+          "path": "jaxrs/cache/commonscript/flush",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "configFlush",
+          "className": "com.x.base.core.project.jaxrs.cache.ActionConfigFlush",
+          "description": "接收刷新Config配置文件指令.",
+          "type": "GET",
+          "path": "jaxrs/cache/config/flush",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "detail",
+          "className": "com.x.base.core.project.jaxrs.cache.ActionDetail",
+          "description": "显示缓存状态.",
+          "type": "GET",
+          "path": "jaxrs/cache/detail",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "receive",
+          "className": "com.x.base.core.project.jaxrs.cache.ActionReceive",
+          "description": "接收缓存刷新指令.",
+          "type": "POST",
+          "path": "jaxrs/cache",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "nodeName",
+              "type": "String",
+              "isCollection": false,
+              "description": "节点名.",
+              "isBaseType": true
+            },
+            {
+              "name": "className",
+              "type": "String",
+              "isCollection": false,
+              "description": "类名.",
+              "isBaseType": true
+            },
+            {
+              "name": "keys",
+              "type": "List\u003cObject\u003e",
+              "isCollection": true,
+              "description": "关键字.",
+              "isBaseType": false
+            }
+          ],
+          "outs": []
+        }
+      ]
+    },
+    {
+      "name": "EchoAction",
+      "className": "com.x.base.core.project.jaxrs.echo.EchoAction",
+      "description": "应用响应接口.",
+      "methods": [
+        {
+          "name": "get",
+          "className": "com.x.base.core.project.jaxrs.echo.ActionGet",
+          "description": "获取应答.",
+          "type": "GET",
+          "path": "jaxrs/echo",
+          "contentType": "application/json",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "servletContextName",
+              "type": "String",
+              "isCollection": false,
+              "description": "上下文根."
+            },
+            {
+              "name": "serverTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "服务器时间."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EcnetAction",
+      "className": "com.x.general.assemble.control.jaxrs.ecnet.EcnetAction",
+      "description": "文本纠错.",
+      "methods": [
+        {
+          "name": "check",
+          "className": "com.x.general.assemble.control.jaxrs.ecnet.ActionCheck",
+          "description": "文本纠错检查.",
+          "type": "POST",
+          "path": "jaxrs/ecnet/check",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "pos",
+              "type": "Integer",
+              "isCollection": false,
+              "description": "位置."
+            },
+            {
+              "name": "origin",
+              "type": "String",
+              "isCollection": false,
+              "description": "原始值."
+            },
+            {
+              "name": "correct",
+              "type": "String",
+              "isCollection": false,
+              "description": "纠正值."
+            },
+            {
+              "name": "itemList",
+              "type": "List\u003cWoItem\u003e",
+              "isCollection": true,
+              "description": "纠正项."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ExcelAction",
+      "className": "com.x.general.assemble.control.jaxrs.excel.ExcelAction",
+      "description": "生成excel",
+      "methods": [
+        {
+          "name": "excelResult",
+          "className": "com.x.general.assemble.control.jaxrs.excel.ActionExcelResult",
+          "description": "导出Excel.",
+          "type": "GET",
+          "path": "jaxrs/excel/result/{flag}",
+          "contentType": "application/json",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "flag",
+              "type": "String",
+              "description": "对象标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "contentDisposition",
+              "type": "String",
+              "isCollection": false,
+              "description": "说明"
+            },
+            {
+              "name": "contentType",
+              "type": "String",
+              "isCollection": false,
+              "description": "类型"
+            },
+            {
+              "name": "bytes",
+              "type": "byte[]",
+              "isCollection": false,
+              "description": "字节内容."
+            },
+            {
+              "name": "streamingOutput",
+              "type": "StreamingOutput",
+              "isCollection": false,
+              "description": "附件流."
+            },
+            {
+              "name": "contentLength",
+              "type": "Long",
+              "isCollection": false,
+              "description": "附件大小."
+            }
+          ]
+        },
+        {
+          "name": "excelSheetWithDataList",
+          "className": "com.x.general.assemble.control.jaxrs.excel.ActionExcelSheetExport",
+          "description": "将内容生成Excel，支持多个sheet页",
+          "type": "POST",
+          "path": "jaxrs/excel/excelName/{excelName}/sheetList",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "excelName",
+              "type": "String",
+              "description": "文件名"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "sheetList",
+              "type": "List\u003cWiSheet\u003e",
+              "isCollection": true,
+              "description": "多个sheet页的内容，例如：{ \"sheetName\": \"Sheet1\", \"dataList\": [[\"姓名\", \"性别\", \"年龄\"],[\"\", \"\", \"\"],[\"小红\", \"女\", \"22\"]]}",
+              "isBaseType": false
+            }
+          ],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "id"
+            }
+          ]
+        },
+        {
+          "name": "excelToDataList",
+          "className": "com.x.general.assemble.control.jaxrs.excel.ActionUploadExcel",
+          "description": "解析上传Excel中的内容.",
+          "type": "POST",
+          "path": "jaxrs/excel/upload",
+          "contentType": "multipart/form-data",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": true,
+          "pathParameters": [],
+          "formParameters": [
+            {
+              "name": "file",
+              "type": "File",
+              "description": "Excel文件"
+            },
+            {
+              "name": "rowIndex",
+              "type": "Integer",
+              "description": "读取内容的起始行下标，默认0"
+            },
+            {
+              "name": "sheetIndex",
+              "type": "Integer",
+              "description": "读取内容的Sheet页下标，默认0"
+            }
+          ],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "dataList",
+              "type": "List\u003cList\u003cObject\u003e\u003e",
+              "isCollection": true,
+              "description": "excel解析出的内容，例如：[\u0027姓名\u0027,\u0027性别\u0027],[\u0027小明\u0027,\u0027男\u0027]"
+            }
+          ]
+        },
+        {
+          "name": "excelToDataListWithUrl",
+          "className": "com.x.general.assemble.control.jaxrs.excel.ActionUploadExcelWithUrl",
+          "description": "解析url中Excel的内容",
+          "type": "POST",
+          "path": "jaxrs/excel/upload/with/url",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "fileUrl",
+              "type": "String",
+              "isCollection": false,
+              "description": "*excel文件来源url地址.",
+              "isBaseType": true
+            },
+            {
+              "name": "rowIndex",
+              "type": "Integer",
+              "isCollection": false,
+              "description": "*读取内容的起始行下标，默认0.",
+              "isBaseType": true
+            },
+            {
+              "name": "sheetIndex",
+              "type": "Integer",
+              "isCollection": false,
+              "description": "*读取内容的Sheet页下标，默认0.",
+              "isBaseType": true
+            }
+          ],
+          "outs": [
+            {
+              "name": "dataList",
+              "type": "List\u003cList\u003cObject\u003e\u003e",
+              "isCollection": true,
+              "description": "excel解析出的内容，例如：[\u0027姓名\u0027,\u0027性别\u0027],[\u0027小明\u0027,\u0027男\u0027]"
+            }
+          ]
+        },
+        {
+          "name": "excelWithDataList",
+          "className": "com.x.general.assemble.control.jaxrs.excel.ActionExcelExport",
+          "description": "将内容生成Excel",
+          "type": "POST",
+          "path": "jaxrs/excel/excelName/{excelName}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "excelName",
+              "type": "String",
+              "description": "文件名"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "dataList",
+              "type": "List\u003cList\u003cString\u003e\u003e",
+              "isCollection": true,
+              "description": "转换为excel的内容，例如：[\u0027姓名\u0027,\u0027性别\u0027],[\u0027小明\u0027,\u0027男\u0027]",
+              "isBaseType": true
+            }
+          ],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FireScheduleAction",
+      "className": "com.x.base.core.project.jaxrs.fireschedule.FireScheduleAction",
+      "description": "触发定时任务接口.",
+      "methods": [
+        {
+          "name": "execute",
+          "className": "com.x.base.core.project.jaxrs.fireschedule.ActionExecute",
+          "description": "接受x_program_center发送过来的运行定时任务指令.",
+          "type": "GET",
+          "path": "jaxrs/fireschedule/classname/{className}",
+          "contentType": "application/json",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "className",
+              "type": "String",
+              "description": "运行类"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        }
+      ]
+    },
+    {
+      "name": "GeneralFileAction",
+      "className": "com.x.general.assemble.control.jaxrs.generalfile.GeneralFileAction",
+      "description": "通用附件.",
+      "methods": [
+        {
+          "name": "download",
+          "className": "com.x.general.assemble.control.jaxrs.generalfile.ActionDownload",
+          "description": "下载附件.",
+          "type": "GET",
+          "path": "jaxrs/generalfile/download/flag/{flag}",
+          "contentType": "application/json",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "flag",
+              "type": "String",
+              "description": "*附件标志"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [
+            {
+              "name": "stream",
+              "type": "Boolean",
+              "description": "是否直接下载(true|false)"
+            }
+          ],
+          "ins": [],
+          "outs": [
+            {
+              "name": "contentDisposition",
+              "type": "String",
+              "isCollection": false,
+              "description": "说明"
+            },
+            {
+              "name": "contentType",
+              "type": "String",
+              "isCollection": false,
+              "description": "类型"
+            },
+            {
+              "name": "bytes",
+              "type": "byte[]",
+              "isCollection": false,
+              "description": "字节内容."
+            },
+            {
+              "name": "streamingOutput",
+              "type": "StreamingOutput",
+              "isCollection": false,
+              "description": "附件流."
+            },
+            {
+              "name": "contentLength",
+              "type": "Long",
+              "isCollection": false,
+              "description": "附件大小."
+            }
+          ]
+        },
+        {
+          "name": "get",
+          "className": "com.x.general.assemble.control.jaxrs.generalfile.ActionGet",
+          "description": "获取附件.",
+          "type": "GET",
+          "path": "jaxrs/generalfile/flag/{flag}",
+          "contentType": "application/json",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "flag",
+              "type": "String",
+              "description": "附件标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "contentDisposition",
+              "type": "String",
+              "isCollection": false,
+              "description": "说明"
+            },
+            {
+              "name": "contentType",
+              "type": "String",
+              "isCollection": false,
+              "description": "类型"
+            },
+            {
+              "name": "bytes",
+              "type": "byte[]",
+              "isCollection": false,
+              "description": "字节内容."
+            },
+            {
+              "name": "streamingOutput",
+              "type": "StreamingOutput",
+              "isCollection": false,
+              "description": "附件流."
+            },
+            {
+              "name": "contentLength",
+              "type": "Long",
+              "isCollection": false,
+              "description": "附件大小."
+            }
+          ]
+        },
+        {
+          "name": "getBase64",
+          "className": "com.x.general.assemble.control.jaxrs.generalfile.ActionGetBase64",
+          "description": "获取文件Base64编码后的内容.",
+          "type": "GET",
+          "path": "jaxrs/generalfile/flag/{flag}/binary/base64",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "flag",
+              "type": "String",
+              "description": "附件标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "transfer",
+          "className": "com.x.general.assemble.control.jaxrs.generalfile.ActionBase64ToFile",
+          "description": "base64转文件.",
+          "type": "POST",
+          "path": "jaxrs/generalfile",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "content",
+              "type": "String",
+              "isCollection": false,
+              "description": "base64文本.",
+              "isBaseType": true
+            },
+            {
+              "name": "fileName",
+              "type": "String",
+              "isCollection": false,
+              "description": "转换文件名称，需带扩展名.",
+              "isBaseType": true
+            }
+          ],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "InvoiceAction",
+      "className": "com.x.general.assemble.control.jaxrs.invoice.InvoiceAction",
+      "description": "电子发票服务.",
+      "methods": [
+        {
+          "name": "create",
+          "className": "com.x.general.assemble.control.jaxrs.invoice.ActionCreate",
+          "description": "手工填写电子发票.",
+          "type": "POST",
+          "path": "jaxrs/invoice/create",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "fileId",
+              "type": "String",
+              "isCollection": false,
+              "description": "已上传的文件ID，通过uploadForCreate接口上传.",
+              "isBaseType": true
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票抬头.",
+              "isBaseType": true
+            },
+            {
+              "name": "code",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票代码.",
+              "isBaseType": true
+            },
+            {
+              "name": "number",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票号码.",
+              "isBaseType": true
+            },
+            {
+              "name": "date",
+              "type": "String",
+              "isCollection": false,
+              "description": "开票日期，发票上的日期.",
+              "isBaseType": true
+            },
+            {
+              "name": "invoiceDate",
+              "type": "Date",
+              "isCollection": false,
+              "description": "开票日期，时间格式",
+              "isBaseType": true
+            },
+            {
+              "name": "amount",
+              "type": "Double",
+              "isCollection": false,
+              "description": "未税金额.",
+              "isBaseType": true
+            },
+            {
+              "name": "taxAmount",
+              "type": "Double",
+              "isCollection": false,
+              "description": "税费.",
+              "isBaseType": true
+            },
+            {
+              "name": "totalAmountString",
+              "type": "String",
+              "isCollection": false,
+              "description": "总金额(大写).",
+              "isBaseType": true
+            },
+            {
+              "name": "totalAmount",
+              "type": "Double",
+              "isCollection": false,
+              "description": "总金额.",
+              "isBaseType": true
+            },
+            {
+              "name": "buyerName",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方名称.",
+              "isBaseType": true
+            },
+            {
+              "name": "buyerCode",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方纳税人识别号.",
+              "isBaseType": true
+            },
+            {
+              "name": "buyerAddress",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方地址.",
+              "isBaseType": true
+            },
+            {
+              "name": "buyerAccount",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方开户行及账号.",
+              "isBaseType": true
+            },
+            {
+              "name": "sellerName",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方名称.",
+              "isBaseType": true
+            },
+            {
+              "name": "sellerCode",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方纳税人识别号.",
+              "isBaseType": true
+            },
+            {
+              "name": "sellerAddress",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方地址.",
+              "isBaseType": true
+            },
+            {
+              "name": "sellerAccount",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方开户行及账号.",
+              "isBaseType": true
+            },
+            {
+              "name": "drawer",
+              "type": "String",
+              "isCollection": false,
+              "description": "开票人.",
+              "isBaseType": true
+            },
+            {
+              "name": "rider",
+              "type": "String",
+              "isCollection": false,
+              "description": "乘车人.",
+              "isBaseType": true
+            },
+            {
+              "name": "startStation",
+              "type": "String",
+              "isCollection": false,
+              "description": "起点站.",
+              "isBaseType": true
+            },
+            {
+              "name": "endStation",
+              "type": "String",
+              "isCollection": false,
+              "description": "终点站.",
+              "isBaseType": true
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票类型.",
+              "isBaseType": true
+            },
+            {
+              "name": "detail",
+              "type": "String",
+              "isCollection": false,
+              "description": "开票项目.",
+              "isBaseType": true
+            },
+            {
+              "name": "remark",
+              "type": "String",
+              "isCollection": false,
+              "description": "备注.",
+              "isBaseType": true
+            },
+            {
+              "name": "detailList",
+              "type": "List\u003cInvoiceDetail\u003e",
+              "isCollection": true,
+              "description": "明细记录.",
+              "isBaseType": false
+            },
+            {
+              "name": "encryptKey",
+              "type": "String",
+              "isCollection": false,
+              "description": "文件密钥.",
+              "isBaseType": true
+            }
+          ],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "id"
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "className": "com.x.general.assemble.control.jaxrs.invoice.ActionDelete",
+          "description": "删除指定发票.",
+          "type": "GET",
+          "path": "jaxrs/invoice/delete/{id}",
+          "contentType": "application/json",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "电子发票标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "id"
+            }
+          ]
+        },
+        {
+          "name": "download",
+          "className": "com.x.general.assemble.control.jaxrs.invoice.ActionDownload",
+          "description": "下载发票.",
+          "type": "GET",
+          "path": "jaxrs/invoice/download/flag/{flag}",
+          "contentType": "application/json",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "flag",
+              "type": "String",
+              "description": "*附件标志"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [
+            {
+              "name": "stream",
+              "type": "Boolean",
+              "description": "是否直接下载(true|false)"
+            }
+          ],
+          "ins": [],
+          "outs": [
+            {
+              "name": "contentDisposition",
+              "type": "String",
+              "isCollection": false,
+              "description": "说明"
+            },
+            {
+              "name": "contentType",
+              "type": "String",
+              "isCollection": false,
+              "description": "类型"
+            },
+            {
+              "name": "bytes",
+              "type": "byte[]",
+              "isCollection": false,
+              "description": "字节内容."
+            },
+            {
+              "name": "streamingOutput",
+              "type": "StreamingOutput",
+              "isCollection": false,
+              "description": "附件流."
+            },
+            {
+              "name": "contentLength",
+              "type": "Long",
+              "isCollection": false,
+              "description": "附件大小."
+            }
+          ]
+        },
+        {
+          "name": "get",
+          "className": "com.x.general.assemble.control.jaxrs.invoice.ActionGet",
+          "description": "获取发票信息.",
+          "type": "GET",
+          "path": "jaxrs/invoice/get/{id}",
+          "contentType": "application/json",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "发票标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "上传用户."
+            },
+            {
+              "name": "name",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票文件名称."
+            },
+            {
+              "name": "extension",
+              "type": "String",
+              "isCollection": false,
+              "description": "扩展名,必须要有扩展名的文件才允许上传."
+            },
+            {
+              "name": "storage",
+              "type": "String",
+              "isCollection": false,
+              "description": "存储器的名称,也就是多个存放节点的名字."
+            },
+            {
+              "name": "length",
+              "type": "Long",
+              "isCollection": false,
+              "description": "文件大小."
+            },
+            {
+              "name": "lastUpdateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "最后更新时间"
+            },
+            {
+              "name": "deepPath",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否使用更深的路径."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票抬头."
+            },
+            {
+              "name": "code",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票代码."
+            },
+            {
+              "name": "number",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票号码."
+            },
+            {
+              "name": "date",
+              "type": "String",
+              "isCollection": false,
+              "description": "开票日期，发票上的日期."
+            },
+            {
+              "name": "invoiceDate",
+              "type": "Date",
+              "isCollection": false,
+              "description": "开票日期，时间格式"
+            },
+            {
+              "name": "amount",
+              "type": "Double",
+              "isCollection": false,
+              "description": "未税金额."
+            },
+            {
+              "name": "taxAmount",
+              "type": "Double",
+              "isCollection": false,
+              "description": "税费."
+            },
+            {
+              "name": "totalAmountString",
+              "type": "String",
+              "isCollection": false,
+              "description": "总金额(大写)."
+            },
+            {
+              "name": "totalAmount",
+              "type": "Double",
+              "isCollection": false,
+              "description": "总金额."
+            },
+            {
+              "name": "buyerName",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方名称."
+            },
+            {
+              "name": "buyerCode",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方纳税人识别号."
+            },
+            {
+              "name": "buyerAddress",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方地址."
+            },
+            {
+              "name": "buyerAccount",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方开户行及账号."
+            },
+            {
+              "name": "sellerName",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方名称."
+            },
+            {
+              "name": "sellerCode",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方纳税人识别号."
+            },
+            {
+              "name": "sellerAddress",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方地址."
+            },
+            {
+              "name": "sellerAccount",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方开户行及账号."
+            },
+            {
+              "name": "drawer",
+              "type": "String",
+              "isCollection": false,
+              "description": "开票人."
+            },
+            {
+              "name": "rider",
+              "type": "String",
+              "isCollection": false,
+              "description": "乘车人."
+            },
+            {
+              "name": "startStation",
+              "type": "String",
+              "isCollection": false,
+              "description": "起点站."
+            },
+            {
+              "name": "endStation",
+              "type": "String",
+              "isCollection": false,
+              "description": "终点站."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票类型."
+            },
+            {
+              "name": "detail",
+              "type": "String",
+              "isCollection": false,
+              "description": "开票项目."
+            },
+            {
+              "name": "remark",
+              "type": "String",
+              "isCollection": false,
+              "description": "备注."
+            },
+            {
+              "name": "applyStatus",
+              "type": "String",
+              "isCollection": false,
+              "description": "报销状态."
+            },
+            {
+              "name": "detailList",
+              "type": "List\u003cInvoiceDetail\u003e",
+              "isCollection": true,
+              "description": "明细记录."
+            },
+            {
+              "name": "encryptKey",
+              "type": "String",
+              "isCollection": false,
+              "description": "文件密钥."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "listPaging",
+          "className": "com.x.general.assemble.control.jaxrs.invoice.ActionListPaging",
+          "description": "分页查询.",
+          "type": "POST",
+          "path": "jaxrs/invoice/list/paging/{page}/size/{size}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "page",
+              "type": "Integer",
+              "description": "分页"
+            },
+            {
+              "name": "size",
+              "type": "Integer",
+              "description": "每页数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "number",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票号码",
+              "isBaseType": true
+            },
+            {
+              "name": "applyStatus",
+              "type": "String",
+              "isCollection": false,
+              "description": "申请状态",
+              "isBaseType": true
+            },
+            {
+              "name": "name",
+              "type": "String",
+              "isCollection": false,
+              "description": "文件名称",
+              "isBaseType": true
+            }
+          ],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "上传用户."
+            },
+            {
+              "name": "name",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票文件名称."
+            },
+            {
+              "name": "extension",
+              "type": "String",
+              "isCollection": false,
+              "description": "扩展名,必须要有扩展名的文件才允许上传."
+            },
+            {
+              "name": "storage",
+              "type": "String",
+              "isCollection": false,
+              "description": "存储器的名称,也就是多个存放节点的名字."
+            },
+            {
+              "name": "length",
+              "type": "Long",
+              "isCollection": false,
+              "description": "文件大小."
+            },
+            {
+              "name": "lastUpdateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "最后更新时间"
+            },
+            {
+              "name": "deepPath",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否使用更深的路径."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票抬头."
+            },
+            {
+              "name": "code",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票代码."
+            },
+            {
+              "name": "number",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票号码."
+            },
+            {
+              "name": "date",
+              "type": "String",
+              "isCollection": false,
+              "description": "开票日期，发票上的日期."
+            },
+            {
+              "name": "invoiceDate",
+              "type": "Date",
+              "isCollection": false,
+              "description": "开票日期，时间格式"
+            },
+            {
+              "name": "amount",
+              "type": "Double",
+              "isCollection": false,
+              "description": "未税金额."
+            },
+            {
+              "name": "taxAmount",
+              "type": "Double",
+              "isCollection": false,
+              "description": "税费."
+            },
+            {
+              "name": "totalAmountString",
+              "type": "String",
+              "isCollection": false,
+              "description": "总金额(大写)."
+            },
+            {
+              "name": "totalAmount",
+              "type": "Double",
+              "isCollection": false,
+              "description": "总金额."
+            },
+            {
+              "name": "buyerName",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方名称."
+            },
+            {
+              "name": "buyerCode",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方纳税人识别号."
+            },
+            {
+              "name": "buyerAddress",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方地址."
+            },
+            {
+              "name": "buyerAccount",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方开户行及账号."
+            },
+            {
+              "name": "sellerName",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方名称."
+            },
+            {
+              "name": "sellerCode",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方纳税人识别号."
+            },
+            {
+              "name": "sellerAddress",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方地址."
+            },
+            {
+              "name": "sellerAccount",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方开户行及账号."
+            },
+            {
+              "name": "drawer",
+              "type": "String",
+              "isCollection": false,
+              "description": "开票人."
+            },
+            {
+              "name": "rider",
+              "type": "String",
+              "isCollection": false,
+              "description": "乘车人."
+            },
+            {
+              "name": "startStation",
+              "type": "String",
+              "isCollection": false,
+              "description": "起点站."
+            },
+            {
+              "name": "endStation",
+              "type": "String",
+              "isCollection": false,
+              "description": "终点站."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票类型."
+            },
+            {
+              "name": "detail",
+              "type": "String",
+              "isCollection": false,
+              "description": "开票项目."
+            },
+            {
+              "name": "remark",
+              "type": "String",
+              "isCollection": false,
+              "description": "备注."
+            },
+            {
+              "name": "applyStatus",
+              "type": "String",
+              "isCollection": false,
+              "description": "报销状态."
+            },
+            {
+              "name": "encryptKey",
+              "type": "String",
+              "isCollection": false,
+              "description": "文件密钥."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "update",
+          "className": "com.x.general.assemble.control.jaxrs.invoice.ActionUpdate",
+          "description": "更新指定的电子发票.",
+          "type": "POST",
+          "path": "jaxrs/invoice/update/{id}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票抬头.",
+              "isBaseType": true
+            },
+            {
+              "name": "code",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票代码.",
+              "isBaseType": true
+            },
+            {
+              "name": "number",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票号码.",
+              "isBaseType": true
+            },
+            {
+              "name": "date",
+              "type": "String",
+              "isCollection": false,
+              "description": "开票日期，发票上的日期.",
+              "isBaseType": true
+            },
+            {
+              "name": "invoiceDate",
+              "type": "Date",
+              "isCollection": false,
+              "description": "开票日期，时间格式",
+              "isBaseType": true
+            },
+            {
+              "name": "amount",
+              "type": "Double",
+              "isCollection": false,
+              "description": "未税金额.",
+              "isBaseType": true
+            },
+            {
+              "name": "taxAmount",
+              "type": "Double",
+              "isCollection": false,
+              "description": "税费.",
+              "isBaseType": true
+            },
+            {
+              "name": "totalAmountString",
+              "type": "String",
+              "isCollection": false,
+              "description": "总金额(大写).",
+              "isBaseType": true
+            },
+            {
+              "name": "totalAmount",
+              "type": "Double",
+              "isCollection": false,
+              "description": "总金额.",
+              "isBaseType": true
+            },
+            {
+              "name": "buyerName",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方名称.",
+              "isBaseType": true
+            },
+            {
+              "name": "buyerCode",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方纳税人识别号.",
+              "isBaseType": true
+            },
+            {
+              "name": "buyerAddress",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方地址.",
+              "isBaseType": true
+            },
+            {
+              "name": "buyerAccount",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方开户行及账号.",
+              "isBaseType": true
+            },
+            {
+              "name": "sellerName",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方名称.",
+              "isBaseType": true
+            },
+            {
+              "name": "sellerCode",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方纳税人识别号.",
+              "isBaseType": true
+            },
+            {
+              "name": "sellerAddress",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方地址.",
+              "isBaseType": true
+            },
+            {
+              "name": "sellerAccount",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方开户行及账号.",
+              "isBaseType": true
+            },
+            {
+              "name": "drawer",
+              "type": "String",
+              "isCollection": false,
+              "description": "开票人.",
+              "isBaseType": true
+            },
+            {
+              "name": "rider",
+              "type": "String",
+              "isCollection": false,
+              "description": "乘车人.",
+              "isBaseType": true
+            },
+            {
+              "name": "startStation",
+              "type": "String",
+              "isCollection": false,
+              "description": "起点站.",
+              "isBaseType": true
+            },
+            {
+              "name": "endStation",
+              "type": "String",
+              "isCollection": false,
+              "description": "终点站.",
+              "isBaseType": true
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票类型.",
+              "isBaseType": true
+            },
+            {
+              "name": "detail",
+              "type": "String",
+              "isCollection": false,
+              "description": "开票项目.",
+              "isBaseType": true
+            },
+            {
+              "name": "remark",
+              "type": "String",
+              "isCollection": false,
+              "description": "备注.",
+              "isBaseType": true
+            },
+            {
+              "name": "detailList",
+              "type": "List\u003cInvoiceDetail\u003e",
+              "isCollection": true,
+              "description": "明细记录.",
+              "isBaseType": false
+            },
+            {
+              "name": "encryptKey",
+              "type": "String",
+              "isCollection": false,
+              "description": "文件密钥.",
+              "isBaseType": true
+            }
+          ],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "id"
+            }
+          ]
+        },
+        {
+          "name": "updateApplyStatus",
+          "className": "com.x.general.assemble.control.jaxrs.invoice.ActionUpdateApplyStatus",
+          "description": "更新发票的报销状态为已报销.",
+          "type": "POST",
+          "path": "jaxrs/invoice/update/apply/status/{id}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": true,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "id"
+            }
+          ]
+        },
+        {
+          "name": "upload",
+          "className": "com.x.general.assemble.control.jaxrs.invoice.ActionUpload",
+          "description": "上传电子发票文件，pdf格式.",
+          "type": "POST",
+          "path": "jaxrs/invoice/upload",
+          "contentType": "multipart/form-data",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": true,
+          "pathParameters": [],
+          "formParameters": [
+            {
+              "name": "file",
+              "type": "File",
+              "description": "上传文件"
+            }
+          ],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "id"
+            }
+          ]
+        },
+        {
+          "name": "uploadForCreate",
+          "className": "com.x.general.assemble.control.jaxrs.invoice.ActionUploadTemp",
+          "description": "手工上传电子发票.",
+          "type": "POST",
+          "path": "jaxrs/invoice/upload/for/create",
+          "contentType": "multipart/form-data",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": true,
+          "pathParameters": [],
+          "formParameters": [
+            {
+              "name": "file",
+              "type": "File",
+              "description": "上传文件"
+            }
+          ],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "id"
+            }
+          ]
+        },
+        {
+          "name": "uploadWithUrl",
+          "className": "com.x.general.assemble.control.jaxrs.invoice.ActionUploadWithUrl",
+          "description": "根据url上传电子发票，pdf格式.",
+          "type": "POST",
+          "path": "jaxrs/invoice/upload/with/url",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "fileName",
+              "type": "String",
+              "isCollection": false,
+              "description": "文件名称,带扩展名的文件名.",
+              "isBaseType": true
+            },
+            {
+              "name": "fileUrl",
+              "type": "String",
+              "isCollection": false,
+              "description": "*附件来源url地址.",
+              "isBaseType": true
+            }
+          ],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "上传用户."
+            },
+            {
+              "name": "name",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票文件名称."
+            },
+            {
+              "name": "extension",
+              "type": "String",
+              "isCollection": false,
+              "description": "扩展名,必须要有扩展名的文件才允许上传."
+            },
+            {
+              "name": "storage",
+              "type": "String",
+              "isCollection": false,
+              "description": "存储器的名称,也就是多个存放节点的名字."
+            },
+            {
+              "name": "length",
+              "type": "Long",
+              "isCollection": false,
+              "description": "文件大小."
+            },
+            {
+              "name": "lastUpdateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "最后更新时间"
+            },
+            {
+              "name": "deepPath",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否使用更深的路径."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票抬头."
+            },
+            {
+              "name": "code",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票代码."
+            },
+            {
+              "name": "number",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票号码."
+            },
+            {
+              "name": "date",
+              "type": "String",
+              "isCollection": false,
+              "description": "开票日期，发票上的日期."
+            },
+            {
+              "name": "invoiceDate",
+              "type": "Date",
+              "isCollection": false,
+              "description": "开票日期，时间格式"
+            },
+            {
+              "name": "amount",
+              "type": "Double",
+              "isCollection": false,
+              "description": "未税金额."
+            },
+            {
+              "name": "taxAmount",
+              "type": "Double",
+              "isCollection": false,
+              "description": "税费."
+            },
+            {
+              "name": "totalAmountString",
+              "type": "String",
+              "isCollection": false,
+              "description": "总金额(大写)."
+            },
+            {
+              "name": "totalAmount",
+              "type": "Double",
+              "isCollection": false,
+              "description": "总金额."
+            },
+            {
+              "name": "buyerName",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方名称."
+            },
+            {
+              "name": "buyerCode",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方纳税人识别号."
+            },
+            {
+              "name": "buyerAddress",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方地址."
+            },
+            {
+              "name": "buyerAccount",
+              "type": "String",
+              "isCollection": false,
+              "description": "购买方开户行及账号."
+            },
+            {
+              "name": "sellerName",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方名称."
+            },
+            {
+              "name": "sellerCode",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方纳税人识别号."
+            },
+            {
+              "name": "sellerAddress",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方地址."
+            },
+            {
+              "name": "sellerAccount",
+              "type": "String",
+              "isCollection": false,
+              "description": "销售方开户行及账号."
+            },
+            {
+              "name": "drawer",
+              "type": "String",
+              "isCollection": false,
+              "description": "开票人."
+            },
+            {
+              "name": "rider",
+              "type": "String",
+              "isCollection": false,
+              "description": "乘车人."
+            },
+            {
+              "name": "startStation",
+              "type": "String",
+              "isCollection": false,
+              "description": "起点站."
+            },
+            {
+              "name": "endStation",
+              "type": "String",
+              "isCollection": false,
+              "description": "终点站."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "发票类型."
+            },
+            {
+              "name": "detail",
+              "type": "String",
+              "isCollection": false,
+              "description": "开票项目."
+            },
+            {
+              "name": "remark",
+              "type": "String",
+              "isCollection": false,
+              "description": "备注."
+            },
+            {
+              "name": "applyStatus",
+              "type": "String",
+              "isCollection": false,
+              "description": "报销状态."
+            },
+            {
+              "name": "detailList",
+              "type": "List\u003cInvoiceDetail\u003e",
+              "isCollection": true,
+              "description": "明细记录."
+            },
+            {
+              "name": "encryptKey",
+              "type": "String",
+              "isCollection": false,
+              "description": "文件密钥."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OfficeAction",
+      "className": "com.x.general.assemble.control.jaxrs.office.OfficeAction",
+      "description": "office文件转换.",
+      "methods": [
+        {
+          "name": "htmlToWord",
+          "className": "com.x.general.assemble.control.jaxrs.office.ActionHtmlToWord",
+          "description": "html转换word.",
+          "type": "POST",
+          "path": "jaxrs/office/html/to/word",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "fileName",
+              "type": "String",
+              "isCollection": false,
+              "description": "转换文件名.",
+              "isBaseType": true
+            },
+            {
+              "name": "content",
+              "type": "String",
+              "isCollection": false,
+              "description": "内容.",
+              "isBaseType": true
+            }
+          ],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "id"
+            }
+          ]
+        },
+        {
+          "name": "htmlToWordResult",
+          "className": "com.x.general.assemble.control.jaxrs.office.ActionHtmlToWordResult",
+          "description": "html转换成word结果流文件.",
+          "type": "GET",
+          "path": "jaxrs/office/html/to/word/result/{flag}",
+          "contentType": "application/json",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "flag",
+              "type": "String",
+              "description": "标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "contentDisposition",
+              "type": "String",
+              "isCollection": false,
+              "description": "说明"
+            },
+            {
+              "name": "contentType",
+              "type": "String",
+              "isCollection": false,
+              "description": "类型"
+            },
+            {
+              "name": "bytes",
+              "type": "byte[]",
+              "isCollection": false,
+              "description": "字节内容."
+            },
+            {
+              "name": "streamingOutput",
+              "type": "StreamingOutput",
+              "isCollection": false,
+              "description": "附件流."
+            },
+            {
+              "name": "contentLength",
+              "type": "Long",
+              "isCollection": false,
+              "description": "附件大小."
+            }
+          ]
+        },
+        {
+          "name": "input",
+          "className": "com.x.general.assemble.control.jaxrs.office.ActionToHtml",
+          "description": "word转换html.",
+          "type": "POST",
+          "path": "jaxrs/office",
+          "contentType": "multipart/form-data",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": true,
+          "pathParameters": [],
+          "formParameters": [
+            {
+              "name": "file",
+              "type": "File",
+              "description": "office文件"
+            }
+          ],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        }
+      ]
+    },
+    {
+      "name": "QrCodeAction",
+      "className": "com.x.general.assemble.control.jaxrs.qrcode.QrCodeAction",
+      "description": "二维码",
+      "methods": [
+        {
+          "name": "getCreate",
+          "className": "com.x.general.assemble.control.jaxrs.qrcode.ActionGetCreate",
+          "description": "GET方法生成二维码图像.",
+          "type": "GET",
+          "path": "jaxrs/qrcode/width/{width}/height/{height}/text/{text}",
+          "contentType": "application/json",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "width",
+              "type": "Integer",
+              "description": "宽"
+            },
+            {
+              "name": "height",
+              "type": "Integer",
+              "description": "高"
+            },
+            {
+              "name": "text",
+              "type": "String",
+              "description": "文本"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "contentDisposition",
+              "type": "String",
+              "isCollection": false,
+              "description": "说明"
+            },
+            {
+              "name": "contentType",
+              "type": "String",
+              "isCollection": false,
+              "description": "类型"
+            },
+            {
+              "name": "bytes",
+              "type": "byte[]",
+              "isCollection": false,
+              "description": "字节内容."
+            },
+            {
+              "name": "streamingOutput",
+              "type": "StreamingOutput",
+              "isCollection": false,
+              "description": "附件流."
+            },
+            {
+              "name": "contentLength",
+              "type": "Long",
+              "isCollection": false,
+              "description": "附件大小."
+            }
+          ]
+        },
+        {
+          "name": "postCreate",
+          "className": "com.x.general.assemble.control.jaxrs.qrcode.ActionPostCreate",
+          "description": "POST方法生成二维码图像,返回base64.",
+          "type": "POST",
+          "path": "jaxrs/qrcode",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "text",
+              "type": "String",
+              "isCollection": false,
+              "description": "转换文本.",
+              "isBaseType": true
+            },
+            {
+              "name": "width",
+              "type": "Integer",
+              "isCollection": false,
+              "description": "图像宽度,默认200.",
+              "isBaseType": true
+            },
+            {
+              "name": "height",
+              "type": "Integer",
+              "isCollection": false,
+              "description": "图像高度,默认200.",
+              "isBaseType": true
+            }
+          ],
+          "outs": []
+        }
+      ]
+    },
+    {
+      "name": "SecurityClearanceAction",
+      "className": "com.x.general.assemble.control.jaxrs.securityclearance.SecurityClearanceAction",
+      "description": "密级标识.",
+      "methods": [
+        {
+          "name": "enable",
+          "className": "com.x.general.assemble.control.jaxrs.securityclearance.ActionEnable",
+          "description": "是否启用密级标识.",
+          "type": "GET",
+          "path": "jaxrs/securityclearance/enable",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "get",
+          "className": "com.x.general.assemble.control.jaxrs.securityclearance.ActionGet",
+          "description": "获取密级标识信息.",
+          "type": "GET",
+          "path": "jaxrs/securityclearance",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "subjectSecurityClearance",
+              "type": "Map\u003cString,Integer\u003e",
+              "isCollection": false,
+              "description": "主体密级标识配置."
+            },
+            {
+              "name": "objectSecurityClearance",
+              "type": "Map\u003cString,Integer\u003e",
+              "isCollection": false,
+              "description": "客体密级标识配置."
+            },
+            {
+              "name": "securityClearanceEnable",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否启用密级标识."
+            },
+            {
+              "name": "defaultSubjectSecurityClearance",
+              "type": "Integer",
+              "isCollection": false,
+              "description": "默认主体密级标识."
+            },
+            {
+              "name": "systemSecurityClearance",
+              "type": "Integer",
+              "isCollection": false,
+              "description": "系统密级标识."
+            }
+          ]
+        },
+        {
+          "name": "object",
+          "className": "com.x.general.assemble.control.jaxrs.securityclearance.ActionObject",
+          "description": "获取客体密级标识.",
+          "type": "GET",
+          "path": "jaxrs/securityclearance/object",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "subject",
+          "className": "com.x.general.assemble.control.jaxrs.securityclearance.ActionSubject",
+          "description": "获取主体密级标识.",
+          "type": "GET",
+          "path": "jaxrs/securityclearance/subject",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "system",
+          "className": "com.x.general.assemble.control.jaxrs.securityclearance.ActionSystem",
+          "description": "获取系统密级标识.",
+          "type": "GET",
+          "path": "jaxrs/securityclearance/system",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        }
+      ]
+    },
+    {
+      "name": "UpgradeAction",
+      "className": "com.x.general.assemble.control.jaxrs.upgrade.UpgradeAction",
+      "description": "升级",
+      "methods": [
+        {
+          "name": "action2021090901",
+          "className": "com.x.general.assemble.control.jaxrs.upgrade.Action2021090901",
+          "description": "在流程引擎路由中增加字段defaultSelected,将defaultSelected的值直接设置成sole的值.",
+          "type": "GET",
+          "path": "jaxrs/upgrade/2021090901",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "action2021090902",
+          "className": "com.x.general.assemble.control.jaxrs.upgrade.Action2021090902",
+          "description": "在流程引擎路由中将route.getProperties().getSoleDirect()的值强制全部设置为false.",
+          "type": "GET",
+          "path": "jaxrs/upgrade/2021090902",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        }
+      ]
+    },
+    {
+      "name": "WorkTimeAction",
+      "className": "com.x.general.assemble.control.jaxrs.worktime.WorkTimeAction",
+      "description": "工作时间.",
+      "methods": [
+        {
+          "name": "betweenHolidayCount",
+          "className": "com.x.general.assemble.control.jaxrs.worktime.ActionHolidayCount",
+          "description": "根据2个日期计算出节假天数.",
+          "type": "GET",
+          "path": "jaxrs/worktime/betweenholidaycount/start/{startDate}/end/{endDate}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "startDate",
+              "type": "String",
+              "description": "开始日期"
+            },
+            {
+              "name": "endDate",
+              "type": "String",
+              "description": "结束日期"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "betweenMinutes",
+          "className": "com.x.general.assemble.control.jaxrs.worktime.ActionBetweenMinutes",
+          "description": "计算开始时间和结束时间之间的工作时间间隔(分钟).",
+          "type": "GET",
+          "path": "jaxrs/worktime/betweenminutes/start/{start}/end/{end}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "start",
+              "type": "String",
+              "description": "开始时间"
+            },
+            {
+              "name": "end",
+              "type": "String",
+              "description": "结束时间"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "forwardDays",
+          "className": "com.x.general.assemble.control.jaxrs.worktime.ActionForwardDays",
+          "description": "计算开始时间前进指定工作天数后的工作时间.",
+          "type": "GET",
+          "path": "jaxrs/worktime/forwarddays/start/{start}/days/{days}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "start",
+              "type": "String",
+              "description": "开始时间"
+            },
+            {
+              "name": "days",
+              "type": "int",
+              "description": "前进工作天数"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "forwardMinutes",
+          "className": "com.x.general.assemble.control.jaxrs.worktime.ActionForwardMinutes",
+          "description": "计算开始时间前进指定分钟数后的工作时间.",
+          "type": "GET",
+          "path": "jaxrs/worktime/forwardminutes/start/{start}/minutes/{minutes}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "start",
+              "type": "String",
+              "description": "开始时间"
+            },
+            {
+              "name": "minutes",
+              "type": "int",
+              "description": "前进分钟数"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "inDefinedHoliday",
+          "className": "com.x.general.assemble.control.jaxrs.worktime.ActionInDefinedHoliday",
+          "description": "返回指定时间是否定义为节假日.",
+          "type": "GET",
+          "path": "jaxrs/worktime/indefinedholiday/{date}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "date",
+              "type": "String",
+              "description": "指定日期"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "inDefinedWorkDay",
+          "className": "com.x.general.assemble.control.jaxrs.worktime.ActionInDefinedWorkDay",
+          "description": "返回指定时间是否定义为工作日.",
+          "type": "GET",
+          "path": "jaxrs/worktime/indefinedworkday/{date}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "date",
+              "type": "String",
+              "description": "指定日期"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "isHoliday",
+          "className": "com.x.general.assemble.control.jaxrs.worktime.ActionIsHoliday",
+          "description": "返回指定时间是否是节假日.",
+          "type": "GET",
+          "path": "jaxrs/worktime/isholiday/{date}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "date",
+              "type": "String",
+              "description": "指定日期"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "isWorkDay",
+          "className": "com.x.general.assemble.control.jaxrs.worktime.ActionIsWorkDay",
+          "description": "返回指定时间是否是工作日.",
+          "type": "GET",
+          "path": "jaxrs/worktime/isworkday/{date}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "date",
+              "type": "String",
+              "description": "指定日期"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "isWorkTime",
+          "className": "com.x.general.assemble.control.jaxrs.worktime.ActionIsWorkTime",
+          "description": "返回指定时间是否是工作时间.",
+          "type": "GET",
+          "path": "jaxrs/worktime/isworktime/{date}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "date",
+              "type": "String",
+              "description": "指定时间"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "minutesOfWorkDay",
+          "className": "com.x.general.assemble.control.jaxrs.worktime.ActionMinutesOfWorkDay",
+          "description": "返回一个工作日的工作分钟数.",
+          "type": "GET",
+          "path": "jaxrs/worktime/minutesofworkday",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        }
+      ]
+    }
+  ]
+}

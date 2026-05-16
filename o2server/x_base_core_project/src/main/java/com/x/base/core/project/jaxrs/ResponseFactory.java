@@ -10,7 +10,6 @@ import jakarta.ws.rs.core.EntityTag;
 import jakarta.ws.rs.core.Response;
 
 import org.apache.commons.lang3.StringUtils;
-import org.eclipse.jetty.http.HttpHeader;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -180,7 +179,7 @@ public class ResponseFactory {
 	}
 
 	private static boolean notModified(HttpServletRequest request, EntityTag tag) {
-		String ifNoneMatch = request.getHeader(HttpHeader.IF_NONE_MATCH.toString());
+		String ifNoneMatch = request.getHeader("If-None-Match");
 		return (StringUtils.isNotEmpty(ifNoneMatch) && StringUtils.equals(ifNoneMatch, "\"" + tag.getValue() + "\""));
 	}
 
@@ -217,7 +216,7 @@ public class ResponseFactory {
 		switch (o) {
 			case WoMaxAgeFastETag fast when StringUtils.isNotEmpty(fast.getFastETag()) ->
 				crc.update(fast.getFastETag().getBytes(DefaultCharset.charset_utf_8));
-			case WoMaxAgeFastETag _ ->
+			case WoMaxAgeFastETag ignored ->
 				crc.update(XGsonBuilder.toJson(o).getBytes(DefaultCharset.charset_utf_8));
 			default ->
 				crc.update(XGsonBuilder.toJson(o).getBytes(DefaultCharset.charset_utf_8));

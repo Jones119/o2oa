@@ -1,0 +1,75 @@
+{
+  "name": "PersonAttributeAction",
+  "className": "com.x.organization.assemble.express.jaxrs.personattribute.PersonAttributeAction",
+  "description": "个人属性接口",
+  "methods": [
+    {
+      "name": "appendWithPersonWithName",
+      "className": "com.x.organization.assemble.express.jaxrs.personattribute.ActionAppendWithPersonWithName",
+      "description": "添加个人属性值.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "listAttributeWithPersonWithName",
+      "className": "com.x.organization.assemble.express.jaxrs.personattribute.ActionListAttributeWithPersonWithName",
+      "description": "查询个人属性的值.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "attributeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "属性值"
+        }
+      ]
+    },
+    {
+      "name": "listNameWithPerson",
+      "className": "com.x.organization.assemble.express.jaxrs.personattribute.ActionListNameWithPerson",
+      "description": "批量根据个人查询个人属性名称",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "nameList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人属性名称"
+        }
+      ]
+    },
+    {
+      "name": "listWithPersonObject",
+      "className": "com.x.organization.assemble.express.jaxrs.personattribute.ActionListWithPersonObject",
+      "description": "根据个人查询个人属性对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人属性名称"
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人"
+        },
+        {
+          "name": "attributeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "属性值"
+        }
+      ]
+    },
+    {
+      "name": "setWithPersonWithName",
+      "className": "com.x.organization.assemble.express.jaxrs.personattribute.ActionSetWithPersonWithName",
+      "description": "覆盖个人属性值.",
+      "type": "POST",
+      "outs": []
+    }
+  ]
+}
