@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
+  <persistence-unit name="com.x.base.core.entity.ApplicationBaseEntity" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.StorageObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.cms.core.entity.Document</class>
+    <class>com.x.cms.core.entity.Review</class>
+    <class>com.x.correlation.core.entity.content.Correlation</class>
+    <class>com.x.processplatform.core.entity.content.Review</class>
+    <class>com.x.processplatform.core.entity.content.Work</class>
+    <class>com.x.processplatform.core.entity.content.WorkCompleted</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.cms.core.entity.Document" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.cms.core.entity.Document</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.cms.core.entity.Review" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.cms.core.entity.Review</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.correlation.core.entity.content.Correlation" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.correlation.core.entity.content.Correlation</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.Review" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.Review</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.Work" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.processplatform.core.entity.content.Work</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.WorkCompleted" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.WorkCompleted</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+  </persistence-unit>
+</persistence>

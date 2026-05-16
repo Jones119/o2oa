@@ -31,29 +31,27 @@ public class Facets {
                         // 存在可能为null
                         .filter(o -> null != o.groupValue && StringUtils.isNotEmpty(o.groupValue.utf8ToString()))
                         .map(o -> {
-                            ValueCountPair valueCountPair = new ValueCountPair();
-
-                            valueCountPair.setValue(o.groupValue.utf8ToString());
-                            valueCountPair.setCount(o.totalHits.value);
+                            ValueCountPair valueCountPair = new ValueCountPair(
+                                    o.groupValue.utf8ToString(), o.totalHits.value);
                             return valueCountPair;
                         }).collect(Collectors.toList());
                 if (StringUtils.equalsIgnoreCase(facetGroupOrder,
                         com.x.base.core.project.config.Query.Index.FACETGROUPORDER_KEYDESC)) {
                     list = list.stream().sorted(
-                            (v1, v2) -> ObjectUtils.compare(v1.getValue().toString(), v2.getValue().toString(), true))
+                            (v1, v2) -> ObjectUtils.compare(v1.value().toString(), v2.value().toString(), true))
                             .collect(Collectors.toList());
                 } else if (StringUtils.equalsIgnoreCase(facetGroupOrder,
                         com.x.base.core.project.config.Query.Index.FACETGROUPORDER_COUNTASC)) {
-                    list = list.stream().sorted(Comparator.nullsLast(Comparator.comparing(ValueCountPair::getCount)))
+                    list = list.stream().sorted(Comparator.nullsLast(Comparator.comparing(ValueCountPair::count)))
                             .collect(Collectors.toList());
                 } else if (StringUtils.equalsIgnoreCase(facetGroupOrder,
                         com.x.base.core.project.config.Query.Index.FACETGROUPORDER_COUNTDESC)) {
                     list = list.stream()
-                            .sorted(Comparator.nullsLast(Comparator.comparing(ValueCountPair::getCount)).reversed())
+                            .sorted(Comparator.nullsLast(Comparator.comparing(ValueCountPair::count)).reversed())
                             .collect(Collectors.toList());
                 } else {
                     list = list.stream().sorted(
-                            (v1, v2) -> ObjectUtils.compare(v2.getValue().toString(), v1.getValue().toString(), true))
+                            (v1, v2) -> ObjectUtils.compare(v2.value().toString(), v1.value().toString(), true))
                             .collect(Collectors.toList());
                 }
                 woFacet.setValueCountPairList(list);

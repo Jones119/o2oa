@@ -1,0 +1,3194 @@
+{
+  "tables": [
+    {
+      "moduleName": "AppInfo",
+      "tableName": "CMS_APPINFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xappName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "栏目名称"
+        },
+        {
+          "name": "xappAlias",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "栏目别名"
+        },
+        {
+          "name": "xappType",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "栏目类别"
+        },
+        {
+          "name": "xdocumentType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "默认文档类型：信息 | 数据"
+        },
+        {
+          "name": "xappInfoSeq",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "栏目信息排序号"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "栏目信息说明"
+        },
+        {
+          "name": "xappIcon",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "图标icon Base64编码后的文本."
+        },
+        {
+          "name": "xiconColor",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "图标主色调."
+        },
+        {
+          "name": "xappMemo",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "备注信息"
+        },
+        {
+          "name": "xcreatorPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "xcreatorIdentity",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "xcreatorUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "xcreatorTopUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "xanonymousAble",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否允许匿名访问."
+        },
+        {
+          "name": "xallPeopleView",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "可见范围为所有人可见."
+        },
+        {
+          "name": "xallPeoplePublish",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "发布范围栏目为所有人可发布."
+        },
+        {
+          "name": "xsendNotify",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "发布文档后是否通知阅读者：true | false"
+        },
+        {
+          "name": "xshowAllDocuments",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "栏目是否显示全部文档：true | false"
+        },
+        {
+          "name": "xallowWaitPublish",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "栏目是否允许定时发布：true | false(默认)"
+        },
+        {
+          "name": "xdefaultEditForm",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "默认编辑表单"
+        },
+        {
+          "name": "xdefaultReadForm",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "默认阅读表单"
+        },
+        {
+          "name": "categoryList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "分类列表",
+          "containerTableProperty": {
+            "name": "CMS_APPINFO_categoryList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AppInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xcategoryList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "发布可见人员",
+          "containerTableProperty": {
+            "name": "CMS_APPINFO_viewablePersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AppInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xviewablePersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "发布可见组织",
+          "containerTableProperty": {
+            "name": "CMS_APPINFO_viewableUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AppInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xviewableUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "发布可见群组",
+          "containerTableProperty": {
+            "name": "CMS_APPINFO_viewableGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AppInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xviewableGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "publishablePersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可发布人员",
+          "containerTableProperty": {
+            "name": "CMS_APPINFO_publishablePersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AppInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xpublishablePersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "publishableUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可发布组织",
+          "containerTableProperty": {
+            "name": "CMS_APPINFO_publishableUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AppInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xpublishableUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "publishableGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可发布群组",
+          "containerTableProperty": {
+            "name": "CMS_APPINFO_publishableGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AppInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xpublishableGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "publishableRoleList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可发布角色",
+          "containerTableProperty": {
+            "name": "CMS_APPINFO_publishableRoleList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AppInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xpublishableRoleList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "栏目可管理人员",
+          "containerTableProperty": {
+            "name": "CMS_APPINFO_manageablePersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AppInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xmanageablePersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "manageableUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "栏目可管理组织",
+          "containerTableProperty": {
+            "name": "CMS_APPINFO_manageableUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AppInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xmanageableUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "manageableGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "栏目可管理群组",
+          "containerTableProperty": {
+            "name": "CMS_APPINFO_manageableGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AppInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xmanageableGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "manageableRoleList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "栏目可管理角色",
+          "containerTableProperty": {
+            "name": "CMS_APPINFO_manageableRoleList",
+            "containerTableColumnProperty": [
+              {
+                "name": "AppInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xmanageableRoleList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "moduleName": "AppInfoConfig",
+      "tableName": "CMS_APPINFO_CONFIG",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xconfig",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "配置支持信息JSON内容"
+        }
+      ]
+    },
+    {
+      "moduleName": "CategoryExt",
+      "tableName": "CMS_CATEGORYEXT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xcontent",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "扩展信息JSON内容"
+        }
+      ]
+    },
+    {
+      "moduleName": "CategoryInfo",
+      "tableName": "CMS_CATEGORYINFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xcategoryName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "分类名称"
+        },
+        {
+          "name": "xappId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "分类所属栏目ID"
+        },
+        {
+          "name": "xappName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "栏目名称"
+        },
+        {
+          "name": "xdocumentType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "默认文档类型：信息 | 数据"
+        },
+        {
+          "name": "xparentId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "上级分类ID"
+        },
+        {
+          "name": "xcategoryAlias",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "分类别名"
+        },
+        {
+          "name": "xworkflowType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "流程类型：禁用审批流|自由审批流|固定审批流"
+        },
+        {
+          "name": "xworkflowAppId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "流程应用ID"
+        },
+        {
+          "name": "xworkflowAppName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "流程应用名称"
+        },
+        {
+          "name": "xworkflowName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "流程名称"
+        },
+        {
+          "name": "xworkflowFlag",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "流程ID"
+        },
+        {
+          "name": "xformId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "绑定的编辑表单模板ID"
+        },
+        {
+          "name": "xformName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "绑定的编辑表单模板名称"
+        },
+        {
+          "name": "xreadFormId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "xreadFormName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "xdefaultViewId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "默认视图ID"
+        },
+        {
+          "name": "xdefaultViewName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "默认视图名称"
+        },
+        {
+          "name": "xcategorySeq",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "分类信息排序号"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "分类信息说明"
+        },
+        {
+          "name": "xcategoryIcon",
+          "type": "Lob",
+          "length": "32768",
+          "remark": "图标icon Base64编码后的文本."
+        },
+        {
+          "name": "xcategoryMemo",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "备注信息"
+        },
+        {
+          "name": "xcreatorPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "xcreatorIdentity",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "xcreatorUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "xcreatorTopUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "xallPeopleView",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "可见范围为所有人可见."
+        },
+        {
+          "name": "xallPeoplePublish",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "发布范围栏目为所有人可发布."
+        },
+        {
+          "name": "ximportViewAppId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "是数据导入绑定的数据视图栏目ID."
+        },
+        {
+          "name": "ximportViewId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "是数据导入绑定的数据视图ID."
+        },
+        {
+          "name": "ximportViewName",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "是数据导入绑定的数据视图名称."
+        },
+        {
+          "name": "xanonymousAble",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否允许匿名访问."
+        },
+        {
+          "name": "xindexAble",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否允许全文检索."
+        },
+        {
+          "name": "xsendNotify",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "发布文档后是否通知阅读者：true | false"
+        },
+        {
+          "name": "xblankToAllNotify",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "文档发布范围为空时是否全员通知：true(默认)|false"
+        },
+        {
+          "name": "xprojection",
+          "type": "Lob",
+          "length": "2048",
+          "remark": "字段映射配置."
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "发布可见人员",
+          "containerTableProperty": {
+            "name": "CMS_CATEGORYINFO_viewablePersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "CategoryInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xviewablePersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "发布可见组织",
+          "containerTableProperty": {
+            "name": "CMS_CATEGORYINFO_viewableUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "CategoryInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xviewableUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "发布可见群组",
+          "containerTableProperty": {
+            "name": "CMS_CATEGORYINFO_viewableGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "CategoryInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xviewableGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "publishablePersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可发布人员",
+          "containerTableProperty": {
+            "name": "CMS_CATEGORYINFO_publishablePersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "CategoryInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xpublishablePersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "publishableUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可发布组织",
+          "containerTableProperty": {
+            "name": "CMS_CATEGORYINFO_publishableUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "CategoryInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xpublishableUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "publishableGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可发布群组",
+          "containerTableProperty": {
+            "name": "CMS_CATEGORYINFO_publishableGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "CategoryInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xpublishableGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "分类可管理人员",
+          "containerTableProperty": {
+            "name": "CMS_CATEGORYINFO_manageablePersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "CategoryInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xmanageablePersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "manageableUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "分类可管理组织",
+          "containerTableProperty": {
+            "name": "CMS_CATEGORYINFO_manageableUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "CategoryInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xmanageableUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "manageableGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "分类可管理群组",
+          "containerTableProperty": {
+            "name": "CMS_CATEGORYINFO_manageableGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "CategoryInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xmanageableGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "moduleName": "CmsBatchOperation",
+      "tableName": "CMS_BATCH_OPERATION",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xoptType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "操作类别"
+        },
+        {
+          "name": "xobjType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "对象类别"
+        },
+        {
+          "name": "xbundle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "绑定的ID"
+        },
+        {
+          "name": "xoldInfo",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "旧的信息：修改标题、名称时使用"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "说明备注"
+        },
+        {
+          "name": "xerrorCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "执行错误次数"
+        },
+        {
+          "name": "xisRunning",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否正在执行中"
+        }
+      ]
+    },
+    {
+      "moduleName": "Document",
+      "tableName": "CMS_DOCUMENT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xsummary",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文档摘要"
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文档标题"
+        },
+        {
+          "name": "xdocumentType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "文档类型，跟随分类类型，信息 | 数据"
+        },
+        {
+          "name": "xappId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "栏目ID"
+        },
+        {
+          "name": "xappName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "栏目名称"
+        },
+        {
+          "name": "xappAlias",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "栏目别名"
+        },
+        {
+          "name": "xcategoryId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "分类ID"
+        },
+        {
+          "name": "xcategoryName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "分类名称"
+        },
+        {
+          "name": "xcategoryAlias",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "分类别名"
+        },
+        {
+          "name": "xform",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "绑定的表单模板ID"
+        },
+        {
+          "name": "xformName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "绑定的表单模板名称"
+        },
+        {
+          "name": "ximportBatchName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "文件导入的批次号：一般是分类ID+时间缀"
+        },
+        {
+          "name": "xreadFormId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "xreadFormName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "xppFormId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "流程平台表单ID"
+        },
+        {
+          "name": "xcreatorPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "xcreatorIdentity",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "xcreatorUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "xcreatorTopUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "xdocStatus",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "文档状态: published | waitPublish | draft | archived"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "说明备注，可以填写说明信息，如导入信息检验失败原因等"
+        },
+        {
+          "name": "xviewCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文档被查看次数"
+        },
+        {
+          "name": "xcommendCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文档被赞次数"
+        },
+        {
+          "name": "xcommentCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文档评论次数"
+        },
+        {
+          "name": "xpublishTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "文档发布时间"
+        },
+        {
+          "name": "xmodifyTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "文档修改时间"
+        },
+        {
+          "name": "xisTop",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否置顶"
+        },
+        {
+          "name": "xisAllRead",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否全员可读"
+        },
+        {
+          "name": "xhasIndexPic",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否含有首页图片"
+        },
+        {
+          "name": "xreviewed",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否已经更新review信息."
+        },
+        {
+          "name": "xindexPics",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "首页图片，取自pictureList的前3个图片用于列表展示"
+        },
+        {
+          "name": "xsequenceTitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "用于标题排序的sequence"
+        },
+        {
+          "name": "xsequenceAppAlias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "用于栏目别名排序的sequence"
+        },
+        {
+          "name": "xsequenceCategoryAlias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "用于分类别名排序的sequence"
+        },
+        {
+          "name": "xsequenceCreatorPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "用于创建者排序的sequence"
+        },
+        {
+          "name": "xsequenceCreatorUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "用于创建者组织排序的sequence"
+        },
+        {
+          "name": "readPersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "阅读人员",
+          "containerTableProperty": {
+            "name": "CMS_DOCUMENT_readPersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Document_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xreadPersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "readUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "阅读组织",
+          "containerTableProperty": {
+            "name": "CMS_DOCUMENT_readUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Document_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xreadUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "readGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "阅读群组",
+          "containerTableProperty": {
+            "name": "CMS_DOCUMENT_readGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Document_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xreadGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "authorPersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "作者人员",
+          "containerTableProperty": {
+            "name": "CMS_DOCUMENT_authorPersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Document_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xauthorPersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "authorUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "作者组织",
+          "containerTableProperty": {
+            "name": "CMS_DOCUMENT_authorUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Document_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xauthorUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "authorGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "作者群组",
+          "containerTableProperty": {
+            "name": "CMS_DOCUMENT_authorGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Document_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xauthorGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "managerList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "管理者",
+          "containerTableProperty": {
+            "name": "CMS_DOCUMENT_managerList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Document_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xmanagerList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "pictureList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "首页图片列表",
+          "containerTableProperty": {
+            "name": "CMS_DOCUMENT_pictureList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Document_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xpictureList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xproperties",
+          "type": "com.x.cms.core.entity.DocumentProperties",
+          "length": "10485760",
+          "remark": "属性对象存储字段."
+        },
+        {
+          "name": "xstringValue01",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "业务数据String值01."
+        },
+        {
+          "name": "xstringValue02",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "业务数据String值02."
+        },
+        {
+          "name": "xstringValue03",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "业务数据String值03."
+        },
+        {
+          "name": "xstringValue04",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "业务数据String值04."
+        },
+        {
+          "name": "xstringValue05",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "业务数据String值05."
+        },
+        {
+          "name": "xstringValue06",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "业务数据String值06."
+        },
+        {
+          "name": "xstringValue07",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "业务数据String值07."
+        },
+        {
+          "name": "xstringValue08",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "业务数据String值08."
+        },
+        {
+          "name": "xstringValue09",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "业务数据String值09."
+        },
+        {
+          "name": "xstringValue10",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "业务数据String值10."
+        },
+        {
+          "name": "xlongValue01",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "业务数据Long值01."
+        },
+        {
+          "name": "xlongValue02",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "业务数据Long值02."
+        },
+        {
+          "name": "xdoubleValue01",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "业务数据Double值01."
+        },
+        {
+          "name": "xdoubleValue02",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "业务数据Double值02."
+        },
+        {
+          "name": "xdateTimeValue01",
+          "type": "DATE",
+          "length": "255",
+          "remark": "业务数据DateTime值01."
+        },
+        {
+          "name": "xdateTimeValue02",
+          "type": "DATE",
+          "length": "255",
+          "remark": "业务数据DateTime值02."
+        },
+        {
+          "name": "xdateTimeValue03",
+          "type": "DATE",
+          "length": "255",
+          "remark": "业务数据DateTime值03."
+        },
+        {
+          "name": "xobjectSecurityClearance",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "客体密级标识."
+        }
+      ]
+    },
+    {
+      "moduleName": "DocumentCommend",
+      "tableName": "CMS_DOCUMENT_COMMEND",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xdocumentId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文档ID"
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文档标题"
+        },
+        {
+          "name": "xcommentId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文档评论ID"
+        },
+        {
+          "name": "xcommentTitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文档评论标题"
+        },
+        {
+          "name": "xcreatorPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文档或评论创建人"
+        },
+        {
+          "name": "xcommendPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "点赞者"
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "点赞类型：document(文档点赞，默认值)、comment(评论点赞)"
+        }
+      ]
+    },
+    {
+      "moduleName": "DocumentCommentCommend",
+      "tableName": "CMS_DOCUMENT_COMMENTCOMMEND",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xdocumentId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文档ID"
+        },
+        {
+          "name": "xcommentId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文档评论ID"
+        },
+        {
+          "name": "xcommendPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "点赞者"
+        }
+      ]
+    },
+    {
+      "moduleName": "DocumentCommentContent",
+      "tableName": "CMS_DOCUMENT_COMMENTCONTENT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xcontent",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "内容"
+        }
+      ]
+    },
+    {
+      "moduleName": "DocumentCommentInfo",
+      "tableName": "CMS_DOCUMENT_COMMENTINFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xappId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "栏目ID"
+        },
+        {
+          "name": "xappName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "栏目名称"
+        },
+        {
+          "name": "xcategoryId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "分类ID"
+        },
+        {
+          "name": "xcategoryName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "分类名称"
+        },
+        {
+          "name": "xdocumentId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文档ID"
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "评论标题：如果没有则与主题相同"
+        },
+        {
+          "name": "xparentId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "上级评论ID"
+        },
+        {
+          "name": "xisPrivate",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否私信评论"
+        },
+        {
+          "name": "xcreatorName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人姓名"
+        },
+        {
+          "name": "xcommentAuditStatus",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "评论审核状态：无审核|待审核|审核通过"
+        },
+        {
+          "name": "xauditorName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "审核人姓名"
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号"
+        },
+        {
+          "name": "xcommendCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "评论被赞次数"
+        }
+      ]
+    },
+    {
+      "moduleName": "DocumentViewRecord",
+      "tableName": "CMS_DOCUMENT_VIEWRECORD",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xappId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "栏目ID"
+        },
+        {
+          "name": "xappName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "栏目名称"
+        },
+        {
+          "name": "xcategoryId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "分类ID"
+        },
+        {
+          "name": "xcategoryName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "分类名称"
+        },
+        {
+          "name": "xdocumentId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文档ID"
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文档标题"
+        },
+        {
+          "name": "xviewerName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "访问者姓名"
+        },
+        {
+          "name": "xviewerUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "访问者所属组织名称"
+        },
+        {
+          "name": "xviewerTopUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "访问者所属顶层组织名称"
+        },
+        {
+          "name": "xviewCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "访问次数"
+        },
+        {
+          "name": "xlastViewTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后访问时间."
+        }
+      ]
+    },
+    {
+      "moduleName": "FileInfo",
+      "tableName": "CMS_FILEINFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        },
+        {
+          "name": "xstorage",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "关联的存储名称."
+        },
+        {
+          "name": "xsite",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "附件框分类."
+        },
+        {
+          "name": "xbusinessId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "附件业务ID，需要和document一起来确定唯一的ID."
+        },
+        {
+          "name": "xproperties",
+          "type": "com.x.cms.core.entity.FileInfoProperties",
+          "length": "10485760",
+          "remark": "属性对象存储字段."
+        },
+        {
+          "name": "xobjectSecurityClearance",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "客体密级标识."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件真实名称"
+        },
+        {
+          "name": "xcloudId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "云文件ID"
+        },
+        {
+          "name": "xfileName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "服务器上编码后的文件名,为了方便辨识带扩展名"
+        },
+        {
+          "name": "xappId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文件所属应用ID"
+        },
+        {
+          "name": "xcategoryId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文件所属分类ID"
+        },
+        {
+          "name": "xdocumentId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文件所属文档ID"
+        },
+        {
+          "name": "xfileType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "文件类别：云文件（CLOUD） | 附件(ATTACHMENT)"
+        },
+        {
+          "name": "xfileExtType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "文件类别：PICTURE | WORD | EXCEL | PPT | ZIP | TXT | OTHER"
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "根据流文件判断的文件类型."
+        },
+        {
+          "name": "xfileHost",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "文件存储主机名"
+        },
+        {
+          "name": "xfilePath",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件存储路径"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件说明"
+        },
+        {
+          "name": "xcreatorUid",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建者UID"
+        },
+        {
+          "name": "xextension",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "扩展名"
+        },
+        {
+          "name": "xseqNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号"
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        },
+        {
+          "name": "xtext",
+          "type": "Lob",
+          "length": "104857600",
+          "remark": "文本."
+        },
+        {
+          "name": "readIdentityList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可以访问的身份.",
+          "containerTableProperty": {
+            "name": "CMS_FILEINFO_readIdentityList",
+            "containerTableColumnProperty": [
+              {
+                "name": "FileInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xreadIdentityList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "readUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可以访问的组织.",
+          "containerTableProperty": {
+            "name": "CMS_FILEINFO_readUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "FileInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xreadUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "editIdentityList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可以修改的用户.",
+          "containerTableProperty": {
+            "name": "CMS_FILEINFO_editIdentityList",
+            "containerTableColumnProperty": [
+              {
+                "name": "FileInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xeditIdentityList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "editUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可以修改的组织.",
+          "containerTableProperty": {
+            "name": "CMS_FILEINFO_editUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "FileInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xeditUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "controllerIdentityList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可以管理的用户.",
+          "containerTableProperty": {
+            "name": "CMS_FILEINFO_controllerIdentityList",
+            "containerTableColumnProperty": [
+              {
+                "name": "FileInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xcontrollerIdentityList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "controllerUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可以管理的组织.",
+          "containerTableProperty": {
+            "name": "CMS_FILEINFO_controllerUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "FileInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xcontrollerUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xdeepPath",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否使用更深的路径."
+        }
+      ]
+    },
+    {
+      "moduleName": "Log",
+      "tableName": "CMS_LOG",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xoperationType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "操作类别：新增|修改|删除|查看|查询"
+        },
+        {
+          "name": "xoperationLevel",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "操作级别：应用|分类|文档|文件"
+        },
+        {
+          "name": "xappId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "操作对象：应用ID"
+        },
+        {
+          "name": "xcategoryId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "操作对象：分类ID"
+        },
+        {
+          "name": "xdocumentId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "操作对象：文档ID"
+        },
+        {
+          "name": "xfileId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "操作对象：文件ID"
+        },
+        {
+          "name": "xoperatorUid",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "操作者UID"
+        },
+        {
+          "name": "xoperatorName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "操作者姓名"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "操作文字描述"
+        }
+      ]
+    },
+    {
+      "moduleName": "ReadRemind",
+      "tableName": "CMS_READREMIND",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xdocumentId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文档ID."
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "标题."
+        },
+        {
+          "name": "xappId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "栏目ID."
+        },
+        {
+          "name": "xcategoryId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "分类ID."
+        },
+        {
+          "name": "xreaderFlagType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "标识：需要被提醒的人员|组织|群组"
+        },
+        {
+          "name": "xreaderFlagName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "标识：需要被提醒的人员|组织|群组名称"
+        },
+        {
+          "name": "xremindReader",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "真正需要被提醒的人员标识"
+        },
+        {
+          "name": "xremindTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "提醒发送时间."
+        },
+        {
+          "name": "xreadTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "阅读时间."
+        },
+        {
+          "name": "xreminded",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否已经提醒."
+        },
+        {
+          "name": "xreaded",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否已经阅读."
+        }
+      ]
+    },
+    {
+      "moduleName": "Review",
+      "tableName": "CMS_REVIEW",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xdocumentType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "文档类型：信息|数据."
+        },
+        {
+          "name": "xappId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "栏目ID."
+        },
+        {
+          "name": "xappName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "栏目名称."
+        },
+        {
+          "name": "xappAlias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "栏目别名."
+        },
+        {
+          "name": "xcategoryId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "分类ID."
+        },
+        {
+          "name": "xcategoryName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "分类名称."
+        },
+        {
+          "name": "xcategoryAlias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "分类别名."
+        },
+        {
+          "name": "xdocId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文档ID."
+        },
+        {
+          "name": "xdocSequence",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文档Sequence."
+        },
+        {
+          "name": "xdocStatus",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "文档状态."
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文档标题."
+        },
+        {
+          "name": "xcreatorPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "拟稿人"
+        },
+        {
+          "name": "xcreatorIdentity",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人Identity"
+        },
+        {
+          "name": "xcreatorUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人组织"
+        },
+        {
+          "name": "xcreatorTopUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "xdocCreateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "document的拟稿时间."
+        },
+        {
+          "name": "xpublishTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "document的发布时间."
+        },
+        {
+          "name": "xpermissionObj",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "权限拥有者"
+        },
+        {
+          "name": "xpermissionObjType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "权限拥有者类型: PERSON|IDENTITY|UNIT|GROUP|ROLE"
+        }
+      ]
+    },
+    {
+      "moduleName": "AppDict",
+      "tableName": "CMS_APPNDICT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xappId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "栏目ID"
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "字典名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "别名."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "说明."
+        },
+        {
+          "name": "xcreatorUid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "信息创建人UID"
+        }
+      ]
+    },
+    {
+      "moduleName": "AppDictItem",
+      "tableName": "CMS_APPDICTITEM",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xpath0",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath1",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath2",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath3",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath4",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath5",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath6",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath7",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": ""
+        },
+        {
+          "name": "xpath0Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath1Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath2Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath3Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath4Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath5Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath6Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xpath7Location",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xitemCategory",
+          "type": "com.x.base.core.entity.dataitem.ItemCategory",
+          "length": "16",
+          "remark": ""
+        },
+        {
+          "name": "xitemType",
+          "type": "com.x.base.core.entity.dataitem.ItemType",
+          "length": "1",
+          "remark": ""
+        },
+        {
+          "name": "xitemPrimitiveType",
+          "type": "com.x.base.core.entity.dataitem.ItemPrimitiveType",
+          "length": "1",
+          "remark": ""
+        },
+        {
+          "name": "xitemStringValueType",
+          "type": "com.x.base.core.entity.dataitem.ItemStringValueType",
+          "length": "2",
+          "remark": ""
+        },
+        {
+          "name": "xbundle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "数据标识"
+        },
+        {
+          "name": "xstringShortValue",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xstringLongValue",
+          "type": "Lob",
+          "length": "104857600",
+          "remark": ""
+        },
+        {
+          "name": "xnumberValue",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xdateTimeValue",
+          "type": "DATE",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xdateValue",
+          "type": "DATE",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xtimeValue",
+          "type": "DATE",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xbooleanValue",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": ""
+        },
+        {
+          "name": "xappId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属应用ID."
+        }
+      ]
+    },
+    {
+      "moduleName": "File",
+      "tableName": "CMS_FILE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件别名."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xappId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文件所属应用."
+        },
+        {
+          "name": "xlastUpdatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后的编辑者."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后的编辑时间."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "编码后文本内容."
+        },
+        {
+          "name": "xfileName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件名称."
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        }
+      ]
+    },
+    {
+      "moduleName": "Form",
+      "tableName": "CMS_FORM",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "表单别名."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xappId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "表单所属栏目."
+        },
+        {
+          "name": "xeditor",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后的编辑者."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "文本内容."
+        },
+        {
+          "name": "xmobileData",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "移动端文本内容."
+        },
+        {
+          "name": "xhasMobile",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否有移动端内容."
+        },
+        {
+          "name": "xproperties",
+          "type": "com.x.cms.core.entity.element.FormProperties",
+          "length": "10485760",
+          "remark": "属性对象存储字段."
+        }
+      ]
+    },
+    {
+      "moduleName": "FormField",
+      "tableName": "CMS_FORMFIELD",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xdataType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "字段数据类型."
+        },
+        {
+          "name": "xappId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "字段所属栏目."
+        },
+        {
+          "name": "xform",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "字段所属表单."
+        }
+      ]
+    },
+    {
+      "moduleName": "FormVersion",
+      "tableName": "CMS_FORM_VERSION",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xform",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属表单."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "操作人."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "文本内容."
+        }
+      ]
+    },
+    {
+      "moduleName": "Script",
+      "tableName": "CMS_SCRIPT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "别名."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xvalidated",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "代码格式是否正确."
+        },
+        {
+          "name": "xappId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "脚本所属栏目."
+        },
+        {
+          "name": "xtext",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "脚本内容."
+        },
+        {
+          "name": "dependScriptList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "依赖的函数列表.",
+          "containerTableProperty": {
+            "name": "CMS_SCRIPT_dependScriptList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Script_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xdependScriptList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xcreatorPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建者."
+        },
+        {
+          "name": "xlastUpdatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后的编辑者."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后的编辑时间."
+        }
+      ]
+    },
+    {
+      "moduleName": "ScriptVersion",
+      "tableName": "CMS_SCRIPT_VERSION",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xscript",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "所属流程."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "操作人."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "文本内容."
+        }
+      ]
+    },
+    {
+      "moduleName": "TemplateForm",
+      "tableName": "CMS_TEMPLATEFORM",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xcategory",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "模版分类."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "表单别名."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xicon",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "icon Base64编码后的文本."
+        },
+        {
+          "name": "xoutline",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "缩略图."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "文本内容."
+        },
+        {
+          "name": "xmobileData",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "移动端文本内容."
+        }
+      ]
+    },
+    {
+      "moduleName": "View",
+      "tableName": "CMS_VIEW",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "列表别名."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xformId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "列表所属表单."
+        },
+        {
+          "name": "xappId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "列表所属栏目Id."
+        },
+        {
+          "name": "xeditor",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后的编辑者."
+        },
+        {
+          "name": "xorderField",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "排序列名."
+        },
+        {
+          "name": "xorderFieldType",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "列数据类型string|datetime."
+        },
+        {
+          "name": "xorderType",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "排序方式(ASC|DESC)."
+        },
+        {
+          "name": "xpageSize",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "每页显示行数"
+        },
+        {
+          "name": "xcontent",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "代码内容."
+        },
+        {
+          "name": "fieldConfigList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "展示列配置列表",
+          "containerTableProperty": {
+            "name": "CMS_VIEW_fieldConfigList",
+            "containerTableColumnProperty": [
+              {
+                "name": "View_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xfieldConfigList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "moduleName": "ViewCategory",
+      "tableName": "CMS_VIEWCATEGORY",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xeditor",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后的编辑者."
+        },
+        {
+          "name": "xviewId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "列表ID."
+        },
+        {
+          "name": "xcategoryId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "分类ID."
+        }
+      ]
+    },
+    {
+      "moduleName": "ViewFieldConfig",
+      "tableName": "CMS_VIEWFIELD_CONFIG",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xeditor",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后的编辑者."
+        },
+        {
+          "name": "xviewId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "列表ID."
+        },
+        {
+          "name": "xfieldTitle",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "列标题."
+        },
+        {
+          "name": "xfieldName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "列（属性）名称."
+        },
+        {
+          "name": "xshowSequence",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "显示顺序"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        }
+      ]
+    },
+    {
+      "moduleName": "DocumentEvent",
+      "tableName": "CMS_M_DOCUMENTEVENT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xdocument",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文档标识."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "工作事件类型."
+        },
+        {
+          "name": "xappInfo",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "栏目标识."
+        }
+      ]
+    }
+  ]
+}

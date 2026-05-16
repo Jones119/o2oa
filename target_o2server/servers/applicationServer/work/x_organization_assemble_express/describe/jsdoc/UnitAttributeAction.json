@@ -1,0 +1,61 @@
+{
+  "name": "UnitAttributeAction",
+  "className": "com.x.organization.assemble.express.jaxrs.unitattribute.UnitAttributeAction",
+  "description": "组织属性接口",
+  "methods": [
+    {
+      "name": "appendWithUnitWithName",
+      "className": "com.x.organization.assemble.express.jaxrs.unitattribute.ActionAppendWithUnitWithName",
+      "description": "根据组织和组织属性名称添加值.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "listAttributeWithUnitWithName",
+      "className": "com.x.organization.assemble.express.jaxrs.unitattribute.ActionListAttributeWithUnitWithName",
+      "description": "根据组织和组织属性名称获取值.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "listNameWithUnit",
+      "className": "com.x.organization.assemble.express.jaxrs.unitattribute.ActionListNameWithUnit",
+      "description": "批量查询组织的组织属性名称.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "listWithUnitObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unitattribute.ActionListWithUnitObject",
+      "description": "查询组织的组织属性对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人属性名称"
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织"
+        },
+        {
+          "name": "attributeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "属性值"
+        }
+      ]
+    },
+    {
+      "name": "setWithUnitWithName",
+      "className": "com.x.organization.assemble.express.jaxrs.unitattribute.ActionSetWithUnitWithName",
+      "description": "根据组织和组织属性名称设置值.",
+      "type": "POST",
+      "outs": []
+    }
+  ]
+}

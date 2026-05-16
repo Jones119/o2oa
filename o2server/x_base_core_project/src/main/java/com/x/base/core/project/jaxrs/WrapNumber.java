@@ -1,20 +1,19 @@
 package com.x.base.core.project.jaxrs;
 
-import com.x.base.core.project.annotation.FieldDescribe;
-import com.x.base.core.project.gson.GsonPropertyObject;
+import com.x.base.core.project.gson.GsonRecord;
 
-public class WrapNumber extends GsonPropertyObject {
+public class WrapNumber implements GsonRecord {
+
+	private static final long serialVersionUID = 1L;
+
+	protected Number value;
 
 	public WrapNumber() {
-
 	}
 
-	public WrapNumber(Number o) {
-		this.value = o;
+	public WrapNumber(Number value) {
+		this.value = value;
 	}
-
-	@FieldDescribe("数字值")
-	private Number value;
 
 	public Number getValue() {
 		return value;
@@ -23,5 +22,4 @@ public class WrapNumber extends GsonPropertyObject {
 	public void setValue(Number value) {
 		this.value = value;
 	}
-
 }

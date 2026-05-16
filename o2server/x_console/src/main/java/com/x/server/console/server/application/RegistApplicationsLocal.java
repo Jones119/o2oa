@@ -5,10 +5,10 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
-import org.eclipse.jetty.quickstart.QuickStartWebApp;
+import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.HandlerList;
+import org.eclipse.jetty.server.Handler.Sequence;
 import org.eclipse.jetty.server.handler.gzip.GzipHandler;
 
 import com.google.gson.Gson;
@@ -41,10 +41,10 @@ public class RegistApplicationsLocal {
 	private List<Application> listApplication(Server server) throws Exception {
 		List<Application> list = new ArrayList<>();
 		GzipHandler gzipHandler = (GzipHandler) server.getHandler();
-		HandlerList hanlderList = (HandlerList) gzipHandler.getHandler();
-		for (Handler handler : hanlderList.getHandlers()) {
-			if (QuickStartWebApp.class.isAssignableFrom(handler.getClass())) {
-				QuickStartWebApp app = (QuickStartWebApp) handler;
+		Handler.Sequence handlerCollection = (Handler.Sequence) gzipHandler.getHandler();
+		for (Handler handler : handlerCollection.getHandlers()) {
+			if (WebAppContext.class.isAssignableFrom(handler.getClass())) {
+				WebAppContext app = (WebAppContext) handler;
 				if (app.isStarted() && (!StringUtils.equalsIgnoreCase(app.getContextPath(), "/x_program_center"))
 						&& (!StringUtils.equalsIgnoreCase(app.getContextPath(), "/"))) {
 					try {

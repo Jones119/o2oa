@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -131,7 +131,7 @@ public class Logger {
 			internalLogger.warn(text);
 		}
 		String loggerName = this.getName();
-		new Thread(() -> {
+		Thread.ofVirtual().name(Logger.class.getName() + "-warn").start(() -> {
 			try {
 				Map<String, Object> parameters = new HashMap<>();
 				parameters.put(PARAMETER_ID, id);
@@ -144,7 +144,7 @@ public class Logger {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}, Logger.class.getName() + "-warn").start();
+		});
 	}
 
 	public void warn(String message, Supplier<?>... suppliers) {
@@ -157,7 +157,7 @@ public class Logger {
 		if (internalLogger.isErrorEnabled()) {
 			internalLogger.error(formattedMessage, e);
 		}
-		new Thread(() -> {
+		Thread.ofVirtual().name(Logger.class.getName() + "-error").start(() -> {
 			try {
 				Map<String, Object> parameters = new HashMap<>();
 				parameters.put(PARAMETER_ID, id);
@@ -177,7 +177,7 @@ public class Logger {
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
-		}, Logger.class.getName() + "-error").start();
+		});
 	}
 
 	public void error(Exception e, EffectivePerson effectivePerson, HttpServletRequest request, JsonElement body) {
@@ -189,7 +189,7 @@ public class Logger {
 		if (internalLogger.isErrorEnabled()) {
 			internalLogger.error(this.message(id, e, formattedMessage), e);
 		}
-		new Thread(() -> {
+		Thread.ofVirtual().name(Logger.class.getName() + "-error").start(() -> {
 			try {
 				Map<String, Object> parameters = new HashMap<>();
 				parameters.put(PARAMETER_ID, id);
@@ -218,7 +218,7 @@ public class Logger {
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
-		}, Logger.class.getName() + "-error").start();
+		});
 	}
 
 	private String message(String id, String message) {

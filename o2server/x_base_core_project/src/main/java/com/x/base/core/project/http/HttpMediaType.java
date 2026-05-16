@@ -1,6 +1,6 @@
 package com.x.base.core.project.http;
 
-import javax.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.MediaType;
 
 public class HttpMediaType {
 	public static final String APPLICATION_JSON_UTF_8 = MediaType.APPLICATION_JSON + "; charset=UTF-8";

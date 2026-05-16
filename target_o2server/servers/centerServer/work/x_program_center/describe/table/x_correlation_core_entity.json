@@ -1,0 +1,64 @@
+{
+  "tables": [
+    {
+      "moduleName": "Correlation",
+      "tableName": "CORR_C_CORRELATION",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xfromType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "源类型cms,processPlatform."
+        },
+        {
+          "name": "xtargetType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "关联目标类型,cms.processPlatform."
+        },
+        {
+          "name": "xfromBundle",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "源标识."
+        },
+        {
+          "name": "xtargetBundle",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "关联目标标识."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件所有者"
+        },
+        {
+          "name": "xsite",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "关联内容框分类."
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "xproperties",
+          "type": "com.x.correlation.core.entity.content.CorrelationProperties",
+          "length": "10485760",
+          "remark": "属性存储字段."
+        }
+      ]
+    }
+  ]
+}

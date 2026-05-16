@@ -1,6 +1,6 @@
 package com.x.base.core.project.bean.tuple;
 
-public abstract class Quintuple<A, B, C, D, E> {
+public sealed abstract class Quintuple<A, B, C, D, E> permits Quintuple.ImmutableQuintuple {
 
     protected A first;
 
@@ -48,7 +48,7 @@ public abstract class Quintuple<A, B, C, D, E> {
         return this.fifth;
     }
 
-    public static class ImmutableQuintuple<A, B, C, D, E> extends Quintuple<A, B, C, D, E> {
+    public static final class ImmutableQuintuple<A, B, C, D, E> extends Quintuple<A, B, C, D, E> {
 
         public ImmutableQuintuple(final A first, final B second, final C third, final D fourth, E fifth) {
             this.first = first;

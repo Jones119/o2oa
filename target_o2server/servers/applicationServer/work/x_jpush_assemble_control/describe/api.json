@@ -1,0 +1,110 @@
+{
+  "jaxrs": [
+    {
+      "name": "CacheAction",
+      "methods": [
+        {
+          "name": "configFlush",
+          "uri": "jaxrs/cache/config/flush",
+          "method": "GET"
+        },
+        {
+          "name": "commonScriptFlush",
+          "uri": "jaxrs/cache/commonscript/flush",
+          "method": "GET"
+        },
+        {
+          "name": "receive",
+          "uri": "jaxrs/cache",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "detail",
+          "uri": "jaxrs/cache/detail",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "DeviceAction",
+      "methods": [
+        {
+          "name": "bind",
+          "uri": "jaxrs/device/bind",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "checkBind",
+          "uri": "jaxrs/device/check/{deviceName}/{deviceType}/{pushType}",
+          "method": "GET"
+        },
+        {
+          "name": "unbindByAdmin",
+          "uri": "jaxrs/device/admin/unbind/all/person",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "removeBind",
+          "uri": "jaxrs/device/unbind/{deviceName}/{deviceType}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "removeBindNew",
+          "uri": "jaxrs/device/unbind/new/{deviceName}/{deviceType}/{pushType}",
+          "method": "GET"
+        },
+        {
+          "name": "configPushType",
+          "uri": "jaxrs/device/config/push/type",
+          "method": "GET"
+        },
+        {
+          "name": "listAllByPushType",
+          "uri": "jaxrs/device/list/{pushType}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "EchoAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/echo",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "FireScheduleAction",
+      "methods": [
+        {
+          "name": "execute",
+          "uri": "jaxrs/fireschedule/classname/{className}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "MessageAction",
+      "methods": [
+        {
+          "name": "sendMessageTest",
+          "uri": "jaxrs/message/test/send",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "sendMessage",
+          "uri": "jaxrs/message/send",
+          "method": "POST",
+          "enctype": "application/json"
+        }
+      ]
+    }
+  ]
+}

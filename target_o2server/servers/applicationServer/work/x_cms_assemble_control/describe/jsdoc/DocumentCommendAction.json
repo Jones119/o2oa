@@ -1,0 +1,149 @@
+{
+  "name": "DocumentCommendAction",
+  "className": "com.x.cms.assemble.control.jaxrs.commend.DocumentCommendAction",
+  "description": "点赞信息管理",
+  "methods": [
+    {
+      "name": "get",
+      "className": "com.x.cms.assemble.control.jaxrs.commend.ActionGet",
+      "description": "根据标识获取点赞对象.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "documentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档ID"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档标题"
+        },
+        {
+          "name": "commentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档评论ID"
+        },
+        {
+          "name": "commentTitle",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档评论标题"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档或评论创建人"
+        },
+        {
+          "name": "commendPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "点赞者"
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "点赞类型：document(文档点赞，默认值)、comment(评论点赞)"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listPaging",
+      "className": "com.x.cms.assemble.control.jaxrs.commend.ActionListPaging",
+      "description": "分页列示点赞对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "indexPicList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "点赞对应文档的首页图片列表."
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "documentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档ID"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档标题"
+        },
+        {
+          "name": "commentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档评论ID"
+        },
+        {
+          "name": "commentTitle",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档评论标题"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档或评论创建人"
+        },
+        {
+          "name": "commendPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "点赞者"
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "点赞类型：document(文档点赞，默认值)、comment(评论点赞)"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    }
+  ]
+}

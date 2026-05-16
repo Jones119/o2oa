@@ -22,7 +22,7 @@ class ActionExecute extends BaseAction {
 			wo.setValue(false);
 		}
 
-		new Thread(() -> {
+		Thread.ofVirtual().name(ActionExecute.class.getName() + "-execute").start(() -> {
 			try {
 				Missions.execute();
 				Config.resource_commandQueue().put("stop init");
@@ -32,7 +32,7 @@ class ActionExecute extends BaseAction {
 			} catch (Exception e) {
 				LOGGER.error(e);
 			}
-		}).start();
+		});
 		wo.setValue(true);
 		result.setData(wo);
 		return result;

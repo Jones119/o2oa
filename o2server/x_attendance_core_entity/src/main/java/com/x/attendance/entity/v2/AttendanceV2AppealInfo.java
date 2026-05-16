@@ -8,7 +8,7 @@ import com.x.base.core.entity.annotation.ContainerEntity;
 import com.x.base.core.project.annotation.FieldDescribe;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 /**
@@ -19,7 +19,7 @@ import java.util.Date;
 @ContainerEntity(dumpSize = 1000, type = ContainerEntity.Type.content, reference = ContainerEntity.Reference.strong)
 @Entity
 @Table(name = PersistenceProperties.AttendanceV2AppealInfo.table, indexes = {
-        @javax.persistence.Index(name = PersistenceProperties.AttendanceV2AppealInfo.table + JpaObject.IndexNameMiddle + AttendanceV2AppealInfo.userId_FIELDNAME + "_IDX",
+        @jakarta.persistence.Index(name = PersistenceProperties.AttendanceV2AppealInfo.table + JpaObject.IndexNameMiddle + AttendanceV2AppealInfo.userId_FIELDNAME + "_IDX",
                 columnList = JpaObject.ColumnNamePrefix + AttendanceV2AppealInfo.userId_FIELDNAME + "," + JpaObject.ColumnNamePrefix + AttendanceV2AppealInfo.recordDateString_FIELDNAME),
 }, uniqueConstraints = @UniqueConstraint(name = PersistenceProperties.AttendanceV2AppealInfo.table
         + JpaObject.IndexNameMiddle + JpaObject.DefaultUniqueConstraintSuffix, columnNames = { JpaObject.IDCOLUMN,

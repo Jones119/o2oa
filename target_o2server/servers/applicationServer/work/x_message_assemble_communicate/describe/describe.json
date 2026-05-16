@@ -1,0 +1,3879 @@
+{
+  "jaxrs": [
+    {
+      "name": "CacheAction",
+      "className": "com.x.base.core.project.jaxrs.cache.CacheAction",
+      "description": "缓存操作接口",
+      "methods": [
+        {
+          "name": "commonScriptFlush",
+          "className": "com.x.base.core.project.jaxrs.cache.ActionCommonScriptFlush",
+          "description": "接收刷新CommonScript指令.",
+          "type": "GET",
+          "path": "jaxrs/cache/commonscript/flush",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "configFlush",
+          "className": "com.x.base.core.project.jaxrs.cache.ActionConfigFlush",
+          "description": "接收刷新Config配置文件指令.",
+          "type": "GET",
+          "path": "jaxrs/cache/config/flush",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "detail",
+          "className": "com.x.base.core.project.jaxrs.cache.ActionDetail",
+          "description": "显示缓存状态.",
+          "type": "GET",
+          "path": "jaxrs/cache/detail",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "receive",
+          "className": "com.x.base.core.project.jaxrs.cache.ActionReceive",
+          "description": "接收缓存刷新指令.",
+          "type": "POST",
+          "path": "jaxrs/cache",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "nodeName",
+              "type": "String",
+              "isCollection": false,
+              "description": "节点名.",
+              "isBaseType": true
+            },
+            {
+              "name": "className",
+              "type": "String",
+              "isCollection": false,
+              "description": "类名.",
+              "isBaseType": true
+            },
+            {
+              "name": "keys",
+              "type": "List\u003cObject\u003e",
+              "isCollection": true,
+              "description": "关键字.",
+              "isBaseType": false
+            }
+          ],
+          "outs": []
+        }
+      ]
+    },
+    {
+      "name": "ConnectorAction",
+      "className": "com.x.message.assemble.communicate.jaxrs.connector.ConnectorAction",
+      "description": "消息连接器",
+      "methods": [
+        {
+          "name": "create",
+          "className": "com.x.message.assemble.communicate.jaxrs.connector.ActionCreate",
+          "description": "接收.",
+          "type": "POST",
+          "path": "jaxrs/connector",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "类型",
+              "isBaseType": true
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "人员",
+              "isBaseType": true
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "标题",
+              "isBaseType": true
+            },
+            {
+              "name": "body",
+              "type": "JsonElement",
+              "isCollection": false,
+              "description": "推送内容",
+              "isBaseType": false
+            }
+          ],
+          "outs": []
+        }
+      ]
+    },
+    {
+      "name": "ConsumeAction",
+      "className": "com.x.message.assemble.communicate.jaxrs.consume.ConsumeAction",
+      "description": "消费",
+      "methods": [
+        {
+          "name": "list",
+          "className": "com.x.message.assemble.communicate.jaxrs.consume.ActionList",
+          "description": "获取消息.",
+          "type": "GET",
+          "path": "jaxrs/consume/list/{consume}/count/{count}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "consume",
+              "type": "String",
+              "description": "消费者"
+            },
+            {
+              "name": "count",
+              "type": "Integer",
+              "description": "数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知标题."
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "内容."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型."
+            },
+            {
+              "name": "consumer",
+              "type": "String",
+              "isCollection": false,
+              "description": "消费者."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知对象."
+            },
+            {
+              "name": "consumed",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否已经消费掉."
+            },
+            {
+              "name": "instant",
+              "type": "String",
+              "isCollection": false,
+              "description": "主体消息id."
+            },
+            {
+              "name": "properties",
+              "type": "MessageProperties",
+              "isCollection": false,
+              "description": "属性对象存储字段."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "listWithCurrentPerson",
+          "className": "com.x.message.assemble.communicate.jaxrs.consume.ActionListWithCurrentPerson",
+          "description": "获取消息,当前人员.",
+          "type": "GET",
+          "path": "jaxrs/consume/list/{consume}/currentperson/count/{count}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "consume",
+              "type": "String",
+              "description": "消费者"
+            },
+            {
+              "name": "count",
+              "type": "Integer",
+              "description": "数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知标题."
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "内容."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型."
+            },
+            {
+              "name": "consumer",
+              "type": "String",
+              "isCollection": false,
+              "description": "消费者."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知对象."
+            },
+            {
+              "name": "consumed",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否已经消费掉."
+            },
+            {
+              "name": "instant",
+              "type": "String",
+              "isCollection": false,
+              "description": "主体消息id."
+            },
+            {
+              "name": "properties",
+              "type": "MessageProperties",
+              "isCollection": false,
+              "description": "属性对象存储字段."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "listWithPerson",
+          "className": "com.x.message.assemble.communicate.jaxrs.consume.ActionListWithPerson",
+          "description": "获取消息,指定人员.",
+          "type": "GET",
+          "path": "jaxrs/consume/list/{consume}/person/{person}/count/{count}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "consume",
+              "type": "String",
+              "description": "消费者"
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "description": "人员"
+            },
+            {
+              "name": "count",
+              "type": "Integer",
+              "description": "数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知标题."
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "内容."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型."
+            },
+            {
+              "name": "consumer",
+              "type": "String",
+              "isCollection": false,
+              "description": "消费者."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知对象."
+            },
+            {
+              "name": "consumed",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否已经消费掉."
+            },
+            {
+              "name": "instant",
+              "type": "String",
+              "isCollection": false,
+              "description": "主体消息id."
+            },
+            {
+              "name": "properties",
+              "type": "MessageProperties",
+              "isCollection": false,
+              "description": "属性对象存储字段."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "update",
+          "className": "com.x.message.assemble.communicate.jaxrs.consume.ActionUpdate",
+          "description": "更新消息,将消息标志为已处理.",
+          "type": "PUT",
+          "path": "jaxrs/consume/type/{type}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "type",
+              "type": "String",
+              "description": "消费类型"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "idList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "标识",
+              "isBaseType": true
+            }
+          ],
+          "outs": []
+        },
+        {
+          "name": "updateMockputtopost",
+          "className": "com.x.message.assemble.communicate.jaxrs.consume.ActionUpdate",
+          "description": "更新消息,将消息标志为已处理.",
+          "type": "POST",
+          "path": "jaxrs/consume/type/{type}/mockputtopost",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "type",
+              "type": "String",
+              "description": "消费类型"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "idList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "标识",
+              "isBaseType": true
+            }
+          ],
+          "outs": []
+        },
+        {
+          "name": "updateSingle",
+          "className": "com.x.message.assemble.communicate.jaxrs.consume.ActionUpdateSingle",
+          "description": "更新消息,将消息标志为已处理.",
+          "type": "GET",
+          "path": "jaxrs/consume/{id}/type/{type}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "标识"
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "description": "消费类型"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        }
+      ]
+    },
+    {
+      "name": "EchoAction",
+      "className": "com.x.base.core.project.jaxrs.echo.EchoAction",
+      "description": "应用响应接口.",
+      "methods": [
+        {
+          "name": "get",
+          "className": "com.x.base.core.project.jaxrs.echo.ActionGet",
+          "description": "获取应答.",
+          "type": "GET",
+          "path": "jaxrs/echo",
+          "contentType": "application/json",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "servletContextName",
+              "type": "String",
+              "isCollection": false,
+              "description": "上下文根."
+            },
+            {
+              "name": "serverTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "服务器时间."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FireScheduleAction",
+      "className": "com.x.base.core.project.jaxrs.fireschedule.FireScheduleAction",
+      "description": "触发定时任务接口.",
+      "methods": [
+        {
+          "name": "execute",
+          "className": "com.x.base.core.project.jaxrs.fireschedule.ActionExecute",
+          "description": "接受x_program_center发送过来的运行定时任务指令.",
+          "type": "GET",
+          "path": "jaxrs/fireschedule/classname/{className}",
+          "contentType": "application/json",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "className",
+              "type": "String",
+              "description": "运行类"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        }
+      ]
+    },
+    {
+      "name": "ImAction",
+      "className": "com.x.message.assemble.communicate.jaxrs.im.ImAction",
+      "description": "IM消息",
+      "methods": [
+        {
+          "name": "collectionListByPaging",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionCollectionMsgListWithPersonByPage",
+          "description": "分页查询收藏的消息列表.",
+          "type": "POST",
+          "path": "jaxrs/im/msg/collection/list/{page}/size/{size}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": true,
+          "pathParameters": [
+            {
+              "name": "page",
+              "type": "Integer",
+              "description": "分页"
+            },
+            {
+              "name": "size",
+              "type": "Integer",
+              "description": "数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "message",
+              "type": "IMMsgWo",
+              "isCollection": false,
+              "description": "关联消息."
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "messageId",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息id， 关联的消息."
+            },
+            {
+              "name": "createPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息收藏人"
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "config",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionWriteImConfig",
+          "description": "更新IM配置.",
+          "type": "POST",
+          "path": "jaxrs/im/manager/config",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "enableClearMsg",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否开启清空聊天记录的功能.",
+              "isBaseType": true
+            },
+            {
+              "name": "enableRevokeMsg",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否开启撤回聊天消息的功能.",
+              "isBaseType": true
+            },
+            {
+              "name": "revokeOutMinute",
+              "type": "Integer",
+              "isCollection": false,
+              "description": "撤回时效（分钟数）",
+              "isBaseType": true
+            },
+            {
+              "name": "conversationCheckInvoke",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话检查脚本.",
+              "isBaseType": true
+            },
+            {
+              "name": "enableOnlyOfficePreview",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否使用onlyOffice预览文件(需要先安装onlyOffice扩展应用).",
+              "isBaseType": true
+            },
+            {
+              "name": "enableGroupMemberQuitSelf",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否开启群成员自主退出的功能.",
+              "isBaseType": true
+            }
+          ],
+          "outs": []
+        },
+        {
+          "name": "conversation",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionGetConversation",
+          "description": "会话对象.",
+          "type": "GET",
+          "path": "jaxrs/im/conversation/{id}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "会话id"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "isTop",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否置顶."
+            },
+            {
+              "name": "unreadNumber",
+              "type": "Long",
+              "isCollection": false,
+              "description": "未读数量."
+            },
+            {
+              "name": "lastMessage",
+              "type": "WoMsg",
+              "isCollection": false,
+              "description": "最后一条消息."
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话类型 单人 、 群."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话标题 人名、群名"
+            },
+            {
+              "name": "personList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "会话对象、群成员."
+            },
+            {
+              "name": "adminPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "管理员，群会话需要管理员"
+            },
+            {
+              "name": "note",
+              "type": "String",
+              "isCollection": false,
+              "description": "群公告"
+            },
+            {
+              "name": "lastMessageTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "会话最后一条消息时间"
+            },
+            {
+              "name": "businessId",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务对象Id. （流程的jobId）"
+            },
+            {
+              "name": "businessBody",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务对象内容."
+            },
+            {
+              "name": "businessType",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务类型. process"
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "conversationCancelTop",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionConversationCancelTop",
+          "description": "会话取消置顶.",
+          "type": "PUT",
+          "path": "jaxrs/im/conversation/{id}/top/cancel",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": true,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "会话id"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "conversationCancelTopMockputtopost",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionConversationCancelTop",
+          "description": "会话取消置顶.",
+          "type": "POST",
+          "path": "jaxrs/im/conversation/{id}/top/cancel/mockputtopost",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": true,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "会话id"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "conversationFindByBusinessId",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionConversationFindByBusinessId",
+          "description": "根据业务id查询会话，当前用户在会话中.",
+          "type": "GET",
+          "path": "jaxrs/im/conversation/business/{businessId}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "businessId",
+              "type": "String",
+              "description": "业务id"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话类型 单人 、 群."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话标题 人名、群名"
+            },
+            {
+              "name": "personList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "会话对象、群成员."
+            },
+            {
+              "name": "adminPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "管理员，群会话需要管理员"
+            },
+            {
+              "name": "note",
+              "type": "String",
+              "isCollection": false,
+              "description": "群公告"
+            },
+            {
+              "name": "lastMessageTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "会话最后一条消息时间"
+            },
+            {
+              "name": "businessId",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务对象Id. （流程的jobId）"
+            },
+            {
+              "name": "businessBody",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务对象内容."
+            },
+            {
+              "name": "businessType",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务类型. process"
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "conversationIcon",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionGetConversationIcon",
+          "description": "会话头像",
+          "type": "GET",
+          "path": "jaxrs/im/conversation/{id}/icon",
+          "contentType": "application/json",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "会话id"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "contentDisposition",
+              "type": "String",
+              "isCollection": false,
+              "description": "说明"
+            },
+            {
+              "name": "contentType",
+              "type": "String",
+              "isCollection": false,
+              "description": "类型"
+            },
+            {
+              "name": "bytes",
+              "type": "byte[]",
+              "isCollection": false,
+              "description": "字节内容."
+            },
+            {
+              "name": "streamingOutput",
+              "type": "StreamingOutput",
+              "isCollection": false,
+              "description": "附件流."
+            },
+            {
+              "name": "contentLength",
+              "type": "Long",
+              "isCollection": false,
+              "description": "附件大小."
+            }
+          ]
+        },
+        {
+          "name": "conversationRead",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionConversationRead",
+          "description": "会话阅读消息.",
+          "type": "PUT",
+          "path": "jaxrs/im/conversation/{id}/read",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": true,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "会话id"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "conversationReadMockputtopost",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionConversationRead",
+          "description": "会话阅读消息.",
+          "type": "POST",
+          "path": "jaxrs/im/conversation/{id}/read/mockputtopost",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": true,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "会话id"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "conversationSetTop",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionConversationSetTop",
+          "description": "会话置顶.",
+          "type": "PUT",
+          "path": "jaxrs/im/conversation/{id}/top/set",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": true,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "会话id"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "conversationSetTopMockputtopost",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionConversationSetTop",
+          "description": "会话置顶.",
+          "type": "POST",
+          "path": "jaxrs/im/conversation/{id}/top/set/mockputtopost",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": true,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "会话id"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "create",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionConversationCreate",
+          "description": "创建会话.",
+          "type": "POST",
+          "path": "jaxrs/im/conversation",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": true,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话类型 单人 、 群."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话标题 人名、群名"
+            },
+            {
+              "name": "personList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "会话对象、群成员."
+            },
+            {
+              "name": "adminPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "管理员，群会话需要管理员"
+            },
+            {
+              "name": "note",
+              "type": "String",
+              "isCollection": false,
+              "description": "群公告"
+            },
+            {
+              "name": "lastMessageTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "会话最后一条消息时间"
+            },
+            {
+              "name": "businessId",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务对象Id. （流程的jobId）"
+            },
+            {
+              "name": "businessBody",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务对象内容."
+            },
+            {
+              "name": "businessType",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务类型. process"
+            },
+            {
+              "name": "groupIcon",
+              "type": "String",
+              "isCollection": false,
+              "description": "群聊头像."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "deleteGroupConversation",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionDeleteGroupConversation",
+          "description": "删除群聊，只有群主可以删除.",
+          "type": "DELETE",
+          "path": "jaxrs/im/conversation/{id}/group",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "会话ID"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "deleteGroupConversationMockdeletetoget",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionDeleteGroupConversation",
+          "description": "删除群聊，只有群主可以删除.",
+          "type": "GET",
+          "path": "jaxrs/im/conversation/{id}/group/mockdeletetoget",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "会话ID"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "deleteMessages",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionDeleteMessageByConversation",
+          "description": "清除聊天消息，至少传入一个条件参数，管理员使用.",
+          "type": "POST",
+          "path": "jaxrs/im/msg/clear",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "conversationId",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话id",
+              "isBaseType": true
+            },
+            {
+              "name": "beforeDay",
+              "type": "String",
+              "isCollection": false,
+              "description": "截止日期(yyyy-MM-dd), 任务会删除这个截止日期以前的所有消息数据 .",
+              "isBaseType": true
+            }
+          ],
+          "outs": []
+        },
+        {
+          "name": "deleteSingleConversation",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionDeleteSingleConversationVirtual",
+          "description": "删除单聊会话.",
+          "type": "DELETE",
+          "path": "jaxrs/im/conversation/{id}/single",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "会话ID"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "deleteSingleConversationMockdeletetoget",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionDeleteSingleConversationVirtual",
+          "description": "删除单聊会话.",
+          "type": "GET",
+          "path": "jaxrs/im/conversation/{id}/single/mockdeletetoget",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "会话ID"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "download",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionFileDownload",
+          "description": "获取文件内容,输出头信息",
+          "type": "GET",
+          "path": "jaxrs/im/msg/download/{id}",
+          "contentType": "application/json",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "附件标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "contentDisposition",
+              "type": "String",
+              "isCollection": false,
+              "description": "说明"
+            },
+            {
+              "name": "contentType",
+              "type": "String",
+              "isCollection": false,
+              "description": "类型"
+            },
+            {
+              "name": "bytes",
+              "type": "byte[]",
+              "isCollection": false,
+              "description": "字节内容."
+            },
+            {
+              "name": "streamingOutput",
+              "type": "StreamingOutput",
+              "isCollection": false,
+              "description": "附件流."
+            },
+            {
+              "name": "contentLength",
+              "type": "Long",
+              "isCollection": false,
+              "description": "附件大小."
+            }
+          ]
+        },
+        {
+          "name": "downloadImageWidthHeight",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionImageDownloadWidthHeight",
+          "description": "下载图片设定宽高后的(png格式).width(0-5000)像素,0代表不限制,height(0-5000)像素,0代表不限制.",
+          "type": "GET",
+          "path": "jaxrs/im/msg/download/{id}/image/width/{width}/height/{height}",
+          "contentType": "application/json",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "附件标识"
+            },
+            {
+              "name": "width",
+              "type": "Integer",
+              "description": "宽度"
+            },
+            {
+              "name": "height",
+              "type": "Integer",
+              "description": "高度"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "contentDisposition",
+              "type": "String",
+              "isCollection": false,
+              "description": "说明"
+            },
+            {
+              "name": "contentType",
+              "type": "String",
+              "isCollection": false,
+              "description": "类型"
+            },
+            {
+              "name": "bytes",
+              "type": "byte[]",
+              "isCollection": false,
+              "description": "字节内容."
+            },
+            {
+              "name": "streamingOutput",
+              "type": "StreamingOutput",
+              "isCollection": false,
+              "description": "附件流."
+            },
+            {
+              "name": "contentLength",
+              "type": "Long",
+              "isCollection": false,
+              "description": "附件大小."
+            }
+          ]
+        },
+        {
+          "name": "getImConfig",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionImConfig",
+          "description": "获取IM配置.",
+          "type": "GET",
+          "path": "jaxrs/im/manager/config",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "enableGroupMemberQuitSelf",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否开启群成员自主退出的功能."
+            },
+            {
+              "name": "enableClearMsg",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否开启清空聊天记录的功能."
+            },
+            {
+              "name": "enableRevokeMsg",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否开启撤回聊天消息的功能."
+            },
+            {
+              "name": "enableOnlyOfficePreview",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否使用onlyOffice预览文件(需要先安装onlyOffice扩展应用)."
+            },
+            {
+              "name": "revokeOutMinute",
+              "type": "Integer",
+              "isCollection": false,
+              "description": "撤回时效（分钟数）"
+            },
+            {
+              "name": "conversationCheckInvoke",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话检查脚本."
+            },
+            {
+              "name": "versionNo",
+              "type": "int",
+              "isCollection": false,
+              "description": "版本号."
+            },
+            {
+              "name": "changelog",
+              "type": "String",
+              "isCollection": false,
+              "description": "更新内容."
+            }
+          ]
+        },
+        {
+          "name": "getPersonConversationList",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionPersonConversationList",
+          "description": "查询会话列表，管理员使用.",
+          "type": "POST",
+          "path": "jaxrs/im/conversation/list/with/person",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "用户 DN",
+              "isBaseType": true
+            },
+            {
+              "name": "needCount",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否需要统计消息数量，会慢一点",
+              "isBaseType": true
+            }
+          ],
+          "outs": [
+            {
+              "name": "messageCount",
+              "type": "Long",
+              "isCollection": false,
+              "description": "消息数量."
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话类型 单人 、 群."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话标题 人名、群名"
+            },
+            {
+              "name": "personList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "会话对象、群成员."
+            },
+            {
+              "name": "adminPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "管理员，群会话需要管理员"
+            },
+            {
+              "name": "note",
+              "type": "String",
+              "isCollection": false,
+              "description": "群公告"
+            },
+            {
+              "name": "lastMessageTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "会话最后一条消息时间"
+            },
+            {
+              "name": "businessId",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务对象Id. （流程的jobId）"
+            },
+            {
+              "name": "businessBody",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务对象内容."
+            },
+            {
+              "name": "businessType",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务类型. process"
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "msgCollectionRemove",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionDeleteCollectionMsgs",
+          "description": "删除收藏消息.",
+          "type": "POST",
+          "path": "jaxrs/im/msg/collection/remove",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "msgIdList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "收藏消息id列表",
+              "isBaseType": true
+            }
+          ],
+          "outs": []
+        },
+        {
+          "name": "msgCollectionSave",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionSaveCollectionMsgs",
+          "description": "收藏消息.",
+          "type": "POST",
+          "path": "jaxrs/im/msg/collection",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "msgIdList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "消息id列表",
+              "isBaseType": true
+            }
+          ],
+          "outs": []
+        },
+        {
+          "name": "msgCreate",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionMsgCreate",
+          "description": "创建消息，发送消息到某一个会话中.",
+          "type": "POST",
+          "path": "jaxrs/im/msg",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": true,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "conversationId",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话id， 关联的会话."
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息内容."
+            },
+            {
+              "name": "bodyFileId",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息内容如果是有 fileId 的填入这个字段."
+            },
+            {
+              "name": "createPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "创建人，消息发送人"
+            },
+            {
+              "name": "quoteMessageId",
+              "type": "String",
+              "isCollection": false,
+              "description": "引用消息id."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "msgListByPaging",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionMsgListWithConversationByPage",
+          "description": "分页查询某个会话的消息列表.",
+          "type": "POST",
+          "path": "jaxrs/im/msg/list/{page}/size/{size}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "page",
+              "type": "Integer",
+              "description": "分页"
+            },
+            {
+              "name": "size",
+              "type": "Integer",
+              "description": "数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "conversationId",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话id",
+              "isBaseType": true
+            }
+          ],
+          "outs": [
+            {
+              "name": "quoteMessage",
+              "type": "IMMsg",
+              "isCollection": false,
+              "description": "引用消息."
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "conversationId",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话id， 关联的会话."
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息内容."
+            },
+            {
+              "name": "bodyFileId",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息内容如果是有 fileId 的填入这个字段."
+            },
+            {
+              "name": "createPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "创建人，消息发送人"
+            },
+            {
+              "name": "quoteMessageId",
+              "type": "String",
+              "isCollection": false,
+              "description": "引用消息id."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "msgListObject",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionMsgListObject",
+          "description": "根据 id 列表，查询消息列表.",
+          "type": "POST",
+          "path": "jaxrs/im/msg/list/object",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "msgIdList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "消息id列表",
+              "isBaseType": true
+            }
+          ],
+          "outs": [
+            {
+              "name": "quoteMessage",
+              "type": "IMMsg",
+              "isCollection": false,
+              "description": "引用消息."
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "conversationId",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话id， 关联的会话."
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息内容."
+            },
+            {
+              "name": "bodyFileId",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息内容如果是有 fileId 的填入这个字段."
+            },
+            {
+              "name": "createPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "创建人，消息发送人"
+            },
+            {
+              "name": "quoteMessageId",
+              "type": "String",
+              "isCollection": false,
+              "description": "引用消息id."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "msgRevoke",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionMsgRevoke",
+          "description": "撤回消息",
+          "type": "GET",
+          "path": "jaxrs/im/msg/revoke/{id}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "消息标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "id"
+            }
+          ]
+        },
+        {
+          "name": "myConversationList",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionMyConversationList",
+          "description": "我的会话列表.",
+          "type": "GET",
+          "path": "jaxrs/im/conversation/list/my",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "isTop",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否置顶."
+            },
+            {
+              "name": "unreadNumber",
+              "type": "Long",
+              "isCollection": false,
+              "description": "未读数量."
+            },
+            {
+              "name": "lastMessage",
+              "type": "WoMsg",
+              "isCollection": false,
+              "description": "最后一条消息."
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话类型 单人 、 群."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话标题 人名、群名"
+            },
+            {
+              "name": "personList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "会话对象、群成员."
+            },
+            {
+              "name": "adminPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "管理员，群会话需要管理员"
+            },
+            {
+              "name": "note",
+              "type": "String",
+              "isCollection": false,
+              "description": "群公告"
+            },
+            {
+              "name": "lastMessageTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "会话最后一条消息时间"
+            },
+            {
+              "name": "businessId",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务对象Id. （流程的jobId）"
+            },
+            {
+              "name": "businessBody",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务对象内容."
+            },
+            {
+              "name": "businessType",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务类型. process"
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "quitGroupSelf",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionConversationMemberQuitSelf",
+          "description": "退出群聊会话(需开启配置).",
+          "type": "GET",
+          "path": "jaxrs/im/conversation/{id}/group/quit/self",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "会话ID"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "update",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionConversationUpdate",
+          "description": "修改会话.",
+          "type": "PUT",
+          "path": "jaxrs/im/conversation",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "id",
+              "isBaseType": true
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话标题",
+              "isBaseType": true
+            },
+            {
+              "name": "note",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话公告",
+              "isBaseType": true
+            },
+            {
+              "name": "personList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "会话对象",
+              "isBaseType": true
+            },
+            {
+              "name": "adminPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话管理员",
+              "isBaseType": true
+            }
+          ],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话类型 单人 、 群."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话标题 人名、群名"
+            },
+            {
+              "name": "personList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "会话对象、群成员."
+            },
+            {
+              "name": "adminPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "管理员，群会话需要管理员"
+            },
+            {
+              "name": "note",
+              "type": "String",
+              "isCollection": false,
+              "description": "群公告"
+            },
+            {
+              "name": "lastMessageTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "会话最后一条消息时间"
+            },
+            {
+              "name": "businessId",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务对象Id. （流程的jobId）"
+            },
+            {
+              "name": "businessBody",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务对象内容."
+            },
+            {
+              "name": "businessType",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务类型. process"
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "updateMockputtopost",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionConversationUpdate",
+          "description": "修改会话.",
+          "type": "POST",
+          "path": "jaxrs/im/conversation/mockputtopost",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "id",
+              "isBaseType": true
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话标题",
+              "isBaseType": true
+            },
+            {
+              "name": "note",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话公告",
+              "isBaseType": true
+            },
+            {
+              "name": "personList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "会话对象",
+              "isBaseType": true
+            },
+            {
+              "name": "adminPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话管理员",
+              "isBaseType": true
+            }
+          ],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话类型 单人 、 群."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "会话标题 人名、群名"
+            },
+            {
+              "name": "personList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "会话对象、群成员."
+            },
+            {
+              "name": "adminPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "管理员，群会话需要管理员"
+            },
+            {
+              "name": "note",
+              "type": "String",
+              "isCollection": false,
+              "description": "群公告"
+            },
+            {
+              "name": "lastMessageTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "会话最后一条消息时间"
+            },
+            {
+              "name": "businessId",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务对象Id. （流程的jobId）"
+            },
+            {
+              "name": "businessBody",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务对象内容."
+            },
+            {
+              "name": "businessType",
+              "type": "String",
+              "isCollection": false,
+              "description": "业务类型. process"
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "uploadFile",
+          "className": "com.x.message.assemble.communicate.jaxrs.im.ActionUploadFile",
+          "description": "上传文件.",
+          "type": "POST",
+          "path": "jaxrs/im/msg/upload/{conversationId}/type/{type}",
+          "contentType": "multipart/form-data",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": true,
+          "pathParameters": [
+            {
+              "name": "conversationId",
+              "type": "String",
+              "description": "会话id"
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "description": "文件类型"
+            }
+          ],
+          "formParameters": [
+            {
+              "name": "fileName",
+              "type": "String",
+              "description": "附件名称"
+            }
+          ],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "fileExtension",
+              "type": "String",
+              "isCollection": false,
+              "description": "文件扩展名"
+            },
+            {
+              "name": "fileName",
+              "type": "String",
+              "isCollection": false,
+              "description": "文件名"
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "InstantAction",
+      "className": "com.x.message.assemble.communicate.jaxrs.instant.InstantAction",
+      "description": "主体消息",
+      "methods": [
+        {
+          "name": "currentPersonConsumed",
+          "className": "com.x.message.assemble.communicate.jaxrs.instant.ActionCurrentPersonConsumed",
+          "description": "将当前用户指定的主体消息标识为已消费.",
+          "type": "PUT",
+          "path": "jaxrs/instant/currentperson/consumed",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "idList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "标识",
+              "isBaseType": true
+            }
+          ],
+          "outs": []
+        },
+        {
+          "name": "currentPersonConsumedAll",
+          "className": "com.x.message.assemble.communicate.jaxrs.instant.ActionCurrentPersonConsumedAll",
+          "description": "将当前用户所有主体消息全部标识为已消费.",
+          "type": "GET",
+          "path": "jaxrs/instant/currentperson/consumed/all",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "currentPersonConsumedMockputtopost",
+          "className": "com.x.message.assemble.communicate.jaxrs.instant.ActionCurrentPersonConsumed",
+          "description": "将当前用户指定的主体消息标识为已消费.",
+          "type": "POST",
+          "path": "jaxrs/instant/currentperson/consumed/mockputtopost",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "idList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "标识",
+              "isBaseType": true
+            }
+          ],
+          "outs": []
+        },
+        {
+          "name": "listNext",
+          "className": "com.x.message.assemble.communicate.jaxrs.instant.ActionListNext",
+          "description": "列示所有的主体消息,需要管理员权限或者MessageManager,下一页.",
+          "type": "GET",
+          "path": "jaxrs/instant/list/{id}/next/{count}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "标识"
+            },
+            {
+              "name": "count",
+              "type": "Integer",
+              "description": "数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "rank",
+              "type": "Long",
+              "isCollection": false,
+              "description": "排序号"
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知标题."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知对象."
+            },
+            {
+              "name": "consumed",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否已经消费掉."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "listPrev",
+          "className": "com.x.message.assemble.communicate.jaxrs.instant.ActionListPrev",
+          "description": "列示所有的主体消息,需要管理员权限或者MessageManager,上一页.",
+          "type": "GET",
+          "path": "jaxrs/instant/list/{id}/prev/{count}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "标识"
+            },
+            {
+              "name": "count",
+              "type": "Integer",
+              "description": "数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "rank",
+              "type": "Long",
+              "isCollection": false,
+              "description": "排序号"
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知标题."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知对象."
+            },
+            {
+              "name": "consumed",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否已经消费掉."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "listWithCurrentConsumedPersonDesc",
+          "className": "com.x.message.assemble.communicate.jaxrs.instant.ActionListWithCurrentPersonConsumedDesc",
+          "description": "获取当前人员已经消费的主体消息,倒序.",
+          "type": "GET",
+          "path": "jaxrs/instant/list/currentperson/consumed/count/{count}/desc",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "count",
+              "type": "Integer",
+              "description": "数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知标题."
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "内容."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知对象."
+            },
+            {
+              "name": "consumed",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否已经消费掉."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "listWithCurrentNotConsumedPersonDesc",
+          "className": "com.x.message.assemble.communicate.jaxrs.instant.ActionListWithCurrentPersonNotConsumedDesc",
+          "description": "获取当前人员还未消费的主体消息,倒序.",
+          "type": "GET",
+          "path": "jaxrs/instant/list/currentperson/not/consumed/count/{count}/desc",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "count",
+              "type": "Integer",
+              "description": "数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知标题."
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "内容."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知对象."
+            },
+            {
+              "name": "consumed",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否已经消费掉."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "listWithCurrentPersonAsc",
+          "className": "com.x.message.assemble.communicate.jaxrs.instant.ActionListWithCurrentPersonAsc",
+          "description": "获取当前人员的主体消息,顺序.",
+          "type": "GET",
+          "path": "jaxrs/instant/list/currentperson/count/{count}/asc",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "count",
+              "type": "Integer",
+              "description": "数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知标题."
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "内容."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知对象."
+            },
+            {
+              "name": "consumed",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否已经消费掉."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "listWithCurrentPersonConsumedAsc",
+          "className": "com.x.message.assemble.communicate.jaxrs.instant.ActionListWithCurrentPersonConsumedAsc",
+          "description": "获取当前人员已经消费的主体消息,顺序.",
+          "type": "GET",
+          "path": "jaxrs/instant/list/currentperson/consumed/count/{count}/asc",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "count",
+              "type": "Integer",
+              "description": "数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知标题."
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "内容."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知对象."
+            },
+            {
+              "name": "consumed",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否已经消费掉."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "listWithCurrentPersonDesc",
+          "className": "com.x.message.assemble.communicate.jaxrs.instant.ActionListWithCurrentPersonDesc",
+          "description": "获取当前人员的主体消息,倒序.",
+          "type": "GET",
+          "path": "jaxrs/instant/list/currentperson/count/{count}/desc",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "count",
+              "type": "Integer",
+              "description": "数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知标题."
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "内容."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知对象."
+            },
+            {
+              "name": "consumed",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否已经消费掉."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "listWithCurrentPersonNotConsumedAsc",
+          "className": "com.x.message.assemble.communicate.jaxrs.instant.ActionListWithCurrentPersonNotConsumedAsc",
+          "description": "获取当前人员还未消费的主体消息,顺序.",
+          "type": "GET",
+          "path": "jaxrs/instant/list/currentperson/not/consumed/count/{count}/asc",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "count",
+              "type": "Integer",
+              "description": "数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知标题."
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "内容."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知对象."
+            },
+            {
+              "name": "consumed",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否已经消费掉."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "listWithCurrentPersonWithoutIMDesc",
+          "className": "com.x.message.assemble.communicate.jaxrs.instant.ActionListWithCurrentPersonWithoutIMDesc",
+          "description": "获取当前人员的主体消息,排除IM消息,倒序.",
+          "type": "GET",
+          "path": "jaxrs/instant/list/currentperson/noim/count/{count}/desc",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "count",
+              "type": "Integer",
+              "description": "数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知标题."
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "内容."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知对象."
+            },
+            {
+              "name": "consumed",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否已经消费掉."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MassAction",
+      "className": "com.x.message.assemble.communicate.jaxrs.mass.MassAction",
+      "description": "群发",
+      "methods": [
+        {
+          "name": "create",
+          "className": "com.x.message.assemble.communicate.jaxrs.mass.ActionCreate",
+          "description": "更新消息,将消息标志为已处理.",
+          "type": "POST",
+          "path": "jaxrs/mass",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "creatorPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "创建人，可能为空，如果由系统创建。",
+              "isBaseType": true
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "内容.",
+              "isBaseType": true
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型.",
+              "isBaseType": true
+            },
+            {
+              "name": "personList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "个人对象.",
+              "isBaseType": true
+            },
+            {
+              "name": "identityList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "身份对象.",
+              "isBaseType": true
+            },
+            {
+              "name": "groupList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "群组对象.",
+              "isBaseType": true
+            },
+            {
+              "name": "unitList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "组织对象.",
+              "isBaseType": true
+            },
+            {
+              "name": "sendPersonList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "发送人员对象.",
+              "isBaseType": true
+            }
+          ],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "creatorPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "创建人，可能为空，如果由系统创建。"
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "内容."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型."
+            },
+            {
+              "name": "personList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "个人对象."
+            },
+            {
+              "name": "identityList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "身份对象."
+            },
+            {
+              "name": "groupList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "群组对象."
+            },
+            {
+              "name": "unitList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "组织对象."
+            },
+            {
+              "name": "sendPersonList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "发送人员对象."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "className": "com.x.message.assemble.communicate.jaxrs.mass.ActionDelete",
+          "description": "删除群发消息.",
+          "type": "DELETE",
+          "path": "jaxrs/mass/{id}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "id"
+            }
+          ]
+        },
+        {
+          "name": "deleteMockdeletetoget",
+          "className": "com.x.message.assemble.communicate.jaxrs.mass.ActionDelete",
+          "description": "删除群发消息.",
+          "type": "GET",
+          "path": "jaxrs/mass/{id}/mockdeletetoget",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "id"
+            }
+          ]
+        },
+        {
+          "name": "enableType",
+          "className": "com.x.message.assemble.communicate.jaxrs.mass.ActionEnableType",
+          "description": "获取启用的消息类型.",
+          "type": "GET",
+          "path": "jaxrs/mass/enable/type",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "get",
+          "className": "com.x.message.assemble.communicate.jaxrs.mass.ActionGet",
+          "description": "获取消息.",
+          "type": "GET",
+          "path": "jaxrs/mass/{id}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "creatorPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "创建人，可能为空，如果由系统创建。"
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "内容."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型."
+            },
+            {
+              "name": "personList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "个人对象."
+            },
+            {
+              "name": "identityList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "身份对象."
+            },
+            {
+              "name": "groupList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "群组对象."
+            },
+            {
+              "name": "unitList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "组织对象."
+            },
+            {
+              "name": "sendPersonList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "发送人员对象."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "listNext",
+          "className": "com.x.message.assemble.communicate.jaxrs.mass.ActionListNext",
+          "description": "列示群发消息对象,下一页.",
+          "type": "GET",
+          "path": "jaxrs/mass/list/{id}/next/{count}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "标识"
+            },
+            {
+              "name": "count",
+              "type": "Integer",
+              "description": "数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "rank",
+              "type": "Long",
+              "isCollection": false,
+              "description": "排序号"
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "creatorPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "创建人，可能为空，如果由系统创建。"
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "内容."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型."
+            },
+            {
+              "name": "personList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "个人对象."
+            },
+            {
+              "name": "identityList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "身份对象."
+            },
+            {
+              "name": "groupList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "群组对象."
+            },
+            {
+              "name": "unitList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "组织对象."
+            },
+            {
+              "name": "sendPersonList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "发送人员对象."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "listPrev",
+          "className": "com.x.message.assemble.communicate.jaxrs.mass.ActionListPrev",
+          "description": "列示群发消息对象,上一页.",
+          "type": "GET",
+          "path": "jaxrs/mass/list/{id}/prev/{count}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "id",
+              "type": "String",
+              "description": "标识"
+            },
+            {
+              "name": "count",
+              "type": "Integer",
+              "description": "数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "rank",
+              "type": "Long",
+              "isCollection": false,
+              "description": "排序号"
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "creatorPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "创建人，可能为空，如果由系统创建。"
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "内容."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型."
+            },
+            {
+              "name": "personList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "个人对象."
+            },
+            {
+              "name": "identityList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "身份对象."
+            },
+            {
+              "name": "groupList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "群组对象."
+            },
+            {
+              "name": "unitList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "组织对象."
+            },
+            {
+              "name": "sendPersonList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "发送人员对象."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MessageAction",
+      "className": "com.x.message.assemble.communicate.jaxrs.message.MessageAction",
+      "description": "消息",
+      "methods": [
+        {
+          "name": "customCreate",
+          "className": "com.x.message.assemble.communicate.jaxrs.message.ActionCustomCreate",
+          "description": "创建定制消息.",
+          "type": "POST",
+          "path": "jaxrs/message/custom/create",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "类型",
+              "isBaseType": true
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "人员",
+              "isBaseType": true
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "标题",
+              "isBaseType": true
+            },
+            {
+              "name": "body",
+              "type": "JsonElement",
+              "isCollection": false,
+              "description": "推送内容",
+              "isBaseType": false
+            }
+          ],
+          "outs": []
+        },
+        {
+          "name": "listPaging",
+          "className": "com.x.message.assemble.communicate.jaxrs.message.ActionListPaging",
+          "description": "消息分页查询.",
+          "type": "POST",
+          "path": "jaxrs/message/list/paging/{page}/size/{size}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "page",
+              "type": "Integer",
+              "description": "分页"
+            },
+            {
+              "name": "size",
+              "type": "Integer",
+              "description": "每页数量"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "用户",
+              "isBaseType": true
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型.",
+              "isBaseType": true
+            },
+            {
+              "name": "consume",
+              "type": "String",
+              "isCollection": false,
+              "description": "消费者",
+              "isBaseType": true
+            },
+            {
+              "name": "startTime",
+              "type": "String",
+              "isCollection": false,
+              "description": "开始时间yyyy-MM-dd HH:mm:ss",
+              "isBaseType": true
+            },
+            {
+              "name": "endTime",
+              "type": "String",
+              "isCollection": false,
+              "description": "结束时间yyyy-MM-dd HH:mm:ss",
+              "isBaseType": true
+            }
+          ],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知标题."
+            },
+            {
+              "name": "body",
+              "type": "String",
+              "isCollection": false,
+              "description": "内容."
+            },
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "消息类型."
+            },
+            {
+              "name": "consumer",
+              "type": "String",
+              "isCollection": false,
+              "description": "消费者."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "通知对象."
+            },
+            {
+              "name": "consumed",
+              "type": "Boolean",
+              "isCollection": false,
+              "description": "是否已经消费掉."
+            },
+            {
+              "name": "instant",
+              "type": "String",
+              "isCollection": false,
+              "description": "主体消息id."
+            },
+            {
+              "name": "properties",
+              "type": "MessageProperties",
+              "isCollection": false,
+              "description": "属性对象存储字段."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WsAction",
+      "className": "com.x.message.assemble.communicate.jaxrs.ws.WsAction",
+      "description": "webSocket接口.",
+      "methods": [
+        {
+          "name": "countPerson",
+          "className": "com.x.message.assemble.communicate.jaxrs.ws.ActionCountPerson",
+          "description": "在线用户数量.",
+          "type": "GET",
+          "path": "jaxrs/ws/count/person",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "create",
+          "className": "com.x.message.assemble.communicate.jaxrs.ws.ActionCreate",
+          "description": "发送webSocket消息.",
+          "type": "POST",
+          "path": "jaxrs/ws",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "type",
+              "type": "String",
+              "isCollection": false,
+              "description": "Ws消息类别.",
+              "isBaseType": true
+            },
+            {
+              "name": "description",
+              "type": "String",
+              "isCollection": false,
+              "description": "Ws消息说明.",
+              "isBaseType": true
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "Ws消息接收人.",
+              "isBaseType": true
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "isCollection": false,
+              "description": "Ws消息标题.",
+              "isBaseType": true
+            },
+            {
+              "name": "body",
+              "type": "JsonElement",
+              "isCollection": false,
+              "description": "Ws消息内容.",
+              "isBaseType": false
+            }
+          ],
+          "outs": []
+        },
+        {
+          "name": "listPerson",
+          "className": "com.x.message.assemble.communicate.jaxrs.ws.ActionListPerson",
+          "description": "列示用户.",
+          "type": "GET",
+          "path": "jaxrs/ws/list/person",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "listPersonCurrentNode",
+          "className": "com.x.message.assemble.communicate.jaxrs.ws.ActionListPersonCurrentNode",
+          "description": "列示当前节点用户.",
+          "type": "GET",
+          "path": "jaxrs/ws/list/person/current/node",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        }
+      ]
+    }
+  ]
+}

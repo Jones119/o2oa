@@ -1,7 +1,7 @@
 package com.x.server.console.server.center;
 
-import com.alibaba.druid.support.http.StatViewServlet;
-import com.alibaba.druid.support.http.WebStatFilter;
+import com.alibaba.druid.support.jakarta.StatViewServlet;
+import com.alibaba.druid.support.jakarta.WebStatFilter;
 import com.x.base.core.project.config.CenterServer;
 import com.x.base.core.project.config.Config;
 import com.x.base.core.project.jaxrs.ApiAccessFilter;
@@ -25,22 +25,23 @@ import java.nio.file.Paths;
 import java.util.EnumSet;
 import java.util.Objects;
 import java.util.TimeZone;
-import javax.servlet.DispatcherType;
+import jakarta.servlet.DispatcherType;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.file.PathUtils;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
-import org.eclipse.jetty.quickstart.QuickStartWebApp;
 import org.eclipse.jetty.server.AsyncRequestLogWriter;
 import org.eclipse.jetty.server.RequestLog;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.HandlerList;
+import org.eclipse.jetty.server.Handler;
+import org.eclipse.jetty.server.Handler.Sequence;
 import org.eclipse.jetty.server.handler.gzip.GzipHandler;
-import org.eclipse.jetty.servlet.FilterHolder;
-import org.eclipse.jetty.servlet.ServletHolder;
+import org.eclipse.jetty.ee10.servlet.FilterHolder;
+import org.eclipse.jetty.ee10.servlet.ServletHolder;
+import org.eclipse.jetty.util.resource.ResourceFactory;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
-import org.eclipse.jetty.webapp.WebAppContext;
+import org.eclipse.jetty.ee10.webapp.WebAppContext;
 
 public class CenterServerTools extends JettySeverTools {
 
@@ -70,8 +71,8 @@ public class CenterServerTools extends JettySeverTools {
 	public static Server startInApplication(CenterServer centerServer) throws Exception {
 		WebAppContext webContext = webContext(centerServer);
 		GzipHandler gzipHandler = (GzipHandler) Servers.getApplicationServer().getHandler();
-		HandlerList hanlderList = (HandlerList) gzipHandler.getHandler();
-		hanlderList.addHandler(webContext);
+		Handler.Sequence handlerCollection = (Handler.Sequence) gzipHandler.getHandler();
+		handlerCollection.addHandler(webContext);
 		webContext.start();
 		LOGGER.print("****************************************");
 		LOGGER.print("* center server is started in the application server.");
@@ -81,9 +82,9 @@ public class CenterServerTools extends JettySeverTools {
 	}
 
 	private static Server startStandalone(CenterServer centerServer) throws Exception, IOException {
-		HandlerList handlers = new HandlerList();
+		Handler.Sequence handlers = new Handler.Sequence();
 
-		QuickStartWebApp webApp = webContext(centerServer);
+		WebAppContext webApp = webContext(centerServer);
 		handlers.addHandler(webApp);
 
 		QueuedThreadPool threadPool = new QueuedThreadPool();
@@ -121,14 +122,14 @@ public class CenterServerTools extends JettySeverTools {
 		return server;
 	}
 
-	public static QuickStartWebApp webContext(CenterServer centerServer) throws Exception {
+	public static WebAppContext webContext(CenterServer centerServer) throws Exception {
 		Path dir = Paths.get(Config.dir_servers_centerServer_work(true).toString(),
 				x_program_center.class.getSimpleName());
-		QuickStartWebApp webApp = new QuickStartWebApp();
-		webApp.setAutoPreconfigure(false);
+		WebAppContext webApp = new WebAppContext();
+		disableQuickStart(webApp);
 		webApp.setDisplayName(x_program_center.class.getSimpleName());
 		webApp.setContextPath("/" + x_program_center.class.getSimpleName());
-		webApp.setResourceBase(dir.toAbsolutePath().toString());
+		webApp.setBaseResource(ResourceFactory.of(webApp).newResource(dir.toAbsolutePath().toString()));
 		webApp.setDescriptor(dir.resolve(Paths.get(PathTools.WEB_INF_WEB_XML)).toString());
 		// 加载 ext 目录中的 jar包
 		Path ext = dir.resolve("WEB-INF").resolve("ext");
@@ -147,7 +148,7 @@ public class CenterServerTools extends JettySeverTools {
 		return webApp;
 	}
 
-	private static void setStat(CenterServer centerServer, QuickStartWebApp webApp) throws Exception {
+	private static void setStat(CenterServer centerServer, WebAppContext webApp) throws Exception {
 		if (BooleanUtils.isTrue(Config.general().getStatEnable())) {
 			FilterHolder statFilterHolder = new FilterHolder(new WebStatFilter());
 			statFilterHolder.setInitParameter("exclusions", Config.general().getStatExclusions());
@@ -158,7 +159,7 @@ public class CenterServerTools extends JettySeverTools {
 		}
 	}
 
-	private static void setExposeJest(QuickStartWebApp webApp) {
+	private static void setExposeJest(WebAppContext webApp) {
 		FilterHolder apiAccessFilterHolder = new FilterHolder(new ApiAccessFilter());
 		webApp.addFilter(apiAccessFilterHolder, "/jest/*", EnumSet.of(DispatcherType.REQUEST));
 		webApp.addFilter(apiAccessFilterHolder, "/describe/sources/*",

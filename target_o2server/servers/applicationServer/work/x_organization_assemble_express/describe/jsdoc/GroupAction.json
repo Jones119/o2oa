@@ -1,0 +1,854 @@
+{
+  "name": "GroupAction",
+  "className": "com.x.organization.assemble.express.jaxrs.group.GroupAction",
+  "description": "群组接口",
+  "methods": [
+    {
+      "name": "hasRole",
+      "className": "com.x.organization.assemble.express.jaxrs.group.ActionHasRole",
+      "description": "判断群组是否拥有指定角色中的一个或者多个",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "list",
+      "className": "com.x.organization.assemble.express.jaxrs.group.ActionList",
+      "description": "批量查询群组",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "groupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "群组识别名"
+        }
+      ]
+    },
+    {
+      "name": "listObject",
+      "className": "com.x.organization.assemble.express.jaxrs.group.ActionListObject",
+      "description": "批量查询群组对象",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组id"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组标识"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人成员"
+        },
+        {
+          "name": "groupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "群组成员"
+        },
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织成员"
+        },
+        {
+          "name": "identityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "身份成员"
+        },
+        {
+          "name": "subDirectGroupCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        },
+        {
+          "name": "subDirectPersonCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级用户数量"
+        },
+        {
+          "name": "subDirectIdentityCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级身份数量"
+        },
+        {
+          "name": "subDirectOrgCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        }
+      ]
+    },
+    {
+      "name": "listWithGroupSubDirect",
+      "className": "com.x.organization.assemble.express.jaxrs.group.ActionListWithGroupSubDirect",
+      "description": "查询群组的直接下级群组.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "groupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "群组识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithGroupSubDirectObject",
+      "className": "com.x.organization.assemble.express.jaxrs.group.ActionListWithGroupSubDirectObject",
+      "description": "查询群组的直接下级群组对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组id"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组标识"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人成员"
+        },
+        {
+          "name": "groupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "群组成员"
+        },
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织成员"
+        },
+        {
+          "name": "identityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "身份成员"
+        },
+        {
+          "name": "subDirectGroupCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        },
+        {
+          "name": "subDirectPersonCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级用户数量"
+        },
+        {
+          "name": "subDirectIdentityCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级身份数量"
+        },
+        {
+          "name": "subDirectOrgCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        }
+      ]
+    },
+    {
+      "name": "listWithGroupSubNested",
+      "className": "com.x.organization.assemble.express.jaxrs.group.ActionListWithGroupSubNested",
+      "description": "查询群组的嵌套下级群组.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "groupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "群组识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithGroupSubNestedObject",
+      "className": "com.x.organization.assemble.express.jaxrs.group.ActionListWithGroupSubNestedObject",
+      "description": "查询群组的嵌套下级群组对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组id"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组标识"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人成员"
+        },
+        {
+          "name": "groupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "群组成员"
+        },
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织成员"
+        },
+        {
+          "name": "identityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "身份成员"
+        },
+        {
+          "name": "subDirectGroupCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        },
+        {
+          "name": "subDirectPersonCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级用户数量"
+        },
+        {
+          "name": "subDirectIdentityCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级身份数量"
+        },
+        {
+          "name": "subDirectOrgCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        }
+      ]
+    },
+    {
+      "name": "listWithGroupSupDirect",
+      "className": "com.x.organization.assemble.express.jaxrs.group.ActionListWithGroupSupDirect",
+      "description": "批量查询群组的直接上级群组.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "groupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "群组识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithGroupSupDirectObject",
+      "className": "com.x.organization.assemble.express.jaxrs.group.ActionListWithGroupSupDirectObject",
+      "description": "批量查询群组的直接上级群组对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组id"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组标识"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人成员"
+        },
+        {
+          "name": "groupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "群组成员"
+        },
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织成员"
+        },
+        {
+          "name": "identityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "身份成员"
+        },
+        {
+          "name": "subDirectGroupCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        },
+        {
+          "name": "subDirectPersonCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级用户数量"
+        },
+        {
+          "name": "subDirectIdentityCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级身份数量"
+        },
+        {
+          "name": "subDirectOrgCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        }
+      ]
+    },
+    {
+      "name": "listWithGroupSupNested",
+      "className": "com.x.organization.assemble.express.jaxrs.group.ActionListWithGroupSupNested",
+      "description": "批量查询群组的嵌套上级群组.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "groupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "群组识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithGroupSupNestedObject",
+      "className": "com.x.organization.assemble.express.jaxrs.group.ActionListWithGroupSupNestedObject",
+      "description": "批量查询群组的嵌套上级群组对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组id"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组标识"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人成员"
+        },
+        {
+          "name": "groupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "群组成员"
+        },
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织成员"
+        },
+        {
+          "name": "identityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "身份成员"
+        },
+        {
+          "name": "subDirectGroupCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        },
+        {
+          "name": "subDirectPersonCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级用户数量"
+        },
+        {
+          "name": "subDirectIdentityCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级身份数量"
+        },
+        {
+          "name": "subDirectOrgCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        }
+      ]
+    },
+    {
+      "name": "listWithGroupTree",
+      "className": "com.x.organization.assemble.express.jaxrs.group.ActionListWithGroupTree",
+      "description": "批量查询群组的嵌套下级群组信息-树形模式.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "subDirectGroupCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        },
+        {
+          "name": "subDirectPersonCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级用户数量"
+        },
+        {
+          "name": "subDirectIdentityCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级身份数量"
+        },
+        {
+          "name": "subDirectOrgCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        },
+        {
+          "name": "subUnits",
+          "type": "List\u003cWoUnit\u003e",
+          "isCollection": true,
+          "description": "直接下级组织"
+        },
+        {
+          "name": "subGroups",
+          "type": "List\u003cWo\u003e",
+          "isCollection": true,
+          "description": "直接下级群组"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名."
+        }
+      ]
+    },
+    {
+      "name": "listWithIdentity",
+      "className": "com.x.organization.assemble.express.jaxrs.group.ActionListWithIdentity",
+      "description": "批量查询人员身份所在的群组.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "groupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "群组识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithIdentityObject",
+      "className": "com.x.organization.assemble.express.jaxrs.group.ActionListWithIdentityObject",
+      "description": "批量查询人员身份所在的群组对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组id"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组标识"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人成员"
+        },
+        {
+          "name": "groupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "群组成员"
+        },
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织成员"
+        },
+        {
+          "name": "identityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "身份成员"
+        },
+        {
+          "name": "subDirectGroupCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        },
+        {
+          "name": "subDirectPersonCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级用户数量"
+        },
+        {
+          "name": "subDirectIdentityCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级身份数量"
+        },
+        {
+          "name": "subDirectOrgCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        }
+      ]
+    },
+    {
+      "name": "listWithPerson",
+      "className": "com.x.organization.assemble.express.jaxrs.group.ActionListWithPerson",
+      "description": "批量查询人员所在的群组.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "groupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "群组识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithPersonObject",
+      "className": "com.x.organization.assemble.express.jaxrs.group.ActionListWithPersonObject",
+      "description": "批量查询人员所在的群组对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组id"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "群组标识"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人成员"
+        },
+        {
+          "name": "groupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "群组成员"
+        },
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织成员"
+        },
+        {
+          "name": "identityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "身份成员"
+        },
+        {
+          "name": "subDirectGroupCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        },
+        {
+          "name": "subDirectPersonCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级用户数量"
+        },
+        {
+          "name": "subDirectIdentityCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级身份数量"
+        },
+        {
+          "name": "subDirectOrgCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        }
+      ]
+    }
+  ]
+}

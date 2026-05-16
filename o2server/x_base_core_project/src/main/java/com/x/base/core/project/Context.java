@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.openjpa.enhance.PCRegistry;
@@ -151,12 +151,12 @@ public class Context extends AbstractContext {
 
 	public static Context concrete(ServletContextEvent servletContextEvent, boolean loadDynamicEntityClass,
 			ClassLoader classLoader) throws Exception {
-		// 强制忽略ssl服务器认证
 		SslTools.ignoreSsl();
 		ServletContext servletContext = servletContextEvent.getServletContext();
 		Context context = new Context();
 		context.contextPath = servletContext.getContextPath();
-		context.clazz = Thread.currentThread().getContextClassLoader()
+		ClassLoader tccl = Thread.currentThread().getContextClassLoader();
+		context.clazz = tccl
 				.loadClass(servletContext.getInitParameter(INITPARAMETER_PORJECT));
 		context.module = context.clazz.getAnnotation(Module.class);
 		context.name = context.module.name();

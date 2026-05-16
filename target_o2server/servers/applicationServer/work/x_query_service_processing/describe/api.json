@@ -1,0 +1,200 @@
+{
+  "jaxrs": [
+    {
+      "name": "CacheAction",
+      "methods": [
+        {
+          "name": "receive",
+          "uri": "jaxrs/cache",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "commonScriptFlush",
+          "uri": "jaxrs/cache/commonscript/flush",
+          "method": "GET"
+        },
+        {
+          "name": "configFlush",
+          "uri": "jaxrs/cache/config/flush",
+          "method": "GET"
+        },
+        {
+          "name": "detail",
+          "uri": "jaxrs/cache/detail",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "DesignAction",
+      "methods": [
+        {
+          "name": "search",
+          "uri": "jaxrs/design/search",
+          "method": "POST",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "EchoAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/echo",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "FireScheduleAction",
+      "methods": [
+        {
+          "name": "execute",
+          "uri": "jaxrs/fireschedule/classname/{className}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "IndexAction",
+      "methods": [
+        {
+          "name": "updateExtraDocument",
+          "uri": "jaxrs/index/update/extra/document",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "directoryDocumentCount",
+          "uri": "jaxrs/index/directory/document/count",
+          "method": "POST",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "NeuralAction",
+      "methods": [
+        {
+          "name": "generate",
+          "uri": "jaxrs/neural/generate/model/{modelFlag}",
+          "method": "GET"
+        },
+        {
+          "name": "learn",
+          "uri": "jaxrs/neural/learn/model/{modelFlag}",
+          "method": "GET"
+        },
+        {
+          "name": "stopLearning",
+          "uri": "jaxrs/neural/stop/learning/model/{modelFlag}",
+          "method": "GET"
+        },
+        {
+          "name": "listCalculateWithWork",
+          "uri": "jaxrs/neural/list/calculate/model/{modelFlag}/work/{workId}",
+          "method": "GET"
+        },
+        {
+          "name": "stopGenerating",
+          "uri": "jaxrs/neural/stop/generating/model/{modelFlag}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "TableAction",
+      "methods": [
+        {
+          "name": "insert",
+          "uri": "jaxrs/table/{flag}/insert",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateWithBundle",
+          "uri": "jaxrs/table/{flag}/update/{bundle}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "reloadDynamic",
+          "uri": "jaxrs/table/reload/dynamic",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "TouchAction",
+      "methods": [
+        {
+          "name": "highFreqWorkTouch",
+          "uri": "jaxrs/touch/high/freq/work/node/{node}/touch",
+          "method": "GET"
+        },
+        {
+          "name": "highFreqWorkCompletedTouch",
+          "uri": "jaxrs/touch/high/freq/workcompleted/node/{node}/touch",
+          "method": "GET"
+        },
+        {
+          "name": "highFreqWorkCompletedReset",
+          "uri": "jaxrs/touch/high/freq/workcompleted/node/{node}/reset",
+          "method": "GET"
+        },
+        {
+          "name": "lowFreqWorkCompletedReset",
+          "uri": "jaxrs/touch/low/freq/workcompleted/node/{node}/reset",
+          "method": "GET"
+        },
+        {
+          "name": "highFreqDocumentTouch",
+          "uri": "jaxrs/touch/high/freq/document/node/{node}/touch",
+          "method": "GET"
+        },
+        {
+          "name": "highFreqWorkReset",
+          "uri": "jaxrs/touch/high/freq/work/node/{node}/reset",
+          "method": "GET"
+        },
+        {
+          "name": "lowFreqDocumentTouch",
+          "uri": "jaxrs/touch/low/freq/document/node/{node}/touch",
+          "method": "GET"
+        },
+        {
+          "name": "lowFreqDocumentReset",
+          "uri": "jaxrs/touch/low/freq/document/node/{node}/reset",
+          "method": "GET"
+        },
+        {
+          "name": "lowFreqWorkCompletedTouch",
+          "uri": "jaxrs/touch/low/freq/workcompleted/node/{node}/touch",
+          "method": "GET"
+        },
+        {
+          "name": "lowFreqWorkTouch",
+          "uri": "jaxrs/touch/low/freq/work/node/{node}/touch",
+          "method": "GET"
+        },
+        {
+          "name": "lowFreqWorkReset",
+          "uri": "jaxrs/touch/low/freq/work/node/{node}/reset",
+          "method": "GET"
+        },
+        {
+          "name": "highFreqDocumentReset",
+          "uri": "jaxrs/touch/high/freq/document/node/{node}/reset",
+          "method": "GET"
+        },
+        {
+          "name": "optimizeIndex",
+          "uri": "jaxrs/touch/optimize/index/{node}/touch",
+          "method": "GET"
+        }
+      ]
+    }
+  ]
+}

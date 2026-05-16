@@ -1,0 +1,4509 @@
+{
+  "name": "CategoryInfoAction",
+  "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.CategoryInfoAction",
+  "description": "信息发布内容分类管理",
+  "methods": [
+    {
+      "name": "bindImportView",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionSaveImportView",
+      "description": "为分类绑定导入数据的列表ID.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "bindImportViewMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionSaveImportView",
+      "description": "为分类绑定导入数据的列表ID.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "delete",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionDelete",
+      "description": "根据ID删除信息分类信息对象.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteMockDeleteToGet",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionDelete",
+      "description": "根据ID删除信息分类信息对象.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "eraseWithCategory",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionEraseDocumentWithCategory",
+      "description": "根据分类ID删除所有的信息文档.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "eraseWithCategoryMockDeleteToGet",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionEraseDocumentWithCategory",
+      "description": "根据分类ID删除所有的信息文档.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "executeProjection",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionExecuteProjection",
+      "description": "执行指定分类所有文档数据映射.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "get",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionGet",
+      "description": "根据分类标识Flag获取分类信息对象.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "extContent",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展信息JSON内容"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类所属栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认文档类型：信息 | 数据"
+        },
+        {
+          "name": "parentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级分类ID"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名"
+        },
+        {
+          "name": "workflowType",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程类型：禁用审批流|自由审批流|固定审批流"
+        },
+        {
+          "name": "workflowAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用ID"
+        },
+        {
+          "name": "workflowAppName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用名称"
+        },
+        {
+          "name": "workflowName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "workflowFlag",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "formId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板ID"
+        },
+        {
+          "name": "formName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板名称"
+        },
+        {
+          "name": "readFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "readFormName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "defaultViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图ID"
+        },
+        {
+          "name": "defaultViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图名称"
+        },
+        {
+          "name": "categorySeq",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息排序号"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息说明"
+        },
+        {
+          "name": "categoryIcon",
+          "type": "String",
+          "isCollection": false,
+          "description": "图标icon Base64编码后的文本."
+        },
+        {
+          "name": "categoryMemo",
+          "type": "String",
+          "isCollection": false,
+          "description": "备注信息"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "allPeopleView",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "可见范围为所有人可见."
+        },
+        {
+          "name": "allPeoplePublish",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布范围栏目为所有人可发布."
+        },
+        {
+          "name": "importViewAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图栏目ID."
+        },
+        {
+          "name": "importViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图ID."
+        },
+        {
+          "name": "importViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图名称."
+        },
+        {
+          "name": "anonymousAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许匿名访问."
+        },
+        {
+          "name": "indexAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许全文检索."
+        },
+        {
+          "name": "sendNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布文档后是否通知阅读者：true | false"
+        },
+        {
+          "name": "blankToAllNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "文档发布范围为空时是否全员通知：true(默认)|false"
+        },
+        {
+          "name": "projection",
+          "type": "String",
+          "isCollection": false,
+          "description": "字段映射配置."
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见人员"
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见组织"
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见群组"
+        },
+        {
+          "name": "publishablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布人员"
+        },
+        {
+          "name": "publishableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布组织"
+        },
+        {
+          "name": "publishableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布群组"
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理人员"
+        },
+        {
+          "name": "manageableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理组织"
+        },
+        {
+          "name": "manageableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理群组"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "getByAlias",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionGet",
+      "description": "根据分类别名获取分类信息对象.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "extContent",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展信息JSON内容"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类所属栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认文档类型：信息 | 数据"
+        },
+        {
+          "name": "parentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级分类ID"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名"
+        },
+        {
+          "name": "workflowType",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程类型：禁用审批流|自由审批流|固定审批流"
+        },
+        {
+          "name": "workflowAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用ID"
+        },
+        {
+          "name": "workflowAppName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用名称"
+        },
+        {
+          "name": "workflowName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "workflowFlag",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "formId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板ID"
+        },
+        {
+          "name": "formName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板名称"
+        },
+        {
+          "name": "readFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "readFormName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "defaultViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图ID"
+        },
+        {
+          "name": "defaultViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图名称"
+        },
+        {
+          "name": "categorySeq",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息排序号"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息说明"
+        },
+        {
+          "name": "categoryIcon",
+          "type": "String",
+          "isCollection": false,
+          "description": "图标icon Base64编码后的文本."
+        },
+        {
+          "name": "categoryMemo",
+          "type": "String",
+          "isCollection": false,
+          "description": "备注信息"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "allPeopleView",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "可见范围为所有人可见."
+        },
+        {
+          "name": "allPeoplePublish",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布范围栏目为所有人可发布."
+        },
+        {
+          "name": "importViewAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图栏目ID."
+        },
+        {
+          "name": "importViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图ID."
+        },
+        {
+          "name": "importViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图名称."
+        },
+        {
+          "name": "anonymousAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许匿名访问."
+        },
+        {
+          "name": "indexAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许全文检索."
+        },
+        {
+          "name": "sendNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布文档后是否通知阅读者：true | false"
+        },
+        {
+          "name": "blankToAllNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "文档发布范围为空时是否全员通知：true(默认)|false"
+        },
+        {
+          "name": "projection",
+          "type": "String",
+          "isCollection": false,
+          "description": "字段映射配置."
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见人员"
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见组织"
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见群组"
+        },
+        {
+          "name": "publishablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布人员"
+        },
+        {
+          "name": "publishableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布组织"
+        },
+        {
+          "name": "publishableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布群组"
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理人员"
+        },
+        {
+          "name": "manageableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理组织"
+        },
+        {
+          "name": "manageableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理群组"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listAllCategoryInfo",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionListAll",
+      "description": "获取用户有权限访问信息的所有分类列表.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "extContent",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展信息JSON内容"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类所属栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认文档类型：信息 | 数据"
+        },
+        {
+          "name": "parentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级分类ID"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名"
+        },
+        {
+          "name": "workflowType",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程类型：禁用审批流|自由审批流|固定审批流"
+        },
+        {
+          "name": "workflowAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用ID"
+        },
+        {
+          "name": "workflowAppName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用名称"
+        },
+        {
+          "name": "workflowName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "workflowFlag",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "formId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板ID"
+        },
+        {
+          "name": "formName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板名称"
+        },
+        {
+          "name": "readFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "readFormName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "defaultViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图ID"
+        },
+        {
+          "name": "defaultViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图名称"
+        },
+        {
+          "name": "categorySeq",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息排序号"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息说明"
+        },
+        {
+          "name": "categoryIcon",
+          "type": "String",
+          "isCollection": false,
+          "description": "图标icon Base64编码后的文本."
+        },
+        {
+          "name": "categoryMemo",
+          "type": "String",
+          "isCollection": false,
+          "description": "备注信息"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "allPeopleView",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "可见范围为所有人可见."
+        },
+        {
+          "name": "allPeoplePublish",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布范围栏目为所有人可发布."
+        },
+        {
+          "name": "importViewAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图栏目ID."
+        },
+        {
+          "name": "importViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图ID."
+        },
+        {
+          "name": "importViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图名称."
+        },
+        {
+          "name": "anonymousAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许匿名访问."
+        },
+        {
+          "name": "indexAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许全文检索."
+        },
+        {
+          "name": "sendNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布文档后是否通知阅读者：true | false"
+        },
+        {
+          "name": "blankToAllNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "文档发布范围为空时是否全员通知：true(默认)|false"
+        },
+        {
+          "name": "projection",
+          "type": "String",
+          "isCollection": false,
+          "description": "字段映射配置."
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见人员"
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见组织"
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见群组"
+        },
+        {
+          "name": "publishablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布人员"
+        },
+        {
+          "name": "publishableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布组织"
+        },
+        {
+          "name": "publishableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布群组"
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理人员"
+        },
+        {
+          "name": "manageableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理组织"
+        },
+        {
+          "name": "manageableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理群组"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listManage",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionListManage",
+      "description": "获取当前用户可管理的列表.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类所属栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认文档类型：信息 | 数据"
+        },
+        {
+          "name": "parentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级分类ID"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名"
+        },
+        {
+          "name": "workflowType",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程类型：禁用审批流|自由审批流|固定审批流"
+        },
+        {
+          "name": "workflowAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用ID"
+        },
+        {
+          "name": "workflowAppName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用名称"
+        },
+        {
+          "name": "workflowName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "workflowFlag",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "formId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板ID"
+        },
+        {
+          "name": "formName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板名称"
+        },
+        {
+          "name": "readFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "readFormName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "defaultViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图ID"
+        },
+        {
+          "name": "defaultViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图名称"
+        },
+        {
+          "name": "categorySeq",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息排序号"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息说明"
+        },
+        {
+          "name": "categoryMemo",
+          "type": "String",
+          "isCollection": false,
+          "description": "备注信息"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "allPeopleView",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "可见范围为所有人可见."
+        },
+        {
+          "name": "allPeoplePublish",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布范围栏目为所有人可发布."
+        },
+        {
+          "name": "importViewAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图栏目ID."
+        },
+        {
+          "name": "importViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图ID."
+        },
+        {
+          "name": "importViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图名称."
+        },
+        {
+          "name": "anonymousAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许匿名访问."
+        },
+        {
+          "name": "indexAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许全文检索."
+        },
+        {
+          "name": "sendNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布文档后是否通知阅读者：true | false"
+        },
+        {
+          "name": "blankToAllNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "文档发布范围为空时是否全员通知：true(默认)|false"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listNextWithFilter",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionListNextWithFilter",
+      "description": "列示根据过滤条件的信息分类,下一页.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "extContent",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展信息JSON内容"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类所属栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认文档类型：信息 | 数据"
+        },
+        {
+          "name": "parentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级分类ID"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名"
+        },
+        {
+          "name": "workflowType",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程类型：禁用审批流|自由审批流|固定审批流"
+        },
+        {
+          "name": "workflowAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用ID"
+        },
+        {
+          "name": "workflowAppName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用名称"
+        },
+        {
+          "name": "workflowName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "workflowFlag",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "formId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板ID"
+        },
+        {
+          "name": "formName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板名称"
+        },
+        {
+          "name": "readFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "readFormName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "defaultViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图ID"
+        },
+        {
+          "name": "defaultViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图名称"
+        },
+        {
+          "name": "categorySeq",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息排序号"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息说明"
+        },
+        {
+          "name": "categoryIcon",
+          "type": "String",
+          "isCollection": false,
+          "description": "图标icon Base64编码后的文本."
+        },
+        {
+          "name": "categoryMemo",
+          "type": "String",
+          "isCollection": false,
+          "description": "备注信息"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "allPeopleView",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "可见范围为所有人可见."
+        },
+        {
+          "name": "allPeoplePublish",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布范围栏目为所有人可发布."
+        },
+        {
+          "name": "importViewAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图栏目ID."
+        },
+        {
+          "name": "importViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图ID."
+        },
+        {
+          "name": "importViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图名称."
+        },
+        {
+          "name": "anonymousAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许匿名访问."
+        },
+        {
+          "name": "indexAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许全文检索."
+        },
+        {
+          "name": "sendNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布文档后是否通知阅读者：true | false"
+        },
+        {
+          "name": "blankToAllNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "文档发布范围为空时是否全员通知：true(默认)|false"
+        },
+        {
+          "name": "projection",
+          "type": "String",
+          "isCollection": false,
+          "description": "字段映射配置."
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见人员"
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见组织"
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见群组"
+        },
+        {
+          "name": "publishablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布人员"
+        },
+        {
+          "name": "publishableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布组织"
+        },
+        {
+          "name": "publishableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布群组"
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理人员"
+        },
+        {
+          "name": "manageableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理组织"
+        },
+        {
+          "name": "manageableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理群组"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listNextWithFilterMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionListNextWithFilter",
+      "description": "列示根据过滤条件的信息分类,下一页.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "extContent",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展信息JSON内容"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类所属栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认文档类型：信息 | 数据"
+        },
+        {
+          "name": "parentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级分类ID"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名"
+        },
+        {
+          "name": "workflowType",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程类型：禁用审批流|自由审批流|固定审批流"
+        },
+        {
+          "name": "workflowAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用ID"
+        },
+        {
+          "name": "workflowAppName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用名称"
+        },
+        {
+          "name": "workflowName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "workflowFlag",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "formId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板ID"
+        },
+        {
+          "name": "formName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板名称"
+        },
+        {
+          "name": "readFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "readFormName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "defaultViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图ID"
+        },
+        {
+          "name": "defaultViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图名称"
+        },
+        {
+          "name": "categorySeq",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息排序号"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息说明"
+        },
+        {
+          "name": "categoryIcon",
+          "type": "String",
+          "isCollection": false,
+          "description": "图标icon Base64编码后的文本."
+        },
+        {
+          "name": "categoryMemo",
+          "type": "String",
+          "isCollection": false,
+          "description": "备注信息"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "allPeopleView",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "可见范围为所有人可见."
+        },
+        {
+          "name": "allPeoplePublish",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布范围栏目为所有人可发布."
+        },
+        {
+          "name": "importViewAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图栏目ID."
+        },
+        {
+          "name": "importViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图ID."
+        },
+        {
+          "name": "importViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图名称."
+        },
+        {
+          "name": "anonymousAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许匿名访问."
+        },
+        {
+          "name": "indexAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许全文检索."
+        },
+        {
+          "name": "sendNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布文档后是否通知阅读者：true | false"
+        },
+        {
+          "name": "blankToAllNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "文档发布范围为空时是否全员通知：true(默认)|false"
+        },
+        {
+          "name": "projection",
+          "type": "String",
+          "isCollection": false,
+          "description": "字段映射配置."
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见人员"
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见组织"
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见群组"
+        },
+        {
+          "name": "publishablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布人员"
+        },
+        {
+          "name": "publishableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布组织"
+        },
+        {
+          "name": "publishableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布群组"
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理人员"
+        },
+        {
+          "name": "manageableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理组织"
+        },
+        {
+          "name": "manageableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理群组"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listObjectsByIds",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionListWithIds",
+      "description": "根据分类 id 列表换取分类对象列表.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类所属栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认文档类型：信息 | 数据"
+        },
+        {
+          "name": "parentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级分类ID"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名"
+        },
+        {
+          "name": "workflowType",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程类型：禁用审批流|自由审批流|固定审批流"
+        },
+        {
+          "name": "workflowAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用ID"
+        },
+        {
+          "name": "workflowAppName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用名称"
+        },
+        {
+          "name": "workflowName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "workflowFlag",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "formId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板ID"
+        },
+        {
+          "name": "formName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板名称"
+        },
+        {
+          "name": "readFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "readFormName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "defaultViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图ID"
+        },
+        {
+          "name": "defaultViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图名称"
+        },
+        {
+          "name": "categorySeq",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息排序号"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息说明"
+        },
+        {
+          "name": "categoryIcon",
+          "type": "String",
+          "isCollection": false,
+          "description": "图标icon Base64编码后的文本."
+        },
+        {
+          "name": "categoryMemo",
+          "type": "String",
+          "isCollection": false,
+          "description": "备注信息"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "allPeopleView",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "可见范围为所有人可见."
+        },
+        {
+          "name": "allPeoplePublish",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布范围栏目为所有人可发布."
+        },
+        {
+          "name": "importViewAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图栏目ID."
+        },
+        {
+          "name": "importViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图ID."
+        },
+        {
+          "name": "importViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图名称."
+        },
+        {
+          "name": "anonymousAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许匿名访问."
+        },
+        {
+          "name": "indexAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许全文检索."
+        },
+        {
+          "name": "sendNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布文档后是否通知阅读者：true | false"
+        },
+        {
+          "name": "blankToAllNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "文档发布范围为空时是否全员通知：true(默认)|false"
+        },
+        {
+          "name": "projection",
+          "type": "String",
+          "isCollection": false,
+          "description": "字段映射配置."
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见人员"
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见组织"
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见群组"
+        },
+        {
+          "name": "publishablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布人员"
+        },
+        {
+          "name": "publishableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布组织"
+        },
+        {
+          "name": "publishableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布群组"
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理人员"
+        },
+        {
+          "name": "manageableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理组织"
+        },
+        {
+          "name": "manageableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理群组"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listPrevWithFilter",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionListPrevWithFilter",
+      "description": "列示根据过滤条件的信息分类,上一页.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "extContent",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展信息JSON内容"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类所属栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认文档类型：信息 | 数据"
+        },
+        {
+          "name": "parentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级分类ID"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名"
+        },
+        {
+          "name": "workflowType",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程类型：禁用审批流|自由审批流|固定审批流"
+        },
+        {
+          "name": "workflowAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用ID"
+        },
+        {
+          "name": "workflowAppName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用名称"
+        },
+        {
+          "name": "workflowName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "workflowFlag",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "formId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板ID"
+        },
+        {
+          "name": "formName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板名称"
+        },
+        {
+          "name": "readFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "readFormName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "defaultViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图ID"
+        },
+        {
+          "name": "defaultViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图名称"
+        },
+        {
+          "name": "categorySeq",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息排序号"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息说明"
+        },
+        {
+          "name": "categoryIcon",
+          "type": "String",
+          "isCollection": false,
+          "description": "图标icon Base64编码后的文本."
+        },
+        {
+          "name": "categoryMemo",
+          "type": "String",
+          "isCollection": false,
+          "description": "备注信息"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "allPeopleView",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "可见范围为所有人可见."
+        },
+        {
+          "name": "allPeoplePublish",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布范围栏目为所有人可发布."
+        },
+        {
+          "name": "importViewAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图栏目ID."
+        },
+        {
+          "name": "importViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图ID."
+        },
+        {
+          "name": "importViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图名称."
+        },
+        {
+          "name": "anonymousAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许匿名访问."
+        },
+        {
+          "name": "indexAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许全文检索."
+        },
+        {
+          "name": "sendNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布文档后是否通知阅读者：true | false"
+        },
+        {
+          "name": "blankToAllNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "文档发布范围为空时是否全员通知：true(默认)|false"
+        },
+        {
+          "name": "projection",
+          "type": "String",
+          "isCollection": false,
+          "description": "字段映射配置."
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见人员"
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见组织"
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见群组"
+        },
+        {
+          "name": "publishablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布人员"
+        },
+        {
+          "name": "publishableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布组织"
+        },
+        {
+          "name": "publishableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布群组"
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理人员"
+        },
+        {
+          "name": "manageableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理组织"
+        },
+        {
+          "name": "manageableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理群组"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listPrevWithFilterMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionListPrevWithFilter",
+      "description": "列示根据过滤条件的信息分类,上一页.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "extContent",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展信息JSON内容"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类所属栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认文档类型：信息 | 数据"
+        },
+        {
+          "name": "parentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级分类ID"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名"
+        },
+        {
+          "name": "workflowType",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程类型：禁用审批流|自由审批流|固定审批流"
+        },
+        {
+          "name": "workflowAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用ID"
+        },
+        {
+          "name": "workflowAppName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用名称"
+        },
+        {
+          "name": "workflowName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "workflowFlag",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "formId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板ID"
+        },
+        {
+          "name": "formName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板名称"
+        },
+        {
+          "name": "readFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "readFormName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "defaultViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图ID"
+        },
+        {
+          "name": "defaultViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图名称"
+        },
+        {
+          "name": "categorySeq",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息排序号"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息说明"
+        },
+        {
+          "name": "categoryIcon",
+          "type": "String",
+          "isCollection": false,
+          "description": "图标icon Base64编码后的文本."
+        },
+        {
+          "name": "categoryMemo",
+          "type": "String",
+          "isCollection": false,
+          "description": "备注信息"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "allPeopleView",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "可见范围为所有人可见."
+        },
+        {
+          "name": "allPeoplePublish",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布范围栏目为所有人可发布."
+        },
+        {
+          "name": "importViewAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图栏目ID."
+        },
+        {
+          "name": "importViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图ID."
+        },
+        {
+          "name": "importViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图名称."
+        },
+        {
+          "name": "anonymousAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许匿名访问."
+        },
+        {
+          "name": "indexAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许全文检索."
+        },
+        {
+          "name": "sendNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布文档后是否通知阅读者：true | false"
+        },
+        {
+          "name": "blankToAllNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "文档发布范围为空时是否全员通知：true(默认)|false"
+        },
+        {
+          "name": "projection",
+          "type": "String",
+          "isCollection": false,
+          "description": "字段映射配置."
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见人员"
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见组织"
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见群组"
+        },
+        {
+          "name": "publishablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布人员"
+        },
+        {
+          "name": "publishableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布组织"
+        },
+        {
+          "name": "publishableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布群组"
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理人员"
+        },
+        {
+          "name": "manageableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理组织"
+        },
+        {
+          "name": "manageableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理群组"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listPublishableCategoryInfo",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionListWhatICanPublish",
+      "description": "获取用户有权限发布信息的所有分类列表.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "extContent",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展信息JSON内容"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类所属栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认文档类型：信息 | 数据"
+        },
+        {
+          "name": "parentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级分类ID"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名"
+        },
+        {
+          "name": "workflowType",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程类型：禁用审批流|自由审批流|固定审批流"
+        },
+        {
+          "name": "workflowAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用ID"
+        },
+        {
+          "name": "workflowAppName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用名称"
+        },
+        {
+          "name": "workflowName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "workflowFlag",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "formId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板ID"
+        },
+        {
+          "name": "formName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板名称"
+        },
+        {
+          "name": "readFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "readFormName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "defaultViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图ID"
+        },
+        {
+          "name": "defaultViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图名称"
+        },
+        {
+          "name": "categorySeq",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息排序号"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息说明"
+        },
+        {
+          "name": "categoryIcon",
+          "type": "String",
+          "isCollection": false,
+          "description": "图标icon Base64编码后的文本."
+        },
+        {
+          "name": "categoryMemo",
+          "type": "String",
+          "isCollection": false,
+          "description": "备注信息"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "allPeopleView",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "可见范围为所有人可见."
+        },
+        {
+          "name": "allPeoplePublish",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布范围栏目为所有人可发布."
+        },
+        {
+          "name": "importViewAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图栏目ID."
+        },
+        {
+          "name": "importViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图ID."
+        },
+        {
+          "name": "importViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图名称."
+        },
+        {
+          "name": "anonymousAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许匿名访问."
+        },
+        {
+          "name": "indexAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许全文检索."
+        },
+        {
+          "name": "sendNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布文档后是否通知阅读者：true | false"
+        },
+        {
+          "name": "blankToAllNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "文档发布范围为空时是否全员通知：true(默认)|false"
+        },
+        {
+          "name": "projection",
+          "type": "String",
+          "isCollection": false,
+          "description": "字段映射配置."
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见人员"
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见组织"
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见群组"
+        },
+        {
+          "name": "publishablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布人员"
+        },
+        {
+          "name": "publishableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布组织"
+        },
+        {
+          "name": "publishableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布群组"
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理人员"
+        },
+        {
+          "name": "manageableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理组织"
+        },
+        {
+          "name": "manageableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理群组"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listViewableCategoryInfo_AllType",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionListWhatICanView_AllType",
+      "description": "获取用户有查看访问信息的所有分类列表.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "extContent",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展信息JSON内容"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类所属栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认文档类型：信息 | 数据"
+        },
+        {
+          "name": "parentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级分类ID"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名"
+        },
+        {
+          "name": "workflowType",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程类型：禁用审批流|自由审批流|固定审批流"
+        },
+        {
+          "name": "workflowAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用ID"
+        },
+        {
+          "name": "workflowAppName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用名称"
+        },
+        {
+          "name": "workflowName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "workflowFlag",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "formId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板ID"
+        },
+        {
+          "name": "formName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板名称"
+        },
+        {
+          "name": "readFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "readFormName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "defaultViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图ID"
+        },
+        {
+          "name": "defaultViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图名称"
+        },
+        {
+          "name": "categorySeq",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息排序号"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息说明"
+        },
+        {
+          "name": "categoryIcon",
+          "type": "String",
+          "isCollection": false,
+          "description": "图标icon Base64编码后的文本."
+        },
+        {
+          "name": "categoryMemo",
+          "type": "String",
+          "isCollection": false,
+          "description": "备注信息"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "allPeopleView",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "可见范围为所有人可见."
+        },
+        {
+          "name": "allPeoplePublish",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布范围栏目为所有人可发布."
+        },
+        {
+          "name": "importViewAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图栏目ID."
+        },
+        {
+          "name": "importViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图ID."
+        },
+        {
+          "name": "importViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图名称."
+        },
+        {
+          "name": "anonymousAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许匿名访问."
+        },
+        {
+          "name": "indexAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许全文检索."
+        },
+        {
+          "name": "sendNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布文档后是否通知阅读者：true | false"
+        },
+        {
+          "name": "blankToAllNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "文档发布范围为空时是否全员通知：true(默认)|false"
+        },
+        {
+          "name": "projection",
+          "type": "String",
+          "isCollection": false,
+          "description": "字段映射配置."
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见人员"
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见组织"
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见群组"
+        },
+        {
+          "name": "publishablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布人员"
+        },
+        {
+          "name": "publishableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布组织"
+        },
+        {
+          "name": "publishableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布群组"
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理人员"
+        },
+        {
+          "name": "manageableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理组织"
+        },
+        {
+          "name": "manageableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理群组"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listViewableCategoryInfo_Article",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionListWhatICanView_Article",
+      "description": "获取用户有查看访问文章信息的所有分类列表.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "extContent",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展信息JSON内容"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类所属栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认文档类型：信息 | 数据"
+        },
+        {
+          "name": "parentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级分类ID"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名"
+        },
+        {
+          "name": "workflowType",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程类型：禁用审批流|自由审批流|固定审批流"
+        },
+        {
+          "name": "workflowAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用ID"
+        },
+        {
+          "name": "workflowAppName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用名称"
+        },
+        {
+          "name": "workflowName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "workflowFlag",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "formId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板ID"
+        },
+        {
+          "name": "formName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板名称"
+        },
+        {
+          "name": "readFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "readFormName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "defaultViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图ID"
+        },
+        {
+          "name": "defaultViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图名称"
+        },
+        {
+          "name": "categorySeq",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息排序号"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息说明"
+        },
+        {
+          "name": "categoryIcon",
+          "type": "String",
+          "isCollection": false,
+          "description": "图标icon Base64编码后的文本."
+        },
+        {
+          "name": "categoryMemo",
+          "type": "String",
+          "isCollection": false,
+          "description": "备注信息"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "allPeopleView",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "可见范围为所有人可见."
+        },
+        {
+          "name": "allPeoplePublish",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布范围栏目为所有人可发布."
+        },
+        {
+          "name": "importViewAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图栏目ID."
+        },
+        {
+          "name": "importViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图ID."
+        },
+        {
+          "name": "importViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图名称."
+        },
+        {
+          "name": "anonymousAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许匿名访问."
+        },
+        {
+          "name": "indexAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许全文检索."
+        },
+        {
+          "name": "sendNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布文档后是否通知阅读者：true | false"
+        },
+        {
+          "name": "blankToAllNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "文档发布范围为空时是否全员通知：true(默认)|false"
+        },
+        {
+          "name": "projection",
+          "type": "String",
+          "isCollection": false,
+          "description": "字段映射配置."
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见人员"
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见组织"
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见群组"
+        },
+        {
+          "name": "publishablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布人员"
+        },
+        {
+          "name": "publishableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布组织"
+        },
+        {
+          "name": "publishableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布群组"
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理人员"
+        },
+        {
+          "name": "manageableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理组织"
+        },
+        {
+          "name": "manageableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理群组"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listViewableCategoryInfo_Data",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionListWhatICanView_Data",
+      "description": "获取用户有查看访问数据信息的所有分类列表.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "extContent",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展信息JSON内容"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类所属栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认文档类型：信息 | 数据"
+        },
+        {
+          "name": "parentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级分类ID"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名"
+        },
+        {
+          "name": "workflowType",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程类型：禁用审批流|自由审批流|固定审批流"
+        },
+        {
+          "name": "workflowAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用ID"
+        },
+        {
+          "name": "workflowAppName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用名称"
+        },
+        {
+          "name": "workflowName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "workflowFlag",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "formId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板ID"
+        },
+        {
+          "name": "formName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板名称"
+        },
+        {
+          "name": "readFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "readFormName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "defaultViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图ID"
+        },
+        {
+          "name": "defaultViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图名称"
+        },
+        {
+          "name": "categorySeq",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息排序号"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息说明"
+        },
+        {
+          "name": "categoryIcon",
+          "type": "String",
+          "isCollection": false,
+          "description": "图标icon Base64编码后的文本."
+        },
+        {
+          "name": "categoryMemo",
+          "type": "String",
+          "isCollection": false,
+          "description": "备注信息"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "allPeopleView",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "可见范围为所有人可见."
+        },
+        {
+          "name": "allPeoplePublish",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布范围栏目为所有人可发布."
+        },
+        {
+          "name": "importViewAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图栏目ID."
+        },
+        {
+          "name": "importViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图ID."
+        },
+        {
+          "name": "importViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图名称."
+        },
+        {
+          "name": "anonymousAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许匿名访问."
+        },
+        {
+          "name": "indexAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许全文检索."
+        },
+        {
+          "name": "sendNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布文档后是否通知阅读者：true | false"
+        },
+        {
+          "name": "blankToAllNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "文档发布范围为空时是否全员通知：true(默认)|false"
+        },
+        {
+          "name": "projection",
+          "type": "String",
+          "isCollection": false,
+          "description": "字段映射配置."
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见人员"
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见组织"
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见群组"
+        },
+        {
+          "name": "publishablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布人员"
+        },
+        {
+          "name": "publishableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布组织"
+        },
+        {
+          "name": "publishableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布群组"
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理人员"
+        },
+        {
+          "name": "manageableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理组织"
+        },
+        {
+          "name": "manageableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理群组"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "query_getControl",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionQueryGetControl",
+      "description": "获取分类访问控制信息.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "query_listWithFilterPaging",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionQueryListWithFilterPaging",
+      "description": "分页查询符合过滤条件的分类列表.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "extContent",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展信息JSON内容"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类所属栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认文档类型：信息 | 数据"
+        },
+        {
+          "name": "parentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级分类ID"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名"
+        },
+        {
+          "name": "workflowType",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程类型：禁用审批流|自由审批流|固定审批流"
+        },
+        {
+          "name": "workflowAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用ID"
+        },
+        {
+          "name": "workflowAppName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用名称"
+        },
+        {
+          "name": "workflowName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "workflowFlag",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "formId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板ID"
+        },
+        {
+          "name": "formName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板名称"
+        },
+        {
+          "name": "readFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "readFormName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "defaultViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图ID"
+        },
+        {
+          "name": "defaultViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图名称"
+        },
+        {
+          "name": "categorySeq",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息排序号"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息说明"
+        },
+        {
+          "name": "categoryIcon",
+          "type": "String",
+          "isCollection": false,
+          "description": "图标icon Base64编码后的文本."
+        },
+        {
+          "name": "categoryMemo",
+          "type": "String",
+          "isCollection": false,
+          "description": "备注信息"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "allPeopleView",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "可见范围为所有人可见."
+        },
+        {
+          "name": "allPeoplePublish",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布范围栏目为所有人可发布."
+        },
+        {
+          "name": "importViewAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图栏目ID."
+        },
+        {
+          "name": "importViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图ID."
+        },
+        {
+          "name": "importViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图名称."
+        },
+        {
+          "name": "anonymousAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许匿名访问."
+        },
+        {
+          "name": "indexAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许全文检索."
+        },
+        {
+          "name": "sendNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布文档后是否通知阅读者：true | false"
+        },
+        {
+          "name": "blankToAllNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "文档发布范围为空时是否全员通知：true(默认)|false"
+        },
+        {
+          "name": "projection",
+          "type": "String",
+          "isCollection": false,
+          "description": "字段映射配置."
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见人员"
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见组织"
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见群组"
+        },
+        {
+          "name": "publishablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布人员"
+        },
+        {
+          "name": "publishableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布组织"
+        },
+        {
+          "name": "publishableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布群组"
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理人员"
+        },
+        {
+          "name": "manageableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理组织"
+        },
+        {
+          "name": "manageableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理群组"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "query_listWithFilterPagingMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionQueryListWithFilterPaging",
+      "description": "分页查询符合过滤条件的分类列表.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "extContent",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展信息JSON内容"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类所属栏目ID"
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称"
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认文档类型：信息 | 数据"
+        },
+        {
+          "name": "parentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级分类ID"
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名"
+        },
+        {
+          "name": "workflowType",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程类型：禁用审批流|自由审批流|固定审批流"
+        },
+        {
+          "name": "workflowAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用ID"
+        },
+        {
+          "name": "workflowAppName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程应用名称"
+        },
+        {
+          "name": "workflowName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "workflowFlag",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "formId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板ID"
+        },
+        {
+          "name": "formName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的编辑表单模板名称"
+        },
+        {
+          "name": "readFormId",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板ID"
+        },
+        {
+          "name": "readFormName",
+          "type": "String",
+          "isCollection": false,
+          "description": "绑定的阅读表单模板名称"
+        },
+        {
+          "name": "defaultViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图ID"
+        },
+        {
+          "name": "defaultViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "默认视图名称"
+        },
+        {
+          "name": "categorySeq",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息排序号"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类信息说明"
+        },
+        {
+          "name": "categoryIcon",
+          "type": "String",
+          "isCollection": false,
+          "description": "图标icon Base64编码后的文本."
+        },
+        {
+          "name": "categoryMemo",
+          "type": "String",
+          "isCollection": false,
+          "description": "备注信息"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "allPeopleView",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "可见范围为所有人可见."
+        },
+        {
+          "name": "allPeoplePublish",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布范围栏目为所有人可发布."
+        },
+        {
+          "name": "importViewAppId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图栏目ID."
+        },
+        {
+          "name": "importViewId",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图ID."
+        },
+        {
+          "name": "importViewName",
+          "type": "String",
+          "isCollection": false,
+          "description": "是数据导入绑定的数据视图名称."
+        },
+        {
+          "name": "anonymousAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许匿名访问."
+        },
+        {
+          "name": "indexAble",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否允许全文检索."
+        },
+        {
+          "name": "sendNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "发布文档后是否通知阅读者：true | false"
+        },
+        {
+          "name": "blankToAllNotify",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "文档发布范围为空时是否全员通知：true(默认)|false"
+        },
+        {
+          "name": "projection",
+          "type": "String",
+          "isCollection": false,
+          "description": "字段映射配置."
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见人员"
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见组织"
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "发布可见群组"
+        },
+        {
+          "name": "publishablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布人员"
+        },
+        {
+          "name": "publishableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布组织"
+        },
+        {
+          "name": "publishableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可发布群组"
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理人员"
+        },
+        {
+          "name": "manageableUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理组织"
+        },
+        {
+          "name": "manageableGroupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "分类可管理群组"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "save",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionSave",
+      "description": "创建或者更新信息分类信息对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "saveExtContent",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionSaveExtContent",
+      "description": "创建或者更新分类扩展信息对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updatePermission",
+      "className": "com.x.cms.assemble.control.jaxrs.categoryinfo.ActionEditPermission",
+      "description": "设置分类权限.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    }
+  ]
+}

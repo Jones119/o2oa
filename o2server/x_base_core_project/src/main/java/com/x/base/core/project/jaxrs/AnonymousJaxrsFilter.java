@@ -1,14 +1,15 @@
 package com.x.base.core.project.jaxrs;
 
 import java.io.IOException;
+import java.lang.ScopedValue;
 
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.FilterConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import com.x.base.core.project.config.Config;
 import com.x.base.core.project.http.EffectivePerson;
@@ -37,7 +38,13 @@ public abstract class AnonymousJaxrsFilter extends TokenFilter {
 					response.setHeader("Content-Type", "application/json;charset=UTF-8");
 					response.getWriter().write(FilterTools.APPLICATION_NOT_ANONYMOUS_JSON);
 				} else {
-					chain.doFilter(request, response);
+					ScopedValue.where(EffectivePerson.SCOPED, effectivePerson).run(() -> {
+						try {
+							chain.doFilter(request, response);
+						} catch (ServletException | IOException e) {
+							throw new RuntimeException(e);
+						}
+					});
 				}
 			} else {
 				options(request,response);

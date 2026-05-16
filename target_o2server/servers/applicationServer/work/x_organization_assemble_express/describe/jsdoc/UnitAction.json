@@ -1,0 +1,2360 @@
+{
+  "name": "UnitAction",
+  "className": "com.x.organization.assemble.express.jaxrs.unit.UnitAction",
+  "description": "组织接口",
+  "methods": [
+    {
+      "name": "checkHasIdentity",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionHasIdentity",
+      "description": "校验身份是否是指定组织的成员.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "checkHasPerson",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionHasPerson",
+      "description": "校验用户是否在指定组织中注册身份.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "checkHasUnit",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionHasUnit",
+      "description": "校验组织是否包含指定组织.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "getWithIdentityWithLevel",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionGetWithIdentityWithLevel",
+      "description": "查询身份所在的组织,并往上递归,找到指定等级的组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织识别名"
+        }
+      ]
+    },
+    {
+      "name": "getWithIdentityWithLevelObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionGetWithIdentityWithLevelObject",
+      "description": "查询身份所在的组织,并往上递归,找到指定等级的组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "简称"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织层次"
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层次名"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink Id"
+        },
+        {
+          "name": "controllerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织管理员"
+        }
+      ]
+    },
+    {
+      "name": "getWithIdentityWithType",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionGetWithIdentityWithType",
+      "description": "查询身份所在的组织,并往上递归,找到有指定组织属性的组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织识别名"
+        }
+      ]
+    },
+    {
+      "name": "getWithIdentityWithTypeObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionGetWithIdentityWithTypeObject",
+      "description": "查询身份所在的组织,并往上递归,找到有指定组织属性的组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "简称"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织层次"
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层次名"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink Id"
+        },
+        {
+          "name": "controllerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织管理员"
+        }
+      ]
+    },
+    {
+      "name": "list",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionList",
+      "description": "批量查询组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织识别名"
+        }
+      ]
+    },
+    {
+      "name": "listAll",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListAll",
+      "description": "查询所有组织.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织识别名"
+        }
+      ]
+    },
+    {
+      "name": "listAllObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListAllObject",
+      "description": "查询所有组织对象.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "简称"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织层次"
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层次名"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink Id"
+        },
+        {
+          "name": "controllerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织管理员"
+        }
+      ]
+    },
+    {
+      "name": "listObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListObject",
+      "description": "批量查询组织对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "subDirectUnitCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        },
+        {
+          "name": "subDirectIdentityCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级身份数量"
+        },
+        {
+          "name": "subDirectDutyCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级职务数量"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "名称,可以重名."
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识,不可重复,为空则使用自动填充值"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名.以@U结尾."
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型."
+        },
+        {
+          "name": "pinyin",
+          "type": "String",
+          "isCollection": false,
+          "description": "name拼音,自动生成"
+        },
+        {
+          "name": "pinyinInitial",
+          "type": "String",
+          "isCollection": false,
+          "description": "name拼音首字母,自动生成"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "描述."
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织简称。"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织级别,1为最上层组织.自动计算."
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "显示的层级名."
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号,使用/进行分割.将逐级unit中的orderNumber的Integer值扩充到在Organization配置中指定位数的文本值,前填充0"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织."
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉部门ID."
+        },
+        {
+          "name": "dingdingHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉部门哈希特征."
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "WeLink部门ID."
+        },
+        {
+          "name": "weLinkHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "WeLink部门哈希特征."
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信人员ID."
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉人员ID."
+        },
+        {
+          "name": "andFxId",
+          "type": "String",
+          "isCollection": false,
+          "description": "移动办公组织ID."
+        },
+        {
+          "name": "zhengwuDingdingHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉人员哈希特征."
+        },
+        {
+          "name": "qiyeweixinHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信人员哈希特征."
+        },
+        {
+          "name": "andFxHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "移动办公组织哈希特征."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listWithIdentity",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithIdentity",
+      "description": "批量查询身份所在的组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithIdentityObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithIdentityObject",
+      "description": "批量查询身份所在的组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "简称"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织层次"
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层次名"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink Id"
+        },
+        {
+          "name": "controllerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织管理员"
+        }
+      ]
+    },
+    {
+      "name": "listWithIdentitySupNested",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithIdentitySupNested",
+      "description": "批量查询身份所在的组织,并递归查找其上级组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithIdentitySupNestedObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithIdentitySupNestedObject",
+      "description": "批量查询身份所在的组织,并递归查找其上级组织对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "简称"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织层次"
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层次名"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink Id"
+        },
+        {
+          "name": "controllerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织管理员"
+        }
+      ]
+    },
+    {
+      "name": "listWithLevel",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithLevel",
+      "description": "批量查询指定组织层级的组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithLevelNameObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithLevelNameObject",
+      "description": "批量查询指定组织层级名称的组织对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "subDirectUnitCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        },
+        {
+          "name": "subDirectIdentityCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级身份数量"
+        },
+        {
+          "name": "subDirectDutyCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级职务数量"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "名称,可以重名."
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识,不可重复,为空则使用自动填充值"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名.以@U结尾."
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型."
+        },
+        {
+          "name": "pinyin",
+          "type": "String",
+          "isCollection": false,
+          "description": "name拼音,自动生成"
+        },
+        {
+          "name": "pinyinInitial",
+          "type": "String",
+          "isCollection": false,
+          "description": "name拼音首字母,自动生成"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "描述."
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织简称。"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织级别,1为最上层组织.自动计算."
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "显示的层级名."
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号,使用/进行分割.将逐级unit中的orderNumber的Integer值扩充到在Organization配置中指定位数的文本值,前填充0"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织."
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉部门ID."
+        },
+        {
+          "name": "dingdingHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉部门哈希特征."
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "WeLink部门ID."
+        },
+        {
+          "name": "weLinkHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "WeLink部门哈希特征."
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信人员ID."
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉人员ID."
+        },
+        {
+          "name": "andFxId",
+          "type": "String",
+          "isCollection": false,
+          "description": "移动办公组织ID."
+        },
+        {
+          "name": "zhengwuDingdingHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉人员哈希特征."
+        },
+        {
+          "name": "qiyeweixinHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信人员哈希特征."
+        },
+        {
+          "name": "andFxHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "移动办公组织哈希特征."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listWithLevelObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithLevelObject",
+      "description": "批量查询指定组织层级的组织对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "简称"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织层次"
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层次名"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink Id"
+        },
+        {
+          "name": "controllerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织管理员"
+        }
+      ]
+    },
+    {
+      "name": "listWithPerson",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithPerson",
+      "description": "批量查询个人所在的组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithPersonObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithPersonObject",
+      "description": "批量查询个人所在的组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "简称"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织层次"
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层次名"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink Id"
+        },
+        {
+          "name": "controllerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织管理员"
+        }
+      ]
+    },
+    {
+      "name": "listWithPersonSupNested",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithPersonSupNested",
+      "description": "批量查询个人所在的组织,并递归查找其上级组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithPersonSupNestedObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithPersonSupNestedObject",
+      "description": "批量查询个人所在的组织,并递归查找其上级组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "简称"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织层次"
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层次名"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink Id"
+        },
+        {
+          "name": "controllerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织管理员"
+        }
+      ]
+    },
+    {
+      "name": "listWithTypeObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithTypeObject",
+      "description": "查询指定组织类型的组织对象.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "简称"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织层次"
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层次名"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink Id"
+        },
+        {
+          "name": "controllerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织管理员"
+        }
+      ]
+    },
+    {
+      "name": "listWithTypes",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithTypes",
+      "description": "批量查询指定组织类型的组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithTypesObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithTypesObject",
+      "description": "批量查询指定组织类型的组织对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "简称"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织层次"
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层次名"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink Id"
+        },
+        {
+          "name": "controllerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织管理员"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitAttribute",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithUnitAttribute",
+      "description": "根据组织属性批量查询组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitAttributeObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithUnitAttributeObject",
+      "description": "根据组织属性批量查询组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "简称"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织层次"
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层次名"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink Id"
+        },
+        {
+          "name": "controllerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织管理员"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitDuty",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithUnitDuty",
+      "description": "根据组织职务批量查询组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitDutyObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithUnitDutyObject",
+      "description": "根据组织职务批量查询组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "简称"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织层次"
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层次名"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink Id"
+        },
+        {
+          "name": "controllerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织管理员"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSubDirect",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithUnitSubDirect",
+      "description": "批量查询组织的直接下级组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSubDirectObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithUnitSubDirectObject",
+      "description": "批量查询组织的直接下级组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "subDirectUnitCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        },
+        {
+          "name": "subDirectIdentityCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级身份数量"
+        },
+        {
+          "name": "subDirectDutyCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级职务数量"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "简称"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织层次"
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层次名"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink Id"
+        },
+        {
+          "name": "controllerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织管理员"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSubNested",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithUnitSubNested",
+      "description": "批量查询组织的嵌套下级组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSubNestedObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithUnitSubNestedObject",
+      "description": "批量查询组织的嵌套下级组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "简称"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织层次"
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层次名"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink Id"
+        },
+        {
+          "name": "controllerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织管理员"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSupDirect",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithUnitSupDirect",
+      "description": "批量查询组织的直接上级组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSupDirectObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithUnitSupDirectObject",
+      "description": "批量查询组织的直接上级组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "简称"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织层次"
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层次名"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink Id"
+        },
+        {
+          "name": "controllerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织管理员"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSupNested",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithUnitSupNested",
+      "description": "批量查询组织的嵌套上级组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSupNestedObject",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithUnitSupNestedObject",
+      "description": "批量查询组织的嵌套上级组织.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "typeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织类型"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "shortName",
+          "type": "String",
+          "isCollection": false,
+          "description": "简称"
+        },
+        {
+          "name": "level",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织层次"
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层次名"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "上级组织"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "levelOrderNumber",
+          "type": "String",
+          "isCollection": false,
+          "description": "层级排序号"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink Id"
+        },
+        {
+          "name": "controllerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织管理员"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitTree",
+      "className": "com.x.organization.assemble.express.jaxrs.unit.ActionListWithUnitTree",
+      "description": "批量查询组织的嵌套下级组织信息-树形模式.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "subDirectUnitCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级身份成员数量"
+        },
+        {
+          "name": "subDirectIdentityCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级组织数量"
+        },
+        {
+          "name": "subDirectDutyCount",
+          "type": "Long",
+          "isCollection": false,
+          "description": "直接下级职务数量"
+        },
+        {
+          "name": "subUnits",
+          "type": "List\u003cWo\u003e",
+          "isCollection": true,
+          "description": "直接下级组织"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名.以@U结尾."
+        },
+        {
+          "name": "levelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "显示的层级名."
+        }
+      ]
+    }
+  ]
+}

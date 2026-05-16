@@ -60,19 +60,27 @@ public class Affine implements Layer {
 
 	public Affine(String name, int input, int output, Optimizer ow, Optimizer ob) {
 		this(name, input, output);
-		if (ow instanceof StochasticGradientDescent) {
-			this.owStochasticGradientDescent = (StochasticGradientDescent) ow;
-			this.owAdam = null;
-		} else if (ow instanceof Adam) {
-			this.owStochasticGradientDescent = null;
-			this.owAdam = (Adam) ow;
+		switch (ow) {
+			case StochasticGradientDescent sgd -> {
+				this.owStochasticGradientDescent = sgd;
+				this.owAdam = null;
+			}
+			case Adam adam -> {
+				this.owStochasticGradientDescent = null;
+				this.owAdam = adam;
+			}
+			default -> {}
 		}
-		if (ob instanceof StochasticGradientDescent) {
-			this.obStochasticGradientDescent = (StochasticGradientDescent) ob;
-			this.obAdam = null;
-		} else if (ob instanceof Adam) {
-			this.obStochasticGradientDescent = null;
-			this.obAdam = (Adam) ob;
+		switch (ob) {
+			case StochasticGradientDescent sgd -> {
+				this.obStochasticGradientDescent = sgd;
+				this.obAdam = null;
+			}
+			case Adam adam -> {
+				this.obStochasticGradientDescent = null;
+				this.obAdam = adam;
+			}
+			default -> {}
 		}
 	}
 

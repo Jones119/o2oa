@@ -1,52 +1,39 @@
 package com.x.base.core.project.bean;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class ValueCountPair {
+public record ValueCountPair(Object value, Long count) implements Serializable {
 
-	private Object value;
+    public ValueCountPair {
+    }
 
-	private Long count;
+    public ValueCountPair() {
+        this(null, null);
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((count == null) ? 0 : count.hashCode());
-		result = prime * result + ((value == null) ? 0 : value.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((count == null) ? 0 : count.hashCode());
+        result = prime * result + ((value == null) ? 0 : value.hashCode());
+        return result;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		ValueCountPair other = (ValueCountPair) obj;
-		return (Objects.equals(this.getCount(), other.getCount()))
-				&& (Objects.equals(this.getValue(), other.getValue()));
-	}
-
-	public Object getValue() {
-		return value;
-	}
-
-	public void setValue(Object value) {
-		this.value = value;
-	}
-
-	public Long getCount() {
-		return count;
-	}
-
-	public void setCount(Long count) {
-		this.count = count;
-	}
-
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        ValueCountPair other = (ValueCountPair) obj;
+        return (Objects.equals(this.count, other.count))
+                && (Objects.equals(this.value, other.value));
+    }
 }

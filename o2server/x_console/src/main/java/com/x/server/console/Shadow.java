@@ -23,7 +23,7 @@ public class Shadow {
 		if (!logFile.exists()) {
 			LOGGER.print("can not find log file,server not running.");
 		} else {
-			new Thread(() -> {
+			Thread.ofVirtual().name(Shadow.class.getName()).start(() -> {
 				LOGGER.print("console start, type close to exit console.");
 				try (RandomAccessFile randomFile = new RandomAccessFile(logFile, "r")) {
 					randomFile.seek(randomFile.length());
@@ -37,9 +37,9 @@ public class Shadow {
 						sleep();
 					}
 				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}, Shadow.class.getName()).start();
+				e.printStackTrace();
+			}
+		});
 			readCommand();
 		}
 	}

@@ -1,0 +1,1069 @@
+{
+  "tables": [
+    {
+      "moduleName": "Calendar",
+      "tableName": "CAL_CALENDAR",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "日历名称"
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "日历类别: PERSON | UNIT"
+        },
+        {
+          "name": "xtarget",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "人员标识或者组织标识"
+        },
+        {
+          "name": "xcolor",
+          "type": "VARCHAR",
+          "length": "8",
+          "remark": "显示颜色"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "备注70个字"
+        },
+        {
+          "name": "xsource",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "信息来源: LEADER | PERSON | UNIT | MEETING | BUSINESS_TRIP | HOLIDAY"
+        },
+        {
+          "name": "xcreateor",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建者"
+        },
+        {
+          "name": "xisPublic",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否公开的日历"
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可管理人员列表",
+          "containerTableProperty": {
+            "name": "CAL_CALENDAR_manageablePersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xmanageablePersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "followers",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "关注者列表",
+          "containerTableProperty": {
+            "name": "CAL_CALENDAR_followers",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xfollowers",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可见人员列表",
+          "containerTableProperty": {
+            "name": "CAL_CALENDAR_viewablePersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xviewablePersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可见组织列表",
+          "containerTableProperty": {
+            "name": "CAL_CALENDAR_viewableUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xviewableUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可见群组列表",
+          "containerTableProperty": {
+            "name": "CAL_CALENDAR_viewableGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xviewableGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "publishablePersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可发布人员列表",
+          "containerTableProperty": {
+            "name": "CAL_CALENDAR_publishablePersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xpublishablePersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "publishableUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可发布组织列表",
+          "containerTableProperty": {
+            "name": "CAL_CALENDAR_publishableUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xpublishableUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "publishableGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可发布群组列表",
+          "containerTableProperty": {
+            "name": "CAL_CALENDAR_publishableGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xpublishableGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xstatus",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "日历状态：OPEN|CLOSE"
+        }
+      ]
+    },
+    {
+      "moduleName": "Calendar_Event",
+      "tableName": "CAL_EVENT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xcalendarId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "日历账号ID"
+        },
+        {
+          "name": "xrepeatMasterId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "重复日程宿主ID"
+        },
+        {
+          "name": "xeventType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "信息类别: CAL_EVENT | TASK_EVENT"
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "事件标题"
+        },
+        {
+          "name": "xcolor",
+          "type": "VARCHAR",
+          "length": "8",
+          "remark": "显示颜色"
+        },
+        {
+          "name": "xcomment",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "备注信息"
+        },
+        {
+          "name": "xcommentId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "备注LOB信息"
+        },
+        {
+          "name": "xstartTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "事件开始时间"
+        },
+        {
+          "name": "xstartTimeStr",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "事件开始时间(yyyy-MM-dd HH:mm:ss)"
+        },
+        {
+          "name": "xendTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "事件结束时间"
+        },
+        {
+          "name": "xendTimeStr",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "事件结束时间(yyyy-MM-dd HH:mm:ss)"
+        },
+        {
+          "name": "xlocationName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "地点说明"
+        },
+        {
+          "name": "xlongitude",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "经度"
+        },
+        {
+          "name": "xlatitude",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "纬度"
+        },
+        {
+          "name": "xrecurrenceRule",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "重复日期表达式RecurrenceRule"
+        },
+        {
+          "name": "xrecurrenceExc",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "排除日期表达式RecurrenceExc"
+        },
+        {
+          "name": "xalarm",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否提醒"
+        },
+        {
+          "name": "xalarmTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "当前事件提醒时间"
+        },
+        {
+          "name": "xalarmAlready",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否已经提醒过了"
+        },
+        {
+          "name": "xvalarmTime_config",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "提醒提配置：天, 时, 分, 秒（负数为提前）"
+        },
+        {
+          "name": "xvalarm_mailto",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "提交Email地址，为空则不邮件提醒"
+        },
+        {
+          "name": "xvalarm_Summary",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "提醒显示标题"
+        },
+        {
+          "name": "xvalarm_description",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "提醒备注信息"
+        },
+        {
+          "name": "xisAllDayEvent",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否为全天事件"
+        },
+        {
+          "name": "xdaysOfDuration",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "事件持续天数：0、1或者N天"
+        },
+        {
+          "name": "xisPublic",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否公开的事件"
+        },
+        {
+          "name": "xsource",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "信息来源: PERSONAL| LEADER | UNIT | MEETING | BUSINESS_TRIP | HOLIDAY"
+        },
+        {
+          "name": "xbundle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "绑定来源数据标识"
+        },
+        {
+          "name": "xcreatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建者"
+        },
+        {
+          "name": "xupdatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后更新者"
+        },
+        {
+          "name": "xtargetType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "参与者类型：PERSON | UNIT | GROUP"
+        },
+        {
+          "name": "participants",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "参与者列表",
+          "containerTableProperty": {
+            "name": "CAL_EVENT_participants",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_Event_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xparticipants",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可管理人员列表",
+          "containerTableProperty": {
+            "name": "CAL_EVENT_manageablePersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_Event_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xmanageablePersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可见人员列表",
+          "containerTableProperty": {
+            "name": "CAL_EVENT_viewablePersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_Event_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xviewablePersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可见组织列表",
+          "containerTableProperty": {
+            "name": "CAL_EVENT_viewableUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_Event_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xviewableUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可见群组列表",
+          "containerTableProperty": {
+            "name": "CAL_EVENT_viewableGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_Event_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xviewableGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "moduleName": "Calendar_EventComment",
+      "tableName": "CAL_EVENT_COMMENT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xlobValue",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "COMMENT信息的LOB值"
+        },
+        {
+          "name": "xcheckTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "检查时间"
+        }
+      ]
+    },
+    {
+      "moduleName": "Calendar_EventRepeatMaster",
+      "tableName": "CAL_EVENT_REPM",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xcalendarId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "日历账号ID"
+        },
+        {
+          "name": "xeventType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "信息类别: CAL_EVENT | TASK_EVENT"
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "事件标题"
+        },
+        {
+          "name": "xcolor",
+          "type": "VARCHAR",
+          "length": "8",
+          "remark": "显示颜色"
+        },
+        {
+          "name": "xcomment",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "备注信息"
+        },
+        {
+          "name": "xcommentId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "备注LOB信息"
+        },
+        {
+          "name": "xstartTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "事件开始时间"
+        },
+        {
+          "name": "xendTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "事件结束时间"
+        },
+        {
+          "name": "xlocationName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "地点说明"
+        },
+        {
+          "name": "xlongitude",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "经度"
+        },
+        {
+          "name": "xlatitude",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "纬度"
+        },
+        {
+          "name": "xrecurrenceStartTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "重复开始时间"
+        },
+        {
+          "name": "xrecurrenceRule",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "重复日期表达式RecurrenceRule"
+        },
+        {
+          "name": "xrecurrenceExc",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "排除日期表达式RecurrenceExc"
+        },
+        {
+          "name": "xalarm",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否提醒"
+        },
+        {
+          "name": "xalarmTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "当前事件提醒时间"
+        },
+        {
+          "name": "xvalarmTime_config",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "提醒提配置：天, 时, 分, 秒（负数为提前）"
+        },
+        {
+          "name": "xvalarm_mailto",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "提交Email地址，为空则不邮件提醒"
+        },
+        {
+          "name": "xvalarm_Summary",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "提醒显示标题"
+        },
+        {
+          "name": "xvalarm_description",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "提醒备注信息"
+        },
+        {
+          "name": "xisAllDayEvent",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否为全天事件"
+        },
+        {
+          "name": "xdaysOfDuration",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "事件持续天数：0、1或者N天"
+        },
+        {
+          "name": "xisPublic",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否公开的事件"
+        },
+        {
+          "name": "xsource",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "信息来源: PERSONAL| LEADER | UNIT | MEETING | BUSINESS_TRIP | HOLIDAY"
+        },
+        {
+          "name": "xcreatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建者"
+        },
+        {
+          "name": "xupdatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后更新者"
+        },
+        {
+          "name": "xtargetType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "参与者类型：PERSON | UNIT | GROUP"
+        },
+        {
+          "name": "participants",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "参与者列表",
+          "containerTableProperty": {
+            "name": "CAL_EVENT_REPM_participants",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_EventRepeatMaster_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xparticipants",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "manageablePersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可管理人员列表",
+          "containerTableProperty": {
+            "name": "CAL_EVENT_REPM_manageablePersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_EventRepeatMaster_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xmanageablePersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "viewablePersonList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可见人员列表",
+          "containerTableProperty": {
+            "name": "CAL_EVENT_REPM_viewablePersonList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_EventRepeatMaster_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xviewablePersonList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "viewableUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可见组织列表",
+          "containerTableProperty": {
+            "name": "CAL_EVENT_REPM_viewableUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_EventRepeatMaster_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xviewableUnitList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "viewableGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可见群组列表",
+          "containerTableProperty": {
+            "name": "CAL_EVENT_REPM_viewableGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_EventRepeatMaster_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xviewableGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "createdMonthList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "已经生成的月份",
+          "containerTableProperty": {
+            "name": "CAL_EVENT_REPM_createdMonthList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Calendar_EventRepeatMaster_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xcreatedMonthList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xrepeatStatus",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "重复状态：等待生成|生成完成|已删除， 删除的不再生成"
+        }
+      ]
+    },
+    {
+      "moduleName": "Calendar_Setting",
+      "tableName": "CAL_SETTING",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xconfigCode",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "配置编码"
+        },
+        {
+          "name": "xconfigName",
+          "type": "VARCHAR",
+          "length": "96",
+          "remark": "配置名称"
+        },
+        {
+          "name": "xconfigValue",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "配置内容"
+        },
+        {
+          "name": "xvalueType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "值类型: select | identity | number | date | text"
+        },
+        {
+          "name": "xselectContent",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "可选值，和select配合使用，以‘|’号分隔"
+        },
+        {
+          "name": "xisMultiple",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否可以多值"
+        },
+        {
+          "name": "xisLob",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否富文本、长文本"
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "备注说明"
+        }
+      ]
+    },
+    {
+      "moduleName": "Calendar_SettingLobValue",
+      "tableName": "CAL_SETTING_LOBVALUE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xlobValue",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "配置值"
+        }
+      ]
+    }
+  ]
+}

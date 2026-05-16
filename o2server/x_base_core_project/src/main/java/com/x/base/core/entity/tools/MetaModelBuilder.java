@@ -14,8 +14,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.stream.Collectors;
 
-import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.Entity;
+import jakarta.persistence.MappedSuperclass;
 import javax.tools.JavaCompiler;
 import javax.tools.JavaFileObject;
 import javax.tools.StandardJavaFileManager;
@@ -55,9 +55,7 @@ public class MetaModelBuilder {
 
 			fileManager.list(StandardLocation.SOURCE_PATH, "", EnumSet.of(JavaFileObject.Kind.SOURCE), true)
 					.forEach(o -> {
-						if (StringUtils.endsWith(o.getName(), "_.java")) {
-							o.delete();
-						} else if (paths.contains(o.getName())) {
+						if (paths.contains(o.getName())) {
 							res.add(o);
 						}
 					});

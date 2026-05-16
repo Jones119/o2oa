@@ -1,6 +1,6 @@
 package test.executor;
 
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.ExecutorService;
 
 import org.jblas.util.Random;
 
@@ -51,7 +51,7 @@ public class TestClient {
 				for (int i = 0; i < 1000; i++) {
 					String key = "" + Random.nextInt(99);
 					RunnableImpl r = new RunnableImpl(key);
-					ThreadPoolExecutor executor = ProcessPlatformKeyClassifyExecutorFactory.get(key);
+					ExecutorService executor = ProcessPlatformKeyClassifyExecutorFactory.get(key);
 					executor.submit(r);
 					Thread.sleep(19);
 				}

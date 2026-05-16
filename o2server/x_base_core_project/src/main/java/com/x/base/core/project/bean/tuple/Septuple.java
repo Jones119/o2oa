@@ -1,6 +1,6 @@
 package com.x.base.core.project.bean.tuple;
 
-public abstract class Septuple<A, B, C, D, E, F, G> {
+public sealed abstract class Septuple<A, B, C, D, E, F, G> permits Septuple.ImmutableSeptuple {
 
     protected A first;
 
@@ -55,7 +55,7 @@ public abstract class Septuple<A, B, C, D, E, F, G> {
         return this.seventh;
     }
 
-    public static class ImmutableSeptuple<A, B, C, D, E, F, G> extends Septuple<A, B, C, D, E, F, G> {
+    public static final class ImmutableSeptuple<A, B, C, D, E, F, G> extends Septuple<A, B, C, D, E, F, G> {
 
         public ImmutableSeptuple(final A first, final B second, final C third, final D fourth, E fifth, F sixth,
                 G seventh) {

@@ -1,0 +1,112 @@
+{
+  "tables": [
+    {
+      "moduleName": "Component",
+      "tableName": "CPT_COMPONENT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称,不可重名."
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "标题."
+        },
+        {
+          "name": "xvisible",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否是可见的应用."
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "xpath",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "应用路径."
+        },
+        {
+          "name": "xiconPath",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "图标位置."
+        },
+        {
+          "name": "allowList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可访问人员.",
+          "containerTableProperty": {
+            "name": "CPT_COMPONENT_allowList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Component_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xallowList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "denyList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "拒绝访问人员.",
+          "containerTableProperty": {
+            "name": "CPT_COMPONENT_denyList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Component_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xdenyList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "类型:system|custom"
+        }
+      ]
+    }
+  ]
+}

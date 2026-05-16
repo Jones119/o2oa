@@ -16,8 +16,8 @@ import org.apache.openjpa.persistence.PersistentCollection;
 import org.apache.openjpa.persistence.jdbc.Index;
 import org.apache.openjpa.persistence.jdbc.*;
 
-import javax.persistence.OrderColumn;
-import javax.persistence.*;
+import jakarta.persistence.OrderColumn;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -32,7 +32,7 @@ import java.util.List;
 @Entity
 @ContainerEntity(dumpSize = 200, type = ContainerEntity.Type.content, reference = ContainerEntity.Reference.strong)
 @Table(name = PersistenceProperties.Document.table, indexes = {
-		@javax.persistence.Index(name = Document.TABLE + JpaObject.IndexNameMiddle + Document.appId_FIELDNAME+"_UN",
+		@jakarta.persistence.Index(name = Document.TABLE + JpaObject.IndexNameMiddle + Document.appId_FIELDNAME+"_UN",
 				columnList = JpaObject.ColumnNamePrefix + Document.appId_FIELDNAME+","+
 						JpaObject.ColumnNamePrefix + Document.categoryId_FIELDNAME)
 })

@@ -2,9 +2,9 @@ package com.x.cms.core.entity.query;
 
 import java.util.List;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
 import com.x.base.core.entity.JpaObject;
 import com.x.base.core.project.bean.NameIdPair;

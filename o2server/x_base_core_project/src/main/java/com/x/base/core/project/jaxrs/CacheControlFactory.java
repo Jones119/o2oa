@@ -1,6 +1,6 @@
 package com.x.base.core.project.jaxrs;
 
-import javax.ws.rs.core.CacheControl;
+import jakarta.ws.rs.core.CacheControl;
 
 public class CacheControlFactory {
 	public static CacheControl getDefault() {

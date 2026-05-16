@@ -1,6 +1,6 @@
 package com.x.base.core.project.bean.tuple;
 
-public abstract class Quadruple<A, B, C, D> {
+public sealed abstract class Quadruple<A, B, C, D> permits Quadruple.ImmutableQuadruple {
 
     protected A first;
 
@@ -34,7 +34,7 @@ public abstract class Quadruple<A, B, C, D> {
         return this.fourth;
     }
 
-    public static class ImmutableQuadruple<A, B, C, D> extends Quadruple<A, B, C, D> {
+    public static final class ImmutableQuadruple<A, B, C, D> extends Quadruple<A, B, C, D> {
 
         public ImmutableQuadruple(final A first, final B second, final C third, final D fourth) {
             this.first = first;

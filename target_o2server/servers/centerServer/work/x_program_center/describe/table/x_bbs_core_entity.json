@@ -1,0 +1,2196 @@
+{
+  "tables": [
+    {
+      "moduleName": "BBSConfigSetting",
+      "tableName": "BBS_CONFIGSETTING",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xconfigName",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "系统配置名称"
+        },
+        {
+          "name": "xconfigCode",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "系统配置编码"
+        },
+        {
+          "name": "xconfigValue",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "配置值"
+        },
+        {
+          "name": "xvalueType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "值类型: select | identity | number | date | text"
+        },
+        {
+          "name": "xselectContent",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "可选值，和select配合使用，以‘|’号分隔"
+        },
+        {
+          "name": "xisMultiple",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否可以多值"
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "备注说明"
+        }
+      ]
+    },
+    {
+      "moduleName": "BBSForumInfo",
+      "tableName": "BBS_FORUMINFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xforumName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "论坛名称"
+        },
+        {
+          "name": "forumManagerList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "论坛管理员列表",
+          "containerTableProperty": {
+            "name": "BBS_FORUMINFO_forumManagerList",
+            "containerTableColumnProperty": [
+              {
+                "name": "BBSForumInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xforumManagerList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xforumNotice",
+          "type": "Lob",
+          "length": "32768",
+          "remark": "论坛公告"
+        },
+        {
+          "name": "xforumVisible",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "论坛可见：所有人（默认）|根据权限"
+        },
+        {
+          "name": "visiblePermissionList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "版块可见范围",
+          "containerTableProperty": {
+            "name": "BBS_FORUMINFO_visiblePermissionList",
+            "containerTableColumnProperty": [
+              {
+                "name": "BBSForumInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xvisiblePermissionList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xsubjectPublishAble",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "版块发贴权限：所有人（默认）|根据权限"
+        },
+        {
+          "name": "publishPermissionList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可发布范围",
+          "containerTableProperty": {
+            "name": "BBS_FORUMINFO_publishPermissionList",
+            "containerTableColumnProperty": [
+              {
+                "name": "BBSForumInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xpublishPermissionList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xreplyPublishAble",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "版块回复权限：所有人（默认）|根据权限"
+        },
+        {
+          "name": "replyPermissionList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可回复范围",
+          "containerTableProperty": {
+            "name": "BBS_FORUMINFO_replyPermissionList",
+            "containerTableColumnProperty": [
+              {
+                "name": "BBSForumInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xreplyPermissionList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xindexListStyle",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "首页列表样式：经典|简单矩形|图片矩形"
+        },
+        {
+          "name": "xforumIndexStyle",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "论坛主页面样式：经典|新闻|照片"
+        },
+        {
+          "name": "xsubjectType",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "论坛版块默认的主题分类名称,以|分隔,如讨论|新闻"
+        },
+        {
+          "name": "xtypeCategory",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "论坛版块支持的主题类别名称,以|分隔,默认:信息|问题|投票"
+        },
+        {
+          "name": "xindexRecommendable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "允许推荐到首页：true|false"
+        },
+        {
+          "name": "xsubjectNeedAudit",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "主题需要审核：true|false"
+        },
+        {
+          "name": "xreplyNeedAudit",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "回复需要审核：true|false"
+        },
+        {
+          "name": "xsectionCreateAble",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "允许创建版块：true|false"
+        },
+        {
+          "name": "xsectionTotal",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "版块数量"
+        },
+        {
+          "name": "xsubjectTotal",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "主题数量"
+        },
+        {
+          "name": "xreplyTotal",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "回复数量"
+        },
+        {
+          "name": "xsubjectTotalToday",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "今日主题数量"
+        },
+        {
+          "name": "xreplyTotalToday",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "今日回复数量"
+        },
+        {
+          "name": "xcreatorName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人姓名"
+        },
+        {
+          "name": "xforumColor",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "主题顔色"
+        },
+        {
+          "name": "xforumStatus",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "论坛状态：启用|停用"
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号"
+        },
+        {
+          "name": "xreplyMessageNotify",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "回复消息通知：true|false"
+        },
+        {
+          "name": "xreplyMessageNotifyType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "回复消息通知类别：一共3位，第1位是否通知论坛分区管理员，第2位是否通知版主，第3位是否通知发贴人，0-不通知|1-通知"
+        },
+        {
+          "name": "xsubjectMessageNotify",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "新主题发布消息通知：true|false"
+        },
+        {
+          "name": "xsubjectMessageNotifyType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "新主题发布消息通知类别：一共2位，第1位是否通知论坛分区管理员，第2位是否通知版主，0-不通知|1-通知"
+        }
+      ]
+    },
+    {
+      "moduleName": "BBSOperationRecord",
+      "tableName": "BBS_OPERATIONRECORD",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xforumId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "论坛ID"
+        },
+        {
+          "name": "xforumName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "论坛名称"
+        },
+        {
+          "name": "xsectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "版块ID"
+        },
+        {
+          "name": "xsectionName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "版块名称"
+        },
+        {
+          "name": "xmainSectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主版块ID"
+        },
+        {
+          "name": "xmainSectionName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "主版块名称"
+        },
+        {
+          "name": "xsubjectId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主题ID"
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "主题名称：标题"
+        },
+        {
+          "name": "xobjectId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "操作对象ID"
+        },
+        {
+          "name": "xobjectName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "操作对象名称"
+        },
+        {
+          "name": "xobjectType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "操作对象类别：论坛、版块、主题、回复"
+        },
+        {
+          "name": "xoptType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "操作方式：登入，登出，新增，修改，删除，查看"
+        },
+        {
+          "name": "xoperatorName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "操作人姓名"
+        },
+        {
+          "name": "xhostname",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "主机名称"
+        },
+        {
+          "name": "xhostIp",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "主机IP地址"
+        }
+      ]
+    },
+    {
+      "moduleName": "BBSPermissionInfo",
+      "tableName": "BBS_PERMISSIONINFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xforumId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "论坛ID"
+        },
+        {
+          "name": "xforumName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "论坛名称"
+        },
+        {
+          "name": "xsectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "版块ID"
+        },
+        {
+          "name": "xsectionName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "版块名称"
+        },
+        {
+          "name": "xmainSectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主版块ID"
+        },
+        {
+          "name": "xmainSectionName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "主版块名称"
+        },
+        {
+          "name": "xpermissionType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "权限类别：论坛权限|版块权限|其他权限"
+        },
+        {
+          "name": "xpermissionFunction",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "权限功能：属于权限代码的一部分，描述权限的主要功能"
+        },
+        {
+          "name": "xpermissionName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "权限名称"
+        },
+        {
+          "name": "xpermissionCode",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "权限代码"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "权限说明"
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号"
+        }
+      ]
+    },
+    {
+      "moduleName": "BBSPermissionRole",
+      "tableName": "BBS_PERMISSIONROLE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xforumId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "论坛ID"
+        },
+        {
+          "name": "xforumName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "论坛名称"
+        },
+        {
+          "name": "xsectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "版块ID"
+        },
+        {
+          "name": "xsectionName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "版块名称"
+        },
+        {
+          "name": "xmainSectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主版块ID"
+        },
+        {
+          "name": "xmainSectionName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "主版块名称"
+        },
+        {
+          "name": "xpermissionType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "权限类别：论坛权限|版块权限|其他权限"
+        },
+        {
+          "name": "xpermissionName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "权限名称"
+        },
+        {
+          "name": "xpermissionCode",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "权限代码"
+        },
+        {
+          "name": "xroleId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "角色ID"
+        },
+        {
+          "name": "xroleName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "角色名称"
+        },
+        {
+          "name": "xroleCode",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "角色代码"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "说明"
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号"
+        }
+      ]
+    },
+    {
+      "moduleName": "BBSReplyInfo",
+      "tableName": "BBS_REPLYINFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xforumId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "论坛ID"
+        },
+        {
+          "name": "xforumName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "论坛名称"
+        },
+        {
+          "name": "xsectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "版块ID"
+        },
+        {
+          "name": "xsectionName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "版块名称"
+        },
+        {
+          "name": "xmainSectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主版块ID"
+        },
+        {
+          "name": "xmainSectionName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "主版块名称"
+        },
+        {
+          "name": "xsubjectId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主题ID"
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "回贴标题：如果没有则与主题相同"
+        },
+        {
+          "name": "xparentId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "上级回帖ID"
+        },
+        {
+          "name": "xpicId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "图片信息ID"
+        },
+        {
+          "name": "xcontent",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "内容"
+        },
+        {
+          "name": "xcreatorName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人姓名"
+        },
+        {
+          "name": "xnickName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人昵称"
+        },
+        {
+          "name": "xreplyAuditStatus",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "回复审核状态：无审核|待审核|审核通过"
+        },
+        {
+          "name": "xauditorName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "审核人姓名"
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号"
+        },
+        {
+          "name": "xmachineName",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "设备类别：手机|平板电脑|个人电脑等"
+        },
+        {
+          "name": "xsystemType",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "系统名称"
+        },
+        {
+          "name": "xhostIp",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "IP地址"
+        }
+      ]
+    },
+    {
+      "moduleName": "BBSRoleInfo",
+      "tableName": "BBS_ROLEINFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xforumId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "论坛ID"
+        },
+        {
+          "name": "xforumName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "论坛名称"
+        },
+        {
+          "name": "xsectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "版块ID"
+        },
+        {
+          "name": "xsectionName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "版块名称"
+        },
+        {
+          "name": "xmainSectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主版块ID"
+        },
+        {
+          "name": "xmainSectionName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "主版块名称"
+        },
+        {
+          "name": "xroleName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "角色名称"
+        },
+        {
+          "name": "xroleCode",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "角色代码"
+        },
+        {
+          "name": "xroleType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "角色类别：论坛角色|版块角色"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "角色说明"
+        },
+        {
+          "name": "xcreatorName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "操作者姓名"
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号"
+        }
+      ]
+    },
+    {
+      "moduleName": "BBSSectionInfo",
+      "tableName": "BBS_SECTIONINFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xsectionName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "版块名称"
+        },
+        {
+          "name": "xforumId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "论坛ID"
+        },
+        {
+          "name": "xforumName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "论坛名称"
+        },
+        {
+          "name": "xmainSectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主版块ID"
+        },
+        {
+          "name": "xmainSectionName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "主版块名称"
+        },
+        {
+          "name": "xsectionLevel",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "版块级别：主版块|子版块"
+        },
+        {
+          "name": "xsectionDescription",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "版块简介"
+        },
+        {
+          "name": "xicon",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "图标icon Base64编码后的文本."
+        },
+        {
+          "name": "xsectionNotice",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "版块公告"
+        },
+        {
+          "name": "xsectionVisible",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "版块可见：所有人（默认）|根据权限"
+        },
+        {
+          "name": "visiblePermissionList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "版块可见范围",
+          "containerTableProperty": {
+            "name": "BBS_SECTIONINFO_visiblePermissionList",
+            "containerTableColumnProperty": [
+              {
+                "name": "BBSSectionInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xvisiblePermissionList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xsubjectPublishAble",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "版块发贴权限：所有人（默认）|根据权限"
+        },
+        {
+          "name": "publishPermissionList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "版块可发表范围",
+          "containerTableProperty": {
+            "name": "BBS_SECTIONINFO_publishPermissionList",
+            "containerTableColumnProperty": [
+              {
+                "name": "BBSSectionInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xpublishPermissionList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xreplyPublishAble",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "版块回复权限：所有人（默认）|根据权限"
+        },
+        {
+          "name": "replyPermissionList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "版块可回复范围",
+          "containerTableProperty": {
+            "name": "BBS_SECTIONINFO_replyPermissionList",
+            "containerTableColumnProperty": [
+              {
+                "name": "BBSSectionInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xreplyPermissionList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "moderatorNames",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "版主姓名：可多值，默认为创建者",
+          "containerTableProperty": {
+            "name": "BBS_SECTIONINFO_moderatorNames",
+            "containerTableColumnProperty": [
+              {
+                "name": "BBSSectionInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xmoderatorNames",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "subjectTypeList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "论坛版块-应用类型（从应用市场同步）",
+          "containerTableProperty": {
+            "name": "BBS_SECTIONINFO_subjectTypeList",
+            "containerTableColumnProperty": [
+              {
+                "name": "BBSSectionInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xsubjectTypeList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xsectionType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "版块类别：图片新闻，普通新闻，公告，经典（默认）"
+        },
+        {
+          "name": "xsubjectType",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "论坛版块默认的主题分类名称,以|分隔,如讨论|新闻, 如果未填写, 则以分区配置为主"
+        },
+        {
+          "name": "xtypeCategory",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "论坛版块支持的主题类别名称,以|分隔,信息|问题|投票, 如果未填写,则以分区配置为主"
+        },
+        {
+          "name": "xindexRecommendable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "允许推荐到首页：true|false"
+        },
+        {
+          "name": "xsubjectNeedAudit",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "主题需要审核：true|false"
+        },
+        {
+          "name": "xreplyNeedAudit",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "回复需要审核：true|false"
+        },
+        {
+          "name": "xsubSectionCreateAble",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "允许创建子版块：true|false"
+        },
+        {
+          "name": "xsubjectTotal",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "主题数量"
+        },
+        {
+          "name": "xreplyTotal",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "回复数量"
+        },
+        {
+          "name": "xsubjectTotalToday",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "今日主题数量"
+        },
+        {
+          "name": "xreplyTotalToday",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "今日回复数量"
+        },
+        {
+          "name": "xcreatorName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人姓名"
+        },
+        {
+          "name": "xsectionStatus",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "版块状态：启用|停用"
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号"
+        },
+        {
+          "name": "xreplyMessageNotify",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "回复消息通知：true|false"
+        },
+        {
+          "name": "xreplyMessageNotifyType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "回复消息通知类别：一共3位，第1位是否通知论坛分区管理员，第2位是否通知版主，第3位是否通知发贴人，0-不通知|1-通知"
+        },
+        {
+          "name": "xsubjectMessageNotify",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "新主题发布消息通知：true|false"
+        },
+        {
+          "name": "xsubjectMessageNotifyType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "新主题发布消息通知类别：一共2位，第1位是否通知论坛分区管理员，第2位是否通知版主，0-不通知|1-通知"
+        },
+        {
+          "name": "xsectionGrade",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "版块是否支持评分：true|false"
+        }
+      ]
+    },
+    {
+      "moduleName": "BBSShutup",
+      "tableName": "BBS_SHUTUP",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xoperator",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "操作者"
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "被禁言用户"
+        },
+        {
+          "name": "xunmuteDate",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "解封时间"
+        },
+        {
+          "name": "xunmuteDateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "解封时间date类型"
+        },
+        {
+          "name": "xreason",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "禁言原因"
+        }
+      ]
+    },
+    {
+      "moduleName": "BBSSubjectAttachment",
+      "tableName": "BBS_SUBJECTATTACHMENT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        },
+        {
+          "name": "xstorage",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "关联的存储名称."
+        },
+        {
+          "name": "xforumId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "论坛ID"
+        },
+        {
+          "name": "xforumName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "论坛名称"
+        },
+        {
+          "name": "xsectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "版块ID"
+        },
+        {
+          "name": "xsectionName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "版块名称"
+        },
+        {
+          "name": "xmainSectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主版块ID"
+        },
+        {
+          "name": "xmainSectionName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "主版块名称"
+        },
+        {
+          "name": "xsubjectId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主题ID"
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "主题名称：标题"
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件真实名称"
+        },
+        {
+          "name": "xfileName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "服务器上编码后的文件名,为了方便辨识带扩展名"
+        },
+        {
+          "name": "xfileHost",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "文件存储主机名"
+        },
+        {
+          "name": "xfilePath",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件存储路径"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件说明"
+        },
+        {
+          "name": "xcreatorUid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "创建者标识"
+        },
+        {
+          "name": "xnickName",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "创建者昵称"
+        },
+        {
+          "name": "xextension",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "扩展名"
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        },
+        {
+          "name": "xsite",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "附件框分类."
+        },
+        {
+          "name": "xdeepPath",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否使用更深的路径."
+        }
+      ]
+    },
+    {
+      "moduleName": "BBSSubjectContent",
+      "tableName": "BBS_SUBJECTCONTENT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xcontent",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "内容"
+        }
+      ]
+    },
+    {
+      "moduleName": "BBSSubjectInfo",
+      "tableName": "BBS_SUBJECTINFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xforumId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "论坛ID"
+        },
+        {
+          "name": "xforumName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "论坛名称"
+        },
+        {
+          "name": "xsectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "版块ID"
+        },
+        {
+          "name": "xsectionName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "版块名称"
+        },
+        {
+          "name": "xmainSectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主版块ID"
+        },
+        {
+          "name": "xmainSectionName",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "主版块名称"
+        },
+        {
+          "name": "xpicId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "首页图片ID"
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "主题名称：标题"
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主题类别：讨论，新闻等等,根据版块设置"
+        },
+        {
+          "name": "xtypeCategory",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主题的类别,不同的类别有不同的操作:信息|问题|投票"
+        },
+        {
+          "name": "xsummary",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "主题摘要"
+        },
+        {
+          "name": "xlatestReplyTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最新回复时间"
+        },
+        {
+          "name": "xlatestReplyUser",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最新回复用户"
+        },
+        {
+          "name": "xlatestReplyId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "最新回复ID"
+        },
+        {
+          "name": "xreplyTotal",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "回复数量"
+        },
+        {
+          "name": "xviewTotal",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "查看数量"
+        },
+        {
+          "name": "xhot",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "主题热度"
+        },
+        {
+          "name": "xstopReply",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "禁止回贴"
+        },
+        {
+          "name": "xrecommendToBBSIndex",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "推荐到系统首页"
+        },
+        {
+          "name": "xbBSIndexSetterName",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "首页推荐人姓名"
+        },
+        {
+          "name": "xbBSIndexSetterTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "首页推荐时间"
+        },
+        {
+          "name": "xrecommendToForumIndex",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "推荐到论坛首页"
+        },
+        {
+          "name": "xforumIndexSetterName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "论坛推荐人姓名"
+        },
+        {
+          "name": "xforumIndexSetterTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "论坛推荐时间"
+        },
+        {
+          "name": "xtopToSection",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "版块置顶"
+        },
+        {
+          "name": "xtopToMainSection",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "主版块置顶"
+        },
+        {
+          "name": "xtopToForum",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "论坛置顶"
+        },
+        {
+          "name": "xtopToBBS",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "全局置顶"
+        },
+        {
+          "name": "xisTopSubject",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否为置顶主题"
+        },
+        {
+          "name": "xisCreamSubject",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "精华主题"
+        },
+        {
+          "name": "xisCompleted",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否已解决:为问题贴准备"
+        },
+        {
+          "name": "xacceptReplyId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "采纳的回复ID:为问题贴准备,问题贴可以采纳一个回复"
+        },
+        {
+          "name": "xscreamSetterName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "精华设置人姓名"
+        },
+        {
+          "name": "xscreamSetterTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "精华设置时间"
+        },
+        {
+          "name": "xisOriginalSubject",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "原创主题"
+        },
+        {
+          "name": "xoriginalSetterName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "原创设置人姓名"
+        },
+        {
+          "name": "xoriginalSetterTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "原创设置时间"
+        },
+        {
+          "name": "xisRecommendSubject",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "版主推荐主题"
+        },
+        {
+          "name": "xrecommendorName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "推荐人姓名"
+        },
+        {
+          "name": "xrecommendTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "推荐时间"
+        },
+        {
+          "name": "xcreatorName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人姓名"
+        },
+        {
+          "name": "xnickName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人昵称"
+        },
+        {
+          "name": "xlastUpdateUser",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后修改人员"
+        },
+        {
+          "name": "xsubjectAuditStatus",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "主题审核状态：无审核|待审核|审核通过"
+        },
+        {
+          "name": "xauditorName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "审核人姓名"
+        },
+        {
+          "name": "xsubjectStatus",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "主题状态：启用|关闭|锁定    锁定后是不允许任何人修改和回复的"
+        },
+        {
+          "name": "xvoteLimitTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "投票截止时间"
+        },
+        {
+          "name": "xvoteResultVisible",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "投票结果是否可见"
+        },
+        {
+          "name": "xvotePersonVisible",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "投票人信息是否可见"
+        },
+        {
+          "name": "xanonymousSubject",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否匿名发布"
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号"
+        },
+        {
+          "name": "attachmentList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "附件列表",
+          "containerTableProperty": {
+            "name": "BBS_SUBJECTINFO_attachmentList",
+            "containerTableColumnProperty": [
+              {
+                "name": "BBSSubjectInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xattachmentList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "editorList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "编辑者列表",
+          "containerTableProperty": {
+            "name": "BBS_SUBJECTINFO_editorList",
+            "containerTableColumnProperty": [
+              {
+                "name": "BBSSubjectInfo_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xeditorList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xmachineName",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "设备类别：手机|平板电脑|个人电脑等"
+        },
+        {
+          "name": "xsystemType",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "系统名称"
+        },
+        {
+          "name": "xhostIp",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "IP地址"
+        },
+        {
+          "name": "xgrade",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "评分"
+        }
+      ]
+    },
+    {
+      "moduleName": "BBSSubjectVoteResult",
+      "tableName": "BBS_SUBJECT_VOTERESULT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xforumId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "论坛ID"
+        },
+        {
+          "name": "xsectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "版块ID"
+        },
+        {
+          "name": "xmainSectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主版块ID"
+        },
+        {
+          "name": "xstatisticContent",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "统计内容"
+        }
+      ]
+    },
+    {
+      "moduleName": "BBSUserInfo",
+      "tableName": "BBS_USERINFO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xuserName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "用户标识"
+        },
+        {
+          "name": "xnickName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "昵称"
+        },
+        {
+          "name": "xsex",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "性别:0-女 1-男"
+        },
+        {
+          "name": "xcardId",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "身份证号"
+        },
+        {
+          "name": "xmobile",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "移动电话"
+        },
+        {
+          "name": "xcredit",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "积分"
+        },
+        {
+          "name": "xsubjectCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "主题数"
+        },
+        {
+          "name": "xsubjectCountToday",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "今日发表主题数"
+        },
+        {
+          "name": "xreplyCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "回复数"
+        },
+        {
+          "name": "xreplyCountToday",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "今日发表回复数"
+        },
+        {
+          "name": "xcreamCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "精华贴数"
+        },
+        {
+          "name": "xoriginalCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "原创贴数"
+        },
+        {
+          "name": "xpopularity",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "人气"
+        },
+        {
+          "name": "xfansCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "粉丝数"
+        },
+        {
+          "name": "xsignContent",
+          "type": "Lob",
+          "length": "4096",
+          "remark": "签名内容"
+        },
+        {
+          "name": "xpermissionContent",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "权限角色内容"
+        },
+        {
+          "name": "xonline",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "在线状态"
+        },
+        {
+          "name": "xlastVisitTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "上次访问时间"
+        },
+        {
+          "name": "xlastOperationTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最近一次操作时间"
+        },
+        {
+          "name": "xuserStatus",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "用户状态：启用|停用"
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号"
+        }
+      ]
+    },
+    {
+      "moduleName": "BBSUserRole",
+      "tableName": "BBS_USERROLE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xforumId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "论坛ID"
+        },
+        {
+          "name": "xsectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "版块ID"
+        },
+        {
+          "name": "xmainSectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主版块ID"
+        },
+        {
+          "name": "xtopUnitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "对象所属顶层组织名称"
+        },
+        {
+          "name": "xunitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "对象所属组织名称"
+        },
+        {
+          "name": "xobjectName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "对象名称：姓名，组织,群组名等等"
+        },
+        {
+          "name": "xobjectType",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "对象类别：人员|组织|群组"
+        },
+        {
+          "name": "xuniqueId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "对象唯一标识"
+        },
+        {
+          "name": "xroleId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "角色Id"
+        },
+        {
+          "name": "xroleCode",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "角色代码"
+        },
+        {
+          "name": "xroleName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "角色名称"
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号"
+        }
+      ]
+    },
+    {
+      "moduleName": "BBSVoteOption",
+      "tableName": "BBS_VOTEOPTION",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xforumId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "论坛ID"
+        },
+        {
+          "name": "xsectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "版块ID"
+        },
+        {
+          "name": "xmainSectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主版块ID"
+        },
+        {
+          "name": "xsubjectId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主题ID"
+        },
+        {
+          "name": "xoptionContentType",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "选项类别:文字|图片"
+        },
+        {
+          "name": "xoptionGroupId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "选项组ID"
+        },
+        {
+          "name": "xoptionTextContent",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "选项描述值:文字描述内容"
+        },
+        {
+          "name": "xoptionPictureId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "选项图片ID"
+        },
+        {
+          "name": "xchooseCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "选项被选择次数"
+        },
+        {
+          "name": "xcreatorName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人"
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号"
+        }
+      ]
+    },
+    {
+      "moduleName": "BBSVoteOptionGroup",
+      "tableName": "BBS_VOTEOPTIONGROUP",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xforumId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "论坛ID"
+        },
+        {
+          "name": "xsectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "版块ID"
+        },
+        {
+          "name": "xmainSectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主版块ID"
+        },
+        {
+          "name": "xsubjectId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主题ID"
+        },
+        {
+          "name": "xgroupName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "选项组名称"
+        },
+        {
+          "name": "xcreatorName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "创建人"
+        },
+        {
+          "name": "xvoteChooseCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "可选择项数量"
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号"
+        }
+      ]
+    },
+    {
+      "moduleName": "BBSVoteRecord",
+      "tableName": "BBS_VOTERECORD",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xforumId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "论坛ID"
+        },
+        {
+          "name": "xsectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "版块ID"
+        },
+        {
+          "name": "xmainSectionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主版块ID"
+        },
+        {
+          "name": "xsubjectId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "主题ID"
+        },
+        {
+          "name": "xoptionGroupId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "选项组ID"
+        },
+        {
+          "name": "xoptionId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "用户投票结果选择项Id"
+        },
+        {
+          "name": "xoptionValue",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "用户投票结果选择项,对应选择项属性optionValue"
+        },
+        {
+          "name": "xvotorName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "投票人"
+        },
+        {
+          "name": "xvotorNickName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "投票人昵称"
+        }
+      ]
+    }
+  ]
+}

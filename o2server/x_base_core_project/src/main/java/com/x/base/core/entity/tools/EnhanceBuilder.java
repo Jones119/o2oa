@@ -10,8 +10,8 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.stream.Collectors;
 
-import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.Entity;
+import jakarta.persistence.MappedSuperclass;
 
 import org.apache.openjpa.enhance.PCEnhancer;
 import org.apache.openjpa.lib.util.Options;
@@ -42,9 +42,29 @@ public class EnhanceBuilder {
 			Options opts = new Options();
 			opts.setFromCmdLine(new String[] { "-p", xml.getAbsolutePath() });
 
-			PCEnhancer.run(toPath(classes, outputdir), opts);
+			try {
+				PCEnhancer.run(toPath(classes, outputdir), opts);
+			} catch (RuntimeException e) {
+				if (isUnsupportedClassVersion(e)) {
+					System.out.println("Skipping PCEnhancer: OpenJPA build-time enhancement does not support this Java version.");
+					System.out.println("Use runtime enhancement with -javaagent:openjpa.jar instead.");
+				} else {
+					throw e;
+				}
+			}
 
 		}
+	}
+
+	private static boolean isUnsupportedClassVersion(Throwable t) {
+		Throwable current = t;
+		while (current != null) {
+			if (current.getMessage() != null && current.getMessage().contains("Unsupported class file major version")) {
+				return true;
+			}
+			current = current.getCause();
+		}
+		return false;
 	}
 
 	private static File createPernsistenceXml(List<Class<?>> classes, File directory) throws Exception {

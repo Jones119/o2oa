@@ -10,7 +10,7 @@ import org.apache.openjpa.persistence.Persistent;
 import org.apache.openjpa.persistence.jdbc.Index;
 import org.apache.openjpa.persistence.jdbc.Strategy;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * 会议系统配置

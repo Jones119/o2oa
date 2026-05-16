@@ -29,26 +29,21 @@ public abstract class AbstractQueue<T> {
 	}
 
 	public void start() {
-		Thread thread = new Thread(className) {
-			@SuppressWarnings("unchecked")
-			@Override
-			public void run() {
-				Object o = null;
-				while (turn) {
-					try {
-						o = queue.take();
-						if (o instanceof StopSignal) {
-							turn = false;
-							break;
-						}
-						execute((T) o);
-					} catch (Exception e) {
-						e.printStackTrace();
+		Thread thread = Thread.ofVirtual().name(className).unstarted(() -> {
+			Object o = null;
+			while (turn) {
+				try {
+					o = queue.take();
+					if (o instanceof StopSignal) {
+						turn = false;
+						break;
 					}
+					execute((T) o);
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
 			}
-		};
-		thread.setDaemon(true);
+		});
 		thread.start();
 		logger.info("queue class: {} start.", className);
 	}

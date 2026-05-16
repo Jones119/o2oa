@@ -3,12 +3,12 @@ package com.x.cms.core.express.tools;
 import java.lang.reflect.Field;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Order;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Order;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -97,9 +97,9 @@ public class CriteriaBuilderTools {
 					continue;
 				}
 				if( "and".equalsIgnoreCase( queryFilter.getJoinType() )) {
-					p = CriteriaBuilderTools.predicate_and( cb, p, cb.equal( root.get( cls_.getDeclaredField( term.getName() ).getName() ), term.getValue() ));
+					p = CriteriaBuilderTools.predicate_and( cb, p, cb.equal( root.get( cls_.getField( term.getName() ).getName() ), term.getValue() ));
 				} else if( "or".equalsIgnoreCase( queryFilter.getJoinType() )) {
-					p = CriteriaBuilderTools.predicate_or( cb, p, cb.equal( root.get( cls_.getDeclaredField( term.getName() ).getName() ), term.getValue() ) );
+					p = CriteriaBuilderTools.predicate_or( cb, p, cb.equal( root.get( cls_.getField( term.getName() ).getName() ), term.getValue() ) );
 				}
 			}
 		}
@@ -109,9 +109,9 @@ public class CriteriaBuilderTools {
 					continue;
 				}
 				if( "and".equalsIgnoreCase( queryFilter.getJoinType() )) {
-					p = CriteriaBuilderTools.predicate_and( cb, p, cb.notEqual( root.get( cls_.getDeclaredField( term.getName() ).getName() ), term.getValue() ));
+					p = CriteriaBuilderTools.predicate_and( cb, p, cb.notEqual( root.get( cls_.getField( term.getName() ).getName() ), term.getValue() ));
 				} else if( "or".equalsIgnoreCase( queryFilter.getJoinType() )) {
-					p = CriteriaBuilderTools.predicate_or( cb, p, cb.notEqual( root.get( cls_.getDeclaredField( term.getName() ).getName() ), term.getValue() ) );
+					p = CriteriaBuilderTools.predicate_or( cb, p, cb.notEqual( root.get( cls_.getField( term.getName() ).getName() ), term.getValue() ) );
 				}
 			}
 		}
@@ -121,9 +121,9 @@ public class CriteriaBuilderTools {
 					continue;
 				}
 				if( "and".equalsIgnoreCase( queryFilter.getJoinType() )) {
-					p = CriteriaBuilderTools.predicate_and( cb, p, root.get( cls_.getDeclaredField( term.getName() ).getName() ).in( term.getValue() ));
+					p = CriteriaBuilderTools.predicate_and( cb, p, root.get( cls_.getField( term.getName() ).getName() ).in( term.getValue() ));
 				} else if( "or".equalsIgnoreCase( queryFilter.getJoinType() )) {
-					p = CriteriaBuilderTools.predicate_or( cb, p, root.get( cls_.getDeclaredField( term.getName() ).getName() ).in( term.getValue() ) );
+					p = CriteriaBuilderTools.predicate_or( cb, p, root.get( cls_.getField( term.getName() ).getName() ).in( term.getValue() ) );
 				}
 			}
 		}
@@ -133,9 +133,9 @@ public class CriteriaBuilderTools {
 					continue;
 				}
 				if( "and".equalsIgnoreCase( queryFilter.getJoinType() )) {
-					p = CriteriaBuilderTools.predicate_and( cb, p, root.get( cls_.getDeclaredField( term.getName() ).getName() ).in( term.getValue() ).not());
+					p = CriteriaBuilderTools.predicate_and( cb, p, root.get( cls_.getField( term.getName() ).getName() ).in( term.getValue() ).not());
 				} else if( "or".equalsIgnoreCase( queryFilter.getJoinType() )) {
-					p = CriteriaBuilderTools.predicate_or( cb, p, root.get( cls_.getDeclaredField( term.getName() ).getName() ).in( term.getValue() ).not() );
+					p = CriteriaBuilderTools.predicate_or( cb, p, root.get( cls_.getField( term.getName() ).getName() ).in( term.getValue() ).not() );
 				}
 			}
 		}		
@@ -145,9 +145,9 @@ public class CriteriaBuilderTools {
 					continue;
 				}
 				if( "and".equalsIgnoreCase( queryFilter.getJoinType() )) {
-					p = CriteriaBuilderTools.predicate_and( cb, p, cb.isMember( term.getValue(), root.get( cls_.getDeclaredField( term.getName() ).getName() ) ));
+					p = CriteriaBuilderTools.predicate_and( cb, p, cb.isMember( term.getValue(), root.get( cls_.getField( term.getName() ).getName() ) ));
 				} else if( "or".equalsIgnoreCase( queryFilter.getJoinType() )) {
-					p = CriteriaBuilderTools.predicate_or( cb, p, cb.isMember( term.getValue(), root.get( cls_.getDeclaredField( term.getName() ).getName() ) ) );
+					p = CriteriaBuilderTools.predicate_or( cb, p, cb.isMember( term.getValue(), root.get( cls_.getField( term.getName() ).getName() ) ) );
 				}
 			}
 		}		
@@ -157,9 +157,9 @@ public class CriteriaBuilderTools {
 					continue;
 				}
 				if( "and".equalsIgnoreCase( queryFilter.getJoinType() )) {
-						p = CriteriaBuilderTools.predicate_and( cb, p, cb.isNotMember( term.getValue(), root.get( cls_.getDeclaredField( term.getName() ).getName() ) ));
+						p = CriteriaBuilderTools.predicate_and( cb, p, cb.isNotMember( term.getValue(), root.get( cls_.getField( term.getName() ).getName() ) ));
 				} else if( "or".equalsIgnoreCase( queryFilter.getJoinType() )) {
-					p = CriteriaBuilderTools.predicate_or( cb, p, cb.isNotMember( term.getValue(), root.get( cls_.getDeclaredField( term.getName() ).getName() ) ) );
+					p = CriteriaBuilderTools.predicate_or( cb, p, cb.isNotMember( term.getValue(), root.get( cls_.getField( term.getName() ).getName() ) ) );
 				}
 			}
 		}
@@ -170,9 +170,9 @@ public class CriteriaBuilderTools {
 					continue;
 				}
 				if( "and".equalsIgnoreCase( queryFilter.getJoinType() )) {
-					p = CriteriaBuilderTools.predicate_and( cb, p, cb.like( root.get( cls_.getDeclaredField( term.getName() ).getName() ), "%"+term.getValue()+"%" ));
+					p = CriteriaBuilderTools.predicate_and( cb, p, cb.like( root.get( cls_.getField( term.getName() ).getName() ), "%"+term.getValue()+"%" ));
 				} else if( "or".equalsIgnoreCase( queryFilter.getJoinType() )) {
-					p = CriteriaBuilderTools.predicate_or( cb, p, cb.like( root.get( cls_.getDeclaredField( term.getName() ).getName() ), "%"+term.getValue()+"%" ));
+					p = CriteriaBuilderTools.predicate_or( cb, p, cb.like( root.get( cls_.getField( term.getName() ).getName() ), "%"+term.getValue()+"%" ));
 				}
 			}
 		}
@@ -183,9 +183,9 @@ public class CriteriaBuilderTools {
 					continue;
 				}
 				if( "and".equalsIgnoreCase( queryFilter.getJoinType() )) {
-					p = CriteriaBuilderTools.predicate_and( cb, p, cb.isTrue( root.get( cls_.getDeclaredField( term.getName() ).getName() )));
+					p = CriteriaBuilderTools.predicate_and( cb, p, cb.isTrue( root.get( cls_.getField( term.getName() ).getName() )));
 				} else if( "or".equalsIgnoreCase( queryFilter.getJoinType() )) {
-					p = CriteriaBuilderTools.predicate_or( cb, p, cb.isTrue( root.get( cls_.getDeclaredField( term.getName() ).getName() )));
+					p = CriteriaBuilderTools.predicate_or( cb, p, cb.isTrue( root.get( cls_.getField( term.getName() ).getName() )));
 				}
 			}
 		}
@@ -196,9 +196,9 @@ public class CriteriaBuilderTools {
 					continue;
 				}
 				if( "and".equalsIgnoreCase( queryFilter.getJoinType() )) {
-					p = CriteriaBuilderTools.predicate_and( cb, p, cb.isFalse( root.get( cls_.getDeclaredField( term.getName() ).getName() )));
+					p = CriteriaBuilderTools.predicate_and( cb, p, cb.isFalse( root.get( cls_.getField( term.getName() ).getName() )));
 				} else if( "or".equalsIgnoreCase( queryFilter.getJoinType() )) {
-					p = CriteriaBuilderTools.predicate_or( cb, p, cb.isFalse( root.get( cls_.getDeclaredField( term.getName() ).getName() )));
+					p = CriteriaBuilderTools.predicate_or( cb, p, cb.isFalse( root.get( cls_.getField( term.getName() ).getName() )));
 				}
 			}
 		}
@@ -264,9 +264,9 @@ public class CriteriaBuilderTools {
 		//根据序列来排序
 		if( sequenceFieldValue != null ){
 			if( "DESC".equalsIgnoreCase( order )){
-				p = predicate_and( cb, p, cb.lessThan( root.get( cls_.getDeclaredField( orderField ).getName() ), sequenceFieldValue.toString() ));
+				p = predicate_and( cb, p, cb.lessThan( root.get( cls_.getField( orderField ).getName() ), sequenceFieldValue.toString() ));
 			}else{
-				p = predicate_and( cb, p, cb.greaterThan( root.get( cls_.getDeclaredField( orderField ).getName() ), sequenceFieldValue.toString() ));
+				p = predicate_and( cb, p, cb.greaterThan( root.get( cls_.getField( orderField ).getName() ), sequenceFieldValue.toString() ));
 			}
 		}
 		
@@ -275,9 +275,9 @@ public class CriteriaBuilderTools {
 		
 		//按要求排序查询结果
 		if( "DESC".equalsIgnoreCase( order )){
-			cq.orderBy( cb.desc( root.get( cls_.getDeclaredField( orderField ).getName() )));
+			cq.orderBy( cb.desc( root.get( cls_.getField( orderField ).getName() )));
 		}else{
-			cq.orderBy( cb.asc( root.get( cls_.getDeclaredField( orderField ).getName() )) );
+			cq.orderBy( cb.asc( root.get( cls_.getField( orderField ).getName() )) );
 		}
 		
 		return em.createQuery(cq.where(p).distinct(true)).setMaxResults( maxCount ).getResultList();
@@ -310,7 +310,7 @@ public class CriteriaBuilderTools {
 			fieldExists = true;
 			fieldName = Document.updateTime_FIELDNAME;
 		}else {
-			Field[] fields = cls_.getDeclaredFields();
+			Field[] fields = cls_.getFields();
 			for( Field field : fields ) {
 				if( field.getName().equalsIgnoreCase( fieldName ) ) {
 					fieldName = field.getName(); //校正排序列的名称避免大小写的影响

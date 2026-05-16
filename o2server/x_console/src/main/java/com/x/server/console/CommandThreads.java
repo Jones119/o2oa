@@ -64,7 +64,7 @@ public class CommandThreads {
 	}
 
 	private static Thread createCommandFromConsoleThread(LinkedBlockingQueue<String> commandQueue) {
-		return new Thread(() -> {
+		return Thread.ofVirtual().name("commandFromConsoleThread").unstarted(() -> {
 			Console console;
 			while (running && ((console = System.console()) != null)) {
 				try {
@@ -76,11 +76,11 @@ public class CommandThreads {
 					break;
 				}
 			}
-		}, "commandFromConsoleThread");
+		});
 	}
 
 	private static Thread createCommandFromFileThread(LinkedBlockingQueue<String> commandQueue) {
-		return new Thread(() -> {
+		return Thread.ofVirtual().name("commandFromFileThread").unstarted(() -> {
 			while (running) {
 				try {
 					fromFile(commandQueue);
@@ -89,7 +89,7 @@ public class CommandThreads {
 					Thread.currentThread().interrupt();
 				}
 			}
-		}, "commandFromFileThread");
+		});
 	}
 
 	/**
@@ -136,7 +136,7 @@ public class CommandThreads {
 	}
 
 	private static Thread createCommandExecuteThread(LinkedBlockingQueue<String> commandQueue) {
-		return new Thread(() -> {
+		return Thread.ofVirtual().name("commandExecuteThread").unstarted(() -> {
 			while (running) {
 				try {
 					String cmd = commandQueue.take();
@@ -148,7 +148,7 @@ public class CommandThreads {
 					ie.printStackTrace();
 				}
 			}
-		}, "commandExecuteThread");
+		});
 	}
 
 }

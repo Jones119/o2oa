@@ -27,13 +27,7 @@ public class CommandFactory {
 	public static void printStartHelp() {
 		try {
 			printStartImage();
-			LOGGER.print(">>> server directory:" + Config.base() + StringUtils.LF + ">>> version:" + Config.version()
-					+ StringUtils.LF + ">>> java:" + SystemUtils.JAVA_VERSION + StringUtils.LF + ">>> os:"
-					+ SystemUtils.OS_NAME + StringUtils.LF + ">>> nodeAgent "
-					+ (BooleanUtils.isTrue(Config.currentNode().nodeAgentEnable())
-							? ("port:" + Config.currentNode().nodeAgentPort() + ", encrypt:"
-									+ Config.currentNode().nodeAgentEncrypt())
-							: "disable"));
+			LOGGER.print(">>> server directory:" + Config.base() + StringUtils.LF + ">>> version:" + Config.version() + StringUtils.LF + ">>> java:" + SystemUtils.JAVA_VERSION + StringUtils.LF + ">>> os:" + SystemUtils.OS_NAME + StringUtils.LF + ">>> nodeAgent " + (BooleanUtils.isTrue(Config.currentNode().nodeAgentEnable()) ? "port:" + Config.currentNode().nodeAgentPort() + ", encrypt:" + Config.currentNode().nodeAgentEncrypt() : "disable"));
 			printHelp();
 		} catch (Exception e) {
 			e.printStackTrace();

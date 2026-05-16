@@ -1,0 +1,1732 @@
+{
+  "tables": [
+    {
+      "moduleName": "Agent",
+      "tableName": "CTE_AGENT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "别名."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xvalidated",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "代码格式是否正确."
+        },
+        {
+          "name": "xenable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否启用."
+        },
+        {
+          "name": "xtext",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "脚本内容."
+        },
+        {
+          "name": "xcron",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "定时任务corn表达式."
+        },
+        {
+          "name": "xlastStartTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最近开始时间."
+        },
+        {
+          "name": "xlastEndTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最近结束时间."
+        }
+      ]
+    },
+    {
+      "moduleName": "AppPackApkFile",
+      "tableName": "CTE_APP_PACK_APK_FILE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件名称."
+        },
+        {
+          "name": "xstorage",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "存储器的名称,也就是多个存放节点的名字."
+        },
+        {
+          "name": "xextension",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "扩展名,必须要有扩展名的文件才允许上传."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        },
+        {
+          "name": "xdeepPath",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否使用更深的路径."
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        },
+        {
+          "name": "xpackInfoId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "打包信息id， 关联的会话."
+        },
+        {
+          "name": "xappVersionName",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "安装包版本号名称."
+        },
+        {
+          "name": "xappVersionNo",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "安装包版本号，可比较."
+        },
+        {
+          "name": "xstatus",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "状态，异步下载文件所以需要这个状态，0开启，1下载完成， 2过程有异常."
+        },
+        {
+          "name": "xisPackAppIdOuter",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "是否使用外部包名，2: 就是用 net.zoneland.x.bpm.mobile.v1.zoneXBPM.outer 作为apk的applicationId，默认使用老的applicationId，兼容老的版本"
+        }
+      ]
+    },
+    {
+      "moduleName": "Application",
+      "tableName": "CTE_APPLICATION",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称"
+        },
+        {
+          "name": "xcategory",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "分类"
+        },
+        {
+          "name": "xsubCategory",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "子分类."
+        },
+        {
+          "name": "xversion",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "版本"
+        },
+        {
+          "name": "xprice",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "价格."
+        },
+        {
+          "name": "xdescribe",
+          "type": "Lob",
+          "length": "1024",
+          "remark": "描述.必填"
+        },
+        {
+          "name": "xabort",
+          "type": "Lob",
+          "length": "4096",
+          "remark": "应用简介"
+        },
+        {
+          "name": "xinstallSteps",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "应用安装步骤"
+        },
+        {
+          "name": "xicon",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "首页图片 Base64编码后的文本."
+        },
+        {
+          "name": "xpublisher",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "发布者."
+        },
+        {
+          "name": "xpublishTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "发布时间"
+        },
+        {
+          "name": "xgrade",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "评分."
+        },
+        {
+          "name": "xcommentCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "评论数"
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "xrecommend",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "推荐指数"
+        },
+        {
+          "name": "xdownloadCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "下载次数"
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        }
+      ]
+    },
+    {
+      "moduleName": "Attachment",
+      "tableName": "CTE_ATTACHMENT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "所属用户."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件名称."
+        },
+        {
+          "name": "xapplication",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "归属应用ID."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "类型：首页图片|图片|视频|安装包|静态资源包."
+        },
+        {
+          "name": "xicon",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "icon Base64编码后的文本."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        }
+      ]
+    },
+    {
+      "moduleName": "Captcha",
+      "tableName": "CTE_CAPTCHA",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xanswer",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "图片密码值."
+        },
+        {
+          "name": "xmeta",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "关联的内容,还不知道干啥"
+        }
+      ]
+    },
+    {
+      "moduleName": "Code",
+      "tableName": "CTE_CODE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xmobile",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "验证的手机号."
+        },
+        {
+          "name": "xanswer",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "code密码值."
+        },
+        {
+          "name": "xmeta",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "关联的内容,还不知道干啥"
+        },
+        {
+          "name": "xverifyNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "验证次数"
+        }
+      ]
+    },
+    {
+      "moduleName": "DeployLog",
+      "tableName": "CTE_DEPLOY_LOG",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "标题"
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件名字"
+        },
+        {
+          "name": "xversion",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "版本"
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "类型"
+        },
+        {
+          "name": "xremark",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "更新说明."
+        },
+        {
+          "name": "xinstallPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "安装用户."
+        },
+        {
+          "name": "xinstallTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "安装时间"
+        }
+      ]
+    },
+    {
+      "moduleName": "InstallLog",
+      "tableName": "CTE_INSTALL_LOG",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称"
+        },
+        {
+          "name": "xcategory",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "分类"
+        },
+        {
+          "name": "xversion",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "版本"
+        },
+        {
+          "name": "xstatus",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "状态：valid|invalid."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "安装概要内容."
+        },
+        {
+          "name": "xinstallPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "安装用户."
+        },
+        {
+          "name": "xinstallTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "安装时间"
+        },
+        {
+          "name": "xunInstallPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "卸载用户."
+        },
+        {
+          "name": "xunInstallTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "卸载时间"
+        }
+      ]
+    },
+    {
+      "moduleName": "Invoke",
+      "tableName": "CTE_INVOKE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xenableToken",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否启用token验证."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "别名."
+        },
+        {
+          "name": "xcategory",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "分类."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xvalidated",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "代码格式是否正确."
+        },
+        {
+          "name": "xenable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否启用."
+        },
+        {
+          "name": "xenableAnonymous",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否允许匿名用户访问接口."
+        },
+        {
+          "name": "xtext",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "脚本内容."
+        },
+        {
+          "name": "xlastStartTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最近开始时间."
+        },
+        {
+          "name": "xlastEndTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最近结束时间."
+        },
+        {
+          "name": "xremoteAddrRegex",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "访问地址的表达式."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "自定义字段."
+        },
+        {
+          "name": "executorList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "执行权限",
+          "containerTableProperty": {
+            "name": "CTE_INVOKE_executorList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Invoke_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xexecutorList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "moduleName": "MPWeixinMenu",
+      "tableName": "CTE_MP_WEIXIN_MENU",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "菜单显示名称."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "微信菜单类型，目前支持click、view、miniprogram "
+        },
+        {
+          "name": "xkey",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "点击事件的key，如果type等于click ，这个key必填"
+        },
+        {
+          "name": "xcontent",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "如果type等于click ，发送的消息内容，目前支持文本消息，里面可以添加a链接"
+        },
+        {
+          "name": "xurl",
+          "type": "VARCHAR",
+          "length": "2048",
+          "remark": "打开网页的地址，如果type等于view或者miniprogram ，这个url必填"
+        },
+        {
+          "name": "xappid",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "打开小程序的id，如果type等于miniprogram ，这个appid必填"
+        },
+        {
+          "name": "xpagepath",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "打开小程序的页面地址，如果type等于miniprogram ，这个pagepath必填"
+        },
+        {
+          "name": "xparentId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "父菜单Id"
+        },
+        {
+          "name": "xorder",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "排序号，字符串排序"
+        }
+      ]
+    },
+    {
+      "moduleName": "PromptErrorLog",
+      "tableName": "CTE_PROMPTERRORLOG",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xcollected",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否提交到collect服务器."
+        },
+        {
+          "name": "xversion",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "服务器版本."
+        },
+        {
+          "name": "xoccurTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "错误发生时间."
+        },
+        {
+          "name": "xexceptionClass",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "错误的类名."
+        },
+        {
+          "name": "xloggerName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "loggerName."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "person."
+        },
+        {
+          "name": "xmessage",
+          "type": "Lob",
+          "length": "2048",
+          "remark": "错误消息."
+        },
+        {
+          "name": "xstackTrace",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "错误堆栈."
+        },
+        {
+          "name": "xrequestUrl",
+          "type": "Lob",
+          "length": "2048",
+          "remark": "请求的url."
+        },
+        {
+          "name": "xrequestHead",
+          "type": "Lob",
+          "length": "2048",
+          "remark": "请求的Head,用;进行分割."
+        },
+        {
+          "name": "xrequestMethod",
+          "type": "VARCHAR",
+          "length": "8",
+          "remark": "请求方式."
+        },
+        {
+          "name": "xrequestRemoteAddr",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "远程访问地址."
+        },
+        {
+          "name": "xrequestRemoteHost",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "远程访问主机."
+        },
+        {
+          "name": "xrequestBody",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "请求体."
+        },
+        {
+          "name": "xrequestBodyLength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "请求长度."
+        }
+      ]
+    },
+    {
+      "moduleName": "ScheduleLog",
+      "tableName": "CTE_SCHEDULELOG",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xnode",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "运行的服务器."
+        },
+        {
+          "name": "xapplication",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "运行的应用."
+        },
+        {
+          "name": "xclassName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "运行的className"
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "类型schedule/scheduleOnLocal"
+        },
+        {
+          "name": "xfireTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "运行结束时间."
+        },
+        {
+          "name": "xelapsed",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "运行时长(毫秒)."
+        },
+        {
+          "name": "xstackTrace",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "错误堆栈."
+        },
+        {
+          "name": "xsuccess",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "运行成功."
+        }
+      ]
+    },
+    {
+      "moduleName": "Script",
+      "tableName": "CTE_SCRIPT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xalias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "别名."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xvalidated",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "代码格式是否正确."
+        },
+        {
+          "name": "xtext",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "脚本内容."
+        },
+        {
+          "name": "dependScriptList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "依赖的函数列表.",
+          "containerTableProperty": {
+            "name": "CTE_SCRIPT_dependScriptList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Script_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xdependScriptList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xcreatorPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "流程创建者."
+        },
+        {
+          "name": "xlastUpdatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后的编辑者."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后的编辑时间."
+        }
+      ]
+    },
+    {
+      "moduleName": "Structure",
+      "tableName": "CTE_STRUCTURE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xextension",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "扩展名,必须要有扩展名的文件才允许上传."
+        },
+        {
+          "name": "xstorage",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "存储器的名称,也就是多个存放节点的名字."
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xdescriptionLob",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "详细描述."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "导出结构内容"
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        },
+        {
+          "name": "xdeepPath",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否使用更深的路径."
+        }
+      ]
+    },
+    {
+      "moduleName": "UnexpectedErrorLog",
+      "tableName": "CTE_UNEXPECTEDERRORLOG",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xcollected",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否提交到collect服务器."
+        },
+        {
+          "name": "xversion",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "服务器版本."
+        },
+        {
+          "name": "xoccurTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "错误发生时间."
+        },
+        {
+          "name": "xexceptionClass",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "错误的类名."
+        },
+        {
+          "name": "xloggerName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "loggerName."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "person."
+        },
+        {
+          "name": "xmessage",
+          "type": "Lob",
+          "length": "2048",
+          "remark": "错误消息."
+        },
+        {
+          "name": "xstackTrace",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "错误堆栈."
+        },
+        {
+          "name": "xrequestUrl",
+          "type": "Lob",
+          "length": "2048",
+          "remark": "请求的url."
+        },
+        {
+          "name": "xrequestHead",
+          "type": "Lob",
+          "length": "2048",
+          "remark": "请求的Head,用;进行分割."
+        },
+        {
+          "name": "xrequestMethod",
+          "type": "VARCHAR",
+          "length": "8",
+          "remark": "请求方式."
+        },
+        {
+          "name": "xrequestRemoteAddr",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "远程访问地址."
+        },
+        {
+          "name": "xrequestRemoteHost",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "远程访问主机."
+        },
+        {
+          "name": "xrequestBody",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "请求体."
+        },
+        {
+          "name": "xrequestBodyLength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "请求长度."
+        }
+      ]
+    },
+    {
+      "moduleName": "WarnLog",
+      "tableName": "CTE_WARNLOG",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xcollected",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否提交到collect服务器."
+        },
+        {
+          "name": "xversion",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "服务器版本."
+        },
+        {
+          "name": "xoccurTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "错误发生时间."
+        },
+        {
+          "name": "xloggerName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "loggerName."
+        },
+        {
+          "name": "xmessage",
+          "type": "Lob",
+          "length": "2048",
+          "remark": "错误消息."
+        }
+      ]
+    },
+    {
+      "moduleName": "Bar",
+      "tableName": "CTE_VAL_BAR",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xs1",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "String值1."
+        },
+        {
+          "name": "xs2",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "String值2."
+        },
+        {
+          "name": "xs3",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "String值3."
+        },
+        {
+          "name": "xs4",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "String值4."
+        },
+        {
+          "name": "sl1",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "String List 1.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_BAR_sl1",
+            "containerTableColumnProperty": [
+              {
+                "name": "Bar_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xsl1",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "sl2",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "String List 2.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_BAR_sl2",
+            "containerTableColumnProperty": [
+              {
+                "name": "Bar_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xsl2",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "sl3",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "String List 3.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_BAR_sl3",
+            "containerTableColumnProperty": [
+              {
+                "name": "Bar_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xsl3",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "sl4",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "String List 4.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_BAR_sl4",
+            "containerTableColumnProperty": [
+              {
+                "name": "Bar_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xsl4",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xproperties",
+          "type": "com.x.program.center.core.entity.validation.BarProperties",
+          "length": "10485760",
+          "remark": "属性对象存储字段."
+        }
+      ]
+    },
+    {
+      "moduleName": "Foo",
+      "tableName": "CTE_VAL_FOO",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xs1",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "String值1."
+        },
+        {
+          "name": "xs2",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "String值2."
+        },
+        {
+          "name": "xs3",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "String值3."
+        },
+        {
+          "name": "xs4",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "String值4."
+        },
+        {
+          "name": "xproperties",
+          "type": "com.x.program.center.core.entity.validation.FooProperties",
+          "length": "10485760",
+          "remark": "属性对象存储字段."
+        }
+      ]
+    },
+    {
+      "moduleName": "Meta",
+      "tableName": "CTE_VAL_META",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xstringValue",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "String 值."
+        },
+        {
+          "name": "xstringLobValue",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "String Lob 值."
+        },
+        {
+          "name": "xintegerValue",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "Integer 值."
+        },
+        {
+          "name": "xlongValue",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "Long 值."
+        },
+        {
+          "name": "xfloatValue",
+          "type": "FLOAT",
+          "length": "255",
+          "remark": "Float 值."
+        },
+        {
+          "name": "xdoubleValue",
+          "type": "DOUBLE",
+          "length": "255",
+          "remark": "Double 值."
+        },
+        {
+          "name": "xdateTimeValue",
+          "type": "DATE",
+          "length": "255",
+          "remark": "DateTime 值."
+        },
+        {
+          "name": "xdateValue",
+          "type": "DATE",
+          "length": "255",
+          "remark": "Date 值."
+        },
+        {
+          "name": "xtimeValue",
+          "type": "DATE",
+          "length": "255",
+          "remark": "Time 值."
+        },
+        {
+          "name": "xbooleanValue",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "Boolean 值."
+        },
+        {
+          "name": "stringValueList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "String List 值.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_META_stringValueList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meta_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xstringValueList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "integerValueList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "Integer List 值.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_META_integerValueList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meta_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xintegerValueList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "longValueList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "Long List类型.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_META_longValueList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meta_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xlongValueList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "floatValueList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "Float List 值.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_META_floatValueList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meta_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xfloatValueList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "doubleValueList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "Double List 值.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_META_doubleValueList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meta_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xdoubleValueList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "dateTimeValueList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "DateTime List 值.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_META_dateTimeValueList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meta_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xdateTimeValueList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "booleanValueList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "Boolean List 值.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_META_booleanValueList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meta_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xbooleanValueList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "stringValueMap",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "String Map 值.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_META_stringValueMap",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meta_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xstringValueMap",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "integerValueMap",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "Integer Map 值.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_META_integerValueMap",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meta_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xintegerValueMap",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "longValueMap",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "Long Map 值.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_META_longValueMap",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meta_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xlongValueMap",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "floatValueMap",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "Float Map 值.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_META_floatValueMap",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meta_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xfloatValueMap",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "doubleValueMap",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "Double Map 值.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_META_doubleValueMap",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meta_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xdoubleValueMap",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "dateTimeValueMap",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "DateTime Map 值.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_META_dateTimeValueMap",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meta_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xdateTimeValueMap",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "booleanValueMap",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "Boolean Map值.",
+          "containerTableProperty": {
+            "name": "CTE_VAL_META_booleanValueMap",
+            "containerTableColumnProperty": [
+              {
+                "name": "Meta_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xbooleanValueMap",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xproperties",
+          "type": "com.x.program.center.core.entity.validation.MetaProperties",
+          "length": "10485760",
+          "remark": "属性对象存储字段."
+        }
+      ]
+    }
+  ]
+}

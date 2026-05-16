@@ -1,0 +1,275 @@
+{
+  "jaxrs": [
+    {
+      "name": "CacheAction",
+      "methods": [
+        {
+          "name": "configFlush",
+          "uri": "jaxrs/cache/config/flush",
+          "method": "GET"
+        },
+        {
+          "name": "commonScriptFlush",
+          "uri": "jaxrs/cache/commonscript/flush",
+          "method": "GET"
+        },
+        {
+          "name": "receive",
+          "uri": "jaxrs/cache",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "detail",
+          "uri": "jaxrs/cache/detail",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "DictAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/dict/{dictFlag}/portal/{portalFlag}",
+          "method": "GET"
+        },
+        {
+          "name": "getData",
+          "uri": "jaxrs/dict/{dictFlag}/portal/{portalFlag}/data",
+          "method": "GET"
+        },
+        {
+          "name": "deleteDataPath",
+          "uri": "jaxrs/dict/{dictFlag}/portal/{portalFlag}/{path}/data",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "getDataPath",
+          "uri": "jaxrs/dict/{dictFlag}/portal/{portalFlag}/{path}/data",
+          "method": "GET"
+        },
+        {
+          "name": "updateDataPath",
+          "uri": "jaxrs/dict/{dictFlag}/portal/{portalFlag}/{path}/data",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteDataPathMockDeleteToGet",
+          "uri": "jaxrs/dict/{dictFlag}/portal/{portalFlag}/{path}/data/mockdeletetoget",
+          "method": "GET"
+        },
+        {
+          "name": "updateDataPathMockPutToPost",
+          "uri": "jaxrs/dict/{dictFlag}/portal/{portalFlag}/{path}/data/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createDataPath",
+          "uri": "jaxrs/dict/{dictFlag}/portal/{portalFlag}/{path}/data",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listWithApplication",
+          "uri": "jaxrs/dict/list/portal/{portalFlag}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "EchoAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/echo",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "FileAction",
+      "methods": [
+        {
+          "name": "content",
+          "uri": "jaxrs/file/{flag}/portal/{portalFlag}/content",
+          "method": "GET"
+        },
+        {
+          "name": "contentV2",
+          "uri": "jaxrs/file/{flag}",
+          "method": "GET"
+        },
+        {
+          "name": "listWithPortal",
+          "uri": "jaxrs/file/list/portal/{portalFlag}",
+          "method": "GET"
+        },
+        {
+          "name": "downloadV2",
+          "uri": "jaxrs/file/{flag}/download",
+          "method": "GET"
+        },
+        {
+          "name": "download",
+          "uri": "jaxrs/file/{flag}/portal/{portalFlag}/download",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "FireScheduleAction",
+      "methods": [
+        {
+          "name": "execute",
+          "uri": "jaxrs/fireschedule/classname/{className}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "PageAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/page/{id}",
+          "method": "GET"
+        },
+        {
+          "name": "list",
+          "uri": "jaxrs/page/list/portal/{portal}",
+          "method": "GET"
+        },
+        {
+          "name": "V2Get",
+          "uri": "jaxrs/page/v2/{id}",
+          "method": "GET"
+        },
+        {
+          "name": "getWithPortalMobile",
+          "uri": "jaxrs/page/{flag}/portal/{portalFlag}/mobile",
+          "method": "GET"
+        },
+        {
+          "name": "getMobile",
+          "uri": "jaxrs/page/{id}/mobile",
+          "method": "GET"
+        },
+        {
+          "name": "getWithPortal",
+          "uri": "jaxrs/page/{flag}/portal/{portalFlag}",
+          "method": "GET"
+        },
+        {
+          "name": "V2GetMobile",
+          "uri": "jaxrs/page/v2/{id}/mobile",
+          "method": "GET"
+        },
+        {
+          "name": "V2GetWithPortal",
+          "uri": "jaxrs/page/v2/{flag}/portal/{portalFlag}",
+          "method": "GET"
+        },
+        {
+          "name": "V2GetWithPortalMobile",
+          "uri": "jaxrs/page/v2/{flag}/portal/{portalFlag}/mobile",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "PortalAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/portal/{flag}",
+          "method": "GET"
+        },
+        {
+          "name": "list",
+          "uri": "jaxrs/portal/list",
+          "method": "GET"
+        },
+        {
+          "name": "iconBase64",
+          "uri": "jaxrs/portal/{id}/icon/base64",
+          "method": "GET"
+        },
+        {
+          "name": "listMobile",
+          "uri": "jaxrs/portal/list/mobile",
+          "method": "GET"
+        },
+        {
+          "name": "getCornerMark",
+          "uri": "jaxrs/portal/{flag}/corner/mark",
+          "method": "GET"
+        },
+        {
+          "name": "icon",
+          "uri": "jaxrs/portal/{id}/icon",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "ScriptAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/script/{id}",
+          "method": "GET"
+        },
+        {
+          "name": "list",
+          "uri": "jaxrs/script/list/portal/{portal}",
+          "method": "GET"
+        },
+        {
+          "name": "flag",
+          "uri": "jaxrs/script/portal/{portal}/name/{name}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "getImported",
+          "uri": "jaxrs/script/portal/{portal}/name/{name}/imported",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "WidgetAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/widget/{id}",
+          "method": "GET"
+        },
+        {
+          "name": "list",
+          "uri": "jaxrs/widget/list/portal/{portal}",
+          "method": "GET"
+        },
+        {
+          "name": "getWithPortalMobile",
+          "uri": "jaxrs/widget/{flag}/portal/{portalFlag}/mobile",
+          "method": "GET"
+        },
+        {
+          "name": "getMobile",
+          "uri": "jaxrs/widget/{id}/mobile",
+          "method": "GET"
+        },
+        {
+          "name": "getWithPortal",
+          "uri": "jaxrs/widget/{flag}/portal/{portalFlag}",
+          "method": "GET"
+        }
+      ]
+    }
+  ]
+}

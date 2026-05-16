@@ -4,18 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map.Entry;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.concurrent.BasicThreadFactory;
-import org.eclipse.jetty.quickstart.QuickStartWebApp;
+
+import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.HandlerList;
+import org.eclipse.jetty.server.Handler.Sequence;
 import org.eclipse.jetty.server.handler.gzip.GzipHandler;
 
 import com.google.gson.Gson;
@@ -92,10 +88,10 @@ public class RegistApplicationsEvent implements Event {
 	private List<Application> listApplication(Server applicationServer) throws Exception {
 		List<Application> list = new ArrayList<>();
 		GzipHandler gzipHandler = (GzipHandler) applicationServer.getHandler();
-		HandlerList hanlderList = (HandlerList) gzipHandler.getHandler();
-		for (Handler handler : hanlderList.getHandlers()) {
-			if (QuickStartWebApp.class.isAssignableFrom(handler.getClass())) {
-				QuickStartWebApp app = (QuickStartWebApp) handler;
+		Handler.Sequence handlerCollection = (Handler.Sequence) gzipHandler.getHandler();
+		for (Handler handler : handlerCollection.getHandlers()) {
+			if (WebAppContext.class.isAssignableFrom(handler.getClass())) {
+				WebAppContext app = (WebAppContext) handler;
 				if (app.isStarted() && (!StringUtils.equalsIgnoreCase(app.getContextPath(), "/x_program_center"))
 						&& (!StringUtils.equalsIgnoreCase(app.getContextPath(), "/"))) {
 					try {
@@ -114,48 +110,30 @@ public class RegistApplicationsEvent implements Event {
 	}
 
 	private boolean healthCheck(List<Application> list) {
-		List<CompletableFuture<Long>> futures = new ArrayList<>();
-		try {
-			for (Application o : list) {
-				futures.add(healthCheckTask(o));
+		long max = Long.MIN_VALUE;
+		for (Application o : list) {
+			long difference = healthCheckTask(o);
+			if (difference < 0) {
+				return false;
 			}
-			long max = Long.MIN_VALUE;
-			for (CompletableFuture<Long> future : futures) {
-				long difference = future.get(3000, TimeUnit.MILLISECONDS);
-				if (difference < 0) {
-					return false;
-				}
-				max = Math.max(max, difference);
-			}
-			if (max > 2 * 1000) {
-				logger.warn("response time is too long: {}ms.", max);
-			}
-		} catch (Exception e) {
-			logger.error(new RunningException(e, "health check error."));
-			Thread.currentThread().interrupt();
-			return false;
+			max = Math.max(max, difference);
+		}
+		if (max > 2 * 1000) {
+			logger.warn("response time is too long: {}ms.", max);
 		}
 		return true;
 	}
 
-	private CompletableFuture<Long> healthCheckTask(Application application) {
-		return CompletableFuture.supplyAsync(() -> {
-			try {
-				Resp resp = CipherConnectionAction.get(false, 2000, 4000, application, "echo").getData(Resp.class);
-				Date date = resp.getServerTime();
-				return Math.abs(date.getTime() - ((new Date()).getTime()));
-			} catch (Exception e) {
-				logger.error(new RunningException(e, "health check failure:{},{}.", application.getNode(),
-						application.getContextPath()));
-			}
-			return -1L;
-		}, Inner.executorService);
-	}
-
-	private static class Inner {
-		private static final ExecutorService executorService = Executors.newFixedThreadPool(2,
-				new BasicThreadFactory.Builder().namingPattern("RegistApplicationsEvent-healthCheck-%d").daemon(true)
-						.build());
+	private Long healthCheckTask(Application application) {
+		try {
+			Resp resp = CipherConnectionAction.get(false, 2000, 4000, application, "echo").getData(Resp.class);
+			Date date = resp.getServerTime();
+			return Math.abs(date.getTime() - ((new Date()).getTime()));
+		} catch (Exception e) {
+			logger.error(new RunningException(e, "health check failure:{},{}.", application.getNode(),
+					application.getContextPath()));
+		}
+		return -1L;
 	}
 
 	public static class Resp {

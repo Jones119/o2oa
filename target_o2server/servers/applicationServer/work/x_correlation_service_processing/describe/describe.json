@@ -1,0 +1,893 @@
+{
+  "jaxrs": [
+    {
+      "name": "CacheAction",
+      "className": "com.x.base.core.project.jaxrs.cache.CacheAction",
+      "description": "缓存操作接口",
+      "methods": [
+        {
+          "name": "commonScriptFlush",
+          "className": "com.x.base.core.project.jaxrs.cache.ActionCommonScriptFlush",
+          "description": "接收刷新CommonScript指令.",
+          "type": "GET",
+          "path": "jaxrs/cache/commonscript/flush",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "configFlush",
+          "className": "com.x.base.core.project.jaxrs.cache.ActionConfigFlush",
+          "description": "接收刷新Config配置文件指令.",
+          "type": "GET",
+          "path": "jaxrs/cache/config/flush",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "detail",
+          "className": "com.x.base.core.project.jaxrs.cache.ActionDetail",
+          "description": "显示缓存状态.",
+          "type": "GET",
+          "path": "jaxrs/cache/detail",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "receive",
+          "className": "com.x.base.core.project.jaxrs.cache.ActionReceive",
+          "description": "接收缓存刷新指令.",
+          "type": "POST",
+          "path": "jaxrs/cache",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "nodeName",
+              "type": "String",
+              "isCollection": false,
+              "description": "节点名.",
+              "isBaseType": true
+            },
+            {
+              "name": "className",
+              "type": "String",
+              "isCollection": false,
+              "description": "类名.",
+              "isBaseType": true
+            },
+            {
+              "name": "keys",
+              "type": "List\u003cObject\u003e",
+              "isCollection": true,
+              "description": "关键字.",
+              "isBaseType": false
+            }
+          ],
+          "outs": []
+        }
+      ]
+    },
+    {
+      "name": "CorrelationAction",
+      "className": "com.x.correlation.service.processing.jaxrs.correlation.CorrelationAction",
+      "description": "关联内容.",
+      "methods": [
+        {
+          "name": "createTypeCms",
+          "className": "com.x.correlation.service.processing.jaxrs.correlation.ActionCreateTypeCms",
+          "description": "指定内容管理文档创建关联内容.",
+          "type": "POST",
+          "path": "jaxrs/correlation/type/cms/document/{document}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "document",
+              "type": "String",
+              "description": "内容管理文档标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "用户.",
+              "isBaseType": true
+            },
+            {
+              "name": "targetList",
+              "type": "List\u003cTargetWi\u003e",
+              "isCollection": true,
+              "description": "关联目标.",
+              "isBaseType": false
+            }
+          ],
+          "outs": []
+        },
+        {
+          "name": "createTypeProcessPlatform",
+          "className": "com.x.correlation.service.processing.jaxrs.correlation.ActionCreateTypeProcessPlatform",
+          "description": "指定流程平台工作或已完成工作创建关联内容.",
+          "type": "POST",
+          "path": "jaxrs/correlation/type/processplatform/job/{job}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "job",
+              "type": "String",
+              "description": "流程平台任务标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "用户.",
+              "isBaseType": true
+            },
+            {
+              "name": "targetList",
+              "type": "List\u003cTargetWi\u003e",
+              "isCollection": true,
+              "description": "关联目标.",
+              "isBaseType": false
+            }
+          ],
+          "outs": []
+        },
+        {
+          "name": "deleteTypeCms",
+          "className": "com.x.correlation.service.processing.jaxrs.correlation.ActionDeleteTypeCms",
+          "description": "根据id删除多个内容管理关联内容.",
+          "type": "POST",
+          "path": "jaxrs/correlation/delete/type/cms/document/{document}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "document",
+              "type": "String",
+              "description": "流程平台任务标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "idList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "关联内容标识.",
+              "isBaseType": true
+            }
+          ],
+          "outs": []
+        },
+        {
+          "name": "deleteTypeProcessPlatform",
+          "className": "com.x.correlation.service.processing.jaxrs.correlation.ActionDeleteTypeProcessPlatform",
+          "description": "根据id删除多个流程平台关联内容.",
+          "type": "POST",
+          "path": "jaxrs/correlation/delete/type/processplatform/job/{job}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "job",
+              "type": "String",
+              "description": "流程平台任务标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "idList",
+              "type": "List\u003cString\u003e",
+              "isCollection": true,
+              "description": "关联内容标识.",
+              "isBaseType": true
+            }
+          ],
+          "outs": []
+        },
+        {
+          "name": "listTypeCms",
+          "className": "com.x.correlation.service.processing.jaxrs.correlation.ActionListTypeCms",
+          "description": "列示内容管理指定document标识的关联内容.",
+          "type": "GET",
+          "path": "jaxrs/correlation/list/type/cms/document/{document}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "document",
+              "type": "String",
+              "description": "内容管理文档标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "targetTitle",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联内容标题."
+            },
+            {
+              "name": "targetCategory",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联内容分类,processPlatform:流程名称,cms:应用名称."
+            },
+            {
+              "name": "targetStartTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "关联内容创建时间"
+            },
+            {
+              "name": "targetCreatorPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联内容创建人"
+            },
+            {
+              "name": "view",
+              "type": "String",
+              "isCollection": false,
+              "description": "来源视图"
+            },
+            {
+              "name": "fromType",
+              "type": "String",
+              "isCollection": false,
+              "description": "源类型cms,processPlatform."
+            },
+            {
+              "name": "targetType",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联目标类型,cms.processPlatform."
+            },
+            {
+              "name": "fromBundle",
+              "type": "String",
+              "isCollection": false,
+              "description": "源标识."
+            },
+            {
+              "name": "targetBundle",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联目标标识."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "文件所有者"
+            },
+            {
+              "name": "site",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联内容框分类."
+            },
+            {
+              "name": "orderNumber",
+              "type": "Integer",
+              "isCollection": false,
+              "description": "排序号,升序排列,为空在最后"
+            },
+            {
+              "name": "properties",
+              "type": "CorrelationProperties",
+              "isCollection": false,
+              "description": "属性存储字段."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "listTypeCmsWithSite",
+          "className": "com.x.correlation.service.processing.jaxrs.correlation.ActionListTypeCmsWithSite",
+          "description": "列示内容管理指定document标识指定关联内容框标识的关联内容.",
+          "type": "GET",
+          "path": "jaxrs/correlation/list/type/cms/document/{document}/site/{site}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "document",
+              "type": "String",
+              "description": "内容管理文档标识"
+            },
+            {
+              "name": "site",
+              "type": "String",
+              "description": "关联内容框标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "targetTitle",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联内容标题."
+            },
+            {
+              "name": "targetCategory",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联内容分类,processPlatform:流程名称,cms:应用名称."
+            },
+            {
+              "name": "targetStartTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "关联内容创建时间"
+            },
+            {
+              "name": "targetCreatorPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联内容创建人"
+            },
+            {
+              "name": "view",
+              "type": "String",
+              "isCollection": false,
+              "description": "来源视图"
+            },
+            {
+              "name": "fromType",
+              "type": "String",
+              "isCollection": false,
+              "description": "源类型cms,processPlatform."
+            },
+            {
+              "name": "targetType",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联目标类型,cms.processPlatform."
+            },
+            {
+              "name": "fromBundle",
+              "type": "String",
+              "isCollection": false,
+              "description": "源标识."
+            },
+            {
+              "name": "targetBundle",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联目标标识."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "文件所有者"
+            },
+            {
+              "name": "site",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联内容框分类."
+            },
+            {
+              "name": "orderNumber",
+              "type": "Integer",
+              "isCollection": false,
+              "description": "排序号,升序排列,为空在最后"
+            },
+            {
+              "name": "properties",
+              "type": "CorrelationProperties",
+              "isCollection": false,
+              "description": "属性存储字段."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "listTypeProcessPlatform",
+          "className": "com.x.correlation.service.processing.jaxrs.correlation.ActionListTypeProcessPlatform",
+          "description": "列示流程平台指定job标识的关联内容.",
+          "type": "GET",
+          "path": "jaxrs/correlation/list/type/processplatform/job/{job}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "job",
+              "type": "String",
+              "description": "任务标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "targetTitle",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联内容标题."
+            },
+            {
+              "name": "targetCategory",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联内容分类,processPlatform:流程名称,cms:应用名称."
+            },
+            {
+              "name": "targetStartTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "关联内容创建时间"
+            },
+            {
+              "name": "targetCreatorPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联内容创建人"
+            },
+            {
+              "name": "view",
+              "type": "String",
+              "isCollection": false,
+              "description": "来源视图"
+            },
+            {
+              "name": "fromType",
+              "type": "String",
+              "isCollection": false,
+              "description": "源类型cms,processPlatform."
+            },
+            {
+              "name": "targetType",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联目标类型,cms.processPlatform."
+            },
+            {
+              "name": "fromBundle",
+              "type": "String",
+              "isCollection": false,
+              "description": "源标识."
+            },
+            {
+              "name": "targetBundle",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联目标标识."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "文件所有者"
+            },
+            {
+              "name": "site",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联内容框分类."
+            },
+            {
+              "name": "orderNumber",
+              "type": "Integer",
+              "isCollection": false,
+              "description": "排序号,升序排列,为空在最后"
+            },
+            {
+              "name": "properties",
+              "type": "CorrelationProperties",
+              "isCollection": false,
+              "description": "属性存储字段."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "listTypeProcessPlatformWithSite",
+          "className": "com.x.correlation.service.processing.jaxrs.correlation.ActionListTypeProcessPlatformWithSite",
+          "description": "列示流程平台指定job标识指定关联内容框标识的关联内容.",
+          "type": "GET",
+          "path": "jaxrs/correlation/list/type/processplatform/job/{job}/site/{site}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "job",
+              "type": "String",
+              "description": "任务标识"
+            },
+            {
+              "name": "site",
+              "type": "String",
+              "description": "关联内容框标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "id",
+              "type": "String",
+              "isCollection": false,
+              "description": "数据库主键,自动生成."
+            },
+            {
+              "name": "targetTitle",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联内容标题."
+            },
+            {
+              "name": "targetCategory",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联内容分类,processPlatform:流程名称,cms:应用名称."
+            },
+            {
+              "name": "targetStartTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "关联内容创建时间"
+            },
+            {
+              "name": "targetCreatorPerson",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联内容创建人"
+            },
+            {
+              "name": "view",
+              "type": "String",
+              "isCollection": false,
+              "description": "来源视图"
+            },
+            {
+              "name": "fromType",
+              "type": "String",
+              "isCollection": false,
+              "description": "源类型cms,processPlatform."
+            },
+            {
+              "name": "targetType",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联目标类型,cms.processPlatform."
+            },
+            {
+              "name": "fromBundle",
+              "type": "String",
+              "isCollection": false,
+              "description": "源标识."
+            },
+            {
+              "name": "targetBundle",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联目标标识."
+            },
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "文件所有者"
+            },
+            {
+              "name": "site",
+              "type": "String",
+              "isCollection": false,
+              "description": "关联内容框分类."
+            },
+            {
+              "name": "orderNumber",
+              "type": "Integer",
+              "isCollection": false,
+              "description": "排序号,升序排列,为空在最后"
+            },
+            {
+              "name": "properties",
+              "type": "CorrelationProperties",
+              "isCollection": false,
+              "description": "属性存储字段."
+            },
+            {
+              "name": "createTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "创建时间,自动生成,索引创建在约束中."
+            },
+            {
+              "name": "updateTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "修改时间,自动生成,索引创建在约束中."
+            }
+          ]
+        },
+        {
+          "name": "readableTypeCms",
+          "className": "com.x.correlation.service.processing.jaxrs.correlation.ActionReadableTypeCms",
+          "description": "判断内容平台指定document的任务是否通过被关联具有阅读权限.",
+          "type": "POST",
+          "path": "jaxrs/correlation/readable/type/cms",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "readableTypeProcessPlatform",
+          "className": "com.x.correlation.service.processing.jaxrs.correlation.ActionReadableTypeProcessPlatform",
+          "description": "判断流程平台指定job的任务是否通过被关联具有阅读权限.",
+          "type": "POST",
+          "path": "jaxrs/correlation/readable/type/processplatform",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        },
+        {
+          "name": "updateTypeCms",
+          "className": "com.x.correlation.service.processing.jaxrs.correlation.ActionUpdateTypeCms",
+          "description": "替换指定内容管理文档的关联内容.",
+          "type": "POST",
+          "path": "jaxrs/correlation/update/type/cms/document/{document}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "document",
+              "type": "String",
+              "description": "内容管理文档标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "用户.",
+              "isBaseType": true
+            },
+            {
+              "name": "siteTargetList",
+              "type": "List\u003cSiteTargetWi\u003e",
+              "isCollection": true,
+              "description": "关联目标列表.",
+              "isBaseType": false
+            }
+          ],
+          "outs": []
+        },
+        {
+          "name": "updateTypeProcessPlatform",
+          "className": "com.x.correlation.service.processing.jaxrs.correlation.ActionUpdateTypeProcessPlatform",
+          "description": "替换指定流程工作的关联内容.",
+          "type": "POST",
+          "path": "jaxrs/correlation/update/type/processplatform/job/{job}",
+          "contentType": "application/json",
+          "resultContentType": "application/json; charset\u003dUTF-8",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "job",
+              "type": "String",
+              "description": "流程平台任务标识"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [
+            {
+              "name": "person",
+              "type": "String",
+              "isCollection": false,
+              "description": "用户.",
+              "isBaseType": true
+            },
+            {
+              "name": "siteTargetList",
+              "type": "List\u003cSiteTargetWi\u003e",
+              "isCollection": true,
+              "description": "关联目标列表.",
+              "isBaseType": false
+            }
+          ],
+          "outs": []
+        }
+      ]
+    },
+    {
+      "name": "EchoAction",
+      "className": "com.x.base.core.project.jaxrs.echo.EchoAction",
+      "description": "应用响应接口.",
+      "methods": [
+        {
+          "name": "get",
+          "className": "com.x.base.core.project.jaxrs.echo.ActionGet",
+          "description": "获取应答.",
+          "type": "GET",
+          "path": "jaxrs/echo",
+          "contentType": "application/json",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": [
+            {
+              "name": "servletContextName",
+              "type": "String",
+              "isCollection": false,
+              "description": "上下文根."
+            },
+            {
+              "name": "serverTime",
+              "type": "Date",
+              "isCollection": false,
+              "description": "服务器时间."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FireScheduleAction",
+      "className": "com.x.base.core.project.jaxrs.fireschedule.FireScheduleAction",
+      "description": "触发定时任务接口.",
+      "methods": [
+        {
+          "name": "execute",
+          "className": "com.x.base.core.project.jaxrs.fireschedule.ActionExecute",
+          "description": "接受x_program_center发送过来的运行定时任务指令.",
+          "type": "GET",
+          "path": "jaxrs/fireschedule/classname/{className}",
+          "contentType": "application/json",
+          "useJsonElementParameter": false,
+          "useStringParameter": false,
+          "pathParameters": [
+            {
+              "name": "className",
+              "type": "String",
+              "description": "运行类"
+            }
+          ],
+          "formParameters": [],
+          "queryParameters": [],
+          "ins": [],
+          "outs": []
+        }
+      ]
+    }
+  ]
+}

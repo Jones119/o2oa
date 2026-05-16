@@ -1,0 +1,135 @@
+{
+  "name": "RoleAction",
+  "className": "com.x.organization.assemble.express.jaxrs.role.RoleAction",
+  "description": "角色接口",
+  "methods": [
+    {
+      "name": "list",
+      "className": "com.x.organization.assemble.express.jaxrs.role.ActionList",
+      "description": "批量查询角色",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "roleList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "角色识别名"
+        }
+      ]
+    },
+    {
+      "name": "listObject",
+      "className": "com.x.organization.assemble.express.jaxrs.role.ActionListObject",
+      "description": "批量查询群组对象",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "角色名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "成员个人"
+        },
+        {
+          "name": "groupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "成员群组"
+        }
+      ]
+    },
+    {
+      "name": "listWithPerson",
+      "className": "com.x.organization.assemble.express.jaxrs.role.ActionListWithPerson",
+      "description": "批量查询人员所在的群组.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "roleList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "角色识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithPersonObject",
+      "className": "com.x.organization.assemble.express.jaxrs.role.ActionListWithPersonObject",
+      "description": "批量查询人员所在的群组对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "角色名称"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "成员个人"
+        },
+        {
+          "name": "groupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "成员群组"
+        }
+      ]
+    }
+  ]
+}

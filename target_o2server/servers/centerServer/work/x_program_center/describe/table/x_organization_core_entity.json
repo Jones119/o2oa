@@ -1,0 +1,1879 @@
+{
+  "tables": [
+    {
+      "moduleName": "Bind",
+      "tableName": "ORG_BIND",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "登录的用户,可以重复."
+        },
+        {
+          "name": "xmeta",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "二维码中附带的标识信息."
+        }
+      ]
+    },
+    {
+      "moduleName": "Custom",
+      "tableName": "ORG_CUSTOM",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "属性所属个人,不可为空."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "文本内容."
+        }
+      ]
+    },
+    {
+      "moduleName": "Definition",
+      "tableName": "ORG_DEFINTION",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xdata",
+          "type": "Lob",
+          "length": "10485760",
+          "remark": "文本内容."
+        }
+      ]
+    },
+    {
+      "moduleName": "Group",
+      "tableName": "ORG_GROUP",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xpinyin",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音,自动生成"
+        },
+        {
+          "name": "xpinyinInitial",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音首字母,自动生成"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "群组名称.可重名"
+        },
+        {
+          "name": "xunique",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "唯一标识,不可重复,为空则使用自动填充值"
+        },
+        {
+          "name": "xdistinguishedName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "识别名."
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "personList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "群组的个人成员.存放个人 ID.",
+          "containerTableProperty": {
+            "name": "ORG_GROUP_personList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Group_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xpersonList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "groupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "群组的群组成员.存放群组 ID.",
+          "containerTableProperty": {
+            "name": "ORG_GROUP_groupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Group_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xgroupList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "unitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "群组存放组织成员,存放unit ID.",
+          "containerTableProperty": {
+            "name": "ORG_GROUP_unitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Group_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xunitList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "identityList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "群组存放身份成员,identity ID.",
+          "containerTableProperty": {
+            "name": "ORG_GROUP_identityList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Group_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xidentityList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "moduleName": "Identity",
+      "tableName": "ORG_IDENTITY",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xpinyin",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音,自动生成"
+        },
+        {
+          "name": "xpinyinInitial",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音首字母,自动生成"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称,可重名."
+        },
+        {
+          "name": "xunique",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "唯一标识,不可重复,为空则使用自动填充值"
+        },
+        {
+          "name": "xdistinguishedName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "识别名."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "身份所属个人,存放个人 ID,不为空."
+        },
+        {
+          "name": "xunit",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "属性所属组织,不可为空."
+        },
+        {
+          "name": "xunitName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "组织名称."
+        },
+        {
+          "name": "xunitLevel",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "组织级别."
+        },
+        {
+          "name": "xunitLevelName",
+          "type": "Lob",
+          "length": "2048",
+          "remark": "显示的层级名."
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "xmajor",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "主身份标识"
+        }
+      ]
+    },
+    {
+      "moduleName": "OauthCode",
+      "tableName": "ORG_OAUTHCODE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xclientId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "client_id."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "绑定的用户."
+        },
+        {
+          "name": "xscope",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "授权范围."
+        },
+        {
+          "name": "xcode",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "认证code."
+        },
+        {
+          "name": "xaccessToken",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "accessToken."
+        },
+        {
+          "name": "xcodeUsed",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "code是否已经使用过."
+        }
+      ]
+    },
+    {
+      "moduleName": "PermissionSetting",
+      "tableName": "ORG_PERMISSIONSETTING",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "excludeUnit",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "不允许被查询单位.",
+          "containerTableProperty": {
+            "name": "ORG_PERMISSIONSETTING_excludeUnit",
+            "containerTableColumnProperty": [
+              {
+                "name": "PermissionSetting_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xexcludeUnit",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "excludePerson",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "不允许被查询个人.",
+          "containerTableProperty": {
+            "name": "ORG_PERMISSIONSETTING_excludePerson",
+            "containerTableColumnProperty": [
+              {
+                "name": "PermissionSetting_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xexcludePerson",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "limitQueryOuter",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "限制查看外部门.",
+          "containerTableProperty": {
+            "name": "ORG_PERMISSIONSETTING_limitQueryOuter",
+            "containerTableColumnProperty": [
+              {
+                "name": "PermissionSetting_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xlimitQueryOuter",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "limitQueryAll",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "限制查看所有人",
+          "containerTableProperty": {
+            "name": "ORG_PERMISSIONSETTING_limitQueryAll",
+            "containerTableColumnProperty": [
+              {
+                "name": "PermissionSetting_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xlimitQueryAll",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xexplain",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xstatus",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "状态.草稿,发布"
+        },
+        {
+          "name": "xextend1",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "extend1扩展字段."
+        },
+        {
+          "name": "xextend2",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "extend2扩展字段."
+        },
+        {
+          "name": "xextend3",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "extend3扩展字段."
+        }
+      ]
+    },
+    {
+      "moduleName": "Person",
+      "tableName": "ORG_PERSON",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xgenderType",
+          "type": "com.x.base.core.entity.type.GenderType",
+          "length": "1",
+          "remark": "性别.男:m,女:f,未知:d"
+        },
+        {
+          "name": "xicon",
+          "type": "Lob",
+          "length": "131072",
+          "remark": "icon Base64编码后的文本."
+        },
+        {
+          "name": "xiconMdpi",
+          "type": "Lob",
+          "length": "131072",
+          "remark": "icon Base64编码后的文本（中等尺寸图像）."
+        },
+        {
+          "name": "xiconLdpi",
+          "type": "Lob",
+          "length": "131072",
+          "remark": "icon Base64编码后的文本（小尺寸图像）."
+        },
+        {
+          "name": "xsignature",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "个性签名."
+        },
+        {
+          "name": "xpinyin",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音,自动生成"
+        },
+        {
+          "name": "xpinyinInitial",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音首字母,自动生成"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称,可重名."
+        },
+        {
+          "name": "xnickName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "昵称."
+        },
+        {
+          "name": "xemployee",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "工号,不可重复."
+        },
+        {
+          "name": "xunique",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "唯一标识,不可重复,为空则使用自动填充值"
+        },
+        {
+          "name": "xdistinguishedName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "识别名,自动填充,@P结尾."
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "controllerList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "个人管理者.默认为创建者。",
+          "containerTableProperty": {
+            "name": "ORG_PERSON_controllerList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Person_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xcontrollerList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xsuperior",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "汇报对象."
+        },
+        {
+          "name": "xpassword",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "密码."
+        },
+        {
+          "name": "xpasswordExpiredTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "用户密码到期时间."
+        },
+        {
+          "name": "xchangePasswordTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "用户密码最后修改时间."
+        },
+        {
+          "name": "xlastLoginTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后登录时间."
+        },
+        {
+          "name": "xlastLoginAddress",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "最后登录地址."
+        },
+        {
+          "name": "xlastLoginClient",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "最后登录客户端类型,web,android或者ios."
+        },
+        {
+          "name": "xipAddress",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "允许登录的IP."
+        },
+        {
+          "name": "xmail",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "邮件地址."
+        },
+        {
+          "name": "xweixin",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "微信号."
+        },
+        {
+          "name": "xqq",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "QQ号."
+        },
+        {
+          "name": "xmobile",
+          "type": "VARCHAR",
+          "length": "128",
+          "remark": "必填,手机号."
+        },
+        {
+          "name": "xhiddenMobile",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否隐藏手机号."
+        },
+        {
+          "name": "xofficePhone",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "办公电话."
+        },
+        {
+          "name": "xboardDate",
+          "type": "DATE",
+          "length": "255",
+          "remark": "入职时间."
+        },
+        {
+          "name": "xbirthday",
+          "type": "DATE",
+          "length": "255",
+          "remark": "生日."
+        },
+        {
+          "name": "xage",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "年龄"
+        },
+        {
+          "name": "xdingdingId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "钉钉人员ID."
+        },
+        {
+          "name": "xdingdingHash",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "钉钉人员哈希特征."
+        },
+        {
+          "name": "xweLinkId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "WeLikn人员ID."
+        },
+        {
+          "name": "xweLinkHash",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "WeLink人员哈希特征."
+        },
+        {
+          "name": "xzhengwuDingdingId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "政务钉钉人员ID."
+        },
+        {
+          "name": "xandFxId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "移动办公人员ID."
+        },
+        {
+          "name": "xzhengwuDingdingHash",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "政务钉钉人员哈希特征."
+        },
+        {
+          "name": "xqiyeweixinId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "企业微信人员ID."
+        },
+        {
+          "name": "xqiyeweixinHash",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "企业微信人员哈希特征."
+        },
+        {
+          "name": "xandFxHash",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "移动办公人员哈希特征."
+        },
+        {
+          "name": "xmpwxopenId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "微信公众号人员openid."
+        },
+        {
+          "name": "xopen1Id",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "oauth登录id1."
+        },
+        {
+          "name": "xopen2Id",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "oauth登录id2."
+        },
+        {
+          "name": "xopen3Id",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "oauth登录id3."
+        },
+        {
+          "name": "xopen4Id",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "oauth登录id4."
+        },
+        {
+          "name": "xopen5Id",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "oauth登录id5."
+        },
+        {
+          "name": "xfailureTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "登录失败记录时间."
+        },
+        {
+          "name": "xfailureCount",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "登录失败次数"
+        },
+        {
+          "name": "xlanguage",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "国际化语言,如：zh-CN,zh,en,zh_TW等."
+        },
+        {
+          "name": "topUnitList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "所属顶层组织.",
+          "containerTableProperty": {
+            "name": "ORG_PERSON_topUnitList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Person_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xtopUnitList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xsubjectSecurityClearance",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "主体秘级标识."
+        },
+        {
+          "name": "xstatus",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "状态：0|正常、1|锁定、2|禁用."
+        },
+        {
+          "name": "xlockExpireTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "锁定到期时间."
+        },
+        {
+          "name": "xstatusDes",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "状态描述."
+        }
+      ]
+    },
+    {
+      "moduleName": "PersonAttribute",
+      "tableName": "ORG_PERSONATTRIBUTE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xpinyin",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音,自动生成"
+        },
+        {
+          "name": "xpinyinInitial",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音首字母,自动生成"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称,同一个组织中不可重名."
+        },
+        {
+          "name": "xunique",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "唯一标识,不可重复,为空则使用自动填充值"
+        },
+        {
+          "name": "xdistinguishedName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "识别名,自动填充,@PA结尾."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "个人属性所属个人,不可为空."
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "attributeList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "属性值,多值.",
+          "containerTableProperty": {
+            "name": "ORG_PERSONATTRIBUTE_attributeList",
+            "containerTableColumnProperty": [
+              {
+                "name": "PersonAttribute_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xattributeList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "moduleName": "PersonCard",
+      "tableName": "ORG_PERSONCARD",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称,可重名."
+        },
+        {
+          "name": "xgenderType",
+          "type": "com.x.base.core.entity.type.GenderType",
+          "length": "1",
+          "remark": "性别.男:m,女:f,未知:d"
+        },
+        {
+          "name": "xgroupType",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "所属分组."
+        },
+        {
+          "name": "xpinyin",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音,自动生成"
+        },
+        {
+          "name": "xpinyinInitial",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音首字母,自动生成"
+        },
+        {
+          "name": "xdistinguishedName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "录入人,@P结尾."
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "xmobile",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "必填,手机号."
+        },
+        {
+          "name": "xofficePhone",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "办公电话."
+        },
+        {
+          "name": "xaddress",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "地址."
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "备注."
+        },
+        {
+          "name": "xextend1",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "extend1扩展字段."
+        },
+        {
+          "name": "xextend2",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "extend2扩展字段."
+        },
+        {
+          "name": "xextend3",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "extend3扩展字段."
+        },
+        {
+          "name": "xinputTime",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "录入时间."
+        },
+        {
+          "name": "xstatus",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "状态.草稿,发布"
+        }
+      ]
+    },
+    {
+      "moduleName": "PersonExtend",
+      "tableName": "ORG_PERSONEXTEND",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "个人扩展所属个人,不可为空."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "类型."
+        },
+        {
+          "name": "xproperties",
+          "type": "com.x.organization.core.entity.PersonExtendProperties",
+          "length": "10485760",
+          "remark": "属性对象存储字段."
+        }
+      ]
+    },
+    {
+      "moduleName": "Role",
+      "tableName": "ORG_ROLE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xpinyin",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音,自动生成"
+        },
+        {
+          "name": "xpinyinInitial",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音首字母,自动生成"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称,可重名."
+        },
+        {
+          "name": "xunique",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "唯一标识,不可重复,为空则使用自动填充值"
+        },
+        {
+          "name": "xdistinguishedName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "识别名."
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "personList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "角色个人成员,多值,存储 Person ID.",
+          "containerTableProperty": {
+            "name": "ORG_ROLE_personList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Role_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xpersonList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "groupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "角色群组成员,多值,存储 Group ID.",
+          "containerTableProperty": {
+            "name": "ORG_ROLE_groupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Role_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xgroupList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "moduleName": "Unit",
+      "tableName": "ORG_UNIT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称,可以重名."
+        },
+        {
+          "name": "xunique",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "唯一标识,不可重复,为空则使用自动填充值"
+        },
+        {
+          "name": "xdistinguishedName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "识别名.以@U结尾."
+        },
+        {
+          "name": "typeList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "组织类型.",
+          "containerTableProperty": {
+            "name": "ORG_UNIT_typeList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Unit_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xtypeList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xpinyin",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音,自动生成"
+        },
+        {
+          "name": "xpinyinInitial",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音首字母,自动生成"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xshortName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "组织简称。"
+        },
+        {
+          "name": "xlevel",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "组织级别,1为最上层组织.自动计算."
+        },
+        {
+          "name": "xlevelName",
+          "type": "Lob",
+          "length": "2048",
+          "remark": "显示的层级名."
+        },
+        {
+          "name": "xlevelOrderNumber",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "层级排序号,使用/进行分割.将逐级unit中的orderNumber的Integer值扩充到在Organization配置中指定位数的文本值,前填充0"
+        },
+        {
+          "name": "xsuperior",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "上级组织."
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "controllerList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "组织的管理人员.",
+          "containerTableProperty": {
+            "name": "ORG_UNIT_controllerList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Unit_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xcontrollerList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xdingdingId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "钉钉部门ID."
+        },
+        {
+          "name": "xdingdingHash",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "钉钉部门哈希特征."
+        },
+        {
+          "name": "xweLinkId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "WeLink部门ID."
+        },
+        {
+          "name": "xweLinkHash",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "WeLink部门哈希特征."
+        },
+        {
+          "name": "xqiyeweixinId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "企业微信人员ID."
+        },
+        {
+          "name": "xzhengwuDingdingId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "政务钉钉人员ID."
+        },
+        {
+          "name": "xandFxId",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "移动办公组织ID."
+        },
+        {
+          "name": "xzhengwuDingdingHash",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "政务钉钉人员哈希特征."
+        },
+        {
+          "name": "xqiyeweixinHash",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "企业微信人员哈希特征."
+        },
+        {
+          "name": "xandFxHash",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "移动办公组织哈希特征."
+        }
+      ]
+    },
+    {
+      "moduleName": "UnitAttribute",
+      "tableName": "ORG_UNITATTRIBUTE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xpinyin",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音,自动生成"
+        },
+        {
+          "name": "xpinyinInitial",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音首字母,自动生成"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称,不可重名."
+        },
+        {
+          "name": "xunique",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "唯一标识,不可重复,为空则使用自动填充值"
+        },
+        {
+          "name": "xdistinguishedName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "识别名,自动填充,@UA结尾."
+        },
+        {
+          "name": "xunit",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "组织属性所属组织,不可为空."
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "attributeList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "属性值,多值.",
+          "containerTableProperty": {
+            "name": "ORG_UNITATTRIBUTE_attributeList",
+            "containerTableColumnProperty": [
+              {
+                "name": "UnitAttribute_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xattributeList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "moduleName": "UnitDuty",
+      "tableName": "ORG_UNITDUTY",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xpinyin",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音,自动生成"
+        },
+        {
+          "name": "xpinyinInitial",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "name拼音首字母,自动生成"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "描述."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称,同一组织下不可重名."
+        },
+        {
+          "name": "xunique",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "唯一标识,不可重复,为空则使用自动填充值"
+        },
+        {
+          "name": "xdistinguishedName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "识别名,自动填充,@UD结尾."
+        },
+        {
+          "name": "xunit",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "组织职务所属组织,不可为空."
+        },
+        {
+          "name": "xorderNumber",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "identityList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "组织职务身份成员,多值.",
+          "containerTableProperty": {
+            "name": "ORG_UNITDUTY_identityList",
+            "containerTableColumnProperty": [
+              {
+                "name": "UnitDuty_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xidentityList",
+                "type": "VARCHAR",
+                "length": "64",
+                "remark": "值"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "moduleName": "Empower",
+      "tableName": "ORG_A_EMPOWER",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xfromPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "人员."
+        },
+        {
+          "name": "xfromIdentity",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "身份."
+        },
+        {
+          "name": "xtoPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "委托人员."
+        },
+        {
+          "name": "xtoIdentity",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "委托身份."
+        },
+        {
+          "name": "xapplication",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "应用."
+        },
+        {
+          "name": "xapplicationName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "应用名称."
+        },
+        {
+          "name": "xapplicationAlias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "应用别名."
+        },
+        {
+          "name": "xedition",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "流程版本."
+        },
+        {
+          "name": "xprocess",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "流程ID."
+        },
+        {
+          "name": "xprocessName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "流程名称."
+        },
+        {
+          "name": "xprocessAlias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "流程别名."
+        },
+        {
+          "name": "xfilterListData",
+          "type": "Lob",
+          "length": "1048576",
+          "remark": "过滤条件."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "32",
+          "remark": "授权类型:all,application,process,filter."
+        },
+        {
+          "name": "xstartTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "授权开始时间."
+        },
+        {
+          "name": "xcompletedTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "授权结束时间."
+        },
+        {
+          "name": "xenable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否启用."
+        },
+        {
+          "name": "xkeepEnable",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否保留我的待办."
+        }
+      ]
+    },
+    {
+      "moduleName": "EmpowerLog",
+      "tableName": "ORG_A_EMPOWERLOG",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xfromPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "人员."
+        },
+        {
+          "name": "xfromIdentity",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "身份."
+        },
+        {
+          "name": "xtoPerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "委托人员."
+        },
+        {
+          "name": "xtoIdentity",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "委托身份."
+        },
+        {
+          "name": "xapplication",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "应用."
+        },
+        {
+          "name": "xapplicationName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "应用名称."
+        },
+        {
+          "name": "xapplicationAlias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "应用别名."
+        },
+        {
+          "name": "xprocess",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "流程ID."
+        },
+        {
+          "name": "xprocessName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "流程名称."
+        },
+        {
+          "name": "xprocessAlias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "流程别名."
+        },
+        {
+          "name": "xjob",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "任务标识."
+        },
+        {
+          "name": "xwork",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "work标识."
+        },
+        {
+          "name": "xempowerTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "委托时间."
+        },
+        {
+          "name": "xtitle",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "标题."
+        },
+        {
+          "name": "xactivity",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "当前活动ID"
+        },
+        {
+          "name": "xactivityName",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "活动名称"
+        },
+        {
+          "name": "xactivityAlias",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "活动别名"
+        }
+      ]
+    },
+    {
+      "moduleName": "TokenThreshold",
+      "tableName": "ORG_L_TOKENTHRESHOLD",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "用户."
+        },
+        {
+          "name": "xthreshold",
+          "type": "DATE",
+          "length": "255",
+          "remark": "阀值."
+        }
+      ]
+    }
+  ]
+}

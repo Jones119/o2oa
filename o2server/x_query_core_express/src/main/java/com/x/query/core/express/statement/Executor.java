@@ -13,8 +13,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -300,20 +300,24 @@ public class Executor {
      */
     private static void checkDeleteInsertUpdateDml(net.sf.jsqlparser.statement.Statement statement)
             throws Exception {
-        if (statement instanceof net.sf.jsqlparser.statement.delete.Delete) {
-            if (BooleanUtils.isNotTrue(Config.query().getStatementDeleteEnable())) {
-                throw new ExceptionDisableDelete();
+        switch (statement) {
+            case net.sf.jsqlparser.statement.delete.Delete ignored1 -> {
+                if (BooleanUtils.isNotTrue(Config.query().getStatementDeleteEnable())) {
+                    throw new ExceptionDisableDelete();
+                }
             }
-        } else if (statement instanceof net.sf.jsqlparser.statement.update.Update) {
-            if (BooleanUtils.isNotTrue(Config.query().getStatementUpdateEnable())) {
-                throw new ExceptionDisableUpdate();
+            case net.sf.jsqlparser.statement.update.Update ignored2 -> {
+                if (BooleanUtils.isNotTrue(Config.query().getStatementUpdateEnable())) {
+                    throw new ExceptionDisableUpdate();
+                }
             }
-        } else if (statement instanceof net.sf.jsqlparser.statement.insert.Insert) {
-            if (BooleanUtils.isNotTrue(Config.query().getStatementInsertEnable())) {
-                throw new ExceptionDisableInsert();
+            case net.sf.jsqlparser.statement.insert.Insert ignored3 -> {
+                if (BooleanUtils.isNotTrue(Config.query().getStatementInsertEnable())) {
+                    throw new ExceptionDisableInsert();
+                }
             }
-        } else if (!(statement instanceof net.sf.jsqlparser.statement.select.Select)) {
-            throw new ExceptionDmlNotAllowed();
+            case net.sf.jsqlparser.statement.select.Select ignored4 -> {}
+            default -> throw new ExceptionDmlNotAllowed();
         }
     }
 

@@ -10,7 +10,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import org.apache.openjpa.persistence.jdbc.Index;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 /**

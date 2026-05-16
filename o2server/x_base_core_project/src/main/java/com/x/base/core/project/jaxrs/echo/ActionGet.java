@@ -2,7 +2,7 @@ package com.x.base.core.project.jaxrs.echo;
 
 import java.util.Date;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 
 import com.x.base.core.project.annotation.FieldDescribe;
 import com.x.base.core.project.gson.GsonPropertyObject;

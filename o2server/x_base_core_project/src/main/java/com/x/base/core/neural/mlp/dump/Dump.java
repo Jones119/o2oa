@@ -52,26 +52,22 @@ public class Dump {
 		this.hiddens = trainNetwork.hiddens();
 		for (int i = 0; i < trainNetwork.layers().size(); i++) {
 			Layer layer = trainNetwork.layers().get(i);
-			if (layer instanceof Affine) {
-				affines.put(Integer.valueOf(i), (Affine) layer);
-			} else if (layer instanceof BatchNormalization) {
-				batchNormalizations.put(Integer.valueOf(i), (BatchNormalization) layer);
-			} else if (layer instanceof Relu) {
-				relus.put(Integer.valueOf(i), (Relu) layer);
-			} else if (layer instanceof Sigmoid) {
-				sigmoids.put(Integer.valueOf(i), (Sigmoid) layer);
-			} else if (layer instanceof Tanh) {
-				tanhs.put(Integer.valueOf(i), (Tanh) layer);
+			switch (layer) {
+				case Affine a -> affines.put(Integer.valueOf(i), a);
+				case BatchNormalization bn -> batchNormalizations.put(Integer.valueOf(i), bn);
+				case Relu r -> relus.put(Integer.valueOf(i), r);
+				case Sigmoid s -> sigmoids.put(Integer.valueOf(i), s);
+				case Tanh t -> tanhs.put(Integer.valueOf(i), t);
+				default -> {}
 			}
 		}
 		Loss loss = trainNetwork.loss();
 		if (null != loss) {
-			if (loss instanceof MeanSquareError) {
-				this.meanSquareError = (MeanSquareError) loss;
-			} else if (loss instanceof SigmoidWithMeanSquareError) {
-				this.sigmoidWithMeanSquareError = (SigmoidWithMeanSquareError) loss;
-			} else if (loss instanceof SoftmaxWithCrossEntropyError) {
-				this.softmaxWithCrossEntropyError = (SoftmaxWithCrossEntropyError) loss;
+			switch (loss) {
+				case MeanSquareError mse -> this.meanSquareError = mse;
+				case SigmoidWithMeanSquareError swm -> this.sigmoidWithMeanSquareError = swm;
+				case SoftmaxWithCrossEntropyError sce -> this.softmaxWithCrossEntropyError = sce;
+				default -> {}
 			}
 		}
 	}

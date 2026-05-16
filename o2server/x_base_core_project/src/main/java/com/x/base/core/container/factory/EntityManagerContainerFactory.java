@@ -7,8 +7,8 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 
 import com.x.base.core.container.EntityManagerContainer;
 import com.x.base.core.entity.JpaObject;

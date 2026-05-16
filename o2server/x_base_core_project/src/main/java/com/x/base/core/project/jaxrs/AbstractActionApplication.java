@@ -5,7 +5,7 @@ import com.x.base.core.project.jaxrs.echo.EchoAction;
 import com.x.base.core.project.jaxrs.fireschedule.FireScheduleAction;
 import java.util.HashSet;
 import java.util.Set;
-import javax.ws.rs.core.Application;
+import jakarta.ws.rs.core.Application;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 
 public abstract class AbstractActionApplication extends Application {

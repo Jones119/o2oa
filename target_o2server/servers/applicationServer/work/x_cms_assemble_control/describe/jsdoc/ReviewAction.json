@@ -1,0 +1,147 @@
+{
+  "name": "ReviewAction",
+  "className": "com.x.cms.assemble.control.jaxrs.review.ReviewAction",
+  "description": "参阅接口.",
+  "methods": [
+    {
+      "name": "v2Search",
+      "className": "com.x.cms.assemble.control.jaxrs.review.V2Search",
+      "description": "搜索.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "documentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档类型：信息|数据."
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目ID."
+        },
+        {
+          "name": "appName",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目名称."
+        },
+        {
+          "name": "appAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "栏目别名."
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类ID."
+        },
+        {
+          "name": "categoryName",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类名称."
+        },
+        {
+          "name": "categoryAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "分类别名."
+        },
+        {
+          "name": "docId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档ID."
+        },
+        {
+          "name": "docSequence",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档Sequence."
+        },
+        {
+          "name": "docStatus",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档状态."
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档标题."
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "拟稿人"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity"
+        },
+        {
+          "name": "creatorUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织"
+        },
+        {
+          "name": "creatorTopUnitName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人顶层组织，可能为空，如果由系统创建。"
+        },
+        {
+          "name": "docCreateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "document的拟稿时间."
+        },
+        {
+          "name": "publishTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "document的发布时间."
+        },
+        {
+          "name": "permissionObj",
+          "type": "String",
+          "isCollection": false,
+          "description": "权限拥有者"
+        },
+        {
+          "name": "permissionObjType",
+          "type": "String",
+          "isCollection": false,
+          "description": "权限拥有者类型: PERSON|IDENTITY|UNIT|GROUP|ROLE"
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    }
+  ]
+}

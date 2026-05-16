@@ -2,7 +2,7 @@ package com.x.base.core.project;
 
 import java.util.Date;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 
 import com.google.gson.JsonElement;
 import com.x.base.core.project.annotation.Module;

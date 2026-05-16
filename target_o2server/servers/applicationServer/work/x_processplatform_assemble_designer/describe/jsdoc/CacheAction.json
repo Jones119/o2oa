@@ -1,0 +1,35 @@
+{
+  "name": "CacheAction",
+  "className": "com.x.base.core.project.jaxrs.cache.CacheAction",
+  "description": "缓存操作接口",
+  "methods": [
+    {
+      "name": "commonScriptFlush",
+      "className": "com.x.base.core.project.jaxrs.cache.ActionCommonScriptFlush",
+      "description": "接收刷新CommonScript指令.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "configFlush",
+      "className": "com.x.base.core.project.jaxrs.cache.ActionConfigFlush",
+      "description": "接收刷新Config配置文件指令.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "detail",
+      "className": "com.x.base.core.project.jaxrs.cache.ActionDetail",
+      "description": "显示缓存状态.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "receive",
+      "className": "com.x.base.core.project.jaxrs.cache.ActionReceive",
+      "description": "接收缓存刷新指令.",
+      "type": "POST",
+      "outs": []
+    }
+  ]
+}

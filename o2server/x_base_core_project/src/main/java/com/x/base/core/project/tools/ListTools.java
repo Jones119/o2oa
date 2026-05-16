@@ -11,6 +11,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
 import java.util.stream.Collectors;
+import java.util.stream.Gatherers;
+import java.util.stream.Stream;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.collections4.CollectionUtils;
@@ -157,31 +159,25 @@ public class ListTools {
 
 	public static <T> ArrayList<T> trim(List<T> list, boolean ignoreNull, boolean unique,
 			@SuppressWarnings("unchecked") T... ts) {
-		ArrayList<T> arrayList = new ArrayList<>();
+		Stream<T> stream = Stream.empty();
 		if (null != list) {
-			for (T t : list) {
-				if (ignoreNull && (null == t)) {
-					continue;
-				}
-				if (unique && arrayList.contains(t)) {
-					continue;
-				}
-				arrayList.add(t);
-			}
+			stream = Stream.concat(stream, list.stream());
 		}
 		if (null != ts) {
-			for (T t : ts) {
-				if (ignoreNull && (null == t)) {
-					continue;
-				}
-				if (unique && arrayList.contains(t)) {
-					continue;
-				}
-				arrayList.add(t);
-			}
+			stream = Stream.concat(stream, Stream.of(ts));
 		}
-
-		return arrayList;
+		if (ignoreNull) {
+			stream = stream.filter(Objects::nonNull);
+		}
+		if (unique) {
+			return stream.gather(Gatherers.<T, ArrayList<T>>fold(ArrayList::new, (acc, t) -> {
+				if (!acc.contains(t)) {
+					acc.add(t);
+				}
+				return acc;
+			})).findFirst().orElseGet(ArrayList::new);
+		}
+		return stream.collect(Collectors.toCollection(ArrayList::new));
 	}
 
 	public static boolean isEmpty(List<?>... os) {
@@ -207,49 +203,51 @@ public class ListTools {
 	@SuppressWarnings("unchecked")
 	public static <T, W> List<T> extractProperty(List<W> list, String property, Class<T> clz, Boolean ignoreNull,
 			Boolean unique) throws Exception {
-		List<T> properties = new ArrayList<>();
 		if (isEmpty(list)) {
-			return properties;
+			return new ArrayList<>();
 		}
-		for (W w : list) {
-			Object o = PropertyUtils.getProperty(w, property);
-			if (null == o && ignoreNull) {
-				continue;
-			}
-			if (unique && properties.contains(o)) {
-				continue;
-			}
-			if (null == o) {
-				properties.add(null);
-			} else {
-				properties.add((T) o);
-			}
+		if (unique) {
+			return list.stream().map(w -> {
+				try {
+					return (T) PropertyUtils.getProperty(w, property);
+				} catch (Exception e) {
+					return null;
+				}
+			}).gather(ProjectGatherers.distinctWithNullFilter(ignoreNull))
+					.collect(Collectors.toCollection(ArrayList::new));
 		}
-		return properties;
+		return list.stream().map(w -> {
+			try {
+				return (T) PropertyUtils.getProperty(w, property);
+			} catch (Exception e) {
+				return null;
+			}
+		}).filter(t -> !(ignoreNull && t == null)).collect(Collectors.toCollection(ArrayList::new));
 	}
 
 	@SuppressWarnings("unchecked")
 	public static <T, W> List<T> extractField(List<W> list, String name, Class<T> clz, Boolean ignoreNull,
 			Boolean unique) throws Exception {
-		List<T> values = new ArrayList<>();
 		if (isEmpty(list)) {
-			return values;
+			return new ArrayList<>();
 		}
-		for (W w : list) {
-			Object o = FieldUtils.readField(w, name, true);
-			if (null == o && ignoreNull) {
-				continue;
-			}
-			if (unique && values.contains(o)) {
-				continue;
-			}
-			if (null == o) {
-				values.add(null);
-			} else {
-				values.add((T) o);
-			}
+		if (unique) {
+			return list.stream().map(w -> {
+				try {
+					return (T) FieldUtils.readField(w, name, true);
+				} catch (Exception e) {
+					return null;
+				}
+			}).gather(ProjectGatherers.distinctWithNullFilter(ignoreNull))
+					.collect(Collectors.toCollection(ArrayList::new));
 		}
-		return values;
+		return list.stream().map(w -> {
+			try {
+				return (T) FieldUtils.readField(w, name, true);
+			} catch (Exception e) {
+				return null;
+			}
+		}).filter(t -> !(ignoreNull && t == null)).collect(Collectors.toCollection(ArrayList::new));
 	}
 
 	public static <T> T findWithProperty(List<T> list, String property, Object value) throws Exception {
@@ -272,11 +270,8 @@ public class ListTools {
 		if (null == list || list.isEmpty()) {
 			return null;
 		}
-		Map<T, Long> group = list.stream().collect(Collectors.groupingBy(e -> e, Collectors.counting()));
-		LinkedHashMap<T, Long> sort = group.entrySet().stream()
-				.sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-		return sort.entrySet().stream().findFirst().get().getKey();
+		return list.stream().collect(Collectors.groupingBy(e -> e, Collectors.counting())).entrySet().stream()
+				.max(Map.Entry.comparingByValue()).get().getKey();
 	}
 
 	public static <T> List<T> includesExcludes(List<T> list, List<T> includes, List<T> excludes) {
@@ -335,21 +330,10 @@ public class ListTools {
 		if (null == size || size < 1) {
 			throw new Exception("size can not be null or less than 1.");
 		}
-		List<List<T>> result = new ArrayList<>();
 		if (isEmpty(list)) {
-			return result;
+			return new ArrayList<>();
 		}
-		List<T> os = null;
-		for (int i = 0; i < list.size(); i++) {
-			if (i % size == 0) {
-				os = new ArrayList<T>();
-			}
-			os.add(list.get(i));
-			if ((i % size == (size - 1)) || (i == list.size() - 1)) {
-				result.add(os);
-			}
-		}
-		return result;
+		return new ArrayList<>(list.stream().gather(Gatherers.windowFixed(size)).toList());
 	}
 
 	@SuppressWarnings("unchecked")

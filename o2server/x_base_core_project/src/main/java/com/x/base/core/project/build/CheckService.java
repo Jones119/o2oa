@@ -3,7 +3,7 @@ package com.x.base.core.project.build;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.annotation.WebFilter;
+import jakarta.servlet.annotation.WebFilter;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.reflect.FieldUtils;

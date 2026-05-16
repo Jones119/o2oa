@@ -14,8 +14,8 @@ import org.apache.openjpa.persistence.PersistentCollection;
 import org.apache.openjpa.persistence.jdbc.*;
 import org.apache.openjpa.persistence.jdbc.Index;
 
-import javax.persistence.*;
-import javax.persistence.OrderColumn;
+import jakarta.persistence.*;
+import jakarta.persistence.OrderColumn;
 import java.util.List;
 
 /**

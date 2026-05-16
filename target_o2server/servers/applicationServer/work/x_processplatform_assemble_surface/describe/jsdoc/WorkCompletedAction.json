@@ -1,0 +1,5978 @@
+{
+  "name": "WorkCompletedAction",
+  "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.WorkCompletedAction",
+  "description": "已完成工作接口.",
+  "methods": [
+    {
+      "name": "countWithApplication",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionListCountWithApplication",
+      "description": "统计当前用户创建的WorkCompleted，按应用分类.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "countWithProcess",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionListCountWithProcess",
+      "description": "统计当前用户在指定应用下的WorkCompleted，按流程分类.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "create",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionCreate",
+      "description": "创建已完成工作.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "filterAttribute",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionFilterAttribute",
+      "description": "获取用于过滤的可选属性值",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "get",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionGet",
+      "description": "获取WorkCompleted.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "data",
+          "type": "Data",
+          "isCollection": false,
+          "description": "合并数据对象"
+        },
+        {
+          "name": "taskCompletedList",
+          "type": "List\u003cTaskCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已办对象"
+        },
+        {
+          "name": "readCompletedList",
+          "type": "List\u003cReadCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已阅对象"
+        },
+        {
+          "name": "reviewList",
+          "type": "List\u003cReview\u003e",
+          "isCollection": true,
+          "description": "合并参阅对象"
+        },
+        {
+          "name": "recordList",
+          "type": "List\u003cRecord\u003e",
+          "isCollection": true,
+          "description": "合并记录对象"
+        },
+        {
+          "name": "workLogList",
+          "type": "List\u003cWorkLog\u003e",
+          "isCollection": true,
+          "description": "合并工作日志对象"
+        },
+        {
+          "name": "parentWork",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "parentJob",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作Job,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "storeForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form"
+        },
+        {
+          "name": "mobileStoreForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form,移动端."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "标题"
+        },
+        {
+          "name": "startTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "startTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用."
+        },
+        {
+          "name": "completedTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "completedTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用.由于是自动计算所以允许空"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity"
+        },
+        {
+          "name": "creatorUnit",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织"
+        },
+        {
+          "name": "creatorUnitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织层级名."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID"
+        },
+        {
+          "name": "applicationName",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用名称."
+        },
+        {
+          "name": "applicationAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用别名."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "processName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "processAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程别名."
+        },
+        {
+          "name": "serial",
+          "type": "String",
+          "isCollection": false,
+          "description": "编号"
+        },
+        {
+          "name": "form",
+          "type": "String",
+          "isCollection": false,
+          "description": "使用表单ID"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "Work Id."
+        },
+        {
+          "name": "expireTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "任务截止时间."
+        },
+        {
+          "name": "expired",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否超时."
+        },
+        {
+          "name": "duration",
+          "type": "Long",
+          "isCollection": false,
+          "description": "工作时长(分钟数)."
+        },
+        {
+          "name": "allowRollback",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "完成后是否允许回滚."
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动id."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动名称."
+        },
+        {
+          "name": "activityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动别名."
+        },
+        {
+          "name": "activityDescription",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动说明."
+        },
+        {
+          "name": "completedType",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束类型."
+        },
+        {
+          "name": "properties",
+          "type": "WorkCompletedProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "merged",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "合并数据"
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "booleanValue01",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值01."
+        },
+        {
+          "name": "booleanValue02",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "doubleValue03",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值03."
+        },
+        {
+          "name": "doubleValue04",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值04."
+        },
+        {
+          "name": "doubleValue05",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值05."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "longValue03",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值03."
+        },
+        {
+          "name": "longValue04",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值04."
+        },
+        {
+          "name": "longValue05",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值05."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "dateTimeValue04",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值04."
+        },
+        {
+          "name": "dateTimeValue05",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值05."
+        },
+        {
+          "name": "dateValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值01."
+        },
+        {
+          "name": "dateValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值02."
+        },
+        {
+          "name": "timeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值01."
+        },
+        {
+          "name": "timeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值02."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listNextWithApplication",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionListNextWithApplication",
+      "description": "列示当前用户在指定的application下创建的WorkCompleted对象,下一页.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "data",
+          "type": "Data",
+          "isCollection": false,
+          "description": "合并数据对象"
+        },
+        {
+          "name": "taskCompletedList",
+          "type": "List\u003cTaskCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已办对象"
+        },
+        {
+          "name": "readCompletedList",
+          "type": "List\u003cReadCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已阅对象"
+        },
+        {
+          "name": "reviewList",
+          "type": "List\u003cReview\u003e",
+          "isCollection": true,
+          "description": "合并参阅对象"
+        },
+        {
+          "name": "recordList",
+          "type": "List\u003cRecord\u003e",
+          "isCollection": true,
+          "description": "合并记录对象"
+        },
+        {
+          "name": "workLogList",
+          "type": "List\u003cWorkLog\u003e",
+          "isCollection": true,
+          "description": "合并工作日志对象"
+        },
+        {
+          "name": "parentWork",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "parentJob",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作Job,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "storeForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form"
+        },
+        {
+          "name": "mobileStoreForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form,移动端."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "标题"
+        },
+        {
+          "name": "startTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "startTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用."
+        },
+        {
+          "name": "completedTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "completedTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用.由于是自动计算所以允许空"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity"
+        },
+        {
+          "name": "creatorUnit",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织"
+        },
+        {
+          "name": "creatorUnitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织层级名."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID"
+        },
+        {
+          "name": "applicationName",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用名称."
+        },
+        {
+          "name": "applicationAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用别名."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "processName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "processAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程别名."
+        },
+        {
+          "name": "serial",
+          "type": "String",
+          "isCollection": false,
+          "description": "编号"
+        },
+        {
+          "name": "form",
+          "type": "String",
+          "isCollection": false,
+          "description": "使用表单ID"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "Work Id."
+        },
+        {
+          "name": "expireTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "任务截止时间."
+        },
+        {
+          "name": "expired",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否超时."
+        },
+        {
+          "name": "duration",
+          "type": "Long",
+          "isCollection": false,
+          "description": "工作时长(分钟数)."
+        },
+        {
+          "name": "allowRollback",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "完成后是否允许回滚."
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动id."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动名称."
+        },
+        {
+          "name": "activityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动别名."
+        },
+        {
+          "name": "activityDescription",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动说明."
+        },
+        {
+          "name": "completedType",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束类型."
+        },
+        {
+          "name": "properties",
+          "type": "WorkCompletedProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "merged",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "合并数据"
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "booleanValue01",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值01."
+        },
+        {
+          "name": "booleanValue02",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "doubleValue03",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值03."
+        },
+        {
+          "name": "doubleValue04",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值04."
+        },
+        {
+          "name": "doubleValue05",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值05."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "longValue03",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值03."
+        },
+        {
+          "name": "longValue04",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值04."
+        },
+        {
+          "name": "longValue05",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值05."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "dateTimeValue04",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值04."
+        },
+        {
+          "name": "dateTimeValue05",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值05."
+        },
+        {
+          "name": "dateValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值01."
+        },
+        {
+          "name": "dateValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值02."
+        },
+        {
+          "name": "timeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值01."
+        },
+        {
+          "name": "timeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值02."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listNextWithFilter",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionListNextWithFilter",
+      "description": "根据过滤属性列示WorkCompleted,下一页.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "rank",
+          "type": "Long",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "control",
+          "type": "Control",
+          "isCollection": false,
+          "description": "权限"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "data",
+          "type": "Data",
+          "isCollection": false,
+          "description": "合并数据对象"
+        },
+        {
+          "name": "taskCompletedList",
+          "type": "List\u003cTaskCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已办对象"
+        },
+        {
+          "name": "readCompletedList",
+          "type": "List\u003cReadCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已阅对象"
+        },
+        {
+          "name": "reviewList",
+          "type": "List\u003cReview\u003e",
+          "isCollection": true,
+          "description": "合并参阅对象"
+        },
+        {
+          "name": "recordList",
+          "type": "List\u003cRecord\u003e",
+          "isCollection": true,
+          "description": "合并记录对象"
+        },
+        {
+          "name": "workLogList",
+          "type": "List\u003cWorkLog\u003e",
+          "isCollection": true,
+          "description": "合并工作日志对象"
+        },
+        {
+          "name": "parentWork",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "parentJob",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作Job,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "storeForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form"
+        },
+        {
+          "name": "mobileStoreForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form,移动端."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "标题"
+        },
+        {
+          "name": "startTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "startTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用."
+        },
+        {
+          "name": "completedTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "completedTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用.由于是自动计算所以允许空"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity"
+        },
+        {
+          "name": "creatorUnit",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织"
+        },
+        {
+          "name": "creatorUnitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织层级名."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID"
+        },
+        {
+          "name": "applicationName",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用名称."
+        },
+        {
+          "name": "applicationAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用别名."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "processName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "processAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程别名."
+        },
+        {
+          "name": "serial",
+          "type": "String",
+          "isCollection": false,
+          "description": "编号"
+        },
+        {
+          "name": "form",
+          "type": "String",
+          "isCollection": false,
+          "description": "使用表单ID"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "Work Id."
+        },
+        {
+          "name": "expireTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "任务截止时间."
+        },
+        {
+          "name": "expired",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否超时."
+        },
+        {
+          "name": "duration",
+          "type": "Long",
+          "isCollection": false,
+          "description": "工作时长(分钟数)."
+        },
+        {
+          "name": "allowRollback",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "完成后是否允许回滚."
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动id."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动名称."
+        },
+        {
+          "name": "activityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动别名."
+        },
+        {
+          "name": "activityDescription",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动说明."
+        },
+        {
+          "name": "completedType",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束类型."
+        },
+        {
+          "name": "properties",
+          "type": "WorkCompletedProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "merged",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "合并数据"
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "booleanValue01",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值01."
+        },
+        {
+          "name": "booleanValue02",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "doubleValue03",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值03."
+        },
+        {
+          "name": "doubleValue04",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值04."
+        },
+        {
+          "name": "doubleValue05",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值05."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "longValue03",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值03."
+        },
+        {
+          "name": "longValue04",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值04."
+        },
+        {
+          "name": "longValue05",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值05."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "dateTimeValue04",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值04."
+        },
+        {
+          "name": "dateTimeValue05",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值05."
+        },
+        {
+          "name": "dateValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值01."
+        },
+        {
+          "name": "dateValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值02."
+        },
+        {
+          "name": "timeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值01."
+        },
+        {
+          "name": "timeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值02."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listPrevWithApplication",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionListPrevWithApplication",
+      "description": "列示当前用户在指定的application下创建的WorkCompleted对象,上一页.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "data",
+          "type": "Data",
+          "isCollection": false,
+          "description": "合并数据对象"
+        },
+        {
+          "name": "taskCompletedList",
+          "type": "List\u003cTaskCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已办对象"
+        },
+        {
+          "name": "readCompletedList",
+          "type": "List\u003cReadCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已阅对象"
+        },
+        {
+          "name": "reviewList",
+          "type": "List\u003cReview\u003e",
+          "isCollection": true,
+          "description": "合并参阅对象"
+        },
+        {
+          "name": "recordList",
+          "type": "List\u003cRecord\u003e",
+          "isCollection": true,
+          "description": "合并记录对象"
+        },
+        {
+          "name": "workLogList",
+          "type": "List\u003cWorkLog\u003e",
+          "isCollection": true,
+          "description": "合并工作日志对象"
+        },
+        {
+          "name": "parentWork",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "parentJob",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作Job,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "storeForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form"
+        },
+        {
+          "name": "mobileStoreForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form,移动端."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "标题"
+        },
+        {
+          "name": "startTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "startTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用."
+        },
+        {
+          "name": "completedTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "completedTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用.由于是自动计算所以允许空"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity"
+        },
+        {
+          "name": "creatorUnit",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织"
+        },
+        {
+          "name": "creatorUnitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织层级名."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID"
+        },
+        {
+          "name": "applicationName",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用名称."
+        },
+        {
+          "name": "applicationAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用别名."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "processName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "processAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程别名."
+        },
+        {
+          "name": "serial",
+          "type": "String",
+          "isCollection": false,
+          "description": "编号"
+        },
+        {
+          "name": "form",
+          "type": "String",
+          "isCollection": false,
+          "description": "使用表单ID"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "Work Id."
+        },
+        {
+          "name": "expireTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "任务截止时间."
+        },
+        {
+          "name": "expired",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否超时."
+        },
+        {
+          "name": "duration",
+          "type": "Long",
+          "isCollection": false,
+          "description": "工作时长(分钟数)."
+        },
+        {
+          "name": "allowRollback",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "完成后是否允许回滚."
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动id."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动名称."
+        },
+        {
+          "name": "activityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动别名."
+        },
+        {
+          "name": "activityDescription",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动说明."
+        },
+        {
+          "name": "completedType",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束类型."
+        },
+        {
+          "name": "properties",
+          "type": "WorkCompletedProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "merged",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "合并数据"
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "booleanValue01",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值01."
+        },
+        {
+          "name": "booleanValue02",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "doubleValue03",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值03."
+        },
+        {
+          "name": "doubleValue04",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值04."
+        },
+        {
+          "name": "doubleValue05",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值05."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "longValue03",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值03."
+        },
+        {
+          "name": "longValue04",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值04."
+        },
+        {
+          "name": "longValue05",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值05."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "dateTimeValue04",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值04."
+        },
+        {
+          "name": "dateTimeValue05",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值05."
+        },
+        {
+          "name": "dateValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值01."
+        },
+        {
+          "name": "dateValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值02."
+        },
+        {
+          "name": "timeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值01."
+        },
+        {
+          "name": "timeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值02."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listPrevWithFilter",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionListPrevWithFilter",
+      "description": "根据过滤属性列示WorkCompleted,上一页.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "rank",
+          "type": "Long",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "control",
+          "type": "Control",
+          "isCollection": false,
+          "description": "权限"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "data",
+          "type": "Data",
+          "isCollection": false,
+          "description": "合并数据对象"
+        },
+        {
+          "name": "taskCompletedList",
+          "type": "List\u003cTaskCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已办对象"
+        },
+        {
+          "name": "readCompletedList",
+          "type": "List\u003cReadCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已阅对象"
+        },
+        {
+          "name": "reviewList",
+          "type": "List\u003cReview\u003e",
+          "isCollection": true,
+          "description": "合并参阅对象"
+        },
+        {
+          "name": "recordList",
+          "type": "List\u003cRecord\u003e",
+          "isCollection": true,
+          "description": "合并记录对象"
+        },
+        {
+          "name": "workLogList",
+          "type": "List\u003cWorkLog\u003e",
+          "isCollection": true,
+          "description": "合并工作日志对象"
+        },
+        {
+          "name": "parentWork",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "parentJob",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作Job,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "storeForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form"
+        },
+        {
+          "name": "mobileStoreForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form,移动端."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "标题"
+        },
+        {
+          "name": "startTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "startTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用."
+        },
+        {
+          "name": "completedTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "completedTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用.由于是自动计算所以允许空"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity"
+        },
+        {
+          "name": "creatorUnit",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织"
+        },
+        {
+          "name": "creatorUnitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织层级名."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID"
+        },
+        {
+          "name": "applicationName",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用名称."
+        },
+        {
+          "name": "applicationAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用别名."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "processName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "processAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程别名."
+        },
+        {
+          "name": "serial",
+          "type": "String",
+          "isCollection": false,
+          "description": "编号"
+        },
+        {
+          "name": "form",
+          "type": "String",
+          "isCollection": false,
+          "description": "使用表单ID"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "Work Id."
+        },
+        {
+          "name": "expireTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "任务截止时间."
+        },
+        {
+          "name": "expired",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否超时."
+        },
+        {
+          "name": "duration",
+          "type": "Long",
+          "isCollection": false,
+          "description": "工作时长(分钟数)."
+        },
+        {
+          "name": "allowRollback",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "完成后是否允许回滚."
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动id."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动名称."
+        },
+        {
+          "name": "activityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动别名."
+        },
+        {
+          "name": "activityDescription",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动说明."
+        },
+        {
+          "name": "completedType",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束类型."
+        },
+        {
+          "name": "properties",
+          "type": "WorkCompletedProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "merged",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "合并数据"
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "booleanValue01",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值01."
+        },
+        {
+          "name": "booleanValue02",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "doubleValue03",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值03."
+        },
+        {
+          "name": "doubleValue04",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值04."
+        },
+        {
+          "name": "doubleValue05",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值05."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "longValue03",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值03."
+        },
+        {
+          "name": "longValue04",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值04."
+        },
+        {
+          "name": "longValue05",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值05."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "dateTimeValue04",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值04."
+        },
+        {
+          "name": "dateTimeValue05",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值05."
+        },
+        {
+          "name": "dateValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值01."
+        },
+        {
+          "name": "dateValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值02."
+        },
+        {
+          "name": "timeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值01."
+        },
+        {
+          "name": "timeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值02."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "manageDelete",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionManageDelete",
+      "description": "删除所有相关数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "manageDeleteMockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionManageDelete",
+      "description": "Mock Get To Delete.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "manageFilterAttribute",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionManageFilterAttribute",
+      "description": "获取用于过滤的可选属性值",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "processList",
+          "type": "List\u003cNameValueCountPair\u003e",
+          "isCollection": true,
+          "description": "可选择的流程"
+        },
+        {
+          "name": "startTimeMonthList",
+          "type": "List\u003cNameValueCountPair\u003e",
+          "isCollection": true,
+          "description": "可选择的开始月份"
+        },
+        {
+          "name": "completedTimeMonthList",
+          "type": "List\u003cNameValueCountPair\u003e",
+          "isCollection": true,
+          "description": "可选择的结束月份"
+        }
+      ]
+    },
+    {
+      "name": "manageGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionManageGet",
+      "description": "获取工作内容.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "control",
+          "type": "Control",
+          "isCollection": false,
+          "description": "权限对象"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "data",
+          "type": "Data",
+          "isCollection": false,
+          "description": "合并数据对象"
+        },
+        {
+          "name": "taskCompletedList",
+          "type": "List\u003cTaskCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已办对象"
+        },
+        {
+          "name": "readCompletedList",
+          "type": "List\u003cReadCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已阅对象"
+        },
+        {
+          "name": "reviewList",
+          "type": "List\u003cReview\u003e",
+          "isCollection": true,
+          "description": "合并参阅对象"
+        },
+        {
+          "name": "recordList",
+          "type": "List\u003cRecord\u003e",
+          "isCollection": true,
+          "description": "合并记录对象"
+        },
+        {
+          "name": "workLogList",
+          "type": "List\u003cWorkLog\u003e",
+          "isCollection": true,
+          "description": "合并工作日志对象"
+        },
+        {
+          "name": "parentWork",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "parentJob",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作Job,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "storeForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form"
+        },
+        {
+          "name": "mobileStoreForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form,移动端."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "标题"
+        },
+        {
+          "name": "startTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "startTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用."
+        },
+        {
+          "name": "completedTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "completedTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用.由于是自动计算所以允许空"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity"
+        },
+        {
+          "name": "creatorUnit",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织"
+        },
+        {
+          "name": "creatorUnitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织层级名."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID"
+        },
+        {
+          "name": "applicationName",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用名称."
+        },
+        {
+          "name": "applicationAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用别名."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "processName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "processAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程别名."
+        },
+        {
+          "name": "serial",
+          "type": "String",
+          "isCollection": false,
+          "description": "编号"
+        },
+        {
+          "name": "form",
+          "type": "String",
+          "isCollection": false,
+          "description": "使用表单ID"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "Work Id."
+        },
+        {
+          "name": "expireTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "任务截止时间."
+        },
+        {
+          "name": "expired",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否超时."
+        },
+        {
+          "name": "duration",
+          "type": "Long",
+          "isCollection": false,
+          "description": "工作时长(分钟数)."
+        },
+        {
+          "name": "allowRollback",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "完成后是否允许回滚."
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动id."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动名称."
+        },
+        {
+          "name": "activityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动别名."
+        },
+        {
+          "name": "activityDescription",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动说明."
+        },
+        {
+          "name": "completedType",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束类型."
+        },
+        {
+          "name": "properties",
+          "type": "WorkCompletedProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "merged",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "合并数据"
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "booleanValue01",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值01."
+        },
+        {
+          "name": "booleanValue02",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "doubleValue03",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值03."
+        },
+        {
+          "name": "doubleValue04",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值04."
+        },
+        {
+          "name": "doubleValue05",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值05."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "longValue03",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值03."
+        },
+        {
+          "name": "longValue04",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值04."
+        },
+        {
+          "name": "longValue05",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值05."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "dateTimeValue04",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值04."
+        },
+        {
+          "name": "dateTimeValue05",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值05."
+        },
+        {
+          "name": "dateValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值01."
+        },
+        {
+          "name": "dateValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值02."
+        },
+        {
+          "name": "timeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值01."
+        },
+        {
+          "name": "timeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值02."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "manageGetAssignment",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionManageGetAssignment",
+      "description": "列示指定Work下所有的待办已办,待阅已阅和参阅.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "manageListCountWithProcess",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionManageListCountWithProcess",
+      "description": "列示指定application下根据porcess分类的workCompleted数量.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "manageListFilterPaging",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionManageListFilterPaging",
+      "description": "按条件对WorkCompleted分页显示.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "标题"
+        },
+        {
+          "name": "startTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "startTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用."
+        },
+        {
+          "name": "completedTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "completedTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用.由于是自动计算所以允许空"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity"
+        },
+        {
+          "name": "creatorUnit",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织"
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID"
+        },
+        {
+          "name": "applicationName",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用名称."
+        },
+        {
+          "name": "applicationAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用别名."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "processName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "processAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程别名."
+        },
+        {
+          "name": "serial",
+          "type": "String",
+          "isCollection": false,
+          "description": "编号"
+        },
+        {
+          "name": "form",
+          "type": "String",
+          "isCollection": false,
+          "description": "使用表单ID"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "Work Id."
+        },
+        {
+          "name": "expireTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "任务截止时间."
+        },
+        {
+          "name": "expired",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否超时."
+        },
+        {
+          "name": "duration",
+          "type": "Long",
+          "isCollection": false,
+          "description": "工作时长(分钟数)."
+        },
+        {
+          "name": "allowRollback",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "完成后是否允许回滚."
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动id."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动名称."
+        },
+        {
+          "name": "activityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动别名."
+        },
+        {
+          "name": "activityDescription",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动说明."
+        },
+        {
+          "name": "completedType",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束类型."
+        },
+        {
+          "name": "merged",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "合并数据"
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "booleanValue01",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值01."
+        },
+        {
+          "name": "booleanValue02",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "doubleValue03",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值03."
+        },
+        {
+          "name": "doubleValue04",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值04."
+        },
+        {
+          "name": "doubleValue05",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值05."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "longValue03",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值03."
+        },
+        {
+          "name": "longValue04",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值04."
+        },
+        {
+          "name": "longValue05",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值05."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "dateTimeValue04",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值04."
+        },
+        {
+          "name": "dateTimeValue05",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值05."
+        },
+        {
+          "name": "dateValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值01."
+        },
+        {
+          "name": "dateValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值02."
+        },
+        {
+          "name": "timeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值01."
+        },
+        {
+          "name": "timeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值02."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "manageListNext",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionManageListNext",
+      "description": "如果是xadmin或者是ProcessPlatformManager或Manager角色那么显示这个应用下的所有WorkCompleted,如果是Process的管理员,那么显示Process下的WorkCompleted.下一页.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "data",
+          "type": "Data",
+          "isCollection": false,
+          "description": "合并数据对象"
+        },
+        {
+          "name": "taskCompletedList",
+          "type": "List\u003cTaskCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已办对象"
+        },
+        {
+          "name": "readCompletedList",
+          "type": "List\u003cReadCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已阅对象"
+        },
+        {
+          "name": "reviewList",
+          "type": "List\u003cReview\u003e",
+          "isCollection": true,
+          "description": "合并参阅对象"
+        },
+        {
+          "name": "recordList",
+          "type": "List\u003cRecord\u003e",
+          "isCollection": true,
+          "description": "合并记录对象"
+        },
+        {
+          "name": "workLogList",
+          "type": "List\u003cWorkLog\u003e",
+          "isCollection": true,
+          "description": "合并工作日志对象"
+        },
+        {
+          "name": "parentWork",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "parentJob",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作Job,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "storeForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form"
+        },
+        {
+          "name": "mobileStoreForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form,移动端."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "标题"
+        },
+        {
+          "name": "startTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "startTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用."
+        },
+        {
+          "name": "completedTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "completedTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用.由于是自动计算所以允许空"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity"
+        },
+        {
+          "name": "creatorUnit",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织"
+        },
+        {
+          "name": "creatorUnitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织层级名."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID"
+        },
+        {
+          "name": "applicationName",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用名称."
+        },
+        {
+          "name": "applicationAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用别名."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "processName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "processAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程别名."
+        },
+        {
+          "name": "serial",
+          "type": "String",
+          "isCollection": false,
+          "description": "编号"
+        },
+        {
+          "name": "form",
+          "type": "String",
+          "isCollection": false,
+          "description": "使用表单ID"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "Work Id."
+        },
+        {
+          "name": "expireTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "任务截止时间."
+        },
+        {
+          "name": "expired",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否超时."
+        },
+        {
+          "name": "duration",
+          "type": "Long",
+          "isCollection": false,
+          "description": "工作时长(分钟数)."
+        },
+        {
+          "name": "allowRollback",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "完成后是否允许回滚."
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动id."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动名称."
+        },
+        {
+          "name": "activityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动别名."
+        },
+        {
+          "name": "activityDescription",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动说明."
+        },
+        {
+          "name": "completedType",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束类型."
+        },
+        {
+          "name": "properties",
+          "type": "WorkCompletedProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "merged",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "合并数据"
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "booleanValue01",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值01."
+        },
+        {
+          "name": "booleanValue02",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "doubleValue03",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值03."
+        },
+        {
+          "name": "doubleValue04",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值04."
+        },
+        {
+          "name": "doubleValue05",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值05."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "longValue03",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值03."
+        },
+        {
+          "name": "longValue04",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值04."
+        },
+        {
+          "name": "longValue05",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值05."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "dateTimeValue04",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值04."
+        },
+        {
+          "name": "dateTimeValue05",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值05."
+        },
+        {
+          "name": "dateValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值01."
+        },
+        {
+          "name": "dateValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值02."
+        },
+        {
+          "name": "timeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值01."
+        },
+        {
+          "name": "timeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值02."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "manageListNextWithFilter",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionManageListNextFilter",
+      "description": "列示根据过滤条件的WorkCompleted,下一页.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "rank",
+          "type": "Long",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "control",
+          "type": "Control",
+          "isCollection": false,
+          "description": "权限"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "data",
+          "type": "Data",
+          "isCollection": false,
+          "description": "合并数据对象"
+        },
+        {
+          "name": "taskCompletedList",
+          "type": "List\u003cTaskCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已办对象"
+        },
+        {
+          "name": "readCompletedList",
+          "type": "List\u003cReadCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已阅对象"
+        },
+        {
+          "name": "reviewList",
+          "type": "List\u003cReview\u003e",
+          "isCollection": true,
+          "description": "合并参阅对象"
+        },
+        {
+          "name": "recordList",
+          "type": "List\u003cRecord\u003e",
+          "isCollection": true,
+          "description": "合并记录对象"
+        },
+        {
+          "name": "workLogList",
+          "type": "List\u003cWorkLog\u003e",
+          "isCollection": true,
+          "description": "合并工作日志对象"
+        },
+        {
+          "name": "parentWork",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "parentJob",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作Job,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "storeForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form"
+        },
+        {
+          "name": "mobileStoreForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form,移动端."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "标题"
+        },
+        {
+          "name": "startTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "startTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用."
+        },
+        {
+          "name": "completedTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "completedTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用.由于是自动计算所以允许空"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity"
+        },
+        {
+          "name": "creatorUnit",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织"
+        },
+        {
+          "name": "creatorUnitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织层级名."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID"
+        },
+        {
+          "name": "applicationName",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用名称."
+        },
+        {
+          "name": "applicationAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用别名."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "processName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "processAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程别名."
+        },
+        {
+          "name": "serial",
+          "type": "String",
+          "isCollection": false,
+          "description": "编号"
+        },
+        {
+          "name": "form",
+          "type": "String",
+          "isCollection": false,
+          "description": "使用表单ID"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "Work Id."
+        },
+        {
+          "name": "expireTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "任务截止时间."
+        },
+        {
+          "name": "expired",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否超时."
+        },
+        {
+          "name": "duration",
+          "type": "Long",
+          "isCollection": false,
+          "description": "工作时长(分钟数)."
+        },
+        {
+          "name": "allowRollback",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "完成后是否允许回滚."
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动id."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动名称."
+        },
+        {
+          "name": "activityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动别名."
+        },
+        {
+          "name": "activityDescription",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动说明."
+        },
+        {
+          "name": "completedType",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束类型."
+        },
+        {
+          "name": "properties",
+          "type": "WorkCompletedProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "merged",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "合并数据"
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "booleanValue01",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值01."
+        },
+        {
+          "name": "booleanValue02",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "doubleValue03",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值03."
+        },
+        {
+          "name": "doubleValue04",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值04."
+        },
+        {
+          "name": "doubleValue05",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值05."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "longValue03",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值03."
+        },
+        {
+          "name": "longValue04",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值04."
+        },
+        {
+          "name": "longValue05",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值05."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "dateTimeValue04",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值04."
+        },
+        {
+          "name": "dateTimeValue05",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值05."
+        },
+        {
+          "name": "dateValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值01."
+        },
+        {
+          "name": "dateValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值02."
+        },
+        {
+          "name": "timeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值01."
+        },
+        {
+          "name": "timeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值02."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "manageListPrev",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionManageListPrev",
+      "description": "列示当前用户创建的WorkCompleted对象,上一页.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "control",
+          "type": "Control",
+          "isCollection": false,
+          "description": "权限"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "data",
+          "type": "Data",
+          "isCollection": false,
+          "description": "合并数据对象"
+        },
+        {
+          "name": "taskCompletedList",
+          "type": "List\u003cTaskCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已办对象"
+        },
+        {
+          "name": "readCompletedList",
+          "type": "List\u003cReadCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已阅对象"
+        },
+        {
+          "name": "reviewList",
+          "type": "List\u003cReview\u003e",
+          "isCollection": true,
+          "description": "合并参阅对象"
+        },
+        {
+          "name": "recordList",
+          "type": "List\u003cRecord\u003e",
+          "isCollection": true,
+          "description": "合并记录对象"
+        },
+        {
+          "name": "workLogList",
+          "type": "List\u003cWorkLog\u003e",
+          "isCollection": true,
+          "description": "合并工作日志对象"
+        },
+        {
+          "name": "parentWork",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "parentJob",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作Job,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "storeForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form"
+        },
+        {
+          "name": "mobileStoreForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form,移动端."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "标题"
+        },
+        {
+          "name": "startTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "startTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用."
+        },
+        {
+          "name": "completedTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "completedTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用.由于是自动计算所以允许空"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity"
+        },
+        {
+          "name": "creatorUnit",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织"
+        },
+        {
+          "name": "creatorUnitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织层级名."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID"
+        },
+        {
+          "name": "applicationName",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用名称."
+        },
+        {
+          "name": "applicationAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用别名."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "processName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "processAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程别名."
+        },
+        {
+          "name": "serial",
+          "type": "String",
+          "isCollection": false,
+          "description": "编号"
+        },
+        {
+          "name": "form",
+          "type": "String",
+          "isCollection": false,
+          "description": "使用表单ID"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "Work Id."
+        },
+        {
+          "name": "expireTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "任务截止时间."
+        },
+        {
+          "name": "expired",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否超时."
+        },
+        {
+          "name": "duration",
+          "type": "Long",
+          "isCollection": false,
+          "description": "工作时长(分钟数)."
+        },
+        {
+          "name": "allowRollback",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "完成后是否允许回滚."
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动id."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动名称."
+        },
+        {
+          "name": "activityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动别名."
+        },
+        {
+          "name": "activityDescription",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动说明."
+        },
+        {
+          "name": "completedType",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束类型."
+        },
+        {
+          "name": "properties",
+          "type": "WorkCompletedProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "merged",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "合并数据"
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "booleanValue01",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值01."
+        },
+        {
+          "name": "booleanValue02",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "doubleValue03",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值03."
+        },
+        {
+          "name": "doubleValue04",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值04."
+        },
+        {
+          "name": "doubleValue05",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值05."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "longValue03",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值03."
+        },
+        {
+          "name": "longValue04",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值04."
+        },
+        {
+          "name": "longValue05",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值05."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "dateTimeValue04",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值04."
+        },
+        {
+          "name": "dateTimeValue05",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值05."
+        },
+        {
+          "name": "dateValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值01."
+        },
+        {
+          "name": "dateValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值02."
+        },
+        {
+          "name": "timeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值01."
+        },
+        {
+          "name": "timeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值02."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "manageListPrevWithFilter",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionManageListPrevFilter",
+      "description": "列示根据过滤条件的WorkCompleted,上一页.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "rank",
+          "type": "Long",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "control",
+          "type": "Control",
+          "isCollection": false,
+          "description": "权限"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "data",
+          "type": "Data",
+          "isCollection": false,
+          "description": "合并数据对象"
+        },
+        {
+          "name": "taskCompletedList",
+          "type": "List\u003cTaskCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已办对象"
+        },
+        {
+          "name": "readCompletedList",
+          "type": "List\u003cReadCompleted\u003e",
+          "isCollection": true,
+          "description": "合并已阅对象"
+        },
+        {
+          "name": "reviewList",
+          "type": "List\u003cReview\u003e",
+          "isCollection": true,
+          "description": "合并参阅对象"
+        },
+        {
+          "name": "recordList",
+          "type": "List\u003cRecord\u003e",
+          "isCollection": true,
+          "description": "合并记录对象"
+        },
+        {
+          "name": "workLogList",
+          "type": "List\u003cWorkLog\u003e",
+          "isCollection": true,
+          "description": "合并工作日志对象"
+        },
+        {
+          "name": "parentWork",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "parentJob",
+          "type": "String",
+          "isCollection": false,
+          "description": "父工作Job,在当前工作是通过子流程调用时产生."
+        },
+        {
+          "name": "storeForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form"
+        },
+        {
+          "name": "mobileStoreForm",
+          "type": "StoreForm",
+          "isCollection": false,
+          "description": "合并工作Form,移动端."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "标题"
+        },
+        {
+          "name": "startTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "startTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用."
+        },
+        {
+          "name": "completedTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "completedTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用.由于是自动计算所以允许空"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity"
+        },
+        {
+          "name": "creatorUnit",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织"
+        },
+        {
+          "name": "creatorUnitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织层级名."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID"
+        },
+        {
+          "name": "applicationName",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用名称."
+        },
+        {
+          "name": "applicationAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用别名."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "processName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "processAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程别名."
+        },
+        {
+          "name": "serial",
+          "type": "String",
+          "isCollection": false,
+          "description": "编号"
+        },
+        {
+          "name": "form",
+          "type": "String",
+          "isCollection": false,
+          "description": "使用表单ID"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "Work Id."
+        },
+        {
+          "name": "expireTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "任务截止时间."
+        },
+        {
+          "name": "expired",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否超时."
+        },
+        {
+          "name": "duration",
+          "type": "Long",
+          "isCollection": false,
+          "description": "工作时长(分钟数)."
+        },
+        {
+          "name": "allowRollback",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "完成后是否允许回滚."
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动id."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动名称."
+        },
+        {
+          "name": "activityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动别名."
+        },
+        {
+          "name": "activityDescription",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动说明."
+        },
+        {
+          "name": "completedType",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束类型."
+        },
+        {
+          "name": "properties",
+          "type": "WorkCompletedProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "merged",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "合并数据"
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "booleanValue01",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值01."
+        },
+        {
+          "name": "booleanValue02",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "doubleValue03",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值03."
+        },
+        {
+          "name": "doubleValue04",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值04."
+        },
+        {
+          "name": "doubleValue05",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值05."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "longValue03",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值03."
+        },
+        {
+          "name": "longValue04",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值04."
+        },
+        {
+          "name": "longValue05",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值05."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "dateTimeValue04",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值04."
+        },
+        {
+          "name": "dateTimeValue05",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值05."
+        },
+        {
+          "name": "dateValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值01."
+        },
+        {
+          "name": "dateValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值02."
+        },
+        {
+          "name": "timeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值01."
+        },
+        {
+          "name": "timeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值02."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "manageListWithApplicationPaging",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionManageListWithApplicationPaging",
+      "description": "分页列示指定应用下根据过滤条件的WorkCompleted.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "isCollection": false,
+          "description": "标题"
+        },
+        {
+          "name": "startTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "startTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用."
+        },
+        {
+          "name": "completedTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "工作开始时间"
+        },
+        {
+          "name": "completedTimeMonth",
+          "type": "String",
+          "isCollection": false,
+          "description": "用于在Filter中分类使用.由于是自动计算所以允许空"
+        },
+        {
+          "name": "creatorPerson",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人"
+        },
+        {
+          "name": "creatorIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人Identity"
+        },
+        {
+          "name": "creatorUnit",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建人组织"
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用ID"
+        },
+        {
+          "name": "applicationName",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用名称."
+        },
+        {
+          "name": "applicationAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用别名."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID"
+        },
+        {
+          "name": "processName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称"
+        },
+        {
+          "name": "processAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程别名."
+        },
+        {
+          "name": "serial",
+          "type": "String",
+          "isCollection": false,
+          "description": "编号"
+        },
+        {
+          "name": "form",
+          "type": "String",
+          "isCollection": false,
+          "description": "使用表单ID"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "Work Id."
+        },
+        {
+          "name": "expireTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "任务截止时间."
+        },
+        {
+          "name": "expired",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否超时."
+        },
+        {
+          "name": "duration",
+          "type": "Long",
+          "isCollection": false,
+          "description": "工作时长(分钟数)."
+        },
+        {
+          "name": "allowRollback",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "完成后是否允许回滚."
+        },
+        {
+          "name": "activity",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动id."
+        },
+        {
+          "name": "activityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动名称."
+        },
+        {
+          "name": "activityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动别名."
+        },
+        {
+          "name": "activityDescription",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束节点的活动说明."
+        },
+        {
+          "name": "completedType",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束类型."
+        },
+        {
+          "name": "merged",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "合并数据"
+        },
+        {
+          "name": "stringValue01",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值01."
+        },
+        {
+          "name": "stringValue02",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值02."
+        },
+        {
+          "name": "stringValue03",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值03."
+        },
+        {
+          "name": "stringValue04",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值04."
+        },
+        {
+          "name": "stringValue05",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值05."
+        },
+        {
+          "name": "stringValue06",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值06."
+        },
+        {
+          "name": "stringValue07",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值07."
+        },
+        {
+          "name": "stringValue08",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值08."
+        },
+        {
+          "name": "stringValue09",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值09."
+        },
+        {
+          "name": "stringValue10",
+          "type": "String",
+          "isCollection": false,
+          "description": "业务数据String值10."
+        },
+        {
+          "name": "booleanValue01",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值01."
+        },
+        {
+          "name": "booleanValue02",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "业务数据Boolean值02."
+        },
+        {
+          "name": "doubleValue01",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值01."
+        },
+        {
+          "name": "doubleValue02",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值02."
+        },
+        {
+          "name": "doubleValue03",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值03."
+        },
+        {
+          "name": "doubleValue04",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值04."
+        },
+        {
+          "name": "doubleValue05",
+          "type": "Double",
+          "isCollection": false,
+          "description": "业务数据Double值05."
+        },
+        {
+          "name": "longValue01",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值01."
+        },
+        {
+          "name": "longValue02",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值02."
+        },
+        {
+          "name": "longValue03",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值03."
+        },
+        {
+          "name": "longValue04",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值04."
+        },
+        {
+          "name": "longValue05",
+          "type": "Long",
+          "isCollection": false,
+          "description": "业务数据Long值05."
+        },
+        {
+          "name": "dateTimeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值01."
+        },
+        {
+          "name": "dateTimeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值02."
+        },
+        {
+          "name": "dateTimeValue03",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值03."
+        },
+        {
+          "name": "dateTimeValue04",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值04."
+        },
+        {
+          "name": "dateTimeValue05",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据DateTime值05."
+        },
+        {
+          "name": "dateValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值01."
+        },
+        {
+          "name": "dateValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Date值02."
+        },
+        {
+          "name": "timeValue01",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值01."
+        },
+        {
+          "name": "timeValue02",
+          "type": "Date",
+          "isCollection": false,
+          "description": "业务数据Time值02."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "rollback",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionRollback",
+      "description": "完成工作重新回滚.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "routeName",
+          "type": "String",
+          "isCollection": false,
+          "description": "路由名称."
+        },
+        {
+          "name": "opinion",
+          "type": "String",
+          "isCollection": false,
+          "description": "意见."
+        },
+        {
+          "name": "mediaOpinion",
+          "type": "String",
+          "isCollection": false,
+          "description": "多媒体意见"
+        },
+        {
+          "name": "empowerFromIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "授权自身份"
+        },
+        {
+          "name": "nextManualList",
+          "type": "List\u003cNextManual\u003e",
+          "isCollection": true,
+          "description": "后续人工环节"
+        },
+        {
+          "name": "nextManualTaskIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "后续人工环节处理人"
+        },
+        {
+          "name": "startTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "开始时间."
+        },
+        {
+          "name": "personOrderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "人员排序值"
+        },
+        {
+          "name": "identityOrderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "身份排序值"
+        },
+        {
+          "name": "unitOrderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织排序值"
+        },
+        {
+          "name": "unitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层级"
+        },
+        {
+          "name": "taskCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "已办标识"
+        },
+        {
+          "name": "retractTaskCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "发起撤回的已办标识"
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "任务标识"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "workCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "已完成工作"
+        },
+        {
+          "name": "completed",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "工作是否已经完成."
+        },
+        {
+          "name": "display",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否显示."
+        },
+        {
+          "name": "order",
+          "type": "Long",
+          "isCollection": false,
+          "description": "显示排序."
+        },
+        {
+          "name": "properties",
+          "type": "RecordProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "fromActivity",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动Id"
+        },
+        {
+          "name": "fromActivityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "开始活动类型."
+        },
+        {
+          "name": "fromActivityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动名称"
+        },
+        {
+          "name": "fromActivityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动别名"
+        },
+        {
+          "name": "fromActivityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始节点Token"
+        },
+        {
+          "name": "recordTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "记录时间."
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录人员"
+        },
+        {
+          "name": "identity",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录身份"
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录人员所在组织."
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "rollbackMockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionRollback",
+      "description": "Mock Post To Put.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "routeName",
+          "type": "String",
+          "isCollection": false,
+          "description": "路由名称."
+        },
+        {
+          "name": "opinion",
+          "type": "String",
+          "isCollection": false,
+          "description": "意见."
+        },
+        {
+          "name": "mediaOpinion",
+          "type": "String",
+          "isCollection": false,
+          "description": "多媒体意见"
+        },
+        {
+          "name": "empowerFromIdentity",
+          "type": "String",
+          "isCollection": false,
+          "description": "授权自身份"
+        },
+        {
+          "name": "nextManualList",
+          "type": "List\u003cNextManual\u003e",
+          "isCollection": true,
+          "description": "后续人工环节"
+        },
+        {
+          "name": "nextManualTaskIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "后续人工环节处理人"
+        },
+        {
+          "name": "startTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "开始时间."
+        },
+        {
+          "name": "personOrderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "人员排序值"
+        },
+        {
+          "name": "identityOrderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "身份排序值"
+        },
+        {
+          "name": "unitOrderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "组织排序值"
+        },
+        {
+          "name": "unitLevelName",
+          "type": "String",
+          "isCollection": false,
+          "description": "组织层级"
+        },
+        {
+          "name": "taskCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "已办标识"
+        },
+        {
+          "name": "retractTaskCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "发起撤回的已办标识"
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "任务标识"
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作"
+        },
+        {
+          "name": "workCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "已完成工作"
+        },
+        {
+          "name": "completed",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "工作是否已经完成."
+        },
+        {
+          "name": "display",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否显示."
+        },
+        {
+          "name": "order",
+          "type": "Long",
+          "isCollection": false,
+          "description": "显示排序."
+        },
+        {
+          "name": "properties",
+          "type": "RecordProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "fromActivity",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动Id"
+        },
+        {
+          "name": "fromActivityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "开始活动类型."
+        },
+        {
+          "name": "fromActivityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动名称"
+        },
+        {
+          "name": "fromActivityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动别名"
+        },
+        {
+          "name": "fromActivityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始节点Token"
+        },
+        {
+          "name": "recordTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "记录时间."
+        },
+        {
+          "name": "person",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录人员"
+        },
+        {
+          "name": "identity",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录身份"
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "isCollection": false,
+          "description": "记录人员所在组织."
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "shiftTime",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.workcompleted.ActionShiftTime",
+      "description": "调整已完成工作时间",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "已完成工作标识"
+        },
+        {
+          "name": "adjustMinutes",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "调整分钟数"
+        }
+      ]
+    }
+  ]
+}

@@ -4,20 +4,20 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import com.x.base.core.project.annotation.FieldDescribe;
-import com.x.base.core.project.gson.GsonPropertyObject;
+import com.x.base.core.project.gson.GsonRecord;
 
-public  class WrapBooleanList extends GsonPropertyObject {
+public class WrapBooleanList implements GsonRecord {
+
+	private static final long serialVersionUID = 1L;
+
+	private List<Boolean> valueList = new ArrayList<>();
 
 	public WrapBooleanList() {
 	}
 
 	public WrapBooleanList(Collection<Boolean> collection) {
-		this.valueList = new ArrayList<Boolean>(collection);
+		this.valueList = new ArrayList<>(collection);
 	}
-
-	@FieldDescribe("布尔值多值.")
-	private List<Boolean> valueList = new ArrayList<>();
 
 	public List<Boolean> getValueList() {
 		return valueList;
@@ -26,5 +26,4 @@ public  class WrapBooleanList extends GsonPropertyObject {
 	public void setValueList(List<Boolean> valueList) {
 		this.valueList = valueList;
 	}
-
 }

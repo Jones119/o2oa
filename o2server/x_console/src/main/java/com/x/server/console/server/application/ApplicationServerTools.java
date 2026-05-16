@@ -1,7 +1,7 @@
 package com.x.server.console.server.application;
 
-import com.alibaba.druid.support.http.StatViewServlet;
-import com.alibaba.druid.support.http.WebStatFilter;
+import com.alibaba.druid.support.jakarta.StatViewServlet;
+import com.alibaba.druid.support.jakarta.WebStatFilter;
 import com.x.base.core.project.Applications;
 import com.x.base.core.project.annotation.Module;
 import com.x.base.core.project.annotation.ModuleCategory;
@@ -29,19 +29,20 @@ import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
-import org.eclipse.jetty.quickstart.QuickStartWebApp;
 import org.eclipse.jetty.server.AsyncRequestLogWriter;
 import org.eclipse.jetty.server.RequestLog;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.HandlerList;
+import org.eclipse.jetty.server.Handler;
+import org.eclipse.jetty.server.Handler.Sequence;
 import org.eclipse.jetty.server.handler.gzip.GzipHandler;
-import org.eclipse.jetty.servlet.FilterHolder;
-import org.eclipse.jetty.servlet.ServletHolder;
+import org.eclipse.jetty.ee10.servlet.FilterHolder;
+import org.eclipse.jetty.ee10.servlet.ServletHolder;
+import org.eclipse.jetty.util.resource.ResourceFactory;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
-import org.eclipse.jetty.webapp.WebAppContext;
+import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.w3c.dom.Document;
 
-import javax.servlet.DispatcherType;
+import jakarta.servlet.DispatcherType;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPath;
@@ -70,7 +71,7 @@ public class ApplicationServerTools extends JettySeverTools {
 
         cleanWorkDirectory(officialClassInfos, customNames);
 
-        HandlerList handlers = new HandlerList();
+        Handler.Sequence handlers = new Handler.Sequence();
 
         Server server = createServer(applicationServer, handlers);
 
@@ -108,7 +109,7 @@ public class ApplicationServerTools extends JettySeverTools {
         return server;
     }
 
-    private static Server createServer(ApplicationServer applicationServer, HandlerList handlers)
+    private static Server createServer(ApplicationServer applicationServer, Handler.Sequence handlers)
             throws Exception {
         QueuedThreadPool threadPool = new QueuedThreadPool();
         threadPool.setName("ApplicationServerQueuedThreadPool");
@@ -152,7 +153,7 @@ public class ApplicationServerTools extends JettySeverTools {
         }
     }
 
-    private static void deployCustom(ApplicationServer applicationServer, HandlerList handlers,
+    private static void deployCustom(ApplicationServer applicationServer, Handler.Sequence handlers,
             List<String> customNames) {
         customNames.stream().forEach(name -> {
             try {
@@ -164,11 +165,11 @@ public class ApplicationServerTools extends JettySeverTools {
                     Class<?> cls = ClassLoaderTools.urlClassLoader(null, false, false, false, false,
                                     Paths.get(dir.toString(), PathTools.WEB_INF_CLASSES))
                             .loadClass(className);
-                    QuickStartWebApp webApp = new QuickStartWebApp();
-                    webApp.setAutoPreconfigure(false);
+                    WebAppContext webApp = new WebAppContext();
+                    disableQuickStart(webApp);
                     webApp.setDisplayName(name);
                     webApp.setContextPath("/" + name);
-                    webApp.setResourceBase(dir.toAbsolutePath().toString());
+                    webApp.setBaseResource(ResourceFactory.of(webApp).newResource(dir.toAbsolutePath().toString()));
                     webApp.setDescriptor(
                             dir.resolve(Paths.get(PathTools.WEB_INF_WEB_XML)).toString());
                     Path ext = dir.resolve("WEB-INF").resolve("ext");
@@ -198,7 +199,7 @@ public class ApplicationServerTools extends JettySeverTools {
         });
     }
 
-    private static void setExposeJest(QuickStartWebApp webApp) {
+    private static void setExposeJest(WebAppContext webApp) {
         FilterHolder apiAccessFilterHolder = new FilterHolder(new ApiAccessFilter());
         webApp.addFilter(apiAccessFilterHolder, "/jest/*", EnumSet.of(DispatcherType.REQUEST));
         webApp.addFilter(apiAccessFilterHolder, "/describe/sources/*",
@@ -210,7 +211,7 @@ public class ApplicationServerTools extends JettySeverTools {
                         EnumSet.of(DispatcherType.REQUEST)));
     }
 
-    private static void setStat(ApplicationServer applicationServer, QuickStartWebApp webApp)
+    private static void setStat(ApplicationServer applicationServer, WebAppContext webApp)
             throws Exception {
         if (BooleanUtils.isTrue(Config.general().getStatEnable())) {
             FilterHolder statFilterHolder = new FilterHolder(new WebStatFilter());
@@ -223,23 +224,23 @@ public class ApplicationServerTools extends JettySeverTools {
         }
     }
 
-    private static void deployOfficial(ApplicationServer applicationServer, HandlerList handlers,
+    private static void deployOfficial(ApplicationServer applicationServer, Handler.Sequence handlers,
             List<ClassInfo> officialClassInfos) {
-        officialClassInfos.parallelStream().forEach(info -> {
+        ClassLoader serverClassLoader = ClassLoader.getSystemClassLoader();
+        officialClassInfos.stream().forEach(info -> {
             try {
-                Class<?> clz = Thread.currentThread().getContextClassLoader()
-                        .loadClass(info.getName());
+                Class<?> clz = Class.forName(info.getName(), true, serverClassLoader);
                 Path war = Paths.get(Config.dir_store().toString(),
                         info.getSimpleName() + PathTools.DOT_WAR);
                 Path dir = Paths.get(Config.dir_servers_applicationServer_work().toString(),
                         info.getSimpleName());
                 if (Files.exists(war)) {
                     modified(war, dir);
-                    QuickStartWebApp webApp = new QuickStartWebApp();
-                    webApp.setAutoPreconfigure(false);
+                    WebAppContext webApp = new WebAppContext();
+                    disableQuickStart(webApp);
                     webApp.setDisplayName(clz.getSimpleName());
                     webApp.setContextPath("/" + clz.getSimpleName());
-                    webApp.setResourceBase(dir.toAbsolutePath().toString());
+                    webApp.setBaseResource(ResourceFactory.of(webApp).newResource(dir.toAbsolutePath().toString()));
                     webApp.setDescriptor(
                             dir.resolve(Paths.get(PathTools.WEB_INF_WEB_XML)).toString());
                     Path ext = dir.resolve("WEB-INF").resolve("ext");
@@ -248,7 +249,7 @@ public class ApplicationServerTools extends JettySeverTools {
                     } else {
                         webApp.setExtraClasspath(calculateExtraClassPath(clz));
                     }
-                    LOGGER.debug("{} extra class path:{}.", clz::getSimpleName,
+                    LOGGER.info("{} extra class path:{}.", clz::getSimpleName,
                             webApp::getExtraClasspath);
                     webApp.getInitParams()
                             .put("org.eclipse.jetty.servlet.Default.useFileMappedBuffer",

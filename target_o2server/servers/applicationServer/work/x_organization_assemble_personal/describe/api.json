@@ -1,0 +1,520 @@
+{
+  "jaxrs": [
+    {
+      "name": "CacheAction",
+      "methods": [
+        {
+          "name": "commonScriptFlush",
+          "uri": "jaxrs/cache/commonscript/flush",
+          "method": "GET"
+        },
+        {
+          "name": "receive",
+          "uri": "jaxrs/cache",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "configFlush",
+          "uri": "jaxrs/cache/config/flush",
+          "method": "GET"
+        },
+        {
+          "name": "detail",
+          "uri": "jaxrs/cache/detail",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "CustomAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/custom/{name}",
+          "method": "GET"
+        },
+        {
+          "name": "update",
+          "uri": "jaxrs/custom/{name}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "delete",
+          "uri": "jaxrs/custom/{name}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "managerGet",
+          "uri": "jaxrs/custom/manager/person/{person}/name/{name}",
+          "method": "GET"
+        },
+        {
+          "name": "deleteMockDeleteToGet",
+          "uri": "jaxrs/custom/{name}/mockdeletetoget",
+          "method": "GET"
+        },
+        {
+          "name": "managerUpdateMockPutToPost",
+          "uri": "jaxrs/custom/manager/person/{person}/name/{name}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateMockPutToPost",
+          "uri": "jaxrs/custom/{name}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "managerUpdate",
+          "uri": "jaxrs/custom/manager/person/{person}/name/{name}",
+          "method": "PUT",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "DefinitionAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/definition/{name}",
+          "method": "GET"
+        },
+        {
+          "name": "update",
+          "uri": "jaxrs/definition/{name}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "delete",
+          "uri": "jaxrs/definition/{name}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteMockDeleteToGet",
+          "uri": "jaxrs/definition/{name}/mockdeletetoget",
+          "method": "GET"
+        },
+        {
+          "name": "updateMockPutToPost",
+          "uri": "jaxrs/definition/{name}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "EchoAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/echo",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "EmpowerAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/empower/{id}",
+          "method": "GET"
+        },
+        {
+          "name": "create",
+          "uri": "jaxrs/empower",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "delete",
+          "uri": "jaxrs/empower/{id}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "enable",
+          "uri": "jaxrs/empower/{id}/enable",
+          "method": "GET"
+        },
+        {
+          "name": "edit",
+          "uri": "jaxrs/empower/{id}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listWithCurrentPerson",
+          "uri": "jaxrs/empower/list/currentperson",
+          "method": "GET"
+        },
+        {
+          "name": "listNext",
+          "uri": "jaxrs/empower/list/{id}/next/{count}",
+          "method": "GET"
+        },
+        {
+          "name": "managerCreate",
+          "uri": "jaxrs/empower/manager",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "managerEdit",
+          "uri": "jaxrs/empower/manager/{id}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteMockDeleteToGet",
+          "uri": "jaxrs/empower/{id}/mockdeletetoget",
+          "method": "GET"
+        },
+        {
+          "name": "listPrev",
+          "uri": "jaxrs/empower/list/{id}/prev/{count}",
+          "method": "GET"
+        },
+        {
+          "name": "managerlistPaging",
+          "uri": "jaxrs/empower/manager/list/paging/{page}/size/{size}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "managerDelete",
+          "uri": "jaxrs/empower/manager/{id}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "managerDeleteMockDeleteToGet",
+          "uri": "jaxrs/empower/manager/{id}/mockdeletetoget",
+          "method": "GET"
+        },
+        {
+          "name": "listWithPerson",
+          "uri": "jaxrs/empower/list/person/{flag}",
+          "method": "GET"
+        },
+        {
+          "name": "listTo",
+          "uri": "jaxrs/empower/list/to",
+          "method": "GET"
+        },
+        {
+          "name": "listToEnable",
+          "uri": "jaxrs/empower/list/to/enable",
+          "method": "GET"
+        },
+        {
+          "name": "managerEditMockPutToPost",
+          "uri": "jaxrs/empower/manager/{id}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listWithCurrentPersonEnable",
+          "uri": "jaxrs/empower/list/currentperson/enable",
+          "method": "GET"
+        },
+        {
+          "name": "editMockPutToPost",
+          "uri": "jaxrs/empower/{id}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "disable",
+          "uri": "jaxrs/empower/{id}/disable",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "EmpowerLogAction",
+      "methods": [
+        {
+          "name": "delete",
+          "uri": "jaxrs/empowerlog/{id}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listNext",
+          "uri": "jaxrs/empowerlog/list/{id}/next/{count}",
+          "method": "GET"
+        },
+        {
+          "name": "listToCurrentPersonPaging",
+          "uri": "jaxrs/empowerlog/list/to/currentperson/paging/{page}/size/{size}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteMockDeleteToGet",
+          "uri": "jaxrs/empowerlog/{id}/mockdeletetoget",
+          "method": "GET"
+        },
+        {
+          "name": "listPrev",
+          "uri": "jaxrs/empowerlog/list/{id}/prev/{count}",
+          "method": "GET"
+        },
+        {
+          "name": "managerlistPaging",
+          "uri": "jaxrs/empowerlog/manager/list/paging/{page}/size/{size}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listWithCurrentPersonPaging",
+          "uri": "jaxrs/empowerlog/list/currentperson/paging/{page}/size/{size}",
+          "method": "POST",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "ExmailAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/exmail",
+          "method": "GET"
+        },
+        {
+          "name": "newCount",
+          "uri": "jaxrs/exmail/new/count",
+          "method": "GET"
+        },
+        {
+          "name": "listTitlePassive",
+          "uri": "jaxrs/exmail/list/title/passive",
+          "method": "GET"
+        },
+        {
+          "name": "newCountPassive",
+          "uri": "jaxrs/exmail/new/count/passive",
+          "method": "GET"
+        },
+        {
+          "name": "sso",
+          "uri": "jaxrs/exmail/sso",
+          "method": "GET"
+        },
+        {
+          "name": "callback",
+          "uri": "jaxrs/exmail",
+          "method": "POST"
+        }
+      ]
+    },
+    {
+      "name": "FireScheduleAction",
+      "methods": [
+        {
+          "name": "execute",
+          "uri": "jaxrs/fireschedule/classname/{className}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "IconAction",
+      "methods": [
+        {
+          "name": "getIcon",
+          "uri": "jaxrs/icon/{person}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "PasswordAction",
+      "methods": [
+        {
+          "name": "changePassword",
+          "uri": "jaxrs/password",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "changePasswordMockPutToPost",
+          "uri": "jaxrs/password/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "PersonAction",
+      "methods": [
+        {
+          "name": "get",
+          "uri": "jaxrs/person",
+          "method": "GET"
+        },
+        {
+          "name": "edit",
+          "uri": "jaxrs/person",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "uploadPostOctetStream",
+          "uri": "jaxrs/person/icon",
+          "method": "POST",
+          "enctype": "application/octet-stream"
+        },
+        {
+          "name": "setIconMockPutToPost",
+          "uri": "jaxrs/person/icon/mockputtopost",
+          "method": "POST",
+          "enctype": "formData"
+        },
+        {
+          "name": "setPasswordMockPutToPost",
+          "uri": "jaxrs/person/password/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "setIcon",
+          "uri": "jaxrs/person/icon",
+          "method": "PUT",
+          "enctype": "formData"
+        },
+        {
+          "name": "editMockPutToPost",
+          "uri": "jaxrs/person/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "getIcon",
+          "uri": "jaxrs/person/icon",
+          "method": "GET"
+        },
+        {
+          "name": "setPassword",
+          "uri": "jaxrs/person/password",
+          "method": "PUT",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "RegistAction",
+      "methods": [
+        {
+          "name": "mode",
+          "uri": "jaxrs/regist/mode",
+          "method": "GET"
+        },
+        {
+          "name": "code",
+          "uri": "jaxrs/regist/code/mobile/{mobile}",
+          "method": "GET"
+        },
+        {
+          "name": "checkName",
+          "uri": "jaxrs/regist/check/name/{name}",
+          "method": "GET"
+        },
+        {
+          "name": "create",
+          "uri": "jaxrs/regist",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "checkPassword",
+          "uri": "jaxrs/regist/check/password/{password}",
+          "method": "GET"
+        },
+        {
+          "name": "checkMobile",
+          "uri": "jaxrs/regist/check/mobile/{mobile}",
+          "method": "GET"
+        },
+        {
+          "name": "captcha",
+          "uri": "jaxrs/regist/captcha/width/{width}/height/{height}",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "name": "ResetAction",
+      "methods": [
+        {
+          "name": "reset",
+          "uri": "jaxrs/reset",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "code",
+          "uri": "jaxrs/reset/code/credential/{credential}",
+          "method": "GET"
+        },
+        {
+          "name": "checkCredential",
+          "uri": "jaxrs/reset/check/credential/{credential}",
+          "method": "GET"
+        },
+        {
+          "name": "checkPassword",
+          "uri": "jaxrs/reset/check/password/{password}",
+          "method": "GET"
+        },
+        {
+          "name": "resetMockPutToPost",
+          "uri": "jaxrs/reset/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "setPasswordAnonymous",
+          "uri": "jaxrs/reset/password/anonymous",
+          "method": "POST",
+          "enctype": "application/json"
+        }
+      ]
+    },
+    {
+      "name": "SignatureAction",
+      "methods": [
+        {
+          "name": "list",
+          "uri": "jaxrs/signature/list",
+          "method": "GET"
+        },
+        {
+          "name": "delete",
+          "uri": "jaxrs/signature/delete/{id}",
+          "method": "GET"
+        },
+        {
+          "name": "listWithPerson",
+          "uri": "jaxrs/signature/list/person/{flag}",
+          "method": "GET"
+        },
+        {
+          "name": "upload",
+          "uri": "jaxrs/signature/upload",
+          "method": "POST",
+          "enctype": "formData"
+        }
+      ]
+    }
+  ]
+}

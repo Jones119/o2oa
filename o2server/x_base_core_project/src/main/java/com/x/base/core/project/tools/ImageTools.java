@@ -36,9 +36,11 @@ public class ImageTools {
 				list.add(rr + "," + gg + "," + bb);
 			}
 		}
-		Map<String, Long> map = list.stream().collect(Collectors.groupingBy(p -> p, Collectors.counting()));
-		Optional<Entry<String, Long>> o = map.entrySet().stream().max(Comparator.comparing(Entry::getValue));
-		String str = o.get().getKey();
+		String str = list.stream()
+				.collect(Collectors.groupingBy(p -> p, Collectors.counting()))
+				.entrySet().stream()
+				.max(Comparator.comparing(Entry::getValue))
+				.get().getKey();
 		String[] rgb = str.split(",");
 		String value = "#";
 		value += Integer.toHexString(Integer.parseInt(rgb[0]));

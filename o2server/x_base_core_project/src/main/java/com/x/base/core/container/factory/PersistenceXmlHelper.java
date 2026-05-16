@@ -120,42 +120,48 @@ public class PersistenceXmlHelper {
 
 	private static void writeForDdlExternalProperty(Element properties) throws Exception {
 		Element property = properties.addElement("property");
-		property.addAttribute("name", "javax.persistence.jdbc.driver");
+		property.addAttribute("name", "jakarta.persistence.jdbc.driver");
 		property.addAttribute("value", Config.externalDataSources().get(0).getDriverClassName());
 		property = properties.addElement("property");
-		property.addAttribute("name", "javax.persistence.jdbc.url");
+		property.addAttribute("name", "jakarta.persistence.jdbc.url");
 		property.addAttribute("value", Config.externalDataSources().get(0).getUrl());
 		property = properties.addElement("property");
-		property.addAttribute("name", "javax.persistence.jdbc.user");
+		property.addAttribute("name", "jakarta.persistence.jdbc.user");
 		property.addAttribute("value", Config.externalDataSources().get(0).getUsername());
 		property = properties.addElement("property");
-		property.addAttribute("name", "javax.persistence.jdbc.password");
+		property.addAttribute("name", "jakarta.persistence.jdbc.password");
 		property.addAttribute("value", Config.externalDataSources().get(0).getPassword());
 		property = properties.addElement("property");
 		property.addAttribute("name", "openjpa.DynamicEnhancementAgent");
-		property.addAttribute("value", "false");
+		property.addAttribute("value", "true");
+		property = properties.addElement("property");
+		property.addAttribute("name", "openjpa.RuntimeUnenhancedClasses");
+		property.addAttribute("value", "supported");
 	}
 
 	private static void writeForDdlInternalProperty(Element properties) throws Exception {
 		Element property = properties.addElement("property");
-		property.addAttribute("name", "javax.persistence.jdbc.driver");
+		property.addAttribute("name", "jakarta.persistence.jdbc.driver");
 		property.addAttribute("value", SlicePropertiesBuilder.driver_h2);
 		property = properties.addElement("property");
-		property.addAttribute("name", "javax.persistence.jdbc.url");
+		property.addAttribute("name", "jakarta.persistence.jdbc.url");
 		Node node = Config.currentNode();
 		String url = "jdbc:h2:tcp://" + Config.node() + ":" + node.getData().getTcpPort() + "/X;JMX="
 				+ (node.getData().getJmxEnable() ? "TRUE" : "FALSE") + ";CACHE_SIZE="
 				+ (node.getData().getCacheSize() * 1024);
 		property.addAttribute("value", url);
 		property = properties.addElement("property");
-		property.addAttribute("name", "javax.persistence.jdbc.user");
+		property.addAttribute("name", "jakarta.persistence.jdbc.user");
 		property.addAttribute("value", "sa");
 		property = properties.addElement("property");
-		property.addAttribute("name", "javax.persistence.jdbc.password");
+		property.addAttribute("name", "jakarta.persistence.jdbc.password");
 		property.addAttribute("value", Config.token().getPassword());
 		property = properties.addElement("property");
 		property.addAttribute("name", "openjpa.DynamicEnhancementAgent");
-		property.addAttribute("value", "false");
+		property.addAttribute("value", "true");
+		property = properties.addElement("property");
+		property.addAttribute("name", "openjpa.RuntimeUnenhancedClasses");
+		property.addAttribute("value", "supported");
 	}
 
 	@SuppressWarnings("unchecked")
@@ -273,7 +279,8 @@ public class PersistenceXmlHelper {
 		properties.put("openjpa.LockManager", "none");
 		properties.put("openjpa.jdbc.ResultSetType", "scroll-insensitive");
 		/* 如果启用本地初始化会导致classLoad的问题 */
-		properties.put("openjpa.DynamicEnhancementAgent", "false");
+		properties.put("openjpa.DynamicEnhancementAgent", "true");
+		properties.put("openjpa.RuntimeUnenhancedClasses", "supported");
 		properties.put("openjpa.jdbc.SynchronizeMappings", "buildSchema(ForeignKeys=false)");
 		properties.put("openjpa.Log", "DefaultLevel=WARN");
 		return properties;
@@ -317,7 +324,8 @@ public class PersistenceXmlHelper {
 		// 使用ture支持多线程访问,但是是通过lock同步执行的.
 		properties.put("openjpa.Multithreaded", "true");
 		/* 如果启用本地初始化会导致classLoad的问题 */
-		properties.put("openjpa.DynamicEnhancementAgent", "false");
+		properties.put("openjpa.DynamicEnhancementAgent", "true");
+		properties.put("openjpa.RuntimeUnenhancedClasses", "supported");
 		properties.put("openjpa.jdbc.SynchronizeMappings", "buildSchema(ForeignKeys=false)");
 		return properties;
 	}

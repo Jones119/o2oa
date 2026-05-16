@@ -26,7 +26,7 @@ public class Ddl {
 	@SuppressWarnings("unchecked")
 	public boolean execute(String type) throws Exception {
 
-		new Thread(() -> {
+		Thread.ofVirtual().name(Ddl.class.getName() + "-ddl").start(() -> {
 			try {
 				ClassLoader cl = ClassLoaderTools.urlClassLoader(ClassLoader.getSystemClassLoader(), true, true, true,
 						true, Config.dir_local_temp_classes().toPath());
@@ -68,7 +68,7 @@ public class Ddl {
 			} catch (Exception e) {
 				logger.error(e);
 			}
-		}).start();
+		});
 		return true;
 	}
 

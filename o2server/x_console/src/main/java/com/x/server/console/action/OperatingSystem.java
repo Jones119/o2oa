@@ -1,8 +1,8 @@
 package com.x.server.console.action;
 
 import java.lang.management.ManagementFactory;
+import java.lang.management.OperatingSystemMXBean;
 
-import com.sun.management.OperatingSystemMXBean;
 import com.x.base.core.project.logger.Logger;
 import com.x.base.core.project.logger.LoggerFactory;
 
@@ -18,16 +18,22 @@ public class OperatingSystem extends Thread {
 
 	@Override
 	public void run() {
-		OperatingSystemMXBean bean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
+		OperatingSystemMXBean bean = ManagementFactory.getOperatingSystemMXBean();
 		try {
 			for (int i = 0; i < count; i++) {
-				String msg = String.format(
-						"cpu:%d, system load:%.2f, process load:%.2f. memory:%dm, free:%dm, committed virtual:%dm.",
-						bean.getAvailableProcessors(), bean.getSystemCpuLoad(), bean.getProcessCpuLoad(),
-						bean.getTotalPhysicalMemorySize() / (1024 * 1024),
-						bean.getFreePhysicalMemorySize() / (1024 * 1024),
-						bean.getCommittedVirtualMemorySize() / (1024 * 1024));
-				LOGGER.print(msg);
+				if (bean instanceof com.sun.management.OperatingSystemMXBean sunBean) {
+					String msg = String.format(
+							"cpu:%d, system load:%.2f, process load:%.2f. memory:%dm, free:%dm, committed virtual:%dm.",
+							sunBean.getAvailableProcessors(), sunBean.getSystemCpuLoad(), sunBean.getProcessCpuLoad(),
+							sunBean.getTotalPhysicalMemorySize() / (1024 * 1024),
+							sunBean.getFreePhysicalMemorySize() / (1024 * 1024),
+							sunBean.getCommittedVirtualMemorySize() / (1024 * 1024));
+					LOGGER.print(msg);
+				} else {
+					String msg = String.format("cpu:%d, system load average:%.2f.",
+							bean.getAvailableProcessors(), bean.getSystemLoadAverage());
+					LOGGER.print(msg);
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

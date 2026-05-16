@@ -1,24 +1,19 @@
 package com.x.base.core.project.jaxrs;
 
-import com.x.base.core.project.annotation.FieldDescribe;
-import com.x.base.core.project.gson.GsonPropertyObject;
+import com.x.base.core.project.gson.GsonRecord;
 
-public class WrapCount extends GsonPropertyObject {
+public class WrapCount implements GsonRecord {
+
+	private static final long serialVersionUID = 1L;
+
+	private Long count;
 
 	public WrapCount() {
-
 	}
 
-	public WrapCount(Long o) {
-		this.count = o;
+	public WrapCount(Long count) {
+		this.count = count;
 	}
-
-	public WrapCount(Integer o) {
-		this.count = o.longValue();
-	}
-
-	@FieldDescribe("数量")
-	private Long count;
 
 	public Long getCount() {
 		return count;
@@ -27,5 +22,4 @@ public class WrapCount extends GsonPropertyObject {
 	public void setCount(Long count) {
 		this.count = count;
 	}
-
 }

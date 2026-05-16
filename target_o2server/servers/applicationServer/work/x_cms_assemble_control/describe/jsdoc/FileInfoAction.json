@@ -1,0 +1,1272 @@
+{
+  "name": "FileInfoAction",
+  "className": "com.x.cms.assemble.control.jaxrs.fileinfo.FileInfoAction",
+  "description": "附件信息管理",
+  "methods": [
+    {
+      "name": "attachmentDownLoad",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionFileDownload",
+      "description": "根据ID下载指定附件",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "attachmentDownloadStream",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionFileDownloadStream",
+      "description": "根据附件ID下载附件,设定是否使用stream输出",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "attachmentUpdate",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionFileUpdate",
+      "description": "为文档信息替换附件.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "attachmentUpdateCallback",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionFileUpdateCallback",
+      "description": "为文档信息上传附件(带回调).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "callbackName",
+          "type": "String",
+          "isCollection": false,
+          "description": "回调函数名"
+        }
+      ]
+    },
+    {
+      "name": "attachmentUpload",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionFileUpload",
+      "description": "为文档信息上传附件.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "attachmentUploadCallback",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionFileUploadCallback",
+      "description": "为文档信息上传附件(带回调).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "callbackName",
+          "type": "String",
+          "isCollection": false,
+          "description": "回调函数名"
+        }
+      ]
+    },
+    {
+      "name": "batchDownload",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionBatchDownload",
+      "description": "批量下载指定文档的附件并压缩.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "changeSeqNumber",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionChangeOrderNumber",
+      "description": "设置文档附件排序号.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "copyToDoc",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionCopyToDoc",
+      "description": "拷贝附件到指定的文档中.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "delete",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionDelete",
+      "description": "根据ID删除FileInfo应用信息对象.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteMockDeleteToGet",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionDelete",
+      "description": "根据ID删除FileInfo应用信息对象.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "downloadTransfer",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionDownloadTransfer",
+      "description": "下载转换后临时存储的附件.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "editPermission",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionFileEdit",
+      "description": "更新附件访问权限.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "editPermissionMockPutToPost",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionFileEdit",
+      "description": "更新附件访问权限.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "get",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionGet",
+      "description": "根据ID获取fileInfo对象.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "lastUpdateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后更新时间"
+        },
+        {
+          "name": "storage",
+          "type": "String",
+          "isCollection": false,
+          "description": "关联的存储名称."
+        },
+        {
+          "name": "site",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件框分类."
+        },
+        {
+          "name": "businessId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件业务ID，需要和document一起来确定唯一的ID."
+        },
+        {
+          "name": "properties",
+          "type": "FileInfoProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件真实名称"
+        },
+        {
+          "name": "cloudId",
+          "type": "String",
+          "isCollection": false,
+          "description": "云文件ID"
+        },
+        {
+          "name": "fileName",
+          "type": "String",
+          "isCollection": false,
+          "description": "服务器上编码后的文件名,为了方便辨识带扩展名"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所属应用ID"
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所属分类ID"
+        },
+        {
+          "name": "documentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所属文档ID"
+        },
+        {
+          "name": "fileType",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件类别：云文件（CLOUD） | 附件(ATTACHMENT)"
+        },
+        {
+          "name": "fileExtType",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件类别：PICTURE | WORD | EXCEL | PPT | ZIP | TXT | OTHER"
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "根据流文件判断的文件类型."
+        },
+        {
+          "name": "fileHost",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件存储主机名"
+        },
+        {
+          "name": "filePath",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件存储路径"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件说明"
+        },
+        {
+          "name": "creatorUid",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建者UID"
+        },
+        {
+          "name": "extension",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展名"
+        },
+        {
+          "name": "seqNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "length",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文件大小."
+        },
+        {
+          "name": "text",
+          "type": "String",
+          "isCollection": false,
+          "description": "文本."
+        },
+        {
+          "name": "readIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的身份."
+        },
+        {
+          "name": "readUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的组织."
+        },
+        {
+          "name": "editIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的用户."
+        },
+        {
+          "name": "editUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的组织."
+        },
+        {
+          "name": "controllerIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的用户."
+        },
+        {
+          "name": "controllerUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的组织."
+        },
+        {
+          "name": "deepPath",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否使用更深的路径."
+        },
+        {
+          "name": "encryptKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件密钥."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "getOnlineInfo",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionOnlineInfo",
+      "description": "获取指定附件的在线编辑信息.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件ID."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "文档ID."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件名称."
+        },
+        {
+          "name": "extension",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展名."
+        },
+        {
+          "name": "length",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        },
+        {
+          "name": "ownerId",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建用户ID."
+        },
+        {
+          "name": "ownerName",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建用户名称."
+        },
+        {
+          "name": "userId",
+          "type": "String",
+          "isCollection": false,
+          "description": "当前用户ID."
+        },
+        {
+          "name": "userName",
+          "type": "String",
+          "isCollection": false,
+          "description": "当前用户名称."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间."
+        },
+        {
+          "name": "lastUpdateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后更新时间."
+        },
+        {
+          "name": "canEdit",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "当前用户是否可编辑."
+        },
+        {
+          "name": "canRead",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "当前用户是否可阅读."
+        }
+      ]
+    },
+    {
+      "name": "imageToBase64",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionImageToBase64",
+      "description": "将图片附件转为base64编码.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "listAllFileInfo",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionListAll",
+      "description": "获取全部的文件或者附件列表.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "lastUpdateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后更新时间"
+        },
+        {
+          "name": "storage",
+          "type": "String",
+          "isCollection": false,
+          "description": "关联的存储名称."
+        },
+        {
+          "name": "site",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件框分类."
+        },
+        {
+          "name": "businessId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件业务ID，需要和document一起来确定唯一的ID."
+        },
+        {
+          "name": "properties",
+          "type": "FileInfoProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件真实名称"
+        },
+        {
+          "name": "cloudId",
+          "type": "String",
+          "isCollection": false,
+          "description": "云文件ID"
+        },
+        {
+          "name": "fileName",
+          "type": "String",
+          "isCollection": false,
+          "description": "服务器上编码后的文件名,为了方便辨识带扩展名"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所属应用ID"
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所属分类ID"
+        },
+        {
+          "name": "documentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所属文档ID"
+        },
+        {
+          "name": "fileType",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件类别：云文件（CLOUD） | 附件(ATTACHMENT)"
+        },
+        {
+          "name": "fileExtType",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件类别：PICTURE | WORD | EXCEL | PPT | ZIP | TXT | OTHER"
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "根据流文件判断的文件类型."
+        },
+        {
+          "name": "fileHost",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件存储主机名"
+        },
+        {
+          "name": "filePath",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件存储路径"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件说明"
+        },
+        {
+          "name": "creatorUid",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建者UID"
+        },
+        {
+          "name": "extension",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展名"
+        },
+        {
+          "name": "seqNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "length",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文件大小."
+        },
+        {
+          "name": "text",
+          "type": "String",
+          "isCollection": false,
+          "description": "文本."
+        },
+        {
+          "name": "readIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的身份."
+        },
+        {
+          "name": "readUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的组织."
+        },
+        {
+          "name": "editIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的用户."
+        },
+        {
+          "name": "editUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的组织."
+        },
+        {
+          "name": "controllerIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的用户."
+        },
+        {
+          "name": "controllerUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的组织."
+        },
+        {
+          "name": "deepPath",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否使用更深的路径."
+        },
+        {
+          "name": "encryptKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件密钥."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listFileInfoByDocumentId",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionListByDocId",
+      "description": "获取指定文档的全部附件信息列表.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "lastUpdateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后更新时间"
+        },
+        {
+          "name": "storage",
+          "type": "String",
+          "isCollection": false,
+          "description": "关联的存储名称."
+        },
+        {
+          "name": "site",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件框分类."
+        },
+        {
+          "name": "businessId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件业务ID，需要和document一起来确定唯一的ID."
+        },
+        {
+          "name": "properties",
+          "type": "FileInfoProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件真实名称"
+        },
+        {
+          "name": "cloudId",
+          "type": "String",
+          "isCollection": false,
+          "description": "云文件ID"
+        },
+        {
+          "name": "fileName",
+          "type": "String",
+          "isCollection": false,
+          "description": "服务器上编码后的文件名,为了方便辨识带扩展名"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所属应用ID"
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所属分类ID"
+        },
+        {
+          "name": "documentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所属文档ID"
+        },
+        {
+          "name": "fileType",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件类别：云文件（CLOUD） | 附件(ATTACHMENT)"
+        },
+        {
+          "name": "fileExtType",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件类别：PICTURE | WORD | EXCEL | PPT | ZIP | TXT | OTHER"
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "根据流文件判断的文件类型."
+        },
+        {
+          "name": "fileHost",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件存储主机名"
+        },
+        {
+          "name": "filePath",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件存储路径"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件说明"
+        },
+        {
+          "name": "creatorUid",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建者UID"
+        },
+        {
+          "name": "extension",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展名"
+        },
+        {
+          "name": "seqNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "length",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文件大小."
+        },
+        {
+          "name": "text",
+          "type": "String",
+          "isCollection": false,
+          "description": "文本."
+        },
+        {
+          "name": "readIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的身份."
+        },
+        {
+          "name": "readUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以访问的组织."
+        },
+        {
+          "name": "editIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的用户."
+        },
+        {
+          "name": "editUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以修改的组织."
+        },
+        {
+          "name": "controllerIdentityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的用户."
+        },
+        {
+          "name": "controllerUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "可以管理的组织."
+        },
+        {
+          "name": "deepPath",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否使用更深的路径."
+        },
+        {
+          "name": "encryptKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件密钥."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listFilter",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionListFilter",
+      "description": "根据条件查询附件.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "lastUpdateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后更新时间"
+        },
+        {
+          "name": "storage",
+          "type": "String",
+          "isCollection": false,
+          "description": "关联的存储名称."
+        },
+        {
+          "name": "site",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件框分类."
+        },
+        {
+          "name": "businessId",
+          "type": "String",
+          "isCollection": false,
+          "description": "附件业务ID，需要和document一起来确定唯一的ID."
+        },
+        {
+          "name": "objectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "客体密级标识."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件真实名称"
+        },
+        {
+          "name": "cloudId",
+          "type": "String",
+          "isCollection": false,
+          "description": "云文件ID"
+        },
+        {
+          "name": "fileName",
+          "type": "String",
+          "isCollection": false,
+          "description": "服务器上编码后的文件名,为了方便辨识带扩展名"
+        },
+        {
+          "name": "appId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所属应用ID"
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所属分类ID"
+        },
+        {
+          "name": "documentId",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件所属文档ID"
+        },
+        {
+          "name": "fileType",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件类别：云文件（CLOUD） | 附件(ATTACHMENT)"
+        },
+        {
+          "name": "fileExtType",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件类别：PICTURE | WORD | EXCEL | PPT | ZIP | TXT | OTHER"
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "根据流文件判断的文件类型."
+        },
+        {
+          "name": "fileHost",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件存储主机名"
+        },
+        {
+          "name": "filePath",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件存储路径"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件说明"
+        },
+        {
+          "name": "creatorUid",
+          "type": "String",
+          "isCollection": false,
+          "description": "创建者UID"
+        },
+        {
+          "name": "extension",
+          "type": "String",
+          "isCollection": false,
+          "description": "扩展名"
+        },
+        {
+          "name": "seqNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "length",
+          "type": "Long",
+          "isCollection": false,
+          "description": "文件大小."
+        },
+        {
+          "name": "deepPath",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否使用更深的路径."
+        },
+        {
+          "name": "encryptKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "文件密钥."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "previewPdf",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionPreviewPdf",
+      "description": "pdf格式预览文件,支持doc、docx，需要连接O2云.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "contentDisposition",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型"
+        },
+        {
+          "name": "bytes",
+          "type": "byte[]",
+          "isCollection": false,
+          "description": "字节内容."
+        },
+        {
+          "name": "streamingOutput",
+          "type": "StreamingOutput",
+          "isCollection": false,
+          "description": "附件流."
+        },
+        {
+          "name": "contentLength",
+          "type": "Long",
+          "isCollection": false,
+          "description": "附件大小."
+        }
+      ]
+    },
+    {
+      "name": "replaceToDoc",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionReplaceToDoc",
+      "description": "对文档指定site的附件进行替换，先删再增.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "updateContent",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionFileUpdateContent",
+      "description": "修改附件信息.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "uploadWithUrl",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionFileUploadWithUrl",
+      "description": "文档上传附件",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "uploadWorkInfo",
+      "className": "com.x.cms.assemble.control.jaxrs.fileinfo.ActionUploadForm",
+      "description": "上传表单html转换为指定格式并存到临时文件中，通过downloadTransfer接口下载.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    }
+  ]
+}

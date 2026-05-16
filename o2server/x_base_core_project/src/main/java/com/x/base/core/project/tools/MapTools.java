@@ -61,18 +61,16 @@ public class MapTools {
 		if (null != map) {
 			Object o = map.get(key);
 			if (!Objects.isNull(o)) {
-				if (o instanceof Number) {
-					Number n = (Number) o;
-					value = n.doubleValue();
-				} else if (o instanceof String) {
-					String t = (String) o;
-					if (NumberUtils.isParsable(t)) {
+				switch (o) {
+					case Number n -> value = n.doubleValue();
+					case String t when NumberUtils.isParsable(t) -> {
 						try {
 							Number n = NumberFormat.getInstance().parse(t);
 							value = n.doubleValue();
 						} catch (ParseException e) {
 						}
 					}
+					default -> {}
 				}
 			}
 		}
@@ -88,18 +86,16 @@ public class MapTools {
 		if (null != map) {
 			Object o = map.get(key);
 			if (!Objects.isNull(o)) {
-				if (o instanceof Number) {
-					Number n = (Number) o;
-					value = n.floatValue();
-				} else if (o instanceof String) {
-					String t = (String) o;
-					if (NumberUtils.isParsable(t)) {
+				switch (o) {
+					case Number n -> value = n.floatValue();
+					case String t when NumberUtils.isParsable(t) -> {
 						try {
 							Number n = NumberFormat.getInstance().parse(t);
 							value = n.floatValue();
 						} catch (ParseException e) {
 						}
 					}
+					default -> {}
 				}
 			}
 		}
@@ -115,18 +111,16 @@ public class MapTools {
 		if (null != map) {
 			Object o = map.get(key);
 			if (!Objects.isNull(o)) {
-				if (o instanceof Number) {
-					Number n = (Number) o;
-					value = n.intValue();
-				} else if (o instanceof String) {
-					String t = (String) o;
-					if (NumberUtils.isParsable(t)) {
+				switch (o) {
+					case Number n -> value = n.intValue();
+					case String t when NumberUtils.isParsable(t) -> {
 						try {
 							Number n = NumberFormat.getInstance().parse(t);
 							value = n.intValue();
 						} catch (ParseException e) {
 						}
 					}
+					default -> {}
 				}
 			}
 		}
@@ -142,18 +136,16 @@ public class MapTools {
 		if (null != map) {
 			Object o = map.get(key);
 			if (!Objects.isNull(o)) {
-				if (o instanceof Number) {
-					Number n = (Number) o;
-					value = n.longValue();
-				} else if (o instanceof String) {
-					String t = (String) o;
-					if (NumberUtils.isParsable(t)) {
+				switch (o) {
+					case Number n -> value = n.longValue();
+					case String t when NumberUtils.isParsable(t) -> {
 						try {
 							Number n = NumberFormat.getInstance().parse(t);
 							value = n.longValue();
 						} catch (ParseException e) {
 						}
 					}
+					default -> {}
 				}
 			}
 		}
@@ -169,14 +161,15 @@ public class MapTools {
 		if (null != map) {
 			Object o = map.get(key);
 			if (!Objects.isNull(o)) {
-				if (o instanceof Boolean) {
-					value = (Boolean) o;
-				} else if (o instanceof String) {
-					String t = (String) o;
-					value = BooleanUtils.toBooleanObject(t);
-					if (null == value) {
-						value = defaultValue;
+				switch (o) {
+					case Boolean b -> value = b;
+					case String t -> {
+						value = BooleanUtils.toBooleanObject(t);
+						if (null == value) {
+							value = defaultValue;
+						}
 					}
+					default -> {}
 				}
 			}
 		}

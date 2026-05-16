@@ -1,0 +1,3558 @@
+{
+  "name": "PersonAction",
+  "className": "com.x.organization.assemble.express.jaxrs.person.PersonAction",
+  "description": "个人接口",
+  "methods": [
+    {
+      "name": "detail",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionDetail",
+      "description": "查询人员信息,返回身份,组织,组织职务,群组,角色,个人属性.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "用户"
+        },
+        {
+          "name": "identityList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "身份"
+        },
+        {
+          "name": "unitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织"
+        },
+        {
+          "name": "unitDutyList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "组织职务"
+        },
+        {
+          "name": "groupList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "群组"
+        },
+        {
+          "name": "roleList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "角色"
+        },
+        {
+          "name": "personAttributeList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "人员属性"
+        }
+      ]
+    },
+    {
+      "name": "get",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionGet",
+      "description": "获取个人,附带身份,身份所在的组织,个人所在群组,个人拥有角色.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "woIdentityList",
+          "type": "List\u003cWoIdentity\u003e",
+          "isCollection": true,
+          "description": "身份对象"
+        },
+        {
+          "name": "woRoleList",
+          "type": "List\u003cWoRole\u003e",
+          "isCollection": true,
+          "description": "角色对象"
+        },
+        {
+          "name": "woGroupList",
+          "type": "List\u003cWoGroup\u003e",
+          "isCollection": true,
+          "description": "群组对象"
+        },
+        {
+          "name": "woPersonAttributeList",
+          "type": "List\u003cWoPersonAttribute\u003e",
+          "isCollection": true,
+          "description": "个人属性对象"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别.男:m,女:f,未知:d"
+        },
+        {
+          "name": "iconMdpi",
+          "type": "String",
+          "isCollection": false,
+          "description": "icon Base64编码后的文本（中等尺寸图像）."
+        },
+        {
+          "name": "iconLdpi",
+          "type": "String",
+          "isCollection": false,
+          "description": "icon Base64编码后的文本（小尺寸图像）."
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "个性签名."
+        },
+        {
+          "name": "pinyin",
+          "type": "String",
+          "isCollection": false,
+          "description": "name拼音,自动生成"
+        },
+        {
+          "name": "pinyinInitial",
+          "type": "String",
+          "isCollection": false,
+          "description": "name拼音首字母,自动生成"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "描述."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "名称,可重名."
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称."
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "工号,不可重复."
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识,不可重复,为空则使用自动填充值"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名,自动填充,@P结尾."
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "controllerList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人管理者.默认为创建者。"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "汇报对象."
+        },
+        {
+          "name": "passwordExpiredTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "用户密码到期时间."
+        },
+        {
+          "name": "changePasswordTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "用户密码最后修改时间."
+        },
+        {
+          "name": "lastLoginTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后登录时间."
+        },
+        {
+          "name": "lastLoginAddress",
+          "type": "String",
+          "isCollection": false,
+          "description": "最后登录地址."
+        },
+        {
+          "name": "lastLoginClient",
+          "type": "String",
+          "isCollection": false,
+          "description": "最后登录客户端类型,web,android或者ios."
+        },
+        {
+          "name": "ipAddress",
+          "type": "String",
+          "isCollection": false,
+          "description": "允许登录的IP."
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址."
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号."
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "QQ号."
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "必填,手机号."
+        },
+        {
+          "name": "hiddenMobile",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否隐藏手机号."
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话."
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间."
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日."
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉人员ID."
+        },
+        {
+          "name": "dingdingHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉人员哈希特征."
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "WeLikn人员ID."
+        },
+        {
+          "name": "weLinkHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "WeLink人员哈希特征."
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉人员ID."
+        },
+        {
+          "name": "andFxId",
+          "type": "String",
+          "isCollection": false,
+          "description": "移动办公人员ID."
+        },
+        {
+          "name": "zhengwuDingdingHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉人员哈希特征."
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信人员ID."
+        },
+        {
+          "name": "qiyeweixinHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信人员哈希特征."
+        },
+        {
+          "name": "andFxHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "移动办公人员哈希特征."
+        },
+        {
+          "name": "mpwxopenId",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信公众号人员openid."
+        },
+        {
+          "name": "open1Id",
+          "type": "String",
+          "isCollection": false,
+          "description": "oauth登录id1."
+        },
+        {
+          "name": "open2Id",
+          "type": "String",
+          "isCollection": false,
+          "description": "oauth登录id2."
+        },
+        {
+          "name": "open3Id",
+          "type": "String",
+          "isCollection": false,
+          "description": "oauth登录id3."
+        },
+        {
+          "name": "open4Id",
+          "type": "String",
+          "isCollection": false,
+          "description": "oauth登录id4."
+        },
+        {
+          "name": "open5Id",
+          "type": "String",
+          "isCollection": false,
+          "description": "oauth登录id5."
+        },
+        {
+          "name": "failureTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "登录失败记录时间."
+        },
+        {
+          "name": "failureCount",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "登录失败次数"
+        },
+        {
+          "name": "language",
+          "type": "String",
+          "isCollection": false,
+          "description": "国际化语言,如：zh-CN,zh,en,zh_TW等."
+        },
+        {
+          "name": "topUnitList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "所属顶层组织."
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体秘级标识."
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "isCollection": false,
+          "description": "状态：0|正常、1|锁定、2|禁用."
+        },
+        {
+          "name": "lockExpireTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "锁定到期时间."
+        },
+        {
+          "name": "statusDes",
+          "type": "String",
+          "isCollection": false,
+          "description": "状态描述."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "getAuthInfo",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionGetAuthInfo",
+      "description": "获取个人及关联身份,身份所属组织,身份所属职务,个人和身份所在群组,个人拥有角色的dn列表.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "valueList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "字符串多值."
+        }
+      ]
+    },
+    {
+      "name": "getMobile",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionGetMobile",
+      "description": "获取个人手机号码.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getNickName",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionGetNickName",
+      "description": "获取个人昵称.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "hasRole",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionHasRole",
+      "description": "判断个人是否拥有指定角色中的一个或者多个",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "list",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionList",
+      "description": "批量查询个人",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人识别名"
+        }
+      ]
+    },
+    {
+      "name": "listAll",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListAll",
+      "description": "查询所有个人.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人识别名"
+        }
+      ]
+    },
+    {
+      "name": "listAllObject",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListAllObject",
+      "description": "查询所有个人对象.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人名称"
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称"
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别,m:男,f:女,d:未知"
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "签名"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "员工号"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "主管"
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址"
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号"
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "qq号"
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "手机号"
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话"
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间"
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日"
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink id"
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体密级标识."
+        }
+      ]
+    },
+    {
+      "name": "listFilterPaging",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListFilterPaging",
+      "description": "分页查询用户信息.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别.男:m,女:f,未知:d"
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "个性签名."
+        },
+        {
+          "name": "pinyin",
+          "type": "String",
+          "isCollection": false,
+          "description": "name拼音,自动生成"
+        },
+        {
+          "name": "pinyinInitial",
+          "type": "String",
+          "isCollection": false,
+          "description": "name拼音首字母,自动生成"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "描述."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "名称,可重名."
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称."
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "工号,不可重复."
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识,不可重复,为空则使用自动填充值"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名,自动填充,@P结尾."
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号,升序排列,为空在最后"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "汇报对象."
+        },
+        {
+          "name": "passwordExpiredTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "用户密码到期时间."
+        },
+        {
+          "name": "changePasswordTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "用户密码最后修改时间."
+        },
+        {
+          "name": "lastLoginTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "最后登录时间."
+        },
+        {
+          "name": "lastLoginAddress",
+          "type": "String",
+          "isCollection": false,
+          "description": "最后登录地址."
+        },
+        {
+          "name": "lastLoginClient",
+          "type": "String",
+          "isCollection": false,
+          "description": "最后登录客户端类型,web,android或者ios."
+        },
+        {
+          "name": "ipAddress",
+          "type": "String",
+          "isCollection": false,
+          "description": "允许登录的IP."
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址."
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号."
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "QQ号."
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "必填,手机号."
+        },
+        {
+          "name": "hiddenMobile",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否隐藏手机号."
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话."
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间."
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日."
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉人员ID."
+        },
+        {
+          "name": "dingdingHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉人员哈希特征."
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "WeLikn人员ID."
+        },
+        {
+          "name": "weLinkHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "WeLink人员哈希特征."
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉人员ID."
+        },
+        {
+          "name": "andFxId",
+          "type": "String",
+          "isCollection": false,
+          "description": "移动办公人员ID."
+        },
+        {
+          "name": "zhengwuDingdingHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉人员哈希特征."
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信人员ID."
+        },
+        {
+          "name": "qiyeweixinHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信人员哈希特征."
+        },
+        {
+          "name": "andFxHash",
+          "type": "String",
+          "isCollection": false,
+          "description": "移动办公人员哈希特征."
+        },
+        {
+          "name": "mpwxopenId",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信公众号人员openid."
+        },
+        {
+          "name": "open1Id",
+          "type": "String",
+          "isCollection": false,
+          "description": "oauth登录id1."
+        },
+        {
+          "name": "open2Id",
+          "type": "String",
+          "isCollection": false,
+          "description": "oauth登录id2."
+        },
+        {
+          "name": "open3Id",
+          "type": "String",
+          "isCollection": false,
+          "description": "oauth登录id3."
+        },
+        {
+          "name": "open4Id",
+          "type": "String",
+          "isCollection": false,
+          "description": "oauth登录id4."
+        },
+        {
+          "name": "open5Id",
+          "type": "String",
+          "isCollection": false,
+          "description": "oauth登录id5."
+        },
+        {
+          "name": "failureTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "登录失败记录时间."
+        },
+        {
+          "name": "failureCount",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "登录失败次数"
+        },
+        {
+          "name": "language",
+          "type": "String",
+          "isCollection": false,
+          "description": "国际化语言,如：zh-CN,zh,en,zh_TW等."
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体秘级标识."
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "isCollection": false,
+          "description": "状态：0|正常、1|锁定、2|禁用."
+        },
+        {
+          "name": "lockExpireTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "锁定到期时间."
+        },
+        {
+          "name": "statusDes",
+          "type": "String",
+          "isCollection": false,
+          "description": "状态描述."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listLoginAfter",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListLoginAfter",
+      "description": "查询截至日期之后登录的人员",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人识别名"
+        }
+      ]
+    },
+    {
+      "name": "listLoginAfterObject",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListLoginAfterObject",
+      "description": "查询截至日期之后登录的人员对象",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人名称"
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称"
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别,m:男,f:女,d:未知"
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "签名"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "员工号"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "主管"
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址"
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号"
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "qq号"
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "手机号"
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话"
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间"
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日"
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink id"
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体密级标识."
+        }
+      ]
+    },
+    {
+      "name": "listLoginRecent",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListLoginRecent",
+      "description": "查询最近登录人员",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人识别名"
+        }
+      ]
+    },
+    {
+      "name": "listLoginRecentObject",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListLoginRecentObject",
+      "description": "查询最近登录人员对象",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人名称"
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称"
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别,m:男,f:女,d:未知"
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "签名"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "员工号"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "主管"
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址"
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号"
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "qq号"
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "手机号"
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话"
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间"
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日"
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink id"
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体密级标识."
+        }
+      ]
+    },
+    {
+      "name": "listObject",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListObject",
+      "description": "批量查询个人对象",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人名称"
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称"
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别,m:男,f:女,d:未知"
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "签名"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "员工号"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "主管"
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址"
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号"
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "qq号"
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "手机号"
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话"
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间"
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日"
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink id"
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体密级标识."
+        }
+      ]
+    },
+    {
+      "name": "listPairIdentity",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListPairIdentity",
+      "description": "批量查询身份对应的个人,以匹配对的格式返回.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "identityPersonPairList",
+          "type": "List\u003cIdentityPersonPair\u003e",
+          "isCollection": true,
+          "description": "身份人员匹配对"
+        }
+      ]
+    },
+    {
+      "name": "listWithGroup",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithGroup",
+      "description": "批量查询群组包含的个人,包含嵌套的个人.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithGroupObject",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithGroupObject",
+      "description": "批量查询群组包含的个人,包含嵌套的个人对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人名称"
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称"
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别,m:男,f:女,d:未知"
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "签名"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "员工号"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "主管"
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址"
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号"
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "qq号"
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "手机号"
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话"
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间"
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日"
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink id"
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体密级标识."
+        }
+      ]
+    },
+    {
+      "name": "listWithIdentity",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithIdentity",
+      "description": "批量查询身份对应的个人",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithIdentityObject",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithIdentityObject",
+      "description": "批量查询身份对应的个人对象",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人名称"
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称"
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别,m:男,f:女,d:未知"
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "签名"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "员工号"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "主管"
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址"
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号"
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "qq号"
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "手机号"
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话"
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间"
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日"
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink id"
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体密级标识."
+        }
+      ]
+    },
+    {
+      "name": "listWithPersonAttribute",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithPersonAttribute",
+      "description": "批量查找拥有指定个人属性的个人",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithPersonAttributeObject",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithPersonAttributeObject",
+      "description": "批量查找拥有指定个人属性的个人对象",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人名称"
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称"
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别,m:男,f:女,d:未知"
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "签名"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "员工号"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "主管"
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址"
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号"
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "qq号"
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "手机号"
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话"
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间"
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日"
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink id"
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体密级标识."
+        }
+      ]
+    },
+    {
+      "name": "listWithPersonSubDirect",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithPersonSubDirect",
+      "description": "批量查找个人的直接下级",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithPersonSubDirectObject",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithPersonSubDirectObject",
+      "description": "批量查找个人的直接下级对象",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人名称"
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称"
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别,m:男,f:女,d:未知"
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "签名"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "员工号"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "主管"
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址"
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号"
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "qq号"
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "手机号"
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话"
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间"
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日"
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink id"
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体密级标识."
+        }
+      ]
+    },
+    {
+      "name": "listWithPersonSubNested",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithPersonSubNested",
+      "description": "批量查找个人的递归下级",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithPersonSubNestedObject",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithPersonSubNestedObject",
+      "description": "批量查找个人的递归下级对象",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人名称"
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称"
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别,m:男,f:女,d:未知"
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "签名"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "员工号"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "主管"
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址"
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号"
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "qq号"
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "手机号"
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话"
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间"
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日"
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink id"
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体密级标识."
+        }
+      ]
+    },
+    {
+      "name": "listWithPersonSupDirect",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithPersonSupDirect",
+      "description": "批量查找个人的直接上级",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithPersonSupDirectObject",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithPersonSupDirectObject",
+      "description": "批量查找个人的直接上级",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人名称"
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称"
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别,m:男,f:女,d:未知"
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "签名"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "员工号"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "主管"
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址"
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号"
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "qq号"
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "手机号"
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话"
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间"
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日"
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink id"
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体密级标识."
+        }
+      ]
+    },
+    {
+      "name": "listWithPersonSupNested",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithPersonSupNested",
+      "description": "批量查找个人的递归逐级上级",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithPersonSupNestedObject",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithPersonSupNestedObject",
+      "description": "批量查找个人的递归逐级上级对象",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人名称"
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称"
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别,m:男,f:女,d:未知"
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "签名"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "员工号"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "主管"
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址"
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号"
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "qq号"
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "手机号"
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话"
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间"
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日"
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink id"
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体密级标识."
+        }
+      ]
+    },
+    {
+      "name": "listWithRole",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithRole",
+      "description": "批量查询角色对应的个人",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithRoleObject",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithRoleObject",
+      "description": "批量查询角色对应的个人对象",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人名称"
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称"
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别,m:男,f:女,d:未知"
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "签名"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "员工号"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "主管"
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址"
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号"
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "qq号"
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "手机号"
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话"
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间"
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日"
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink id"
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体密级标识."
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSubDirect",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithUnitSubDirect",
+      "description": "批量查询组织的直接成员对应的个人",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSubDirectLike",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithUnitSubDirectLike",
+      "description": "批量组织的直接成员对应的个人,按关键字进行搜索.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSubDirectLikeObject",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithUnitSubDirectLikeObject",
+      "description": "批量组织的直接成员对应的个人对象,按关键字进行搜索.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人名称"
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称"
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别,m:男,f:女,d:未知"
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "签名"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "员工号"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "主管"
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址"
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号"
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "qq号"
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "手机号"
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话"
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间"
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日"
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink id"
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体密级标识."
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSubDirectObject",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithUnitSubDirectObject",
+      "description": "批量查询组织的直接成员对应的个人对象",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人名称"
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称"
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别,m:男,f:女,d:未知"
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "签名"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "员工号"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "主管"
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址"
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号"
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "qq号"
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "手机号"
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话"
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间"
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日"
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink id"
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体密级标识."
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSubNested",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithUnitSubNested",
+      "description": "批量组织的嵌套成员对应的个人",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSubNestedLike",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithUnitSubNestedLike",
+      "description": "批量组织的嵌套成员对应的个人,按关键字进行搜索.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "personList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "个人识别名"
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSubNestedLikeObject",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithUnitSubNestedLikeObject",
+      "description": "批量组织的嵌套成员对应的个人对象,按关键字进行搜索.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人名称"
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称"
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别,m:男,f:女,d:未知"
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "签名"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "员工号"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "主管"
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址"
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号"
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "qq号"
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "手机号"
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话"
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间"
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日"
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink id"
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体密级标识."
+        }
+      ]
+    },
+    {
+      "name": "listWithUnitSubNestedObject",
+      "className": "com.x.organization.assemble.express.jaxrs.person.ActionListWithUnitSubNestedObject",
+      "description": "批量组织的嵌套成员对应的个人对象",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "matchKey",
+          "type": "String",
+          "isCollection": false,
+          "description": "匹配字段"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "个人名称"
+        },
+        {
+          "name": "nickName",
+          "type": "String",
+          "isCollection": false,
+          "description": "昵称"
+        },
+        {
+          "name": "genderType",
+          "type": "GenderType",
+          "isCollection": false,
+          "description": "性别,m:男,f:女,d:未知"
+        },
+        {
+          "name": "signature",
+          "type": "String",
+          "isCollection": false,
+          "description": "签名"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明"
+        },
+        {
+          "name": "employee",
+          "type": "String",
+          "isCollection": false,
+          "description": "员工号"
+        },
+        {
+          "name": "unique",
+          "type": "String",
+          "isCollection": false,
+          "description": "唯一标识"
+        },
+        {
+          "name": "distinguishedName",
+          "type": "String",
+          "isCollection": false,
+          "description": "识别名"
+        },
+        {
+          "name": "orderNumber",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "排序号"
+        },
+        {
+          "name": "superior",
+          "type": "String",
+          "isCollection": false,
+          "description": "主管"
+        },
+        {
+          "name": "mail",
+          "type": "String",
+          "isCollection": false,
+          "description": "邮件地址"
+        },
+        {
+          "name": "weixin",
+          "type": "String",
+          "isCollection": false,
+          "description": "微信号"
+        },
+        {
+          "name": "qq",
+          "type": "String",
+          "isCollection": false,
+          "description": "qq号"
+        },
+        {
+          "name": "mobile",
+          "type": "String",
+          "isCollection": false,
+          "description": "手机号"
+        },
+        {
+          "name": "officePhone",
+          "type": "String",
+          "isCollection": false,
+          "description": "办公电话"
+        },
+        {
+          "name": "boardDate",
+          "type": "Date",
+          "isCollection": false,
+          "description": "入职时间"
+        },
+        {
+          "name": "birthday",
+          "type": "Date",
+          "isCollection": false,
+          "description": "生日"
+        },
+        {
+          "name": "age",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "年龄"
+        },
+        {
+          "name": "qiyeweixinId",
+          "type": "String",
+          "isCollection": false,
+          "description": "企业微信Id"
+        },
+        {
+          "name": "dingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "钉钉Id"
+        },
+        {
+          "name": "zhengwuDingdingId",
+          "type": "String",
+          "isCollection": false,
+          "description": "政务钉钉Id"
+        },
+        {
+          "name": "weLinkId",
+          "type": "String",
+          "isCollection": false,
+          "description": "华为WeLink id"
+        },
+        {
+          "name": "subjectSecurityClearance",
+          "type": "Integer",
+          "isCollection": false,
+          "description": "主体密级标识."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,825 @@
+{
+  "name": "WorkLogAction",
+  "className": "com.x.processplatform.assemble.surface.jaxrs.worklog.WorkLogAction",
+  "description": "工作日志接口.",
+  "methods": [
+    {
+      "name": "listAddSplitWithWork",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.worklog.ActionListAddSplitWithWork",
+      "description": "获取工作或完成工作可回滚的工作日志.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作日志标识."
+        },
+        {
+          "name": "splitValueList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "拆分值列表."
+        },
+        {
+          "name": "splitTokenList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "拆分标识列表."
+        },
+        {
+          "name": "goBackFromActivityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "退回发起活动环节类型."
+        },
+        {
+          "name": "goBackFromActivity",
+          "type": "String",
+          "isCollection": false,
+          "description": "退回发起活动环节标识."
+        },
+        {
+          "name": "goBackFromActivityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "退回发起活动环节令牌."
+        },
+        {
+          "name": "tickets",
+          "type": "Tickets",
+          "isCollection": false,
+          "description": "退回发起活动环节令牌."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "任务标识."
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作标识."
+        },
+        {
+          "name": "workCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "已完成工作标识."
+        },
+        {
+          "name": "completed",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "工作是否已经完成."
+        },
+        {
+          "name": "fromActivity",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动标识."
+        },
+        {
+          "name": "fromActivityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "开始活动类型."
+        },
+        {
+          "name": "fromActivityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动名称."
+        },
+        {
+          "name": "fromActivityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动别名."
+        },
+        {
+          "name": "fromActivityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始节点Token"
+        },
+        {
+          "name": "fromGroup",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始分组"
+        },
+        {
+          "name": "fromOpinionGroup",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始意见分组"
+        },
+        {
+          "name": "fromTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "开始时间."
+        },
+        {
+          "name": "arrivedActivity",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束活动Id，可能为空，如果是未Connected的流程记录"
+        },
+        {
+          "name": "arrivedActivityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "结束活动类型."
+        },
+        {
+          "name": "arrivedActivityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束活动名称."
+        },
+        {
+          "name": "arrivedActivityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束活动别名."
+        },
+        {
+          "name": "arrivedActivityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束活动Token."
+        },
+        {
+          "name": "arrivedGroup",
+          "type": "String",
+          "isCollection": false,
+          "description": "到达分组"
+        },
+        {
+          "name": "arrivedOpinionGroup",
+          "type": "String",
+          "isCollection": false,
+          "description": "到达意见分组"
+        },
+        {
+          "name": "arrivedTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "完成时间."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用."
+        },
+        {
+          "name": "applicationName",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用名称."
+        },
+        {
+          "name": "applicationAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用别名."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID."
+        },
+        {
+          "name": "processName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称."
+        },
+        {
+          "name": "processAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程别名."
+        },
+        {
+          "name": "route",
+          "type": "String",
+          "isCollection": false,
+          "description": "到达节点使用的route ID."
+        },
+        {
+          "name": "routeName",
+          "type": "String",
+          "isCollection": false,
+          "description": "到达节点使用Route Name."
+        },
+        {
+          "name": "connected",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否已经完整填写了From和Arrived."
+        },
+        {
+          "name": "duration",
+          "type": "Long",
+          "isCollection": false,
+          "description": "工作时长(分钟数)."
+        },
+        {
+          "name": "splitting",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否是拆分中的工作,用于回溯时候将值改回去。"
+        },
+        {
+          "name": "splitToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "拆分工作令牌,用于回溯时候将值改回去。"
+        },
+        {
+          "name": "splitValue",
+          "type": "String",
+          "isCollection": false,
+          "description": "拆分值,用于回溯时候将值改回去。"
+        },
+        {
+          "name": "splitWork",
+          "type": "String",
+          "isCollection": false,
+          "description": "拆分自工作"
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型,与ProcessingAttributes的type对应."
+        },
+        {
+          "name": "properties",
+          "type": "WorkLogProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listRollbackWithWorkOrWorkCompleted",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.worklog.ActionListRollbackWithWorkOrWorkCompleted",
+      "description": "获取工作或完成工作可回滚的工作日志.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作日志标识."
+        },
+        {
+          "name": "fromActivity",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动标识."
+        },
+        {
+          "name": "fromActivityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "开始活动类型."
+        },
+        {
+          "name": "fromActivityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动名称."
+        },
+        {
+          "name": "fromActivityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动别名."
+        },
+        {
+          "name": "fromActivityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始节点Token"
+        },
+        {
+          "name": "fromGroup",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始分组"
+        },
+        {
+          "name": "fromOpinionGroup",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始意见分组"
+        },
+        {
+          "name": "fromTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "开始时间."
+        },
+        {
+          "name": "arrivedActivity",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束活动Id，可能为空，如果是未Connected的流程记录"
+        },
+        {
+          "name": "arrivedActivityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "结束活动类型."
+        },
+        {
+          "name": "arrivedActivityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束活动名称."
+        },
+        {
+          "name": "arrivedActivityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束活动别名."
+        },
+        {
+          "name": "arrivedActivityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束活动Token."
+        },
+        {
+          "name": "arrivedGroup",
+          "type": "String",
+          "isCollection": false,
+          "description": "到达分组"
+        },
+        {
+          "name": "arrivedOpinionGroup",
+          "type": "String",
+          "isCollection": false,
+          "description": "到达意见分组"
+        },
+        {
+          "name": "arrivedTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "完成时间."
+        },
+        {
+          "name": "routeName",
+          "type": "String",
+          "isCollection": false,
+          "description": "到达节点使用Route Name."
+        },
+        {
+          "name": "connected",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否已经完整填写了From和Arrived."
+        },
+        {
+          "name": "splitting",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否是拆分中的工作,用于回溯时候将值改回去。"
+        }
+      ]
+    },
+    {
+      "name": "listWithJob",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.worklog.ActionListWithJob",
+      "description": "根据指定job获取工作日志.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作日志标识."
+        },
+        {
+          "name": "splitValueList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "拆分值列表."
+        },
+        {
+          "name": "splitTokenList",
+          "type": "List\u003cString\u003e",
+          "isCollection": true,
+          "description": "拆分标识列表."
+        },
+        {
+          "name": "goBackFromActivityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "退回发起活动环节类型."
+        },
+        {
+          "name": "goBackFromActivity",
+          "type": "String",
+          "isCollection": false,
+          "description": "退回发起活动环节标识."
+        },
+        {
+          "name": "goBackFromActivityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "退回发起活动环节令牌."
+        },
+        {
+          "name": "tickets",
+          "type": "Tickets",
+          "isCollection": false,
+          "description": "退回发起活动环节令牌."
+        },
+        {
+          "name": "job",
+          "type": "String",
+          "isCollection": false,
+          "description": "任务标识."
+        },
+        {
+          "name": "work",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作标识."
+        },
+        {
+          "name": "workCompleted",
+          "type": "String",
+          "isCollection": false,
+          "description": "已完成工作标识."
+        },
+        {
+          "name": "completed",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "工作是否已经完成."
+        },
+        {
+          "name": "fromActivity",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动标识."
+        },
+        {
+          "name": "fromActivityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "开始活动类型."
+        },
+        {
+          "name": "fromActivityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动名称."
+        },
+        {
+          "name": "fromActivityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动别名."
+        },
+        {
+          "name": "fromActivityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始节点Token"
+        },
+        {
+          "name": "fromGroup",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始分组"
+        },
+        {
+          "name": "fromOpinionGroup",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始意见分组"
+        },
+        {
+          "name": "fromTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "开始时间."
+        },
+        {
+          "name": "arrivedActivity",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束活动Id，可能为空，如果是未Connected的流程记录"
+        },
+        {
+          "name": "arrivedActivityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "结束活动类型."
+        },
+        {
+          "name": "arrivedActivityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束活动名称."
+        },
+        {
+          "name": "arrivedActivityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束活动别名."
+        },
+        {
+          "name": "arrivedActivityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束活动Token."
+        },
+        {
+          "name": "arrivedGroup",
+          "type": "String",
+          "isCollection": false,
+          "description": "到达分组"
+        },
+        {
+          "name": "arrivedOpinionGroup",
+          "type": "String",
+          "isCollection": false,
+          "description": "到达意见分组"
+        },
+        {
+          "name": "arrivedTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "完成时间."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用."
+        },
+        {
+          "name": "applicationName",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用名称."
+        },
+        {
+          "name": "applicationAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用别名."
+        },
+        {
+          "name": "process",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程ID."
+        },
+        {
+          "name": "processName",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程名称."
+        },
+        {
+          "name": "processAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "流程别名."
+        },
+        {
+          "name": "route",
+          "type": "String",
+          "isCollection": false,
+          "description": "到达节点使用的route ID."
+        },
+        {
+          "name": "routeName",
+          "type": "String",
+          "isCollection": false,
+          "description": "到达节点使用Route Name."
+        },
+        {
+          "name": "connected",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否已经完整填写了From和Arrived."
+        },
+        {
+          "name": "duration",
+          "type": "Long",
+          "isCollection": false,
+          "description": "工作时长(分钟数)."
+        },
+        {
+          "name": "splitting",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否是拆分中的工作,用于回溯时候将值改回去。"
+        },
+        {
+          "name": "splitToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "拆分工作令牌,用于回溯时候将值改回去。"
+        },
+        {
+          "name": "splitValue",
+          "type": "String",
+          "isCollection": false,
+          "description": "拆分值,用于回溯时候将值改回去。"
+        },
+        {
+          "name": "splitWork",
+          "type": "String",
+          "isCollection": false,
+          "description": "拆分自工作"
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isCollection": false,
+          "description": "类型,与ProcessingAttributes的type对应."
+        },
+        {
+          "name": "properties",
+          "type": "WorkLogProperties",
+          "isCollection": false,
+          "description": "属性对象存储字段."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listWithWorkOrWorkCompleted",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.worklog.ActionListWithWorkOrWorkCompleted",
+      "description": "根据指定Work或者WorkCompleted获取工作日志.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "工作日志标识."
+        },
+        {
+          "name": "fromActivity",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动标识."
+        },
+        {
+          "name": "fromActivityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "开始活动类型."
+        },
+        {
+          "name": "fromActivityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动名称."
+        },
+        {
+          "name": "fromActivityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始活动别名."
+        },
+        {
+          "name": "fromActivityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始节点Token"
+        },
+        {
+          "name": "fromGroup",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始分组"
+        },
+        {
+          "name": "fromOpinionGroup",
+          "type": "String",
+          "isCollection": false,
+          "description": "开始意见分组"
+        },
+        {
+          "name": "fromTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "开始时间."
+        },
+        {
+          "name": "arrivedActivity",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束活动Id，可能为空，如果是未Connected的流程记录"
+        },
+        {
+          "name": "arrivedActivityType",
+          "type": "ActivityType",
+          "isCollection": false,
+          "description": "结束活动类型."
+        },
+        {
+          "name": "arrivedActivityName",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束活动名称."
+        },
+        {
+          "name": "arrivedActivityAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束活动别名."
+        },
+        {
+          "name": "arrivedActivityToken",
+          "type": "String",
+          "isCollection": false,
+          "description": "结束活动Token."
+        },
+        {
+          "name": "arrivedGroup",
+          "type": "String",
+          "isCollection": false,
+          "description": "到达分组"
+        },
+        {
+          "name": "arrivedOpinionGroup",
+          "type": "String",
+          "isCollection": false,
+          "description": "到达意见分组"
+        },
+        {
+          "name": "arrivedTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "完成时间."
+        },
+        {
+          "name": "route",
+          "type": "String",
+          "isCollection": false,
+          "description": "到达节点使用的route ID."
+        },
+        {
+          "name": "routeName",
+          "type": "String",
+          "isCollection": false,
+          "description": "到达节点使用Route Name."
+        },
+        {
+          "name": "connected",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否已经完整填写了From和Arrived."
+        },
+        {
+          "name": "splitting",
+          "type": "Boolean",
+          "isCollection": false,
+          "description": "是否是拆分中的工作,用于回溯时候将值改回去。"
+        }
+      ]
+    }
+  ]
+}

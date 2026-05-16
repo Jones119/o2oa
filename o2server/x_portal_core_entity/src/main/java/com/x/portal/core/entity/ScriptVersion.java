@@ -11,7 +11,7 @@ import com.x.base.core.project.gson.XGsonBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import org.apache.openjpa.persistence.jdbc.Index;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * 门户脚本历史版本

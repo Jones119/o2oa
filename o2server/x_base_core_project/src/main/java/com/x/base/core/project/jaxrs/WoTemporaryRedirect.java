@@ -1,26 +1,13 @@
 package com.x.base.core.project.jaxrs;
 
-import com.x.base.core.project.annotation.FieldDescribe;
-import com.x.base.core.project.gson.GsonPropertyObject;
+import com.x.base.core.project.gson.GsonRecord;
 
-public class WoTemporaryRedirect extends GsonPropertyObject {
+public record WoTemporaryRedirect(String url) implements GsonRecord {
 
-	public WoTemporaryRedirect() {
-	}
+    public WoTemporaryRedirect {
+    }
 
-	public WoTemporaryRedirect(String url) {
-		this.url = url;
-	}
-
-	@FieldDescribe("地址")
-	private String url;
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
+    public WoTemporaryRedirect() {
+        this(null);
+    }
 }

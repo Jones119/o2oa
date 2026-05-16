@@ -3,22 +3,17 @@ package com.x.base.core.project.http;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.x.base.core.project.gson.GsonPropertyObject;
+import com.x.base.core.project.gson.GsonRecord;
 
-public class WrapInStringList extends GsonPropertyObject {
+public record WrapInStringList(List<String> valueList) implements GsonRecord {
 
-	public WrapInStringList() {
-		this.valueList = new ArrayList<String>();
-	}
+    public WrapInStringList {
+        if (valueList == null) {
+            valueList = new ArrayList<>();
+        }
+    }
 
-	private List<String> valueList;
-
-	public List<String> getValueList() {
-		return valueList;
-	}
-
-	public void setValueList(List<String> valueList) {
-		this.valueList = valueList;
-	}
-
+    public WrapInStringList() {
+        this(new ArrayList<>());
+    }
 }

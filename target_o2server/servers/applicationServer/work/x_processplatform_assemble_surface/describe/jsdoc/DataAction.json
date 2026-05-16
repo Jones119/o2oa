@@ -1,0 +1,1365 @@
+{
+  "name": "DataAction",
+  "className": "com.x.processplatform.assemble.surface.jaxrs.data.DataAction",
+  "description": "业务数据接口.",
+  "methods": [
+    {
+      "name": "createWithWork",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionCreateWithWork",
+      "description": "根据工作标识更新业务数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createWithWorkPath0",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionCreateWithWorkPath0",
+      "description": "对指定的work添加局部data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createWithWorkPath1",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionCreateWithWorkPath1",
+      "description": "对指定的work添加局部data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createWithWorkPath2",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionCreateWithWorkPath2",
+      "description": "对指定的work添加局部data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createWithWorkPath3",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionCreateWithWorkPath3",
+      "description": "对指定的work添加局部data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createWithWorkPath4",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionCreateWithWorkPath4",
+      "description": "对指定的work添加局部data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createWithWorkPath5",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionCreateWithWorkPath5",
+      "description": "对指定的work添加局部data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createWithWorkPath6",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionCreateWithWorkPath6",
+      "description": "对指定的work添加局部data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "createWithWorkPath7",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionCreateWithWorkPath7",
+      "description": "对指定的work添加局部data数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWork",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWork",
+      "description": "根据工作标识删除业务数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkMockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWork",
+      "description": "根据工作标识删除业务数据(mock delete to get).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkPath0",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWorkPath0",
+      "description": "根据工作标识和一级路径删除业务数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkPath0MockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWorkPath0",
+      "description": "根据工作标识和一级路径删除业务数据(mock delete to get).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkPath1",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWorkPath1",
+      "description": "根据工作标识和二级路径删除业务数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkPath1MockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWorkPath1",
+      "description": "根据工作标识和二级路径删除业务数据(mock put to post).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkPath2",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWorkPath2",
+      "description": "根据工作标识和三级路径删除业务数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkPath2MockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWorkPath2",
+      "description": "根据工作标识和三级路径删除业务数据(mock put to post).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkPath3",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWorkPath3",
+      "description": "根据工作标识和四级路径删除业务数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkPath3MockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWorkPath3",
+      "description": "根据工作标识和四级路径删除业务数据(mock put to post).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkPath4",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWorkPath4",
+      "description": "根据工作标识和五级路径删除业务数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkPath4MockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWorkPath4",
+      "description": "根据工作标识和五级路径删除业务数据(mock delete to get).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkPath5",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWorkPath5",
+      "description": "根据工作标识和六级路径删除业务数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkPath5MockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWorkPath5",
+      "description": "根据工作标识和六级路径删除业务数据(mock delete to get).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkPath6",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWorkPath6",
+      "description": "根据工作标识和七级路径删除业务数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkPath6MockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWorkPath6",
+      "description": "根据工作标识和七级路径删除业务数据(mock delete to get).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkPath7",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWorkPath7",
+      "description": "根据工作标识和八级路径删除业务数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "deleteWithWorkPath7MockDeleteToGet",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionDeleteWithWorkPath7",
+      "description": "根据工作标识和八级路径删除业务数据(mock delete to get).",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "fetchWithJob",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionFetchWithJob",
+      "description": "根据任务标识获取指定路径的部分业务数据.",
+      "type": "POST",
+      "outs": []
+    },
+    {
+      "name": "getWithJob",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithJob",
+      "description": "根据任务标识获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithJobPath0",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithJobPath0",
+      "description": "根据任务标识和一级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithJobPath1",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkPath1",
+      "description": "根据任务标识和二级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithJobPath2",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithJobPath2",
+      "description": "根据任务标识和三级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithJobPath3",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithJobPath3",
+      "description": "根据任务标识和四级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithJobPath4",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithJobPath4",
+      "description": "根据任务标识和五级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithJobPath5",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithJobPath5",
+      "description": "根据任务标识和六级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithJobPath6",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithJobPath6",
+      "description": "根据任务标识和七级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithJobPath7",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithJobPath7",
+      "description": "根据任务标识和八级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWork",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWork",
+      "description": "根据工作标识获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkCompleted",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkCompleted",
+      "description": "根据已完成工作标识获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkCompletedFromData",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkCompletedFromData",
+      "description": "从data中获取workCompleted的data数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkCompletedFromItem",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkCompletedFromItem",
+      "description": "从item中获取已完成工作的业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkCompletedPath0",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkCompletedPath0",
+      "description": "根据已完成工作标识和一级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkCompletedPath1",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkCompletedPath1",
+      "description": "根据已完成工作标识和二级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkCompletedPath2",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkCompletedPath2",
+      "description": "根据已完成工作标识和三级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkCompletedPath3",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkCompletedPath3",
+      "description": "根据已完成工作标识和四级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkCompletedPath4",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkCompletedPath4",
+      "description": "根据已完成工作标识和五级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkCompletedPath5",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkCompletedPath5",
+      "description": "根据路径获取指定workCompleted的data数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkCompletedPath6",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkCompletedPath6",
+      "description": "根据路径获取指定workCompleted的data数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkCompletedPath7",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkCompletedPath7",
+      "description": "根据路径获取指定workCompleted的data数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkPath0",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkPath0",
+      "description": "根据工作标识和一级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkPath1",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkPath1",
+      "description": "根据工作标识和二级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkPath2",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkPath2",
+      "description": "根据路径获取指定work的data数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkPath3",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkPath3",
+      "description": "根据工作标识和四级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkPath4",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkPath4",
+      "description": "根据工作标识和五级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkPath5",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkPath5",
+      "description": "根据工作标识和六级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkPath6",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkPath6",
+      "description": "根据工作标识和七级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "getWithWorkPath7",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionGetWithWorkPath7",
+      "description": "根据工作标识和八级路径获取业务数据.",
+      "type": "GET",
+      "outs": []
+    },
+    {
+      "name": "updateArrayDataWithJob",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateArrayDataWithJob",
+      "description": "根据任务标识更新指定路径的数组数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJob",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJob",
+      "description": "根据任务标识更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJobMockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJob",
+      "description": "根据任务标识更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJobPath0",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJobPath0",
+      "description": "根据任务标识和一级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJobPath0MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJobPath0",
+      "description": "根据任务标识和一级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJobPath1",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJobPath1",
+      "description": "根据任务标识和二级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJobPath1MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJobPath1",
+      "description": "根据任务标识和二级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJobPath2",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJobPath2",
+      "description": "根据任务标识和三级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJobPath2MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJobPath2",
+      "description": "根据任务标识和三级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJobPath3",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJobPath3",
+      "description": "根据任务标识和四级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJobPath3MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJobPath3",
+      "description": "根据任务标识和四级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJobPath4",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJobPath4",
+      "description": "根据任务标识和五级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJobPath4MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJobPath4",
+      "description": "根据任务标识和五级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJobPath5",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJobPath5",
+      "description": "根据任务标识和六级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJobPath5MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJobPath5",
+      "description": "根据任务标识和六级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJobPath6",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJobPath6",
+      "description": "根据任务标识和七级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJobPath6MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJobPath6",
+      "description": "根据任务标识和七级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJobPath7",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJobPath7",
+      "description": "根据任务标识和八级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithJobPath7MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithJobPath7",
+      "description": "根据任务标识和八级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWork",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWork",
+      "description": "根据工作标识更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompleted",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompleted",
+      "description": "根据已完成工作标识更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompletedMockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompleted",
+      "description": "根据已完成工作标识更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompletedPath0",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompletedPath0",
+      "description": "根据已完成工作标识和一级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompletedPath0MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompletedPath0",
+      "description": "根据已完成工作标识和一级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompletedPath1",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompletedPath1",
+      "description": "根据已完成工作标识和二级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompletedPath1MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompletedPath1",
+      "description": "根据已完成工作标识和二级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompletedPath2",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompletedPath2",
+      "description": "根据已完成工作标识和三级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompletedPath2MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompletedPath2",
+      "description": "根据已完成工作标识和三级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompletedPath3",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompletedPath3",
+      "description": "根据已完成工作标识和四级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompletedPath3MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompletedPath3",
+      "description": "根据已完成工作标识和四级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompletedPath4",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompletedPath4",
+      "description": "根据已完成工作标识和五级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompletedPath4MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompletedPath4",
+      "description": "根据已完成工作标识和五级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompletedPath5",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompletedPath5",
+      "description": "根据已完成工作标识和六级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompletedPath5MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompletedPath5",
+      "description": "根据已完成工作标识和六级路径更新业务数据mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompletedPath6",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompletedPath6",
+      "description": "根据已完成工作标识和七级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompletedPath6MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompletedPath6",
+      "description": "根据已完成工作标识和七级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompletedPath7",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompletedPath7",
+      "description": "根据已完成工作标识和八级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkCompletedPath7MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkCompletedPath7",
+      "description": "根据已完成工作标识和八级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkMockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWork",
+      "description": "根据工作标识更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkPath0",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkPath0",
+      "description": "根据工作标识和一级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkPath0MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkPath0",
+      "description": "根据工作标识和一级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkPath1",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkPath1",
+      "description": "根据工作标识和二级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkPath1MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkPath1",
+      "description": "根据工作标识和二级路径更新业务数据(mock put to post).",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkPath2",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkPath2",
+      "description": "根据工作标识和三级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkPath2MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkPath2",
+      "description": "根据工作标识和三级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkPath3",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkPath3",
+      "description": "根据工作标识和四级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkPath3MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkPath3",
+      "description": "根据工作标识和四级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkPath4",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkPath4",
+      "description": "根据工作标识和五级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkPath4MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkPath4",
+      "description": "根据工作标识和五级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkPath5",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkPath5",
+      "description": "根据工作标识和六级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkPath5MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkPath5",
+      "description": "根据工作标识和六级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkPath6",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkPath6",
+      "description": "根据工作标识和七级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkPath6MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkPath6",
+      "description": "根据工作标识和七级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkPath7",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkPath7",
+      "description": "根据工作标识和八级路径更新业务数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "updateWithWorkPath7MockPutToPost",
+      "className": "com.x.processplatform.assemble.surface.jaxrs.data.ActionUpdateWithWorkPath7",
+      "description": "根据工作标识和八级路径更新业务数据(mock put to post).",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    }
+  ]
+}

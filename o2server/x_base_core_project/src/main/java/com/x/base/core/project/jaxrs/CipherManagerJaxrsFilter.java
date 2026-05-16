@@ -1,14 +1,15 @@
 package com.x.base.core.project.jaxrs;
 
 import java.io.IOException;
+import java.lang.ScopedValue;
 
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.FilterConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -63,7 +64,13 @@ public abstract class CipherManagerJaxrsFilter extends TokenFilter {
 					}
 					response.getWriter().write(result.toJson());
 				} else {
-					chain.doFilter(request, response);
+					ScopedValue.where(EffectivePerson.SCOPED, effectivePerson).run(() -> {
+						try {
+							chain.doFilter(request, response);
+						} catch (ServletException | IOException e) {
+							throw new RuntimeException(e);
+						}
+					});
 				}
 			} else {
 				options(request,response);

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
+  <persistence-unit name="com.x.base.core.entity.ApplicationBaseEntity" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.StorageObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.AttendanceAdmin</class>
+    <class>com.x.attendance.entity.AttendanceAppealAuditInfo</class>
+    <class>com.x.attendance.entity.AttendanceAppealInfo</class>
+    <class>com.x.attendance.entity.AttendanceDetail</class>
+    <class>com.x.attendance.entity.AttendanceDetailMobile</class>
+    <class>com.x.attendance.entity.AttendanceDingtalkDetail</class>
+    <class>com.x.attendance.entity.AttendanceEmployeeConfig</class>
+    <class>com.x.attendance.entity.AttendanceImportFileInfo</class>
+    <class>com.x.attendance.entity.AttendanceQywxDetail</class>
+    <class>com.x.attendance.entity.AttendanceScheduleSetting</class>
+    <class>com.x.attendance.entity.AttendanceSelfHoliday</class>
+    <class>com.x.attendance.entity.AttendanceSetting</class>
+    <class>com.x.attendance.entity.AttendanceStatisticRequireLog</class>
+    <class>com.x.attendance.entity.AttendanceStatisticalCycle</class>
+    <class>com.x.attendance.entity.AttendanceWorkDayConfig</class>
+    <class>com.x.attendance.entity.AttendanceWorkPlace</class>
+    <class>com.x.attendance.entity.DingdingQywxSyncRecord</class>
+    <class>com.x.attendance.entity.StatisticDingdingPersonForMonth</class>
+    <class>com.x.attendance.entity.StatisticDingdingUnitForDay</class>
+    <class>com.x.attendance.entity.StatisticDingdingUnitForMonth</class>
+    <class>com.x.attendance.entity.StatisticPersonForMonth</class>
+    <class>com.x.attendance.entity.StatisticQywxPersonForMonth</class>
+    <class>com.x.attendance.entity.StatisticQywxUnitForDay</class>
+    <class>com.x.attendance.entity.StatisticQywxUnitForMonth</class>
+    <class>com.x.attendance.entity.StatisticTopUnitForDay</class>
+    <class>com.x.attendance.entity.StatisticTopUnitForMonth</class>
+    <class>com.x.attendance.entity.StatisticUnitForDay</class>
+    <class>com.x.attendance.entity.StatisticUnitForMonth</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2AlertMessage</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2AppealInfo</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2CheckInRecord</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2Config</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2Detail</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2Group</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2GroupSchedule</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2GroupScheduleConfig</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2LeaveData</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2PersonConfig</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2Shift</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2WorkPlace</class>
+    <class>com.x.general.core.entity.GeneralFile</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.AttendanceAdmin" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.AttendanceAdmin</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.AttendanceAppealAuditInfo" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.attendance.entity.AttendanceAppealAuditInfo</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.AttendanceAppealInfo" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.AttendanceAppealInfo</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.AttendanceDetail" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.attendance.entity.AttendanceDetail</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.AttendanceDetailMobile" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.AttendanceDetailMobile</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.AttendanceDingtalkDetail" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.AttendanceDingtalkDetail</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.AttendanceEmployeeConfig" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.AttendanceEmployeeConfig</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.AttendanceImportFileInfo" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.attendance.entity.AttendanceImportFileInfo</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.AttendanceQywxDetail" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.AttendanceQywxDetail</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.AttendanceScheduleSetting" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.attendance.entity.AttendanceScheduleSetting</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.AttendanceSelfHoliday" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.attendance.entity.AttendanceSelfHoliday</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.AttendanceSetting" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.AttendanceSetting</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.AttendanceStatisticRequireLog" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.AttendanceStatisticRequireLog</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.AttendanceStatisticalCycle" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.AttendanceStatisticalCycle</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.AttendanceWorkDayConfig" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.attendance.entity.AttendanceWorkDayConfig</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.AttendanceWorkPlace" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.attendance.entity.AttendanceWorkPlace</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.DingdingQywxSyncRecord" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.attendance.entity.DingdingQywxSyncRecord</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.StatisticDingdingPersonForMonth" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.StatisticDingdingPersonForMonth</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.StatisticDingdingUnitForDay" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.StatisticDingdingUnitForDay</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.StatisticDingdingUnitForMonth" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.attendance.entity.StatisticDingdingUnitForMonth</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.StatisticPersonForMonth" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.attendance.entity.StatisticPersonForMonth</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.StatisticQywxPersonForMonth" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.StatisticQywxPersonForMonth</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.StatisticQywxUnitForDay" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.StatisticQywxUnitForDay</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.StatisticQywxUnitForMonth" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.StatisticQywxUnitForMonth</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.StatisticTopUnitForDay" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.attendance.entity.StatisticTopUnitForDay</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.StatisticTopUnitForMonth" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.StatisticTopUnitForMonth</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.StatisticUnitForDay" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.attendance.entity.StatisticUnitForDay</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.StatisticUnitForMonth" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.attendance.entity.StatisticUnitForMonth</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.v2.AttendanceV2AlertMessage" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2AlertMessage</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.v2.AttendanceV2AppealInfo" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2AppealInfo</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.v2.AttendanceV2CheckInRecord" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2CheckInRecord</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.v2.AttendanceV2Config" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2Config</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.v2.AttendanceV2Detail" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2Detail</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.v2.AttendanceV2Group" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2Group</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.v2.AttendanceV2GroupSchedule" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2GroupSchedule</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.v2.AttendanceV2GroupScheduleConfig" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.attendance.entity.v2.AttendanceV2GroupScheduleConfig</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.v2.AttendanceV2LeaveData" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2LeaveData</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.v2.AttendanceV2PersonConfig" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.attendance.entity.v2.AttendanceV2PersonConfig</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.v2.AttendanceV2Shift" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2Shift</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.attendance.entity.v2.AttendanceV2WorkPlace" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.attendance.entity.v2.AttendanceV2WorkPlace</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.general.core.entity.GeneralFile" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.general.core.entity.GeneralFile</class>
+    <class>com.x.base.core.entity.StorageObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+</persistence>

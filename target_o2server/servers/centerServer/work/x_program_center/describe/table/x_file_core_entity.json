@@ -1,0 +1,694 @@
+{
+  "tables": [
+    {
+      "moduleName": "File",
+      "tableName": "FILE_FILE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "名称."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "所属用户."
+        },
+        {
+          "name": "xreferenceType",
+          "type": "com.x.file.core.entity.open.ReferenceType",
+          "length": "64",
+          "remark": "关联类型."
+        },
+        {
+          "name": "xreference",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "关联ID."
+        },
+        {
+          "name": "xextension",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "扩展名,必须要有扩展名的文件才允许上传."
+        },
+        {
+          "name": "xstorage",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "存储器的名称,也就是多个存放节点的名字."
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        },
+        {
+          "name": "xdeepPath",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否使用更深的路径."
+        }
+      ]
+    },
+    {
+      "moduleName": "FileConfig",
+      "tableName": "FILE_CONFIG",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "所属用户."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "分类名称."
+        },
+        {
+          "name": "xcapacity",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "容量(单位M)，0表示无限大."
+        },
+        {
+          "name": "xrecycleDays",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "回收站数据保留天数"
+        },
+        {
+          "name": "xproperties",
+          "type": "com.x.file.core.entity.open.FileConfigProperties",
+          "length": "4096",
+          "remark": "属性对象存储字段."
+        }
+      ]
+    },
+    {
+      "moduleName": "OriginFile",
+      "tableName": "FILE_ORIGINFILE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "上传用户."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件名称."
+        },
+        {
+          "name": "xextension",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "扩展名,必须要有扩展名的文件才允许上传."
+        },
+        {
+          "name": "xstorage",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "存储器的名称,也就是多个存放节点的名字."
+        },
+        {
+          "name": "xfileMd5",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文件md5值."
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文件所属分类."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        },
+        {
+          "name": "xlastUpdatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后更新人员"
+        },
+        {
+          "name": "xdeepPath",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否使用更深的路径."
+        }
+      ]
+    },
+    {
+      "moduleName": "Attachment",
+      "tableName": "FILE_ATTACHMENT",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "所属用户."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件名称."
+        },
+        {
+          "name": "xextension",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "扩展名,必须要有扩展名的文件才允许上传."
+        },
+        {
+          "name": "xstorage",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "存储器的名称,也就是多个存放节点的名字."
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        },
+        {
+          "name": "shareList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "共享人员",
+          "containerTableProperty": {
+            "name": "FILE_ATTACHMENT_shareList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Attachment_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xshareList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "editorList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "可编辑人员",
+          "containerTableProperty": {
+            "name": "FILE_ATTACHMENT_editorList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Attachment_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xeditorList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "xfolder",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文件所属分类."
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        },
+        {
+          "name": "xlastUpdatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后更新人员"
+        },
+        {
+          "name": "xdeepPath",
+          "type": "BOOLEAN",
+          "length": "255",
+          "remark": "是否使用更深的路径."
+        }
+      ]
+    },
+    {
+      "moduleName": "Attachment2",
+      "tableName": "FILE_ATTACHMENT2",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "所属用户."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件名称."
+        },
+        {
+          "name": "xextension",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "扩展名,必须要有扩展名的文件才允许上传."
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        },
+        {
+          "name": "xtype",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文件所属分类."
+        },
+        {
+          "name": "xfolder",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文件所属目录."
+        },
+        {
+          "name": "xoriginFile",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "真实文件id."
+        },
+        {
+          "name": "xstatus",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "文件状态：正常|已删除"
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        },
+        {
+          "name": "xlastUpdatePerson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "最后更新人员"
+        },
+        {
+          "name": "xdescription",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "文件描述."
+        },
+        {
+          "name": "xfileVersion",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件版本"
+        }
+      ]
+    },
+    {
+      "moduleName": "Folder",
+      "tableName": "FILE_FOLDER",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "所属用户."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "分类名称."
+        },
+        {
+          "name": "xsuperior",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "上级分类ID,为空代表顶级分类。"
+        }
+      ]
+    },
+    {
+      "moduleName": "Folder2",
+      "tableName": "FILE_FOLDER2",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "所属用户."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "分类名称."
+        },
+        {
+          "name": "xsuperior",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "上级目录ID。"
+        },
+        {
+          "name": "xstatus",
+          "type": "VARCHAR",
+          "length": "16",
+          "remark": "文件状态：正常|已删除"
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        }
+      ]
+    },
+    {
+      "moduleName": "Recycle",
+      "tableName": "FILE_RECYCLE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "所属用户."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "删除的文件或目录名称."
+        },
+        {
+          "name": "xfileId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文件或目录id."
+        },
+        {
+          "name": "xfileType",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "删除的文件类型:文件(attachment)|目录(folder)."
+        },
+        {
+          "name": "xextension",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "扩展名,必须要有扩展名的文件才允许上传."
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        },
+        {
+          "name": "xvalidTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "保存到时间"
+        }
+      ]
+    },
+    {
+      "moduleName": "Share",
+      "tableName": "FILE_SHARE",
+      "columnProperty": [
+        {
+          "name": "xid",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "数据库主键,自动生成."
+        },
+        {
+          "name": "xperson",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "所属用户."
+        },
+        {
+          "name": "xname",
+          "type": "VARCHAR",
+          "length": "255",
+          "remark": "分享的文件或目录名称."
+        },
+        {
+          "name": "xfileId",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "文件或目录id."
+        },
+        {
+          "name": "xfileType",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "分享的文件类型:文件(attachment)|目录(folder)."
+        },
+        {
+          "name": "xextension",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "扩展名,必须要有扩展名的文件才允许上传."
+        },
+        {
+          "name": "xlength",
+          "type": "INTEGER",
+          "length": "255",
+          "remark": "文件大小."
+        },
+        {
+          "name": "xshareType",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "分享类型:密码分享(password)|指定分享个人或组织(member)."
+        },
+        {
+          "name": "xpassword",
+          "type": "VARCHAR",
+          "length": "64",
+          "remark": "分享密码."
+        },
+        {
+          "name": "xvalidTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "有效时间"
+        },
+        {
+          "name": "xlastUpdateTime",
+          "type": "DATE",
+          "length": "255",
+          "remark": "最后更新时间"
+        },
+        {
+          "name": "shareUserList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "共享人员",
+          "containerTableProperty": {
+            "name": "FILE_SHARE_shareUserList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Share_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xshareUserList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "shareOrgList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "共享组织",
+          "containerTableProperty": {
+            "name": "FILE_SHARE_shareOrgList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Share_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xshareOrgList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "shareGroupList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "共享群组",
+          "containerTableProperty": {
+            "name": "FILE_SHARE_shareGroupList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Share_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xshareGroupList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        },
+        {
+          "name": "shieldUserList",
+          "type": "ContainerTable",
+          "length": "",
+          "remark": "屏蔽人员",
+          "containerTableProperty": {
+            "name": "FILE_SHARE_shieldUserList",
+            "containerTableColumnProperty": [
+              {
+                "name": "Share_XID",
+                "type": "VARCHAR",
+                "remark": "主键"
+              },
+              {
+                "name": "xorderColumn",
+                "type": "INTEGER",
+                "remark": "排序"
+              },
+              {
+                "name": "xshieldUserList",
+                "type": "VARCHAR",
+                "length": "255",
+                "remark": "值"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

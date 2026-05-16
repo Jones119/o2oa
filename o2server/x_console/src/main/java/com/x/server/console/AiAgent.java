@@ -9,6 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReentrantLock;
 
 import com.x.base.core.project.logger.Logger;
 import com.x.base.core.project.logger.LoggerFactory;
@@ -27,44 +28,51 @@ public final class AiAgent {
 
 	private Process process;
 
+	private final ReentrantLock lock = new ReentrantLock();
+
 	public AiAgent(String base) {
 		this.base = base;
 		Runtime.getRuntime().addShutdownHook(new Thread(this::shutdown, "aiagent-process-shutdown-hook"));
 	}
 
-	public synchronized void startIfExists() {
-		if (process != null && process.isAlive()) {
-			return;
-		}
-
-		Path dir = Paths.get(base, "servers/aiagent");
-		Path javaCmd = resolveJavaCmd(dir);
-		Path bootJar = dir.resolve("boot.jar");
-
-		if (!Files.isDirectory(dir)) {
-			return;
-		}
-		if (!Files.isRegularFile(javaCmd)) {
-			return;
-		}
-		if (!Files.isRegularFile(bootJar)) {
-			return;
-		}
-
+	public void startIfExists() {
+		lock.lock();
 		try {
-			Process p = buildProcess(dir, javaCmd, bootJar).start();
-			process = p;
+			if (process != null && process.isAlive()) {
+				return;
+			}
 
-			startErrorReader(p, STARTUP_ERROR_WINDOW);
+			Path dir = Paths.get(base, "servers/aiagent");
+			Path javaCmd = resolveJavaCmd(dir);
+			Path bootJar = dir.resolve("boot.jar");
 
-			p.onExit().thenRun(() -> {
-				if (process == p) {
-					process = null;
-				}
-			});
+			if (!Files.isDirectory(dir)) {
+				return;
+			}
+			if (!Files.isRegularFile(javaCmd)) {
+				return;
+			}
+			if (!Files.isRegularFile(bootJar)) {
+				return;
+			}
 
-		} catch (IOException e) {
-			logger.error(e);
+			try {
+				Process p = buildProcess(dir, javaCmd, bootJar).start();
+				process = p;
+
+				startErrorReader(p, STARTUP_ERROR_WINDOW);
+
+				p.onExit().thenRun(() -> {
+					if (process == p) {
+						process = null;
+					}
+				});
+
+			} catch (IOException e) {
+				logger.error(e);
+			}
+		} finally {
+			lock.unlock();
 		}
 	}
 
@@ -120,7 +128,7 @@ public final class AiAgent {
 	private static void startErrorReader(Process process, Duration startupWindow) {
 		final long deadlineNanos = System.nanoTime() + startupWindow.toNanos();
 
-		Thread t = new Thread(() -> {
+		Thread t = Thread.ofVirtual().name("aiagent-stderr-reader").unstarted(() -> {
 			try (BufferedReader reader = new BufferedReader(
 					new InputStreamReader(process.getErrorStream(), StandardCharsets.UTF_8))) {
 
@@ -134,8 +142,7 @@ public final class AiAgent {
 			} catch (IOException e) {
 				// 这里通常发生在进程退出或流关闭时，不必升级成错误
 			}
-		}, "aiagent-stderr-reader");
-		t.setDaemon(true);
+		});
 		t.start();
 	}
 }

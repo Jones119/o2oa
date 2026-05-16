@@ -1,11 +1,11 @@
 package com.x.base.core.project.jaxrs.cache;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 
 import com.x.base.core.project.cache.CacheManager;
+import com.x.base.core.project.gson.GsonRecord;
 import com.x.base.core.project.http.ActionResult;
 import com.x.base.core.project.http.EffectivePerson;
-import com.x.base.core.project.jaxrs.WrapString;
 import com.x.base.core.project.logger.Logger;
 import com.x.base.core.project.logger.LoggerFactory;
 
@@ -18,17 +18,19 @@ class ActionDetail extends BaseAction {
 	ActionResult<Wo> execute(EffectivePerson effectivePerson, ServletContext servletContext) throws Exception {
 		LOGGER.debug("execute:{}.", effectivePerson::getDistinguishedName);
 		ActionResult<Wo> result = new ActionResult<>();
-		Wo wo = new Wo();
-		wo.setValue(CacheManager.detail());
-		result.setData(wo);
+		result.setData(new Wo(CacheManager.detail()));
 		return result;
 	}
 
 	@Schema(name = "com.x.base.core.project.jaxrs.cache.ActionDetail$Wo")
-	public static class Wo extends WrapString {
+	public record Wo(@Schema(description = "字符串值.") String value) implements GsonRecord {
 
-		private static final long serialVersionUID = 6523578259551600220L;
+		public Wo {
+		}
 
+		public Wo() {
+			this(null);
+		}
 	}
 
 }

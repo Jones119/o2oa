@@ -4,7 +4,7 @@ import java.util.Objects;
 
 import org.apache.commons.lang3.builder.CompareToBuilder;
 
-public abstract class Pair<A, B> implements Comparable<Pair<A, B>> {
+public sealed abstract class Pair<A, B> implements Comparable<Pair<A, B>> permits Pair.ImmutablePair {
 
 	protected A first;
 
@@ -37,7 +37,7 @@ public abstract class Pair<A, B> implements Comparable<Pair<A, B>> {
 		return Objects.hashCode(first()) ^ Objects.hashCode(second());
 	}
 
-	public static class ImmutablePair<A, B> extends Pair<A, B> {
+	public static final class ImmutablePair<A, B> extends Pair<A, B> {
 
 		public ImmutablePair(final A first, final B second) {
 			this.first = first;

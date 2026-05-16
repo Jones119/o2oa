@@ -19,6 +19,9 @@ import org.apache.commons.io.filefilter.IOFileFilter;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
+import org.eclipse.jetty.ee10.webapp.Configuration;
+import org.eclipse.jetty.ee10.webapp.Configurations;
+import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.http.HttpVersion;
 import org.eclipse.jetty.server.HttpConfiguration;
 import org.eclipse.jetty.server.HttpConnectionFactory;
@@ -46,19 +49,27 @@ public abstract class JettySeverTools {
 	 * 需要在WebAppClassLoader加载 jakarta.xml.bind-api-*.jar
 	 */
 	private static final Collection<String> FILTER_STRINGS = Arrays.asList("openjpa-*.jar",
-			"jetty-all-*.jar", "jetty-proxy-*.jar", "quartz-*.jar", "filters-*.jar", "jakarta.xml.bind-api-*.jar",
-			"swagger-*.jar");
+			"jetty-all-*.jar", "jetty-http-*.jar", "jetty-util-*.jar", "jetty-proxy-*.jar", "quartz-*.jar",
+			"filters-*.jar", "jakarta.xml.bind-api-*.jar", "swagger-*.jar");
 
 	private static final Optional<IOFileFilter> JARS_FILTER = FILTER_STRINGS.stream().map(WildcardFileFilter::new)
 			.map(FileFilterUtils::or).reduce(FileFilterUtils::or);
 
 	protected JettySeverTools() {
-		// nothing
+	}
+
+	protected static void disableQuickStart(WebAppContext webApp) {
+		List<Configuration> configs = Configurations.getKnown();
+		configs = configs.stream()
+				.filter(c -> !c.getClass().getName().contains("QuickStart"))
+				.filter(c -> !c.getClass().getName().contains("EnvConfiguration"))
+				.toList();
+		webApp.setConfigurations(configs.toArray(new Configuration[0]));
 	}
 
 	protected static void addHttpsConnector(Server server, Integer port, boolean persistentConnectionsEnable)
 			throws Exception {
-		SslContextFactory sslContextFactory = new SslContextFactory.Server();
+		SslContextFactory.Server sslContextFactory = new SslContextFactory.Server();
 		sslContextFactory.setKeyStorePath(Config.sslKeyStore().getAbsolutePath());
 		sslContextFactory.setKeyStorePassword(Config.token().getSslKeyStorePassword());
 		sslContextFactory.setKeyManagerPassword(Config.token().getSslKeyManagerPassword());
@@ -102,17 +113,21 @@ public abstract class JettySeverTools {
 		List<String> jars = new ArrayList<>();
 		jars.addAll(calculateExtraClassPathDefault());
 		Module module = cls.getAnnotation(Module.class);
-		for (String str : module.storeJars()) {
-			File file = new File(Config.dir_store_jars(), str + ".jar");
-			if (file.exists()) {
-				jars.add(file.getAbsolutePath());
+		if (module != null) {
+			for (String str : module.storeJars()) {
+				File file = new File(Config.dir_store_jars(), str + ".jar");
+				if (file.exists()) {
+					jars.add(file.getAbsolutePath());
+				}
 			}
-		}
-		for (String str : module.customJars()) {
-			File file = new File(Config.dir_custom_jars(), str + ".jar");
-			if (file.exists()) {
-				jars.add(file.getAbsolutePath());
+			for (String str : module.customJars()) {
+				File file = new File(Config.dir_custom_jars(), str + ".jar");
+				if (file.exists()) {
+					jars.add(file.getAbsolutePath());
+				}
 			}
+		} else {
+			System.err.println(cls.getSimpleName() + " @Module annotation is null, classloader: " + cls.getClassLoader());
 		}
 		for (Path path : paths) {
 			if (Files.exists(path) && Files.isDirectory(path)) {

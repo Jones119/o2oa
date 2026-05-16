@@ -1,0 +1,211 @@
+{
+  "name": "ApplicationDictAction",
+  "className": "com.x.processplatform.assemble.designer.jaxrs.applicationdict.ApplicationDictAction",
+  "description": "数据字典\t",
+  "methods": [
+    {
+      "name": "delete",
+      "className": "com.x.processplatform.assemble.designer.jaxrs.applicationdict.ActionDelete",
+      "description": "删除指定的数据字典以及数据字典数据.",
+      "type": "DELETE",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "get",
+      "className": "com.x.processplatform.assemble.designer.jaxrs.applicationdict.ActionGet",
+      "description": "获取单个数据字典以及数据字典数据.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "字典名称."
+        },
+        {
+          "name": "alias",
+          "type": "String",
+          "isCollection": false,
+          "description": "别名."
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listPaging",
+      "className": "com.x.processplatform.assemble.designer.jaxrs.applicationdict.ActionListPaging",
+      "description": "分页列示数据字典对象.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "applicationName",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用名称."
+        },
+        {
+          "name": "applicationAlias",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用别名."
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "字典名称."
+        },
+        {
+          "name": "alias",
+          "type": "String",
+          "isCollection": false,
+          "description": "别名."
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "listWithApplication",
+      "className": "com.x.processplatform.assemble.designer.jaxrs.applicationdict.ActionListWithApplication",
+      "description": "获取Application的数据字典列表.",
+      "type": "GET",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "数据库主键,自动生成."
+        },
+        {
+          "name": "application",
+          "type": "String",
+          "isCollection": false,
+          "description": "应用."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isCollection": false,
+          "description": "字典名称."
+        },
+        {
+          "name": "alias",
+          "type": "String",
+          "isCollection": false,
+          "description": "别名."
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "isCollection": false,
+          "description": "说明."
+        },
+        {
+          "name": "createTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "创建时间,自动生成,索引创建在约束中."
+        },
+        {
+          "name": "updateTime",
+          "type": "Date",
+          "isCollection": false,
+          "description": "修改时间,自动生成,索引创建在约束中."
+        }
+      ]
+    },
+    {
+      "name": "post",
+      "className": "com.x.processplatform.assemble.designer.jaxrs.applicationdict.ActionCreate",
+      "description": "创建数据字典以及数据.",
+      "type": "POST",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    },
+    {
+      "name": "put",
+      "className": "com.x.processplatform.assemble.designer.jaxrs.applicationdict.ActionEdit",
+      "description": "更新数据字典以及数据.",
+      "type": "PUT",
+      "outs": [
+        {
+          "name": "id",
+          "type": "String",
+          "isCollection": false,
+          "description": "id"
+        }
+      ]
+    }
+  ]
+}

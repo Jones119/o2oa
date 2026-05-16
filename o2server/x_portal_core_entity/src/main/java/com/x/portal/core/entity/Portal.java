@@ -3,8 +3,8 @@ package com.x.portal.core.entity;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.*;
-import javax.persistence.OrderColumn;
+import jakarta.persistence.*;
+import jakarta.persistence.OrderColumn;
 
 import com.x.base.core.entity.annotation.*;
 import org.apache.commons.lang3.StringUtils;

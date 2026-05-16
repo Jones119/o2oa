@@ -6,15 +6,15 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.lang.model.element.Modifier;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.Lob;
-import javax.persistence.OrderColumn;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.Lob;
+import jakarta.persistence.OrderColumn;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
 
 import org.apache.openjpa.persistence.PersistentCollection;
 import org.apache.openjpa.persistence.PersistentMap;
@@ -67,12 +67,12 @@ public class DynamicEntityBuilder {
 				.addMember("reference", "com.x.base.core.entity.annotation.ContainerEntity.Reference.strong").build();
 		AnnotationSpec annotationSpec_table = AnnotationSpec.builder(Table.class)
 				.addMember("name", "\"" + dynamicEntity.tableName() + "\"")
-				.addMember("uniqueConstraints", "{@javax.persistence.UniqueConstraint(name = \""
+				.addMember("uniqueConstraints", "{@jakarta.persistence.UniqueConstraint(name = \""
 						+ dynamicEntity.tableName()
 						+ "\" + com.x.base.core.entity.JpaObject.IndexNameMiddle  + com.x.base.core.entity.JpaObject.DefaultUniqueConstraintSuffix, columnNames = { com.x.base.core.entity.JpaObject.IDCOLUMN, com.x.base.core.entity.JpaObject.CREATETIMECOLUMN, com.x.base.core.entity.JpaObject.UPDATETIMECOLUMN, com.x.base.core.entity.JpaObject.SEQUENCECOLUMN }) }")
 				.build();
 		AnnotationSpec annotationSpec_inheritance = AnnotationSpec.builder(Inheritance.class)
-				.addMember("strategy", "javax.persistence.InheritanceType.TABLE_PER_CLASS").build();
+				.addMember("strategy", "jakarta.persistence.InheritanceType.TABLE_PER_CLASS").build();
 
 		// private static final long serialVersionUID = 6387104721461689291L;
 		FieldSpec fieldSpec_serialVersionUID = FieldSpec
@@ -231,7 +231,7 @@ public class DynamicEntityBuilder {
 				.addMember("name", "ColumnNamePrefix + " + field.fieldName()).build();
 
 		AnnotationSpec temporal = AnnotationSpec.builder(Temporal.class)
-				.addMember("value", "javax.persistence.TemporalType.DATE").build();
+				.addMember("value", "jakarta.persistence.TemporalType.DATE").build();
 		FieldSpec fieldSpec = FieldSpec.builder(Date.class, field.getName(), Modifier.PRIVATE)
 				.addAnnotation(this.fieldDescribe(field)).addAnnotation(this.index(field))
 				.addAnnotation(this.checkPersist(field)).addAnnotation(column).addAnnotation(temporal).build();
@@ -257,7 +257,7 @@ public class DynamicEntityBuilder {
 				.addMember("name", "ColumnNamePrefix + " + field.fieldName()).build();
 
 		AnnotationSpec temporal = AnnotationSpec.builder(Temporal.class)
-				.addMember("value", "javax.persistence.TemporalType.TIME").build();
+				.addMember("value", "jakarta.persistence.TemporalType.TIME").build();
 
 		FieldSpec fieldSpec = FieldSpec.builder(Date.class, field.getName(), Modifier.PRIVATE)
 				.addAnnotation(this.fieldDescribe(field)).addAnnotation(this.index(field))
@@ -284,7 +284,7 @@ public class DynamicEntityBuilder {
 				.addMember("name", "ColumnNamePrefix + " + field.fieldName()).build();
 
 		AnnotationSpec temporal = AnnotationSpec.builder(Temporal.class)
-				.addMember("value", "javax.persistence.TemporalType.TIMESTAMP").build();
+				.addMember("value", "jakarta.persistence.TemporalType.TIMESTAMP").build();
 
 		FieldSpec fieldSpec = FieldSpec.builder(Date.class, field.getName(), Modifier.PRIVATE)
 				.addAnnotation(this.fieldDescribe(field)).addAnnotation(this.index(field))
@@ -357,7 +357,7 @@ public class DynamicEntityBuilder {
 				.build();
 
 		AnnotationSpec persistentCollection = AnnotationSpec.builder(PersistentCollection.class)
-				.addMember("fetch", "javax.persistence.FetchType.EAGER")
+				.addMember("fetch", "jakarta.persistence.FetchType.EAGER")
 				.addMember("elementType", typeClass.getSimpleName() + DOT_CLASS).build();
 
 		AnnotationSpec orderColumn = AnnotationSpec.builder(OrderColumn.class).addMember("name", "ORDERCOLUMNCOLUMN")
@@ -406,7 +406,7 @@ public class DynamicEntityBuilder {
 		AnnotationSpec lob = AnnotationSpec.builder(Lob.class).build();
 
 		AnnotationSpec basic = AnnotationSpec.builder(Basic.class)
-				.addMember("fetch", "javax.persistence.FetchType.EAGER").build();
+				.addMember("fetch", "jakarta.persistence.FetchType.EAGER").build();
 
 		AnnotationSpec column = AnnotationSpec.builder(Column.class).addMember("length", "length_100M")
 				.addMember("name", "ColumnNamePrefix + " + field.fieldName()).build();
@@ -448,7 +448,7 @@ public class DynamicEntityBuilder {
 		// KeyIndexNameSuffix)
 
 		AnnotationSpec persistentMap = AnnotationSpec.builder(PersistentMap.class)
-				.addMember("fetch", " javax.persistence.FetchType.EAGER").addMember("elementType", "String.class")
+				.addMember("fetch", " jakarta.persistence.FetchType.EAGER").addMember("elementType", "String.class")
 				.addMember("keyType", "String.class").build();
 
 		AnnotationSpec containerTable = AnnotationSpec.builder(ContainerTable.class)
