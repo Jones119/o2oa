@@ -28,15 +28,15 @@
   </persistence-unit>
   <persistence-unit name="com.x.organization.core.entity.Definition" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.organization.core.entity.Definition</class>
     <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.organization.core.entity.Definition</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.organization.core.entity.Group" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.base.core.entity.SliceJpaObject</class>
     <class>com.x.organization.core.entity.Group</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.organization.core.entity.Identity" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
@@ -47,25 +47,25 @@
   <persistence-unit name="com.x.organization.core.entity.Person" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.organization.core.entity.Person</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.organization.core.entity.Person</class>
   </persistence-unit>
   <persistence-unit name="com.x.organization.core.entity.PersonAttribute" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.organization.core.entity.PersonAttribute</class>
     <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.organization.core.entity.PersonAttribute</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.organization.core.entity.PersonExtend" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.organization.core.entity.PersonExtend</class>
     <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.organization.core.entity.PersonExtend</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.organization.core.entity.Role" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.organization.core.entity.Role</class>
     <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.organization.core.entity.Role</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.organization.core.entity.Unit" transaction-type="RESOURCE_LOCAL">
@@ -82,15 +82,15 @@
   </persistence-unit>
   <persistence-unit name="com.x.organization.core.entity.UnitDuty" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.organization.core.entity.UnitDuty</class>
     <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.organization.core.entity.UnitDuty</class>
   </persistence-unit>
   <persistence-unit name="com.x.organization.core.entity.accredit.Empower" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.organization.core.entity.accredit.Empower</class>
     <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.organization.core.entity.accredit.Empower</class>
   </persistence-unit>
   <persistence-unit name="com.x.organization.core.entity.accredit.EmpowerLog" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>

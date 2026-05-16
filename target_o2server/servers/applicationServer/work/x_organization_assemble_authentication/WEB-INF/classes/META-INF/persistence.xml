@@ -16,8 +16,8 @@
   <persistence-unit name="com.x.organization.core.entity.Bind" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.base.core.entity.SliceJpaObject</class>
     <class>com.x.organization.core.entity.Bind</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.organization.core.entity.Identity" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
@@ -27,20 +27,20 @@
   </persistence-unit>
   <persistence-unit name="com.x.organization.core.entity.OauthCode" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.organization.core.entity.OauthCode</class>
     <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.organization.core.entity.OauthCode</class>
   </persistence-unit>
   <persistence-unit name="com.x.organization.core.entity.Person" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.organization.core.entity.Person</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.organization.core.entity.Person</class>
   </persistence-unit>
   <persistence-unit name="com.x.organization.core.entity.Role" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.organization.core.entity.Role</class>
     <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.organization.core.entity.Role</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.organization.core.entity.log.TokenThreshold" transaction-type="RESOURCE_LOCAL">

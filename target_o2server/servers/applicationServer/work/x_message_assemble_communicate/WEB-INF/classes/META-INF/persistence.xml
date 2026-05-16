@@ -24,51 +24,51 @@
   </persistence-unit>
   <persistence-unit name="com.x.message.core.entity.IMConversationExt" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.message.core.entity.IMConversationExt</class>
     <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.message.core.entity.IMConversationExt</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.message.core.entity.IMMsg" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.message.core.entity.IMMsg</class>
     <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.message.core.entity.IMMsg</class>
   </persistence-unit>
   <persistence-unit name="com.x.message.core.entity.IMMsgCollection" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.message.core.entity.IMMsgCollection</class>
     <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.message.core.entity.IMMsgCollection</class>
   </persistence-unit>
   <persistence-unit name="com.x.message.core.entity.IMMsgFile" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.base.core.entity.StorageObject</class>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.base.core.entity.SliceJpaObject</class>
     <class>com.x.message.core.entity.IMMsgFile</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.StorageObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.message.core.entity.Instant" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.message.core.entity.Instant</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.message.core.entity.Instant</class>
   </persistence-unit>
   <persistence-unit name="com.x.message.core.entity.Mass" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.message.core.entity.Mass</class>
     <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.message.core.entity.Mass</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.message.core.entity.Message" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.message.core.entity.Message</class>
     <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.message.core.entity.Message</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.organization.core.entity.Person" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.organization.core.entity.Person</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.organization.core.entity.Person</class>
   </persistence-unit>
 </persistence>

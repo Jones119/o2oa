@@ -126,6 +126,8 @@ public abstract class JettySeverTools {
 					jars.add(file.getAbsolutePath());
 				}
 			}
+		} else {
+			System.err.println(cls.getSimpleName() + " @Module annotation is null, classloader: " + cls.getClassLoader());
 		}
 		for (Path path : paths) {
 			if (Files.exists(path) && Files.isDirectory(path)) {

@@ -20,183 +20,8 @@
           "method": "GET"
         },
         {
-          "name": "getDataPath5",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/data",
-          "method": "GET"
-        },
-        {
-          "name": "getDataPath6",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/data",
-          "method": "GET"
-        },
-        {
-          "name": "getDataPath7",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/data",
-          "method": "GET"
-        },
-        {
-          "name": "updateDataPath0",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/data",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateDataPath1",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/data",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateDataPath2",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/data",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateDataPath3",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/data",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateDataPath3MockPutToPost",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/data/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "getDataPath0",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/data",
-          "method": "GET"
-        },
-        {
-          "name": "getDataPath1",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/data",
-          "method": "GET"
-        },
-        {
-          "name": "getDataPath2",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/data",
-          "method": "GET"
-        },
-        {
-          "name": "getDataPath3",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/data",
-          "method": "GET"
-        },
-        {
-          "name": "getDataPath4",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/data",
-          "method": "GET"
-        },
-        {
-          "name": "updateDataPath4",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/data",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateDataPath4MockPutToPost",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/data/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateDataPath5",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/data",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateDataPath5MockPutToPost",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/data/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateDataPath6",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/data",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateDataPath6MockPutToPost",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/data/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateDataPath7",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/data",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateDataPath7MockPutToPost",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/data/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "createDataPath0",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/data",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "createDataPath1",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/data",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "createDataPath2",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/data",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "createDataPath3",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/data",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "deleteDataPath5",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/data",
-          "method": "DELETE",
-          "enctype": "application/json"
-        },
-        {
-          "name": "deleteDataPath5MockDeleteToGet",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/data/mockdeletetoget",
-          "method": "GET"
-        },
-        {
-          "name": "deleteDataPath6",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/data",
-          "method": "DELETE",
-          "enctype": "application/json"
-        },
-        {
-          "name": "deleteDataPath6MockDeleteToGet",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/data/mockdeletetoget",
-          "method": "GET"
-        },
-        {
-          "name": "deleteDataPath7",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/data",
-          "method": "DELETE",
-          "enctype": "application/json"
-        },
-        {
-          "name": "deleteDataPath7MockDeleteToGet",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/data/mockdeletetoget",
-          "method": "GET"
-        },
-        {
-          "name": "updateMockPutToPost",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/mockputtopost",
+          "name": "updateDataPath2MockPutToPost",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/data/mockputtopost",
           "method": "POST",
           "enctype": "application/json"
         },
@@ -204,24 +29,6 @@
           "name": "listWithAppInfo",
           "uri": "jaxrs/surface/appdict/list/appInfo/{appInfoFlag}",
           "method": "GET"
-        },
-        {
-          "name": "createDataPath4",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/data",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "createDataPath5",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/data",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "createDataPath6",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/data",
-          "method": "POST",
-          "enctype": "application/json"
         },
         {
           "name": "createDataPath7",
@@ -234,11 +41,6 @@
           "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/data",
           "method": "DELETE",
           "enctype": "application/json"
-        },
-        {
-          "name": "deleteDataPath0MockDeleteToGet",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/data/mockdeletetoget",
-          "method": "GET"
         },
         {
           "name": "deleteDataPath1",
@@ -285,10 +87,208 @@
           "method": "GET"
         },
         {
-          "name": "updateDataPath2MockPutToPost",
-          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/data/mockputtopost",
+          "name": "updateDataPath7",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/data",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createDataPath0",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/data",
           "method": "POST",
           "enctype": "application/json"
+        },
+        {
+          "name": "createDataPath1",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/data",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createDataPath2",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/data",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createDataPath3",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/data",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createDataPath4",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/data",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createDataPath5",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/data",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createDataPath6",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/data",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteDataPath0MockDeleteToGet",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/data/mockdeletetoget",
+          "method": "GET"
+        },
+        {
+          "name": "getDataPath0",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/data",
+          "method": "GET"
+        },
+        {
+          "name": "getDataPath1",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/data",
+          "method": "GET"
+        },
+        {
+          "name": "getDataPath2",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/data",
+          "method": "GET"
+        },
+        {
+          "name": "getDataPath3",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/data",
+          "method": "GET"
+        },
+        {
+          "name": "updateMockPutToPost",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath2",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/data",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath3",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/data",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath3MockPutToPost",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/data/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath4",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/data",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath4MockPutToPost",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/data/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath5",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/data",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath5MockPutToPost",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/data/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath6",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/data",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath6MockPutToPost",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/data/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath7MockPutToPost",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/data/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "getDataPath4",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/data",
+          "method": "GET"
+        },
+        {
+          "name": "getDataPath5",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/data",
+          "method": "GET"
+        },
+        {
+          "name": "getDataPath6",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/data",
+          "method": "GET"
+        },
+        {
+          "name": "getDataPath7",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/data",
+          "method": "GET"
+        },
+        {
+          "name": "updateDataPath0",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/data",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDataPath1",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/data",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteDataPath5",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/data",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteDataPath5MockDeleteToGet",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/data/mockdeletetoget",
+          "method": "GET"
+        },
+        {
+          "name": "deleteDataPath6",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/data",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteDataPath6MockDeleteToGet",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/data/mockdeletetoget",
+          "method": "GET"
+        },
+        {
+          "name": "deleteDataPath7",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/data",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteDataPath7MockDeleteToGet",
+          "uri": "jaxrs/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/data/mockdeletetoget",
+          "method": "GET"
         }
       ]
     },
@@ -306,18 +306,8 @@
           "method": "GET"
         },
         {
-          "name": "getDataPath5",
-          "uri": "jaxrs/anonymous/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/data",
-          "method": "GET"
-        },
-        {
-          "name": "getDataPath6",
-          "uri": "jaxrs/anonymous/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/data",
-          "method": "GET"
-        },
-        {
-          "name": "getDataPath7",
-          "uri": "jaxrs/anonymous/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/data",
+          "name": "listWithAppInfo",
+          "uri": "jaxrs/anonymous/surface/appdict/list/appInfo/{appInfoFlag}",
           "method": "GET"
         },
         {
@@ -346,8 +336,18 @@
           "method": "GET"
         },
         {
-          "name": "listWithAppInfo",
-          "uri": "jaxrs/anonymous/surface/appdict/list/appInfo/{appInfoFlag}",
+          "name": "getDataPath5",
+          "uri": "jaxrs/anonymous/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/data",
+          "method": "GET"
+        },
+        {
+          "name": "getDataPath6",
+          "uri": "jaxrs/anonymous/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/data",
+          "method": "GET"
+        },
+        {
+          "name": "getDataPath7",
+          "uri": "jaxrs/anonymous/surface/appdict/{appDictFlag}/appInfo/{appInfoFlag}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/data",
           "method": "GET"
         }
       ]
@@ -379,8 +379,8 @@
           "enctype": "application/json"
         },
         {
-          "name": "deleteMockDeleteToGet",
-          "uri": "jaxrs/design/appdict/{id}/mockdeletetoget",
+          "name": "listWithAppInfo",
+          "uri": "jaxrs/design/appdict/list/appInfo/{appId}",
           "method": "GET"
         },
         {
@@ -390,8 +390,8 @@
           "enctype": "application/json"
         },
         {
-          "name": "listWithAppInfo",
-          "uri": "jaxrs/design/appdict/list/appInfo/{appId}",
+          "name": "deleteMockDeleteToGet",
+          "uri": "jaxrs/design/appdict/{id}/mockdeletetoget",
           "method": "GET"
         },
         {
@@ -423,111 +423,9 @@
           "enctype": "application/json"
         },
         {
-          "name": "updatePermission",
-          "uri": "jaxrs/appinfo/{id}/permission",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "query_getControl",
-          "uri": "jaxrs/appinfo/{id}/control",
-          "method": "GET"
-        },
-        {
-          "name": "eraseWithAppId",
-          "uri": "jaxrs/appinfo/erase/app/{id}",
-          "method": "DELETE",
-          "enctype": "application/json"
-        },
-        {
           "name": "eraseWithAppIdMockDeleteToGet",
           "uri": "jaxrs/appinfo/erase/app/{id}/mockdeletetoget",
           "method": "GET"
-        },
-        {
-          "name": "deleteMockDeleteToGet",
-          "uri": "jaxrs/appinfo/{id}/mockdeletetoget",
-          "method": "GET"
-        },
-        {
-          "name": "listNextWithFilterMockPutToPost",
-          "uri": "jaxrs/appinfo/filter/list/{id}/next/{count}/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "listPrevWithFilterMockPutToPost",
-          "uri": "jaxrs/appinfo/filter/list/{id}/prev/{count}/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "changeIcon",
-          "uri": "jaxrs/appinfo/{appId}/icon/size/{size}",
-          "method": "POST",
-          "enctype": "formData"
-        },
-        {
-          "name": "listWhatICanViewAllType_WithAppType",
-          "uri": "jaxrs/appinfo/list/user/view/all/type/{appType}",
-          "method": "GET"
-        },
-        {
-          "name": "listWhatICanView_AllType",
-          "uri": "jaxrs/appinfo/list/user/view/all",
-          "method": "GET"
-        },
-        {
-          "name": "listWhatICanPublish",
-          "uri": "jaxrs/appinfo/list/user/publish",
-          "method": "GET"
-        },
-        {
-          "name": "listPublishWithProcess",
-          "uri": "jaxrs/appinfo/list/user/publish/with/process",
-          "method": "GET"
-        },
-        {
-          "name": "listWhatICanPublish_WithAppType",
-          "uri": "jaxrs/appinfo/list/user/publish/type/{appType}",
-          "method": "GET"
-        },
-        {
-          "name": "getPublishableAppInfo",
-          "uri": "jaxrs/appinfo/get/user/publish/{appId}",
-          "method": "GET"
-        },
-        {
-          "name": "listWhatICanManage_WithAppType",
-          "uri": "jaxrs/appinfo/list/manage/type/{appType}",
-          "method": "GET"
-        },
-        {
-          "name": "listAllAppInfo",
-          "uri": "jaxrs/appinfo/list/all",
-          "method": "GET"
-        },
-        {
-          "name": "listHasDocument",
-          "uri": "jaxrs/appinfo/list/has/document",
-          "method": "GET"
-        },
-        {
-          "name": "listHasDocument_WithAppType",
-          "uri": "jaxrs/appinfo/list/has/document/type/{appType}",
-          "method": "GET"
-        },
-        {
-          "name": "listNextWithFilter",
-          "uri": "jaxrs/appinfo/filter/list/{id}/next/{count}",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "listPrevWithFilter",
-          "uri": "jaxrs/appinfo/filter/list/{id}/prev/{count}",
-          "method": "PUT",
-          "enctype": "application/json"
         },
         {
           "name": "getByAlias",
@@ -555,6 +453,63 @@
           "method": "GET"
         },
         {
+          "name": "listWhatICanViewAllType_WithAppType",
+          "uri": "jaxrs/appinfo/list/user/view/all/type/{appType}",
+          "method": "GET"
+        },
+        {
+          "name": "updatePermission",
+          "uri": "jaxrs/appinfo/{id}/permission",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteMockDeleteToGet",
+          "uri": "jaxrs/appinfo/{id}/mockdeletetoget",
+          "method": "GET"
+        },
+        {
+          "name": "listNextWithFilter",
+          "uri": "jaxrs/appinfo/filter/list/{id}/next/{count}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listNextWithFilterMockPutToPost",
+          "uri": "jaxrs/appinfo/filter/list/{id}/next/{count}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "query_getControl",
+          "uri": "jaxrs/appinfo/{id}/control",
+          "method": "GET"
+        },
+        {
+          "name": "eraseWithAppId",
+          "uri": "jaxrs/appinfo/erase/app/{id}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listPrevWithFilter",
+          "uri": "jaxrs/appinfo/filter/list/{id}/prev/{count}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listPrevWithFilterMockPutToPost",
+          "uri": "jaxrs/appinfo/filter/list/{id}/prev/{count}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "changeIcon",
+          "uri": "jaxrs/appinfo/{appId}/icon/size/{size}",
+          "method": "POST",
+          "enctype": "formData"
+        },
+        {
           "name": "listAllAppType",
           "uri": "jaxrs/appinfo/list/appType",
           "method": "GET"
@@ -572,6 +527,51 @@
         {
           "name": "listWhatICanManage",
           "uri": "jaxrs/appinfo/list/manage",
+          "method": "GET"
+        },
+        {
+          "name": "listWhatICanManage_WithAppType",
+          "uri": "jaxrs/appinfo/list/manage/type/{appType}",
+          "method": "GET"
+        },
+        {
+          "name": "listAllAppInfo",
+          "uri": "jaxrs/appinfo/list/all",
+          "method": "GET"
+        },
+        {
+          "name": "listHasDocument",
+          "uri": "jaxrs/appinfo/list/has/document",
+          "method": "GET"
+        },
+        {
+          "name": "listHasDocument_WithAppType",
+          "uri": "jaxrs/appinfo/list/has/document/type/{appType}",
+          "method": "GET"
+        },
+        {
+          "name": "listWhatICanView_AllType",
+          "uri": "jaxrs/appinfo/list/user/view/all",
+          "method": "GET"
+        },
+        {
+          "name": "listWhatICanPublish",
+          "uri": "jaxrs/appinfo/list/user/publish",
+          "method": "GET"
+        },
+        {
+          "name": "listPublishWithProcess",
+          "uri": "jaxrs/appinfo/list/user/publish/with/process",
+          "method": "GET"
+        },
+        {
+          "name": "listWhatICanPublish_WithAppType",
+          "uri": "jaxrs/appinfo/list/user/publish/type/{appType}",
+          "method": "GET"
+        },
+        {
+          "name": "getPublishableAppInfo",
+          "uri": "jaxrs/appinfo/get/user/publish/{appId}",
           "method": "GET"
         }
       ]
@@ -596,6 +596,12 @@
       "name": "CacheAction",
       "methods": [
         {
+          "name": "receive",
+          "uri": "jaxrs/cache",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
           "name": "configFlush",
           "uri": "jaxrs/cache/config/flush",
           "method": "GET"
@@ -604,12 +610,6 @@
           "name": "commonScriptFlush",
           "uri": "jaxrs/cache/commonscript/flush",
           "method": "GET"
-        },
-        {
-          "name": "receive",
-          "uri": "jaxrs/cache",
-          "method": "POST",
-          "enctype": "application/json"
         },
         {
           "name": "detail",
@@ -639,15 +639,15 @@
           "enctype": "application/json"
         },
         {
+          "name": "getByAlias",
+          "uri": "jaxrs/categoryinfo/alias/{alias}",
+          "method": "GET"
+        },
+        {
           "name": "updatePermission",
           "uri": "jaxrs/categoryinfo/{id}/permission",
           "method": "POST",
           "enctype": "application/json"
-        },
-        {
-          "name": "query_getControl",
-          "uri": "jaxrs/categoryinfo/{id}/control",
-          "method": "GET"
         },
         {
           "name": "deleteMockDeleteToGet",
@@ -655,15 +655,9 @@
           "method": "GET"
         },
         {
-          "name": "listNextWithFilterMockPutToPost",
-          "uri": "jaxrs/categoryinfo/filter/list/{id}/next/{count}/app/{appId}/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "listPrevWithFilterMockPutToPost",
-          "uri": "jaxrs/categoryinfo/filter/list/{id}/prev/{count}/app/{appId}/mockputtopost",
-          "method": "POST",
+          "name": "eraseWithCategory",
+          "uri": "jaxrs/categoryinfo/erase/category/{id}",
+          "method": "DELETE",
           "enctype": "application/json"
         },
         {
@@ -675,55 +669,6 @@
           "name": "listViewableCategoryInfo_Article",
           "uri": "jaxrs/categoryinfo/list/view/app/{appId}",
           "method": "GET"
-        },
-        {
-          "name": "listViewableCategoryInfo_Data",
-          "uri": "jaxrs/categoryinfo/list/view/app/{appId}/data",
-          "method": "GET"
-        },
-        {
-          "name": "listViewableCategoryInfo_AllType",
-          "uri": "jaxrs/categoryinfo/list/view/app/{appId}/all",
-          "method": "GET"
-        },
-        {
-          "name": "bindImportView",
-          "uri": "jaxrs/categoryinfo/bind/{categoryId}/view",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "listPublishableCategoryInfo",
-          "uri": "jaxrs/categoryinfo/list/publish/app/{appId}",
-          "method": "GET"
-        },
-        {
-          "name": "listAllCategoryInfo",
-          "uri": "jaxrs/categoryinfo/list/all",
-          "method": "GET"
-        },
-        {
-          "name": "listNextWithFilter",
-          "uri": "jaxrs/categoryinfo/filter/list/{id}/next/{count}/app/{appId}",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "listPrevWithFilter",
-          "uri": "jaxrs/categoryinfo/filter/list/{id}/prev/{count}/app/{appId}",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "getByAlias",
-          "uri": "jaxrs/categoryinfo/alias/{alias}",
-          "method": "GET"
-        },
-        {
-          "name": "query_listWithFilterPagingMockPutToPost",
-          "uri": "jaxrs/categoryinfo/filter/list/{page}/size/{size}/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
         },
         {
           "name": "listObjectsByIds",
@@ -743,8 +688,20 @@
           "method": "GET"
         },
         {
-          "name": "query_listWithFilterPaging",
-          "uri": "jaxrs/categoryinfo/filter/list/{page}/size/{size}",
+          "name": "listNextWithFilter",
+          "uri": "jaxrs/categoryinfo/filter/list/{id}/next/{count}/app/{appId}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listNextWithFilterMockPutToPost",
+          "uri": "jaxrs/categoryinfo/filter/list/{id}/next/{count}/app/{appId}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "bindImportView",
+          "uri": "jaxrs/categoryinfo/bind/{categoryId}/view",
           "method": "PUT",
           "enctype": "application/json"
         },
@@ -761,9 +718,52 @@
           "enctype": "application/json"
         },
         {
-          "name": "eraseWithCategory",
-          "uri": "jaxrs/categoryinfo/erase/category/{id}",
-          "method": "DELETE",
+          "name": "listViewableCategoryInfo_Data",
+          "uri": "jaxrs/categoryinfo/list/view/app/{appId}/data",
+          "method": "GET"
+        },
+        {
+          "name": "listViewableCategoryInfo_AllType",
+          "uri": "jaxrs/categoryinfo/list/view/app/{appId}/all",
+          "method": "GET"
+        },
+        {
+          "name": "listPublishableCategoryInfo",
+          "uri": "jaxrs/categoryinfo/list/publish/app/{appId}",
+          "method": "GET"
+        },
+        {
+          "name": "query_getControl",
+          "uri": "jaxrs/categoryinfo/{id}/control",
+          "method": "GET"
+        },
+        {
+          "name": "listPrevWithFilter",
+          "uri": "jaxrs/categoryinfo/filter/list/{id}/prev/{count}/app/{appId}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listPrevWithFilterMockPutToPost",
+          "uri": "jaxrs/categoryinfo/filter/list/{id}/prev/{count}/app/{appId}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listAllCategoryInfo",
+          "uri": "jaxrs/categoryinfo/list/all",
+          "method": "GET"
+        },
+        {
+          "name": "query_listWithFilterPaging",
+          "uri": "jaxrs/categoryinfo/filter/list/{page}/size/{size}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "query_listWithFilterPagingMockPutToPost",
+          "uri": "jaxrs/categoryinfo/filter/list/{page}/size/{size}/mockputtopost",
+          "method": "POST",
           "enctype": "application/json"
         }
       ]
@@ -778,14 +778,14 @@
           "enctype": "application/json"
         },
         {
-          "name": "deleteWithDocument",
-          "uri": "jaxrs/correlation/doc/{docId}/delete",
+          "name": "createWithDocument",
+          "uri": "jaxrs/correlation/doc/{docId}",
           "method": "POST",
           "enctype": "application/json"
         },
         {
-          "name": "createWithDocument",
-          "uri": "jaxrs/correlation/doc/{docId}",
+          "name": "deleteWithDocument",
+          "uri": "jaxrs/correlation/doc/{docId}/delete",
           "method": "POST",
           "enctype": "application/json"
         },
@@ -805,27 +805,57 @@
       "name": "DataAction",
       "methods": [
         {
+          "name": "updateWithDocumentWithPath1MockPutToPost",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateWithDocumentWithPath2",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
           "name": "updateWithDocumentWithPath2MockPutToPost",
           "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/mockputtopost",
           "method": "POST",
           "enctype": "application/json"
         },
         {
-          "name": "updateWithDocumentWithPath3",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}",
+          "name": "updateWithDocument",
+          "uri": "jaxrs/data/document/{id}",
           "method": "PUT",
           "enctype": "application/json"
         },
         {
-          "name": "updateWithDocumentWithPath3MockPutToPost",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/mockputtopost",
+          "name": "updateWithDocumentMockPutToPost",
+          "uri": "jaxrs/data/document/{id}/mockputtopost",
           "method": "POST",
           "enctype": "application/json"
         },
         {
-          "name": "updateWithDocumentWithPath4",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}",
+          "name": "updateWithDocumentWithPath0",
+          "uri": "jaxrs/data/document/{id}/{path0}",
           "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateWithDocumentWithPath0MockPutToPost",
+          "uri": "jaxrs/data/document/{id}/{path0}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateWithDocumentWithPath1",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createWithDocument",
+          "uri": "jaxrs/data/document/{id}",
+          "method": "POST",
           "enctype": "application/json"
         },
         {
@@ -859,18 +889,6 @@
           "enctype": "application/json"
         },
         {
-          "name": "updateWithDocumentWithPath7",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "deleteWithDocumentWithPath0",
-          "uri": "jaxrs/data/document/{id}/{path0}",
-          "method": "DELETE",
-          "enctype": "application/json"
-        },
-        {
           "name": "deleteWithDocumentWithPath0MockDeleteToGet",
           "uri": "jaxrs/data/document/{id}/{path0}/mockdeletetoget",
           "method": "GET"
@@ -898,10 +916,9 @@
           "method": "GET"
         },
         {
-          "name": "deleteWithDocumentWithPath3",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}",
-          "method": "DELETE",
-          "enctype": "application/json"
+          "name": "getWithDocumentWithPath6",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}",
+          "method": "GET"
         },
         {
           "name": "getWithDocumentWithPath7",
@@ -915,9 +932,126 @@
           "enctype": "application/json"
         },
         {
-          "name": "updateWithDocument",
-          "uri": "jaxrs/data/document/{id}",
+          "name": "updateWithDocumentWithPath3",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}",
           "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateWithDocumentWithPath3MockPutToPost",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateWithDocumentWithPath4",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteWithDocument",
+          "uri": "jaxrs/data/document/{id}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateWithDocumentWithPath7",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateWithDocumentWithPath7MockPutToPost",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createWithDocumentWithPath0",
+          "uri": "jaxrs/data/document/{id}/{path0}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createWithDocumentWithPath1",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteWithDocumentWithPath3",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteWithDocumentWithPath3MockDeleteToGet",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/mockdeletetoget",
+          "method": "GET"
+        },
+        {
+          "name": "getWithDocumentWithPath1",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}",
+          "method": "GET"
+        },
+        {
+          "name": "getWithDocumentWithPath2",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}",
+          "method": "GET"
+        },
+        {
+          "name": "getWithDocumentWithPath3",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}",
+          "method": "GET"
+        },
+        {
+          "name": "getWithDocument",
+          "uri": "jaxrs/data/document/{id}",
+          "method": "GET"
+        },
+        {
+          "name": "getWithDocumentPath0",
+          "uri": "jaxrs/data/document/{id}/{path0}",
+          "method": "GET"
+        },
+        {
+          "name": "createWithDocumentWithPath6",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "createWithDocumentWithPath7",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "deleteWithDocumentMockDeleteToGet",
+          "uri": "jaxrs/data/document/{id}/mockdeletetoget",
+          "method": "GET"
+        },
+        {
+          "name": "deleteWithDocumentWithPath0",
+          "uri": "jaxrs/data/document/{id}/{path0}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "getWithDocumentWithPath4",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}",
+          "method": "GET"
+        },
+        {
+          "name": "getWithDocumentWithPath5",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}",
+          "method": "GET"
+        },
+        {
+          "name": "createWithDocumentWithPath2",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}",
+          "method": "POST",
           "enctype": "application/json"
         },
         {
@@ -939,93 +1073,15 @@
           "enctype": "application/json"
         },
         {
-          "name": "createWithDocumentWithPath6",
+          "name": "deleteWithDocumentWithPath6",
           "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "createWithDocumentWithPath7",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "deleteWithDocument",
-          "uri": "jaxrs/data/document/{id}",
           "method": "DELETE",
           "enctype": "application/json"
         },
         {
-          "name": "deleteWithDocumentMockDeleteToGet",
-          "uri": "jaxrs/data/document/{id}/mockdeletetoget",
+          "name": "deleteWithDocumentWithPath6MockDeleteToGet",
+          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/mockdeletetoget",
           "method": "GET"
-        },
-        {
-          "name": "updateWithDocumentWithPath7MockPutToPost",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "createWithDocument",
-          "uri": "jaxrs/data/document/{id}",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "createWithDocumentWithPath0",
-          "uri": "jaxrs/data/document/{id}/{path0}",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "createWithDocumentWithPath1",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "createWithDocumentWithPath2",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateWithDocumentMockPutToPost",
-          "uri": "jaxrs/data/document/{id}/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateWithDocumentWithPath0",
-          "uri": "jaxrs/data/document/{id}/{path0}",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateWithDocumentWithPath0MockPutToPost",
-          "uri": "jaxrs/data/document/{id}/{path0}/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateWithDocumentWithPath1",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateWithDocumentWithPath1MockPutToPost",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "updateWithDocumentWithPath2",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}",
-          "method": "PUT",
-          "enctype": "application/json"
         },
         {
           "name": "deleteWithDocumentWithPath7",
@@ -1036,11 +1092,6 @@
         {
           "name": "deleteWithDocumentWithPath7MockDeleteToGet",
           "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/{path7}/mockdeletetoget",
-          "method": "GET"
-        },
-        {
-          "name": "deleteWithDocumentWithPath3MockDeleteToGet",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/mockdeletetoget",
           "method": "GET"
         },
         {
@@ -1064,57 +1115,6 @@
           "name": "deleteWithDocumentWithPath5MockDeleteToGet",
           "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/mockdeletetoget",
           "method": "GET"
-        },
-        {
-          "name": "deleteWithDocumentWithPath6",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}",
-          "method": "DELETE",
-          "enctype": "application/json"
-        },
-        {
-          "name": "deleteWithDocumentWithPath6MockDeleteToGet",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}/mockdeletetoget",
-          "method": "GET"
-        },
-        {
-          "name": "getWithDocument",
-          "uri": "jaxrs/data/document/{id}",
-          "method": "GET"
-        },
-        {
-          "name": "getWithDocumentPath0",
-          "uri": "jaxrs/data/document/{id}/{path0}",
-          "method": "GET"
-        },
-        {
-          "name": "getWithDocumentWithPath1",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}",
-          "method": "GET"
-        },
-        {
-          "name": "getWithDocumentWithPath2",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}",
-          "method": "GET"
-        },
-        {
-          "name": "getWithDocumentWithPath3",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}",
-          "method": "GET"
-        },
-        {
-          "name": "getWithDocumentWithPath4",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}",
-          "method": "GET"
-        },
-        {
-          "name": "getWithDocumentWithPath5",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}",
-          "method": "GET"
-        },
-        {
-          "name": "getWithDocumentWithPath6",
-          "uri": "jaxrs/data/document/{id}/{path0}/{path1}/{path2}/{path3}/{path4}/{path5}/{path6}",
-          "method": "GET"
         }
       ]
     },
@@ -1133,56 +1133,36 @@
       "name": "DocumentAction",
       "methods": [
         {
-          "name": "updateDocument",
-          "uri": "jaxrs/document/{id}/update",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "query_getControl",
-          "uri": "jaxrs/document/{id}/control",
+          "name": "persist_top",
+          "uri": "jaxrs/document/{id}/top",
           "method": "GET"
         },
         {
-          "name": "query_listDocument",
-          "uri": "jaxrs/document/list/document",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "query_getDocumentData",
-          "uri": "jaxrs/document/{id}/document/data",
+          "name": "persist_unTop",
+          "uri": "jaxrs/document/{id}/unTop",
           "method": "GET"
         },
         {
-          "name": "managerQuery_listWithFilterPaging",
-          "uri": "jaxrs/document/filter/list/{page}/size/{size}/manager",
+          "name": "query_listDraftNextWithFilterMockPutToPost",
+          "uri": "jaxrs/document/draft/list/{id}/next/{count}/mockputtopost",
           "method": "POST",
           "enctype": "application/json"
         },
         {
-          "name": "publishNotify",
-          "uri": "jaxrs/document/{id}/notify",
+          "name": "persist_save",
+          "uri": "jaxrs/document",
           "method": "POST",
           "enctype": "application/json"
         },
         {
-          "name": "publishHtml",
-          "uri": "jaxrs/document/{id}/publish/html",
-          "method": "POST",
-          "enctype": "application/json"
+          "name": "persist_commend",
+          "uri": "jaxrs/document/{id}/commend",
+          "method": "GET"
         },
         {
-          "name": "persist_changeCategory",
-          "uri": "jaxrs/document/category/change",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "persist_publishCancelMockPutToPost",
-          "uri": "jaxrs/document/publish/{id}/cancel/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
+          "name": "persist_unCommend",
+          "uri": "jaxrs/document/{id}/uncommend",
+          "method": "GET"
         },
         {
           "name": "query_listNextWithFilter",
@@ -1215,9 +1195,98 @@
           "enctype": "application/json"
         },
         {
-          "name": "persist_save",
-          "uri": "jaxrs/document",
+          "name": "query_listDocument",
+          "uri": "jaxrs/document/list/document",
           "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "query_getDocumentData",
+          "uri": "jaxrs/document/{id}/document/data",
+          "method": "GET"
+        },
+        {
+          "name": "managerQuery_listWithFilterPaging",
+          "uri": "jaxrs/document/filter/list/{page}/size/{size}/manager",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "publishNotify",
+          "uri": "jaxrs/document/{id}/notify",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "publishHtml",
+          "uri": "jaxrs/document/{id}/publish/html",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "updateDocument",
+          "uri": "jaxrs/document/{id}/update",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "query_getVisiblePersons",
+          "uri": "jaxrs/document/{id}/persons",
+          "method": "GET"
+        },
+        {
+          "name": "query_PermissionReadDocument",
+          "uri": "jaxrs/document/{id}/permission/read",
+          "method": "GET"
+        },
+        {
+          "name": "query_listDocumentData",
+          "uri": "jaxrs/document/list/document/data",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "query_getControl",
+          "uri": "jaxrs/document/{id}/control",
+          "method": "GET"
+        },
+        {
+          "name": "persist_changeCategoryMockPutToPost",
+          "uri": "jaxrs/document/category/change/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "persist_batchDataModify",
+          "uri": "jaxrs/document/batch/data/modify",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "persist_batchDataModifyMockPutToPost",
+          "uri": "jaxrs/document/batch/data/modify/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "query_checkImportStatus",
+          "uri": "jaxrs/document/batch/{batchName}/status",
+          "method": "GET"
+        },
+        {
+          "name": "query_get",
+          "uri": "jaxrs/document/{id}",
+          "method": "GET"
+        },
+        {
+          "name": "persist_deleteMockDeleteToGet",
+          "uri": "jaxrs/document/{id}/mockdeletetoget",
+          "method": "GET"
+        },
+        {
+          "name": "persist_deleteWithBatchName",
+          "uri": "jaxrs/document/batch/{batchId}",
+          "method": "DELETE",
           "enctype": "application/json"
         },
         {
@@ -1228,6 +1297,56 @@
         {
           "name": "persist_achive",
           "uri": "jaxrs/document/achive/{id}",
+          "method": "GET"
+        },
+        {
+          "name": "query_getViewCount",
+          "uri": "jaxrs/document/{id}/view/count",
+          "method": "GET"
+        },
+        {
+          "name": "query_countDocumentWithFilter",
+          "uri": "jaxrs/document/filter/count",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "query_countDocumentWithFilterMockPutToPost",
+          "uri": "jaxrs/document/filter/count/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "persist_delete",
+          "uri": "jaxrs/document/{id}",
+          "method": "DELETE",
+          "enctype": "application/json"
+        },
+        {
+          "name": "query_listWithFilterPaging",
+          "uri": "jaxrs/document/filter/list/{page}/size/{size}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "query_listWithFilterPagingMockPutToPost",
+          "uri": "jaxrs/document/filter/list/{page}/size/{size}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "query_checkAllImportStatus",
+          "uri": "jaxrs/document/batch/status",
+          "method": "GET"
+        },
+        {
+          "name": "query_listDocumentFields",
+          "uri": "jaxrs/document/document/fields",
+          "method": "GET"
+        },
+        {
+          "name": "query_view",
+          "uri": "jaxrs/document/{id}/view",
           "method": "GET"
         },
         {
@@ -1261,133 +1380,14 @@
           "enctype": "application/json"
         },
         {
-          "name": "query_getVisiblePersons",
-          "uri": "jaxrs/document/{id}/persons",
-          "method": "GET"
-        },
-        {
-          "name": "query_PermissionReadDocument",
-          "uri": "jaxrs/document/{id}/permission/read",
-          "method": "GET"
-        },
-        {
-          "name": "query_listDocumentData",
-          "uri": "jaxrs/document/list/document/data",
+          "name": "persist_publishCancelMockPutToPost",
+          "uri": "jaxrs/document/publish/{id}/cancel/mockputtopost",
           "method": "POST",
           "enctype": "application/json"
         },
         {
-          "name": "persist_changeCategoryMockPutToPost",
-          "uri": "jaxrs/document/category/change/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "persist_batchDataModify",
-          "uri": "jaxrs/document/batch/data/modify",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "persist_batchDataModifyMockPutToPost",
-          "uri": "jaxrs/document/batch/data/modify/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "query_checkImportStatus",
-          "uri": "jaxrs/document/batch/{batchName}/status",
-          "method": "GET"
-        },
-        {
-          "name": "query_get",
-          "uri": "jaxrs/document/{id}",
-          "method": "GET"
-        },
-        {
-          "name": "query_listDraftNextWithFilterMockPutToPost",
-          "uri": "jaxrs/document/draft/list/{id}/next/{count}/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "persist_commend",
-          "uri": "jaxrs/document/{id}/commend",
-          "method": "GET"
-        },
-        {
-          "name": "persist_unCommend",
-          "uri": "jaxrs/document/{id}/uncommend",
-          "method": "GET"
-        },
-        {
-          "name": "persist_top",
-          "uri": "jaxrs/document/{id}/top",
-          "method": "GET"
-        },
-        {
-          "name": "persist_unTop",
-          "uri": "jaxrs/document/{id}/unTop",
-          "method": "GET"
-        },
-        {
-          "name": "query_listWithFilterPagingMockPutToPost",
-          "uri": "jaxrs/document/filter/list/{page}/size/{size}/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "query_countDocumentWithFilter",
-          "uri": "jaxrs/document/filter/count",
-          "method": "PUT",
-          "enctype": "application/json"
-        },
-        {
-          "name": "query_countDocumentWithFilterMockPutToPost",
-          "uri": "jaxrs/document/filter/count/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "persist_delete",
-          "uri": "jaxrs/document/{id}",
-          "method": "DELETE",
-          "enctype": "application/json"
-        },
-        {
-          "name": "persist_deleteMockDeleteToGet",
-          "uri": "jaxrs/document/{id}/mockdeletetoget",
-          "method": "GET"
-        },
-        {
-          "name": "persist_deleteWithBatchName",
-          "uri": "jaxrs/document/batch/{batchId}",
-          "method": "DELETE",
-          "enctype": "application/json"
-        },
-        {
-          "name": "query_checkAllImportStatus",
-          "uri": "jaxrs/document/batch/status",
-          "method": "GET"
-        },
-        {
-          "name": "query_listDocumentFields",
-          "uri": "jaxrs/document/document/fields",
-          "method": "GET"
-        },
-        {
-          "name": "query_view",
-          "uri": "jaxrs/document/{id}/view",
-          "method": "GET"
-        },
-        {
-          "name": "query_getViewCount",
-          "uri": "jaxrs/document/{id}/view/count",
-          "method": "GET"
-        },
-        {
-          "name": "query_listWithFilterPaging",
-          "uri": "jaxrs/document/filter/list/{page}/size/{size}",
+          "name": "persist_changeCategory",
+          "uri": "jaxrs/document/category/change",
           "method": "PUT",
           "enctype": "application/json"
         }
@@ -1402,20 +1402,14 @@
           "method": "GET"
         },
         {
-          "name": "listNextWithFilterMockPutToPost",
-          "uri": "jaxrs/anonymous/document/filter/list/{id}/next/{count}/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
           "name": "listNextWithFilter",
           "uri": "jaxrs/anonymous/document/filter/list/{id}/next/{count}",
           "method": "PUT",
           "enctype": "application/json"
         },
         {
-          "name": "query_listWithFilterPagingMockPutToPost",
-          "uri": "jaxrs/anonymous/document/filter/list/{page}/size/{size}/mockputtopost",
+          "name": "listNextWithFilterMockPutToPost",
+          "uri": "jaxrs/anonymous/document/filter/list/{id}/next/{count}/mockputtopost",
           "method": "POST",
           "enctype": "application/json"
         },
@@ -1424,12 +1418,23 @@
           "uri": "jaxrs/anonymous/document/filter/list/{page}/size/{size}",
           "method": "PUT",
           "enctype": "application/json"
+        },
+        {
+          "name": "query_listWithFilterPagingMockPutToPost",
+          "uri": "jaxrs/anonymous/document/filter/list/{page}/size/{size}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
         }
       ]
     },
     {
       "name": "DocumentCipherAction",
       "methods": [
+        {
+          "name": "query_PermissionReadDocument",
+          "uri": "jaxrs/document/cipher/{id}/permission/read/person/{person}",
+          "method": "GET"
+        },
         {
           "name": "publishContentByWorkFlow",
           "uri": "jaxrs/document/cipher/publish/content",
@@ -1449,20 +1454,15 @@
           "enctype": "application/json"
         },
         {
-          "name": "query_PermissionReadDocument",
-          "uri": "jaxrs/document/cipher/{id}/permission/read/person/{person}",
-          "method": "GET"
+          "name": "query_listWithFilterPaging",
+          "uri": "jaxrs/document/cipher/filter/list/{page}/size/{size}",
+          "method": "PUT",
+          "enctype": "application/json"
         },
         {
           "name": "query_listWithFilterPagingMockPutToPost",
           "uri": "jaxrs/document/cipher/filter/list/{page}/size/{size}/mockputtopost",
           "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "query_listWithFilterPaging",
-          "uri": "jaxrs/document/cipher/filter/list/{page}/size/{size}",
-          "method": "PUT",
           "enctype": "application/json"
         }
       ]
@@ -1504,32 +1504,15 @@
           "enctype": "application/json"
         },
         {
-          "name": "deleteMockDeleteToGet",
-          "uri": "jaxrs/comment/{id}/mockdeletetoget",
-          "method": "GET"
-        },
-        {
-          "name": "listNextWithFilterMockPutToPost",
-          "uri": "jaxrs/comment/list/{id}/next/{count}/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "listPrevWithFilterMockPutToPost",
-          "uri": "jaxrs/comment/list/{id}/prev/{count}/mockputtopost",
-          "method": "POST",
+          "name": "listPageWithFilter",
+          "uri": "jaxrs/comment/list/{page}/size/{size}",
+          "method": "PUT",
           "enctype": "application/json"
         },
         {
           "name": "listPageWithFilterMockPutToPost",
           "uri": "jaxrs/comment/list/{page}/size/{size}/mockputtopost",
           "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "listPageWithFilter",
-          "uri": "jaxrs/comment/list/{page}/size/{size}",
-          "method": "PUT",
           "enctype": "application/json"
         },
         {
@@ -1543,15 +1526,32 @@
           "method": "GET"
         },
         {
+          "name": "deleteMockDeleteToGet",
+          "uri": "jaxrs/comment/{id}/mockdeletetoget",
+          "method": "GET"
+        },
+        {
           "name": "listNextWithFilter",
           "uri": "jaxrs/comment/list/{id}/next/{count}",
           "method": "PUT",
           "enctype": "application/json"
         },
         {
+          "name": "listNextWithFilterMockPutToPost",
+          "uri": "jaxrs/comment/list/{id}/next/{count}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
           "name": "listPrevWithFilter",
           "uri": "jaxrs/comment/list/{id}/prev/{count}",
           "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listPrevWithFilterMockPutToPost",
+          "uri": "jaxrs/comment/list/{id}/prev/{count}/mockputtopost",
+          "method": "POST",
           "enctype": "application/json"
         }
       ]
@@ -1560,15 +1560,15 @@
       "name": "DocumentViewRecordAction",
       "methods": [
         {
-          "name": "listByDocumentFilterNext",
-          "uri": "jaxrs/viewrecord/document/{docId}/filter/list/{id}/next/{count}",
-          "method": "GET"
-        },
-        {
           "name": "listPaging",
           "uri": "jaxrs/viewrecord/list/install/log/paging/{page}/size/{size}",
           "method": "POST",
           "enctype": "application/json"
+        },
+        {
+          "name": "listByDocumentFilterNext",
+          "uri": "jaxrs/viewrecord/document/{docId}/filter/list/{id}/next/{count}",
+          "method": "GET"
         },
         {
           "name": "listByPerson",
@@ -1641,8 +1641,8 @@
           "method": "GET"
         },
         {
-          "name": "deleteMockDeleteToGet",
-          "uri": "jaxrs/file/{flag}/mockdeletetoget",
+          "name": "listWithAppInfo",
+          "uri": "jaxrs/file/list/appInfo/{appInfoFlag}",
           "method": "GET"
         },
         {
@@ -1652,11 +1652,6 @@
           "enctype": "application/json"
         },
         {
-          "name": "listWithAppInfo",
-          "uri": "jaxrs/file/list/appInfo/{appInfoFlag}",
-          "method": "GET"
-        },
-        {
           "name": "downloadWithApp",
           "uri": "jaxrs/file/{flag}/appInfo/{appInfoFlag}/download",
           "method": "GET"
@@ -1664,6 +1659,11 @@
         {
           "name": "contentWithApp",
           "uri": "jaxrs/file/{flag}/appInfo/{appInfoFlag}/content",
+          "method": "GET"
+        },
+        {
+          "name": "deleteMockDeleteToGet",
+          "uri": "jaxrs/file/{flag}/mockdeletetoget",
           "method": "GET"
         },
         {
@@ -1677,15 +1677,15 @@
           "method": "GET"
         },
         {
-          "name": "download",
-          "uri": "jaxrs/file/{id}/download",
-          "method": "GET"
-        },
-        {
           "name": "upload",
           "uri": "jaxrs/file/{id}/upload",
           "method": "POST",
           "enctype": "formData"
+        },
+        {
+          "name": "download",
+          "uri": "jaxrs/file/{id}/download",
+          "method": "GET"
         }
       ]
     },
@@ -1702,6 +1702,18 @@
           "uri": "jaxrs/fileinfo/{id}",
           "method": "DELETE",
           "enctype": "application/json"
+        },
+        {
+          "name": "attachmentUploadCallback",
+          "uri": "jaxrs/fileinfo/upload/document/{docId}/callback/{callback}",
+          "method": "POST",
+          "enctype": "formData"
+        },
+        {
+          "name": "attachmentUpdateCallback",
+          "uri": "jaxrs/fileinfo/update/document/{docId}/attachment/{id}/callback/{callback}",
+          "method": "POST",
+          "enctype": "formData"
         },
         {
           "name": "uploadWithUrl",
@@ -1726,10 +1738,16 @@
           "enctype": "application/json"
         },
         {
-          "name": "updateContent",
-          "uri": "jaxrs/fileinfo/update/{id}/content",
+          "name": "editPermissionMockPutToPost",
+          "uri": "jaxrs/fileinfo/edit/{id}/doc/{docId}/mockputtopost",
           "method": "POST",
           "enctype": "application/json"
+        },
+        {
+          "name": "attachmentUpload",
+          "uri": "jaxrs/fileinfo/upload/document/{docId}",
+          "method": "POST",
+          "enctype": "formData"
         },
         {
           "name": "attachmentUpdate",
@@ -1738,41 +1756,23 @@
           "enctype": "formData"
         },
         {
-          "name": "attachmentUploadCallback",
-          "uri": "jaxrs/fileinfo/upload/document/{docId}/callback/{callback}",
-          "method": "POST",
-          "enctype": "formData"
-        },
-        {
-          "name": "attachmentUpdateCallback",
-          "uri": "jaxrs/fileinfo/update/document/{docId}/attachment/{id}/callback/{callback}",
-          "method": "POST",
-          "enctype": "formData"
-        },
-        {
-          "name": "getOnlineInfo",
-          "uri": "jaxrs/fileinfo/{id}/online/info",
-          "method": "GET"
-        },
-        {
-          "name": "uploadWorkInfo",
-          "uri": "jaxrs/fileinfo/upload/doc/{docId}/save/as/{flag}",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "downloadTransfer",
-          "uri": "jaxrs/fileinfo/download/transfer/flag/{flag}",
-          "method": "GET"
-        },
-        {
-          "name": "batchDownload",
-          "uri": "jaxrs/fileinfo/batch/download/doc/{docId}/site/{site}",
-          "method": "GET"
-        },
-        {
           "name": "deleteMockDeleteToGet",
           "uri": "jaxrs/fileinfo/{id}/mockdeletetoget",
+          "method": "GET"
+        },
+        {
+          "name": "listAllFileInfo",
+          "uri": "jaxrs/fileinfo/list/all",
+          "method": "GET"
+        },
+        {
+          "name": "listFileInfoByDocumentId",
+          "uri": "jaxrs/fileinfo/list/document/{documentId}",
+          "method": "GET"
+        },
+        {
+          "name": "imageToBase64",
+          "uri": "jaxrs/fileinfo/{id}/binary/base64/{size}",
           "method": "GET"
         },
         {
@@ -1792,20 +1792,8 @@
           "enctype": "application/json"
         },
         {
-          "name": "editPermissionMockPutToPost",
-          "uri": "jaxrs/fileinfo/edit/{id}/doc/{docId}/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "attachmentUpload",
-          "uri": "jaxrs/fileinfo/upload/document/{docId}",
-          "method": "POST",
-          "enctype": "formData"
-        },
-        {
-          "name": "listAllFileInfo",
-          "uri": "jaxrs/fileinfo/list/all",
+          "name": "batchDownload",
+          "uri": "jaxrs/fileinfo/batch/download/doc/{docId}/site/{site}",
           "method": "GET"
         },
         {
@@ -1821,13 +1809,25 @@
           "enctype": "application/json"
         },
         {
-          "name": "listFileInfoByDocumentId",
-          "uri": "jaxrs/fileinfo/list/document/{documentId}",
+          "name": "updateContent",
+          "uri": "jaxrs/fileinfo/update/{id}/content",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "getOnlineInfo",
+          "uri": "jaxrs/fileinfo/{id}/online/info",
           "method": "GET"
         },
         {
-          "name": "imageToBase64",
-          "uri": "jaxrs/fileinfo/{id}/binary/base64/{size}",
+          "name": "uploadWorkInfo",
+          "uri": "jaxrs/fileinfo/upload/doc/{docId}/save/as/{flag}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "downloadTransfer",
+          "uri": "jaxrs/fileinfo/download/transfer/flag/{flag}",
           "method": "GET"
         }
       ]
@@ -1841,6 +1841,11 @@
           "method": "GET"
         },
         {
+          "name": "listFileInfoByDocumentId",
+          "uri": "jaxrs/anonymous/fileinfo/list/document/{documentId}",
+          "method": "GET"
+        },
+        {
           "name": "attachmentDownLoad",
           "uri": "jaxrs/anonymous/fileinfo/download/document/{id}",
           "method": "GET"
@@ -1848,11 +1853,6 @@
         {
           "name": "attachmentDownloadStream",
           "uri": "jaxrs/anonymous/fileinfo/download/document/{id}/stream",
-          "method": "GET"
-        },
-        {
-          "name": "listFileInfoByDocumentId",
-          "uri": "jaxrs/anonymous/fileinfo/list/document/{documentId}",
           "method": "GET"
         }
       ]
@@ -1894,36 +1894,9 @@
           "enctype": "application/json"
         },
         {
-          "name": "listAllForm",
-          "uri": "jaxrs/form/list/all",
-          "method": "GET"
-        },
-        {
-          "name": "listFormByAppId",
-          "uri": "jaxrs/form/list/app/{appId}",
-          "method": "GET"
-        },
-        {
-          "name": "getWithAppInfo",
-          "uri": "jaxrs/form/{formFlag}/appinfo/{appFlag}",
-          "method": "GET"
-        },
-        {
           "name": "deleteMockDeleteToGet",
           "uri": "jaxrs/form/{id}/mockdeletetoget",
           "method": "GET"
-        },
-        {
-          "name": "listNextWithFilterMockPutToPost",
-          "uri": "jaxrs/form/filter/list/{id}/next/{count}/app/{appId}/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "listPrevWithFilterMockPutToPost",
-          "uri": "jaxrs/form/filter/list/{id}/prev/{count}/app/{appId}/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
         },
         {
           "name": "V2LookupDocMobile",
@@ -1941,8 +1914,14 @@
           "method": "GET"
         },
         {
-          "name": "putMockPutToPost",
-          "uri": "jaxrs/form/{id}/mockputtopost",
+          "name": "listNextWithFilter",
+          "uri": "jaxrs/form/filter/list/{id}/next/{count}/app/{appId}",
+          "method": "PUT",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listNextWithFilterMockPutToPost",
+          "uri": "jaxrs/form/filter/list/{id}/next/{count}/app/{appId}/mockputtopost",
           "method": "POST",
           "enctype": "application/json"
         },
@@ -1962,9 +1941,14 @@
           "method": "GET"
         },
         {
-          "name": "listNextWithFilter",
-          "uri": "jaxrs/form/filter/list/{id}/next/{count}/app/{appId}",
-          "method": "PUT",
+          "name": "getWithAppInfo",
+          "uri": "jaxrs/form/{formFlag}/appinfo/{appFlag}",
+          "method": "GET"
+        },
+        {
+          "name": "putMockPutToPost",
+          "uri": "jaxrs/form/{id}/mockputtopost",
+          "method": "POST",
           "enctype": "application/json"
         },
         {
@@ -1972,6 +1956,22 @@
           "uri": "jaxrs/form/filter/list/{id}/prev/{count}/app/{appId}",
           "method": "PUT",
           "enctype": "application/json"
+        },
+        {
+          "name": "listPrevWithFilterMockPutToPost",
+          "uri": "jaxrs/form/filter/list/{id}/prev/{count}/app/{appId}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listAllForm",
+          "uri": "jaxrs/form/list/all",
+          "method": "GET"
+        },
+        {
+          "name": "listFormByAppId",
+          "uri": "jaxrs/form/list/app/{appId}",
+          "method": "GET"
         }
       ]
     },
@@ -2036,12 +2036,6 @@
           "enctype": "application/json"
         },
         {
-          "name": "createMockPutToPost",
-          "uri": "jaxrs/input/create/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
           "name": "compareMockPutToPost",
           "uri": "jaxrs/input/compare/mockputtopost",
           "method": "POST",
@@ -2082,6 +2076,12 @@
           "uri": "jaxrs/input/prepare/create/mockputtopost",
           "method": "POST",
           "enctype": "application/json"
+        },
+        {
+          "name": "createMockPutToPost",
+          "uri": "jaxrs/input/create/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
         }
       ]
     },
@@ -2092,6 +2092,24 @@
           "name": "get",
           "uri": "jaxrs/log/{id}",
           "method": "GET"
+        },
+        {
+          "name": "listFilterPaging",
+          "uri": "jaxrs/log/list/filter/{page}/size/{size}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listNextWithFilter",
+          "uri": "jaxrs/log/filter/list/{id}/next/{count}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "listPrevWithFilter",
+          "uri": "jaxrs/log/filter/list/{id}/prev/{count}",
+          "method": "POST",
+          "enctype": "application/json"
         },
         {
           "name": "listLogByOperationLevel",
@@ -2112,24 +2130,6 @@
           "name": "listLogByDocumentId",
           "uri": "jaxrs/log/list/document/{documentId}",
           "method": "GET"
-        },
-        {
-          "name": "listFilterPaging",
-          "uri": "jaxrs/log/list/filter/{page}/size/{size}",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "listNextWithFilter",
-          "uri": "jaxrs/log/filter/list/{id}/next/{count}",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "listPrevWithFilter",
-          "uri": "jaxrs/log/filter/list/{id}/prev/{count}",
-          "method": "POST",
-          "enctype": "application/json"
         }
       ]
     },
@@ -2159,15 +2159,9 @@
       "name": "PermissionAction",
       "methods": [
         {
-          "name": "listCategoryInfoViewers",
-          "uri": "jaxrs/permission/category/{id}/viewers",
+          "name": "isCategoryInfoManagers",
+          "uri": "jaxrs/permission/categoryInfo/{id}/manageable",
           "method": "GET"
-        },
-        {
-          "name": "saveAppInfoManager",
-          "uri": "jaxrs/permission/manager/appInfo/{id}",
-          "method": "POST",
-          "enctype": "application/json"
         },
         {
           "name": "saveAppInfoPublisher",
@@ -2188,31 +2182,9 @@
           "enctype": "application/json"
         },
         {
-          "name": "isAppInfoManager",
-          "uri": "jaxrs/permission/appInfo/{id}/manageable",
-          "method": "GET"
-        },
-        {
-          "name": "isCategoryInfoManagers",
-          "uri": "jaxrs/permission/categoryInfo/{id}/manageable",
-          "method": "GET"
-        },
-        {
           "name": "listAppInfoManagers",
           "uri": "jaxrs/permission/appInfo/{id}/managers",
           "method": "GET"
-        },
-        {
-          "name": "saveCategoryInfoPublisher",
-          "uri": "jaxrs/permission/publisher/categoryInfo/{id}",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "saveCategoryInfoViewer",
-          "uri": "jaxrs/permission/viewer/categoryInfo/{id}",
-          "method": "POST",
-          "enctype": "application/json"
         },
         {
           "name": "listAppInfoPublishers",
@@ -2230,8 +2202,36 @@
           "method": "GET"
         },
         {
+          "name": "saveCategoryInfoPublisher",
+          "uri": "jaxrs/permission/publisher/categoryInfo/{id}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "saveCategoryInfoViewer",
+          "uri": "jaxrs/permission/viewer/categoryInfo/{id}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
           "name": "listCategoryInfoPublishers",
           "uri": "jaxrs/permission/category/{id}/publishers",
+          "method": "GET"
+        },
+        {
+          "name": "listCategoryInfoViewers",
+          "uri": "jaxrs/permission/category/{id}/viewers",
+          "method": "GET"
+        },
+        {
+          "name": "saveAppInfoManager",
+          "uri": "jaxrs/permission/manager/appInfo/{id}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "isAppInfoManager",
+          "uri": "jaxrs/permission/appInfo/{id}/manageable",
           "method": "GET"
         }
       ]
@@ -2306,9 +2306,31 @@
           "enctype": "application/json"
         },
         {
-          "name": "deleteMockDeleteToGet",
-          "uri": "jaxrs/script/{id}/mockdeletetoget",
+          "name": "listWithApplication",
+          "uri": "jaxrs/script/list/app/{flag}",
           "method": "GET"
+        },
+        {
+          "name": "getWithAppWithName",
+          "uri": "jaxrs/script/list/app/{appId}/name/{name}",
+          "method": "GET"
+        },
+        {
+          "name": "listPaging",
+          "uri": "jaxrs/script/list/paging/{page}/size/{size}",
+          "method": "POST",
+          "enctype": "application/json"
+        },
+        {
+          "name": "standardListNext",
+          "uri": "jaxrs/script/list/{id}/next/{count}",
+          "method": "GET"
+        },
+        {
+          "name": "managerList",
+          "uri": "jaxrs/script/list/manager",
+          "method": "POST",
+          "enctype": "application/json"
         },
         {
           "name": "postScriptNested",
@@ -2322,32 +2344,9 @@
           "method": "GET"
         },
         {
-          "name": "managerList",
-          "uri": "jaxrs/script/list/manager",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "listPaging",
-          "uri": "jaxrs/script/list/paging/{page}/size/{size}",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "listWithApplication",
-          "uri": "jaxrs/script/list/app/{flag}",
+          "name": "deleteMockDeleteToGet",
+          "uri": "jaxrs/script/{id}/mockdeletetoget",
           "method": "GET"
-        },
-        {
-          "name": "getWithAppWithName",
-          "uri": "jaxrs/script/list/app/{appId}/name/{name}",
-          "method": "GET"
-        },
-        {
-          "name": "putMockPutToPost",
-          "uri": "jaxrs/script/{id}/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
         },
         {
           "name": "standardListPrev",
@@ -2355,9 +2354,10 @@
           "method": "GET"
         },
         {
-          "name": "standardListNext",
-          "uri": "jaxrs/script/list/{id}/next/{count}",
-          "method": "GET"
+          "name": "putMockPutToPost",
+          "uri": "jaxrs/script/{id}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
         }
       ]
     },
@@ -2422,6 +2422,16 @@
           "enctype": "application/json"
         },
         {
+          "name": "listCategory",
+          "uri": "jaxrs/templateform/list/category",
+          "method": "GET"
+        },
+        {
+          "name": "deleteMockDeleteToGet",
+          "uri": "jaxrs/templateform/{id}/mockdeletetoget",
+          "method": "GET"
+        },
+        {
           "name": "listWithCategory",
           "uri": "jaxrs/templateform/list/category",
           "method": "PUT",
@@ -2432,16 +2442,6 @@
           "uri": "jaxrs/templateform/list/category/mockputtopost",
           "method": "POST",
           "enctype": "application/json"
-        },
-        {
-          "name": "listCategory",
-          "uri": "jaxrs/templateform/list/category",
-          "method": "GET"
-        },
-        {
-          "name": "deleteMockDeleteToGet",
-          "uri": "jaxrs/templateform/{id}/mockdeletetoget",
-          "method": "GET"
         }
       ]
     },
@@ -2472,6 +2472,16 @@
           "enctype": "application/json"
         },
         {
+          "name": "deleteMockDeleteToGet",
+          "uri": "jaxrs/view/{id}/mockdeletetoget",
+          "method": "GET"
+        },
+        {
+          "name": "listAllView",
+          "uri": "jaxrs/view/list/all",
+          "method": "GET"
+        },
+        {
           "name": "listViewByAppId",
           "uri": "jaxrs/view/list/app/{appId}",
           "method": "GET"
@@ -2487,26 +2497,16 @@
           "method": "GET"
         },
         {
-          "name": "nextPageViewDataList",
-          "uri": "jaxrs/view/viewdata/list/{id}/next/{count}",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
-          "name": "deleteMockDeleteToGet",
-          "uri": "jaxrs/view/{id}/mockdeletetoget",
-          "method": "GET"
-        },
-        {
           "name": "putMockPutToPost",
           "uri": "jaxrs/view/{id}/mockputtopost",
           "method": "POST",
           "enctype": "application/json"
         },
         {
-          "name": "listAllView",
-          "uri": "jaxrs/view/list/all",
-          "method": "GET"
+          "name": "nextPageViewDataList",
+          "uri": "jaxrs/view/viewdata/list/{id}/next/{count}",
+          "method": "POST",
+          "enctype": "application/json"
         }
       ]
     },
@@ -2531,16 +2531,6 @@
           "enctype": "application/json"
         },
         {
-          "name": "deleteMockDeleteToGet",
-          "uri": "jaxrs/viewcategory/{id}/mockdeletetoget",
-          "method": "GET"
-        },
-        {
-          "name": "listAllViewCategory",
-          "uri": "jaxrs/viewcategory/list/all",
-          "method": "GET"
-        },
-        {
           "name": "listByCategoryId",
           "uri": "jaxrs/viewcategory/list/category/{categoryId}",
           "method": "GET"
@@ -2548,6 +2538,16 @@
         {
           "name": "listByViewId",
           "uri": "jaxrs/viewcategory/list/view/{viewId}",
+          "method": "GET"
+        },
+        {
+          "name": "deleteMockDeleteToGet",
+          "uri": "jaxrs/viewcategory/{id}/mockdeletetoget",
+          "method": "GET"
+        },
+        {
+          "name": "listAllViewCategory",
+          "uri": "jaxrs/viewcategory/list/all",
           "method": "GET"
         }
       ]
@@ -2584,12 +2584,6 @@
           "method": "GET"
         },
         {
-          "name": "putMockPutToPost",
-          "uri": "jaxrs/viewfieldconfig/{id}/mockputtopost",
-          "method": "POST",
-          "enctype": "application/json"
-        },
-        {
           "name": "listAllView",
           "uri": "jaxrs/viewfieldconfig/list/all",
           "method": "GET"
@@ -2598,6 +2592,12 @@
           "name": "listViewFieldConfigByViewId",
           "uri": "jaxrs/viewfieldconfig/list/view/{viewId}",
           "method": "GET"
+        },
+        {
+          "name": "putMockPutToPost",
+          "uri": "jaxrs/viewfieldconfig/{id}/mockputtopost",
+          "method": "POST",
+          "enctype": "application/json"
         }
       ]
     }
