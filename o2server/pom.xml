@@ -296,7 +296,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.xbean</groupId>
-			<artifactId>xbean-asm8-shaded</artifactId>
+			<artifactId>xbean-asm9-shaded</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.squareup</groupId>
@@ -646,8 +646,8 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.openjpa</groupId>
-				<artifactId>openjpa</artifactId>
-				<version>4.0.1</version>
+			<artifactId>openjpa</artifactId>
+			<version>4.1.1</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.commons</groupId>
@@ -1009,8 +1009,8 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.xbean</groupId>
-				<artifactId>xbean-asm8-shaded</artifactId>
-				<version>4.17</version>
+				<artifactId>xbean-asm9-shaded</artifactId>
+				<version>4.26</version>
 			</dependency>
 			<dependency>
 				<groupId>com.squareup</groupId>
