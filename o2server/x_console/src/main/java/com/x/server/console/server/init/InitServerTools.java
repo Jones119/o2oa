@@ -10,22 +10,19 @@ import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.stream.Stream;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.file.PathUtils;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.math.NumberUtils;
-import org.eclipse.jetty.ee10.quickstart.QuickStartWebApp;
-import org.eclipse.jetty.server.Request;
-import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.AbstractHandler;
+import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Handler.Sequence;
+import org.eclipse.jetty.server.Request;
+import org.eclipse.jetty.server.Response;
+import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.gzip.GzipHandler;
-import org.eclipse.jetty.util.resource.ResourceCollection;
+import org.eclipse.jetty.util.Callback;
+import org.eclipse.jetty.util.resource.ResourceFactory;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
 
 import com.x.base.core.project.x_program_init;
@@ -60,7 +57,7 @@ public class InitServerTools extends JettySeverTools {
 
 	private static Server startStandalone(ApplicationServer applicationServer) throws Exception {
 		Handler.Sequence handlers = new Handler.Sequence();
-		QuickStartWebApp webApp = webContext();
+		WebAppContext webApp = webContext();
 		handlers.addHandler(webApp);
 		handlers.addHandler(new CacheControlHandler());
 		QueuedThreadPool threadPool = new QueuedThreadPool();
@@ -115,15 +112,15 @@ public class InitServerTools extends JettySeverTools {
 		return builder.toString();
 	}
 
-	public static QuickStartWebApp webContext() throws Exception {
+	public static WebAppContext webContext() throws Exception {
 		Path dir = Config.path_servers_initServer_work(true).resolve(x_program_init.class.getSimpleName());
-		QuickStartWebApp webApp = new QuickStartWebApp();
-		webApp.setAutoPreconfigure(false);
+		WebAppContext webApp = new WebAppContext();
 		webApp.setDisplayName(x_program_init.class.getSimpleName());
 		webApp.setContextPath("/");
-		ResourceCollection resources = new ResourceCollection(new String[] { dir.toAbsolutePath().toString(),
-				Config.path_servers_webServer_x_init(true).toAbsolutePath().toString() });
-		webApp.setBaseResource(resources);
+		ResourceFactory resourceFactory = ResourceFactory.of(webApp);
+		webApp.setBaseResource(ResourceFactory.combine(
+				resourceFactory.newResource(dir.toAbsolutePath().toString()),
+				resourceFactory.newResource(Config.path_servers_webServer_x_init(true).toAbsolutePath().toString())));
 		webApp.setDescriptor(dir.resolve(Paths.get(PathTools.WEB_INF_WEB_XML)).toString());
 		webApp.setExtraClasspath(calculateExtraClassPath(x_program_init.class));
 		Path ext = dir.resolve("WEB-INF").resolve("ext");
@@ -179,13 +176,11 @@ public class InitServerTools extends JettySeverTools {
 		}
 	}
 
-	public static class CacheControlHandler extends AbstractHandler {
+	public static class CacheControlHandler extends Handler.Abstract {
 		@Override
-		public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response)
-				throws IOException, ServletException {
-			// 设置Cache-Control头部字段
-			response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-			// <code> baseRequest.setHandled(true)</code>;标记请求已经被处理
+		public boolean handle(Request request, Response response, Callback callback) throws Exception {
+			response.getHeaders().put("Cache-Control", "no-cache, no-store, must-revalidate");
+			return false;
 		}
 
 	}

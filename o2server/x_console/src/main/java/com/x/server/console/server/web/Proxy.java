@@ -4,9 +4,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
-import org.eclipse.jetty.client.api.Request;
+import org.eclipse.jetty.client.Request;
 import org.eclipse.jetty.http.HttpHeader;
-import org.eclipse.jetty.proxy.ProxyServlet;
+import org.eclipse.jetty.ee10.proxy.ProxyServlet;
 
 import com.x.base.core.project.tools.EscapeStringTools;
 
@@ -83,63 +83,45 @@ public class Proxy extends ProxyServlet {
 	}
 
 	@Override
-	protected void addXForwardedHeaders(HttpServletRequest clientRequest, Request proxyRequest) {
+	protected void addProxyHeaders(HttpServletRequest clientRequest, Request proxyRequest) {
 		if (StringUtils.isNotEmpty(clientRequest.getHeader(HttpHeader.X_FORWARDED_FOR.asString()))) {
-			proxyRequest.header(HttpHeader.X_FORWARDED_FOR,
-					clientRequest.getHeader(HttpHeader.X_FORWARDED_FOR.asString()));
+			proxyRequest.headers(headers -> headers.put(HttpHeader.X_FORWARDED_FOR,
+					clientRequest.getHeader(HttpHeader.X_FORWARDED_FOR.asString())));
 		} else {
-			proxyRequest.header(HttpHeader.X_FORWARDED_FOR, clientRequest.getRemoteAddr());
+			proxyRequest.headers(headers -> headers.put(HttpHeader.X_FORWARDED_FOR, clientRequest.getRemoteAddr()));
 		}
 		if (StringUtils.isNotEmpty(clientRequest.getHeader(HttpHeader.X_FORWARDED_PROTO.asString()))) {
-			proxyRequest.header(HttpHeader.X_FORWARDED_PROTO,
-					clientRequest.getHeader(HttpHeader.X_FORWARDED_PROTO.asString()));
+			proxyRequest.headers(headers -> headers.put(HttpHeader.X_FORWARDED_PROTO,
+					clientRequest.getHeader(HttpHeader.X_FORWARDED_PROTO.asString())));
 		} else {
-			proxyRequest.header(HttpHeader.X_FORWARDED_PROTO, clientRequest.getScheme());
+			proxyRequest.headers(headers -> headers.put(HttpHeader.X_FORWARDED_PROTO, clientRequest.getScheme()));
 		}
 		if (StringUtils.isNotEmpty(clientRequest.getHeader(HttpHeader.X_FORWARDED_HOST.asString()))) {
-			proxyRequest.header(HttpHeader.X_FORWARDED_HOST,
-					clientRequest.getHeader(HttpHeader.X_FORWARDED_HOST.asString()));
+			proxyRequest.headers(headers -> headers.put(HttpHeader.X_FORWARDED_HOST,
+					clientRequest.getHeader(HttpHeader.X_FORWARDED_HOST.asString())));
 		} else {
-			proxyRequest.header(HttpHeader.X_FORWARDED_HOST, clientRequest.getHeader(HttpHeader.HOST.asString()));
+			proxyRequest.headers(headers -> headers.put(HttpHeader.X_FORWARDED_HOST, clientRequest.getHeader(HttpHeader.HOST.asString())));
 		}
 		if (StringUtils.isNotEmpty(clientRequest.getHeader(HttpHeader.X_FORWARDED_SERVER.asString()))) {
-			proxyRequest.header(HttpHeader.X_FORWARDED_SERVER,
-					clientRequest.getHeader(HttpHeader.X_FORWARDED_SERVER.asString()));
+			proxyRequest.headers(headers -> headers.put(HttpHeader.X_FORWARDED_SERVER,
+					clientRequest.getHeader(HttpHeader.X_FORWARDED_SERVER.asString())));
 		} else {
-			proxyRequest.header(HttpHeader.X_FORWARDED_SERVER, clientRequest.getLocalName());
+			proxyRequest.headers(headers -> headers.put(HttpHeader.X_FORWARDED_SERVER, clientRequest.getLocalName()));
 		}
 
 		if (StringUtils.isNotEmpty(clientRequest.getHeader(HttpHeader.HOST.asString()))) {
-			proxyRequest.header(HttpHeader.HOST, clientRequest.getHeader(HttpHeader.HOST.asString()));
+			proxyRequest.headers(headers -> headers.put(HttpHeader.HOST, clientRequest.getHeader(HttpHeader.HOST.asString())));
 		}
 
 		if (StringUtils.isNotEmpty(clientRequest.getHeader(X_Real_IP))) {
-			proxyRequest.header(X_Real_IP, clientRequest.getHeader(X_Real_IP));
+			proxyRequest.headers(headers -> headers.put(X_Real_IP, clientRequest.getHeader(X_Real_IP)));
 		} else {
-			proxyRequest.header(X_Real_IP, clientRequest.getRemoteAddr());
+			proxyRequest.headers(headers -> headers.put(X_Real_IP, clientRequest.getRemoteAddr()));
 		}
 
-//		if (StringUtils.isNotEmpty(clientRequest.getHeader(HttpHeader.UPGRADE.asString()))) {
-//			proxyRequest.header(HttpHeader.UPGRADE, clientRequest.getHeader(HttpHeader.UPGRADE.asString()));
-//		}
-//
-//		if (StringUtils.isNotEmpty(clientRequest.getHeader(HttpHeader.CONNECTION.asString()))) {
-//			proxyRequest.header(HttpHeader.CONNECTION, clientRequest.getHeader(HttpHeader.CONNECTION.asString()));
-//		}
-//
-//		if (StringUtils.isNotEmpty(clientRequest.getHeader(HttpHeader.SEC_WEBSOCKET_EXTENSIONS.asString()))) {
-//			proxyRequest.header(HttpHeader.SEC_WEBSOCKET_EXTENSIONS,
-//					clientRequest.getHeader(HttpHeader.SEC_WEBSOCKET_EXTENSIONS.asString()));
-//		}
-//
-//		if (StringUtils.isNotEmpty(clientRequest.getHeader(HttpHeader.SEC_WEBSOCKET_KEY.asString()))) {
-//			proxyRequest.header(HttpHeader.SEC_WEBSOCKET_KEY,
-//					clientRequest.getHeader(HttpHeader.SEC_WEBSOCKET_KEY.asString()));
-//		}
-
 		if (StringUtils.isNotEmpty(clientRequest.getHeader(HttpHeader.SEC_WEBSOCKET_VERSION.asString()))) {
-			proxyRequest.header(HttpHeader.SEC_WEBSOCKET_VERSION,
-					clientRequest.getHeader(HttpHeader.SEC_WEBSOCKET_VERSION.asString()));
+			proxyRequest.headers(headers -> headers.put(HttpHeader.SEC_WEBSOCKET_VERSION,
+					clientRequest.getHeader(HttpHeader.SEC_WEBSOCKET_VERSION.asString())));
 		}
 
 	}

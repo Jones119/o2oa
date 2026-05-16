@@ -8,10 +8,9 @@ import java.util.Map.Entry;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import org.eclipse.jetty.ee10.quickstart.QuickStartWebApp;
+import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Handler.Sequence;
 import org.eclipse.jetty.server.handler.gzip.GzipHandler;
 
@@ -90,9 +89,9 @@ public class RegistApplicationsEvent implements Event {
 		List<Application> list = new ArrayList<>();
 		GzipHandler gzipHandler = (GzipHandler) applicationServer.getHandler();
 		Handler.Sequence handlerCollection = (Handler.Sequence) gzipHandler.getHandler();
-		for (Handler handler : handlerCollection) {
-			if (QuickStartWebApp.class.isAssignableFrom(handler.getClass())) {
-				QuickStartWebApp app = (QuickStartWebApp) handler;
+		for (Handler handler : handlerCollection.getHandlers()) {
+			if (WebAppContext.class.isAssignableFrom(handler.getClass())) {
+				WebAppContext app = (WebAppContext) handler;
 				if (app.isStarted() && (!StringUtils.equalsIgnoreCase(app.getContextPath(), "/x_program_center"))
 						&& (!StringUtils.equalsIgnoreCase(app.getContextPath(), "/"))) {
 					try {

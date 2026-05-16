@@ -1,7 +1,5 @@
 package com.x.server.console.server.application;
 
-import com.alibaba.druid.support.http.StatViewServlet;
-import com.alibaba.druid.support.http.WebStatFilter;
 import com.x.base.core.project.Applications;
 import com.x.base.core.project.annotation.Module;
 import com.x.base.core.project.annotation.ModuleCategory;
@@ -29,7 +27,6 @@ import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
-import org.eclipse.jetty.ee10.quickstart.QuickStartWebApp;
 import org.eclipse.jetty.server.AsyncRequestLogWriter;
 import org.eclipse.jetty.server.RequestLog;
 import org.eclipse.jetty.server.Server;
@@ -38,6 +35,7 @@ import org.eclipse.jetty.server.Handler.Sequence;
 import org.eclipse.jetty.server.handler.gzip.GzipHandler;
 import org.eclipse.jetty.ee10.servlet.FilterHolder;
 import org.eclipse.jetty.ee10.servlet.ServletHolder;
+import org.eclipse.jetty.util.resource.ResourceFactory;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
 import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.w3c.dom.Document;
@@ -165,11 +163,10 @@ public class ApplicationServerTools extends JettySeverTools {
                     Class<?> cls = ClassLoaderTools.urlClassLoader(null, false, false, false, false,
                                     Paths.get(dir.toString(), PathTools.WEB_INF_CLASSES))
                             .loadClass(className);
-                    QuickStartWebApp webApp = new QuickStartWebApp();
-                    webApp.setAutoPreconfigure(false);
+                    WebAppContext webApp = new WebAppContext();
                     webApp.setDisplayName(name);
                     webApp.setContextPath("/" + name);
-                    webApp.setResourceBase(dir.toAbsolutePath().toString());
+                    webApp.setBaseResource(ResourceFactory.of(webApp).newResource(dir.toAbsolutePath().toString()));
                     webApp.setDescriptor(
                             dir.resolve(Paths.get(PathTools.WEB_INF_WEB_XML)).toString());
                     Path ext = dir.resolve("WEB-INF").resolve("ext");
@@ -199,7 +196,7 @@ public class ApplicationServerTools extends JettySeverTools {
         });
     }
 
-    private static void setExposeJest(QuickStartWebApp webApp) {
+    private static void setExposeJest(WebAppContext webApp) {
         FilterHolder apiAccessFilterHolder = new FilterHolder(new ApiAccessFilter());
         webApp.addFilter(apiAccessFilterHolder, "/jest/*", EnumSet.of(DispatcherType.REQUEST));
         webApp.addFilter(apiAccessFilterHolder, "/describe/sources/*",
@@ -211,17 +208,10 @@ public class ApplicationServerTools extends JettySeverTools {
                         EnumSet.of(DispatcherType.REQUEST)));
     }
 
-    private static void setStat(ApplicationServer applicationServer, QuickStartWebApp webApp)
+    private static void setStat(ApplicationServer applicationServer, WebAppContext webApp)
             throws Exception {
-        if (BooleanUtils.isTrue(Config.general().getStatEnable())) {
-            FilterHolder statFilterHolder = new FilterHolder(new WebStatFilter());
-            statFilterHolder.setInitParameter("exclusions", Config.general().getStatExclusions());
-            webApp.addFilter(statFilterHolder, "/*", EnumSet.of(DispatcherType.REQUEST));
-            ServletHolder statServletHolder = new ServletHolder(StatViewServlet.class);
-            statServletHolder.setInitParameter("sessionStatEnable",
-                    BooleanUtils.toStringTrueFalse(false));
-            webApp.addServlet(statServletHolder, "/druid/*");
-        }
+        // TODO druid uses javax.servlet, incompatible with jakarta.servlet in Jetty 12 ee10.
+        // Re-enable after upgrading druid to jakarta.servlet compatible version.
     }
 
     private static void deployOfficial(ApplicationServer applicationServer, Handler.Sequence handlers,
@@ -236,11 +226,10 @@ public class ApplicationServerTools extends JettySeverTools {
                         info.getSimpleName());
                 if (Files.exists(war)) {
                     modified(war, dir);
-                    QuickStartWebApp webApp = new QuickStartWebApp();
-                    webApp.setAutoPreconfigure(false);
+                    WebAppContext webApp = new WebAppContext();
                     webApp.setDisplayName(clz.getSimpleName());
                     webApp.setContextPath("/" + clz.getSimpleName());
-                    webApp.setResourceBase(dir.toAbsolutePath().toString());
+                    webApp.setBaseResource(ResourceFactory.of(webApp).newResource(dir.toAbsolutePath().toString()));
                     webApp.setDescriptor(
                             dir.resolve(Paths.get(PathTools.WEB_INF_WEB_XML)).toString());
                     Path ext = dir.resolve("WEB-INF").resolve("ext");

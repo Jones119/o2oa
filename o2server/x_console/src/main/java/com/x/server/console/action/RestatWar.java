@@ -1,19 +1,19 @@
 package com.x.server.console.action;
 
 import java.io.File;
+import java.nio.file.Paths;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.eclipse.jetty.ee10.quickstart.QuickStartWebApp;
+import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Handler.Sequence;
 import org.eclipse.jetty.server.handler.gzip.GzipHandler;
-import org.eclipse.jetty.util.resource.JarResource;
-import org.eclipse.jetty.util.resource.Resource;
 
 import com.x.base.core.project.config.Config;
 import com.x.base.core.project.logger.Logger;
 import com.x.base.core.project.logger.LoggerFactory;
+import com.x.base.core.project.tools.JarTools;
 import com.x.server.console.server.Servers;
 
 public class RestatWar {
@@ -29,9 +29,9 @@ public class RestatWar {
 				File dir = null;
 				String warFilePath = null;
 				Boolean appExists = false;
-				for (Handler handler : handlerSequence) {
-					if (QuickStartWebApp.class.isAssignableFrom(handler.getClass())) {
-						QuickStartWebApp app = (QuickStartWebApp) handler;
+				for (Handler handler : handlerSequence.getHandlers()) {
+					if (WebAppContext.class.isAssignableFrom(handler.getClass())) {
+						WebAppContext app = (WebAppContext) handler;
 						if (StringUtils.equals("/" + simpleName, app.getContextPath())) {
 							appExists = true;
 							if (StringUtils.equals(type(simpleName), "storeWar")) {
@@ -48,10 +48,9 @@ public class RestatWar {
 							if (dir != null && dir.exists()) {
 								FileUtils.forceDelete(dir);
 							}
-							Resource base = Resource.newResource(warFilePath);
 							dir.mkdirs();
 							logger.print("redeploy application {} to work dir...", simpleName);
-							JarResource.newJarResource(base).copyTo(dir);
+							JarTools.unjar(Paths.get(warFilePath), "", dir.toPath(), true);
 							logger.print("starting application {} ...", simpleName);
 							app.start();
 						}

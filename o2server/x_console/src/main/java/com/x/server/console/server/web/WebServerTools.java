@@ -24,7 +24,7 @@ import org.eclipse.jetty.server.Handler.Sequence;
 import org.eclipse.jetty.server.handler.gzip.GzipHandler;
 import org.eclipse.jetty.ee10.servlet.FilterHolder;
 import org.eclipse.jetty.ee10.servlet.ServletHolder;
-import org.eclipse.jetty.util.resource.ResourceCollection;
+import org.eclipse.jetty.util.resource.ResourceFactory;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
 import org.eclipse.jetty.ee10.webapp.WebAppContext;
 
@@ -73,8 +73,8 @@ public class WebServerTools extends JettySeverTools {
 	private static Server startInApplication() throws Exception {
 		WebAppContext webContext = webContext();
 		GzipHandler gzipHandler = (GzipHandler) Servers.getApplicationServer().getHandler();
-		Handler.Sequence handlerCollection = (HandlerList) gzipHandler.getHandler();
-		hanlderList.addHandler(webContext);
+		Handler.Sequence handlerCollection = (Handler.Sequence) gzipHandler.getHandler();
+		handlerCollection.addHandler(webContext);
 		webContext.start();
 		LOGGER.print("****************************************");
 		LOGGER.print("* web server is started in the application server.");
@@ -102,7 +102,7 @@ public class WebServerTools extends JettySeverTools {
 		if (BooleanUtils.isTrue(Config.general().getRequestLogEnable())) {
 			server.setRequestLog(requestLog());
 		}
-		context.setMimeTypes(Config.mimeTypes());
+		Config.mimeTypes().getMimeMap().forEach((ext, type) -> context.getMimeTypes().addMimeMapping(ext, type));
 		server.start();
 		System.out.println("****************************************");
 		System.out.println("* web server start completed.");
@@ -136,10 +136,10 @@ public class WebServerTools extends JettySeverTools {
 		WebAppContext context = new WebAppContext();
 		moveNonDefaultDirectoryToWebroot();
 		context.setContextPath("/");
-		ResourceCollection resources = new ResourceCollection(
-				new String[] { Config.path_servers_webServer(true).toAbsolutePath().toString(),
-						Config.path_webroot(true).toAbsolutePath().toString() });
-		context.setBaseResource(resources);
+		ResourceFactory resourceFactory = ResourceFactory.of(context);
+		context.setBaseResource(ResourceFactory.combine(
+				resourceFactory.newResource(Config.path_servers_webServer(true).toAbsolutePath().toString()),
+				resourceFactory.newResource(Config.path_webroot(true).toAbsolutePath().toString())));
 		context.setParentLoaderPriority(true);
 		context.setExtractWAR(false);
 		context.setInitParameter("org.eclipse.jetty.servlet.Default.dirAllowed", false + "");
@@ -151,7 +151,6 @@ public class WebServerTools extends JettySeverTools {
 		context.setInitParameter("org.eclipse.jetty.servlet.Default.maxCacheSize", "256000000");
 		context.setInitParameter("org.eclipse.jetty.servlet.Default.maxCachedFileSize", "200000000");
 		context.setWelcomeFiles(new String[] { "default.html", "index.html" });
-		context.setGzipHandler(new GzipHandler());
 		context.setParentLoaderPriority(true);
 		context.getMimeTypes().addMimeMapping("wcss", "application/json");
 		setExposeApi(context);
