@@ -26,6 +26,7 @@ import com.x.base.core.project.organization.OrganizationDefinition;
 import com.x.base.core.project.tools.ListTools;
 import com.x.base.core.project.tools.StringTools;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -112,6 +113,9 @@ public class ActionChat extends BaseAction {
                     this.sendMsg(sse, eventSink, EVENT_NAME_MESSAGE, gson.toJson(actionResult));
                 }
             }
+        } catch (IOException e) {
+            logger.error(e);
+            actionResult.setMessage("关闭连接异常：" + e.getMessage());
         }
     }
 

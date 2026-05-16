@@ -1,13 +1,11 @@
 package com.x.cms.assemble.control.jaxrs.form;
 
-import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.TreeMap;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
@@ -51,16 +49,12 @@ class V2Get extends BaseAction {
 			}
 			Wo wo = new Wo();
 			final FormProperties properties = form.getProperties();
-			final List<String> list = new CopyOnWriteArrayList<>();
+			final List<String> list = new ArrayList<>();
 			wo.setForm(new RelatedForm(form, form.getData()));
-			try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-				var getRelatedFormSubtask = scope.fork(() -> this.getRelatedForm(properties, list));
-				var getRelatedScriptSubtask = scope.fork(() -> this.getRelatedScript(properties, list));
-				scope.joinUntil(Instant.now().plusSeconds(10));
-				scope.throwIfFailed();
-				wo.setRelatedFormMap(getRelatedFormSubtask.get());
-				wo.setRelatedScriptMap(getRelatedScriptSubtask.get());
-			}
+			var relatedFormMap = this.getRelatedForm(properties, list);
+			var relatedScriptMap = this.getRelatedScript(properties, list);
+			wo.setRelatedFormMap(relatedFormMap);
+			wo.setRelatedScriptMap(relatedScriptMap);
 			if (StringUtils.isNotBlank(tag)) {
 				wo.setMaxAge(3600 * 24);
 			}

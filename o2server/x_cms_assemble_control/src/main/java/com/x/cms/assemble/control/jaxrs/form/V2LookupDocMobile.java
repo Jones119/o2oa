@@ -1,10 +1,8 @@
 package com.x.cms.assemble.control.jaxrs.form;
 
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 import java.util.zip.CRC32;
 
@@ -69,26 +67,18 @@ class V2LookupDocMobile extends BaseAction {
 			} else {
 				List<String> list = new ArrayList<>();
 				if (null != this.form) {
-					try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-						var relatedFormSubtask = scope.fork(() -> this.relatedForm(this.form));
-						var relatedScriptSubtask = scope.fork(() -> this.relatedScript(this.form));
-						scope.joinUntil(Instant.now().plusSeconds(10));
-						scope.throwIfFailed();
-						list.add(this.form.getId() + this.form.getUpdateTime().getTime());
-						list.addAll(relatedFormSubtask.get());
-						list.addAll(relatedScriptSubtask.get());
-					}
+					var relatedFormList = this.relatedForm(this.form);
+					var relatedScriptList = this.relatedScript(this.form);
+					list.add(this.form.getId() + this.form.getUpdateTime().getTime());
+					list.addAll(relatedFormList);
+					list.addAll(relatedScriptList);
 				}
 				if (null != this.readForm && !formId.equals(readFormId)) {
-					try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-						var relatedFormSubtask = scope.fork(() -> this.relatedForm(this.readForm));
-						var relatedScriptSubtask = scope.fork(() -> this.relatedScript(this.readForm));
-						scope.joinUntil(Instant.now().plusSeconds(10));
-						scope.throwIfFailed();
-						list.add(this.readForm.getId() + this.readForm.getUpdateTime().getTime());
-						list.addAll(relatedFormSubtask.get());
-						list.addAll(relatedScriptSubtask.get());
-					}
+					var relatedFormList = this.relatedForm(this.readForm);
+					var relatedScriptList = this.relatedScript(this.readForm);
+					list.add(this.readForm.getId() + this.readForm.getUpdateTime().getTime());
+					list.addAll(relatedFormList);
+					list.addAll(relatedScriptList);
 				}
 				if (this.ppForm != null) {
 					list.add(this.ppForm.getId() + this.ppForm.getUpdateTime().getTime());
