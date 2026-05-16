@@ -20,24 +20,67 @@ PARENT_METAMODEL_MAP = {
 
 SKIP_CLASSES = {'JpaObject', 'SliceJpaObject', 'StorageObject'}
 
-def find_entity_files():
-    entities = []
+def find_all_classes():
+    classes = {}
     for root, dirs, files in os.walk(BASE_DIR):
         for f in files:
-            if f.endswith('.java') and not f.endswith('_Test.java'):
+            if f.endswith('.java') and not f.endswith('_.java') and not f.endswith('_Test.java'):
                 path = os.path.join(root, f)
                 class_name = f[:-5]
-                if class_name in SKIP_CLASSES:
-                    continue
                 try:
                     with open(path, 'r', encoding='utf-8') as fh:
                         content = fh.read()
-                    if '@Entity' in content or '@MappedSuperclass' in content:
-                        if f.endswith('_.java'):
-                            continue
-                        entities.append((path, content))
+                    is_entity = '@Entity' in content or '@MappedSuperclass' in content
+                    extends_match = re.search(r'extends\s+(\w+)', content)
+                    parent = extends_match.group(1) if extends_match else None
+                    
+                    package_match = re.search(r'package\s+([\w.]+);', content)
+                    package = package_match.group(1) if package_match else None
+                    
+                    key = f"{package}.{class_name}" if package else class_name
+                    classes[key] = {
+                        'path': path,
+                        'content': content,
+                        'parent': parent,
+                        'is_entity': is_entity,
+                        'class_name': class_name,
+                        'package': package
+                    }
                 except:
                     pass
+    return classes
+
+def get_direct_metamodel_parent(class_name, classes):
+    if class_name in PARENT_METAMODEL_MAP:
+        return PARENT_METAMODEL_MAP[class_name]
+    
+    matching_classes = []
+    for key, info in classes.items():
+        if info['class_name'] == class_name:
+            matching_classes.append(info)
+    
+    if not matching_classes:
+        return None
+    
+    matching_class = matching_classes[0]
+    for info in matching_classes:
+        if info.get('is_entity', False):
+            matching_class = info
+            break
+    
+    parent = matching_class['parent']
+    if not parent:
+        return None
+    
+    return get_direct_metamodel_parent(parent, classes)
+
+def find_entity_files(classes):
+    entities = []
+    for key, info in classes.items():
+        if info['class_name'] in SKIP_CLASSES:
+            continue
+        if info['is_entity']:
+            entities.append((info['path'], info['content'], info['class_name'], info['package']))
     return entities
 
 def get_parent_class(content):
@@ -46,22 +89,11 @@ def get_parent_class(content):
         return extends_match.group(1)
     return None
 
-def parse_entity(path, content):
+def parse_entity(path, content, class_name):
     package_match = re.search(r'package\s+([\w.]+);', content)
     if not package_match:
         return None
     package = package_match.group(1)
-    
-    class_match = re.search(r'public\s+(?:abstract\s+)?class\s+(\w+)', content)
-    if not class_match:
-        return None
-    class_name = class_match.group(1)
-    
-    is_entity = '@Entity' in content
-    is_mapped_super = '@MappedSuperclass' in content
-    
-    if not is_entity and not is_mapped_super:
-        return None
     
     all_imports = {}
     wildcard_packages = []
@@ -137,10 +169,6 @@ def parse_entity(path, content):
             if not stripped.startswith('@') and not stripped.startswith('//') and not stripped.startswith('/*') and not stripped.startswith('*'):
                 skip_next_field = False
     
-    parent_meta = None
-    if parent in PARENT_METAMODEL_MAP:
-        parent_meta = PARENT_METAMODEL_MAP[parent]
-    
     return {
         'package': package,
         'class_name': class_name,
@@ -148,7 +176,6 @@ def parse_entity(path, content):
         'path': path,
         'all_imports': all_imports,
         'parent': parent,
-        'parent_meta': parent_meta,
     }
 
 def map_type(field_type, all_imports):
@@ -182,7 +209,7 @@ def map_type(field_type, all_imports):
     
     return None
 
-def generate_metamodel(entity_info):
+def generate_metamodel(entity_info, parent_meta):
     if not entity_info:
         return None
     
@@ -190,7 +217,6 @@ def generate_metamodel(entity_info):
     class_name = entity_info['class_name']
     fields = entity_info['fields']
     all_imports = entity_info['all_imports']
-    parent_meta = entity_info['parent_meta']
     
     imports_needed = set()
     imports_needed.add('jakarta.persistence.metamodel.SingularAttribute')
@@ -239,30 +265,36 @@ def generate_metamodel(entity_info):
 
 def main():
     print("Scanning entity classes...")
-    entities = find_entity_files()
+    classes = find_all_classes()
+    print(f"Found {len(classes)} classes")
+    
+    entities = find_entity_files(classes)
     print(f"Found {len(entities)} entity/mappedSuperclass classes")
     
     created = 0
     skipped = 0
     
-    for path, content in entities:
-        info = parse_entity(path, content)
+    for path, content, class_name, package in entities:
+        info = parse_entity(path, content, class_name)
         if not info:
+            skipped += 1
             continue
         
-        metamodel_code = generate_metamodel(info)
+        parent_meta = get_direct_metamodel_parent(class_name, classes)
+        
+        metamodel_code = generate_metamodel(info, parent_meta)
         if not metamodel_code:
             skipped += 1
             continue
         
         dir_path = os.path.dirname(path)
-        metamodel_path = os.path.join(dir_path, f"{info['class_name']}_.java")
+        metamodel_path = os.path.join(dir_path, f"{class_name}_.java")
         
         with open(metamodel_path, 'w', encoding='utf-8') as f:
             f.write(metamodel_code)
         created += 1
-        ext = f" extends {info['parent_meta'][0]}" if info['parent_meta'] else ""
-        print(f"  Generated: {info['package']}.{info['class_name']}_{ext} ({len(info['fields'])} fields)")
+        ext = f" extends {parent_meta[0]}" if parent_meta else ""
+        print(f"  Generated: {info['package']}.{class_name}_{ext} ({len(info['fields'])} fields)")
     
     print(f"\nDone: Generated {created} metamodel classes, Skipped {skipped}")
 
