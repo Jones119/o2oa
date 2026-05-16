@@ -1,5 +1,7 @@
 package com.x.server.console.server.center;
 
+import com.alibaba.druid.support.jakarta.StatViewServlet;
+import com.alibaba.druid.support.jakarta.WebStatFilter;
 import com.x.base.core.project.config.CenterServer;
 import com.x.base.core.project.config.Config;
 import com.x.base.core.project.jaxrs.ApiAccessFilter;
@@ -147,14 +149,12 @@ public class CenterServerTools extends JettySeverTools {
 
 	private static void setStat(CenterServer centerServer, WebAppContext webApp) throws Exception {
 		if (BooleanUtils.isTrue(Config.general().getStatEnable())) {
-			// TODO druid的StatViewServlet和WebStatFilter基于javax.servlet，与Jetty 12的jakarta.servlet不兼容，
-			// 待druid升级到支持jakarta.servlet后再启用
-			// FilterHolder statFilterHolder = new FilterHolder(new WebStatFilter());
-			// statFilterHolder.setInitParameter("exclusions", Config.general().getStatExclusions());
-			// webApp.addFilter(statFilterHolder, "/*", EnumSet.of(DispatcherType.REQUEST));
-			// ServletHolder statServletHolder = new ServletHolder(StatViewServlet.class);
-			// statServletHolder.setInitParameter("sessionStatEnable", "false");
-			// webApp.addServlet(statServletHolder, "/druid/*");
+			FilterHolder statFilterHolder = new FilterHolder(new WebStatFilter());
+			statFilterHolder.setInitParameter("exclusions", Config.general().getStatExclusions());
+			webApp.addFilter(statFilterHolder, "/*", EnumSet.of(DispatcherType.REQUEST));
+			ServletHolder statServletHolder = new ServletHolder(StatViewServlet.class);
+			statServletHolder.setInitParameter("sessionStatEnable", "false");
+			webApp.addServlet(statServletHolder, "/druid/*");
 		}
 	}
 

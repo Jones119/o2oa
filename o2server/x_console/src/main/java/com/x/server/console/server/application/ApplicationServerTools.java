@@ -1,5 +1,7 @@
 package com.x.server.console.server.application;
 
+import com.alibaba.druid.support.jakarta.StatViewServlet;
+import com.alibaba.druid.support.jakarta.WebStatFilter;
 import com.x.base.core.project.Applications;
 import com.x.base.core.project.annotation.Module;
 import com.x.base.core.project.annotation.ModuleCategory;
@@ -210,8 +212,15 @@ public class ApplicationServerTools extends JettySeverTools {
 
     private static void setStat(ApplicationServer applicationServer, WebAppContext webApp)
             throws Exception {
-        // TODO druid uses javax.servlet, incompatible with jakarta.servlet in Jetty 12 ee10.
-        // Re-enable after upgrading druid to jakarta.servlet compatible version.
+        if (BooleanUtils.isTrue(Config.general().getStatEnable())) {
+            FilterHolder statFilterHolder = new FilterHolder(new WebStatFilter());
+            statFilterHolder.setInitParameter("exclusions", Config.general().getStatExclusions());
+            webApp.addFilter(statFilterHolder, "/*", EnumSet.of(DispatcherType.REQUEST));
+            ServletHolder statServletHolder = new ServletHolder(StatViewServlet.class);
+            statServletHolder.setInitParameter("sessionStatEnable",
+                    BooleanUtils.toStringTrueFalse(false));
+            webApp.addServlet(statServletHolder, "/druid/*");
+        }
     }
 
     private static void deployOfficial(ApplicationServer applicationServer, Handler.Sequence handlers,
