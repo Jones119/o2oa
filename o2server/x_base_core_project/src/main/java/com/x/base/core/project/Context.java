@@ -151,12 +151,12 @@ public class Context extends AbstractContext {
 
 	public static Context concrete(ServletContextEvent servletContextEvent, boolean loadDynamicEntityClass,
 			ClassLoader classLoader) throws Exception {
-		// 强制忽略ssl服务器认证
 		SslTools.ignoreSsl();
 		ServletContext servletContext = servletContextEvent.getServletContext();
 		Context context = new Context();
 		context.contextPath = servletContext.getContextPath();
-		context.clazz = Thread.currentThread().getContextClassLoader()
+		ClassLoader tccl = Thread.currentThread().getContextClassLoader();
+		context.clazz = tccl
 				.loadClass(servletContext.getInitParameter(INITPARAMETER_PORJECT));
 		context.module = context.clazz.getAnnotation(Module.class);
 		context.name = context.module.name();

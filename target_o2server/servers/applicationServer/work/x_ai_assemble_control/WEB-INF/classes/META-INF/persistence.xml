@@ -6,61 +6,64 @@
     <class>com.x.base.core.entity.StorageObject</class>
     <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
-    <class>com.x.mind.entity.MindBaseInfo</class>
-    <class>com.x.mind.entity.MindContentInfo</class>
-    <class>com.x.mind.entity.MindFolderInfo</class>
-    <class>com.x.mind.entity.MindIconInfo</class>
-    <class>com.x.mind.entity.MindRecycleInfo</class>
-    <class>com.x.mind.entity.MindShareRecord</class>
-    <class>com.x.mind.entity.MindVersionContent</class>
-    <class>com.x.mind.entity.MindVersionInfo</class>
+    <class>com.x.ai.core.entity.AiModel</class>
+    <class>com.x.ai.core.entity.Clue</class>
+    <class>com.x.ai.core.entity.Completion</class>
+    <class>com.x.ai.core.entity.File</class>
+    <class>com.x.cms.core.entity.Document</class>
+    <class>com.x.cms.core.entity.FileInfo</class>
+    <class>com.x.processplatform.core.entity.content.Attachment</class>
+    <class>com.x.query.core.entity.Item</class>
   </persistence-unit>
-  <persistence-unit name="com.x.mind.entity.MindBaseInfo" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.x.ai.core.entity.AiModel" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.mind.entity.MindBaseInfo</class>
+    <class>com.x.ai.core.entity.AiModel</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
     <class>com.x.base.core.entity.JpaObject</class>
   </persistence-unit>
-  <persistence-unit name="com.x.mind.entity.MindContentInfo" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.x.ai.core.entity.Clue" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.mind.entity.MindContentInfo</class>
+    <class>com.x.ai.core.entity.Clue</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
     <class>com.x.base.core.entity.JpaObject</class>
   </persistence-unit>
-  <persistence-unit name="com.x.mind.entity.MindFolderInfo" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.x.ai.core.entity.Completion" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.base.core.entity.SliceJpaObject</class>
-    <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.mind.entity.MindFolderInfo</class>
-  </persistence-unit>
-  <persistence-unit name="com.x.mind.entity.MindIconInfo" transaction-type="RESOURCE_LOCAL">
-    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.base.core.entity.SliceJpaObject</class>
-    <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.mind.entity.MindIconInfo</class>
-  </persistence-unit>
-  <persistence-unit name="com.x.mind.entity.MindRecycleInfo" transaction-type="RESOURCE_LOCAL">
-    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.base.core.entity.SliceJpaObject</class>
-    <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.mind.entity.MindRecycleInfo</class>
-  </persistence-unit>
-  <persistence-unit name="com.x.mind.entity.MindShareRecord" transaction-type="RESOURCE_LOCAL">
-    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.mind.entity.MindShareRecord</class>
+    <class>com.x.ai.core.entity.Completion</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
     <class>com.x.base.core.entity.JpaObject</class>
   </persistence-unit>
-  <persistence-unit name="com.x.mind.entity.MindVersionContent" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.x.ai.core.entity.File" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.mind.entity.MindVersionContent</class>
+    <class>com.x.ai.core.entity.File</class>
+    <class>com.x.base.core.entity.StorageObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
     <class>com.x.base.core.entity.JpaObject</class>
   </persistence-unit>
-  <persistence-unit name="com.x.mind.entity.MindVersionInfo" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.x.cms.core.entity.Document" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.cms.core.entity.Document</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.cms.core.entity.FileInfo" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.StorageObject</class>
+    <class>com.x.cms.core.entity.FileInfo</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.Attachment" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.StorageObject</class>
+    <class>com.x.processplatform.core.entity.content.Attachment</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.query.core.entity.Item" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <class>com.x.base.core.entity.SliceJpaObject</class>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.mind.entity.MindVersionInfo</class>
+    <class>com.x.query.core.entity.Item</class>
   </persistence-unit>
 </persistence>

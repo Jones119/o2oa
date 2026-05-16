@@ -19,16 +19,16 @@
   </persistence-unit>
   <persistence-unit name="com.x.cms.core.entity.Document" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.cms.core.entity.Document</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.cms.core.entity.Document</class>
   </persistence-unit>
   <persistence-unit name="com.x.file.core.entity.open.File" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.base.core.entity.SliceJpaObject</class>
-    <class>com.x.base.core.entity.StorageObject</class>
-    <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.file.core.entity.open.File</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.base.core.entity.StorageObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.file.core.entity.open.FileConfig" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
@@ -38,40 +38,40 @@
   </persistence-unit>
   <persistence-unit name="com.x.file.core.entity.open.OriginFile" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.base.core.entity.SliceJpaObject</class>
-    <class>com.x.base.core.entity.StorageObject</class>
     <class>com.x.file.core.entity.open.OriginFile</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
     <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.base.core.entity.StorageObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.file.core.entity.personal.Attachment" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.base.core.entity.SliceJpaObject</class>
-    <class>com.x.base.core.entity.StorageObject</class>
-    <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.file.core.entity.personal.Attachment</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.base.core.entity.StorageObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.file.core.entity.personal.Attachment2" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <class>com.x.base.core.entity.SliceJpaObject</class>
-    <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.file.core.entity.personal.Attachment2</class>
+    <class>com.x.base.core.entity.JpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.file.core.entity.personal.Folder" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.file.core.entity.personal.Folder</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.file.core.entity.personal.Folder</class>
     <class>com.x.base.core.entity.JpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.file.core.entity.personal.Folder2" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.base.core.entity.SliceJpaObject</class>
     <class>com.x.file.core.entity.personal.Folder2</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
     <class>com.x.base.core.entity.JpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.file.core.entity.personal.Recycle" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.base.core.entity.SliceJpaObject</class>
     <class>com.x.file.core.entity.personal.Recycle</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
     <class>com.x.base.core.entity.JpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.file.core.entity.personal.Share" transaction-type="RESOURCE_LOCAL">

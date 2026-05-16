@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
+  <persistence-unit name="com.x.base.core.entity.ApplicationBaseEntity" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.StorageObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.cms.core.entity.FileInfo</class>
+    <class>com.x.cms.core.entity.element.Script</class>
+    <class>com.x.portal.core.entity.Script</class>
+    <class>com.x.processplatform.core.entity.content.Attachment</class>
+    <class>com.x.processplatform.core.entity.content.DataRecord</class>
+    <class>com.x.processplatform.core.entity.content.DocSign</class>
+    <class>com.x.processplatform.core.entity.content.DocSignScrawl</class>
+    <class>com.x.processplatform.core.entity.content.DocumentVersion</class>
+    <class>com.x.processplatform.core.entity.content.Draft</class>
+    <class>com.x.processplatform.core.entity.content.Handover</class>
+    <class>com.x.processplatform.core.entity.content.Read</class>
+    <class>com.x.processplatform.core.entity.content.ReadCompleted</class>
+    <class>com.x.processplatform.core.entity.content.Record</class>
+    <class>com.x.processplatform.core.entity.content.Review</class>
+    <class>com.x.processplatform.core.entity.content.SerialNumber</class>
+    <class>com.x.processplatform.core.entity.content.Snap</class>
+    <class>com.x.processplatform.core.entity.content.Task</class>
+    <class>com.x.processplatform.core.entity.content.TaskCompleted</class>
+    <class>com.x.processplatform.core.entity.content.Work</class>
+    <class>com.x.processplatform.core.entity.content.WorkCompleted</class>
+    <class>com.x.processplatform.core.entity.content.WorkLog</class>
+    <class>com.x.processplatform.core.entity.element.Agent</class>
+    <class>com.x.processplatform.core.entity.element.Application</class>
+    <class>com.x.processplatform.core.entity.element.ApplicationDict</class>
+    <class>com.x.processplatform.core.entity.element.ApplicationDictItem</class>
+    <class>com.x.processplatform.core.entity.element.Begin</class>
+    <class>com.x.processplatform.core.entity.element.Cancel</class>
+    <class>com.x.processplatform.core.entity.element.Choice</class>
+    <class>com.x.processplatform.core.entity.element.Delay</class>
+    <class>com.x.processplatform.core.entity.element.Embed</class>
+    <class>com.x.processplatform.core.entity.element.End</class>
+    <class>com.x.processplatform.core.entity.element.File</class>
+    <class>com.x.processplatform.core.entity.element.Form</class>
+    <class>com.x.processplatform.core.entity.element.FormField</class>
+    <class>com.x.processplatform.core.entity.element.Invoke</class>
+    <class>com.x.processplatform.core.entity.element.Manual</class>
+    <class>com.x.processplatform.core.entity.element.Mapping</class>
+    <class>com.x.processplatform.core.entity.element.Merge</class>
+    <class>com.x.processplatform.core.entity.element.Parallel</class>
+    <class>com.x.processplatform.core.entity.element.Process</class>
+    <class>com.x.processplatform.core.entity.element.Publish</class>
+    <class>com.x.processplatform.core.entity.element.Route</class>
+    <class>com.x.processplatform.core.entity.element.Script</class>
+    <class>com.x.processplatform.core.entity.element.Service</class>
+    <class>com.x.processplatform.core.entity.element.Split</class>
+    <class>com.x.processplatform.core.entity.log.MergeItemPlan</class>
+    <class>com.x.processplatform.core.entity.message.Event</class>
+    <class>com.x.processplatform.core.entity.message.WorkCompletedEvent</class>
+    <class>com.x.processplatform.core.entity.message.WorkEvent</class>
+    <class>com.x.program.center.core.entity.Script</class>
+    <class>com.x.query.core.entity.Item</class>
+    <class>com.x.query.core.entity.ItemAccess</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.cms.core.entity.FileInfo" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.StorageObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.cms.core.entity.FileInfo</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.cms.core.entity.element.Script" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.cms.core.entity.element.Script</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.portal.core.entity.Script" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.portal.core.entity.Script</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.Attachment" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.StorageObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.Attachment</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.DataRecord" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.processplatform.core.entity.content.DataRecord</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.DocSign" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.DocSign</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.DocSignScrawl" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.StorageObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.DocSignScrawl</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.DocumentVersion" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.processplatform.core.entity.content.DocumentVersion</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.Draft" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.Draft</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.Handover" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.Handover</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.Read" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.processplatform.core.entity.content.Read</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.ReadCompleted" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.ReadCompleted</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.Record" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.Record</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.Review" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.Review</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.SerialNumber" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.SerialNumber</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.Snap" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.Snap</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.Task" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.Task</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.TaskCompleted" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.TaskCompleted</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.Work" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.Work</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.WorkCompleted" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.WorkCompleted</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.WorkLog" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.WorkLog</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Agent" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Agent</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Application" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Application</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.ApplicationDict" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.ApplicationDict</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.ApplicationDictItem" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.ApplicationDictItem</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Begin" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Begin</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Cancel" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Cancel</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Choice" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Choice</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Delay" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Delay</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Embed" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Embed</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.End" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.End</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.File" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.processplatform.core.entity.element.File</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Form" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Form</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.FormField" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.FormField</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Invoke" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Invoke</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Manual" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Manual</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Mapping" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Mapping</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Merge" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Merge</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Parallel" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Parallel</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Process" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Process</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Publish" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Publish</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Route" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Route</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Script" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Script</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Service" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Service</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.element.Split" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Split</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.log.MergeItemPlan" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.log.MergeItemPlan</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.message.Event" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.message.Event</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.message.WorkCompletedEvent" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.processplatform.core.entity.message.WorkCompletedEvent</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.message.WorkEvent" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.message.WorkEvent</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.program.center.core.entity.Script" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.program.center.core.entity.Script</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.query.core.entity.Item" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.query.core.entity.Item</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.query.core.entity.ItemAccess" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.query.core.entity.ItemAccess</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+</persistence>

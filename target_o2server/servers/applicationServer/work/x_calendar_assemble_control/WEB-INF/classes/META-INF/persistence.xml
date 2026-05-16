@@ -6,47 +6,47 @@
     <class>com.x.base.core.entity.StorageObject</class>
     <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
-    <class>com.x.organization.core.entity.Bind</class>
-    <class>com.x.organization.core.entity.Identity</class>
-    <class>com.x.organization.core.entity.OauthCode</class>
-    <class>com.x.organization.core.entity.Person</class>
-    <class>com.x.organization.core.entity.Role</class>
-    <class>com.x.organization.core.entity.log.TokenThreshold</class>
+    <class>com.x.calendar.core.entity.Calendar</class>
+    <class>com.x.calendar.core.entity.Calendar_Event</class>
+    <class>com.x.calendar.core.entity.Calendar_EventComment</class>
+    <class>com.x.calendar.core.entity.Calendar_EventRepeatMaster</class>
+    <class>com.x.calendar.core.entity.Calendar_Setting</class>
+    <class>com.x.calendar.core.entity.Calendar_SettingLobValue</class>
   </persistence-unit>
-  <persistence-unit name="com.x.organization.core.entity.Bind" transaction-type="RESOURCE_LOCAL">
-    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.organization.core.entity.Bind</class>
-    <class>com.x.base.core.entity.SliceJpaObject</class>
-    <class>com.x.base.core.entity.JpaObject</class>
-  </persistence-unit>
-  <persistence-unit name="com.x.organization.core.entity.Identity" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.x.calendar.core.entity.Calendar" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <class>com.x.base.core.entity.SliceJpaObject</class>
-    <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.organization.core.entity.Identity</class>
-  </persistence-unit>
-  <persistence-unit name="com.x.organization.core.entity.OauthCode" transaction-type="RESOURCE_LOCAL">
-    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.organization.core.entity.OauthCode</class>
-    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.calendar.core.entity.Calendar</class>
     <class>com.x.base.core.entity.JpaObject</class>
   </persistence-unit>
-  <persistence-unit name="com.x.organization.core.entity.Person" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.x.calendar.core.entity.Calendar_Event" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <class>com.x.base.core.entity.SliceJpaObject</class>
-    <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.organization.core.entity.Person</class>
-  </persistence-unit>
-  <persistence-unit name="com.x.organization.core.entity.Role" transaction-type="RESOURCE_LOCAL">
-    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.organization.core.entity.Role</class>
-    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.calendar.core.entity.Calendar_Event</class>
     <class>com.x.base.core.entity.JpaObject</class>
   </persistence-unit>
-  <persistence-unit name="com.x.organization.core.entity.log.TokenThreshold" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.x.calendar.core.entity.Calendar_EventComment" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.calendar.core.entity.Calendar_EventComment</class>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.organization.core.entity.log.TokenThreshold</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.calendar.core.entity.Calendar_EventRepeatMaster" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.calendar.core.entity.Calendar_EventRepeatMaster</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.calendar.core.entity.Calendar_Setting" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.calendar.core.entity.Calendar_Setting</class>
+    <class>com.x.base.core.entity.JpaObject</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.calendar.core.entity.Calendar_SettingLobValue" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.calendar.core.entity.Calendar_SettingLobValue</class>
+    <class>com.x.base.core.entity.JpaObject</class>
   </persistence-unit>
 </persistence>

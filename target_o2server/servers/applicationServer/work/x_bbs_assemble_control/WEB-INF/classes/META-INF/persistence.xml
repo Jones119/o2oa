@@ -33,8 +33,8 @@
   </persistence-unit>
   <persistence-unit name="com.x.bbs.entity.BBSForumInfo" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.bbs.entity.BBSForumInfo</class>
+    <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.bbs.entity.BBSOperationRecord" transaction-type="RESOURCE_LOCAL">
@@ -45,8 +45,8 @@
   </persistence-unit>
   <persistence-unit name="com.x.bbs.entity.BBSPermissionInfo" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.bbs.entity.BBSPermissionInfo</class>
+    <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.bbs.entity.BBSPermissionRole" transaction-type="RESOURCE_LOCAL">
@@ -57,9 +57,9 @@
   </persistence-unit>
   <persistence-unit name="com.x.bbs.entity.BBSReplyInfo" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.bbs.entity.BBSReplyInfo</class>
     <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.bbs.entity.BBSReplyInfo</class>
   </persistence-unit>
   <persistence-unit name="com.x.bbs.entity.BBSRoleInfo" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
@@ -69,40 +69,40 @@
   </persistence-unit>
   <persistence-unit name="com.x.bbs.entity.BBSSectionInfo" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.bbs.entity.BBSSectionInfo</class>
     <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
-    <class>com.x.bbs.entity.BBSSectionInfo</class>
   </persistence-unit>
   <persistence-unit name="com.x.bbs.entity.BBSShutup" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.bbs.entity.BBSShutup</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.bbs.entity.BBSShutup</class>
   </persistence-unit>
   <persistence-unit name="com.x.bbs.entity.BBSSubjectAttachment" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.bbs.entity.BBSSubjectAttachment</class>
-    <class>com.x.base.core.entity.StorageObject</class>
     <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.bbs.entity.BBSSubjectAttachment</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.base.core.entity.StorageObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.bbs.entity.BBSSubjectContent" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.bbs.entity.BBSSubjectContent</class>
+    <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.bbs.entity.BBSSubjectInfo" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.bbs.entity.BBSSubjectInfo</class>
+    <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.bbs.entity.BBSSubjectVoteResult" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.bbs.entity.BBSSubjectVoteResult</class>
     <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.bbs.entity.BBSSubjectVoteResult</class>
   </persistence-unit>
   <persistence-unit name="com.x.bbs.entity.BBSUserInfo" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
@@ -118,15 +118,15 @@
   </persistence-unit>
   <persistence-unit name="com.x.bbs.entity.BBSVoteOption" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.bbs.entity.BBSVoteOption</class>
+    <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
   <persistence-unit name="com.x.bbs.entity.BBSVoteOptionGroup" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.bbs.entity.BBSVoteOptionGroup</class>
     <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.bbs.entity.BBSVoteOptionGroup</class>
   </persistence-unit>
   <persistence-unit name="com.x.bbs.entity.BBSVoteRecord" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>

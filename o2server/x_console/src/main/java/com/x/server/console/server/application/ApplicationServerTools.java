@@ -226,12 +226,10 @@ public class ApplicationServerTools extends JettySeverTools {
 
     private static void deployOfficial(ApplicationServer applicationServer, Handler.Sequence handlers,
             List<ClassInfo> officialClassInfos) {
-        ClassLoader serverClassLoader = ApplicationServerTools.class.getClassLoader();
-        officialClassInfos.parallelStream().forEach(info -> {
-            ClassLoader originalClassLoader = Thread.currentThread().getContextClassLoader();
-            Thread.currentThread().setContextClassLoader(serverClassLoader);
+        ClassLoader serverClassLoader = ClassLoader.getSystemClassLoader();
+        officialClassInfos.stream().forEach(info -> {
             try {
-                Class<?> clz = serverClassLoader.loadClass(info.getName());
+                Class<?> clz = Class.forName(info.getName(), true, serverClassLoader);
                 Path war = Paths.get(Config.dir_store().toString(),
                         info.getSimpleName() + PathTools.DOT_WAR);
                 Path dir = Paths.get(Config.dir_servers_applicationServer_work().toString(),
@@ -269,8 +267,6 @@ public class ApplicationServerTools extends JettySeverTools {
                 }
             } catch (Exception e) {
                 LOGGER.error(e);
-            } finally {
-                Thread.currentThread().setContextClassLoader(originalClassLoader);
             }
         });
     }

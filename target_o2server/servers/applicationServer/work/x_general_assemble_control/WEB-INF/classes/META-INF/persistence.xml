@@ -6,41 +6,35 @@
     <class>com.x.base.core.entity.StorageObject</class>
     <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
-    <class>com.x.meeting.core.entity.Attachment</class>
-    <class>com.x.meeting.core.entity.Building</class>
-    <class>com.x.meeting.core.entity.Meeting</class>
-    <class>com.x.meeting.core.entity.MeetingConfig</class>
-    <class>com.x.meeting.core.entity.Room</class>
+    <class>com.x.general.core.entity.GeneralFile</class>
+    <class>com.x.general.core.entity.Invoice</class>
+    <class>com.x.general.core.entity.area.District</class>
+    <class>com.x.processplatform.core.entity.element.Route</class>
   </persistence-unit>
-  <persistence-unit name="com.x.meeting.core.entity.Attachment" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.x.general.core.entity.GeneralFile" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.meeting.core.entity.Attachment</class>
     <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
     <class>com.x.base.core.entity.StorageObject</class>
-    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.general.core.entity.GeneralFile</class>
   </persistence-unit>
-  <persistence-unit name="com.x.meeting.core.entity.Building" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.x.general.core.entity.Invoice" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.meeting.core.entity.Building</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.general.core.entity.Invoice</class>
+    <class>com.x.base.core.entity.StorageObject</class>
   </persistence-unit>
-  <persistence-unit name="com.x.meeting.core.entity.Meeting" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.x.general.core.entity.area.District" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.meeting.core.entity.Meeting</class>
+    <class>com.x.general.core.entity.area.District</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
-  <persistence-unit name="com.x.meeting.core.entity.MeetingConfig" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.x.processplatform.core.entity.element.Route" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.meeting.core.entity.MeetingConfig</class>
-    <class>com.x.base.core.entity.SliceJpaObject</class>
-  </persistence-unit>
-  <persistence-unit name="com.x.meeting.core.entity.Room" transaction-type="RESOURCE_LOCAL">
-    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.meeting.core.entity.Room</class>
-    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.element.Route</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
 </persistence>

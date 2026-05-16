@@ -6,41 +6,47 @@
     <class>com.x.base.core.entity.StorageObject</class>
     <class>com.x.base.core.entity.JpaObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
-    <class>com.x.meeting.core.entity.Attachment</class>
-    <class>com.x.meeting.core.entity.Building</class>
-    <class>com.x.meeting.core.entity.Meeting</class>
-    <class>com.x.meeting.core.entity.MeetingConfig</class>
-    <class>com.x.meeting.core.entity.Room</class>
+    <class>com.x.cms.core.entity.Document</class>
+    <class>com.x.cms.core.entity.Review</class>
+    <class>com.x.correlation.core.entity.content.Correlation</class>
+    <class>com.x.processplatform.core.entity.content.Review</class>
+    <class>com.x.processplatform.core.entity.content.Work</class>
+    <class>com.x.processplatform.core.entity.content.WorkCompleted</class>
   </persistence-unit>
-  <persistence-unit name="com.x.meeting.core.entity.Attachment" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.x.cms.core.entity.Document" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.meeting.core.entity.Attachment</class>
+    <class>com.x.cms.core.entity.Document</class>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.base.core.entity.StorageObject</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
-  <persistence-unit name="com.x.meeting.core.entity.Building" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.x.cms.core.entity.Review" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.cms.core.entity.Review</class>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.meeting.core.entity.Building</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
-  <persistence-unit name="com.x.meeting.core.entity.Meeting" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.x.correlation.core.entity.content.Correlation" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.meeting.core.entity.Meeting</class>
+    <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.correlation.core.entity.content.Correlation</class>
+  </persistence-unit>
+  <persistence-unit name="com.x.processplatform.core.entity.content.Review" transaction-type="RESOURCE_LOCAL">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.Review</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
-  <persistence-unit name="com.x.meeting.core.entity.MeetingConfig" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.x.processplatform.core.entity.content.Work" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <class>com.x.base.core.entity.JpaObject</class>
-    <class>com.x.meeting.core.entity.MeetingConfig</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
+    <class>com.x.processplatform.core.entity.content.Work</class>
   </persistence-unit>
-  <persistence-unit name="com.x.meeting.core.entity.Room" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="com.x.processplatform.core.entity.content.WorkCompleted" transaction-type="RESOURCE_LOCAL">
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <class>com.x.meeting.core.entity.Room</class>
     <class>com.x.base.core.entity.JpaObject</class>
+    <class>com.x.processplatform.core.entity.content.WorkCompleted</class>
     <class>com.x.base.core.entity.SliceJpaObject</class>
   </persistence-unit>
 </persistence>

@@ -150,9 +150,10 @@ public class Context extends AbstractContext {
         context.clazz = Thread.currentThread().getContextClassLoader()
                 .loadClass(servletContextEvent.getServletContext().getInitParameter(INITPARAMETER_PORJECT));
         context.initDatas();
-        // context.threadFactory = new ThreadFactory(context);
         try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
             context.checkDefaultRole(emc);
+        } catch (Exception e) {
+            LOGGER.warn("checkDefaultRole error: {}", e.getMessage());
         }
         servletContext.setAttribute(AbstractContext.class.getName(), context);
         SchedulerFactoryProperties schedulerFactoryProperties = SchedulerFactoryProperties.concrete();
