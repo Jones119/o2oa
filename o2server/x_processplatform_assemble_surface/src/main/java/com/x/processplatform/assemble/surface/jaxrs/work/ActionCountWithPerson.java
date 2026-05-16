@@ -1,7 +1,6 @@
 package com.x.processplatform.assemble.surface.jaxrs.work;
 
 import java.time.Instant;
-import java.util.concurrent.StructuredTaskScope;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -51,20 +50,6 @@ class ActionCountWithPerson extends BaseAction {
 		}
 		if (StringUtils.isNotEmpty(person)) {
 			final String dn = person;
-			try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-				var taskSubtask = scope.fork(() -> countTask(dn, appId));
-				var taskCompletedSubtask = scope.fork(() -> countTaskCompleted(dn, appId));
-				var readSubtask = scope.fork(() -> countRead(dn, appId));
-				var readCompletedSubtask = scope.fork(() -> countReadCompleted(dn, appId));
-				var reviewSubtask = scope.fork(() -> countReview(dn, appId));
-				scope.joinUntil(Instant.now().plusSeconds(Config.processPlatform().getAsynchronousTimeout()));
-				scope.throwIfFailed();
-				wo.setTask(taskSubtask.get());
-				wo.setTaskCompleted(taskCompletedSubtask.get());
-				wo.setRead(readSubtask.get());
-				wo.setReadCompleted(readCompletedSubtask.get());
-				wo.setReview(reviewSubtask.get());
-			}
 		}
 		result.setData(wo);
 		return result;

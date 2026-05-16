@@ -1,10 +1,8 @@
 package com.x.processplatform.service.processing.jaxrs.snap;
 
-import java.time.Instant;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 
 import org.apache.commons.codec.binary.Base64;
@@ -50,22 +48,18 @@ abstract class BaseAction extends StandardJaxrsAction {
 			throws Exception {
 		SnapProperties properties = new SnapProperties();
 		properties.setJob(job);
-		try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-			scope.fork(() -> mergeItem(business, job, properties, items));
-			scope.fork(() -> mergeWork(business, job, properties, works));
-			scope.fork(() -> mergeTask(business, job, properties, tasks));
-			scope.fork(() -> mergeTaskCompleted(business, job, properties, taskCompleteds));
-			scope.fork(() -> mergeRead(business, job, properties, reads));
-			scope.fork(() -> mergeReadCompleted(business, job, properties, readCompleteds));
-			scope.fork(() -> mergeReview(business, job, properties, reviews));
-			scope.fork(() -> mergeWorkLog(business, job, properties, workLogs));
-			scope.fork(() -> mergeRecord(business, job, properties, records));
-			scope.fork(() -> mergeDocumentVersion(business, job, properties, documentVersions));
-			scope.fork(() -> mergeDocSign(business, job, properties, docSigns));
-			scope.fork(() -> mergeDocSignScrawl(business, job, properties, docSignScrawls));
-			scope.joinUntil(Instant.now().plusSeconds(60));
-			scope.throwIfFailed();
-		}
+		mergeItem(business, job, properties, items);
+		mergeWork(business, job, properties, works);
+		mergeTask(business, job, properties, tasks);
+		mergeTaskCompleted(business, job, properties, taskCompleteds);
+		mergeRead(business, job, properties, reads);
+		mergeReadCompleted(business, job, properties, readCompleteds);
+		mergeReview(business, job, properties, reviews);
+		mergeWorkLog(business, job, properties, workLogs);
+		mergeRecord(business, job, properties, records);
+		mergeDocumentVersion(business, job, properties, documentVersions);
+		mergeDocSign(business, job, properties, docSigns);
+		mergeDocSignScrawl(business, job, properties, docSignScrawls);
 		if (ListTools.isNotEmpty(works)) {
 			properties.setTitle(works.get(0).getTitle());
 		}
@@ -80,20 +74,16 @@ abstract class BaseAction extends StandardJaxrsAction {
 		properties.setJob(job);
 		properties.setWorkCompleted(workCompleted);
 		properties.setTitle(workCompleted.getTitle());
-		try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-			scope.fork(() -> mergeTaskCompleted(business, job, properties, taskCompleteds));
-			scope.fork(() -> mergeRead(business, job, properties, reads));
-			scope.fork(() -> mergeReadCompleted(business, job, properties, readCompleteds));
-			scope.fork(() -> mergeReview(business, job, properties, reviews));
-			scope.fork(() -> mergeWorkLog(business, job, properties, workLogs));
-			scope.fork(() -> mergeRecord(business, job, properties, records));
-			scope.fork(() -> mergeDocSign(business, job, properties, docSigns));
-			scope.fork(() -> mergeDocSignScrawl(business, job, properties, docSignScrawls));
-			if (BooleanUtils.isNotTrue(workCompleted.getMerged())) {
-				scope.fork(() -> mergeItem(business, job, properties, items));
-			}
-			scope.joinUntil(Instant.now().plusSeconds(60));
-			scope.throwIfFailed();
+		mergeTaskCompleted(business, job, properties, taskCompleteds);
+		mergeRead(business, job, properties, reads);
+		mergeReadCompleted(business, job, properties, readCompleteds);
+		mergeReview(business, job, properties, reviews);
+		mergeWorkLog(business, job, properties, workLogs);
+		mergeRecord(business, job, properties, records);
+		mergeDocSign(business, job, properties, docSigns);
+		mergeDocSignScrawl(business, job, properties, docSignScrawls);
+		if (BooleanUtils.isNotTrue(workCompleted.getMerged())) {
+			mergeItem(business, job, properties, items);
 		}
 
 		return properties;
@@ -104,42 +94,34 @@ abstract class BaseAction extends StandardJaxrsAction {
 			List<Review> reviews, List<WorkLog> workLogs, List<Record> records, List<DocumentVersion> documentVersions,
 			List<DocSign> docSigns, List<DocSignScrawl> docSignScrawls)
 			throws Exception {
-		try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-			scope.fork(() -> deleteItem(business, items));
-			scope.fork(() -> deleteWork(business, works));
-			scope.fork(() -> deleteTask(business, tasks));
-			scope.fork(() -> deleteTaskCompleted(business, taskCompleteds));
-			scope.fork(() -> deleteRead(business, reads));
-			scope.fork(() -> deleteReadCompleted(business, readCompleteds));
-			scope.fork(() -> deleteReview(business, reviews));
-			scope.fork(() -> deleteWorkLog(business, workLogs));
-			scope.fork(() -> deleteRecord(business, records));
-			scope.fork(() -> deleteDocumentVersion(business, documentVersions));
-			scope.fork(() -> deleteDocSign(business, docSigns));
-			scope.fork(() -> deleteDocSignScrawl(business, docSignScrawls));
-			scope.joinUntil(Instant.now().plusSeconds(60));
-			scope.throwIfFailed();
-		}
+		deleteItem(business, items);
+		deleteWork(business, works);
+		deleteTask(business, tasks);
+		deleteTaskCompleted(business, taskCompleteds);
+		deleteRead(business, reads);
+		deleteReadCompleted(business, readCompleteds);
+		deleteReview(business, reviews);
+		deleteWorkLog(business, workLogs);
+		deleteRecord(business, records);
+		deleteDocumentVersion(business, documentVersions);
+		deleteDocSign(business, docSigns);
+		deleteDocSignScrawl(business, docSignScrawls);
 	}
 
 	protected void clean(Business business, List<Item> items, WorkCompleted workCompleted,
 			List<TaskCompleted> taskCompleteds, List<Read> reads, List<ReadCompleted> readCompleteds,
 			List<Review> reviews, List<WorkLog> workLogs, List<Record> records, List<DocSign> docSigns,
 			List<DocSignScrawl> docSignScrawls) throws Exception {
-		try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-			scope.fork(() -> deleteItem(business, items));
-			scope.fork(() -> deleteWork(business, workCompleted));
-			scope.fork(() -> deleteTaskCompleted(business, taskCompleteds));
-			scope.fork(() -> deleteRead(business, reads));
-			scope.fork(() -> deleteReadCompleted(business, readCompleteds));
-			scope.fork(() -> deleteReview(business, reviews));
-			scope.fork(() -> deleteWorkLog(business, workLogs));
-			scope.fork(() -> deleteRecord(business, records));
-			scope.fork(() -> deleteDocSign(business, docSigns));
-			scope.fork(() -> deleteDocSignScrawl(business, docSignScrawls));
-			scope.joinUntil(Instant.now().plusSeconds(60));
-			scope.throwIfFailed();
-		}
+		deleteItem(business, items);
+		deleteWork(business, workCompleted);
+		deleteTaskCompleted(business, taskCompleteds);
+		deleteRead(business, reads);
+		deleteReadCompleted(business, readCompleteds);
+		deleteReview(business, reviews);
+		deleteWorkLog(business, workLogs);
+		deleteRecord(business, records);
+		deleteDocSign(business, docSigns);
+		deleteDocSignScrawl(business, docSignScrawls);
 	}
 
 	private Void mergeItem(Business business, String job, SnapProperties snapProperties,

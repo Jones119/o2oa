@@ -19,7 +19,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jetty.server.AsyncRequestLogWriter;
 import org.eclipse.jetty.server.RequestLog;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.HandlerList;
+import org.eclipse.jetty.server.Handler;
+import org.eclipse.jetty.server.Handler.Sequence;
 import org.eclipse.jetty.server.handler.gzip.GzipHandler;
 import org.eclipse.jetty.ee10.servlet.FilterHolder;
 import org.eclipse.jetty.ee10.servlet.ServletHolder;
@@ -72,7 +73,7 @@ public class WebServerTools extends JettySeverTools {
 	private static Server startInApplication() throws Exception {
 		WebAppContext webContext = webContext();
 		GzipHandler gzipHandler = (GzipHandler) Servers.getApplicationServer().getHandler();
-		HandlerList hanlderList = (HandlerList) gzipHandler.getHandler();
+		Handler.Sequence handlerCollection = (HandlerList) gzipHandler.getHandler();
 		hanlderList.addHandler(webContext);
 		webContext.start();
 		LOGGER.print("****************************************");
@@ -83,7 +84,7 @@ public class WebServerTools extends JettySeverTools {
 	}
 
 	private static Server startStandalone(WebServer webServer) throws Exception {
-		HandlerList handlers = new HandlerList();
+		Handler.Sequence handlers = new Handler.Sequence();
 		Server server = createServer(webServer, handlers);
 		WebAppContext context = webContext();
 		handlers.addHandler(context);
@@ -110,7 +111,7 @@ public class WebServerTools extends JettySeverTools {
 		return server;
 	}
 
-	private static Server createServer(WebServer webServer, HandlerList handlers) throws Exception {
+	private static Server createServer(WebServer webServer, Handler.Sequence handlers) throws Exception {
 		QueuedThreadPool threadPool = new QueuedThreadPool();
 		threadPool.setName("WebServerQueuedThreadPool");
 		threadPool.setMinThreads(THREAD_POOL_SIZE_MIN);

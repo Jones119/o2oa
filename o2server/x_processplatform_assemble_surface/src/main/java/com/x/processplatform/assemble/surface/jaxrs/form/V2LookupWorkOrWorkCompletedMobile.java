@@ -4,7 +4,6 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 import java.util.zip.CRC32;
 
@@ -50,18 +49,8 @@ class V2LookupWorkOrWorkCompletedMobile extends BaseAction {
 			CacheKey cacheKey = new CacheKey(this.getClass(), this.form.getId());
 			Optional<?> optional = CacheManager.get(cacheCategory, cacheKey);
 			if (optional.isPresent()) {
-				this.wo = (Wo) optional.get();
 			} else {
 				List<String> list = new ArrayList<>();
-				try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-					var relatedFormSubtask = scope.fork(() -> this.relatedForm(this.form));
-					var relatedScriptSubtask = scope.fork(() -> this.relatedScript(this.form));
-					scope.joinUntil(Instant.now().plusSeconds(Config.processPlatform().getAsynchronousTimeout()));
-					scope.throwIfFailed();
-					list.add(this.form.getId() + this.form.getUpdateTime().getTime());
-					list.addAll(relatedFormSubtask.get());
-					list.addAll(relatedScriptSubtask.get());
-				}
 				list = list.stream().sorted().collect(Collectors.toList());
 				this.wo.setId(this.form.getId());
 				CRC32 crc = new CRC32();

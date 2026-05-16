@@ -6,7 +6,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jetty.ee10.quickstart.QuickStartWebApp;
 import org.eclipse.jetty.server.Handler;
-import org.eclipse.jetty.server.handler.HandlerList;
+import org.eclipse.jetty.server.Handler.Sequence;
 import org.eclipse.jetty.server.handler.gzip.GzipHandler;
 import org.eclipse.jetty.util.resource.JarResource;
 import org.eclipse.jetty.util.resource.Resource;
@@ -25,11 +25,11 @@ public class RestatWar {
 		if (Servers.applicationServerIsRunning()) {
 			try {
 				GzipHandler gzipHandler = (GzipHandler) Servers.getApplicationServer().getHandler();
-				HandlerList hanlderList = (HandlerList) gzipHandler.getHandler();
+				Handler.Sequence handlerSequence = (Handler.Sequence) gzipHandler.getHandler();
 				File dir = null;
 				String warFilePath = null;
 				Boolean appExists = false;
-				for (Handler handler : hanlderList.getHandlers()) {
+				for (Handler handler : handlerSequence) {
 					if (QuickStartWebApp.class.isAssignableFrom(handler.getClass())) {
 						QuickStartWebApp app = (QuickStartWebApp) handler;
 						if (StringUtils.equals("/" + simpleName, app.getContextPath())) {

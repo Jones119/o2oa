@@ -22,7 +22,8 @@ import org.eclipse.jetty.ee10.quickstart.QuickStartWebApp;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.AbstractHandler;
-import org.eclipse.jetty.server.handler.HandlerList;
+import org.eclipse.jetty.server.Handler;
+import org.eclipse.jetty.server.Handler.Sequence;
 import org.eclipse.jetty.server.handler.gzip.GzipHandler;
 import org.eclipse.jetty.util.resource.ResourceCollection;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
@@ -58,7 +59,7 @@ public class InitServerTools extends JettySeverTools {
 	}
 
 	private static Server startStandalone(ApplicationServer applicationServer) throws Exception {
-		HandlerList handlers = new HandlerList();
+		Handler.Sequence handlers = new Handler.Sequence();
 		QuickStartWebApp webApp = webContext();
 		handlers.addHandler(webApp);
 		handlers.addHandler(new CacheControlHandler());

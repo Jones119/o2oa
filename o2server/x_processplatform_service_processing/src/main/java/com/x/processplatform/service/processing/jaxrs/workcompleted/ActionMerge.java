@@ -1,6 +1,5 @@
 package com.x.processplatform.service.processing.jaxrs.workcompleted;
 
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
@@ -9,7 +8,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.concurrent.Callable;
-import java.util.concurrent.StructuredTaskScope;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -103,41 +101,29 @@ class ActionMerge extends BaseAction {
 						StoreForm mobileStoreForm = new StoreForm();
 						storeForm.setForm(new RelatedForm(form, form.getData()));
 						mobileStoreForm.setForm(new RelatedForm(form, form.getMobileDataOrData()));
-						try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-							scope.fork(() -> relateForm(business, form, storeForm));
-							scope.fork(() -> relateScript(business, form, storeForm));
-							scope.fork(() -> relateFormMobile(business, form, mobileStoreForm));
-							scope.fork(() -> relateScriptMobile(business, form, mobileStoreForm));
-							scope.joinUntil(Instant.now().plusSeconds(60));
-							scope.throwIfFailed();
-						}
+						relateForm(business, form, storeForm);
+						relateScript(business, form, storeForm);
+						relateFormMobile(business, form, mobileStoreForm);
+						relateScriptMobile(business, form, mobileStoreForm);
 						workCompleted.setStoreForm(storeForm);
 						workCompleted.setMobileStoreForm(mobileStoreForm);
 					}
-					try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-						scope.fork(() -> mergeItem(business, workCompleted, items));
-						scope.fork(() -> mergeTaskCompleted(business, workCompleted, taskCompleteds));
-						scope.fork(() -> mergeReadCompleted(business, workCompleted, readCompleteds));
-						scope.fork(() -> mergeReview(business, workCompleted, reviews));
-						scope.fork(() -> mergeWorkLog(business, workCompleted, workLogs));
-						scope.fork(() -> mergeRecord(business, workCompleted, records));
-						scope.fork(() -> listRead(business, workCompleted, reads));
-						scope.fork(() -> listDocumentVersion(business, workCompleted, documentVersions));
-						scope.joinUntil(Instant.now().plusSeconds(60));
-						scope.throwIfFailed();
-					}
+					mergeItem(business, workCompleted, items);
+					mergeTaskCompleted(business, workCompleted, taskCompleteds);
+					mergeReadCompleted(business, workCompleted, readCompleteds);
+					mergeReview(business, workCompleted, reviews);
+					mergeWorkLog(business, workCompleted, workLogs);
+					mergeRecord(business, workCompleted, records);
+					listRead(business, workCompleted, reads);
+					listDocumentVersion(business, workCompleted, documentVersions);
 					emc.beginTransaction(WorkCompleted.class);
 					workCompleted.setMerged(true);
 					emc.commit();
-					try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-						scope.fork(() -> deleteItem(business, items));
-						scope.fork(() -> deleteWorkLog(business, workLogs));
-						scope.fork(() -> deleteRecord(business, records));
-						scope.fork(() -> deleteRead(business, reads));
-						scope.fork(() -> deleteDocumentVersion(business, documentVersions));
-						scope.joinUntil(Instant.now().plusSeconds(60));
-						scope.throwIfFailed();
-					}
+					deleteItem(business, items);
+					deleteWorkLog(business, workLogs);
+					deleteRecord(business, records);
+					deleteRead(business, reads);
+					deleteDocumentVersion(business, documentVersions);
 					emc.commit();
 					LOGGER.print("已完成工作合并, id: {}, title:{}, sequence:{}.", workCompleted.getId(),
 							workCompleted.getTitle(), workCompleted.getSequence());

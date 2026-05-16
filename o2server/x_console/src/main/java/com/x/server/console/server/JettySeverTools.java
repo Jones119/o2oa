@@ -58,7 +58,7 @@ public abstract class JettySeverTools {
 
 	protected static void addHttpsConnector(Server server, Integer port, boolean persistentConnectionsEnable)
 			throws Exception {
-		SslContextFactory sslContextFactory = new SslContextFactory.Server();
+		SslContextFactory.Server sslContextFactory = new SslContextFactory.Server();
 		sslContextFactory.setKeyStorePath(Config.sslKeyStore().getAbsolutePath());
 		sslContextFactory.setKeyStorePassword(Config.token().getSslKeyStorePassword());
 		sslContextFactory.setKeyManagerPassword(Config.token().getSslKeyManagerPassword());

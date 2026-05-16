@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.BooleanUtils;
@@ -56,85 +55,6 @@ class ActionListWithWorkOrWorkCompleted extends BaseAction {
 
 		final String workLogJob = job;
 
-		try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-			var tasksSubtask = scope.fork(() -> this.tasks(workLogJob));
-			var taskCompletedsSubtask = scope.fork(() -> this.taskCompleteds(workLogJob));
-			var readsSubtask = scope.fork(() -> this.reads(workLogJob));
-			var readCompletedsSubtask = scope.fork(() -> this.readCompleteds(workLogJob));
-			var workLogsSubtask = scope.fork(() -> this.workLogs(workLogJob));
-			var controlSubtask = scope.fork(() -> {
-				try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
-					Business business = new Business(emc);
-					Control control = new JobControlBuilder(effectivePerson, business, workLogJob).enableAllowVisit()
-							.build();
-					return control.getAllowVisit();
-				}
-			});
-			scope.joinUntil(Instant.now().plusSeconds(60));
-			scope.throwIfFailed();
-
-			if (BooleanUtils.isFalse(controlSubtask.get())) {
-				throw new ExceptionAccessDenied(effectivePerson, workOrWorkCompleted);
-			}
-			List<WoTask> tasks = tasksSubtask.get();
-			List<WoTaskCompleted> taskCompleteds = taskCompletedsSubtask.get();
-			List<WoRead> reads = readsSubtask.get();
-			List<WoReadCompleted> readCompleteds = readCompletedsSubtask.get();
-			List<WorkLog> workLogs = workLogsSubtask.get();
-
-		if (!workLogs.isEmpty()) {
-			WorkLogTree tree = new WorkLogTree(workLogs);
-			List<Wo> wos = new ArrayList<>();
-			for (WorkLog o : workLogs) {
-				Wo wo = Wo.copier.copy(o);
-				Node node = tree.find(o);
-				if (null != node) {
-					Nodes nodes = node.downNextManual();
-					if (nodes.isEmpty()) {
-						// 如果没有找到后面的人工节点,那么有多种可能,有一种是已经删除,工作合并到其他分支了,那么找其他分支的下一步
-						WorkLog otherWorkLog = workLogs.stream()
-								.filter(g -> (g != o)
-										&& StringUtils.equals(g.getArrivedActivity(), o.getArrivedActivity())
-										&& StringUtils.equals(g.getSplitToken(), o.getSplitToken()))
-								.findFirst().orElse(null);
-						if (null != otherWorkLog) {
-							node = tree.find(otherWorkLog);
-							if (null != node) {
-								nodes = node.downNextManual();
-							}
-						}
-					}
-					if (!nodes.isEmpty()) {
-						for (Node n : nodes) {
-							tasks.stream().filter(t -> StringUtils.equals(t.getActivityToken(),
-									n.getWorkLog().getFromActivityToken())).forEach(t -> {
-										wo.getNextTaskIdentityList().add(t.getIdentity());
-									});
-							taskCompleteds.stream()
-									.filter(t -> BooleanUtils.isTrue(t.getJoinInquire()) && StringUtils
-											.equals(t.getActivityToken(), n.getWorkLog().getFromActivityToken()))
-									.forEach(t -> {
-										wo.getNextTaskCompletedIdentityList().add(t.getIdentity());
-									});
-						}
-					}
-				}
-				// 下一环节处理人可能是重复处理导致重复的,去重
-				wo.setNextTaskIdentityList(ListTools.trim(wo.getNextTaskIdentityList(), true, true));
-				wo.setNextTaskCompletedIdentityList(ListTools.trim(wo.getNextTaskCompletedIdentityList(), true, true));
-				wos.add(wo);
-			}
-			ListTools.groupStick(wos, tasks, WorkLog.FROMACTIVITYTOKEN_FIELDNAME, Task.activityToken_FIELDNAME,
-					TASKLIST_FIELDNAME);
-			ListTools.groupStick(wos, taskCompleteds, WorkLog.FROMACTIVITYTOKEN_FIELDNAME,
-					TaskCompleted.activityToken_FIELDNAME, TASKCOMPLETEDLIST_FIELDNAME);
-			ListTools.groupStick(wos, reads, WorkLog.FROMACTIVITYTOKEN_FIELDNAME, Read.activityToken_FIELDNAME,
-					READLIST_FIELDNAME);
-			ListTools.groupStick(wos, readCompleteds, WorkLog.FROMACTIVITYTOKEN_FIELDNAME,
-					ReadCompleted.activityToken_FIELDNAME, READCOMPLETEDLIST_FIELDNAME);
-			result.setData(wos);
-		}
-		}
 		return result;
 	}
 

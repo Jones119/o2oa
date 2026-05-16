@@ -299,7 +299,7 @@ abstract class BaseAction extends StandardJaxrsAction {
             } else if (null != customResponse.value) {
                 if (StringUtils.isNotEmpty(customResponse.contentType)) {
                     result.setData(
-                            new WoContentType(customResponse.value, customResponse.contentType));
+                            new WoContentType(customResponse.contentType, customResponse.value));
                 } else if (customResponse.value instanceof WoText) {
                     result.setData(customResponse.value);
                 } else {

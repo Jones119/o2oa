@@ -35,7 +35,8 @@ import org.eclipse.jetty.ee10.quickstart.QuickStartWebApp;
 import org.eclipse.jetty.server.AsyncRequestLogWriter;
 import org.eclipse.jetty.server.RequestLog;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.HandlerList;
+import org.eclipse.jetty.server.Handler;
+import org.eclipse.jetty.server.Handler.Sequence;
 import org.eclipse.jetty.server.handler.gzip.GzipHandler;
 import org.eclipse.jetty.ee10.servlet.FilterHolder;
 import org.eclipse.jetty.ee10.servlet.ServletHolder;
@@ -70,7 +71,7 @@ public class CenterServerTools extends JettySeverTools {
 	public static Server startInApplication(CenterServer centerServer) throws Exception {
 		WebAppContext webContext = webContext(centerServer);
 		GzipHandler gzipHandler = (GzipHandler) Servers.getApplicationServer().getHandler();
-		HandlerList hanlderList = (HandlerList) gzipHandler.getHandler();
+		Handler.Sequence handlerCollection = (HandlerList) gzipHandler.getHandler();
 		hanlderList.addHandler(webContext);
 		webContext.start();
 		LOGGER.print("****************************************");
@@ -81,7 +82,7 @@ public class CenterServerTools extends JettySeverTools {
 	}
 
 	private static Server startStandalone(CenterServer centerServer) throws Exception, IOException {
-		HandlerList handlers = new HandlerList();
+		Handler.Sequence handlers = new Handler.Sequence();
 
 		QuickStartWebApp webApp = webContext(centerServer);
 		handlers.addHandler(webApp);

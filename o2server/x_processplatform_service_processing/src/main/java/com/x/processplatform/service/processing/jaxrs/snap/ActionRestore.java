@@ -1,9 +1,7 @@
 package com.x.processplatform.service.processing.jaxrs.snap;
 
-import java.time.Instant;
 import java.util.Objects;
 import java.util.concurrent.Callable;
-import java.util.concurrent.StructuredTaskScope;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.codec.binary.Base64;
@@ -83,39 +81,31 @@ class ActionRestore extends BaseAction {
 				}
 				if (Objects.equals(Snap.TYPE_ABANDONEDWORKCOMPLETED, snap.getType())
 						|| Objects.equals(Snap.TYPE_SNAPWORKCOMPLETED, snap.getType())) {
-					try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-						scope.fork(() -> deleteItem(business, snap.getJob()));
-						scope.fork(() -> deleteWorkCompleted(business, snap.getJob()));
-						scope.fork(() -> deleteTask(business, snap.getJob()));
-						scope.fork(() -> deleteTaskCompleted(business, snap.getJob()));
-						scope.fork(() -> deleteRead(business, snap.getJob()));
-						scope.fork(() -> deleteReadCompleted(business, snap.getJob()));
-						scope.fork(() -> deleteReview(business, snap.getJob()));
-						scope.fork(() -> deleteWorkLog(business, snap.getJob()));
-						scope.fork(() -> deleteRecord(business, snap.getJob()));
-						scope.fork(() -> deleteDocumentVersion(business, snap.getJob()));
-						scope.fork(() -> deleteDocSign(business, snap.getJob()));
-						scope.fork(() -> deleteDocSignScrawl(business, snap.getJob()));
-						scope.joinUntil(Instant.now().plusSeconds(60));
-						scope.throwIfFailed();
-					}
+					deleteItem(business, snap.getJob());
+					deleteWorkCompleted(business, snap.getJob());
+					deleteTask(business, snap.getJob());
+					deleteTaskCompleted(business, snap.getJob());
+					deleteRead(business, snap.getJob());
+					deleteReadCompleted(business, snap.getJob());
+					deleteReview(business, snap.getJob());
+					deleteWorkLog(business, snap.getJob());
+					deleteRecord(business, snap.getJob());
+					deleteDocumentVersion(business, snap.getJob());
+					deleteDocSign(business, snap.getJob());
+					deleteDocSignScrawl(business, snap.getJob());
 				} else {
-					try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-						scope.fork(() -> deleteItem(business, snap.getJob()));
-						scope.fork(() -> deleteWork(business, snap.getJob()));
-						scope.fork(() -> deleteTask(business, snap.getJob()));
-						scope.fork(() -> deleteTaskCompleted(business, snap.getJob()));
-						scope.fork(() -> deleteRead(business, snap.getJob()));
-						scope.fork(() -> deleteReadCompleted(business, snap.getJob()));
-						scope.fork(() -> deleteReview(business, snap.getJob()));
-						scope.fork(() -> deleteWorkLog(business, snap.getJob()));
-						scope.fork(() -> deleteRecord(business, snap.getJob()));
-						scope.fork(() -> deleteDocumentVersion(business, snap.getJob()));
-						scope.fork(() -> deleteDocSign(business, snap.getJob()));
-						scope.fork(() -> deleteDocSignScrawl(business, snap.getJob()));
-						scope.joinUntil(Instant.now().plusSeconds(60));
-						scope.throwIfFailed();
-					}
+					deleteItem(business, snap.getJob());
+					deleteWork(business, snap.getJob());
+					deleteTask(business, snap.getJob());
+					deleteTaskCompleted(business, snap.getJob());
+					deleteRead(business, snap.getJob());
+					deleteReadCompleted(business, snap.getJob());
+					deleteReview(business, snap.getJob());
+					deleteWorkLog(business, snap.getJob());
+					deleteRecord(business, snap.getJob());
+					deleteDocumentVersion(business, snap.getJob());
+					deleteDocSign(business, snap.getJob());
+					deleteDocSignScrawl(business, snap.getJob());
 				}
 				emc.commit();
 				if (Objects.equals(Snap.TYPE_ABANDONEDWORKCOMPLETED, snap.getType())

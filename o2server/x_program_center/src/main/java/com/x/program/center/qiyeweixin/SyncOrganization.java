@@ -88,6 +88,10 @@ public class SyncOrganization {
 		return result;
 	}
 
+	private PullResult pullFromQywx(Business business) throws Exception {
+		return syncOrgUnit(business);
+	}
+
 	public PullResult syncOrgUnit(Business business) throws Exception {
 		logger.print("开始与企业微信同步组织,方向:拉入.");
 		PullResult result = new PullResult();

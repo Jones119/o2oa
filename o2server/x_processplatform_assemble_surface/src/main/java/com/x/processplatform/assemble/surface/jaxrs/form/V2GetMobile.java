@@ -7,7 +7,6 @@ import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.TreeMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.BooleanUtils;
@@ -45,7 +44,6 @@ class V2GetMobile extends BaseAction {
 		CacheKey cacheKey = new CacheKey(this.getClass(), id, tag);
 		Optional<?> optional = CacheManager.get(cacheCategory, cacheKey);
 		if (optional.isPresent()) {
-			result.setData((Wo) optional.get());
 		} else {
 			Form form = null;
 			try (EntityManagerContainer emc = EntityManagerContainerFactory.instance().create()) {
@@ -58,14 +56,6 @@ class V2GetMobile extends BaseAction {
 			Wo wo = new Wo();
 			final List<String> list = new CopyOnWriteArrayList<>();
 			wo.setForm(new RelatedForm(form, form.getMobileDataOrData()));
-			try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-				var getRelatedFormSubtask = scope.fork(() -> this.getRelatedForm(form, list));
-				var getRelatedScriptSubtask = scope.fork(() -> this.getRelatedScript(form, list));
-				scope.joinUntil(Instant.now().plusSeconds(Config.processPlatform().getAsynchronousTimeout()));
-				scope.throwIfFailed();
-				wo.setRelatedFormMap(getRelatedFormSubtask.get());
-				wo.setRelatedScriptMap(getRelatedScriptSubtask.get());
-			}
 			if (StringUtils.isNotBlank(tag)) {
 				wo.setMaxAge(3600 * 24);
 			}

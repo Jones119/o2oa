@@ -8,7 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jetty.ee10.quickstart.QuickStartWebApp;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.HandlerList;
+import org.eclipse.jetty.server.Handler.Sequence;
 import org.eclipse.jetty.server.handler.gzip.GzipHandler;
 
 import com.google.gson.Gson;
@@ -41,8 +41,8 @@ public class RegistApplicationsLocal {
 	private List<Application> listApplication(Server server) throws Exception {
 		List<Application> list = new ArrayList<>();
 		GzipHandler gzipHandler = (GzipHandler) server.getHandler();
-		HandlerList hanlderList = (HandlerList) gzipHandler.getHandler();
-		for (Handler handler : hanlderList.getHandlers()) {
+		Handler.Sequence handlerCollection = (Handler.Sequence) gzipHandler.getHandler();
+		for (Handler handler : handlerCollection) {
 			if (QuickStartWebApp.class.isAssignableFrom(handler.getClass())) {
 				QuickStartWebApp app = (QuickStartWebApp) handler;
 				if (app.isStarted() && (!StringUtils.equalsIgnoreCase(app.getContextPath(), "/x_program_center"))

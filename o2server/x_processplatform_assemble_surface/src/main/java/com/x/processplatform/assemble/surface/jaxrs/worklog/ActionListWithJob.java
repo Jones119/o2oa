@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.BooleanUtils;
@@ -51,29 +50,6 @@ class ActionListWithJob extends BaseAction {
 			}
 		}
 
-		try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-			var tasksSubtask = scope.fork(() -> this.tasks(job));
-			var taskCompletedsSubtask = scope.fork(() -> this.taskCompleteds(job));
-			var readsSubtask = scope.fork(() -> this.reads(job));
-			var readCompletedsSubtask = scope.fork(() -> this.readCompleteds(job));
-			var workLogsSubtask = scope.fork(() -> this.workLogs(job));
-			scope.joinUntil(Instant.now().plusSeconds(60));
-			scope.throwIfFailed();
-			List<WoTask> tasks = tasksSubtask.get();
-			List<WoTaskCompleted> taskCompleteds = taskCompletedsSubtask.get();
-			List<WoRead> reads = readsSubtask.get();
-			List<WoReadCompleted> readCompleteds = readCompletedsSubtask.get();
-			List<Wo> wos = workLogsSubtask.get();
-			ListTools.groupStick(wos, tasks, WorkLog.FROMACTIVITYTOKEN_FIELDNAME, Task.activityToken_FIELDNAME,
-					TASKLIST_FIELDNAME);
-			ListTools.groupStick(wos, taskCompleteds, WorkLog.FROMACTIVITYTOKEN_FIELDNAME,
-					TaskCompleted.activityToken_FIELDNAME, TASKCOMPLETEDLIST_FIELDNAME);
-			ListTools.groupStick(wos, reads, WorkLog.FROMACTIVITYTOKEN_FIELDNAME, Read.activityToken_FIELDNAME,
-					READLIST_FIELDNAME);
-			ListTools.groupStick(wos, readCompleteds, WorkLog.FROMACTIVITYTOKEN_FIELDNAME,
-					ReadCompleted.activityToken_FIELDNAME, READCOMPLETEDLIST_FIELDNAME);
-			result.setData(wos);
-		}
 		return result;
 	}
 

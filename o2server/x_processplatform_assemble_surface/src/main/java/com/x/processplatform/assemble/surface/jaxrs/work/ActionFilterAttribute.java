@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 
 import jakarta.persistence.EntityManager;
@@ -47,20 +46,6 @@ class ActionFilterAttribute extends BaseAction {
 			Application application = business.application().pick(applicationFlag);
 			if (null == application) {
 				throw new ExceptionApplicationNotExist(applicationFlag);
-			}
-			try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-				var processSubtask = scope.fork(() -> listProcess(business, effectivePerson, application));
-				var creatorUnitSubtask = scope.fork(() -> listCreatorUnit(business, effectivePerson, application));
-				var activityNameSubtask = scope.fork(() -> listActivityName(business, effectivePerson, application));
-				var startTimeMonthSubtask = scope.fork(() -> listStartTimeMonth(business, effectivePerson, application));
-				var workStatusSubtask = scope.fork(() -> listWorkStatus(business, effectivePerson, application));
-				scope.joinUntil(Instant.now().plusSeconds(Config.processPlatform().getAsynchronousTimeout()));
-				scope.throwIfFailed();
-				wo.setProcessList(processSubtask.get());
-				wo.setCreatorUnitList(creatorUnitSubtask.get());
-				wo.setActivityNameList(activityNameSubtask.get());
-				wo.setStartTimeMonthList(startTimeMonthSubtask.get());
-				wo.setWorkStatusList(workStatusSubtask.get());
 			}
 			result.setData(wo);
 			return result;

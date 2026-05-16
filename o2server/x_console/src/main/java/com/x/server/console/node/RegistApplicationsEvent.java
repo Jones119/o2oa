@@ -1,11 +1,9 @@
 package com.x.server.console.node;
 
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map.Entry;
-import java.util.concurrent.StructuredTaskScope;
 
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -13,7 +11,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jetty.ee10.quickstart.QuickStartWebApp;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.HandlerList;
+import org.eclipse.jetty.server.Handler;
+import org.eclipse.jetty.server.Handler.Sequence;
 import org.eclipse.jetty.server.handler.gzip.GzipHandler;
 
 import com.google.gson.Gson;
@@ -90,8 +89,8 @@ public class RegistApplicationsEvent implements Event {
 	private List<Application> listApplication(Server applicationServer) throws Exception {
 		List<Application> list = new ArrayList<>();
 		GzipHandler gzipHandler = (GzipHandler) applicationServer.getHandler();
-		HandlerList hanlderList = (HandlerList) gzipHandler.getHandler();
-		for (Handler handler : hanlderList.getHandlers()) {
+		Handler.Sequence handlerCollection = (Handler.Sequence) gzipHandler.getHandler();
+		for (Handler handler : handlerCollection) {
 			if (QuickStartWebApp.class.isAssignableFrom(handler.getClass())) {
 				QuickStartWebApp app = (QuickStartWebApp) handler;
 				if (app.isStarted() && (!StringUtils.equalsIgnoreCase(app.getContextPath(), "/x_program_center"))
@@ -112,28 +111,16 @@ public class RegistApplicationsEvent implements Event {
 	}
 
 	private boolean healthCheck(List<Application> list) {
-		try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-			List<StructuredTaskScope.Subtask<Long>> subtasks = new ArrayList<>();
-			for (Application o : list) {
-				subtasks.add(scope.fork(() -> healthCheckTask(o)));
+		long max = Long.MIN_VALUE;
+		for (Application o : list) {
+			long difference = healthCheckTask(o);
+			if (difference < 0) {
+				return false;
 			}
-			scope.joinUntil(Instant.now().plusSeconds(3));
-			scope.throwIfFailed();
-			long max = Long.MIN_VALUE;
-			for (StructuredTaskScope.Subtask<Long> subtask : subtasks) {
-				long difference = subtask.get();
-				if (difference < 0) {
-					return false;
-				}
-				max = Math.max(max, difference);
-			}
-			if (max > 2 * 1000) {
-				logger.warn("response time is too long: {}ms.", max);
-			}
-		} catch (Exception e) {
-			logger.error(new RunningException(e, "health check error."));
-			Thread.currentThread().interrupt();
-			return false;
+			max = Math.max(max, difference);
+		}
+		if (max > 2 * 1000) {
+			logger.warn("response time is too long: {}ms.", max);
 		}
 		return true;
 	}

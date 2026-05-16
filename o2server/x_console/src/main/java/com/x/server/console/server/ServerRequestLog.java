@@ -1103,31 +1103,30 @@ public class ServerRequestLog extends ContainerLifeCycle implements RequestLog {
 		b.append(" ");
 		append(b, request.getOriginalURI());
 		b.append(" ");
-		append(b, request.getProtocol());
+		append(b, request.getConnectionMetaData().getProtocol());
 	}
 
 	@SuppressWarnings("unused")
 	private static void logRequestHandler(StringBuilder b, Request request, Response response) {
-		append(b, request.getServletName());
+		b.append("-");
 	}
 
 	@SuppressWarnings("unused")
 	private static void logResponseStatus(StringBuilder b, Request request, Response response) {
-		// todo can getCommittedMetaData be null? check what happens when its aborted
-		b.append(response.getCommittedMetaData().getStatus());
+		b.append(response.getStatus());
 	}
 
 	@SuppressWarnings("unused")
 	private static void logRequestTime(DateCache dateCache, StringBuilder b, Request request, Response response) {
 		b.append('[');
-		append(b, dateCache.format(request.getTimeStamp()));
+		append(b, dateCache.format(Request.getTimeStamp(request)));
 		b.append(']');
 	}
 
 	@SuppressWarnings("unused")
 	private static void logLatencyMicroseconds(StringBuilder b, Request request, Response response) {
 		long currentTime = System.currentTimeMillis();
-		long requestTime = request.getTimeStamp();
+		long requestTime = Request.getTimeStamp(request);
 
 		long latencyMs = currentTime - requestTime;
 		long latencyUs = TimeUnit.MILLISECONDS.toMicros(latencyMs);
@@ -1137,13 +1136,13 @@ public class ServerRequestLog extends ContainerLifeCycle implements RequestLog {
 
 	@SuppressWarnings("unused")
 	private static void logLatencyMilliseconds(StringBuilder b, Request request, Response response) {
-		long latency = System.currentTimeMillis() - request.getTimeStamp();
+		long latency = System.currentTimeMillis() - Request.getTimeStamp(request);
 		b.append(latency);
 	}
 
 	@SuppressWarnings("unused")
 	private static void logLatencySeconds(StringBuilder b, Request request, Response response) {
-		long latency = System.currentTimeMillis() - request.getTimeStamp();
+		long latency = System.currentTimeMillis() - Request.getTimeStamp(request);
 		b.append(TimeUnit.MILLISECONDS.toSeconds(latency));
 	}
 
@@ -1159,13 +1158,12 @@ public class ServerRequestLog extends ContainerLifeCycle implements RequestLog {
 
 	@SuppressWarnings("unused")
 	private static void logUrlRequestPath(StringBuilder b, Request request, Response response) {
-		append(b, request.getRequestURI());
+		append(b, request.getPath());
 	}
 
 	@SuppressWarnings("unused")
 	private static void logConnectionStatus(StringBuilder b, Request request, Response response) {
-		b.append(request.getHttpChannel().isResponseCompleted() ? (request.getHttpChannel().isPersistent() ? '+' : '-')
-				: 'X');
+		b.append(response.isCommitted() ? '+' : '-');
 	}
 
 	@SuppressWarnings("unused")
@@ -1180,17 +1178,6 @@ public class ServerRequestLog extends ContainerLifeCycle implements RequestLog {
 
 	@SuppressWarnings("unused")
 	private static void logResponseTrailer(String arg, StringBuilder b, Request request, Response response) {
-		Supplier<HttpFields> supplier = response.getTrailers();
-		if (supplier != null) {
-			HttpFields trailers = supplier.get();
-
-			if (trailers != null) {
-				append(b, trailers.get(arg));
-			} else {
-				b.append('-');
-			}
-		} else {
-			b.append("-");
-		}
+		b.append('-');
 	}
 }

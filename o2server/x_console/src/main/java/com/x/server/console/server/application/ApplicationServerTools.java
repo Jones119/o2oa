@@ -33,7 +33,8 @@ import org.eclipse.jetty.ee10.quickstart.QuickStartWebApp;
 import org.eclipse.jetty.server.AsyncRequestLogWriter;
 import org.eclipse.jetty.server.RequestLog;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.HandlerList;
+import org.eclipse.jetty.server.Handler;
+import org.eclipse.jetty.server.Handler.Sequence;
 import org.eclipse.jetty.server.handler.gzip.GzipHandler;
 import org.eclipse.jetty.ee10.servlet.FilterHolder;
 import org.eclipse.jetty.ee10.servlet.ServletHolder;
@@ -70,7 +71,7 @@ public class ApplicationServerTools extends JettySeverTools {
 
         cleanWorkDirectory(officialClassInfos, customNames);
 
-        HandlerList handlers = new HandlerList();
+        Handler.Sequence handlers = new Handler.Sequence();
 
         Server server = createServer(applicationServer, handlers);
 
@@ -108,7 +109,7 @@ public class ApplicationServerTools extends JettySeverTools {
         return server;
     }
 
-    private static Server createServer(ApplicationServer applicationServer, HandlerList handlers)
+    private static Server createServer(ApplicationServer applicationServer, Handler.Sequence handlers)
             throws Exception {
         QueuedThreadPool threadPool = new QueuedThreadPool();
         threadPool.setName("ApplicationServerQueuedThreadPool");
@@ -152,7 +153,7 @@ public class ApplicationServerTools extends JettySeverTools {
         }
     }
 
-    private static void deployCustom(ApplicationServer applicationServer, HandlerList handlers,
+    private static void deployCustom(ApplicationServer applicationServer, Handler.Sequence handlers,
             List<String> customNames) {
         customNames.stream().forEach(name -> {
             try {
@@ -223,7 +224,7 @@ public class ApplicationServerTools extends JettySeverTools {
         }
     }
 
-    private static void deployOfficial(ApplicationServer applicationServer, HandlerList handlers,
+    private static void deployOfficial(ApplicationServer applicationServer, Handler.Sequence handlers,
             List<ClassInfo> officialClassInfos) {
         officialClassInfos.parallelStream().forEach(info -> {
             try {
