@@ -10,7 +10,7 @@ import java.util.concurrent.StructuredTaskScope;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import org.eclipse.jetty.quickstart.QuickStartWebApp;
+import org.eclipse.jetty.ee10.quickstart.QuickStartWebApp;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;

@@ -167,12 +167,12 @@
 			<artifactId>jetty-deploy</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-annotations</artifactId>
+			<groupId>org.eclipse.jetty.ee10</groupId>
+			<artifactId>jetty-ee10-annotations</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-quickstart</artifactId>
+			<groupId>org.eclipse.jetty.ee10</groupId>
+			<artifactId>jetty-ee10-quickstart</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
@@ -367,8 +367,8 @@
 			<artifactId>playwright</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>jakarta.cache</groupId>
-			<artifactId>jakarta.cache-api</artifactId>
+			<groupId>javax.cache</groupId>
+			<artifactId>cache-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.jsr107.ri</groupId>
@@ -449,18 +449,11 @@
 		<dependency>
 			<groupId>org.graalvm.js</groupId>
 			<artifactId>js</artifactId>
+			<type>pom</type>
 		</dependency>
 		<dependency>
 			<groupId>org.graalvm.js</groupId>
 			<artifactId>js-scriptengine</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.graalvm.tools</groupId>
-			<artifactId>profiler</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.graalvm.tools</groupId>
-			<artifactId>chromeinspector</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>
@@ -740,27 +733,27 @@
 			<dependency>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-server</artifactId>
-				<version>12.0.22</version>
+				<version>12.1.9</version>
 			</dependency>
 			<dependency>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-deploy</artifactId>
-				<version>12.0.22</version>
+				<version>12.1.9</version>
 			</dependency>
 			<dependency>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-annotations</artifactId>
-				<version>12.0.22</version>
+				<groupId>org.eclipse.jetty.ee10</groupId>
+				<artifactId>jetty-ee10-annotations</artifactId>
+				<version>12.1.9</version>
 			</dependency>
 			<dependency>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-quickstart</artifactId>
-				<version>12.0.22</version>
+				<groupId>org.eclipse.jetty.ee10</groupId>
+				<artifactId>jetty-ee10-quickstart</artifactId>
+				<version>12.1.9</version>
 			</dependency>
 			<dependency>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-proxy</artifactId>
-				<version>12.0.22</version>
+				<version>12.1.9</version>
 			</dependency>
 			<dependency>
 				<groupId>jakarta.servlet</groupId>
@@ -1240,8 +1233,8 @@
 				<version>1.47.0</version>
 			</dependency>
 			<dependency>
-				<groupId>jakarta.cache</groupId>
-				<artifactId>jakarta.cache-api</artifactId>
+				<groupId>javax.cache</groupId>
+				<artifactId>cache-api</artifactId>
 				<version>1.1.1</version>
 			</dependency>
 			<dependency>
@@ -1314,6 +1307,7 @@
 				<groupId>org.graalvm.js</groupId>
 				<artifactId>js</artifactId>
 				<version>${graalvm.version}</version>
+				<type>pom</type>
 			</dependency>
 			<dependency>
 				<groupId>org.graalvm.js</groupId>
@@ -1321,19 +1315,24 @@
 				<version>${graalvm.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.graalvm.tools</groupId>
-				<artifactId>profiler</artifactId>
-				<version>${graalvm.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.graalvm.tools</groupId>
-				<artifactId>chromeinspector</artifactId>
-				<version>${graalvm.version}</version>
-			</dependency>
-			<dependency>
 				<groupId>com.google.guava</groupId>
 				<artifactId>guava</artifactId>
 				<version>33.3.1-jre</version>
+			</dependency>
+			<dependency>
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcpkix-jdk18on</artifactId>
+				<version>1.81</version>
+			</dependency>
+			<dependency>
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcprov-jdk18on</artifactId>
+				<version>1.81</version>
+			</dependency>
+			<dependency>
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcutil-jdk18on</artifactId>
+				<version>1.81</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

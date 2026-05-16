@@ -9,7 +9,7 @@ public class WrapBoolean implements GsonRecord {
 	private static final long serialVersionUID = 1L;
 
 	@Schema(description = "布尔值.")
-	private Boolean value;
+	protected Boolean value;
 
 	public WrapBoolean() {
 	}

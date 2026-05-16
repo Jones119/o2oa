@@ -11,7 +11,7 @@ public class WrapString implements GsonRecord {
 	private static final long serialVersionUID = 1L;
 
 	@Schema(description = "字符串值.")
-	private String value;
+	protected String value;
 
 	public WrapString() {
 	}

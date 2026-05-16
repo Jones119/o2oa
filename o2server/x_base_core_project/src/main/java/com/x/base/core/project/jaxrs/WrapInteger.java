@@ -6,7 +6,7 @@ public class WrapInteger implements GsonRecord {
 
 	private static final long serialVersionUID = 1L;
 
-	private Integer value;
+	protected Integer value;
 
 	public WrapInteger() {
 	}
