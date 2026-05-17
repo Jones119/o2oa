@@ -367,8 +367,8 @@
 			<artifactId>playwright</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>jakarta.cache</groupId>
-			<artifactId>jakarta.cache-api</artifactId>
+			<groupId>javax.cache</groupId>
+			<artifactId>cache-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.jsr107.ri</groupId>
@@ -1240,8 +1240,8 @@
 				<version>1.47.0</version>
 			</dependency>
 			<dependency>
-				<groupId>jakarta.cache</groupId>
-				<artifactId>jakarta.cache-api</artifactId>
+				<groupId>javax.cache</groupId>
+				<artifactId>cache-api</artifactId>
 				<version>1.1.1</version>
 			</dependency>
 			<dependency>

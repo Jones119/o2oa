@@ -53,15 +53,43 @@ public class MetaModelBuilder {
 
 			List<String> paths = scanEntityJava(sourcedir);
 
-			fileManager.list(StandardLocation.SOURCE_PATH, "", EnumSet.of(JavaFileObject.Kind.SOURCE), true)
-					.forEach(o -> {
-						if (paths.contains(o.getName())) {
-							res.add(o);
-						}
-					});
+			System.out.println("MetaModelBuilder: sourcedir=" + sourcedir.getAbsolutePath());
+			System.out.println("MetaModelBuilder: found " + paths.size() + " entity source paths");
+			for (String p : paths) {
+				System.out.println("  entity path: " + p);
+			}
+
+			Iterable<? extends JavaFileObject> allSources = fileManager.list(StandardLocation.SOURCE_PATH, "", EnumSet.of(JavaFileObject.Kind.SOURCE), true);
+			int sourceCount = 0;
+			for (JavaFileObject o : allSources) {
+				sourceCount++;
+				if (paths.contains(o.getName())) {
+					res.add(o);
+				}
+			}
+			System.out.println("MetaModelBuilder: fileManager found " + sourceCount + " source files");
+			System.out.println("MetaModelBuilder: matched " + res.size() + " source files for compilation");
+
+			List<File> cpFiles = classpath(outputdir);
+			boolean hasOpenJpa = cpFiles.stream().anyMatch(f -> f.getName().contains("openjpa"));
+			System.out.println("MetaModelBuilder: classpath has OpenJPA: " + hasOpenJpa);
+			for (File f : cpFiles) {
+				if (f.getName().contains("openjpa") || f.getName().contains("persistence")) {
+					System.out.println("  relevant cp: " + f.getAbsolutePath() + " exists=" + f.exists());
+				}
+			}
+
+			List<String> compilerOptions = new ArrayList<>();
+			compilerOptions.add("-Aopenjpa.metamodel=true");
+			compilerOptions.add("-Aopenjpa.log=TRACE");
+			String processorPath = cpFiles.stream().map(File::getAbsolutePath).collect(Collectors.joining(File.pathSeparator));
+			compilerOptions.add("-processorpath");
+			compilerOptions.add(processorPath);
+			compilerOptions.add("-processor");
+			compilerOptions.add("org.apache.openjpa.persistence.meta.AnnotationProcessor6");
 
 			compiler.getTask(new OutputStreamWriter(System.out), fileManager, null,
-					Arrays.asList("-Aopenjpa.metamodel=true", "-Aopenjpa.log=TRACE"), null, res).call();
+					compilerOptions, null, res).call();
 
 			removeClassFile(basedir);
 
@@ -76,15 +104,23 @@ public class MetaModelBuilder {
 		List<File> cp = new ArrayList<>();
 
 		cp.add(outputdir);
-		// 需要引入x_base_core_project才可以进行编译,在x_base_core_project模块中直接使用target/classes
 		cp.add(new File(Config.class.getProtectionDomain().getCodeSource().getLocation().getFile()));
 
 		ClassLoader cl = MetaModelBuilder.class.getClassLoader();
 
-		URL[] urls = ((URLClassLoader) cl).getURLs();
-
-		for (URL url : urls) {
-			cp.add(new File(url.getFile()));
+		if (cl instanceof URLClassLoader) {
+			URL[] urls = ((URLClassLoader) cl).getURLs();
+			for (URL url : urls) {
+				cp.add(new File(url.getFile()));
+			}
+		} else {
+			String classpath = System.getProperty("java.class.path");
+			String pathSeparator = System.getProperty("path.separator");
+			if (classpath != null) {
+				for (String entry : classpath.split(pathSeparator)) {
+					cp.add(new File(entry));
+				}
+			}
 		}
 		return cp;
 	}

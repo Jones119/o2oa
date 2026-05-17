@@ -1,0 +1,1589 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/root/.local/share/mise/installs/maven/3.9.10/apache-maven-3.9.10/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] o2server                                                           [pom]
+[INFO] x_base_core_project                                                [jar]
+[INFO] x_query_core_entity                                                [jar]
+[INFO] x_attendance_core_entity                                           [jar]
+[INFO] x_ai_core_entity                                                   [jar]
+[INFO] x_bbs_core_entity                                                  [jar]
+[INFO] x_calendar_core_entity                                             [jar]
+[INFO] x_cms_core_entity                                                  [jar]
+[INFO] x_component_core_entity                                            [jar]
+[INFO] x_file_core_entity                                                 [jar]
+[INFO] x_general_core_entity                                              [jar]
+[INFO] x_hotpic_core_entity                                               [jar]
+[INFO] x_jpush_core_entity                                                [jar]
+[INFO] x_meeting_core_entity                                              [jar]
+[INFO] x_message_core_entity                                              [jar]
+[INFO] x_mind_core_entity                                                 [jar]
+[INFO] x_organization_core_entity                                         [jar]
+[INFO] x_portal_core_entity                                               [jar]
+[INFO] x_processplatform_core_entity                                      [jar]
+[INFO] x_correlation_core_entity                                          [jar]
+[INFO] x_program_center_core_entity                                       [jar]
+[INFO] x_organization_core_express                                        [jar]
+[INFO] x_query_core_express                                               [jar]
+[INFO] x_correlation_core_express                                         [jar]
+[INFO] x_processplatform_core_express                                     [jar]
+[INFO] x_ai_assemble_control                                              [war]
+[INFO] x_bbs_assemble_control                                             [war]
+[INFO] x_calendar_assemble_control                                        [war]
+[INFO] x_cms_core_express                                                 [jar]
+[INFO] x_cms_assemble_control                                             [war]
+[INFO] x_attendance_assemble_control                                      [war]
+[INFO] x_component_assemble_control                                       [war]
+[INFO] x_file_assemble_control                                            [war]
+[INFO] x_general_assemble_control                                         [war]
+[INFO] x_hotpic_assemble_control                                          [war]
+[INFO] x_jpush_assemble_control                                           [war]
+[INFO] x_meeting_assemble_control                                         [war]
+[INFO] x_message_assemble_communicate                                     [war]
+[INFO] x_mind_assemble_control                                            [war]
+[INFO] x_organization_assemble_authentication                             [war]
+[INFO] x_organization_assemble_control                                    [war]
+[INFO] x_organization_assemble_express                                    [war]
+[INFO] x_organization_assemble_personal                                   [war]
+[INFO] x_portal_assemble_designer                                         [war]
+[INFO] x_portal_assemble_surface                                          [war]
+[INFO] x_processplatform_assemble_bam                                     [war]
+[INFO] x_processplatform_assemble_designer                                [war]
+[INFO] x_processplatform_assemble_surface                                 [war]
+[INFO] x_processplatform_service_processing                               [war]
+[INFO] x_correlation_service_processing                                   [war]
+[INFO] x_query_assemble_designer                                          [war]
+[INFO] x_query_assemble_surface                                           [war]
+[INFO] x_query_service_processing                                         [war]
+[INFO] x_program_center                                                   [war]
+[INFO] x_program_init                                                     [war]
+[INFO] x_console                                                          [jar]
+[INFO] 
+[INFO] -------------------------< net.o2oa:o2server >--------------------------
+[INFO] Building o2server 10.0                                            [1/56]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --------------------< net.o2oa:x_base_core_project >--------------------
+[INFO] Building x_base_core_project 10.0                                 [2/56]
+[INFO]   from x_base_core_project/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for com.fasterxml.jackson.core:jackson-annotations:jar:2.20 is missing, no dependency information available
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_base_core_project ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 509 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_base_core_project/src/main/java/com/x/base/core/entity/JpaObject.java: Some input files use or override a deprecated API.
+[INFO] /workspace/o2server/x_base_core_project/src/main/java/com/x/base/core/entity/JpaObject.java: Recompile with -Xlint:deprecation for details.
+[INFO] /workspace/o2server/x_base_core_project/src/main/java/com/x/base/core/container/EntityManagerContainer.java: Some input files use unchecked or unsafe operations.
+[INFO] /workspace/o2server/x_base_core_project/src/main/java/com/x/base/core/container/EntityManagerContainer.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_base_core_project ---
+[WARNING] The POM for org.codehaus.plexus:plexus-utils:jar:1.5.15 is missing, no dependency information available
+[WARNING] The POM for junit:junit:jar:4.12 is missing, no dependency information available
+[WARNING] The POM for org.codehaus.plexus:plexus-utils:jar:1.0.4 is missing, no dependency information available
+[WARNING] The POM for classworlds:classworlds:jar:1.1-alpha-2 is missing, no dependency information available
+[WARNING] The POM for org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-30 is missing, no dependency information available
+[WARNING] The POM for org.codehaus.plexus:plexus-utils:jar:2.0.4 is missing, no dependency information available
+[WARNING] The POM for org.codehaus.plexus:plexus-component-annotations:jar:1.5.4 is missing, no dependency information available
+[WARNING] The POM for org.codehaus.plexus:plexus-utils:jar:2.0.5 is missing, no dependency information available
+[WARNING] The POM for org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7 is missing, no dependency information available
+[WARNING] The POM for org.codehaus.plexus:plexus-utils:jar:1.5.5 is missing, no dependency information available
+MetaModelBuilder: sourcedir=/workspace/o2server/x_base_core_project/src/main/java
+MetaModelBuilder: found 3 entity source paths
+  entity path: /workspace/o2server/x_base_core_project/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_base_core_project/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_base_core_project/src/main/java/com/x/base/core/entity/StorageObject.java
+MetaModelBuilder: fileManager found 509 source files
+MetaModelBuilder: matched 3 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_base_core_project/src/main/java/com/x/base/core/entity/JpaObject_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_base_core_project/src/main/java/com/x/base/core/entity/StorageObject_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_base_core_project/src/main/java/com/x/base/core/entity/SliceJpaObject_.java"
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_base_core_project ---
+[WARNING] The POM for org.codehaus.plexus:plexus-interpolation:jar:1.14 is missing, no dependency information available
+[WARNING] The POM for commons-io:commons-io:jar:2.4 is missing, no dependency information available
+[WARNING] The POM for org.codehaus.plexus:plexus-utils:jar:3.0.24 is missing, no dependency information available
+[WARNING] The POM for org.codehaus.plexus:plexus-interpolation:jar:1.22 is missing, no dependency information available
+[WARNING] The POM for org.codehaus.plexus:plexus-utils:jar:1.5.8 is missing, no dependency information available
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_base_core_project/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_base_core_project ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 509 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_base_core_project/src/main/java/com/x/base/core/entity/JpaObject.java: Some input files use or override a deprecated API.
+[INFO] /workspace/o2server/x_base_core_project/src/main/java/com/x/base/core/entity/JpaObject.java: Recompile with -Xlint:deprecation for details.
+[INFO] /workspace/o2server/x_base_core_project/src/main/java/com/x/base/core/container/EntityManagerContainer.java: Some input files use unchecked or unsafe operations.
+[INFO] /workspace/o2server/x_base_core_project/src/main/java/com/x/base/core/container/EntityManagerContainer.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --------------------< net.o2oa:x_query_core_entity >--------------------
+[INFO] Building x_query_core_entity 10.0                                 [3/56]
+[INFO]   from x_query_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_query_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 49 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/Model.java: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/Model.java uses or overrides a deprecated API.
+[INFO] /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/Model.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_query_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_query_core_entity/src/main/java
+MetaModelBuilder: found 21 entity source paths
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/ImportModel.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/ImportRecord.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/ImportRecordItem.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/Item.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/ItemAccess.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/Query.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/Stat.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/View.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/index/State.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/Entry.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/InText.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/InValue.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/Model.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/OutText.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/OutValue.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/schema/ExternalConnection.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/schema/Statement.java
+  entity path: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/schema/Table.java
+MetaModelBuilder: fileManager found 49 source files
+MetaModelBuilder: matched 18 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/Item_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/ImportModel_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/ImportRecordItem_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/index/State_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/ImportRecord_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/Stat_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/Query_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/View_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/schema/Statement_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/schema/ExternalConnection_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/schema/Table_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/ItemAccess_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/InText_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/OutText_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/OutValue_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/Entry_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/Model_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/InValue_.java"
+Note: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/Model.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_query_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_query_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_query_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 49 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/Model.java: /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/Model.java uses or overrides a deprecated API.
+[INFO] /workspace/o2server/x_query_core_entity/src/main/java/com/x/query/core/entity/neural/Model.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] -----------------< net.o2oa:x_attendance_core_entity >------------------
+[INFO] Building x_attendance_core_entity 10.0                            [4/56]
+[INFO]   from x_attendance_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_attendance_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 46 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_attendance_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_attendance_core_entity/src/main/java
+MetaModelBuilder: found 43 entity source paths
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceAdmin.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceAppealAuditInfo.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceAppealInfo.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceDetail.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceDetailMobile.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceDingtalkDetail.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceEmployeeConfig.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceImportFileInfo.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceQywxDetail.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceScheduleSetting.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceSelfHoliday.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceSetting.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceStatisticRequireLog.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceStatisticalCycle.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceWorkDayConfig.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceWorkPlace.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/DingdingQywxSyncRecord.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticDingdingPersonForMonth.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticDingdingUnitForDay.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticDingdingUnitForMonth.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticPersonForMonth.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticQywxPersonForMonth.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticQywxUnitForDay.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticQywxUnitForMonth.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticTopUnitForDay.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticTopUnitForMonth.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticUnitForDay.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticUnitForMonth.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2AlertMessage.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2AppealInfo.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2CheckInRecord.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2Config.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2Detail.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2Group.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2GroupSchedule.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2GroupScheduleConfig.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2LeaveData.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2PersonConfig.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2Shift.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2WorkPlace.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_attendance_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+MetaModelBuilder: fileManager found 46 source files
+MetaModelBuilder: matched 40 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceAdmin_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticQywxPersonForMonth_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticQywxUnitForDay_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceDetail_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticTopUnitForMonth_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceWorkDayConfig_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticUnitForDay_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceAppealAuditInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceSelfHoliday_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticTopUnitForDay_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticDingdingUnitForDay_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceQywxDetail_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticQywxUnitForMonth_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2Shift_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2GroupScheduleConfig_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2Config_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2PersonConfig_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2WorkPlace_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2GroupSchedule_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2CheckInRecord_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2Detail_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2AppealInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2AlertMessage_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2LeaveData_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/v2/AttendanceV2Group_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticUnitForMonth_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticDingdingUnitForMonth_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceAppealInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticDingdingPersonForMonth_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceWorkPlace_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/StatisticPersonForMonth_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceSetting_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceDingtalkDetail_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceStatisticalCycle_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceStatisticRequireLog_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceEmployeeConfig_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceImportFileInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceScheduleSetting_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/DingdingQywxSyncRecord_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_attendance_core_entity/src/main/java/com/x/attendance/entity/AttendanceDetailMobile_.java"
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_attendance_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_attendance_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_attendance_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 86 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] ---------------------< net.o2oa:x_ai_core_entity >----------------------
+[INFO] Building x_ai_core_entity 10.0                                    [5/56]
+[INFO]   from x_ai_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_ai_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 6 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_ai_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_ai_core_entity/src/main/java
+MetaModelBuilder: found 7 entity source paths
+  entity path: /workspace/o2server/x_ai_core_entity/src/main/java/com/x/ai/core/entity/AiModel.java
+  entity path: /workspace/o2server/x_ai_core_entity/src/main/java/com/x/ai/core/entity/Clue.java
+  entity path: /workspace/o2server/x_ai_core_entity/src/main/java/com/x/ai/core/entity/Completion.java
+  entity path: /workspace/o2server/x_ai_core_entity/src/main/java/com/x/ai/core/entity/File.java
+  entity path: /workspace/o2server/x_ai_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_ai_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_ai_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+MetaModelBuilder: fileManager found 6 source files
+MetaModelBuilder: matched 4 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_ai_core_entity/src/main/java/com/x/ai/core/entity/File_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_ai_core_entity/src/main/java/com/x/ai/core/entity/AiModel_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_ai_core_entity/src/main/java/com/x/ai/core/entity/Clue_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_ai_core_entity/src/main/java/com/x/ai/core/entity/Completion_.java"
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_ai_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_ai_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_ai_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 10 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] ---------------------< net.o2oa:x_bbs_core_entity >---------------------
+[INFO] Building x_bbs_core_entity 10.0                                   [6/56]
+[INFO]   from x_bbs_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_bbs_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 20 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSSectionInfo.java: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSSectionInfo.java uses unchecked or unsafe operations.
+[INFO] /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSSectionInfo.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_bbs_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_bbs_core_entity/src/main/java
+MetaModelBuilder: found 21 entity source paths
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSConfigSetting.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSForumInfo.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSOperationRecord.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSPermissionInfo.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSPermissionRole.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSReplyInfo.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSRoleInfo.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSSectionInfo.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSShutup.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSSubjectAttachment.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSSubjectContent.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSSubjectInfo.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSSubjectVoteResult.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSUserInfo.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSUserRole.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSVoteOption.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSVoteOptionGroup.java
+  entity path: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSVoteRecord.java
+MetaModelBuilder: fileManager found 20 source files
+MetaModelBuilder: matched 18 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSUserRole_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSVoteRecord_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSConfigSetting_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSSubjectContent_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSSectionInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSSubjectVoteResult_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSReplyInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSPermissionInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSUserInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSPermissionRole_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSOperationRecord_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSVoteOption_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSVoteOptionGroup_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSRoleInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSSubjectAttachment_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSShutup_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSSubjectInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSForumInfo_.java"
+Note: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSSectionInfo.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_bbs_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_bbs_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_bbs_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 38 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSSectionInfo.java: /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSSectionInfo.java uses unchecked or unsafe operations.
+[INFO] /workspace/o2server/x_bbs_core_entity/src/main/java/com/x/bbs/entity/BBSSectionInfo.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] ------------------< net.o2oa:x_calendar_core_entity >-------------------
+[INFO] Building x_calendar_core_entity 10.0                              [7/56]
+[INFO]   from x_calendar_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_calendar_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 10 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_calendar_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_calendar_core_entity/src/main/java
+MetaModelBuilder: found 9 entity source paths
+  entity path: /workspace/o2server/x_calendar_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_calendar_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_calendar_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+  entity path: /workspace/o2server/x_calendar_core_entity/src/main/java/com/x/calendar/core/entity/Calendar.java
+  entity path: /workspace/o2server/x_calendar_core_entity/src/main/java/com/x/calendar/core/entity/Calendar_Event.java
+  entity path: /workspace/o2server/x_calendar_core_entity/src/main/java/com/x/calendar/core/entity/Calendar_EventComment.java
+  entity path: /workspace/o2server/x_calendar_core_entity/src/main/java/com/x/calendar/core/entity/Calendar_EventRepeatMaster.java
+  entity path: /workspace/o2server/x_calendar_core_entity/src/main/java/com/x/calendar/core/entity/Calendar_Setting.java
+  entity path: /workspace/o2server/x_calendar_core_entity/src/main/java/com/x/calendar/core/entity/Calendar_SettingLobValue.java
+MetaModelBuilder: fileManager found 10 source files
+MetaModelBuilder: matched 6 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_calendar_core_entity/src/main/java/com/x/calendar/core/entity/Calendar_Event_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_calendar_core_entity/src/main/java/com/x/calendar/core/entity/Calendar_Setting_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_calendar_core_entity/src/main/java/com/x/calendar/core/entity/Calendar_EventComment_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_calendar_core_entity/src/main/java/com/x/calendar/core/entity/Calendar_EventRepeatMaster_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_calendar_core_entity/src/main/java/com/x/calendar/core/entity/Calendar_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_calendar_core_entity/src/main/java/com/x/calendar/core/entity/Calendar_SettingLobValue_.java"
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_calendar_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_calendar_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_calendar_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 16 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] ---------------------< net.o2oa:x_cms_core_entity >---------------------
+[INFO] Building x_cms_core_entity 10.0                                   [8/56]
+[INFO]   from x_cms_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_cms_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 74 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/query/Table.java: Some input files use or override a deprecated API.
+[INFO] /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/query/Table.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_cms_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_cms_core_entity/src/main/java
+MetaModelBuilder: found 49 entity source paths
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/AppInfo.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/AppInfoConfig.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/CategoryExt.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/CategoryInfo.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/CmsBatchOperation.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/Document.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/DocumentCommend.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/DocumentCommentCommend.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/DocumentCommentContent.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/DocumentCommentInfo.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/DocumentViewRecord.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/FileInfo.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/Log.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/ReadRemind.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/Review.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/AppDict.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/AppDictItem.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/File.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/Form.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/FormField.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/FormVersion.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/Script.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/ScriptVersion.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/TemplateForm.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/View.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/ViewCategory.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/ViewFieldConfig.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/message/DocumentEvent.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/ImportModel.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/ImportRecord.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/ImportRecordItem.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/Item.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/ItemAccess.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/Query.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/Stat.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/View.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/index/State.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/neural/Entry.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/neural/InText.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/neural/InValue.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/neural/Model.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/neural/OutText.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/neural/OutValue.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/schema/ExternalConnection.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/schema/Statement.java
+  entity path: /workspace/o2server/x_cms_core_entity/src/main/java/com/x/query/core/entity/schema/Table.java
+MetaModelBuilder: fileManager found 74 source files
+MetaModelBuilder: matched 28 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/AppInfoConfig_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/CategoryInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/AppInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/Document_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/Form_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/FormField_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/Script_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/ViewCategory_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/AppDictItem_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/AppDict_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/File_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/View_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/ViewFieldConfig_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/ScriptVersion_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/FormVersion_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/element/TemplateForm_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/DocumentCommentInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/DocumentViewRecord_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/Log_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/Review_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/message/DocumentEvent_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/ReadRemind_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/CmsBatchOperation_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/FileInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/CategoryExt_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/DocumentCommentCommend_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/DocumentCommend_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/DocumentCommentContent_.java"
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_cms_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_cms_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_cms_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 102 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/query/Table.java: Some input files use or override a deprecated API.
+[INFO] /workspace/o2server/x_cms_core_entity/src/main/java/com/x/cms/core/entity/query/Table.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] ------------------< net.o2oa:x_component_core_entity >------------------
+[INFO] Building x_component_core_entity 10.0                             [9/56]
+[INFO]   from x_component_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_component_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 2 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_component_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_component_core_entity/src/main/java
+MetaModelBuilder: found 4 entity source paths
+  entity path: /workspace/o2server/x_component_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_component_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_component_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+  entity path: /workspace/o2server/x_component_core_entity/src/main/java/com/x/component/core/entity/Component.java
+MetaModelBuilder: fileManager found 2 source files
+MetaModelBuilder: matched 1 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_component_core_entity/src/main/java/com/x/component/core/entity/Component_.java"
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_component_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_component_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_component_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --------------------< net.o2oa:x_file_core_entity >---------------------
+[INFO] Building x_file_core_entity 10.0                                 [10/56]
+[INFO]   from x_file_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_file_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 14 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_file_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_file_core_entity/src/main/java
+MetaModelBuilder: found 12 entity source paths
+  entity path: /workspace/o2server/x_file_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_file_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_file_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+  entity path: /workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/open/File.java
+  entity path: /workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/open/FileConfig.java
+  entity path: /workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/open/OriginFile.java
+  entity path: /workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/personal/Attachment.java
+  entity path: /workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/personal/Attachment2.java
+  entity path: /workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/personal/Folder.java
+  entity path: /workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/personal/Folder2.java
+  entity path: /workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/personal/Recycle.java
+  entity path: /workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/personal/Share.java
+MetaModelBuilder: fileManager found 14 source files
+MetaModelBuilder: matched 9 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/open/File_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/open/OriginFile_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/open/FileConfig_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/personal/Attachment2_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/personal/Share_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/personal/Folder2_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/personal/Recycle_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/personal/Attachment_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_file_core_entity/src/main/java/com/x/file/core/entity/personal/Folder_.java"
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_file_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_file_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_file_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 23 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] -------------------< net.o2oa:x_general_core_entity >-------------------
+[INFO] Building x_general_core_entity 10.0                              [11/56]
+[INFO]   from x_general_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_general_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 9 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_general_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_general_core_entity/src/main/java
+MetaModelBuilder: found 8 entity source paths
+  entity path: /workspace/o2server/x_general_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_general_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_general_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+  entity path: /workspace/o2server/x_general_core_entity/src/main/java/com/x/general/core/entity/ApplicationDict.java
+  entity path: /workspace/o2server/x_general_core_entity/src/main/java/com/x/general/core/entity/ApplicationDictItem.java
+  entity path: /workspace/o2server/x_general_core_entity/src/main/java/com/x/general/core/entity/GeneralFile.java
+  entity path: /workspace/o2server/x_general_core_entity/src/main/java/com/x/general/core/entity/Invoice.java
+  entity path: /workspace/o2server/x_general_core_entity/src/main/java/com/x/general/core/entity/area/District.java
+MetaModelBuilder: fileManager found 9 source files
+MetaModelBuilder: matched 5 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_general_core_entity/src/main/java/com/x/general/core/entity/GeneralFile_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_general_core_entity/src/main/java/com/x/general/core/entity/area/District_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_general_core_entity/src/main/java/com/x/general/core/entity/Invoice_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_general_core_entity/src/main/java/com/x/general/core/entity/ApplicationDictItem_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_general_core_entity/src/main/java/com/x/general/core/entity/ApplicationDict_.java"
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_general_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_general_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_general_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 14 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] -------------------< net.o2oa:x_hotpic_core_entity >--------------------
+[INFO] Building x_hotpic_core_entity 10.0                               [12/56]
+[INFO]   from x_hotpic_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_hotpic_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 2 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_hotpic_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_hotpic_core_entity/src/main/java
+MetaModelBuilder: found 4 entity source paths
+  entity path: /workspace/o2server/x_hotpic_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_hotpic_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_hotpic_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+  entity path: /workspace/o2server/x_hotpic_core_entity/src/main/java/com/x/hotpic/entity/HotPictureInfo.java
+MetaModelBuilder: fileManager found 2 source files
+MetaModelBuilder: matched 1 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_hotpic_core_entity/src/main/java/com/x/hotpic/entity/HotPictureInfo_.java"
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_hotpic_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_hotpic_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_hotpic_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --------------------< net.o2oa:x_jpush_core_entity >--------------------
+[INFO] Building x_jpush_core_entity 10.0                                [13/56]
+[INFO]   from x_jpush_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_jpush_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 2 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_jpush_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_jpush_core_entity/src/main/java
+MetaModelBuilder: found 4 entity source paths
+  entity path: /workspace/o2server/x_jpush_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_jpush_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_jpush_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+  entity path: /workspace/o2server/x_jpush_core_entity/src/main/java/com/x/jpush/core/entity/PushDevice.java
+MetaModelBuilder: fileManager found 2 source files
+MetaModelBuilder: matched 1 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_jpush_core_entity/src/main/java/com/x/jpush/core/entity/PushDevice_.java"
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_jpush_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_jpush_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_jpush_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] -------------------< net.o2oa:x_meeting_core_entity >-------------------
+[INFO] Building x_meeting_core_entity 10.0                              [14/56]
+[INFO]   from x_meeting_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_meeting_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 11 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_meeting_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_meeting_core_entity/src/main/java
+MetaModelBuilder: found 8 entity source paths
+  entity path: /workspace/o2server/x_meeting_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_meeting_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_meeting_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+  entity path: /workspace/o2server/x_meeting_core_entity/src/main/java/com/x/meeting/core/entity/Attachment.java
+  entity path: /workspace/o2server/x_meeting_core_entity/src/main/java/com/x/meeting/core/entity/Building.java
+  entity path: /workspace/o2server/x_meeting_core_entity/src/main/java/com/x/meeting/core/entity/Meeting.java
+  entity path: /workspace/o2server/x_meeting_core_entity/src/main/java/com/x/meeting/core/entity/MeetingConfig.java
+  entity path: /workspace/o2server/x_meeting_core_entity/src/main/java/com/x/meeting/core/entity/Room.java
+MetaModelBuilder: fileManager found 11 source files
+MetaModelBuilder: matched 5 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_meeting_core_entity/src/main/java/com/x/meeting/core/entity/Room_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_meeting_core_entity/src/main/java/com/x/meeting/core/entity/MeetingConfig_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_meeting_core_entity/src/main/java/com/x/meeting/core/entity/Building_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_meeting_core_entity/src/main/java/com/x/meeting/core/entity/Attachment_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_meeting_core_entity/src/main/java/com/x/meeting/core/entity/Meeting_.java"
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_meeting_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_meeting_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_meeting_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 16 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] -------------------< net.o2oa:x_message_core_entity >-------------------
+[INFO] Building x_message_core_entity 10.0                              [15/56]
+[INFO]   from x_message_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_message_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 10 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_message_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_message_core_entity/src/main/java
+MetaModelBuilder: found 11 entity source paths
+  entity path: /workspace/o2server/x_message_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_message_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_message_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+  entity path: /workspace/o2server/x_message_core_entity/src/main/java/com/x/message/core/entity/IMConversation.java
+  entity path: /workspace/o2server/x_message_core_entity/src/main/java/com/x/message/core/entity/IMConversationExt.java
+  entity path: /workspace/o2server/x_message_core_entity/src/main/java/com/x/message/core/entity/IMMsg.java
+  entity path: /workspace/o2server/x_message_core_entity/src/main/java/com/x/message/core/entity/IMMsgCollection.java
+  entity path: /workspace/o2server/x_message_core_entity/src/main/java/com/x/message/core/entity/IMMsgFile.java
+  entity path: /workspace/o2server/x_message_core_entity/src/main/java/com/x/message/core/entity/Instant.java
+  entity path: /workspace/o2server/x_message_core_entity/src/main/java/com/x/message/core/entity/Mass.java
+  entity path: /workspace/o2server/x_message_core_entity/src/main/java/com/x/message/core/entity/Message.java
+MetaModelBuilder: fileManager found 10 source files
+MetaModelBuilder: matched 8 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_message_core_entity/src/main/java/com/x/message/core/entity/IMMsgFile_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_message_core_entity/src/main/java/com/x/message/core/entity/Instant_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_message_core_entity/src/main/java/com/x/message/core/entity/IMConversationExt_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_message_core_entity/src/main/java/com/x/message/core/entity/Mass_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_message_core_entity/src/main/java/com/x/message/core/entity/IMConversation_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_message_core_entity/src/main/java/com/x/message/core/entity/IMMsg_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_message_core_entity/src/main/java/com/x/message/core/entity/IMMsgCollection_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_message_core_entity/src/main/java/com/x/message/core/entity/Message_.java"
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_message_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_message_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_message_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 18 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --------------------< net.o2oa:x_mind_core_entity >---------------------
+[INFO] Building x_mind_core_entity 10.0                                 [16/56]
+[INFO]   from x_mind_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_mind_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 9 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_mind_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_mind_core_entity/src/main/java
+MetaModelBuilder: found 11 entity source paths
+  entity path: /workspace/o2server/x_mind_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_mind_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_mind_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+  entity path: /workspace/o2server/x_mind_core_entity/src/main/java/com/x/mind/entity/MindBaseInfo.java
+  entity path: /workspace/o2server/x_mind_core_entity/src/main/java/com/x/mind/entity/MindContentInfo.java
+  entity path: /workspace/o2server/x_mind_core_entity/src/main/java/com/x/mind/entity/MindFolderInfo.java
+  entity path: /workspace/o2server/x_mind_core_entity/src/main/java/com/x/mind/entity/MindIconInfo.java
+  entity path: /workspace/o2server/x_mind_core_entity/src/main/java/com/x/mind/entity/MindRecycleInfo.java
+  entity path: /workspace/o2server/x_mind_core_entity/src/main/java/com/x/mind/entity/MindShareRecord.java
+  entity path: /workspace/o2server/x_mind_core_entity/src/main/java/com/x/mind/entity/MindVersionContent.java
+  entity path: /workspace/o2server/x_mind_core_entity/src/main/java/com/x/mind/entity/MindVersionInfo.java
+MetaModelBuilder: fileManager found 9 source files
+MetaModelBuilder: matched 8 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_mind_core_entity/src/main/java/com/x/mind/entity/MindIconInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_mind_core_entity/src/main/java/com/x/mind/entity/MindBaseInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_mind_core_entity/src/main/java/com/x/mind/entity/MindContentInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_mind_core_entity/src/main/java/com/x/mind/entity/MindShareRecord_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_mind_core_entity/src/main/java/com/x/mind/entity/MindRecycleInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_mind_core_entity/src/main/java/com/x/mind/entity/MindFolderInfo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_mind_core_entity/src/main/java/com/x/mind/entity/MindVersionContent_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_mind_core_entity/src/main/java/com/x/mind/entity/MindVersionInfo_.java"
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_mind_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_mind_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_mind_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 17 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] ----------------< net.o2oa:x_organization_core_entity >-----------------
+[INFO] Building x_organization_core_entity 10.0                         [17/56]
+[INFO]   from x_organization_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_organization_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 23 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_organization_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_organization_core_entity/src/main/java
+MetaModelBuilder: found 21 entity source paths
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/Bind.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/Custom.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/Definition.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/Group.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/Identity.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/OauthCode.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/PermissionSetting.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/Person.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/PersonAttribute.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/PersonCard.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/PersonExtend.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/Role.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/Unit.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/UnitAttribute.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/UnitDuty.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/accredit/Empower.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/accredit/EmpowerLog.java
+  entity path: /workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/log/TokenThreshold.java
+MetaModelBuilder: fileManager found 23 source files
+MetaModelBuilder: matched 18 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/Unit_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/Identity_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/PersonCard_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/Group_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/Person_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/UnitDuty_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/Definition_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/Role_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/Custom_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/accredit/Empower_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/accredit/EmpowerLog_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/Bind_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/PersonExtend_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/OauthCode_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/PersonAttribute_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/log/TokenThreshold_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/PermissionSetting_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_organization_core_entity/src/main/java/com/x/organization/core/entity/UnitAttribute_.java"
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_organization_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_organization_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_organization_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 41 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] -------------------< net.o2oa:x_portal_core_entity >--------------------
+[INFO] Building x_portal_core_entity 10.0                               [18/56]
+[INFO]   from x_portal_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_portal_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 16 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_portal_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_portal_core_entity/src/main/java
+MetaModelBuilder: found 16 entity source paths
+  entity path: /workspace/o2server/x_portal_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_portal_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_portal_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+  entity path: /workspace/o2server/x_portal_core_entity/src/main/java/com/x/general/core/entity/ApplicationDict.java
+  entity path: /workspace/o2server/x_portal_core_entity/src/main/java/com/x/general/core/entity/ApplicationDictItem.java
+  entity path: /workspace/o2server/x_portal_core_entity/src/main/java/com/x/general/core/entity/GeneralFile.java
+  entity path: /workspace/o2server/x_portal_core_entity/src/main/java/com/x/general/core/entity/Invoice.java
+  entity path: /workspace/o2server/x_portal_core_entity/src/main/java/com/x/general/core/entity/area/District.java
+  entity path: /workspace/o2server/x_portal_core_entity/src/main/java/com/x/portal/core/entity/File.java
+  entity path: /workspace/o2server/x_portal_core_entity/src/main/java/com/x/portal/core/entity/Page.java
+  entity path: /workspace/o2server/x_portal_core_entity/src/main/java/com/x/portal/core/entity/PageVersion.java
+  entity path: /workspace/o2server/x_portal_core_entity/src/main/java/com/x/portal/core/entity/Portal.java
+  entity path: /workspace/o2server/x_portal_core_entity/src/main/java/com/x/portal/core/entity/Script.java
+  entity path: /workspace/o2server/x_portal_core_entity/src/main/java/com/x/portal/core/entity/ScriptVersion.java
+  entity path: /workspace/o2server/x_portal_core_entity/src/main/java/com/x/portal/core/entity/TemplatePage.java
+  entity path: /workspace/o2server/x_portal_core_entity/src/main/java/com/x/portal/core/entity/Widget.java
+MetaModelBuilder: fileManager found 16 source files
+MetaModelBuilder: matched 8 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_portal_core_entity/src/main/java/com/x/portal/core/entity/PageVersion_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_portal_core_entity/src/main/java/com/x/portal/core/entity/Page_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_portal_core_entity/src/main/java/com/x/portal/core/entity/Script_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_portal_core_entity/src/main/java/com/x/portal/core/entity/TemplatePage_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_portal_core_entity/src/main/java/com/x/portal/core/entity/File_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_portal_core_entity/src/main/java/com/x/portal/core/entity/Portal_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_portal_core_entity/src/main/java/com/x/portal/core/entity/Widget_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_portal_core_entity/src/main/java/com/x/portal/core/entity/ScriptVersion_.java"
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_portal_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_portal_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_portal_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 24 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] ---------------< net.o2oa:x_processplatform_core_entity >---------------
+[INFO] Building x_processplatform_core_entity 10.0                      [19/56]
+[INFO]   from x_processplatform_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_processplatform_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 150 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Work.java: Some input files use or override a deprecated API.
+[INFO] /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Work.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_processplatform_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_processplatform_core_entity/src/main/java
+MetaModelBuilder: found 73 entity source paths
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Attachment.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/DataRecord.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/DocSign.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/DocSignScrawl.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/DocumentVersion.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Draft.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Handover.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/KeyLock.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Read.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/ReadCompleted.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Record.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Review.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/SerialNumber.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Snap.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Task.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/TaskCompleted.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/TaskProcessMode.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Work.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/WorkCompleted.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/WorkLog.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Agent.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Application.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/ApplicationDict.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/ApplicationDictItem.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Begin.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Cancel.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Choice.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Delay.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Embed.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/End.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/File.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Form.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/FormField.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/FormVersion.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Invoke.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Manual.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Mapping.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Merge.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Parallel.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Process.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/ProcessVersion.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Publish.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Route.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Script.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/ScriptVersion.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Service.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Split.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/TemplateForm.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/log/MergeItemPlan.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/message/Event.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/message/WorkCompletedEvent.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/message/WorkEvent.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/ImportModel.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/ImportRecord.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/ImportRecordItem.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/Item.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/ItemAccess.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/Query.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/Stat.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/View.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/index/State.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/neural/Entry.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/neural/InText.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/neural/InValue.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/neural/Model.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/neural/OutText.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/neural/OutValue.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/schema/ExternalConnection.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/schema/Statement.java
+  entity path: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/query/core/entity/schema/Table.java
+MetaModelBuilder: fileManager found 150 source files
+MetaModelBuilder: matched 52 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/DocSignScrawl_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/DataRecord_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Draft_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Read_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/WorkLog_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/DocumentVersion_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/ReadCompleted_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/DocSign_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Snap_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/KeyLock_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/WorkCompleted_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/SerialNumber_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/TaskCompleted_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Review_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Record_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Task_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Work_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Handover_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Attachment_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/TaskProcessMode_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Form_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/FormField_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/End_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Split_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Script_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Embed_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Begin_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Cancel_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Process_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Service_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/File_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Choice_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Invoke_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Mapping_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Route_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/ApplicationDictItem_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Parallel_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/ProcessVersion_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Merge_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/ScriptVersion_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Manual_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Publish_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/FormVersion_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Application_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Delay_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/ApplicationDict_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/Agent_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/element/TemplateForm_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/message/WorkEvent_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/message/WorkCompletedEvent_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/message/Event_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/log/MergeItemPlan_.java"
+Note: /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Work.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_processplatform_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_processplatform_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_processplatform_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 202 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Work.java: Some input files use or override a deprecated API.
+[INFO] /workspace/o2server/x_processplatform_core_entity/src/main/java/com/x/processplatform/core/entity/content/Work.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] -----------------< net.o2oa:x_correlation_core_entity >-----------------
+[INFO] Building x_correlation_core_entity 10.0                          [20/56]
+[INFO]   from x_correlation_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_correlation_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_correlation_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_correlation_core_entity/src/main/java
+MetaModelBuilder: found 4 entity source paths
+  entity path: /workspace/o2server/x_correlation_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_correlation_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_correlation_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+  entity path: /workspace/o2server/x_correlation_core_entity/src/main/java/com/x/correlation/core/entity/content/Correlation.java
+MetaModelBuilder: fileManager found 3 source files
+MetaModelBuilder: matched 1 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_correlation_core_entity/src/main/java/com/x/correlation/core/entity/content/Correlation_.java"
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_correlation_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_correlation_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_correlation_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 4 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] ---------------< net.o2oa:x_program_center_core_entity >----------------
+[INFO] Building x_program_center_core_entity 10.0                       [21/56]
+[INFO]   from x_program_center_core_entity/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default) @ x_program_center_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 30 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --- exec:1.6.0:java (metaModelBuilder) @ x_program_center_core_entity ---
+MetaModelBuilder: sourcedir=/workspace/o2server/x_program_center_core_entity/src/main/java
+MetaModelBuilder: found 27 entity source paths
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/base/core/entity/JpaObject.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/base/core/entity/SliceJpaObject.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/base/core/entity/StorageObject.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/general/core/entity/ApplicationDict.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/general/core/entity/ApplicationDictItem.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/general/core/entity/GeneralFile.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/general/core/entity/Invoice.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/general/core/entity/area/District.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/Agent.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/AppPackApkFile.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/Application.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/Attachment.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/Captcha.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/Code.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/DeployLog.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/InstallLog.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/Invoke.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/MPWeixinMenu.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/PromptErrorLog.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/ScheduleLog.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/Script.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/Structure.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/UnexpectedErrorLog.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/WarnLog.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/validation/Bar.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/validation/Foo.java
+  entity path: /workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/validation/Meta.java
+MetaModelBuilder: fileManager found 30 source files
+MetaModelBuilder: matched 19 source files for compilation
+MetaModelBuilder: classpath has OpenJPA: true
+  relevant cp: /root/.m2/repository/org/apache/openjpa/openjpa/4.1.1/openjpa-4.1.1.jar exists=true
+  relevant cp: /root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar exists=true
+Note: Starting OpenJPA Annotation Processor for Metamodel Generation
+Note: Annotation jakarta.annotation.Generated not found in the classpath. It will not be added to generated static metamodels.
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/AppPackApkFile_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/PromptErrorLog_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/Script_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/ScheduleLog_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/Invoke_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/MPWeixinMenu_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/Code_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/Captcha_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/Structure_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/DeployLog_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/Application_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/Attachment_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/InstallLog_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/Agent_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/validation/Foo_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/validation/Meta_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/validation/Bar_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/WarnLog_.java"
+Note: Generating canonical metamodel source code "file:///workspace/o2server/x_program_center_core_entity/src/main/java/com/x/program/center/core/entity/UnexpectedErrorLog_.java"
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_program_center_core_entity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_program_center_core_entity/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_program_center_core_entity ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 49 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] ----------------< net.o2oa:x_organization_core_express >----------------
+[INFO] Building x_organization_core_express 10.0                        [22/56]
+[INFO]   from x_organization_core_express/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_organization_core_express ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_organization_core_express/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_organization_core_express ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 119 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_organization_core_express/src/main/java/com/x/organization/core/express/person/PersonFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /workspace/o2server/x_organization_core_express/src/main/java/com/x/organization/core/express/person/PersonFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] -------------------< net.o2oa:x_query_core_express >--------------------
+[INFO] Building x_query_core_express 10.0                               [23/56]
+[INFO]   from x_query_core_express/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_query_core_express ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_query_core_express/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_query_core_express ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 48 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_query_core_express/src/main/java/com/x/query/core/express/index/Facets.java: Some input files use or override a deprecated API.
+[INFO] /workspace/o2server/x_query_core_express/src/main/java/com/x/query/core/express/index/Facets.java: Recompile with -Xlint:deprecation for details.
+[INFO] /workspace/o2server/x_query_core_express/src/main/java/com/x/query/core/express/plan/Row.java: Some input files use unchecked or unsafe operations.
+[INFO] /workspace/o2server/x_query_core_express/src/main/java/com/x/query/core/express/plan/Row.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] ----------------< net.o2oa:x_correlation_core_express >-----------------
+[INFO] Building x_correlation_core_express 10.0                         [24/56]
+[INFO]   from x_correlation_core_express/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_correlation_core_express ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_correlation_core_express/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_correlation_core_express ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 20 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --------------< net.o2oa:x_processplatform_core_express >---------------
+[INFO] Building x_processplatform_core_express 10.0                     [25/56]
+[INFO]   from x_processplatform_core_express/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_processplatform_core_express ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_processplatform_core_express/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_processplatform_core_express ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 154 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_processplatform_core_express/src/main/java/com/x/processplatform/core/express/assemble/surface/jaxrs/task/V3AddWi.java: Some input files use or override a deprecated API.
+[INFO] /workspace/o2server/x_processplatform_core_express/src/main/java/com/x/processplatform/core/express/assemble/surface/jaxrs/task/V3AddWi.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] -------------------< net.o2oa:x_ai_assemble_control >-------------------
+[INFO] Building x_ai_assemble_control 10.0                              [26/56]
+[INFO]   from x_ai_assemble_control/pom.xml
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_ai_assemble_control ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_ai_assemble_control ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 66 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_ai_assemble_control/src/main/java/com/x/ai/assemble/control/util/HttpUtil.java: /workspace/o2server/x_ai_assemble_control/src/main/java/com/x/ai/assemble/control/util/HttpUtil.java uses or overrides a deprecated API.
+[INFO] /workspace/o2server/x_ai_assemble_control/src/main/java/com/x/ai/assemble/control/util/HttpUtil.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] ------------------< net.o2oa:x_bbs_assemble_control >-------------------
+[INFO] Building x_bbs_assemble_control 10.0                             [27/56]
+[INFO]   from x_bbs_assemble_control/pom.xml
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_bbs_assemble_control ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_bbs_assemble_control/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_bbs_assemble_control ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 310 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_bbs_assemble_control/src/main/java/com/x/bbs/assemble/control/factory/BBSReplyInfoFactory.java: Some input files use or override a deprecated API.
+[INFO] /workspace/o2server/x_bbs_assemble_control/src/main/java/com/x/bbs/assemble/control/factory/BBSReplyInfoFactory.java: Recompile with -Xlint:deprecation for details.
+[INFO] /workspace/o2server/x_bbs_assemble_control/src/main/java/com/x/bbs/assemble/control/jaxrs/permissioninfo/ActionGetUserPermission.java: Some input files use unchecked or unsafe operations.
+[INFO] /workspace/o2server/x_bbs_assemble_control/src/main/java/com/x/bbs/assemble/control/jaxrs/permissioninfo/ActionGetUserPermission.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] ----------------< net.o2oa:x_calendar_assemble_control >----------------
+[INFO] Building x_calendar_assemble_control 10.0                        [28/56]
+[INFO]   from x_calendar_assemble_control/pom.xml
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_calendar_assemble_control ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_calendar_assemble_control/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_calendar_assemble_control ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 104 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_calendar_assemble_control/src/main/java/com/x/calendar/assemble/control/service/CalendarServiceAdv.java: Some input files use or override a deprecated API.
+[INFO] /workspace/o2server/x_calendar_assemble_control/src/main/java/com/x/calendar/assemble/control/service/CalendarServiceAdv.java: Recompile with -Xlint:deprecation for details.
+[INFO] /workspace/o2server/x_calendar_assemble_control/src/main/java/com/x/calendar/assemble/control/service/Calendar_EventServiceAdv.java: /workspace/o2server/x_calendar_assemble_control/src/main/java/com/x/calendar/assemble/control/service/Calendar_EventServiceAdv.java uses unchecked or unsafe operations.
+[INFO] /workspace/o2server/x_calendar_assemble_control/src/main/java/com/x/calendar/assemble/control/service/Calendar_EventServiceAdv.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --------------------< net.o2oa:x_cms_core_express >---------------------
+[INFO] Building x_cms_core_express 10.0                                 [29/56]
+[INFO]   from x_cms_core_express/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_cms_core_express ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_cms_core_express/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_cms_core_express ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 16 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_cms_core_express/src/main/java/com/x/cms/core/express/permission/CmsPermissionService.java: /workspace/o2server/x_cms_core_express/src/main/java/com/x/cms/core/express/permission/CmsPermissionService.java uses or overrides a deprecated API.
+[INFO] /workspace/o2server/x_cms_core_express/src/main/java/com/x/cms/core/express/permission/CmsPermissionService.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] ------------------< net.o2oa:x_cms_assemble_control >-------------------
+[INFO] Building x_cms_assemble_control 10.0                             [30/56]
+[INFO]   from x_cms_assemble_control/pom.xml
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_cms_assemble_control ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_cms_assemble_control/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_cms_assemble_control ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 672 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_cms_assemble_control/src/main/java/com/x/cms/assemble/control/Business.java: Some input files use or override a deprecated API.
+[INFO] /workspace/o2server/x_cms_assemble_control/src/main/java/com/x/cms/assemble/control/Business.java: Recompile with -Xlint:deprecation for details.
+[INFO] /workspace/o2server/x_cms_assemble_control/src/main/java/com/x/cms/assemble/control/jaxrs/appinfo/ActionListAllAppType.java: Some input files use unchecked or unsafe operations.
+[INFO] /workspace/o2server/x_cms_assemble_control/src/main/java/com/x/cms/assemble/control/jaxrs/appinfo/ActionListAllAppType.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] ---------------< net.o2oa:x_attendance_assemble_control >---------------
+[INFO] Building x_attendance_assemble_control 10.0                      [31/56]
+[INFO]   from x_attendance_assemble_control/pom.xml
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_attendance_assemble_control ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_attendance_assemble_control/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_attendance_assemble_control ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 494 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_attendance_assemble_control/src/main/java/com/x/attendance/assemble/control/factory/AttendanceDetailFactory.java: Some input files use or override a deprecated API.
+[INFO] /workspace/o2server/x_attendance_assemble_control/src/main/java/com/x/attendance/assemble/control/factory/AttendanceDetailFactory.java: Recompile with -Xlint:deprecation for details.
+[INFO] /workspace/o2server/x_attendance_assemble_control/src/main/java/com/x/attendance/assemble/control/factory/AttendanceDetailFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /workspace/o2server/x_attendance_assemble_control/src/main/java/com/x/attendance/assemble/control/factory/AttendanceDetailFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] ---------------< net.o2oa:x_component_assemble_control >----------------
+[INFO] Building x_component_assemble_control 10.0                       [32/56]
+[INFO]   from x_component_assemble_control/pom.xml
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_component_assemble_control ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_component_assemble_control/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_component_assemble_control ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 21 source files with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] ------------------< net.o2oa:x_file_assemble_control >------------------
+[INFO] Building x_file_assemble_control 10.0                            [33/56]
+[INFO]   from x_file_assemble_control/pom.xml
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_file_assemble_control ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_file_assemble_control/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_file_assemble_control ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 220 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_file_assemble_control/src/main/java/com/x/file/assemble/control/jaxrs/attachment/ActionDelete.java: Some input files use or override a deprecated API.
+[INFO] /workspace/o2server/x_file_assemble_control/src/main/java/com/x/file/assemble/control/jaxrs/attachment/ActionDelete.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] ----------------< net.o2oa:x_general_assemble_control >-----------------
+[INFO] Building x_general_assemble_control 10.0                         [34/56]
+[INFO]   from x_general_assemble_control/pom.xml
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_general_assemble_control ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_general_assemble_control/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_general_assemble_control ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 100 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_general_assemble_control/src/main/java/com/x/general/assemble/control/jaxrs/invoice/ActionDelete.java: Some input files use or override a deprecated API.
+[INFO] /workspace/o2server/x_general_assemble_control/src/main/java/com/x/general/assemble/control/jaxrs/invoice/ActionDelete.java: Recompile with -Xlint:deprecation for details.
+[INFO] /workspace/o2server/x_general_assemble_control/src/main/java/com/x/general/assemble/control/jaxrs/area/ActionListCity.java: Some input files use unchecked or unsafe operations.
+[INFO] /workspace/o2server/x_general_assemble_control/src/main/java/com/x/general/assemble/control/jaxrs/area/ActionListCity.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] -----------------< net.o2oa:x_hotpic_assemble_control >-----------------
+[INFO] Building x_hotpic_assemble_control 10.0                          [35/56]
+[INFO]   from x_hotpic_assemble_control/pom.xml
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ x_hotpic_assemble_control ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/o2server/x_hotpic_assemble_control/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ x_hotpic_assemble_control ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 49 source files with javac [debug target 25] to target/classes
+[INFO] /workspace/o2server/x_hotpic_assemble_control/src/main/java/com/x/hotpic/assemble/control/jaxrs/hotpic/ActionCipherList.java: Some input files use unchecked or unsafe operations.
+[INFO] /workspace/o2server/x_hotpic_assemble_control/src/main/java/com/x/hotpic/assemble/control/jaxrs/hotpic/ActionCipherList.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] -----------------< net.o2oa:x_jpush_assemble_control >------------------
+[INFO] Building x_jpush_assemble_control 10.0                           [36/56]
+[INFO]   from x_jpush_assemble_control/pom.xml
+[INFO] --------------------------------[ war ]---------------------------------
+[WARNING] The POM for io.github.jpush:jiguang-sdk:jar:5.1.17 is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for o2server 10.0:
+[INFO] 
+[INFO] o2server ........................................... SUCCESS [  0.003 s]
+[INFO] x_base_core_project ................................ SUCCESS [ 25.770 s]
+[INFO] x_query_core_entity ................................ SUCCESS [  3.896 s]
+[INFO] x_attendance_core_entity ........................... SUCCESS [  4.034 s]
+[INFO] x_ai_core_entity ................................... SUCCESS [  2.118 s]
+[INFO] x_bbs_core_entity .................................. SUCCESS [  2.763 s]
+[INFO] x_calendar_core_entity ............................. SUCCESS [  2.031 s]
+[INFO] x_cms_core_entity .................................. SUCCESS [  3.837 s]
+[INFO] x_component_core_entity ............................ SUCCESS [  2.045 s]
+[INFO] x_file_core_entity ................................. SUCCESS [  2.073 s]
+[INFO] x_general_core_entity .............................. SUCCESS [  2.042 s]
+[INFO] x_hotpic_core_entity ............................... SUCCESS [  1.507 s]
+[INFO] x_jpush_core_entity ................................ SUCCESS [  1.859 s]
+[INFO] x_meeting_core_entity .............................. SUCCESS [  1.694 s]
+[INFO] x_message_core_entity .............................. SUCCESS [  1.618 s]
+[INFO] x_mind_core_entity ................................. SUCCESS [  2.028 s]
+[INFO] x_organization_core_entity ......................... SUCCESS [  2.659 s]
+[INFO] x_portal_core_entity ............................... SUCCESS [  1.908 s]
+[INFO] x_processplatform_core_entity ...................... SUCCESS [  6.618 s]
+[INFO] x_correlation_core_entity .......................... SUCCESS [  1.758 s]
+[INFO] x_program_center_core_entity ....................... SUCCESS [  2.057 s]
+[INFO] x_organization_core_express ........................ SUCCESS [  0.705 s]
+[INFO] x_query_core_express ............................... SUCCESS [  1.146 s]
+[INFO] x_correlation_core_express ......................... SUCCESS [  0.463 s]
+[INFO] x_processplatform_core_express ..................... SUCCESS [  0.656 s]
+[INFO] x_ai_assemble_control .............................. SUCCESS [  0.857 s]
+[INFO] x_bbs_assemble_control ............................. SUCCESS [  2.476 s]
+[INFO] x_calendar_assemble_control ........................ SUCCESS [  1.320 s]
+[INFO] x_cms_core_express ................................. SUCCESS [  0.503 s]
+[INFO] x_cms_assemble_control ............................. SUCCESS [  4.357 s]
+[INFO] x_attendance_assemble_control ...................... SUCCESS [  3.611 s]
+[INFO] x_component_assemble_control ....................... SUCCESS [  0.588 s]
+[INFO] x_file_assemble_control ............................ SUCCESS [  1.280 s]
+[INFO] x_general_assemble_control ......................... SUCCESS [  1.055 s]
+[INFO] x_hotpic_assemble_control .......................... SUCCESS [  0.442 s]
+[INFO] x_jpush_assemble_control ........................... FAILURE [  0.048 s]
+[INFO] x_meeting_assemble_control ......................... SKIPPED
+[INFO] x_message_assemble_communicate ..................... SKIPPED
+[INFO] x_mind_assemble_control ............................ SKIPPED
+[INFO] x_organization_assemble_authentication ............. SKIPPED
+[INFO] x_organization_assemble_control .................... SKIPPED
+[INFO] x_organization_assemble_express .................... SKIPPED
+[INFO] x_organization_assemble_personal ................... SKIPPED
+[INFO] x_portal_assemble_designer ......................... SKIPPED
+[INFO] x_portal_assemble_surface .......................... SKIPPED
+[INFO] x_processplatform_assemble_bam ..................... SKIPPED
+[INFO] x_processplatform_assemble_designer ................ SKIPPED
+[INFO] x_processplatform_assemble_surface ................. SKIPPED
+[INFO] x_processplatform_service_processing ............... SKIPPED
+[INFO] x_correlation_service_processing ................... SKIPPED
+[INFO] x_query_assemble_designer .......................... SKIPPED
+[INFO] x_query_assemble_surface ........................... SKIPPED
+[INFO] x_query_service_processing ......................... SKIPPED
+[INFO] x_program_center ................................... SKIPPED
+[INFO] x_program_init ..................................... SKIPPED
+[INFO] x_console .......................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:34 min
+[INFO] Finished at: 2026-05-17T02:37:03Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project x_jpush_assemble_control: Could not resolve dependencies for project net.o2oa:x_jpush_assemble_control:war:10.0
+[ERROR] dependency: io.github.jpush:jiguang-sdk:jar:5.1.17 (compile)
+[ERROR] 	Cannot access aliyunmaven (https://maven.aliyun.com/repository/central) in offline mode and the artifact io.github.jpush:jiguang-sdk:jar:5.1.17 has not been downloaded from it before.
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :x_jpush_assemble_control
